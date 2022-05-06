@@ -199,7 +199,7 @@ impl SpatialSurfaceInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
@@ -208,7 +208,7 @@ impl SpatialSurfaceInfo {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).UpdateTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Numerics\"`*"]
@@ -217,7 +217,7 @@ impl SpatialSurfaceInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetBounds)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetBounds)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::SpatialBoundingOrientedBox>>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
@@ -226,7 +226,7 @@ impl SpatialSurfaceInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLatestMeshAsync)(::core::mem::transmute_copy(this), maxtrianglespercubicmeter, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLatestMeshAsync)(::windows::core::Interface::as_raw(this), maxtrianglespercubicmeter, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
@@ -235,7 +235,7 @@ impl SpatialSurfaceInfo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(::core::mem::transmute_copy(this), maxtrianglespercubicmeter, options.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLatestMeshWithOptionsAsync)(::windows::core::Interface::as_raw(this), maxtrianglespercubicmeter, options.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<SpatialSurfaceMesh>>(result__)
         }
     }
 }
@@ -320,7 +320,7 @@ impl SpatialSurfaceMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SurfaceInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialSurfaceInfo>(result__)
+            (::windows::core::Interface::vtable(this).SurfaceInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialSurfaceInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -328,7 +328,7 @@ impl SpatialSurfaceMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CoordinateSystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
+            (::windows::core::Interface::vtable(this).CoordinateSystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::SpatialCoordinateSystem>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -336,7 +336,7 @@ impl SpatialSurfaceMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TriangleIndices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialSurfaceMeshBuffer>(result__)
+            (::windows::core::Interface::vtable(this).TriangleIndices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialSurfaceMeshBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -344,7 +344,7 @@ impl SpatialSurfaceMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexPositions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialSurfaceMeshBuffer>(result__)
+            (::windows::core::Interface::vtable(this).VertexPositions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialSurfaceMeshBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Numerics\"`*"]
@@ -353,7 +353,7 @@ impl SpatialSurfaceMesh {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexPositionScale)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).VertexPositionScale)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -361,7 +361,7 @@ impl SpatialSurfaceMesh {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexNormals)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialSurfaceMeshBuffer>(result__)
+            (::windows::core::Interface::vtable(this).VertexNormals)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialSurfaceMeshBuffer>(result__)
         }
     }
 }
@@ -447,7 +447,7 @@ impl SpatialSurfaceMeshBuffer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Graphics::DirectX::DirectXPixelFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Format)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
+            (::windows::core::Interface::vtable(this).Format)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -455,7 +455,7 @@ impl SpatialSurfaceMeshBuffer {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stride)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Stride)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
@@ -463,7 +463,7 @@ impl SpatialSurfaceMeshBuffer {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ElementCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ElementCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Storage_Streams\"`*"]
@@ -472,7 +472,7 @@ impl SpatialSurfaceMeshBuffer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Data)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Data)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -565,14 +565,14 @@ impl SpatialSurfaceMeshOptions {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Graphics::DirectX::DirectXPixelFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexPositionFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
+            (::windows::core::Interface::vtable(this).VertexPositionFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SetVertexPositionFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionFormat)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexPositionFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
@@ -580,14 +580,14 @@ impl SpatialSurfaceMeshOptions {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Graphics::DirectX::DirectXPixelFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TriangleIndexFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
+            (::windows::core::Interface::vtable(this).TriangleIndexFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SetTriangleIndexFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndexFormat)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTriangleIndexFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
@@ -595,34 +595,34 @@ impl SpatialSurfaceMeshOptions {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Graphics::DirectX::DirectXPixelFormat = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VertexNormalFormat)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
+            (::windows::core::Interface::vtable(this).VertexNormalFormat)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SetVertexNormalFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalFormat)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVertexNormalFormat)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
     pub fn IncludeVertexNormals(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeVertexNormals)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IncludeVertexNormals)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
     pub fn SetIncludeVertexNormals(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncludeVertexNormals)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncludeVertexNormals)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))]
     pub fn SupportedVertexPositionFormats() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedVertexPositionFormats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedVertexPositionFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX\"`*"]
@@ -630,7 +630,7 @@ impl SpatialSurfaceMeshOptions {
     pub fn SupportedTriangleIndexFormats() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedTriangleIndexFormats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedTriangleIndexFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Collections\"`, `\"Graphics_DirectX\"`*"]
@@ -638,7 +638,7 @@ impl SpatialSurfaceMeshOptions {
     pub fn SupportedVertexNormalFormats() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>> {
         Self::ISpatialSurfaceMeshOptionsStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedVertexNormalFormats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedVertexNormalFormats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Graphics::DirectX::DirectXPixelFormat>>(result__)
         })
     }
     #[doc(hidden)]
@@ -736,19 +736,19 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetObservedSurfaces)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, SpatialSurfaceInfo>>(result__)
+            (::windows::core::Interface::vtable(this).GetObservedSurfaces)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, SpatialSurfaceInfo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
     pub fn SetBoundingVolume<'a, Param0: ::windows::core::IntoParam<'a, super::SpatialBoundingVolume>>(&self, bounds: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolume)(::core::mem::transmute_copy(this), bounds.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolume)(::windows::core::Interface::as_raw(this), bounds.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetBoundingVolumes<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::SpatialBoundingVolume>>>(&self, bounds: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolumes)(::core::mem::transmute_copy(this), bounds.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBoundingVolumes)(::windows::core::Interface::as_raw(this), bounds.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -756,28 +756,28 @@ impl SpatialSurfaceObserver {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ObservedSurfacesChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ObservedSurfacesChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveObservedSurfacesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveObservedSurfacesChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveObservedSurfacesChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>> {
         Self::ISpatialSurfaceObserverStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::SpatialPerceptionAccessStatus>>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception_Spatial_Surfaces\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::ISpatialSurfaceObserverStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]

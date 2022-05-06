@@ -8,20 +8,20 @@ impl CustomMapTileDataSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BitmapRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BitmapRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBitmapRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBitmapRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBitmapRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn new() -> ::windows::core::Result<CustomMapTileDataSource> {
         Self::ICustomMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -29,7 +29,7 @@ impl CustomMapTileDataSource {
         Self::ICustomMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -159,13 +159,13 @@ impl HttpMapTileDataSource {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UriFormatString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UriFormatString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUriFormatString)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUriFormatString)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -173,7 +173,7 @@ impl HttpMapTileDataSource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AdditionalRequestHeaders)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).AdditionalRequestHeaders)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -181,13 +181,13 @@ impl HttpMapTileDataSource {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowCaching)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowCaching)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetAllowCaching(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowCaching)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowCaching)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -195,20 +195,20 @@ impl HttpMapTileDataSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UriRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).UriRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUriRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUriRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUriRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn new() -> ::windows::core::Result<HttpMapTileDataSource> {
         Self::IHttpMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -216,14 +216,14 @@ impl HttpMapTileDataSource {
         Self::IHttpMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uriformatstring: Param0) -> ::windows::core::Result<HttpMapTileDataSource> {
         Self::IHttpMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::windows::core::Interface::as_raw(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -231,7 +231,7 @@ impl HttpMapTileDataSource {
         Self::IHttpMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::windows::core::Interface::as_raw(this), uriformatstring.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -2917,13 +2917,13 @@ impl LocalMapTileDataSource {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UriFormatString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UriFormatString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUriFormatString)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUriFormatString)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2931,20 +2931,20 @@ impl LocalMapTileDataSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UriRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).UriRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUriRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveUriRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveUriRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn new() -> ::windows::core::Result<LocalMapTileDataSource> {
         Self::ILocalMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -2952,14 +2952,14 @@ impl LocalMapTileDataSource {
         Self::ILocalMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uriformatstring: Param0) -> ::windows::core::Result<LocalMapTileDataSource> {
         Self::ILocalMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::windows::core::Interface::as_raw(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -2967,7 +2967,7 @@ impl LocalMapTileDataSource {
         Self::ILocalMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::windows::core::Interface::as_raw(this), uriformatstring.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -3104,7 +3104,7 @@ impl MapActualCameraChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Camera)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).Camera)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCamera>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -3112,7 +3112,7 @@ impl MapActualCameraChangedEventArgs {
         let this = &::windows::core::Interface::cast::<IMapActualCameraChangedEventArgs2>(self)?;
         unsafe {
             let mut result__: MapCameraChangeReason = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeReason)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCameraChangeReason>(result__)
+            (::windows::core::Interface::vtable(this).ChangeReason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCameraChangeReason>(result__)
         }
     }
 }
@@ -3204,7 +3204,7 @@ impl MapActualCameraChangingEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Camera)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).Camera)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCamera>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -3212,7 +3212,7 @@ impl MapActualCameraChangingEventArgs {
         let this = &::windows::core::Interface::cast::<IMapActualCameraChangingEventArgs2>(self)?;
         unsafe {
             let mut result__: MapCameraChangeReason = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeReason)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCameraChangeReason>(result__)
+            (::windows::core::Interface::vtable(this).ChangeReason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCameraChangeReason>(result__)
         }
     }
 }
@@ -3334,14 +3334,14 @@ impl MapBillboard {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3349,14 +3349,14 @@ impl MapBillboard {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedAnchorPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).NormalizedAnchorPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetNormalizedAnchorPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedAnchorPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedAnchorPoint)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -3364,62 +3364,62 @@ impl MapBillboard {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Image)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).Image)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetImage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CollisionBehaviorDesired(&self) -> ::windows::core::Result<MapElementCollisionBehavior> {
         let this = self;
         unsafe {
             let mut result__: MapElementCollisionBehavior = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CollisionBehaviorDesired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapElementCollisionBehavior>(result__)
+            (::windows::core::Interface::vtable(this).CollisionBehaviorDesired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapElementCollisionBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetCollisionBehaviorDesired(&self, value: MapElementCollisionBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCollisionBehaviorDesired)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCollisionBehaviorDesired)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ReferenceCamera(&self) -> ::windows::core::Result<MapCamera> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReferenceCamera)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).ReferenceCamera)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCamera>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateInstanceFromCamera<'a, Param0: ::windows::core::IntoParam<'a, MapCamera>>(camera: Param0) -> ::windows::core::Result<MapBillboard> {
         Self::IMapBillboardFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromCamera)(::core::mem::transmute_copy(this), camera.into_param().abi(), &mut result__).from_abi::<MapBillboard>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceFromCamera)(::windows::core::Interface::as_raw(this), camera.into_param().abi(), &mut result__).from_abi::<MapBillboard>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LocationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapBillboardStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LocationProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn NormalizedAnchorPointProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapBillboardStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedAnchorPointProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).NormalizedAnchorPointProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CollisionBehaviorDesiredProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapBillboardStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CollisionBehaviorDesiredProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CollisionBehaviorDesiredProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -3555,73 +3555,73 @@ impl MapCamera {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Heading(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Heading)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Heading)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetHeading(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHeading)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHeading)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Pitch(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pitch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Pitch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetPitch(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPitch)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPitch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Roll(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Roll)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Roll)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetRoll(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRoll)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRoll)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn FieldOfView(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FieldOfView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).FieldOfView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetFieldOfView(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFieldOfView)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFieldOfView)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn CreateInstanceWithLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0) -> ::windows::core::Result<MapCamera> {
         Self::IMapCameraFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithLocation)(::core::mem::transmute_copy(this), location.into_param().abi(), &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithLocation)(::windows::core::Interface::as_raw(this), location.into_param().abi(), &mut result__).from_abi::<MapCamera>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -3629,7 +3629,7 @@ impl MapCamera {
     pub fn CreateInstanceWithLocationAndHeading<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0, headingindegrees: f64) -> ::windows::core::Result<MapCamera> {
         Self::IMapCameraFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithLocationAndHeading)(::core::mem::transmute_copy(this), location.into_param().abi(), headingindegrees, &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithLocationAndHeading)(::windows::core::Interface::as_raw(this), location.into_param().abi(), headingindegrees, &mut result__).from_abi::<MapCamera>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -3637,7 +3637,7 @@ impl MapCamera {
     pub fn CreateInstanceWithLocationHeadingAndPitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0, headingindegrees: f64, pitchindegrees: f64) -> ::windows::core::Result<MapCamera> {
         Self::IMapCameraFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithLocationHeadingAndPitch)(::core::mem::transmute_copy(this), location.into_param().abi(), headingindegrees, pitchindegrees, &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithLocationHeadingAndPitch)(::windows::core::Interface::as_raw(this), location.into_param().abi(), headingindegrees, pitchindegrees, &mut result__).from_abi::<MapCamera>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -3645,7 +3645,7 @@ impl MapCamera {
     pub fn CreateInstanceWithLocationHeadingPitchRollAndFieldOfView<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0, headingindegrees: f64, pitchindegrees: f64, rollindegrees: f64, fieldofviewindegrees: f64) -> ::windows::core::Result<MapCamera> {
         Self::IMapCameraFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithLocationHeadingPitchRollAndFieldOfView)(::core::mem::transmute_copy(this), location.into_param().abi(), headingindegrees, pitchindegrees, rollindegrees, fieldofviewindegrees, &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithLocationHeadingPitchRollAndFieldOfView)(::windows::core::Interface::as_raw(this), location.into_param().abi(), headingindegrees, pitchindegrees, rollindegrees, fieldofviewindegrees, &mut result__).from_abi::<MapCamera>(result__)
         })
     }
     #[doc(hidden)]
@@ -3832,7 +3832,7 @@ impl MapContextRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -3841,7 +3841,7 @@ impl MapContextRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -3850,7 +3850,7 @@ impl MapContextRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElements)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>(result__)
+            (::windows::core::Interface::vtable(this).MapElements)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>(result__)
         }
     }
 }
@@ -3943,14 +3943,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Center)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Center)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetCenter<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCenter)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCenter)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3958,7 +3958,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Children)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<super::super::DependencyObject>>(result__)
+            (::windows::core::Interface::vtable(this).Children)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<super::super::DependencyObject>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -3966,59 +3966,59 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: MapColorScheme = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ColorScheme)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapColorScheme>(result__)
+            (::windows::core::Interface::vtable(this).ColorScheme)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapColorScheme>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetColorScheme(&self, value: MapColorScheme) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetColorScheme)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetColorScheme)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn DesiredPitch(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredPitch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).DesiredPitch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetDesiredPitch(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredPitch)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredPitch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Heading(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Heading)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Heading)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetHeading(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHeading)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHeading)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LandmarksVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LandmarksVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).LandmarksVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetLandmarksVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLandmarksVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLandmarksVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LoadingStatus(&self) -> ::windows::core::Result<MapLoadingStatus> {
         let this = self;
         unsafe {
             let mut result__: MapLoadingStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LoadingStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapLoadingStatus>(result__)
+            (::windows::core::Interface::vtable(this).LoadingStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapLoadingStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4026,20 +4026,20 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapServiceToken)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MapServiceToken)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetMapServiceToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMapServiceToken)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMapServiceToken)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MaxZoomLevel(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxZoomLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MaxZoomLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4047,7 +4047,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinZoomLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MinZoomLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4055,20 +4055,20 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PedestrianFeaturesVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).PedestrianFeaturesVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetPedestrianFeaturesVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPedestrianFeaturesVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPedestrianFeaturesVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Pitch(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pitch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Pitch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4076,26 +4076,26 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: MapStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Style)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapStyle>(result__)
+            (::windows::core::Interface::vtable(this).Style)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapStyle>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStyle(&self, value: MapStyle) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStyle)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStyle)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TrafficFlowVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrafficFlowVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrafficFlowVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetTrafficFlowVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTrafficFlowVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTrafficFlowVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4103,40 +4103,40 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransformOrigin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).TransformOrigin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTransformOrigin<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTransformOrigin)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTransformOrigin)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn WatermarkMode(&self) -> ::windows::core::Result<MapWatermarkMode> {
         let this = self;
         unsafe {
             let mut result__: MapWatermarkMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WatermarkMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapWatermarkMode>(result__)
+            (::windows::core::Interface::vtable(this).WatermarkMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapWatermarkMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetWatermarkMode(&self, value: MapWatermarkMode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWatermarkMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWatermarkMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZoomLevel(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ZoomLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetZoomLevel(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZoomLevel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetZoomLevel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4144,7 +4144,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElements)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapElement>>(result__)
+            (::windows::core::Interface::vtable(this).MapElements)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapElement>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -4153,7 +4153,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Routes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapRouteView>>(result__)
+            (::windows::core::Interface::vtable(this).Routes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapRouteView>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -4162,7 +4162,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileSources)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapTileSource>>(result__)
+            (::windows::core::Interface::vtable(this).TileSources)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapTileSource>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4171,14 +4171,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CenterChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CenterChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCenterChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCenterChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCenterChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4186,14 +4186,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HeadingChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHeadingChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHeadingChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHeadingChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4201,14 +4201,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LoadingStatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LoadingStatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLoadingStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLoadingStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLoadingStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4216,14 +4216,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapDoubleTapped)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapDoubleTapped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapDoubleTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapDoubleTapped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapDoubleTapped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4231,14 +4231,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapHolding)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapHolding)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapHolding<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapHolding)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapHolding)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4246,14 +4246,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapTapped)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapTapped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapTapped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapTapped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4261,14 +4261,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PitchChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PitchChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePitchChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePitchChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePitchChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4276,14 +4276,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransformOriginChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TransformOriginChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTransformOriginChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTransformOriginChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTransformOriginChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4291,14 +4291,14 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomLevelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ZoomLevelChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveZoomLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveZoomLevelChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveZoomLevelChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4306,26 +4306,26 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindMapElementsAtOffset)(::core::mem::transmute_copy(this), offset.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>(result__)
+            (::windows::core::Interface::vtable(this).FindMapElementsAtOffset)(::windows::core::Interface::as_raw(this), offset.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn GetLocationFromOffset<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, offset: Param0, location: &mut ::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetLocationFromOffset)(::core::mem::transmute_copy(this), offset.into_param().abi(), location as *mut _ as _).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetLocationFromOffset)(::windows::core::Interface::as_raw(this), offset.into_param().abi(), location as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn GetOffsetFromLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(&self, location: Param0, offset: &mut super::super::super::super::Foundation::Point) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).GetOffsetFromLocation)(::core::mem::transmute_copy(this), location.into_param().abi(), offset).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetOffsetFromLocation)(::windows::core::Interface::as_raw(this), location.into_param().abi(), offset).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn IsLocationInView<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(&self, location: Param0, isinview: &mut bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).IsLocationInView)(::core::mem::transmute_copy(this), location.into_param().abi(), isinview).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).IsLocationInView)(::windows::core::Interface::as_raw(this), location.into_param().abi(), isinview).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
@@ -4333,7 +4333,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetViewBoundsAsync)(::core::mem::transmute_copy(this), bounds.into_param().abi(), margin.into_param().abi(), animation, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetViewBoundsAsync)(::windows::core::Interface::as_raw(this), bounds.into_param().abi(), margin.into_param().abi(), animation, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -4342,7 +4342,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetViewWithCenterAsync)(::core::mem::transmute_copy(this), center.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetViewWithCenterAsync)(::windows::core::Interface::as_raw(this), center.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -4351,7 +4351,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetViewWithCenterAndZoomAsync)(::core::mem::transmute_copy(this), center.into_param().abi(), zoomlevel.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetViewWithCenterAndZoomAsync)(::windows::core::Interface::as_raw(this), center.into_param().abi(), zoomlevel.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -4360,7 +4360,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetViewWithCenterZoomHeadingAndPitchAsync)(::core::mem::transmute_copy(this), center.into_param().abi(), zoomlevel.into_param().abi(), heading.into_param().abi(), desiredpitch.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetViewWithCenterZoomHeadingAndPitchAsync)(::windows::core::Interface::as_raw(this), center.into_param().abi(), zoomlevel.into_param().abi(), heading.into_param().abi(), desiredpitch.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -4369,7 +4369,7 @@ impl MapControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync)(::core::mem::transmute_copy(this), center.into_param().abi(), zoomlevel.into_param().abi(), heading.into_param().abi(), desiredpitch.into_param().abi(), animation, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetViewWithCenterZoomHeadingPitchAndAnimationAsync)(::windows::core::Interface::as_raw(this), center.into_param().abi(), zoomlevel.into_param().abi(), heading.into_param().abi(), desiredpitch.into_param().abi(), animation, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4377,85 +4377,85 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusinessLandmarksVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).BusinessLandmarksVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetBusinessLandmarksVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBusinessLandmarksVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBusinessLandmarksVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TransitFeaturesVisible(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitFeaturesVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TransitFeaturesVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetTransitFeaturesVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTransitFeaturesVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTransitFeaturesVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PanInteractionMode(&self) -> ::windows::core::Result<MapPanInteractionMode> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: MapPanInteractionMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PanInteractionMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapPanInteractionMode>(result__)
+            (::windows::core::Interface::vtable(this).PanInteractionMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapPanInteractionMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetPanInteractionMode(&self, value: MapPanInteractionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPanInteractionMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPanInteractionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RotateInteractionMode(&self) -> ::windows::core::Result<MapInteractionMode> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: MapInteractionMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RotateInteractionMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapInteractionMode>(result__)
+            (::windows::core::Interface::vtable(this).RotateInteractionMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapInteractionMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetRotateInteractionMode(&self, value: MapInteractionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRotateInteractionMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRotateInteractionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TiltInteractionMode(&self) -> ::windows::core::Result<MapInteractionMode> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: MapInteractionMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TiltInteractionMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapInteractionMode>(result__)
+            (::windows::core::Interface::vtable(this).TiltInteractionMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapInteractionMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetTiltInteractionMode(&self, value: MapInteractionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTiltInteractionMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTiltInteractionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZoomInteractionMode(&self) -> ::windows::core::Result<MapInteractionMode> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: MapInteractionMode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomInteractionMode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapInteractionMode>(result__)
+            (::windows::core::Interface::vtable(this).ZoomInteractionMode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapInteractionMode>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetZoomInteractionMode(&self, value: MapInteractionMode) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetZoomInteractionMode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetZoomInteractionMode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Is3DSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Is3DSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Is3DSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4463,7 +4463,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsStreetsideSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsStreetsideSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4471,20 +4471,20 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Scene)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).Scene)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapScene>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetScene<'a, Param0: ::windows::core::IntoParam<'a, MapScene>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetScene)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScene)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ActualCamera(&self) -> ::windows::core::Result<MapCamera> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActualCamera)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).ActualCamera)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCamera>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4492,7 +4492,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetCamera)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).TargetCamera)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCamera>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4500,13 +4500,13 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomExperience)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCustomExperience>(result__)
+            (::windows::core::Interface::vtable(this).CustomExperience)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCustomExperience>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetCustomExperience<'a, Param0: ::windows::core::IntoParam<'a, MapCustomExperience>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCustomExperience)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCustomExperience)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4514,14 +4514,14 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElementClick)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapElementClick)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapElementClick<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementClick)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementClick)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4529,14 +4529,14 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElementPointerEntered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapElementPointerEntered)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapElementPointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementPointerEntered)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementPointerEntered)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4544,14 +4544,14 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElementPointerExited)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapElementPointerExited)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapElementPointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementPointerExited)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementPointerExited)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4559,14 +4559,14 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActualCameraChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ActualCameraChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActualCameraChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveActualCameraChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveActualCameraChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4574,14 +4574,14 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActualCameraChanging)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ActualCameraChanging)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveActualCameraChanging<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveActualCameraChanging)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveActualCameraChanging)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4589,14 +4589,14 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetCameraChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TargetCameraChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTargetCameraChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTargetCameraChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTargetCameraChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4604,44 +4604,44 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomExperienceChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).CustomExperienceChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCustomExperienceChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCustomExperienceChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCustomExperienceChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StartContinuousRotate(&self, rateindegreespersecond: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartContinuousRotate)(::core::mem::transmute_copy(this), rateindegreespersecond).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartContinuousRotate)(::windows::core::Interface::as_raw(this), rateindegreespersecond).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StopContinuousRotate(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopContinuousRotate)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopContinuousRotate)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StartContinuousTilt(&self, rateindegreespersecond: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartContinuousTilt)(::core::mem::transmute_copy(this), rateindegreespersecond).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartContinuousTilt)(::windows::core::Interface::as_raw(this), rateindegreespersecond).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StopContinuousTilt(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopContinuousTilt)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopContinuousTilt)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StartContinuousZoom(&self, rateofchangepersecond: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartContinuousZoom)(::core::mem::transmute_copy(this), rateofchangepersecond).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartContinuousZoom)(::windows::core::Interface::as_raw(this), rateofchangepersecond).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StopContinuousZoom(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopContinuousZoom)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopContinuousZoom)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4649,7 +4649,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryRotateAsync)(::core::mem::transmute_copy(this), degrees, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryRotateAsync)(::windows::core::Interface::as_raw(this), degrees, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4658,7 +4658,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryRotateToAsync)(::core::mem::transmute_copy(this), angleindegrees, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryRotateToAsync)(::windows::core::Interface::as_raw(this), angleindegrees, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4667,7 +4667,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryTiltAsync)(::core::mem::transmute_copy(this), degrees, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryTiltAsync)(::windows::core::Interface::as_raw(this), degrees, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4676,7 +4676,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryTiltToAsync)(::core::mem::transmute_copy(this), angleindegrees, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryTiltToAsync)(::windows::core::Interface::as_raw(this), angleindegrees, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4685,7 +4685,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryZoomInAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryZoomInAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4694,7 +4694,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryZoomOutAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryZoomOutAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4703,7 +4703,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryZoomToAsync)(::core::mem::transmute_copy(this), zoomlevel, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryZoomToAsync)(::windows::core::Interface::as_raw(this), zoomlevel, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4712,7 +4712,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetSceneAsync)(::core::mem::transmute_copy(this), scene.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetSceneAsync)(::windows::core::Interface::as_raw(this), scene.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4721,7 +4721,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetSceneWithAnimationAsync)(::core::mem::transmute_copy(this), scene.into_param().abi(), animationkind, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetSceneWithAnimationAsync)(::windows::core::Interface::as_raw(this), scene.into_param().abi(), animationkind, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -4730,40 +4730,40 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl3>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapRightTapped)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapRightTapped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapRightTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapRightTapped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapRightTapped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn BusinessLandmarksEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapControl4>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusinessLandmarksEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).BusinessLandmarksEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetBusinessLandmarksEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetBusinessLandmarksEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBusinessLandmarksEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TransitFeaturesEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapControl4>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitFeaturesEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TransitFeaturesEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetTransitFeaturesEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTransitFeaturesEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTransitFeaturesEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
@@ -4771,7 +4771,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetVisibleRegion)(::core::mem::transmute_copy(this), region, &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopath>(result__)
+            (::windows::core::Interface::vtable(this).GetVisibleRegion)(::windows::core::Interface::as_raw(this), region, &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopath>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4779,39 +4779,39 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
         unsafe {
             let mut result__: MapProjection = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapProjection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapProjection>(result__)
+            (::windows::core::Interface::vtable(this).MapProjection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapProjection>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetMapProjection(&self, value: MapProjection) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMapProjection)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMapProjection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StyleSheet(&self) -> ::windows::core::Result<MapStyleSheet> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StyleSheet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).StyleSheet)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapStyleSheet>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStyleSheet<'a, Param0: ::windows::core::IntoParam<'a, MapStyleSheet>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetStyleSheet)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStyleSheet)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ViewPadding(&self) -> ::windows::core::Result<super::super::Thickness> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
         unsafe {
             let mut result__: super::super::Thickness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewPadding)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Thickness>(result__)
+            (::windows::core::Interface::vtable(this).ViewPadding)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetViewPadding<'a, Param0: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetViewPadding)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetViewPadding)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4819,14 +4819,14 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapContextRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapContextRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapContextRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapContextRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapContextRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4834,24 +4834,24 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindMapElementsAtOffsetWithRadius)(::core::mem::transmute_copy(this), offset.into_param().abi(), radius, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>(result__)
+            (::windows::core::Interface::vtable(this).FindMapElementsAtOffsetWithRadius)(::windows::core::Interface::as_raw(this), offset.into_param().abi(), radius, &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn GetLocationFromOffsetWithReferenceSystem<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, offset: Param0, desiredreferencesystem: super::super::super::super::Devices::Geolocation::AltitudeReferenceSystem, location: &mut ::core::option::Option<super::super::super::super::Devices::Geolocation::Geopoint>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).GetLocationFromOffsetWithReferenceSystem)(::core::mem::transmute_copy(this), offset.into_param().abi(), desiredreferencesystem, location as *mut _ as _).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).GetLocationFromOffsetWithReferenceSystem)(::windows::core::Interface::as_raw(this), offset.into_param().abi(), desiredreferencesystem, location as *mut _ as _).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StartContinuousPan(&self, horizontalpixelspersecond: f64, verticalpixelspersecond: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StartContinuousPan)(::core::mem::transmute_copy(this), horizontalpixelspersecond, verticalpixelspersecond).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StartContinuousPan)(::windows::core::Interface::as_raw(this), horizontalpixelspersecond, verticalpixelspersecond).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StopContinuousPan(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).StopContinuousPan)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopContinuousPan)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4859,7 +4859,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryPanAsync)(::core::mem::transmute_copy(this), horizontalpixels, verticalpixels, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryPanAsync)(::windows::core::Interface::as_raw(this), horizontalpixels, verticalpixels, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -4868,7 +4868,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryPanToAsync)(::core::mem::transmute_copy(this), location.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryPanToAsync)(::windows::core::Interface::as_raw(this), location.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -4877,14 +4877,14 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl6>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Layers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapLayer>>(result__)
+            (::windows::core::Interface::vtable(this).Layers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapLayer>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetLayers<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<MapLayer>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl6>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetLayers)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLayers)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
@@ -4892,7 +4892,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl6>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetLocationFromOffset)(::core::mem::transmute_copy(this), offset.into_param().abi(), location as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetLocationFromOffset)(::windows::core::Interface::as_raw(this), offset.into_param().abi(), location as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -4901,7 +4901,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl6>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetLocationFromOffsetWithReferenceSystem)(::core::mem::transmute_copy(this), offset.into_param().abi(), desiredreferencesystem, location as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryGetLocationFromOffsetWithReferenceSystem)(::windows::core::Interface::as_raw(this), offset.into_param().abi(), desiredreferencesystem, location as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4909,20 +4909,20 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl7>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Region)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Region)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetRegion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControl7>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetRegion)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRegion)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CanTiltDown(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapControl8>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanTiltDown)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanTiltDown)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4930,7 +4930,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl8>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanTiltUp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanTiltUp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4938,7 +4938,7 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl8>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanZoomIn)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanZoomIn)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -4946,140 +4946,140 @@ impl MapControl {
         let this = &::windows::core::Interface::cast::<IMapControl8>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanZoomOut)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanZoomOut)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CenterProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CenterProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CenterProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ChildrenProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChildrenProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ChildrenProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ColorSchemeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ColorSchemeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ColorSchemeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn DesiredPitchProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredPitchProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DesiredPitchProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn HeadingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).HeadingProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LandmarksVisibleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LandmarksVisibleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LandmarksVisibleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LoadingStatusProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LoadingStatusProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LoadingStatusProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapServiceTokenProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapServiceTokenProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MapServiceTokenProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PedestrianFeaturesVisibleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PedestrianFeaturesVisibleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PedestrianFeaturesVisibleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PitchProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PitchProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PitchProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StyleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StyleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).StyleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TrafficFlowVisibleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrafficFlowVisibleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TrafficFlowVisibleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TransformOriginProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransformOriginProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TransformOriginProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn WatermarkModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WatermarkModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).WatermarkModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZoomLevelProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomLevelProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ZoomLevelProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapElementsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElementsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MapElementsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RoutesProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoutesProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).RoutesProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TileSourcesProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TileSourcesProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TileSourcesProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LocationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LocationProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -5087,19 +5087,19 @@ impl MapControl {
     pub fn GetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(element: Param0) -> ::windows::core::Result<super::super::super::super::Devices::Geolocation::Geopoint> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetLocation)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).GetLocation)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IMapControlStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IMapControlStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn NormalizedAnchorPointProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedAnchorPointProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).NormalizedAnchorPointProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -5107,152 +5107,152 @@ impl MapControl {
     pub fn GetNormalizedAnchorPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>>(element: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         Self::IMapControlStatics(|this| unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNormalizedAnchorPoint)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).GetNormalizedAnchorPoint)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetNormalizedAnchorPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
-        Self::IMapControlStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetNormalizedAnchorPoint)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
+        Self::IMapControlStatics(|this| unsafe { (::windows::core::Interface::vtable(this).SetNormalizedAnchorPoint)(::windows::core::Interface::as_raw(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn BusinessLandmarksVisibleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusinessLandmarksVisibleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).BusinessLandmarksVisibleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TransitFeaturesVisibleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitFeaturesVisibleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TransitFeaturesVisibleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PanInteractionModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PanInteractionModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PanInteractionModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RotateInteractionModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RotateInteractionModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).RotateInteractionModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TiltInteractionModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TiltInteractionModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TiltInteractionModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZoomInteractionModeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomInteractionModeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ZoomInteractionModeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Is3DSupportedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Is3DSupportedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).Is3DSupportedProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsStreetsideSupportedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsStreetsideSupportedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsStreetsideSupportedProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SceneProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SceneProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).SceneProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn BusinessLandmarksEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusinessLandmarksEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).BusinessLandmarksEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TransitFeaturesEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitFeaturesEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TransitFeaturesEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapProjectionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapProjectionProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MapProjectionProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StyleSheetProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StyleSheetProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).StyleSheetProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ViewPaddingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics5(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ViewPaddingProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ViewPaddingProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LayersProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics6(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LayersProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LayersProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RegionProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics7(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegionProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).RegionProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CanTiltDownProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics8(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanTiltDownProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanTiltDownProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CanTiltUpProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics8(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanTiltUpProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanTiltUpProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CanZoomInProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics8(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanZoomInProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanZoomInProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CanZoomOutProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapControlStatics8(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanZoomOutProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CanZoomOutProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -5512,7 +5512,7 @@ impl MapControlBusinessLandmarkClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalLocations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>(result__)
+            (::windows::core::Interface::vtable(this).LocalLocations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>(result__)
         }
     }
 }
@@ -5605,7 +5605,7 @@ impl MapControlBusinessLandmarkPointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalLocations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>(result__)
+            (::windows::core::Interface::vtable(this).LocalLocations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>(result__)
         }
     }
 }
@@ -5698,7 +5698,7 @@ impl MapControlBusinessLandmarkPointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalLocations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>(result__)
+            (::windows::core::Interface::vtable(this).LocalLocations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>(result__)
         }
     }
 }
@@ -5791,7 +5791,7 @@ impl MapControlBusinessLandmarkRightTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalLocations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>(result__)
+            (::windows::core::Interface::vtable(this).LocalLocations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<super::super::super::super::Services::Maps::LocalSearch::LocalLocation>>(result__)
         }
     }
 }
@@ -5877,14 +5877,14 @@ impl MapControlDataHelper {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusinessLandmarkClick)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BusinessLandmarkClick)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBusinessLandmarkClick<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBusinessLandmarkClick)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBusinessLandmarkClick)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5892,14 +5892,14 @@ impl MapControlDataHelper {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitFeatureClick)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TransitFeatureClick)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTransitFeatureClick<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTransitFeatureClick)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTransitFeatureClick)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5907,14 +5907,14 @@ impl MapControlDataHelper {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusinessLandmarkRightTapped)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BusinessLandmarkRightTapped)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBusinessLandmarkRightTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBusinessLandmarkRightTapped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBusinessLandmarkRightTapped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5922,14 +5922,14 @@ impl MapControlDataHelper {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitFeatureRightTapped)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TransitFeatureRightTapped)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTransitFeatureRightTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTransitFeatureRightTapped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTransitFeatureRightTapped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5937,14 +5937,14 @@ impl MapControlDataHelper {
         let this = &::windows::core::Interface::cast::<IMapControlDataHelper2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusinessLandmarkPointerEntered)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BusinessLandmarkPointerEntered)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBusinessLandmarkPointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControlDataHelper2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBusinessLandmarkPointerEntered)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBusinessLandmarkPointerEntered)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5952,14 +5952,14 @@ impl MapControlDataHelper {
         let this = &::windows::core::Interface::cast::<IMapControlDataHelper2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitFeaturePointerEntered)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TransitFeaturePointerEntered)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTransitFeaturePointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControlDataHelper2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTransitFeaturePointerEntered)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTransitFeaturePointerEntered)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5967,14 +5967,14 @@ impl MapControlDataHelper {
         let this = &::windows::core::Interface::cast::<IMapControlDataHelper2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BusinessLandmarkPointerExited)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).BusinessLandmarkPointerExited)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBusinessLandmarkPointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControlDataHelper2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveBusinessLandmarkPointerExited)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveBusinessLandmarkPointerExited)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5982,27 +5982,27 @@ impl MapControlDataHelper {
         let this = &::windows::core::Interface::cast::<IMapControlDataHelper2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitFeaturePointerExited)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TransitFeaturePointerExited)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTransitFeaturePointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapControlDataHelper2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTransitFeaturePointerExited)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTransitFeaturePointerExited)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, MapControl>>(map: Param0) -> ::windows::core::Result<MapControlDataHelper> {
         Self::IMapControlDataHelperFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), map.into_param().abi(), &mut result__).from_abi::<MapControlDataHelper>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), map.into_param().abi(), &mut result__).from_abi::<MapControlDataHelper>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateMapControl(rasterrendermode: bool) -> ::windows::core::Result<MapControl> {
         Self::IMapControlDataHelperStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMapControl)(::core::mem::transmute_copy(this), rasterrendermode, &mut result__).from_abi::<MapControl>(result__)
+            (::windows::core::Interface::vtable(this).CreateMapControl)(::windows::core::Interface::as_raw(this), rasterrendermode, &mut result__).from_abi::<MapControl>(result__)
         })
     }
     #[doc(hidden)]
@@ -6124,7 +6124,7 @@ impl MapControlTransitFeatureClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -6133,7 +6133,7 @@ impl MapControlTransitFeatureClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -6142,7 +6142,7 @@ impl MapControlTransitFeatureClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).TransitProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -6234,7 +6234,7 @@ impl MapControlTransitFeaturePointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -6243,7 +6243,7 @@ impl MapControlTransitFeaturePointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -6252,7 +6252,7 @@ impl MapControlTransitFeaturePointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).TransitProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -6344,7 +6344,7 @@ impl MapControlTransitFeaturePointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -6353,7 +6353,7 @@ impl MapControlTransitFeaturePointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -6362,7 +6362,7 @@ impl MapControlTransitFeaturePointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).TransitProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -6454,7 +6454,7 @@ impl MapControlTransitFeatureRightTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -6463,7 +6463,7 @@ impl MapControlTransitFeatureRightTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -6472,7 +6472,7 @@ impl MapControlTransitFeatureRightTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).TransitProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
 }
@@ -6556,7 +6556,7 @@ impl MapCustomExperience {
     pub fn new() -> ::windows::core::Result<MapCustomExperience> {
         Self::IMapCustomExperienceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -6564,7 +6564,7 @@ impl MapCustomExperience {
         Self::IMapCustomExperienceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
         })
     }
     #[doc(hidden)]
@@ -6758,97 +6758,97 @@ impl MapElement {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ZIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZIndex)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetZIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Visible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Visible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Visible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapTabIndex(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IMapElement2>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapTabIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MapTabIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetMapTabIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapElement2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMapTabIndex)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMapTabIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapStyleSheetEntry(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMapElement3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapStyleSheetEntry)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MapStyleSheetEntry)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetMapStyleSheetEntry<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMapStyleSheetEntry)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMapStyleSheetEntry)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapStyleSheetEntryState(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMapElement3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapStyleSheetEntryState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MapStyleSheetEntryState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetMapStyleSheetEntryState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMapStyleSheetEntryState)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMapStyleSheetEntryState)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Tag(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IMapElement3>(self)?;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Tag)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).Tag)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetTag<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapElement3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTag)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IMapElement4>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapElement4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn new() -> ::windows::core::Result<MapElement> {
         Self::IMapElementFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -6856,56 +6856,56 @@ impl MapElement {
         Self::IMapElementFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElementStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZIndexProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ZIndexProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn VisibleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElementStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VisibleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).VisibleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapTabIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElementStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapTabIndexProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MapTabIndexProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapStyleSheetEntryProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElementStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapStyleSheetEntryProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MapStyleSheetEntryProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapStyleSheetEntryStateProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElementStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapStyleSheetEntryStateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MapStyleSheetEntryStateProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TagProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElementStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TagProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TagProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElementStatics4(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -7043,66 +7043,66 @@ impl MapElement3D {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Model(&self) -> ::windows::core::Result<MapModel3D> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Model)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapModel3D>(result__)
+            (::windows::core::Interface::vtable(this).Model)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapModel3D>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetModel<'a, Param0: ::windows::core::IntoParam<'a, MapModel3D>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetModel)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetModel)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Heading(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Heading)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Heading)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetHeading(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHeading)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHeading)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Pitch(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pitch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Pitch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetPitch(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPitch)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPitch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Roll(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Roll)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Roll)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetRoll(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRoll)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRoll)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -7110,48 +7110,48 @@ impl MapElement3D {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Scale)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).Scale)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetScale<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Numerics::Vector3>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetScale)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetScale)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LocationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElement3DStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LocationProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn HeadingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElement3DStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HeadingProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).HeadingProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PitchProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElement3DStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PitchProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PitchProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RollProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElement3DStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RollProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).RollProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ScaleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElement3DStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScaleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ScaleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -7289,7 +7289,7 @@ impl MapElementClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -7298,7 +7298,7 @@ impl MapElementClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -7307,7 +7307,7 @@ impl MapElementClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElements)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapElement>>(result__)
+            (::windows::core::Interface::vtable(this).MapElements)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapElement>>(result__)
         }
     }
 }
@@ -7434,7 +7434,7 @@ impl MapElementPointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -7443,7 +7443,7 @@ impl MapElementPointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -7451,7 +7451,7 @@ impl MapElementPointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapElement>(result__)
+            (::windows::core::Interface::vtable(this).MapElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapElement>(result__)
         }
     }
 }
@@ -7544,7 +7544,7 @@ impl MapElementPointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -7553,7 +7553,7 @@ impl MapElementPointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -7561,7 +7561,7 @@ impl MapElementPointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapElement>(result__)
+            (::windows::core::Interface::vtable(this).MapElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapElement>(result__)
         }
     }
 }
@@ -7654,14 +7654,14 @@ impl MapElementsLayer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElements)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapElement>>(result__)
+            (::windows::core::Interface::vtable(this).MapElements)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapElement>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SetMapElements<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<MapElement>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMapElements)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMapElements)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7669,14 +7669,14 @@ impl MapElementsLayer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElementClick)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapElementClick)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapElementClick<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementClick)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementClick)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7684,14 +7684,14 @@ impl MapElementsLayer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElementPointerEntered)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapElementPointerEntered)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapElementPointerEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementPointerEntered)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementPointerEntered)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7699,14 +7699,14 @@ impl MapElementsLayer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElementPointerExited)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapElementPointerExited)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapElementPointerExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementPointerExited)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapElementPointerExited)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -7714,20 +7714,20 @@ impl MapElementsLayer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapContextRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MapContextRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMapContextRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMapContextRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMapContextRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapElementsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapElementsLayerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElementsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MapElementsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -7865,7 +7865,7 @@ impl MapElementsLayerClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -7874,7 +7874,7 @@ impl MapElementsLayerClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -7883,7 +7883,7 @@ impl MapElementsLayerClickEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElements)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapElement>>(result__)
+            (::windows::core::Interface::vtable(this).MapElements)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<MapElement>>(result__)
         }
     }
 }
@@ -7976,7 +7976,7 @@ impl MapElementsLayerContextRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -7985,7 +7985,7 @@ impl MapElementsLayerContextRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -7994,7 +7994,7 @@ impl MapElementsLayerContextRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElements)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>(result__)
+            (::windows::core::Interface::vtable(this).MapElements)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVectorView<MapElement>>(result__)
         }
     }
 }
@@ -8087,7 +8087,7 @@ impl MapElementsLayerPointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -8096,7 +8096,7 @@ impl MapElementsLayerPointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -8104,7 +8104,7 @@ impl MapElementsLayerPointerEnteredEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapElement>(result__)
+            (::windows::core::Interface::vtable(this).MapElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapElement>(result__)
         }
     }
 }
@@ -8197,7 +8197,7 @@ impl MapElementsLayerPointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -8206,7 +8206,7 @@ impl MapElementsLayerPointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -8214,7 +8214,7 @@ impl MapElementsLayerPointerExitedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapElement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapElement>(result__)
+            (::windows::core::Interface::vtable(this).MapElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapElement>(result__)
         }
     }
 }
@@ -8307,27 +8307,27 @@ impl MapIcon {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLocation)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTitle)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -8335,14 +8335,14 @@ impl MapIcon {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedAnchorPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).NormalizedAnchorPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetNormalizedAnchorPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedAnchorPoint)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNormalizedAnchorPoint)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -8350,54 +8350,54 @@ impl MapIcon {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Image)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).Image)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetImage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetImage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetImage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CollisionBehaviorDesired(&self) -> ::windows::core::Result<MapElementCollisionBehavior> {
         let this = &::windows::core::Interface::cast::<IMapIcon2>(self)?;
         unsafe {
             let mut result__: MapElementCollisionBehavior = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CollisionBehaviorDesired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapElementCollisionBehavior>(result__)
+            (::windows::core::Interface::vtable(this).CollisionBehaviorDesired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapElementCollisionBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetCollisionBehaviorDesired(&self, value: MapElementCollisionBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapIcon2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCollisionBehaviorDesired)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCollisionBehaviorDesired)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LocationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapIconStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LocationProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TitleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapIconStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TitleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TitleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn NormalizedAnchorPointProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapIconStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedAnchorPointProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).NormalizedAnchorPointProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CollisionBehaviorDesiredProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapIconStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CollisionBehaviorDesiredProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).CollisionBehaviorDesiredProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -8540,7 +8540,7 @@ impl MapInputEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -8549,7 +8549,7 @@ impl MapInputEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
 }
@@ -8701,13 +8701,13 @@ impl MapItemsControl {
         let this = self;
         unsafe {
             let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemsSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            (::windows::core::Interface::vtable(this).ItemsSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetItemsSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetItemsSource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetItemsSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -8715,7 +8715,7 @@ impl MapItemsControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Items)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<super::super::DependencyObject>>(result__)
+            (::windows::core::Interface::vtable(this).Items)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<super::super::DependencyObject>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -8723,33 +8723,33 @@ impl MapItemsControl {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemTemplate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DataTemplate>(result__)
+            (::windows::core::Interface::vtable(this).ItemTemplate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DataTemplate>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetItemTemplate<'a, Param0: ::windows::core::IntoParam<'a, super::super::DataTemplate>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetItemTemplate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetItemTemplate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ItemsSourceProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapItemsControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemsSourceProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemsSourceProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ItemsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapItemsControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ItemTemplateProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapItemsControlStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ItemTemplateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ItemTemplateProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -8859,45 +8859,45 @@ impl MapLayer {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapTabIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).MapTabIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetMapTabIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMapTabIndex)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMapTabIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Visible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Visible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Visible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ZIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZIndex)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetZIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn new() -> ::windows::core::Result<MapLayer> {
         Self::IMapLayerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -8905,28 +8905,28 @@ impl MapLayer {
         Self::IMapLayerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MapTabIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapLayerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MapTabIndexProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).MapTabIndexProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn VisibleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapLayerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VisibleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).VisibleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapLayerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZIndexProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ZIndexProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -9076,7 +9076,7 @@ impl MapModel3D {
     pub fn new() -> ::windows::core::Result<MapModel3D> {
         Self::IMapModel3DFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -9084,7 +9084,7 @@ impl MapModel3D {
         Self::IMapModel3DFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -9092,7 +9092,7 @@ impl MapModel3D {
     pub fn CreateFrom3MFAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStreamReference>>(source: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MapModel3D>> {
         Self::IMapModel3DStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrom3MFAsync)(::core::mem::transmute_copy(this), source.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MapModel3D>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrom3MFAsync)(::windows::core::Interface::as_raw(this), source.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MapModel3D>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -9100,7 +9100,7 @@ impl MapModel3D {
     pub fn CreateFrom3MFWithShadingOptionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStreamReference>>(source: Param0, shadingoption: MapModel3DShadingOption) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<MapModel3D>> {
         Self::IMapModel3DStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFrom3MFWithShadingOptionAsync)(::core::mem::transmute_copy(this), source.into_param().abi(), shadingoption, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MapModel3D>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFrom3MFWithShadingOptionAsync)(::windows::core::Interface::as_raw(this), source.into_param().abi(), shadingoption, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<MapModel3D>>(result__)
         })
     }
     #[doc(hidden)]
@@ -9292,66 +9292,66 @@ impl MapPolygon {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopath>(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopath>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopath>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeColor(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
+            (::windows::core::Interface::vtable(this).StrokeColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStrokeColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeThickness(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeThickness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).StrokeThickness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStrokeThickness(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeThickness)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeThickness)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeDashed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeDashed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).StrokeDashed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStrokeDashed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDashed)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDashed)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn FillColor(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FillColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
+            (::windows::core::Interface::vtable(this).FillColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetFillColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetFillColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFillColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation_Collections"))]
@@ -9359,28 +9359,28 @@ impl MapPolygon {
         let this = &::windows::core::Interface::cast::<IMapPolygon2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Paths)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<super::super::super::super::Devices::Geolocation::Geopath>>(result__)
+            (::windows::core::Interface::vtable(this).Paths)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Collections::IVector<super::super::super::super::Devices::Geolocation::Geopath>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PathProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapPolygonStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PathProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PathProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeThicknessProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapPolygonStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeThicknessProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).StrokeThicknessProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeDashedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapPolygonStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeDashedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).StrokeDashedProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -9518,66 +9518,66 @@ impl MapPolyline {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopath>(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopath>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopath>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPath)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeColor(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
+            (::windows::core::Interface::vtable(this).StrokeColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStrokeColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeThickness(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeThickness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).StrokeThickness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStrokeThickness(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeThickness)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeThickness)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeDashed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeDashed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).StrokeDashed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStrokeDashed(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDashed)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStrokeDashed)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PathProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapPolylineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PathProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).PathProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StrokeDashedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapPolylineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StrokeDashedProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).StrokeDashedProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -9749,7 +9749,7 @@ impl MapRightTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -9758,7 +9758,7 @@ impl MapRightTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
 }
@@ -9843,26 +9843,26 @@ impl MapRouteView {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RouteColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
+            (::windows::core::Interface::vtable(this).RouteColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetRouteColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRouteColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRouteColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn OutlineColor(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OutlineColor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
+            (::windows::core::Interface::vtable(this).OutlineColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetOutlineColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOutlineColor)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOutlineColor)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Services_Maps\"`*"]
     #[cfg(feature = "Services_Maps")]
@@ -9870,7 +9870,7 @@ impl MapRouteView {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Route)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Services::Maps::MapRoute>(result__)
+            (::windows::core::Interface::vtable(this).Route)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Services::Maps::MapRoute>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Services_Maps\"`*"]
@@ -9878,7 +9878,7 @@ impl MapRouteView {
     pub fn CreateInstanceWithMapRoute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Services::Maps::MapRoute>>(route: Param0) -> ::windows::core::Result<MapRouteView> {
         Self::IMapRouteViewFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::core::mem::transmute_copy(this), route.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::windows::core::Interface::as_raw(this), route.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Services_Maps\"`*"]
@@ -9887,7 +9887,7 @@ impl MapRouteView {
         Self::IMapRouteViewFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::core::mem::transmute_copy(this), route.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::windows::core::Interface::as_raw(this), route.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
         })
     }
     #[doc(hidden)]
@@ -9997,7 +9997,7 @@ impl MapScene {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetCamera)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).TargetCamera)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCamera>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
@@ -10006,21 +10006,21 @@ impl MapScene {
         let this = self;
         unsafe {
             let mut result__: super::super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetCameraChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).TargetCameraChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTargetCameraChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTargetCameraChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTargetCameraChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn CreateFromBoundingBox<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(bounds: Param0) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBoundingBox)(::core::mem::transmute_copy(this), bounds.into_param().abi(), &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBoundingBox)(::windows::core::Interface::as_raw(this), bounds.into_param().abi(), &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -10028,14 +10028,14 @@ impl MapScene {
     pub fn CreateFromBoundingBoxWithHeadingAndPitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(bounds: Param0, headingindegrees: f64, pitchindegrees: f64) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBoundingBoxWithHeadingAndPitch)(::core::mem::transmute_copy(this), bounds.into_param().abi(), headingindegrees, pitchindegrees, &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBoundingBoxWithHeadingAndPitch)(::windows::core::Interface::as_raw(this), bounds.into_param().abi(), headingindegrees, pitchindegrees, &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateFromCamera<'a, Param0: ::windows::core::IntoParam<'a, MapCamera>>(camera: Param0) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromCamera)(::core::mem::transmute_copy(this), camera.into_param().abi(), &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromCamera)(::windows::core::Interface::as_raw(this), camera.into_param().abi(), &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -10043,7 +10043,7 @@ impl MapScene {
     pub fn CreateFromLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLocation)(::core::mem::transmute_copy(this), location.into_param().abi(), &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLocation)(::windows::core::Interface::as_raw(this), location.into_param().abi(), &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -10051,7 +10051,7 @@ impl MapScene {
     pub fn CreateFromLocationWithHeadingAndPitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0, headingindegrees: f64, pitchindegrees: f64) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLocationWithHeadingAndPitch)(::core::mem::transmute_copy(this), location.into_param().abi(), headingindegrees, pitchindegrees, &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLocationWithHeadingAndPitch)(::windows::core::Interface::as_raw(this), location.into_param().abi(), headingindegrees, pitchindegrees, &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -10059,7 +10059,7 @@ impl MapScene {
     pub fn CreateFromLocationAndRadius<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0, radiusinmeters: f64) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLocationAndRadius)(::core::mem::transmute_copy(this), location.into_param().abi(), radiusinmeters, &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLocationAndRadius)(::windows::core::Interface::as_raw(this), location.into_param().abi(), radiusinmeters, &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -10067,7 +10067,7 @@ impl MapScene {
     pub fn CreateFromLocationAndRadiusWithHeadingAndPitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0, radiusinmeters: f64, headingindegrees: f64, pitchindegrees: f64) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLocationAndRadiusWithHeadingAndPitch)(::core::mem::transmute_copy(this), location.into_param().abi(), radiusinmeters, headingindegrees, pitchindegrees, &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLocationAndRadiusWithHeadingAndPitch)(::windows::core::Interface::as_raw(this), location.into_param().abi(), radiusinmeters, headingindegrees, pitchindegrees, &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
@@ -10075,7 +10075,7 @@ impl MapScene {
     pub fn CreateFromLocations<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>>>(locations: Param0) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLocations)(::core::mem::transmute_copy(this), locations.into_param().abi(), &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLocations)(::windows::core::Interface::as_raw(this), locations.into_param().abi(), &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation_Collections\"`*"]
@@ -10083,7 +10083,7 @@ impl MapScene {
     pub fn CreateFromLocationsWithHeadingAndPitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<super::super::super::super::Devices::Geolocation::Geopoint>>>(locations: Param0, headingindegrees: f64, pitchindegrees: f64) -> ::windows::core::Result<MapScene> {
         Self::IMapSceneStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromLocationsWithHeadingAndPitch)(::core::mem::transmute_copy(this), locations.into_param().abi(), headingindegrees, pitchindegrees, &mut result__).from_abi::<MapScene>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromLocationsWithHeadingAndPitch)(::windows::core::Interface::as_raw(this), locations.into_param().abi(), headingindegrees, pitchindegrees, &mut result__).from_abi::<MapScene>(result__)
         })
     }
     #[doc(hidden)]
@@ -10232,42 +10232,42 @@ impl MapStyleSheet {
     pub fn Aerial() -> ::windows::core::Result<MapStyleSheet> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Aerial)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).Aerial)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapStyleSheet>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn AerialWithOverlay() -> ::windows::core::Result<MapStyleSheet> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AerialWithOverlay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).AerialWithOverlay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapStyleSheet>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RoadLight() -> ::windows::core::Result<MapStyleSheet> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoadLight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).RoadLight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapStyleSheet>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RoadDark() -> ::windows::core::Result<MapStyleSheet> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoadDark)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).RoadDark)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapStyleSheet>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RoadHighContrastLight() -> ::windows::core::Result<MapStyleSheet> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoadHighContrastLight)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).RoadHighContrastLight)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapStyleSheet>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RoadHighContrastDark() -> ::windows::core::Result<MapStyleSheet> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoadHighContrastDark)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).RoadHighContrastDark)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapStyleSheet>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation_Collections\"`*"]
@@ -10275,21 +10275,21 @@ impl MapStyleSheet {
     pub fn Combine<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<MapStyleSheet>>>(stylesheets: Param0) -> ::windows::core::Result<MapStyleSheet> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Combine)(::core::mem::transmute_copy(this), stylesheets.into_param().abi(), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).Combine)(::windows::core::Interface::as_raw(this), stylesheets.into_param().abi(), &mut result__).from_abi::<MapStyleSheet>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ParseFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(styleasjson: Param0) -> ::windows::core::Result<MapStyleSheet> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ParseFromJson)(::core::mem::transmute_copy(this), styleasjson.into_param().abi(), &mut result__).from_abi::<MapStyleSheet>(result__)
+            (::windows::core::Interface::vtable(this).ParseFromJson)(::windows::core::Interface::as_raw(this), styleasjson.into_param().abi(), &mut result__).from_abi::<MapStyleSheet>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TryParseFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(styleasjson: Param0, stylesheet: &mut ::core::option::Option<MapStyleSheet>) -> ::windows::core::Result<bool> {
         Self::IMapStyleSheetStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryParseFromJson)(::core::mem::transmute_copy(this), styleasjson.into_param().abi(), stylesheet as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParseFromJson)(::windows::core::Interface::as_raw(this), styleasjson.into_param().abi(), stylesheet as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -10397,448 +10397,448 @@ impl MapStyleSheetEntries {
     pub fn Area() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Area)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Area)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Airport() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Airport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Airport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Cemetery() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cemetery)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Cemetery)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Continent() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Continent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Continent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Education() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Education)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Education)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IndigenousPeoplesReserve() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndigenousPeoplesReserve)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).IndigenousPeoplesReserve)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Island() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Island)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Island)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Medical() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Medical)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Medical)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Military() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Military)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Military)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Nautical() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Nautical)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Nautical)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Neighborhood() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Neighborhood)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Neighborhood)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Runway() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Runway)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Runway)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Sand() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Sand)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Sand)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ShoppingCenter() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShoppingCenter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ShoppingCenter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Stadium() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Stadium)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Stadium)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Vegetation() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Vegetation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Vegetation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Forest() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Forest)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Forest)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn GolfCourse() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GolfCourse)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GolfCourse)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Park() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Park)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Park)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PlayingField() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlayingField)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PlayingField)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Reserve() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Reserve)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Reserve)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Point() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Point)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Point)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn NaturalPoint() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NaturalPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).NaturalPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Peak() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Peak)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Peak)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn VolcanicPeak() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VolcanicPeak)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).VolcanicPeak)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn WaterPoint() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WaterPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WaterPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PointOfInterest() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointOfInterest)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PointOfInterest)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Business() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Business)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Business)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn FoodPoint() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FoodPoint)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FoodPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn PopulatedPlace() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PopulatedPlace)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PopulatedPlace)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Capital() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Capital)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Capital)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn AdminDistrictCapital() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AdminDistrictCapital)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AdminDistrictCapital)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CountryRegionCapital() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CountryRegionCapital)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CountryRegionCapital)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RoadShield() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoadShield)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RoadShield)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RoadExit() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RoadExit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RoadExit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Transit() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Transit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Transit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Political() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Political)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Political)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CountryRegion() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CountryRegion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CountryRegion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn AdminDistrict() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AdminDistrict)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).AdminDistrict)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn District() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).District)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).District)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Structure() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Structure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Structure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Building() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Building)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Building)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn EducationBuilding() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EducationBuilding)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).EducationBuilding)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MedicalBuilding() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MedicalBuilding)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MedicalBuilding)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TransitBuilding() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransitBuilding)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TransitBuilding)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Transportation() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Transportation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Transportation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Road() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Road)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Road)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ControlledAccessHighway() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ControlledAccessHighway)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ControlledAccessHighway)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn HighSpeedRamp() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HighSpeedRamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).HighSpeedRamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Highway() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Highway)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Highway)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn MajorRoad() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MajorRoad)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).MajorRoad)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ArterialRoad() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ArterialRoad)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ArterialRoad)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Street() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Street)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Street)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Ramp() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ramp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ramp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn UnpavedStreet() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnpavedStreet)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).UnpavedStreet)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TollRoad() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TollRoad)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TollRoad)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Railway() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Railway)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Railway)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Trail() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Trail)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Trail)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn WaterRoute() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WaterRoute)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WaterRoute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Water() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Water)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Water)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn River() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).River)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).River)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn RouteLine() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RouteLine)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).RouteLine)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn WalkingRoute() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WalkingRoute)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).WalkingRoute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn DrivingRoute() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntriesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DrivingRoute)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DrivingRoute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -10857,21 +10857,21 @@ impl MapStyleSheetEntryStates {
     pub fn Disabled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntryStatesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Disabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Disabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Hover() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntryStatesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Hover)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Hover)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Selected() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMapStyleSheetEntryStatesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Selected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Selected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -10899,7 +10899,7 @@ impl MapTargetCameraChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Camera)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCamera>(result__)
+            (::windows::core::Interface::vtable(this).Camera)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCamera>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -10907,7 +10907,7 @@ impl MapTargetCameraChangedEventArgs {
         let this = &::windows::core::Interface::cast::<IMapTargetCameraChangedEventArgs2>(self)?;
         unsafe {
             let mut result__: MapCameraChangeReason = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChangeReason)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapCameraChangeReason>(result__)
+            (::windows::core::Interface::vtable(this).ChangeReason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapCameraChangeReason>(result__)
         }
     }
 }
@@ -11035,21 +11035,21 @@ impl MapTileBitmapRequest {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PixelData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
+            (::windows::core::Interface::vtable(this).PixelData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetPixelData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPixelData)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPixelData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<MapTileBitmapRequestDeferral> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapTileBitmapRequestDeferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapTileBitmapRequestDeferral>(result__)
         }
     }
 }
@@ -11139,7 +11139,7 @@ impl MapTileBitmapRequestDeferral {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Complete)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MapTileBitmapRequestDeferral {
@@ -11230,7 +11230,7 @@ impl MapTileBitmapRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).X)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).X)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11238,7 +11238,7 @@ impl MapTileBitmapRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Y)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Y)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11246,7 +11246,7 @@ impl MapTileBitmapRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ZoomLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11254,7 +11254,7 @@ impl MapTileBitmapRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Request)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapTileBitmapRequest>(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapTileBitmapRequest>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11262,7 +11262,7 @@ impl MapTileBitmapRequestedEventArgs {
         let this = &::windows::core::Interface::cast::<IMapTileBitmapRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).FrameIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -11346,7 +11346,7 @@ impl MapTileDataSource {
     pub fn new() -> ::windows::core::Result<MapTileDataSource> {
         Self::IMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11354,7 +11354,7 @@ impl MapTileDataSource {
         Self::IMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -11501,39 +11501,39 @@ impl MapTileSource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).DataSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapTileDataSource>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetDataSource<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDataSource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDataSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Layer(&self) -> ::windows::core::Result<MapTileLayer> {
         let this = self;
         unsafe {
             let mut result__: MapTileLayer = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Layer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapTileLayer>(result__)
+            (::windows::core::Interface::vtable(this).Layer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapTileLayer>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetLayer(&self, value: MapTileLayer) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLayer)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLayer)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZoomLevelRange(&self) -> ::windows::core::Result<MapZoomLevelRange> {
         let this = self;
         unsafe {
             let mut result__: MapZoomLevelRange = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomLevelRange)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapZoomLevelRange>(result__)
+            (::windows::core::Interface::vtable(this).ZoomLevelRange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapZoomLevelRange>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetZoomLevelRange<'a, Param0: ::windows::core::IntoParam<'a, MapZoomLevelRange>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZoomLevelRange)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetZoomLevelRange)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
@@ -11541,112 +11541,112 @@ impl MapTileSource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Bounds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::GeoboundingBox>(result__)
+            (::windows::core::Interface::vtable(this).Bounds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::GeoboundingBox>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
     #[cfg(feature = "Devices_Geolocation")]
     pub fn SetBounds<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBounds)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBounds)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn AllowOverstretch(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowOverstretch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowOverstretch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetAllowOverstretch(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowOverstretch)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowOverstretch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsFadingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsFadingEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsFadingEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetIsFadingEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsFadingEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsFadingEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsTransparencyEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTransparencyEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTransparencyEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetIsTransparencyEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsTransparencyEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsTransparencyEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsRetryEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRetryEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsRetryEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetIsRetryEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsRetryEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsRetryEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ZIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetZIndex(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZIndex)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetZIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TilePixelSize(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TilePixelSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).TilePixelSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetTilePixelSize(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetTilePixelSize)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetTilePixelSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Visible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Visible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Visible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn AnimationState(&self) -> ::windows::core::Result<MapTileAnimationState> {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
         unsafe {
             let mut result__: MapTileAnimationState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AnimationState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapTileAnimationState>(result__)
+            (::windows::core::Interface::vtable(this).AnimationState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapTileAnimationState>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11654,26 +11654,26 @@ impl MapTileSource {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AutoPlay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AutoPlay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetAutoPlay(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutoPlay)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutoPlay)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn FrameCount(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).FrameCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetFrameCount(&self, value: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameCount)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrameCount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -11681,35 +11681,35 @@ impl MapTileSource {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
         unsafe {
             let mut result__: super::super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).FrameDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFrameDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetFrameDuration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetFrameDuration)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Pause(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Pause)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Pause)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Play(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Play)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Play)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMapTileSource2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn new() -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11717,14 +11717,14 @@ impl MapTileSource {
         Self::IMapTileSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateInstanceWithDataSource<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>>(datasource: Param0) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::core::mem::transmute_copy(this), datasource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::windows::core::Interface::as_raw(this), datasource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11732,14 +11732,14 @@ impl MapTileSource {
         Self::IMapTileSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::core::mem::transmute_copy(this), datasource.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::windows::core::Interface::as_raw(this), datasource.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateInstanceWithDataSourceAndZoomRange<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>>(datasource: Param0, zoomlevelrange: Param1) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::windows::core::Interface::as_raw(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -11747,7 +11747,7 @@ impl MapTileSource {
         Self::IMapTileSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::windows::core::Interface::as_raw(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -11755,7 +11755,7 @@ impl MapTileSource {
     pub fn CreateInstanceWithDataSourceZoomRangeAndBounds<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::windows::core::Interface::as_raw(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -11764,7 +11764,7 @@ impl MapTileSource {
         Self::IMapTileSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::windows::core::Interface::as_raw(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -11772,7 +11772,7 @@ impl MapTileSource {
     pub fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, tilesizeinpixels: i32) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::windows::core::Interface::as_raw(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`*"]
@@ -11781,112 +11781,112 @@ impl MapTileSource {
         Self::IMapTileSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::windows::core::Interface::as_raw(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn DataSourceProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataSourceProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).DataSourceProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn LayerProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LayerProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).LayerProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZoomLevelRangeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomLevelRangeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ZoomLevelRangeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn BoundsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BoundsProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).BoundsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn AllowOverstretchProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowOverstretchProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AllowOverstretchProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsFadingEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsFadingEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsFadingEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsTransparencyEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTransparencyEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsTransparencyEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn IsRetryEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRetryEnabledProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).IsRetryEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZIndexProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).ZIndexProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn TilePixelSizeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TilePixelSizeProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).TilePixelSizeProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn VisibleProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VisibleProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).VisibleProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn AnimationStateProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AnimationStateProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AnimationStateProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn AutoPlayProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AutoPlayProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).AutoPlayProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn FrameCountProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameCountProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FrameCountProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn FrameDurationProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IMapTileSourceStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameDurationProperty)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
+            (::windows::core::Interface::vtable(this).FrameDurationProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -12014,21 +12014,21 @@ impl MapTileUriRequest {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<MapTileUriRequestDeferral> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapTileUriRequestDeferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapTileUriRequestDeferral>(result__)
         }
     }
 }
@@ -12118,7 +12118,7 @@ impl MapTileUriRequestDeferral {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Complete)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for MapTileUriRequestDeferral {
@@ -12209,7 +12209,7 @@ impl MapTileUriRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).X)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).X)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -12217,7 +12217,7 @@ impl MapTileUriRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Y)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).Y)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -12225,7 +12225,7 @@ impl MapTileUriRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ZoomLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -12233,7 +12233,7 @@ impl MapTileUriRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Request)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MapTileUriRequest>(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MapTileUriRequest>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
@@ -12241,7 +12241,7 @@ impl MapTileUriRequestedEventArgs {
         let this = &::windows::core::Interface::cast::<IMapTileUriRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameIndex)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).FrameIndex)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
 }
@@ -12432,91 +12432,91 @@ impl StreetsideExperience {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddressTextVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AddressTextVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetAddressTextVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAddressTextVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAddressTextVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CursorVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CursorVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CursorVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetCursorVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetCursorVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCursorVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn OverviewMapVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverviewMapVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).OverviewMapVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetOverviewMapVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetOverviewMapVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetOverviewMapVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn StreetLabelsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StreetLabelsVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).StreetLabelsVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetStreetLabelsVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStreetLabelsVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStreetLabelsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ExitButtonVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExitButtonVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ExitButtonVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetExitButtonVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExitButtonVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExitButtonVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn ZoomButtonsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZoomButtonsVisible)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ZoomButtonsVisible)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn SetZoomButtonsVisible(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetZoomButtonsVisible)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetZoomButtonsVisible)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateInstanceWithPanorama<'a, Param0: ::windows::core::IntoParam<'a, StreetsidePanorama>>(panorama: Param0) -> ::windows::core::Result<StreetsideExperience> {
         Self::IStreetsideExperienceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithPanorama)(::core::mem::transmute_copy(this), panorama.into_param().abi(), &mut result__).from_abi::<StreetsideExperience>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithPanorama)(::windows::core::Interface::as_raw(this), panorama.into_param().abi(), &mut result__).from_abi::<StreetsideExperience>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn CreateInstanceWithPanoramaHeadingPitchAndFieldOfView<'a, Param0: ::windows::core::IntoParam<'a, StreetsidePanorama>>(panorama: Param0, headingindegrees: f64, pitchindegrees: f64, fieldofviewindegrees: f64) -> ::windows::core::Result<StreetsideExperience> {
         Self::IStreetsideExperienceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithPanoramaHeadingPitchAndFieldOfView)(::core::mem::transmute_copy(this), panorama.into_param().abi(), headingindegrees, pitchindegrees, fieldofviewindegrees, &mut result__).from_abi::<StreetsideExperience>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithPanoramaHeadingPitchAndFieldOfView)(::windows::core::Interface::as_raw(this), panorama.into_param().abi(), headingindegrees, pitchindegrees, fieldofviewindegrees, &mut result__).from_abi::<StreetsideExperience>(result__)
         })
     }
     #[doc(hidden)]
@@ -12647,7 +12647,7 @@ impl StreetsidePanorama {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Location)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
+            (::windows::core::Interface::vtable(this).Location)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Devices::Geolocation::Geopoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -12655,7 +12655,7 @@ impl StreetsidePanorama {
     pub fn FindNearbyWithLocationAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>> {
         Self::IStreetsidePanoramaStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindNearbyWithLocationAsync)(::core::mem::transmute_copy(this), location.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>>(result__)
+            (::windows::core::Interface::vtable(this).FindNearbyWithLocationAsync)(::windows::core::Interface::as_raw(this), location.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -12663,7 +12663,7 @@ impl StreetsidePanorama {
     pub fn FindNearbyWithLocationAndRadiusAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::Geopoint>>(location: Param0, radiusinmeters: f64) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>> {
         Self::IStreetsidePanoramaStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindNearbyWithLocationAndRadiusAsync)(::core::mem::transmute_copy(this), location.into_param().abi(), radiusinmeters, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>>(result__)
+            (::windows::core::Interface::vtable(this).FindNearbyWithLocationAndRadiusAsync)(::windows::core::Interface::as_raw(this), location.into_param().abi(), radiusinmeters, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<StreetsidePanorama>>(result__)
         })
     }
     #[doc(hidden)]

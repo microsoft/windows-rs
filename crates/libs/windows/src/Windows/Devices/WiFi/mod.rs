@@ -213,7 +213,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkAdapter)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Networking::Connectivity::NetworkAdapter>(result__)
+            (::windows::core::Interface::vtable(this).NetworkAdapter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Networking::Connectivity::NetworkAdapter>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
@@ -222,7 +222,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScanAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ScanAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -230,7 +230,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiNetworkReport>(result__)
+            (::windows::core::Interface::vtable(this).NetworkReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<WiFiNetworkReport>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
@@ -239,14 +239,14 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableNetworksChanged)(::core::mem::transmute_copy(this), args.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AvailableNetworksChanged)(::windows::core::Interface::as_raw(this), args.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAvailableNetworksChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailableNetworksChanged)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailableNetworksChanged)(::windows::core::Interface::as_raw(this), eventcookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -254,7 +254,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectAsync)(::core::mem::transmute_copy(this), availablenetwork.into_param().abi(), reconnectionkind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -263,7 +263,7 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAsync)(::core::mem::transmute_copy(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -272,13 +272,13 @@ impl WiFiAdapter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAsync)(::core::mem::transmute_copy(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), ssid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), ssid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
     pub fn Disconnect(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Disconnect)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Disconnect)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -286,7 +286,7 @@ impl WiFiAdapter {
         let this = &::windows::core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetWpsConfigurationAsync)(::core::mem::transmute_copy(this), availablenetwork.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetWpsConfigurationAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiWpsConfigurationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`, `\"Security_Credentials\"`*"]
@@ -295,7 +295,7 @@ impl WiFiAdapter {
         let this = &::windows::core::Interface::cast::<IWiFiAdapter2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(::core::mem::transmute_copy(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), ssid.into_param().abi(), connectionmethod, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
+            (::windows::core::Interface::vtable(this).ConnectWithPasswordCredentialAndSsidAndConnectionMethodAsync)(::windows::core::Interface::as_raw(this), availablenetwork.into_param().abi(), reconnectionkind, passwordcredential.into_param().abi(), ssid.into_param().abi(), connectionmethod, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiConnectionResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation_Collections\"`*"]
@@ -303,14 +303,14 @@ impl WiFiAdapter {
     pub fn FindAllAdaptersAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindAllAdaptersAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>>(result__)
+            (::windows::core::Interface::vtable(this).FindAllAdaptersAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<WiFiAdapter>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
@@ -318,7 +318,7 @@ impl WiFiAdapter {
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAdapter>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiAdapter>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiAdapter>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
@@ -326,7 +326,7 @@ impl WiFiAdapter {
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<WiFiAccessStatus>> {
         Self::IWiFiAdapterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<WiFiAccessStatus>>(result__)
         })
     }
     #[doc(hidden)]
@@ -417,7 +417,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uptime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Uptime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -425,7 +425,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Ssid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Ssid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -433,7 +433,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Bssid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Bssid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -441,7 +441,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ChannelCenterFrequencyInKilohertz)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ChannelCenterFrequencyInKilohertz)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -449,7 +449,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkRssiInDecibelMilliwatts)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).NetworkRssiInDecibelMilliwatts)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -457,7 +457,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SignalBars)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SignalBars)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -465,7 +465,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: WiFiNetworkKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NetworkKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiNetworkKind>(result__)
+            (::windows::core::Interface::vtable(this).NetworkKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<WiFiNetworkKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -473,7 +473,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: WiFiPhyKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PhyKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiPhyKind>(result__)
+            (::windows::core::Interface::vtable(this).PhyKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<WiFiPhyKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Networking_Connectivity\"`*"]
@@ -482,7 +482,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SecuritySettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Networking::Connectivity::NetworkSecuritySettings>(result__)
+            (::windows::core::Interface::vtable(this).SecuritySettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Networking::Connectivity::NetworkSecuritySettings>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation\"`*"]
@@ -491,7 +491,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BeaconInterval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).BeaconInterval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`*"]
@@ -499,7 +499,7 @@ impl WiFiAvailableNetwork {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsWiFiDirect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsWiFiDirect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -619,7 +619,7 @@ impl WiFiConnectionResult {
         let this = self;
         unsafe {
             let mut result__: WiFiConnectionStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConnectionStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiConnectionStatus>(result__)
+            (::windows::core::Interface::vtable(this).ConnectionStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<WiFiConnectionStatus>(result__)
         }
     }
 }
@@ -779,7 +779,7 @@ impl WiFiNetworkReport {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation_Collections\"`*"]
@@ -788,7 +788,7 @@ impl WiFiNetworkReport {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableNetworks)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WiFiAvailableNetwork>>(result__)
+            (::windows::core::Interface::vtable(this).AvailableNetworks)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WiFiAvailableNetwork>>(result__)
         }
     }
 }
@@ -950,7 +950,7 @@ impl WiFiWpsConfigurationResult {
         let this = self;
         unsafe {
             let mut result__: WiFiWpsConfigurationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WiFiWpsConfigurationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<WiFiWpsConfigurationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_WiFi\"`, `\"Foundation_Collections\"`*"]
@@ -959,7 +959,7 @@ impl WiFiWpsConfigurationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedWpsKinds)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WiFiWpsKind>>(result__)
+            (::windows::core::Interface::vtable(this).SupportedWpsKinds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WiFiWpsKind>>(result__)
         }
     }
 }

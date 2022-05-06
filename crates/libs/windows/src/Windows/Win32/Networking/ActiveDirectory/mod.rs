@@ -9194,72 +9194,72 @@ impl IADs {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9397,76 +9397,76 @@ impl IADsADSystemInfo {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UserName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UserName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComputerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ComputerName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ComputerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SiteName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SiteName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SiteName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainShortName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DomainShortName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DomainShortName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainDNSName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DomainDNSName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DomainDNSName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ForestDNSName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ForestDNSName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ForestDNSName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PDCRoleOwner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PDCRoleOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PDCRoleOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SchemaRoleOwner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SchemaRoleOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SchemaRoleOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn IsNativeMode(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsNativeMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsNativeMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAnyDCName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAnyDCName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetAnyDCName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDCSiteName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, szserver: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDCSiteName)(::core::mem::transmute_copy(self), szserver.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDCSiteName)(::windows::core::Interface::as_raw(self), szserver.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RefreshSchemaCache(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RefreshSchemaCache)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RefreshSchemaCache)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetTrees(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTrees)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetTrees)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9603,71 +9603,71 @@ impl IADsAccessControlEntry {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AccessMask(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AccessMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AccessMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAccessMask(&self, lnaccessmask: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccessMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnaccessmask)).ok()
+        (::windows::core::Interface::vtable(self).SetAccessMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnaccessmask)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AceType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAceType(&self, lnacetype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnacetype)).ok()
+        (::windows::core::Interface::vtable(self).SetAceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnacetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AceFlags(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AceFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AceFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAceFlags(&self, lnaceflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAceFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnaceflags)).ok()
+        (::windows::core::Interface::vtable(self).SetAceFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnaceflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Flags(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Flags)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Flags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetFlags(&self, lnflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnflags)).ok()
+        (::windows::core::Interface::vtable(self).SetFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ObjectType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ObjectType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ObjectType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrobjecttype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectType)(::core::mem::transmute_copy(self), bstrobjecttype.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetObjectType)(::windows::core::Interface::as_raw(self), bstrobjecttype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InheritedObjectType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InheritedObjectType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).InheritedObjectType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetInheritedObjectType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinheritedobjecttype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInheritedObjectType)(::core::mem::transmute_copy(self), bstrinheritedobjecttype.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetInheritedObjectType)(::windows::core::Interface::as_raw(self), bstrinheritedobjecttype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Trustee(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Trustee)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Trustee)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTrustee<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtrustee: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTrustee)(::core::mem::transmute_copy(self), bstrtrustee.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTrustee)(::windows::core::Interface::as_raw(self), bstrtrustee.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9790,41 +9790,41 @@ impl IADsAccessControlList {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AclRevision(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AclRevision)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AclRevision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAclRevision(&self, lnaclrevision: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAclRevision)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnaclrevision)).ok()
+        (::windows::core::Interface::vtable(self).SetAclRevision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnaclrevision)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AceCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AceCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAceCount(&self, lnacecount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnacecount)).ok()
+        (::windows::core::Interface::vtable(self).SetAceCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnacecount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddAce<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, paccesscontrolentry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddAce)(::core::mem::transmute_copy(self), paccesscontrolentry.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddAce)(::windows::core::Interface::as_raw(self), paccesscontrolentry.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RemoveAce<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, paccesscontrolentry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAce)(::core::mem::transmute_copy(self), paccesscontrolentry.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveAce)(::windows::core::Interface::as_raw(self), paccesscontrolentry.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyAccessList(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CopyAccessList)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CopyAccessList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9933,38 +9933,38 @@ impl IADsAcl {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProtectedAttrName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProtectedAttrName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ProtectedAttrName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProtectedAttrName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotectedattrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProtectedAttrName)(::core::mem::transmute_copy(self), bstrprotectedattrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetProtectedAttrName)(::windows::core::Interface::as_raw(self), bstrprotectedattrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubjectName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SubjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SubjectName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubjectName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsubjectname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubjectName)(::core::mem::transmute_copy(self), bstrsubjectname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSubjectName)(::windows::core::Interface::as_raw(self), bstrsubjectname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Privileges(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Privileges)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Privileges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPrivileges(&self, lnprivileges: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrivileges)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnprivileges)).ok()
+        (::windows::core::Interface::vtable(self).SetPrivileges)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnprivileges)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CopyAcl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CopyAcl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10074,19 +10074,19 @@ pub struct IADsAggregatee(::windows::core::IUnknown);
 impl IADsAggregatee {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ConnectAsAggregatee<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pouterunknown: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectAsAggregatee)(::core::mem::transmute_copy(self), pouterunknown.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ConnectAsAggregatee)(::windows::core::Interface::as_raw(self), pouterunknown.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DisconnectAsAggregatee(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisconnectAsAggregatee)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DisconnectAsAggregatee)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RelinquishInterface(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RelinquishInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid)).ok()
+        (::windows::core::Interface::vtable(self).RelinquishInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RestoreInterface(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid)).ok()
+        (::windows::core::Interface::vtable(self).RestoreInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid)).ok()
     }
 }
 impl ::core::convert::From<IADsAggregatee> for ::windows::core::IUnknown {
@@ -10144,11 +10144,11 @@ pub struct IADsAggregator(::windows::core::IUnknown);
 impl IADsAggregator {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ConnectAsAggregator<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, paggregatee: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectAsAggregator)(::core::mem::transmute_copy(self), paggregatee.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ConnectAsAggregator)(::windows::core::Interface::as_raw(self), paggregatee.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DisconnectAsAggregator(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisconnectAsAggregator)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DisconnectAsAggregator)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IADsAggregator> for ::windows::core::IUnknown {
@@ -10207,22 +10207,22 @@ impl IADsBackLink {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RemoteID(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RemoteID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).RemoteID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetRemoteID(&self, lnremoteid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRemoteID)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnremoteid)).ok()
+        (::windows::core::Interface::vtable(self).SetRemoteID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnremoteid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ObjectName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ObjectName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectName)(::core::mem::transmute_copy(self), bstrobjectname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10324,12 +10324,12 @@ impl IADsCaseIgnoreList {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn CaseIgnoreList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CaseIgnoreList)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).CaseIgnoreList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetCaseIgnoreList<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vcaseignorelist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCaseIgnoreList)(::core::mem::transmute_copy(self), vcaseignorelist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCaseIgnoreList)(::windows::core::Interface::as_raw(self), vcaseignorelist.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10429,230 +10429,230 @@ impl IADsClass {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrimaryInterface(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrimaryInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PrimaryInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CLSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CLSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CLSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCLSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCLSID)(::core::mem::transmute_copy(self), bstrclsid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCLSID)(::windows::core::Interface::as_raw(self), bstrclsid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOID)(::core::mem::transmute_copy(self), bstroid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOID)(::windows::core::Interface::as_raw(self), bstroid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Abstract(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Abstract)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Abstract)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAbstract(&self, fabstract: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAbstract)(::core::mem::transmute_copy(self), ::core::mem::transmute(fabstract)).ok()
+        (::windows::core::Interface::vtable(self).SetAbstract)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fabstract)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Auxiliary(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Auxiliary)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Auxiliary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAuxiliary(&self, fauxiliary: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuxiliary)(::core::mem::transmute_copy(self), ::core::mem::transmute(fauxiliary)).ok()
+        (::windows::core::Interface::vtable(self).SetAuxiliary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fauxiliary)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn MandatoryProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MandatoryProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).MandatoryProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetMandatoryProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vmandatoryproperties: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMandatoryProperties)(::core::mem::transmute_copy(self), vmandatoryproperties.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMandatoryProperties)(::windows::core::Interface::as_raw(self), vmandatoryproperties.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn OptionalProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OptionalProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).OptionalProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetOptionalProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, voptionalproperties: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOptionalProperties)(::core::mem::transmute_copy(self), voptionalproperties.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOptionalProperties)(::windows::core::Interface::as_raw(self), voptionalproperties.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn NamingProperties(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NamingProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).NamingProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetNamingProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vnamingproperties: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNamingProperties)(::core::mem::transmute_copy(self), vnamingproperties.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNamingProperties)(::windows::core::Interface::as_raw(self), vnamingproperties.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn DerivedFrom(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DerivedFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).DerivedFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDerivedFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vderivedfrom: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDerivedFrom)(::core::mem::transmute_copy(self), vderivedfrom.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDerivedFrom)(::windows::core::Interface::as_raw(self), vderivedfrom.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn AuxDerivedFrom(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AuxDerivedFrom)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).AuxDerivedFrom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetAuxDerivedFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vauxderivedfrom: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuxDerivedFrom)(::core::mem::transmute_copy(self), vauxderivedfrom.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAuxDerivedFrom)(::windows::core::Interface::as_raw(self), vauxderivedfrom.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PossibleSuperiors(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PossibleSuperiors)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).PossibleSuperiors)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPossibleSuperiors<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpossiblesuperiors: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPossibleSuperiors)(::core::mem::transmute_copy(self), vpossiblesuperiors.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPossibleSuperiors)(::windows::core::Interface::as_raw(self), vpossiblesuperiors.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Containment(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Containment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Containment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetContainment<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vcontainment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContainment)(::core::mem::transmute_copy(self), vcontainment.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetContainment)(::windows::core::Interface::as_raw(self), vcontainment.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Container(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Container)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Container)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetContainer(&self, fcontainer: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContainer)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcontainer)).ok()
+        (::windows::core::Interface::vtable(self).SetContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fcontainer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HelpFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HelpFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).HelpFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHelpFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhelpfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHelpFileName)(::core::mem::transmute_copy(self), bstrhelpfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHelpFileName)(::windows::core::Interface::as_raw(self), bstrhelpfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn HelpFileContext(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HelpFileContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).HelpFileContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetHelpFileContext(&self, lnhelpfilecontext: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHelpFileContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnhelpfilecontext)).ok()
+        (::windows::core::Interface::vtable(self).SetHelpFileContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnhelpfilecontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers(&self) -> ::windows::core::Result<IADsCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Qualifiers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
+        (::windows::core::Interface::vtable(self).Qualifiers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10863,23 +10863,23 @@ impl IADsCollection {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vitem: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemtoberemoved: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), bstritemtoberemoved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), bstritemtoberemoved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetObject)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10984,249 +10984,249 @@ impl IADsComputer {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComputerID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ComputerID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ComputerID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Site(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Site)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Site)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Location(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Location)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Location)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocation)(::core::mem::transmute_copy(self), bstrlocation.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLocation)(::windows::core::Interface::as_raw(self), bstrlocation.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrimaryUser(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrimaryUser)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PrimaryUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPrimaryUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprimaryuser: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrimaryUser)(::core::mem::transmute_copy(self), bstrprimaryuser.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPrimaryUser)(::windows::core::Interface::as_raw(self), bstrprimaryuser.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Owner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Owner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Owner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrowner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOwner)(::core::mem::transmute_copy(self), bstrowner.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOwner)(::windows::core::Interface::as_raw(self), bstrowner.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Division(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Division)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Division)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDivision<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdivision: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDivision)(::core::mem::transmute_copy(self), bstrdivision.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDivision)(::windows::core::Interface::as_raw(self), bstrdivision.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Department(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Department)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Department)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDepartment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdepartment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDepartment)(::core::mem::transmute_copy(self), bstrdepartment.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDepartment)(::windows::core::Interface::as_raw(self), bstrdepartment.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Role(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Role)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Role)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRole<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrole: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRole)(::core::mem::transmute_copy(self), bstrrole.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRole)(::windows::core::Interface::as_raw(self), bstrrole.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OperatingSystem(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OperatingSystem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OperatingSystem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOperatingSystem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroperatingsystem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOperatingSystem)(::core::mem::transmute_copy(self), bstroperatingsystem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOperatingSystem)(::windows::core::Interface::as_raw(self), bstroperatingsystem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OperatingSystemVersion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OperatingSystemVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OperatingSystemVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOperatingSystemVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroperatingsystemversion: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOperatingSystemVersion)(::core::mem::transmute_copy(self), bstroperatingsystemversion.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOperatingSystemVersion)(::windows::core::Interface::as_raw(self), bstroperatingsystemversion.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Model(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Model)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Model)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetModel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmodel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetModel)(::core::mem::transmute_copy(self), bstrmodel.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetModel)(::windows::core::Interface::as_raw(self), bstrmodel.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Processor(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Processor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Processor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProcessor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprocessor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProcessor)(::core::mem::transmute_copy(self), bstrprocessor.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetProcessor)(::windows::core::Interface::as_raw(self), bstrprocessor.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProcessorCount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProcessorCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ProcessorCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProcessorCount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprocessorcount: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProcessorCount)(::core::mem::transmute_copy(self), bstrprocessorcount.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetProcessorCount)(::windows::core::Interface::as_raw(self), bstrprocessorcount.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MemorySize(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MemorySize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).MemorySize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetMemorySize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmemorysize: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMemorySize)(::core::mem::transmute_copy(self), bstrmemorysize.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetMemorySize)(::windows::core::Interface::as_raw(self), bstrmemorysize.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StorageCapacity(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StorageCapacity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).StorageCapacity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStorageCapacity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstoragecapacity: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStorageCapacity)(::core::mem::transmute_copy(self), bstrstoragecapacity.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStorageCapacity)(::windows::core::Interface::as_raw(self), bstrstoragecapacity.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn NetAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NetAddresses)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).NetAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetNetAddresses<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vnetaddresses: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetAddresses)(::core::mem::transmute_copy(self), vnetaddresses.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNetAddresses)(::windows::core::Interface::as_raw(self), vnetaddresses.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11470,82 +11470,82 @@ impl IADsComputerOperations {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Status(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Shutdown(&self, breboot: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Shutdown)(::core::mem::transmute_copy(self), ::core::mem::transmute(breboot)).ok()
+        (::windows::core::Interface::vtable(self).Shutdown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(breboot)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11665,63 +11665,63 @@ impl IADsContainer {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Filter(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Filter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Filter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, var: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilter)(::core::mem::transmute_copy(self), var.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), var.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Hints(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Hints)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Hints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetHints<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vhints: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHints)(::core::mem::transmute_copy(self), vhints.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHints)(::windows::core::Interface::as_raw(self), vhints.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, classname: Param0, relativename: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetObject)(::core::mem::transmute_copy(self), classname.into_param().abi(), relativename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetObject)(::windows::core::Interface::as_raw(self), classname.into_param().abi(), relativename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, classname: Param0, relativename: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), classname.into_param().abi(), relativename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), classname.into_param().abi(), relativename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Delete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrclassname: Param0, bstrrelativename: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self), bstrclassname.into_param().abi(), bstrrelativename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self), bstrclassname.into_param().abi(), bstrrelativename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CopyHere<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sourcename: Param0, newname: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CopyHere)(::core::mem::transmute_copy(self), sourcename.into_param().abi(), newname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CopyHere)(::windows::core::Interface::as_raw(self), sourcename.into_param().abi(), newname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn MoveHere<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sourcename: Param0, newname: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MoveHere)(::core::mem::transmute_copy(self), sourcename.into_param().abi(), newname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).MoveHere)(::windows::core::Interface::as_raw(self), sourcename.into_param().abi(), newname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11851,23 +11851,23 @@ impl IADsDNWithBinary {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn BinaryValue(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BinaryValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).BinaryValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetBinaryValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vbinaryvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBinaryValue)(::core::mem::transmute_copy(self), vbinaryvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBinaryValue)(::windows::core::Interface::as_raw(self), vbinaryvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DNString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DNString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DNString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDNString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDNString)(::core::mem::transmute_copy(self), bstrdnstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11975,23 +11975,23 @@ impl IADsDNWithString {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StringValue(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StringValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).StringValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStringValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstringvalue: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStringValue)(::core::mem::transmute_copy(self), bstrstringvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStringValue)(::windows::core::Interface::as_raw(self), bstrstringvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DNString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DNString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DNString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDNString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDNString)(::core::mem::transmute_copy(self), bstrdnstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12097,7 +12097,7 @@ pub struct IADsDeleteOps(::windows::core::IUnknown);
 impl IADsDeleteOps {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DeleteObject(&self, lnflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnflags)).ok()
+        (::windows::core::Interface::vtable(self).DeleteObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnflags)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12190,149 +12190,149 @@ impl IADsDomain {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn IsWorkgroup(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsWorkgroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsWorkgroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MinPasswordLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinPasswordLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinPasswordLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMinPasswordLength(&self, lnminpasswordlength: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinPasswordLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnminpasswordlength)).ok()
+        (::windows::core::Interface::vtable(self).SetMinPasswordLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnminpasswordlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MinPasswordAge(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinPasswordAge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinPasswordAge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMinPasswordAge(&self, lnminpasswordage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinPasswordAge)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnminpasswordage)).ok()
+        (::windows::core::Interface::vtable(self).SetMinPasswordAge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnminpasswordage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxPasswordAge(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxPasswordAge)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaxPasswordAge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxPasswordAge(&self, lnmaxpasswordage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxPasswordAge)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnmaxpasswordage)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxPasswordAge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxpasswordage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxBadPasswordsAllowed(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxBadPasswordsAllowed)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaxBadPasswordsAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxBadPasswordsAllowed(&self, lnmaxbadpasswordsallowed: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxBadPasswordsAllowed)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnmaxbadpasswordsallowed)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxBadPasswordsAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxbadpasswordsallowed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordHistoryLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PasswordHistoryLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PasswordHistoryLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordHistoryLength(&self, lnpasswordhistorylength: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordHistoryLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnpasswordhistorylength)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordHistoryLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpasswordhistorylength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordAttributes(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PasswordAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PasswordAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordAttributes(&self, lnpasswordattributes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnpasswordattributes)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpasswordattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AutoUnlockInterval(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AutoUnlockInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AutoUnlockInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAutoUnlockInterval(&self, lnautounlockinterval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAutoUnlockInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnautounlockinterval)).ok()
+        (::windows::core::Interface::vtable(self).SetAutoUnlockInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnautounlockinterval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn LockoutObservationInterval(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LockoutObservationInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LockoutObservationInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLockoutObservationInterval(&self, lnlockoutobservationinterval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLockoutObservationInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnlockoutobservationinterval)).ok()
+        (::windows::core::Interface::vtable(self).SetLockoutObservationInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnlockoutobservationinterval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12464,22 +12464,22 @@ impl IADsEmail {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetType(&self, lntype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lntype)).ok()
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lntype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Address(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Address)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Address)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddress)(::core::mem::transmute_copy(self), bstraddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), bstraddress.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12578,17 +12578,17 @@ impl IADsExtension {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Operate<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, dwcode: u32, vardata1: Param1, vardata2: Param2, vardata3: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Operate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcode), vardata1.into_param().abi(), vardata2.into_param().abi(), vardata3.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Operate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcode), vardata1.into_param().abi(), vardata2.into_param().abi(), vardata3.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PrivateGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrivateGetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PrivateGetIDsOfNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PrivateInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PrivateInvoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+        (::windows::core::Interface::vtable(self).PrivateInvoke)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IADsExtension> for ::windows::core::IUnknown {
@@ -12655,23 +12655,23 @@ impl IADsFaxNumber {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TelephoneNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TelephoneNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTelephoneNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::core::mem::transmute_copy(self), bstrtelephonenumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Parameters(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Parameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Parameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vparameters: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetParameters)(::core::mem::transmute_copy(self), vparameters.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetParameters)(::windows::core::Interface::as_raw(self), vparameters.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12779,218 +12779,218 @@ impl IADsFileService {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HostComputer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.HostComputer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.HostComputer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHostComputer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHostComputer)(::core::mem::transmute_copy(self), bstrhostcomputer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdisplayname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayName)(::core::mem::transmute_copy(self), bstrdisplayname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDisplayName)(::windows::core::Interface::as_raw(self), bstrdisplayname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Version(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Version)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrversion: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetVersion)(::core::mem::transmute_copy(self), bstrversion.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetVersion)(::windows::core::Interface::as_raw(self), bstrversion.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ServiceType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ServiceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ServiceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetServiceType(&self, lnservicetype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServiceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnservicetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetServiceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnservicetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn StartType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.StartType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.StartType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetStartType(&self, lnstarttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnstarttype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetStartType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnstarttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPath)(::core::mem::transmute_copy(self), bstrpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartupParameters(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.StartupParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.StartupParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartupParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstartupparameters: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetStartupParameters)(::core::mem::transmute_copy(self), bstrstartupparameters.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetStartupParameters)(::windows::core::Interface::as_raw(self), bstrstartupparameters.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ErrorControl(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ErrorControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ErrorControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetErrorControl(&self, lnerrorcontrol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetErrorControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnerrorcontrol)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetErrorControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnerrorcontrol)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadOrderGroup(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LoadOrderGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LoadOrderGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoadOrderGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrloadordergroup: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLoadOrderGroup)(::core::mem::transmute_copy(self), bstrloadordergroup.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLoadOrderGroup)(::windows::core::Interface::as_raw(self), bstrloadordergroup.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServiceAccountName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ServiceAccountName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ServiceAccountName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetServiceAccountName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserviceaccountname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServiceAccountName)(::core::mem::transmute_copy(self), bstrserviceaccountname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetServiceAccountName)(::windows::core::Interface::as_raw(self), bstrserviceaccountname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServiceAccountPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ServiceAccountPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ServiceAccountPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetServiceAccountPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserviceaccountpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetServiceAccountPath)(::core::mem::transmute_copy(self), bstrserviceaccountpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetServiceAccountPath)(::windows::core::Interface::as_raw(self), bstrserviceaccountpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Dependencies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Dependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Dependencies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDependencies<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vdependencies: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDependencies)(::core::mem::transmute_copy(self), vdependencies.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDependencies)(::windows::core::Interface::as_raw(self), vdependencies.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxUserCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxUserCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaxUserCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxUserCount(&self, lnmaxusercount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxUserCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnmaxusercount)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxUserCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxusercount)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13140,110 +13140,110 @@ impl IADsFileServiceOperations {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Start(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Start)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Start)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Continue(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Continue)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Continue)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnewpassword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPassword)(::core::mem::transmute_copy(self), bstrnewpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPassword)(::windows::core::Interface::as_raw(self), bstrnewpassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sessions(&self) -> ::windows::core::Result<IADsCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Sessions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
+        (::windows::core::Interface::vtable(self).Sessions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resources(&self) -> ::windows::core::Result<IADsCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Resources)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
+        (::windows::core::Interface::vtable(self).Resources)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13391,119 +13391,119 @@ impl IADsFileShare {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn CurrentUserCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentUserCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CurrentUserCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HostComputer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HostComputer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).HostComputer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHostComputer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHostComputer)(::core::mem::transmute_copy(self), bstrhostcomputer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::core::mem::transmute_copy(self), bstrpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxUserCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxUserCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaxUserCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxUserCount(&self, lnmaxusercount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxUserCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnmaxusercount)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxUserCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxusercount)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13646,105 +13646,105 @@ impl IADsGroup {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Members(&self) -> ::windows::core::Result<IADsMembers> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Members)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsMembers>(result__)
+        (::windows::core::Interface::vtable(self).Members)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsMembers>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsMember<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmember: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsMember)(::core::mem::transmute_copy(self), bstrmember.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsMember)(::windows::core::Interface::as_raw(self), bstrmember.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnewitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), bstrnewitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrnewitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemtoberemoved: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), bstritemtoberemoved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), bstritemtoberemoved.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13884,21 +13884,21 @@ impl IADsHold {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ObjectName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ObjectName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectName)(::core::mem::transmute_copy(self), bstrobjectname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Amount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Amount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Amount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAmount(&self, lnamount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAmount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnamount)).ok()
+        (::windows::core::Interface::vtable(self).SetAmount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnamount)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13999,20 +13999,20 @@ impl IADsLargeInteger {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn HighPart(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HighPart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).HighPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetHighPart(&self, lnhighpart: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighPart)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnhighpart)).ok()
+        (::windows::core::Interface::vtable(self).SetHighPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnhighpart)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn LowPart(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LowPart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LowPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLowPart(&self, lnlowpart: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLowPart)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnlowpart)).ok()
+        (::windows::core::Interface::vtable(self).SetLowPart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnlowpart)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14108,116 +14108,116 @@ impl IADsLocality {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalityName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalityName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalityName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLocalityName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalityName)(::core::mem::transmute_copy(self), bstrlocalityname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostalAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PostalAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PostalAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPostalAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddress)(::core::mem::transmute_copy(self), bstrpostaladdress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SeeAlso)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).SeeAlso)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSeeAlso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSeeAlso)(::core::mem::transmute_copy(self), vseealso.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14364,23 +14364,23 @@ impl IADsMembers {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Filter(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Filter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Filter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, pvfilter: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilter)(::core::mem::transmute_copy(self), pvfilter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFilter)(::windows::core::Interface::as_raw(self), pvfilter.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14480,39 +14480,39 @@ pub struct IADsNameTranslate(::windows::core::IUnknown);
 impl IADsNameTranslate {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetChaseReferral(&self, lnchasereferral: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChaseReferral)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnchasereferral)).ok()
+        (::windows::core::Interface::vtable(self).SetChaseReferral)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnchasereferral)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Init<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lnsettype: i32, bstradspath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Init)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InitEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lnsettype: i32, bstradspath: Param1, bstruserid: Param2, bstrdomain: Param3, bstrpassword: Param4) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InitEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi(), bstruserid.into_param().abi(), bstrdomain.into_param().abi(), bstrpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).InitEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi(), bstruserid.into_param().abi(), bstrdomain.into_param().abi(), bstrpassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Set<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lnsettype: i32, bstradspath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsettype), bstradspath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Get(&self, lnformattype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Get)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Get)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lnformattype: i32, pvar: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnformattype), pvar.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), pvar.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx(&self, lnformattype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14629,83 +14629,83 @@ impl IADsNamespaces {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DefaultContainer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DefaultContainer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DefaultContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDefaultContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdefaultcontainer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultContainer)(::core::mem::transmute_copy(self), bstrdefaultcontainer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultContainer)(::windows::core::Interface::as_raw(self), bstrdefaultcontainer.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14828,22 +14828,22 @@ impl IADsNetAddress {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AddressType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AddressType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AddressType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAddressType(&self, lnaddresstype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddressType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnaddresstype)).ok()
+        (::windows::core::Interface::vtable(self).SetAddressType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnaddresstype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Address(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Address)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Address)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAddress)(::core::mem::transmute_copy(self), vaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAddress)(::windows::core::Interface::as_raw(self), vaddress.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14945,138 +14945,138 @@ impl IADsO {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalityName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalityName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalityName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLocalityName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalityName)(::core::mem::transmute_copy(self), bstrlocalityname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostalAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PostalAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PostalAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPostalAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddress)(::core::mem::transmute_copy(self), bstrpostaladdress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TelephoneNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TelephoneNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTelephoneNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::core::mem::transmute_copy(self), bstrtelephonenumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FaxNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FaxNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFaxNumber)(::core::mem::transmute_copy(self), bstrfaxnumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SeeAlso)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).SeeAlso)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSeeAlso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSeeAlso)(::core::mem::transmute_copy(self), vseealso.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15240,149 +15240,149 @@ impl IADsOU {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalityName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalityName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalityName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLocalityName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocalityname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocalityName)(::core::mem::transmute_copy(self), bstrlocalityname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLocalityName)(::windows::core::Interface::as_raw(self), bstrlocalityname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostalAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PostalAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PostalAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPostalAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpostaladdress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddress)(::core::mem::transmute_copy(self), bstrpostaladdress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), bstrpostaladdress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TelephoneNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TelephoneNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTelephoneNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtelephonenumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::core::mem::transmute_copy(self), bstrtelephonenumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), bstrtelephonenumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FaxNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FaxNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFaxNumber)(::core::mem::transmute_copy(self), bstrfaxnumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SeeAlso)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).SeeAlso)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSeeAlso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSeeAlso)(::core::mem::transmute_copy(self), vseealso.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BusinessCategory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BusinessCategory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).BusinessCategory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBusinessCategory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbusinesscategory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBusinessCategory)(::core::mem::transmute_copy(self), bstrbusinesscategory.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBusinessCategory)(::windows::core::Interface::as_raw(self), bstrbusinesscategory.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15554,12 +15554,12 @@ impl IADsObjectOptions {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetOption(&self, lnoption: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnoption), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnoption), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetOption<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lnoption: i32, vvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOption)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnoption), vvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnoption), vvalue.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15659,12 +15659,12 @@ impl IADsOctetList {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn OctetList(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OctetList)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).OctetList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetOctetList<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, voctetlist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOctetList)(::core::mem::transmute_copy(self), voctetlist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOctetList)(::windows::core::Interface::as_raw(self), voctetlist.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15764,7 +15764,7 @@ impl IADsOpenDSObject {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OpenDSObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lpszdnname: Param0, lpszusername: Param1, lpszpassword: Param2, lnreserved: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OpenDSObject)(::core::mem::transmute_copy(self), lpszdnname.into_param().abi(), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(lnreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).OpenDSObject)(::windows::core::Interface::as_raw(self), lpszdnname.into_param().abi(), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(lnreserved), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15859,33 +15859,33 @@ impl IADsPath {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetType(&self, lntype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lntype)).ok()
+        (::windows::core::Interface::vtable(self).SetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lntype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn VolumeName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).VolumeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).VolumeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVolumeName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrvolumename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVolumeName)(::core::mem::transmute_copy(self), bstrvolumename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetVolumeName)(::windows::core::Interface::as_raw(self), bstrvolumename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::core::mem::transmute_copy(self), bstrpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15994,58 +15994,58 @@ impl IADsPathname {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Set<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstradspath: Param0, lnsettype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Set)(::core::mem::transmute_copy(self), bstradspath.into_param().abi(), ::core::mem::transmute(lnsettype)).ok()
+        (::windows::core::Interface::vtable(self).Set)(::windows::core::Interface::as_raw(self), bstradspath.into_param().abi(), ::core::mem::transmute(lnsettype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetDisplayType(&self, lndisplaytype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lndisplaytype)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lndisplaytype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Retrieve(&self, lnformattype: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Retrieve)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Retrieve)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnformattype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetNumElements(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNumElements)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GetNumElements)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetElement(&self, lnelementindex: i32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnelementindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnelementindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddLeafElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrleafelement: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddLeafElement)(::core::mem::transmute_copy(self), bstrleafelement.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddLeafElement)(::windows::core::Interface::as_raw(self), bstrleafelement.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RemoveLeafElement(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveLeafElement)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RemoveLeafElement)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopyPath(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CopyPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CopyPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEscapedElement<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lnreserved: i32, bstrinstr: Param1) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetEscapedElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnreserved), bstrinstr.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetEscapedElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnreserved), bstrinstr.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn EscapedMode(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EscapedMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).EscapedMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetEscapedMode(&self, lnescapedmode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEscapedMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnescapedmode)).ok()
+        (::windows::core::Interface::vtable(self).SetEscapedMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnescapedmode)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16166,12 +16166,12 @@ impl IADsPostalAddress {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PostalAddress(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PostalAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).PostalAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPostalAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpostaladdress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddress)(::core::mem::transmute_copy(self), vpostaladdress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPostalAddress)(::windows::core::Interface::as_raw(self), vpostaladdress.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16271,165 +16271,165 @@ impl IADsPrintJob {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HostPrintQueue(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HostPrintQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).HostPrintQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn User(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).User)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).User)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UserPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UserPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn TimeSubmitted(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TimeSubmitted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TimeSubmitted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn TotalPages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TotalPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).TotalPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPriority(&self, lnpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).StartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetStartTime(&self, dastarttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(dastarttime)).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dastarttime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn UntilTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UntilTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).UntilTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetUntilTime(&self, dauntiltime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUntilTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(dauntiltime)).ok()
+        (::windows::core::Interface::vtable(self).SetUntilTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dauntiltime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Notify(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnotify: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotify)(::core::mem::transmute_copy(self), bstrnotify.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNotify)(::windows::core::Interface::as_raw(self), bstrnotify.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NotifyPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NotifyPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).NotifyPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotifyPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnotifypath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotifyPath)(::core::mem::transmute_copy(self), bstrnotifypath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNotifyPath)(::windows::core::Interface::as_raw(self), bstrnotifypath.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16590,104 +16590,104 @@ impl IADsPrintJobOperations {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn TimeElapsed(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TimeElapsed)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).TimeElapsed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PagesPrinted(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PagesPrinted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PagesPrinted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Position(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Position)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Position)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPosition(&self, lnposition: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnposition)).ok()
+        (::windows::core::Interface::vtable(self).SetPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -16810,207 +16810,207 @@ impl IADsPrintQueue {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrinterPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrinterPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PrinterPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPrinterPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprinterpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrinterPath)(::core::mem::transmute_copy(self), bstrprinterpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPrinterPath)(::windows::core::Interface::as_raw(self), bstrprinterpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Model(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Model)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Model)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetModel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmodel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetModel)(::core::mem::transmute_copy(self), bstrmodel.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetModel)(::windows::core::Interface::as_raw(self), bstrmodel.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Datatype(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Datatype)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Datatype)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDatatype<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdatatype: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDatatype)(::core::mem::transmute_copy(self), bstrdatatype.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDatatype)(::windows::core::Interface::as_raw(self), bstrdatatype.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrintProcessor(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrintProcessor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PrintProcessor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPrintProcessor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprintprocessor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrintProcessor)(::core::mem::transmute_copy(self), bstrprintprocessor.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPrintProcessor)(::windows::core::Interface::as_raw(self), bstrprintprocessor.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Location(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Location)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Location)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlocation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLocation)(::core::mem::transmute_copy(self), bstrlocation.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLocation)(::windows::core::Interface::as_raw(self), bstrlocation.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).StartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetStartTime(&self, dastarttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(dastarttime)).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dastarttime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn UntilTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UntilTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).UntilTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetUntilTime(&self, dauntiltime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUntilTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(dauntiltime)).ok()
+        (::windows::core::Interface::vtable(self).SetUntilTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dauntiltime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DefaultJobPriority(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DefaultJobPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DefaultJobPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetDefaultJobPriority(&self, lndefaultjobpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultJobPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(lndefaultjobpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultJobPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lndefaultjobpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPriority(&self, lnpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BannerPage(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BannerPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).BannerPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBannerPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbannerpage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBannerPage)(::core::mem::transmute_copy(self), bstrbannerpage.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBannerPage)(::windows::core::Interface::as_raw(self), bstrbannerpage.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PrintDevices(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrintDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).PrintDevices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPrintDevices<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vprintdevices: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrintDevices)(::core::mem::transmute_copy(self), vprintdevices.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPrintDevices)(::windows::core::Interface::as_raw(self), vprintdevices.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn NetAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NetAddresses)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).NetAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetNetAddresses<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vnetaddresses: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNetAddresses)(::core::mem::transmute_copy(self), vnetaddresses.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNetAddresses)(::windows::core::Interface::as_raw(self), vnetaddresses.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17206,95 +17206,95 @@ impl IADsPrintQueueOperations {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PrintJobs(&self) -> ::windows::core::Result<IADsCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrintJobs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
+        (::windows::core::Interface::vtable(self).PrintJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Purge(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Purge)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Purge)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17418,127 +17418,127 @@ impl IADsProperty {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOID)(::core::mem::transmute_copy(self), bstroid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOID)(::windows::core::Interface::as_raw(self), bstroid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Syntax(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Syntax)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Syntax)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSyntax<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsyntax: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSyntax)(::core::mem::transmute_copy(self), bstrsyntax.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSyntax)(::windows::core::Interface::as_raw(self), bstrsyntax.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxRange(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaxRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxRange(&self, lnmaxrange: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnmaxrange)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxrange)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MinRange(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMinRange(&self, lnminrange: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnminrange)).ok()
+        (::windows::core::Interface::vtable(self).SetMinRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnminrange)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MultiValued(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MultiValued)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).MultiValued)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMultiValued(&self, fmultivalued: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMultiValued)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmultivalued)).ok()
+        (::windows::core::Interface::vtable(self).SetMultiValued)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmultivalued)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Qualifiers(&self) -> ::windows::core::Result<IADsCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Qualifiers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
+        (::windows::core::Interface::vtable(self).Qualifiers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17678,47 +17678,47 @@ pub struct IADsPropertyEntry(::windows::core::IUnknown);
 impl IADsPropertyEntry {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADsType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ADsType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ADsType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetADsType(&self, lnadstype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetADsType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnadstype)).ok()
+        (::windows::core::Interface::vtable(self).SetADsType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ControlCode(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ControlCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ControlCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetControlCode(&self, lncontrolcode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetControlCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode)).ok()
+        (::windows::core::Interface::vtable(self).SetControlCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Values(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Values)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Values)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValues<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vvalues: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValues)(::core::mem::transmute_copy(self), vvalues.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetValues)(::windows::core::Interface::as_raw(self), vvalues.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17830,46 +17830,46 @@ impl IADsPropertyList {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PropertyCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PropertyCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PropertyCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Next(&self, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvariant)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvariant)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Skip(&self, celements: i32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celements)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celements)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varindex: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), varindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), varindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetPropertyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, lnadstype: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPropertyItem)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(lnadstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetPropertyItem)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(lnadstype), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutPropertyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vardata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutPropertyItem)(::core::mem::transmute_copy(self), vardata.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).PutPropertyItem)(::windows::core::Interface::as_raw(self), vardata.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ResetPropertyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varentry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ResetPropertyItem)(::core::mem::transmute_copy(self), varentry.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ResetPropertyItem)(::windows::core::Interface::as_raw(self), varentry.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PurgePropertyList(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PurgePropertyList)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).PurgePropertyList)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -17983,131 +17983,131 @@ pub struct IADsPropertyValue(::windows::core::IUnknown);
 impl IADsPropertyValue {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADsType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ADsType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ADsType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetADsType(&self, lnadstype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetADsType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnadstype)).ok()
+        (::windows::core::Interface::vtable(self).SetADsType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DNString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DNString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DNString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDNString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdnstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDNString)(::core::mem::transmute_copy(self), bstrdnstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDNString)(::windows::core::Interface::as_raw(self), bstrdnstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CaseExactString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CaseExactString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CaseExactString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCaseExactString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaseexactstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCaseExactString)(::core::mem::transmute_copy(self), bstrcaseexactstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCaseExactString)(::windows::core::Interface::as_raw(self), bstrcaseexactstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CaseIgnoreString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CaseIgnoreString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CaseIgnoreString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCaseIgnoreString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaseignorestring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCaseIgnoreString)(::core::mem::transmute_copy(self), bstrcaseignorestring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCaseIgnoreString)(::windows::core::Interface::as_raw(self), bstrcaseignorestring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PrintableString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrintableString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PrintableString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPrintableString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprintablestring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrintableString)(::core::mem::transmute_copy(self), bstrprintablestring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPrintableString)(::windows::core::Interface::as_raw(self), bstrprintablestring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NumericString(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NumericString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).NumericString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNumericString<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnumericstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNumericString)(::core::mem::transmute_copy(self), bstrnumericstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNumericString)(::windows::core::Interface::as_raw(self), bstrnumericstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Boolean(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Boolean)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Boolean)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetBoolean(&self, lnboolean: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBoolean)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnboolean)).ok()
+        (::windows::core::Interface::vtable(self).SetBoolean)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnboolean)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Integer(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Integer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Integer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInteger(&self, lninteger: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInteger)(::core::mem::transmute_copy(self), ::core::mem::transmute(lninteger)).ok()
+        (::windows::core::Interface::vtable(self).SetInteger)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lninteger)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn OctetString(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OctetString)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).OctetString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetOctetString<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, voctetstring: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOctetString)(::core::mem::transmute_copy(self), voctetstring.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOctetString)(::windows::core::Interface::as_raw(self), voctetstring.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SecurityDescriptor(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SecurityDescriptor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).SecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, psecuritydescriptor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::core::mem::transmute_copy(self), psecuritydescriptor.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), psecuritydescriptor.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LargeInteger(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LargeInteger)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).LargeInteger)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetLargeInteger<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, plargeinteger: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLargeInteger)(::core::mem::transmute_copy(self), plargeinteger.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLargeInteger)(::windows::core::Interface::as_raw(self), plargeinteger.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn UTCTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UTCTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).UTCTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetUTCTime(&self, dautctime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUTCTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(dautctime)).ok()
+        (::windows::core::Interface::vtable(self).SetUTCTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dautctime)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18271,12 +18271,12 @@ impl IADsPropertyValue2 {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetObjectProperty(&self, lnadstype: *mut i32, pvprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnadstype), ::core::mem::transmute(pvprop)).ok()
+        (::windows::core::Interface::vtable(self).GetObjectProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype), ::core::mem::transmute(pvprop)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutObjectProperty<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lnadstype: i32, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).PutObjectProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnadstype), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).PutObjectProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnadstype), vprop.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18376,50 +18376,50 @@ impl IADsReplicaPointer {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ServerName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ServerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetServerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrservername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServerName)(::core::mem::transmute_copy(self), bstrservername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetServerName)(::windows::core::Interface::as_raw(self), bstrservername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReplicaType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReplicaType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ReplicaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetReplicaType(&self, lnreplicatype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplicaType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnreplicatype)).ok()
+        (::windows::core::Interface::vtable(self).SetReplicaType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnreplicatype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReplicaNumber(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReplicaNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ReplicaNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetReplicaNumber(&self, lnreplicanumber: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplicaNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnreplicanumber)).ok()
+        (::windows::core::Interface::vtable(self).SetReplicaNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnreplicanumber)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetCount(&self, lncount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncount)).ok()
+        (::windows::core::Interface::vtable(self).SetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ReplicaAddressHints(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReplicaAddressHints)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).ReplicaAddressHints)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetReplicaAddressHints<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vreplicaaddresshints: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReplicaAddressHints)(::core::mem::transmute_copy(self), vreplicaaddresshints.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetReplicaAddressHints)(::windows::core::Interface::as_raw(self), vreplicaaddresshints.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18533,95 +18533,95 @@ impl IADsResource {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn User(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).User)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).User)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UserPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UserPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn LockCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LockCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LockCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18749,106 +18749,106 @@ impl IADsSecurityDescriptor {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Revision(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Revision)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Revision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetRevision(&self, lnrevision: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRevision)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnrevision)).ok()
+        (::windows::core::Interface::vtable(self).SetRevision)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnrevision)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Control(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Control)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Control)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetControl(&self, lncontrol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrol)).ok()
+        (::windows::core::Interface::vtable(self).SetControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrol)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Owner(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Owner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Owner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrowner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOwner)(::core::mem::transmute_copy(self), bstrowner.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOwner)(::windows::core::Interface::as_raw(self), bstrowner.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn OwnerDefaulted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OwnerDefaulted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).OwnerDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetOwnerDefaulted(&self, fownerdefaulted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOwnerDefaulted)(::core::mem::transmute_copy(self), ::core::mem::transmute(fownerdefaulted)).ok()
+        (::windows::core::Interface::vtable(self).SetOwnerDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fownerdefaulted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Group(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Group)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Group)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgroup: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroup)(::core::mem::transmute_copy(self), bstrgroup.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGroup)(::windows::core::Interface::as_raw(self), bstrgroup.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GroupDefaulted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GroupDefaulted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GroupDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetGroupDefaulted(&self, fgroupdefaulted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroupDefaulted)(::core::mem::transmute_copy(self), ::core::mem::transmute(fgroupdefaulted)).ok()
+        (::windows::core::Interface::vtable(self).SetGroupDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fgroupdefaulted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DiscretionaryAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DiscretionaryAcl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).DiscretionaryAcl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDiscretionaryAcl<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdiscretionaryacl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDiscretionaryAcl)(::core::mem::transmute_copy(self), pdiscretionaryacl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDiscretionaryAcl)(::windows::core::Interface::as_raw(self), pdiscretionaryacl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DaclDefaulted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DaclDefaulted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).DaclDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetDaclDefaulted(&self, fdacldefaulted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDaclDefaulted)(::core::mem::transmute_copy(self), ::core::mem::transmute(fdacldefaulted)).ok()
+        (::windows::core::Interface::vtable(self).SetDaclDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fdacldefaulted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SystemAcl(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SystemAcl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).SystemAcl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetSystemAcl<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, psystemacl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSystemAcl)(::core::mem::transmute_copy(self), psystemacl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSystemAcl)(::windows::core::Interface::as_raw(self), psystemacl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SaclDefaulted(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SaclDefaulted)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SaclDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetSaclDefaulted(&self, fsacldefaulted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSaclDefaulted)(::core::mem::transmute_copy(self), ::core::mem::transmute(fsacldefaulted)).ok()
+        (::windows::core::Interface::vtable(self).SetSaclDefaulted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fsacldefaulted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CopySecurityDescriptor(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CopySecurityDescriptor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CopySecurityDescriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -18988,27 +18988,27 @@ impl IADsSecurityUtility {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varpath: Param0, lpathformat: i32, lformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::core::mem::transmute_copy(self), varpath.into_param().abi(), ::core::mem::transmute(lpathformat), ::core::mem::transmute(lformat), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into_param().abi(), ::core::mem::transmute(lpathformat), ::core::mem::transmute(lformat), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varpath: Param0, lpathformat: i32, vardata: Param2, ldataformat: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::core::mem::transmute_copy(self), varpath.into_param().abi(), ::core::mem::transmute(lpathformat), vardata.into_param().abi(), ::core::mem::transmute(ldataformat)).ok()
+        (::windows::core::Interface::vtable(self).SetSecurityDescriptor)(::windows::core::Interface::as_raw(self), varpath.into_param().abi(), ::core::mem::transmute(lpathformat), vardata.into_param().abi(), ::core::mem::transmute(ldataformat)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ConvertSecurityDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, varsd: Param0, ldataformat: i32, loutformat: i32) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ConvertSecurityDescriptor)(::core::mem::transmute_copy(self), varsd.into_param().abi(), ::core::mem::transmute(ldataformat), ::core::mem::transmute(loutformat), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).ConvertSecurityDescriptor)(::windows::core::Interface::as_raw(self), varsd.into_param().abi(), ::core::mem::transmute(ldataformat), ::core::mem::transmute(loutformat), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SecurityMask(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SecurityMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SecurityMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetSecurityMask(&self, lnsecuritymask: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurityMask)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnsecuritymask)).ok()
+        (::windows::core::Interface::vtable(self).SetSecurityMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnsecuritymask)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19114,198 +19114,198 @@ impl IADsService {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HostComputer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HostComputer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).HostComputer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHostComputer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhostcomputer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHostComputer)(::core::mem::transmute_copy(self), bstrhostcomputer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHostComputer)(::windows::core::Interface::as_raw(self), bstrhostcomputer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdisplayname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::core::mem::transmute_copy(self), bstrdisplayname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), bstrdisplayname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Version(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Version)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Version)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrversion: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVersion)(::core::mem::transmute_copy(self), bstrversion.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetVersion)(::windows::core::Interface::as_raw(self), bstrversion.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ServiceType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ServiceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ServiceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetServiceType(&self, lnservicetype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnservicetype)).ok()
+        (::windows::core::Interface::vtable(self).SetServiceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnservicetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn StartType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).StartType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetStartType(&self, lnstarttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnstarttype)).ok()
+        (::windows::core::Interface::vtable(self).SetStartType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnstarttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPath)(::core::mem::transmute_copy(self), bstrpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPath)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StartupParameters(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartupParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).StartupParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStartupParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstartupparameters: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartupParameters)(::core::mem::transmute_copy(self), bstrstartupparameters.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStartupParameters)(::windows::core::Interface::as_raw(self), bstrstartupparameters.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ErrorControl(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ErrorControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ErrorControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetErrorControl(&self, lnerrorcontrol: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetErrorControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnerrorcontrol)).ok()
+        (::windows::core::Interface::vtable(self).SetErrorControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnerrorcontrol)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadOrderGroup(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LoadOrderGroup)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LoadOrderGroup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoadOrderGroup<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrloadordergroup: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoadOrderGroup)(::core::mem::transmute_copy(self), bstrloadordergroup.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLoadOrderGroup)(::windows::core::Interface::as_raw(self), bstrloadordergroup.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServiceAccountName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ServiceAccountName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ServiceAccountName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetServiceAccountName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserviceaccountname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceAccountName)(::core::mem::transmute_copy(self), bstrserviceaccountname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetServiceAccountName)(::windows::core::Interface::as_raw(self), bstrserviceaccountname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServiceAccountPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ServiceAccountPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ServiceAccountPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetServiceAccountPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrserviceaccountpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServiceAccountPath)(::core::mem::transmute_copy(self), bstrserviceaccountpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetServiceAccountPath)(::windows::core::Interface::as_raw(self), bstrserviceaccountpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Dependencies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Dependencies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Dependencies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDependencies<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vdependencies: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDependencies)(::core::mem::transmute_copy(self), vdependencies.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDependencies)(::windows::core::Interface::as_raw(self), vdependencies.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19499,98 +19499,98 @@ impl IADsServiceOperations {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Start(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Start)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Continue(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Continue)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Continue)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnewpassword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::core::mem::transmute_copy(self), bstrnewpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), bstrnewpassword.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19715,106 +19715,106 @@ impl IADsSession {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn User(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).User)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).User)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UserPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UserPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Computer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Computer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Computer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComputerPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ComputerPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ComputerPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ConnectTime(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ConnectTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn IdleTime(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IdleTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).IdleTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -19948,81 +19948,81 @@ impl IADsSyntax {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn OleAutoDataType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OleAutoDataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).OleAutoDataType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetOleAutoDataType(&self, lnoleautodatatype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOleAutoDataType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnoleautodatatype)).ok()
+        (::windows::core::Interface::vtable(self).SetOleAutoDataType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnoleautodatatype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20139,20 +20139,20 @@ impl IADsTimestamp {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn WholeSeconds(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).WholeSeconds)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).WholeSeconds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetWholeSeconds(&self, lnwholeseconds: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWholeSeconds)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnwholeseconds)).ok()
+        (::windows::core::Interface::vtable(self).SetWholeSeconds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnwholeseconds)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn EventID(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EventID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).EventID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetEventID(&self, lneventid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventID)(::core::mem::transmute_copy(self), ::core::mem::transmute(lneventid)).ok()
+        (::windows::core::Interface::vtable(self).SetEventID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lneventid)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20248,30 +20248,30 @@ impl IADsTypedName {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ObjectName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ObjectName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ObjectName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrobjectname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObjectName)(::core::mem::transmute_copy(self), bstrobjectname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetObjectName)(::windows::core::Interface::as_raw(self), bstrobjectname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Level(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Level)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Level)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLevel(&self, lnlevel: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Interval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Interval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInterval(&self, lninterval: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(lninterval)).ok()
+        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lninterval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -20375,548 +20375,548 @@ impl IADsUser {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Class(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Class)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Class)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADsPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ADsPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ADsPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Schema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Schema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Schema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetInfo(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInfo)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInfo)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Get<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Get)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Get)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Put<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrname: Param0, vprop: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Put)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Put)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetEx)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetEx)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PutEx<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, lncontrolcode: i32, bstrname: Param1, vprop: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.PutEx)(::core::mem::transmute_copy(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.PutEx)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lncontrolcode), bstrname.into_param().abi(), vprop.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetInfoEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vproperties: Param0, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::core::mem::transmute_copy(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetInfoEx)(::windows::core::Interface::as_raw(self), vproperties.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BadLoginAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BadLoginAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).BadLoginAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn BadLoginCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BadLoginCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).BadLoginCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn LastLogin(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastLogin)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LastLogin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn LastLogoff(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastLogoff)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LastLogoff)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn LastFailedLogin(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastFailedLogin)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LastFailedLogin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordLastChanged(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PasswordLastChanged)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).PasswordLastChanged)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Division(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Division)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Division)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDivision<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdivision: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDivision)(::core::mem::transmute_copy(self), bstrdivision.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDivision)(::windows::core::Interface::as_raw(self), bstrdivision.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Department(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Department)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Department)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDepartment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdepartment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDepartment)(::core::mem::transmute_copy(self), bstrdepartment.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDepartment)(::windows::core::Interface::as_raw(self), bstrdepartment.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EmployeeID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EmployeeID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EmployeeID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEmployeeID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstremployeeid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEmployeeID)(::core::mem::transmute_copy(self), bstremployeeid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEmployeeID)(::windows::core::Interface::as_raw(self), bstremployeeid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FullName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FullName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FullName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFullName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfullname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFullName)(::core::mem::transmute_copy(self), bstrfullname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFullName)(::windows::core::Interface::as_raw(self), bstrfullname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FirstName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FirstName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FirstName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFirstName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfirstname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFirstName)(::core::mem::transmute_copy(self), bstrfirstname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFirstName)(::windows::core::Interface::as_raw(self), bstrfirstname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LastName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLastName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlastname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLastName)(::core::mem::transmute_copy(self), bstrlastname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLastName)(::windows::core::Interface::as_raw(self), bstrlastname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OtherName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OtherName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OtherName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOtherName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrothername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOtherName)(::core::mem::transmute_copy(self), bstrothername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOtherName)(::windows::core::Interface::as_raw(self), bstrothername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NamePrefix(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NamePrefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).NamePrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNamePrefix<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnameprefix: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNamePrefix)(::core::mem::transmute_copy(self), bstrnameprefix.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNamePrefix)(::windows::core::Interface::as_raw(self), bstrnameprefix.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn NameSuffix(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NameSuffix)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).NameSuffix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNameSuffix<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnamesuffix: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNameSuffix)(::core::mem::transmute_copy(self), bstrnamesuffix.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNameSuffix)(::windows::core::Interface::as_raw(self), bstrnamesuffix.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTitle)(::core::mem::transmute_copy(self), bstrtitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), bstrtitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Manager(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Manager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Manager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmanager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManager)(::core::mem::transmute_copy(self), bstrmanager.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetManager)(::windows::core::Interface::as_raw(self), bstrmanager.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn TelephoneHome(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TelephoneHome)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).TelephoneHome)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetTelephoneHome<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vtelephonehome: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneHome)(::core::mem::transmute_copy(self), vtelephonehome.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTelephoneHome)(::windows::core::Interface::as_raw(self), vtelephonehome.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn TelephoneMobile(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TelephoneMobile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).TelephoneMobile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetTelephoneMobile<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vtelephonemobile: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneMobile)(::core::mem::transmute_copy(self), vtelephonemobile.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTelephoneMobile)(::windows::core::Interface::as_raw(self), vtelephonemobile.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn TelephoneNumber(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TelephoneNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).TelephoneNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetTelephoneNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vtelephonenumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::core::mem::transmute_copy(self), vtelephonenumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTelephoneNumber)(::windows::core::Interface::as_raw(self), vtelephonenumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn TelephonePager(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TelephonePager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).TelephonePager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetTelephonePager<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vtelephonepager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTelephonePager)(::core::mem::transmute_copy(self), vtelephonepager.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTelephonePager)(::windows::core::Interface::as_raw(self), vtelephonepager.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn FaxNumber(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FaxNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).FaxNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFaxNumber)(::core::mem::transmute_copy(self), vfaxnumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), vfaxnumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn OfficeLocations(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OfficeLocations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).OfficeLocations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetOfficeLocations<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vofficelocations: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOfficeLocations)(::core::mem::transmute_copy(self), vofficelocations.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOfficeLocations)(::windows::core::Interface::as_raw(self), vofficelocations.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PostalAddresses(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PostalAddresses)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).PostalAddresses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPostalAddresses<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpostaladdresses: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalAddresses)(::core::mem::transmute_copy(self), vpostaladdresses.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPostalAddresses)(::windows::core::Interface::as_raw(self), vpostaladdresses.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn PostalCodes(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PostalCodes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).PostalCodes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPostalCodes<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpostalcodes: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPostalCodes)(::core::mem::transmute_copy(self), vpostalcodes.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPostalCodes)(::windows::core::Interface::as_raw(self), vpostalcodes.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SeeAlso(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SeeAlso)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).SeeAlso)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetSeeAlso<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vseealso: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSeeAlso)(::core::mem::transmute_copy(self), vseealso.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSeeAlso)(::windows::core::Interface::as_raw(self), vseealso.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AccountDisabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AccountDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).AccountDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAccountDisabled(&self, faccountdisabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountDisabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(faccountdisabled)).ok()
+        (::windows::core::Interface::vtable(self).SetAccountDisabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(faccountdisabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AccountExpirationDate(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AccountExpirationDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).AccountExpirationDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetAccountExpirationDate(&self, daaccountexpirationdate: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAccountExpirationDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(daaccountexpirationdate)).ok()
+        (::windows::core::Interface::vtable(self).SetAccountExpirationDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(daaccountexpirationdate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GraceLoginsAllowed(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GraceLoginsAllowed)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GraceLoginsAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetGraceLoginsAllowed(&self, lngraceloginsallowed: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGraceLoginsAllowed)(::core::mem::transmute_copy(self), ::core::mem::transmute(lngraceloginsallowed)).ok()
+        (::windows::core::Interface::vtable(self).SetGraceLoginsAllowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lngraceloginsallowed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GraceLoginsRemaining(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GraceLoginsRemaining)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).GraceLoginsRemaining)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetGraceLoginsRemaining(&self, lngraceloginsremaining: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGraceLoginsRemaining)(::core::mem::transmute_copy(self), ::core::mem::transmute(lngraceloginsremaining)).ok()
+        (::windows::core::Interface::vtable(self).SetGraceLoginsRemaining)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lngraceloginsremaining)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn IsAccountLocked(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsAccountLocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsAccountLocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetIsAccountLocked(&self, fisaccountlocked: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsAccountLocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(fisaccountlocked)).ok()
+        (::windows::core::Interface::vtable(self).SetIsAccountLocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fisaccountlocked)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LoginHours(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LoginHours)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).LoginHours)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetLoginHours<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vloginhours: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoginHours)(::core::mem::transmute_copy(self), vloginhours.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLoginHours)(::windows::core::Interface::as_raw(self), vloginhours.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn LoginWorkstations(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LoginWorkstations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).LoginWorkstations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetLoginWorkstations<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vloginworkstations: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoginWorkstations)(::core::mem::transmute_copy(self), vloginworkstations.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLoginWorkstations)(::windows::core::Interface::as_raw(self), vloginworkstations.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxLogins(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxLogins)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaxLogins)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxLogins(&self, lnmaxlogins: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxLogins)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnmaxlogins)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxLogins)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxlogins)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn MaxStorage(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaxStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetMaxStorage(&self, lnmaxstorage: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxStorage)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnmaxstorage)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxStorage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnmaxstorage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordExpirationDate(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PasswordExpirationDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).PasswordExpirationDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordExpirationDate(&self, dapasswordexpirationdate: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordExpirationDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(dapasswordexpirationdate)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordExpirationDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dapasswordexpirationdate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordMinimumLength(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PasswordMinimumLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PasswordMinimumLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordMinimumLength(&self, lnpasswordminimumlength: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordMinimumLength)(::core::mem::transmute_copy(self), ::core::mem::transmute(lnpasswordminimumlength)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordMinimumLength)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lnpasswordminimumlength)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn PasswordRequired(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PasswordRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).PasswordRequired)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetPasswordRequired(&self, fpasswordrequired: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPasswordRequired)(::core::mem::transmute_copy(self), ::core::mem::transmute(fpasswordrequired)).ok()
+        (::windows::core::Interface::vtable(self).SetPasswordRequired)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fpasswordrequired)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn RequireUniquePassword(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RequireUniquePassword)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).RequireUniquePassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetRequireUniquePassword(&self, frequireuniquepassword: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRequireUniquePassword)(::core::mem::transmute_copy(self), ::core::mem::transmute(frequireuniquepassword)).ok()
+        (::windows::core::Interface::vtable(self).SetRequireUniquePassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(frequireuniquepassword)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EmailAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EmailAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EmailAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEmailAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstremailaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEmailAddress)(::core::mem::transmute_copy(self), bstremailaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEmailAddress)(::windows::core::Interface::as_raw(self), bstremailaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HomeDirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HomeDirectory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).HomeDirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHomeDirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhomedirectory: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHomeDirectory)(::core::mem::transmute_copy(self), bstrhomedirectory.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHomeDirectory)(::windows::core::Interface::as_raw(self), bstrhomedirectory.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Languages(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Languages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Languages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetLanguages<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vlanguages: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguages)(::core::mem::transmute_copy(self), vlanguages.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLanguages)(::windows::core::Interface::as_raw(self), vlanguages.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Profile(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Profile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Profile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprofile: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProfile)(::core::mem::transmute_copy(self), bstrprofile.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetProfile)(::windows::core::Interface::as_raw(self), bstrprofile.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoginScript(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LoginScript)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LoginScript)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLoginScript<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrloginscript: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLoginScript)(::core::mem::transmute_copy(self), bstrloginscript.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLoginScript)(::windows::core::Interface::as_raw(self), bstrloginscript.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Picture(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Picture)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Picture)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetPicture<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vpicture: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPicture)(::core::mem::transmute_copy(self), vpicture.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPicture)(::windows::core::Interface::as_raw(self), vpicture.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HomePage(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HomePage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).HomePage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHomePage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhomepage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHomePage)(::core::mem::transmute_copy(self), bstrhomepage.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHomePage)(::windows::core::Interface::as_raw(self), bstrhomepage.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Groups(&self) -> ::windows::core::Result<IADsMembers> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Groups)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsMembers>(result__)
+        (::windows::core::Interface::vtable(self).Groups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IADsMembers>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newpassword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPassword)(::core::mem::transmute_copy(self), newpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetPassword)(::windows::core::Interface::as_raw(self), newpassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangePassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroldpassword: Param0, bstrnewpassword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ChangePassword)(::core::mem::transmute_copy(self), bstroldpassword.into_param().abi(), bstrnewpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ChangePassword)(::windows::core::Interface::as_raw(self), bstroldpassword.into_param().abi(), bstrnewpassword.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -21315,25 +21315,25 @@ impl IADsWinNTSystemInfo {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UserName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UserName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ComputerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ComputerName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ComputerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DomainName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DomainName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PDC(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PDC)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).PDC)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -21438,7 +21438,7 @@ impl ICommonQuery {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
     pub unsafe fn OpenQueryWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pquerywnd: *mut OPENQUERYWINDOW, ppdataobject: *mut ::core::option::Option<super::super::System::Com::IDataObject>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OpenQueryWindow)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pquerywnd), ::core::mem::transmute(ppdataobject)).ok()
+        (::windows::core::Interface::vtable(self).OpenQueryWindow)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(pquerywnd), ::core::mem::transmute(ppdataobject)).ok()
     }
 }
 impl ::core::convert::From<ICommonQuery> for ::windows::core::IUnknown {
@@ -21497,28 +21497,28 @@ impl IDirectoryObject {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetObjectInformation(&self) -> ::windows::core::Result<*mut ADS_OBJECT_INFO> {
         let mut result__: *mut ADS_OBJECT_INFO = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetObjectInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut ADS_OBJECT_INFO>(result__)
+        (::windows::core::Interface::vtable(self).GetObjectInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut ADS_OBJECT_INFO>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetObjectAttributes(&self, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32, ppattributeentries: *mut *mut ADS_ATTR_INFO, pdwnumattributesreturned: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetObjectAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattributenames), ::core::mem::transmute(dwnumberattributes), ::core::mem::transmute(ppattributeentries), ::core::mem::transmute(pdwnumattributesreturned)).ok()
+        (::windows::core::Interface::vtable(self).GetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattributenames), ::core::mem::transmute(dwnumberattributes), ::core::mem::transmute(ppattributeentries), ::core::mem::transmute(pdwnumattributesreturned)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetObjectAttributes(&self, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetObjectAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(pattributeentries), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SetObjectAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pattributeentries), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDSObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszrdnname: Param0, pattributeentries: *const ADS_ATTR_INFO, dwnumattributes: u32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDSObject)(::core::mem::transmute_copy(self), pszrdnname.into_param().abi(), ::core::mem::transmute(pattributeentries), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CreateDSObject)(::windows::core::Interface::as_raw(self), pszrdnname.into_param().abi(), ::core::mem::transmute(pattributeentries), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DeleteDSObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszrdnname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteDSObject)(::core::mem::transmute_copy(self), pszrdnname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteDSObject)(::windows::core::Interface::as_raw(self), pszrdnname.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirectoryObject> for ::windows::core::IUnknown {
@@ -21587,40 +21587,40 @@ impl IDirectorySchemaMgmt {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumAttributes(&self, ppszattrnames: *const ::windows::core::PWSTR, dwnumattributes: u32, ppattrdefinition: *const *const ADS_ATTR_DEF, pdwnumattributes: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumAttributes)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszattrnames), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(ppattrdefinition), ::core::mem::transmute(pdwnumattributes)).ok()
+        (::windows::core::Interface::vtable(self).EnumAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppszattrnames), ::core::mem::transmute(dwnumattributes), ::core::mem::transmute(ppattrdefinition), ::core::mem::transmute(pdwnumattributes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateAttributeDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributename: Param0, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateAttributeDefinition)(::core::mem::transmute_copy(self), pszattributename.into_param().abi(), ::core::mem::transmute(pattributedefinition)).ok()
+        (::windows::core::Interface::vtable(self).CreateAttributeDefinition)(::windows::core::Interface::as_raw(self), pszattributename.into_param().abi(), ::core::mem::transmute(pattributedefinition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteAttributeDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributename: Param0, pattributedefinition: *const ADS_ATTR_DEF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteAttributeDefinition)(::core::mem::transmute_copy(self), pszattributename.into_param().abi(), ::core::mem::transmute(pattributedefinition)).ok()
+        (::windows::core::Interface::vtable(self).WriteAttributeDefinition)(::windows::core::Interface::as_raw(self), pszattributename.into_param().abi(), ::core::mem::transmute(pattributedefinition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DeleteAttributeDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteAttributeDefinition)(::core::mem::transmute_copy(self), pszattributename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteAttributeDefinition)(::windows::core::Interface::as_raw(self), pszattributename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumClasses(&self, ppszclassnames: *const ::windows::core::PWSTR, dwnumclasses: u32, ppclassdefinition: *const *const ADS_CLASS_DEF, pdwnumclasses: *const u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumClasses)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppszclassnames), ::core::mem::transmute(dwnumclasses), ::core::mem::transmute(ppclassdefinition), ::core::mem::transmute(pdwnumclasses)).ok()
+        (::windows::core::Interface::vtable(self).EnumClasses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppszclassnames), ::core::mem::transmute(dwnumclasses), ::core::mem::transmute(ppclassdefinition), ::core::mem::transmute(pdwnumclasses)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteClassDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszclassname: Param0, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteClassDefinition)(::core::mem::transmute_copy(self), pszclassname.into_param().abi(), ::core::mem::transmute(pclassdefinition)).ok()
+        (::windows::core::Interface::vtable(self).WriteClassDefinition)(::windows::core::Interface::as_raw(self), pszclassname.into_param().abi(), ::core::mem::transmute(pclassdefinition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateClassDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszclassname: Param0, pclassdefinition: *const ADS_CLASS_DEF) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateClassDefinition)(::core::mem::transmute_copy(self), pszclassname.into_param().abi(), ::core::mem::transmute(pclassdefinition)).ok()
+        (::windows::core::Interface::vtable(self).CreateClassDefinition)(::windows::core::Interface::as_raw(self), pszclassname.into_param().abi(), ::core::mem::transmute(pclassdefinition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn DeleteClassDefinition<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszclassname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteClassDefinition)(::core::mem::transmute_copy(self), pszclassname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteClassDefinition)(::windows::core::Interface::as_raw(self), pszclassname.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDirectorySchemaMgmt> for ::windows::core::IUnknown {
@@ -21701,47 +21701,47 @@ impl IDirectorySearch {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSearchPreference(&self, psearchprefs: *const ads_searchpref_info, dwnumprefs: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSearchPreference)(::core::mem::transmute_copy(self), ::core::mem::transmute(psearchprefs), ::core::mem::transmute(dwnumprefs)).ok()
+        (::windows::core::Interface::vtable(self).SetSearchPreference)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchprefs), ::core::mem::transmute(dwnumprefs)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ExecuteSearch<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszsearchfilter: Param0, pattributenames: *const ::windows::core::PWSTR, dwnumberattributes: u32) -> ::windows::core::Result<isize> {
         let mut result__: isize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExecuteSearch)(::core::mem::transmute_copy(self), pszsearchfilter.into_param().abi(), ::core::mem::transmute(pattributenames), ::core::mem::transmute(dwnumberattributes), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).ExecuteSearch)(::windows::core::Interface::as_raw(self), pszsearchfilter.into_param().abi(), ::core::mem::transmute(pattributenames), ::core::mem::transmute(dwnumberattributes), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn AbandonSearch(&self, phsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AbandonSearch)(::core::mem::transmute_copy(self), ::core::mem::transmute(phsearchresult)).ok()
+        (::windows::core::Interface::vtable(self).AbandonSearch)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phsearchresult)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetFirstRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFirstRow)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetFirstRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetNextRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextRow)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetPreviousRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPreviousRow)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetPreviousRow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetNextColumnName(&self, hsearchhandle: isize, ppszcolumnname: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextColumnName)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchhandle), ::core::mem::transmute(ppszcolumnname)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetNextColumnName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchhandle), ::core::mem::transmute(ppszcolumnname)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetColumn<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hsearchresult: isize, szcolumnname: Param1) -> ::windows::core::Result<ads_search_column> {
         let mut result__: ads_search_column = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetColumn)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult), szcolumnname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ads_search_column>(result__)
+        (::windows::core::Interface::vtable(self).GetColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult), szcolumnname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ads_search_column>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FreeColumn(&self, psearchcolumn: *const ads_search_column) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeColumn)(::core::mem::transmute_copy(self), ::core::mem::transmute(psearchcolumn)).ok()
+        (::windows::core::Interface::vtable(self).FreeColumn)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psearchcolumn)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn CloseSearchHandle(&self, hsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseSearchHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)).ok()
+        (::windows::core::Interface::vtable(self).CloseSearchHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hsearchresult)).ok()
     }
 }
 impl ::core::convert::From<IDirectorySearch> for ::windows::core::IUnknown {
@@ -21815,13 +21815,13 @@ impl IDsAdminCreateObj {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IADsContainer>, Param1: ::windows::core::IntoParam<'a, IADs>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, padscontainerobj: Param0, padscopysource: Param1, lpszclassname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateModal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<IADs> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateModal)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IADs>(result__)
+        (::windows::core::Interface::vtable(self).CreateModal)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IADs>(result__)
     }
 }
 impl ::core::convert::From<IDsAdminCreateObj> for ::windows::core::IUnknown {
@@ -21884,11 +21884,11 @@ impl IDsAdminNewObj {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetButtons<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ncurrindex: u32, bvalid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetButtons)(::core::mem::transmute_copy(self), ::core::mem::transmute(ncurrindex), bvalid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetButtons)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ncurrindex), bvalid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetPageCounts(&self, pntotal: *mut i32, pnstartindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPageCounts)(::core::mem::transmute_copy(self), ::core::mem::transmute(pntotal), ::core::mem::transmute(pnstartindex)).ok()
+        (::windows::core::Interface::vtable(self).GetPageCounts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pntotal), ::core::mem::transmute(pnstartindex)).ok()
     }
 }
 impl ::core::convert::From<IDsAdminNewObj> for ::windows::core::IUnknown {
@@ -21948,32 +21948,32 @@ impl IDsAdminNewObjExt {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IADsContainer>, Param1: ::windows::core::IntoParam<'a, IADs>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, IDsAdminNewObj>>(&self, padscontainerobj: Param0, padscopysource: Param1, lpszclassname: Param2, pdsadminnewobj: Param3, pdispinfo: *mut DSA_NEWOBJ_DISPINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi(), pdsadminnewobj.into_param().abi(), ::core::mem::transmute(pdispinfo)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), padscontainerobj.into_param().abi(), padscopysource.into_param().abi(), lpszclassname.into_param().abi(), pdsadminnewobj.into_param().abi(), ::core::mem::transmute(pdispinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Controls\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
     pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, lpfnaddpage: super::super::UI::Controls::LPFNSVADDPROPSHEETPAGE, lparam: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpfnaddpage), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpfnaddpage), lparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetObject<'a, Param0: ::windows::core::IntoParam<'a, IADs>>(&self, padsobj: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetObject)(::core::mem::transmute_copy(self), padsobj.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetObject)(::windows::core::Interface::as_raw(self), padsobj.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0, ucontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteData)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(ucontext)).ok()
+        (::windows::core::Interface::vtable(self).WriteData)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute(ucontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnError<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0, hr: ::windows::core::HRESULT, ucontext: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnError)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), ::core::mem::transmute(hr), ::core::mem::transmute(ucontext)).ok()
+        (::windows::core::Interface::vtable(self).OnError)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), ::core::mem::transmute(hr), ::core::mem::transmute(ucontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSummaryInfo(&self, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSummaryInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrtext)).ok()
+        (::windows::core::Interface::vtable(self).GetSummaryInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
     }
 }
 impl ::core::convert::From<IDsAdminNewObjExt> for ::windows::core::IUnknown {
@@ -22051,11 +22051,11 @@ pub struct IDsAdminNewObjPrimarySite(::windows::core::IUnknown);
 impl IDsAdminNewObjPrimarySite {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn CreateNew<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateNew)(::core::mem::transmute_copy(self), pszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CreateNew)(::windows::core::Interface::as_raw(self), pszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Commit(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IDsAdminNewObjPrimarySite> for ::windows::core::IUnknown {
@@ -22112,20 +22112,20 @@ impl IDsAdminNotifyHandler {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, pextrainfo: Param0, pueventflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pextrainfo.into_param().abi(), ::core::mem::transmute(pueventflags)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pextrainfo.into_param().abi(), ::core::mem::transmute(pueventflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Begin<'a, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>, Param2: ::windows::core::IntoParam<'a, super::super::System::Com::IDataObject>>(&self, uevent: u32, parg1: Param1, parg2: Param2, puflags: *mut u32, pbstr: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Begin)(::core::mem::transmute_copy(self), ::core::mem::transmute(uevent), parg1.into_param().abi(), parg2.into_param().abi(), ::core::mem::transmute(puflags), ::core::mem::transmute(pbstr)).ok()
+        (::windows::core::Interface::vtable(self).Begin)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uevent), parg1.into_param().abi(), parg2.into_param().abi(), ::core::mem::transmute(puflags), ::core::mem::transmute(pbstr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Notify(&self, nitem: u32, uflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), ::core::mem::transmute(nitem), ::core::mem::transmute(uflags)).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nitem), ::core::mem::transmute(uflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn End(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).End)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).End)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IDsAdminNotifyHandler> for ::windows::core::IUnknown {
@@ -22190,25 +22190,25 @@ impl IDsBrowseDomainTree {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BrowseTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, ppsztargetpath: *mut ::windows::core::PWSTR, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BrowseTo)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(ppsztargetpath), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).BrowseTo)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(ppsztargetpath), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDomains)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdomaintree), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).GetDomains)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppdomaintree), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FreeDomains(&self, ppdomaintree: *mut *mut DOMAIN_TREE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeDomains)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppdomaintree)).ok()
+        (::windows::core::Interface::vtable(self).FreeDomains)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppdomaintree)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn FlushCachedDomains(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FlushCachedDomains)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).FlushCachedDomains)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetComputer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszcomputername: Param0, pszusername: Param1, pszpassword: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetComputer)(::core::mem::transmute_copy(self), pszcomputername.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetComputer)(::windows::core::Interface::as_raw(self), pszcomputername.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDsBrowseDomainTree> for ::windows::core::IUnknown {
@@ -22276,50 +22276,50 @@ pub struct IDsDisplaySpecifier(::windows::core::IUnknown);
 impl IDsDisplaySpecifier {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetServer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszserver: Param0, pszusername: Param1, pszpassword: Param2, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetServer)(::core::mem::transmute_copy(self), pszserver.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).SetServer)(::windows::core::Interface::as_raw(self), pszserver.into_param().abi(), pszusername.into_param().abi(), pszpassword.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetLanguageID(&self, langid: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLanguageID)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid)).ok()
+        (::windows::core::Interface::vtable(self).SetLanguageID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(langid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetDisplaySpecifier<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDisplaySpecifier)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
+        (::windows::core::Interface::vtable(self).GetDisplaySpecifier)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppv)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetIconLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, dwflags: u32, pszbuffer: &mut [u16], presid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetIconLocation)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _, ::core::mem::transmute(presid)).ok()
+        (::windows::core::Interface::vtable(self).GetIconLocation)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _, ::core::mem::transmute(presid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
     pub unsafe fn GetIcon<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, dwflags: u32, cxicon: i32, cyicon: i32) -> super::super::UI::WindowsAndMessaging::HICON {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetIcon)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetIcon)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(cxicon), ::core::mem::transmute(cyicon)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetFriendlyClassName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, pszbuffer: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyClassName)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetFriendlyClassName)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetFriendlyAttributeName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, pszattributename: Param1, pszbuffer: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFriendlyAttributeName)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), pszattributename.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetFriendlyAttributeName)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), pszattributename.into_param().abi(), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pszbuffer)), pszbuffer.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsClassContainer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, pszadspath: Param1, dwflags: u32) -> super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsClassContainer)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), pszadspath.into_param().abi(), ::core::mem::transmute(dwflags)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsClassContainer)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), pszadspath.into_param().abi(), ::core::mem::transmute(dwflags)))
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetClassCreationInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszobjectclass: Param0, ppdscci: *mut *mut DSCLASSCREATIONINFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetClassCreationInfo)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(ppdscci)).ok()
+        (::windows::core::Interface::vtable(self).GetClassCreationInfo)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(ppdscci)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnumClassAttributes<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, pszobjectclass: Param0, pcbenum: LPDSENUMATTRIBUTES, lparam: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnumClassAttributes)(::core::mem::transmute_copy(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(pcbenum), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).EnumClassAttributes)(::windows::core::Interface::as_raw(self), pszobjectclass.into_param().abi(), ::core::mem::transmute(pcbenum), lparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn GetAttributeADsType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszattributename: Param0) -> ADSTYPEENUM {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAttributeADsType)(::core::mem::transmute_copy(self), pszattributename.into_param().abi()))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAttributeADsType)(::windows::core::Interface::as_raw(self), pszattributename.into_param().abi()))
     }
 }
 impl ::core::convert::From<IDsDisplaySpecifier> for ::windows::core::IUnknown {
@@ -22393,13 +22393,13 @@ pub struct IDsObjectPicker(::windows::core::IUnknown);
 impl IDsObjectPicker {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinitinfo)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinitinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InvokeDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InvokeDialog)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).InvokeDialog)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
 }
 impl ::core::convert::From<IDsObjectPicker> for ::windows::core::IUnknown {
@@ -22458,17 +22458,17 @@ pub struct IDsObjectPickerCredentials(::windows::core::IUnknown);
 impl IDsObjectPickerCredentials {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Initialize(&self, pinitinfo: *mut DSOP_INIT_INFO) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pinitinfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinitinfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn InvokeDialog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<super::super::System::Com::IDataObject> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.InvokeDialog)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDataObject>(result__)
+        (::windows::core::Interface::vtable(self).base__.InvokeDialog)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDataObject>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, szusername: Param0, szpassword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::core::mem::transmute_copy(self), szusername.into_param().abi(), szpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), szusername.into_param().abi(), szpassword.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IDsObjectPickerCredentials> for ::windows::core::IUnknown {
@@ -22547,35 +22547,35 @@ impl IPersistQuery {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetClassID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetClassID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetClassID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn WriteString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteString)(::core::mem::transmute_copy(self), psection.into_param().abi(), pvaluename.into_param().abi(), pvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteString)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), pvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReadString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pbuffer: ::windows::core::PWSTR, cchbuffer: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadString)(::core::mem::transmute_copy(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cchbuffer)).ok()
+        (::windows::core::Interface::vtable(self).ReadString)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pbuffer), ::core::mem::transmute(cchbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn WriteInt<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, value: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteInt)(::core::mem::transmute_copy(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(value)).ok()
+        (::windows::core::Interface::vtable(self).WriteInt)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(value)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReadInt<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pvalue: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadInt)(::core::mem::transmute_copy(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Interface::vtable(self).ReadInt)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn WriteStruct<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteStruct)(::core::mem::transmute_copy(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
+        (::windows::core::Interface::vtable(self).WriteStruct)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ReadStruct<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, psection: Param0, pvaluename: Param1, pstruct: *mut ::core::ffi::c_void, cbstruct: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadStruct)(::core::mem::transmute_copy(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
+        (::windows::core::Interface::vtable(self).ReadStruct)(::windows::core::Interface::as_raw(self), psection.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(pstruct), ::core::mem::transmute(cbstruct)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -22670,28 +22670,28 @@ pub struct IPrivateDispatch(::windows::core::IUnknown);
 impl IPrivateDispatch {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIInitializeDispatchManager(&self, dwextensionid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ADSIInitializeDispatchManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwextensionid)).ok()
+        (::windows::core::Interface::vtable(self).ADSIInitializeDispatchManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwextensionid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIGetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ADSIGetTypeInfoCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ADSIGetTypeInfoCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ADSIGetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ADSIGetTypeInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
+        (::windows::core::Interface::vtable(self).ADSIGetTypeInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIGetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const *const u16, cnames: u32, lcid: u32) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ADSIGetIDsOfNames)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ADSIGetIDsOfNames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ADSIInvoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ADSIInvoke)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
+        (::windows::core::Interface::vtable(self).ADSIInvoke)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
 }
 impl ::core::convert::From<IPrivateDispatch> for ::windows::core::IUnknown {
@@ -22757,11 +22757,11 @@ impl IPrivateUnknown {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ADSIInitializeObject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lpszusername: Param0, lpszpassword: Param1, lnreserved: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ADSIInitializeObject)(::core::mem::transmute_copy(self), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
+        (::windows::core::Interface::vtable(self).ADSIInitializeObject)(::windows::core::Interface::as_raw(self), lpszusername.into_param().abi(), lpszpassword.into_param().abi(), ::core::mem::transmute(lnreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`*"]
     pub unsafe fn ADSIReleaseObject(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ADSIReleaseObject)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ADSIReleaseObject)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IPrivateUnknown> for ::windows::core::IUnknown {
@@ -22821,17 +22821,17 @@ impl IQueryForm {
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(&self, hkform: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), hkform.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hkform.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn AddForms<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddformsproc: LPCQADDFORMSPROC, lparam: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddForms)(::core::mem::transmute_copy(self), ::core::mem::transmute(paddformsproc), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddForms)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paddformsproc), lparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Networking_ActiveDirectory\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn AddPages<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, paddpagesproc: LPCQADDPAGESPROC, lparam: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(paddpagesproc), lparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(paddpagesproc), lparam.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IQueryForm> for ::windows::core::IUnknown {

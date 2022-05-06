@@ -936,7 +936,7 @@ impl StoreAcquireLicenseResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StorePackageLicense)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorePackageLicense>(result__)
+            (::windows::core::Interface::vtable(this).StorePackageLicense)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StorePackageLicense>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -944,7 +944,7 @@ impl StoreAcquireLicenseResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -1029,7 +1029,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SkuStoreId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SkuStoreId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1037,7 +1037,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsActive)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsActive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1045,7 +1045,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTrial)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTrial)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1054,7 +1054,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpirationDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).ExpirationDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1062,7 +1062,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1071,7 +1071,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AddOnLicenses)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreLicense>>(result__)
+            (::windows::core::Interface::vtable(this).AddOnLicenses)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreLicense>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1080,7 +1080,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrialTimeRemaining)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).TrialTimeRemaining)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1088,7 +1088,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTrialOwnedByThisUser)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTrialOwnedByThisUser)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1096,7 +1096,7 @@ impl StoreAppLicense {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrialUniqueId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).TrialUniqueId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1104,7 +1104,7 @@ impl StoreAppLicense {
         let this = &::windows::core::Interface::cast::<IStoreAppLicense2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDiscLicense)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsDiscLicense)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -1189,7 +1189,7 @@ impl StoreAvailability {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StoreId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).StoreId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1198,7 +1198,7 @@ impl StoreAvailability {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).EndDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1206,7 +1206,7 @@ impl StoreAvailability {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Price)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorePrice>(result__)
+            (::windows::core::Interface::vtable(this).Price)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StorePrice>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1214,7 +1214,7 @@ impl StoreAvailability {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1223,7 +1223,7 @@ impl StoreAvailability {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1232,7 +1232,7 @@ impl StoreAvailability {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::core::mem::transmute_copy(this), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Interface::as_raw(this), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
 }
@@ -1317,7 +1317,7 @@ impl StoreCanAcquireLicenseResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1325,7 +1325,7 @@ impl StoreCanAcquireLicenseResult {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LicensableSku)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).LicensableSku)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1333,7 +1333,7 @@ impl StoreCanAcquireLicenseResult {
         let this = self;
         unsafe {
             let mut result__: StoreCanLicenseStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreCanLicenseStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreCanLicenseStatus>(result__)
         }
     }
 }
@@ -1455,7 +1455,7 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTrial)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTrial)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1463,7 +1463,7 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CampaignId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CampaignId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1471,7 +1471,7 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeveloperOfferId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeveloperOfferId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1480,7 +1480,7 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AcquiredDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).AcquiredDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1489,7 +1489,7 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StartDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).StartDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1498,7 +1498,7 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).EndDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1507,7 +1507,7 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrialTimeRemaining)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).TrialTimeRemaining)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1515,7 +1515,7 @@ impl StoreCollectionData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1600,7 +1600,7 @@ impl StoreConsumableResult {
         let this = self;
         unsafe {
             let mut result__: StoreConsumableStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreConsumableStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreConsumableStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1608,7 +1608,7 @@ impl StoreConsumableResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrackingId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            (::windows::core::Interface::vtable(this).TrackingId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1616,7 +1616,7 @@ impl StoreConsumableResult {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BalanceRemaining)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).BalanceRemaining)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1624,7 +1624,7 @@ impl StoreConsumableResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -1746,7 +1746,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1755,14 +1755,14 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OfflineLicensesChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).OfflineLicensesChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOfflineLicensesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveOfflineLicensesChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveOfflineLicensesChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1770,7 +1770,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCustomerPurchaseIdAsync)(::core::mem::transmute_copy(this), serviceticket.into_param().abi(), publisheruserid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetCustomerPurchaseIdAsync)(::windows::core::Interface::as_raw(this), serviceticket.into_param().abi(), publisheruserid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1779,7 +1779,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCustomerCollectionsIdAsync)(::core::mem::transmute_copy(this), serviceticket.into_param().abi(), publisheruserid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).GetCustomerCollectionsIdAsync)(::windows::core::Interface::as_raw(this), serviceticket.into_param().abi(), publisheruserid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1788,7 +1788,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAppLicenseAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreAppLicense>>(result__)
+            (::windows::core::Interface::vtable(this).GetAppLicenseAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreAppLicense>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1797,7 +1797,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStoreProductForCurrentAppAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetStoreProductForCurrentAppAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1806,7 +1806,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStoreProductsAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetStoreProductsAsync)(::windows::core::Interface::as_raw(this), productkinds.into_param().abi(), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1815,7 +1815,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAssociatedStoreProductsAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetAssociatedStoreProductsAsync)(::windows::core::Interface::as_raw(this), productkinds.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1824,7 +1824,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAssociatedStoreProductsWithPagingAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), maxitemstoretrieveperpage, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetAssociatedStoreProductsWithPagingAsync)(::windows::core::Interface::as_raw(this), productkinds.into_param().abi(), maxitemstoretrieveperpage, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1833,7 +1833,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUserCollectionAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetUserCollectionAsync)(::windows::core::Interface::as_raw(this), productkinds.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1842,7 +1842,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUserCollectionWithPagingAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), maxitemstoretrieveperpage, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetUserCollectionWithPagingAsync)(::windows::core::Interface::as_raw(this), productkinds.into_param().abi(), maxitemstoretrieveperpage, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1851,7 +1851,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::core::mem::transmute_copy(this), productstoreid.into_param().abi(), quantity, trackingid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>(result__)
+            (::windows::core::Interface::vtable(this).ReportConsumableFulfillmentAsync)(::windows::core::Interface::as_raw(this), productstoreid.into_param().abi(), quantity, trackingid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1860,7 +1860,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetConsumableBalanceRemainingAsync)(::core::mem::transmute_copy(this), productstoreid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetConsumableBalanceRemainingAsync)(::windows::core::Interface::as_raw(this), productstoreid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreConsumableResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
@@ -1869,7 +1869,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(::core::mem::transmute_copy(this), optionalpackage.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>(result__)
+            (::windows::core::Interface::vtable(this).AcquireStoreLicenseForOptionalPackageAsync)(::windows::core::Interface::as_raw(this), optionalpackage.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreAcquireLicenseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1878,7 +1878,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::core::mem::transmute_copy(this), storeid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::windows::core::Interface::as_raw(this), storeid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1887,7 +1887,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::core::mem::transmute_copy(this), storeid.into_param().abi(), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Interface::as_raw(this), storeid.into_param().abi(), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1896,7 +1896,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAppAndOptionalStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>>(result__)
+            (::windows::core::Interface::vtable(this).GetAppAndOptionalStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StorePackageUpdate>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1905,7 +1905,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDownloadStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDownloadStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1914,7 +1914,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1923,7 +1923,7 @@ impl StoreContext {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesAsync)(::core::mem::transmute_copy(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesAsync)(::windows::core::Interface::as_raw(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation_Collections\"`*"]
@@ -1932,7 +1932,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindStoreProductForPackageAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), package.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindStoreProductForPackageAsync)(::windows::core::Interface::as_raw(this), productkinds.into_param().abi(), package.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -1940,7 +1940,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanSilentlyDownloadStorePackageUpdates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanSilentlyDownloadStorePackageUpdates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1949,7 +1949,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySilentDownloadStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
+            (::windows::core::Interface::vtable(this).TrySilentDownloadStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1958,7 +1958,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySilentDownloadAndInstallStorePackageUpdatesAsync)(::core::mem::transmute_copy(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
+            (::windows::core::Interface::vtable(this).TrySilentDownloadAndInstallStorePackageUpdatesAsync)(::windows::core::Interface::as_raw(this), storepackageupdates.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
@@ -1967,7 +1967,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(::core::mem::transmute_copy(this), optionalpackage.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
+            (::windows::core::Interface::vtable(this).CanAcquireStoreLicenseForOptionalPackageAsync)(::windows::core::Interface::as_raw(this), optionalpackage.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -1976,7 +1976,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanAcquireStoreLicenseAsync)(::core::mem::transmute_copy(this), productstoreid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
+            (::windows::core::Interface::vtable(this).CanAcquireStoreLicenseAsync)(::windows::core::Interface::as_raw(this), productstoreid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreCanAcquireLicenseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1985,7 +1985,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStoreProductsWithOptionsAsync)(::core::mem::transmute_copy(this), productkinds.into_param().abi(), storeids.into_param().abi(), storeproductoptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetStoreProductsWithOptionsAsync)(::windows::core::Interface::as_raw(this), productkinds.into_param().abi(), storeids.into_param().abi(), storeproductoptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductQueryResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -1994,7 +1994,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAssociatedStoreQueueItemsAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
+            (::windows::core::Interface::vtable(this).GetAssociatedStoreQueueItemsAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -2003,7 +2003,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStoreQueueItemsAsync)(::core::mem::transmute_copy(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
+            (::windows::core::Interface::vtable(this).GetStoreQueueItemsAsync)(::windows::core::Interface::as_raw(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -2012,7 +2012,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(::core::mem::transmute_copy(this), storeids.into_param().abi(), storepackageinstalloptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestDownloadAndInstallStorePackagesWithInstallOptionsAsync)(::windows::core::Interface::as_raw(this), storeids.into_param().abi(), storepackageinstalloptions.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -2021,7 +2021,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadAndInstallStorePackagesAsync)(::core::mem::transmute_copy(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
+            (::windows::core::Interface::vtable(this).DownloadAndInstallStorePackagesAsync)(::windows::core::Interface::as_raw(this), storeids.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<StorePackageUpdateResult, StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
@@ -2030,7 +2030,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestUninstallStorePackageAsync)(::core::mem::transmute_copy(this), package.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestUninstallStorePackageAsync)(::windows::core::Interface::as_raw(this), package.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -2039,7 +2039,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestUninstallStorePackageByStoreIdAsync)(::core::mem::transmute_copy(this), storeid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestUninstallStorePackageByStoreIdAsync)(::windows::core::Interface::as_raw(this), storeid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`, `\"Foundation\"`*"]
@@ -2048,7 +2048,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UninstallStorePackageAsync)(::core::mem::transmute_copy(this), package.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
+            (::windows::core::Interface::vtable(this).UninstallStorePackageAsync)(::windows::core::Interface::as_raw(this), package.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -2057,7 +2057,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UninstallStorePackageByStoreIdAsync)(::core::mem::transmute_copy(this), storeid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
+            (::windows::core::Interface::vtable(this).UninstallStorePackageByStoreIdAsync)(::windows::core::Interface::as_raw(this), storeid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreUninstallStorePackageResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -2066,7 +2066,7 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestRateAndReviewAppAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestRateAndReviewAppAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreRateAndReviewResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -2075,14 +2075,14 @@ impl StoreContext {
         let this = &::windows::core::Interface::cast::<IStoreContext4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetInstallOrderForAssociatedStoreQueueItemsAsync)(::core::mem::transmute_copy(this), items.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
+            (::windows::core::Interface::vtable(this).SetInstallOrderForAssociatedStoreQueueItemsAsync)(::windows::core::Interface::as_raw(this), items.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreContext>(result__)
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreContext>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"System\"`*"]
@@ -2090,7 +2090,7 @@ impl StoreContext {
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>>(user: Param0) -> ::windows::core::Result<StoreContext> {
         Self::IStoreContextStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForUser)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<StoreContext>(result__)
+            (::windows::core::Interface::vtable(this).GetForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi::<StoreContext>(result__)
         })
     }
     #[doc(hidden)]
@@ -2219,7 +2219,7 @@ impl StoreImage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2227,7 +2227,7 @@ impl StoreImage {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImagePurposeTag)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ImagePurposeTag)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2235,7 +2235,7 @@ impl StoreImage {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Width)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2243,7 +2243,7 @@ impl StoreImage {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Height)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2251,7 +2251,7 @@ impl StoreImage {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Caption)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Caption)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -2336,7 +2336,7 @@ impl StoreLicense {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SkuStoreId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SkuStoreId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2344,7 +2344,7 @@ impl StoreLicense {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsActive)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsActive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -2353,7 +2353,7 @@ impl StoreLicense {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpirationDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).ExpirationDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2361,7 +2361,7 @@ impl StoreLicense {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2369,7 +2369,7 @@ impl StoreLicense {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InAppOfferToken)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).InAppOfferToken)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -2461,13 +2461,13 @@ impl StorePackageInstallOptions {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowForcedAppRestart)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowForcedAppRestart)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SetAllowForcedAppRestart(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowForcedAppRestart)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowForcedAppRestart)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for StorePackageInstallOptions {
@@ -2550,7 +2550,7 @@ impl StorePackageLicense {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2558,14 +2558,14 @@ impl StorePackageLicense {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LicenseLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).LicenseLost)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLicenseLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveLicenseLost)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveLicenseLost)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"ApplicationModel\"`*"]
     #[cfg(feature = "ApplicationModel")]
@@ -2573,7 +2573,7 @@ impl StorePackageLicense {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Package)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
+            (::windows::core::Interface::vtable(this).Package)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2581,13 +2581,13 @@ impl StorePackageLicense {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsValid)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsValid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ReleaseLicense(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReleaseLicense)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReleaseLicense)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for StorePackageLicense {
@@ -2698,7 +2698,7 @@ impl StorePackageUpdate {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Package)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
+            (::windows::core::Interface::vtable(this).Package)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::ApplicationModel::Package>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2706,7 +2706,7 @@ impl StorePackageUpdate {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Mandatory)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Mandatory)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -2791,7 +2791,7 @@ impl StorePackageUpdateResult {
         let this = self;
         unsafe {
             let mut result__: StorePackageUpdateState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OverallState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorePackageUpdateState>(result__)
+            (::windows::core::Interface::vtable(this).OverallState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StorePackageUpdateState>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -2800,7 +2800,7 @@ impl StorePackageUpdateResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StorePackageUpdateStatuses)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>>(result__)
+            (::windows::core::Interface::vtable(this).StorePackageUpdateStatuses)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StorePackageUpdateStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -2809,7 +2809,7 @@ impl StorePackageUpdateResult {
         let this = &::windows::core::Interface::cast::<IStorePackageUpdateResult2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StoreQueueItems)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>(result__)
+            (::windows::core::Interface::vtable(this).StoreQueueItems)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreQueueItem>>(result__)
         }
     }
 }
@@ -2983,7 +2983,7 @@ impl StorePrice {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormattedBasePrice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormattedBasePrice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2991,7 +2991,7 @@ impl StorePrice {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormattedPrice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormattedPrice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -2999,7 +2999,7 @@ impl StorePrice {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsOnSale)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsOnSale)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -3008,7 +3008,7 @@ impl StorePrice {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SaleEndDate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).SaleEndDate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3016,7 +3016,7 @@ impl StorePrice {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrencyCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CurrencyCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3024,7 +3024,7 @@ impl StorePrice {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FormattedRecurrencePrice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).FormattedRecurrencePrice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -3109,7 +3109,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StoreId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).StoreId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3117,7 +3117,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3125,7 +3125,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3133,7 +3133,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3141,7 +3141,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProductKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProductKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3149,7 +3149,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasDigitalDownload)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasDigitalDownload)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -3158,7 +3158,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Keywords)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Keywords)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -3167,7 +3167,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Images)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreImage>>(result__)
+            (::windows::core::Interface::vtable(this).Images)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreImage>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -3176,7 +3176,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Videos)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreVideo>>(result__)
+            (::windows::core::Interface::vtable(this).Videos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreVideo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -3185,7 +3185,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Skus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreSku>>(result__)
+            (::windows::core::Interface::vtable(this).Skus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreSku>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3193,7 +3193,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInUserCollection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsInUserCollection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3201,7 +3201,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Price)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorePrice>(result__)
+            (::windows::core::Interface::vtable(this).Price)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StorePrice>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3209,7 +3209,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -3218,7 +3218,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LinkUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).LinkUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -3227,7 +3227,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIsAnySkuInstalledAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).GetIsAnySkuInstalledAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -3236,7 +3236,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -3245,7 +3245,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::core::mem::transmute_copy(this), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Interface::as_raw(this), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3253,7 +3253,7 @@ impl StoreProduct {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InAppOfferToken)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).InAppOfferToken)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -3346,7 +3346,7 @@ impl StoreProductOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActionFilters)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).ActionFilters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
 }
@@ -3432,7 +3432,7 @@ impl StoreProductPagedQueryResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Products)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>(result__)
+            (::windows::core::Interface::vtable(this).Products)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3440,7 +3440,7 @@ impl StoreProductPagedQueryResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasMoreResults)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasMoreResults)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3448,7 +3448,7 @@ impl StoreProductPagedQueryResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -3457,7 +3457,7 @@ impl StoreProductPagedQueryResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNextAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).GetNextAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreProductPagedQueryResult>>(result__)
         }
     }
 }
@@ -3543,7 +3543,7 @@ impl StoreProductQueryResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Products)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>(result__)
+            (::windows::core::Interface::vtable(this).Products)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, StoreProduct>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3551,7 +3551,7 @@ impl StoreProductQueryResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -3636,7 +3636,7 @@ impl StoreProductResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Product)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreProduct>(result__)
+            (::windows::core::Interface::vtable(this).Product)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreProduct>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3644,7 +3644,7 @@ impl StoreProductResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -3736,32 +3736,32 @@ impl StorePurchaseProperties {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn ExtendedJsonData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn SetExtendedJsonData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExtendedJsonData)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExtendedJsonData)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<StorePurchaseProperties> {
         Self::IStorePurchasePropertiesFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<StorePurchaseProperties>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into_param().abi(), &mut result__).from_abi::<StorePurchaseProperties>(result__)
         })
     }
     #[doc(hidden)]
@@ -3851,7 +3851,7 @@ impl StorePurchaseResult {
         let this = self;
         unsafe {
             let mut result__: StorePurchaseStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorePurchaseStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StorePurchaseStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3859,7 +3859,7 @@ impl StorePurchaseResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -3981,7 +3981,7 @@ impl StoreQueueItem {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProductId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ProductId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3989,7 +3989,7 @@ impl StoreQueueItem {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PackageFamilyName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).PackageFamilyName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -3997,7 +3997,7 @@ impl StoreQueueItem {
         let this = self;
         unsafe {
             let mut result__: StoreQueueItemKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InstallKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreQueueItemKind>(result__)
+            (::windows::core::Interface::vtable(this).InstallKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreQueueItemKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4005,7 +4005,7 @@ impl StoreQueueItem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreQueueItemStatus>(result__)
+            (::windows::core::Interface::vtable(this).GetCurrentStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreQueueItemStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -4014,14 +4014,14 @@ impl StoreQueueItem {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4029,14 +4029,14 @@ impl StoreQueueItem {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StatusChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4044,7 +4044,7 @@ impl StoreQueueItem {
         let this = &::windows::core::Interface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CancelInstallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).CancelInstallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -4053,7 +4053,7 @@ impl StoreQueueItem {
         let this = &::windows::core::Interface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PauseInstallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).PauseInstallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -4062,7 +4062,7 @@ impl StoreQueueItem {
         let this = &::windows::core::Interface::cast::<IStoreQueueItem2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResumeInstallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ResumeInstallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -4147,7 +4147,7 @@ impl StoreQueueItemCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreQueueItemStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreQueueItemStatus>(result__)
         }
     }
 }
@@ -4351,7 +4351,7 @@ impl StoreQueueItemStatus {
         let this = self;
         unsafe {
             let mut result__: StoreQueueItemState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PackageInstallState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreQueueItemState>(result__)
+            (::windows::core::Interface::vtable(this).PackageInstallState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreQueueItemState>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4359,7 +4359,7 @@ impl StoreQueueItemStatus {
         let this = self;
         unsafe {
             let mut result__: StoreQueueItemExtendedState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PackageInstallExtendedState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreQueueItemExtendedState>(result__)
+            (::windows::core::Interface::vtable(this).PackageInstallExtendedState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreQueueItemExtendedState>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4367,7 +4367,7 @@ impl StoreQueueItemStatus {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<StorePackageUpdateStatus> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpdateStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorePackageUpdateStatus>(result__)
+            (::windows::core::Interface::vtable(this).UpdateStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StorePackageUpdateStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4375,7 +4375,7 @@ impl StoreQueueItemStatus {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -4460,7 +4460,7 @@ impl StoreRateAndReviewResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4468,7 +4468,7 @@ impl StoreRateAndReviewResult {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4476,7 +4476,7 @@ impl StoreRateAndReviewResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WasUpdated)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).WasUpdated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4484,7 +4484,7 @@ impl StoreRateAndReviewResult {
         let this = self;
         unsafe {
             let mut result__: StoreRateAndReviewStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreRateAndReviewStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreRateAndReviewStatus>(result__)
         }
     }
 }
@@ -4604,7 +4604,7 @@ impl StoreRequestHelper {
     pub fn SendRequestAsync<'a, Param0: ::windows::core::IntoParam<'a, StoreContext>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(context: Param0, requestkind: u32, parametersasjson: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>> {
         Self::IStoreRequestHelperStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendRequestAsync)(::core::mem::transmute_copy(this), context.into_param().abi(), requestkind, parametersasjson.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>(result__)
+            (::windows::core::Interface::vtable(this).SendRequestAsync)(::windows::core::Interface::as_raw(this), context.into_param().abi(), requestkind, parametersasjson.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -4625,7 +4625,7 @@ impl StoreSendRequestResult {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Response)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Response)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4633,7 +4633,7 @@ impl StoreSendRequestResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Web_Http\"`*"]
@@ -4642,7 +4642,7 @@ impl StoreSendRequestResult {
         let this = &::windows::core::Interface::cast::<IStoreSendRequestResult2>(self)?;
         unsafe {
             let mut result__: super::super::Web::Http::HttpStatusCode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HttpStatusCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Web::Http::HttpStatusCode>(result__)
+            (::windows::core::Interface::vtable(this).HttpStatusCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Web::Http::HttpStatusCode>(result__)
         }
     }
 }
@@ -4727,7 +4727,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StoreId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).StoreId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4735,7 +4735,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4743,7 +4743,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Title)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Title)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4751,7 +4751,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4759,7 +4759,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTrial)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTrial)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4767,7 +4767,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CustomDeveloperData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).CustomDeveloperData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -4776,7 +4776,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Images)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreImage>>(result__)
+            (::windows::core::Interface::vtable(this).Images)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreImage>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -4785,7 +4785,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Videos)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreVideo>>(result__)
+            (::windows::core::Interface::vtable(this).Videos)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreVideo>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -4794,7 +4794,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Availabilities)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreAvailability>>(result__)
+            (::windows::core::Interface::vtable(this).Availabilities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StoreAvailability>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4802,7 +4802,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Price)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorePrice>(result__)
+            (::windows::core::Interface::vtable(this).Price)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StorePrice>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4810,7 +4810,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedJsonData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4818,7 +4818,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInUserCollection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsInUserCollection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation_Collections\"`*"]
@@ -4827,7 +4827,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BundledSkus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).BundledSkus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4835,7 +4835,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CollectionData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreCollectionData>(result__)
+            (::windows::core::Interface::vtable(this).CollectionData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreCollectionData>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -4844,7 +4844,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIsInstalledAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).GetIsInstalledAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -4853,7 +4853,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPurchaseAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
@@ -4862,7 +4862,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::core::mem::transmute_copy(this), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestPurchaseWithPurchasePropertiesAsync)(::windows::core::Interface::as_raw(this), storepurchaseproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StorePurchaseResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4870,7 +4870,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSubscription)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSubscription)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4878,7 +4878,7 @@ impl StoreSku {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubscriptionInfo)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreSubscriptionInfo>(result__)
+            (::windows::core::Interface::vtable(this).SubscriptionInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreSubscriptionInfo>(result__)
         }
     }
 }
@@ -4963,7 +4963,7 @@ impl StoreSubscriptionInfo {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BillingPeriod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).BillingPeriod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4971,7 +4971,7 @@ impl StoreSubscriptionInfo {
         let this = self;
         unsafe {
             let mut result__: StoreDurationUnit = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BillingPeriodUnit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreDurationUnit>(result__)
+            (::windows::core::Interface::vtable(this).BillingPeriodUnit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreDurationUnit>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4979,7 +4979,7 @@ impl StoreSubscriptionInfo {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasTrialPeriod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasTrialPeriod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4987,7 +4987,7 @@ impl StoreSubscriptionInfo {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrialPeriod)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).TrialPeriod)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -4995,7 +4995,7 @@ impl StoreSubscriptionInfo {
         let this = self;
         unsafe {
             let mut result__: StoreDurationUnit = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrialPeriodUnit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreDurationUnit>(result__)
+            (::windows::core::Interface::vtable(this).TrialPeriodUnit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreDurationUnit>(result__)
         }
     }
 }
@@ -5080,7 +5080,7 @@ impl StoreUninstallStorePackageResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -5088,7 +5088,7 @@ impl StoreUninstallStorePackageResult {
         let this = self;
         unsafe {
             let mut result__: StoreUninstallStorePackageStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreUninstallStorePackageStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreUninstallStorePackageStatus>(result__)
         }
     }
 }
@@ -5211,7 +5211,7 @@ impl StoreVideo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -5219,7 +5219,7 @@ impl StoreVideo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VideoPurposeTag)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).VideoPurposeTag)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -5227,7 +5227,7 @@ impl StoreVideo {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Width)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -5235,7 +5235,7 @@ impl StoreVideo {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Height)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -5243,7 +5243,7 @@ impl StoreVideo {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Caption)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Caption)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Store\"`*"]
@@ -5251,7 +5251,7 @@ impl StoreVideo {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PreviewImage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StoreImage>(result__)
+            (::windows::core::Interface::vtable(this).PreviewImage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StoreImage>(result__)
         }
     }
 }

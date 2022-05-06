@@ -7,20 +7,20 @@ impl ConditionForceEffect {
         let this = &::windows::core::Interface::cast::<IConditionForceEffect>(self)?;
         unsafe {
             let mut result__: ConditionForceEffectKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ConditionForceEffectKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ConditionForceEffectKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>>(&self, direction: Param0, positivecoefficient: f32, negativecoefficient: f32, maxpositivemagnitude: f32, maxnegativemagnitude: f32, deadzone: f32, bias: f32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConditionForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::core::mem::transmute_copy(this), direction.into_param().abi(), positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), direction.into_param().abi(), positivecoefficient, negativecoefficient, maxpositivemagnitude, maxnegativemagnitude, deadzone, bias).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn CreateInstance(effectkind: ConditionForceEffectKind) -> ::windows::core::Result<ConditionForceEffect> {
         Self::IConditionForceEffectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), effectkind, &mut result__).from_abi::<ConditionForceEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind, &mut result__).from_abi::<ConditionForceEffect>(result__)
         })
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -28,31 +28,31 @@ impl ConditionForceEffect {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc(hidden)]
     pub fn IConditionForceEffectFactory<R, F: FnOnce(&IConditionForceEffectFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -205,44 +205,44 @@ impl ConstantForceEffect {
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, duration: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConstantForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::core::mem::transmute_copy(this), vector.into_param().abi(), duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector.into_param().abi(), duration.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParametersWithEnvelope<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param7: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: Param4, attackduration: Param5, sustainduration: Param6, releaseduration: Param7, repeatcount: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IConstantForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::core::mem::transmute_copy(this), vector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Gain(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for ConstantForceEffect {
@@ -483,7 +483,7 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreEffectsPaused)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AreEffectsPaused)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -491,20 +491,20 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MasterGain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MasterGain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn SetMasterGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMasterGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMasterGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
@@ -512,7 +512,7 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__: ForceFeedbackEffectAxes = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SupportedAxes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectAxes>(result__)
+            (::windows::core::Interface::vtable(this).SupportedAxes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ForceFeedbackEffectAxes>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
@@ -521,23 +521,23 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LoadEffectAsync)(::core::mem::transmute_copy(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>(result__)
+            (::windows::core::Interface::vtable(this).LoadEffectAsync)(::windows::core::Interface::as_raw(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<ForceFeedbackLoadEffectResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn PauseAllEffects(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).PauseAllEffects)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).PauseAllEffects)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn ResumeAllEffects(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ResumeAllEffects)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ResumeAllEffects)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn StopAllEffects(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).StopAllEffects)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).StopAllEffects)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -545,7 +545,7 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryDisableAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryDisableAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
@@ -554,7 +554,7 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryEnableAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryEnableAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
@@ -563,7 +563,7 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryResetAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryResetAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation\"`*"]
@@ -572,7 +572,7 @@ impl ForceFeedbackMotor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryUnloadEffectAsync)(::core::mem::transmute_copy(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TryUnloadEffectAsync)(::windows::core::Interface::as_raw(this), effect.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
 }
@@ -707,31 +707,31 @@ impl IForceFeedbackEffect {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::convert::From<IForceFeedbackEffect> for ::windows::core::IUnknown {
@@ -914,57 +914,57 @@ impl PeriodicForceEffect {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Kind(&self) -> ::windows::core::Result<PeriodicForceEffectKind> {
         let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
         unsafe {
             let mut result__: PeriodicForceEffectKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PeriodicForceEffectKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PeriodicForceEffectKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, frequency: f32, phase: f32, bias: f32, duration: Param4) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::core::mem::transmute_copy(this), vector.into_param().abi(), frequency, phase, bias, duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), vector.into_param().abi(), frequency, phase, bias, duration.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParametersWithEnvelope<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param7: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param8: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param9: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>, Param10: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, vector: Param0, frequency: f32, phase: f32, bias: f32, attackgain: f32, sustaingain: f32, releasegain: f32, startdelay: Param7, attackduration: Param8, sustainduration: Param9, releaseduration: Param10, repeatcount: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPeriodicForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::core::mem::transmute_copy(this), vector.into_param().abi(), frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), vector.into_param().abi(), frequency, phase, bias, attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn CreateInstance(effectkind: PeriodicForceEffectKind) -> ::windows::core::Result<PeriodicForceEffect> {
         Self::IPeriodicForceEffectFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), effectkind, &mut result__).from_abi::<PeriodicForceEffect>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effectkind, &mut result__).from_abi::<PeriodicForceEffect>(result__)
         })
     }
     #[doc(hidden)]
@@ -1120,37 +1120,37 @@ impl RampForceEffect {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Gain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn SetGain(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetGain)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn State(&self) -> ::windows::core::Result<ForceFeedbackEffectState> {
         let this = self;
         unsafe {
             let mut result__: ForceFeedbackEffectState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ForceFeedbackEffectState>(result__)
         }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn SetParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Numerics::Vector3>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, startvector: Param0, endvector: Param1, duration: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRampForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::core::mem::transmute_copy(this), startvector.into_param().abi(), endvector.into_param().abi(), duration.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParameters)(::windows::core::Interface::as_raw(this), startvector.into_param().abi(), endvector.into_param().abi(), duration.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Gaming_Input_ForceFeedback\"`, `\"Foundation_Numerics\"`*"]
     #[cfg(feature = "Foundation_Numerics")]
@@ -1168,7 +1168,7 @@ impl RampForceEffect {
         repeatcount: u32,
     ) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRampForceEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::core::mem::transmute_copy(this), startvector.into_param().abi(), endvector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetParametersWithEnvelope)(::windows::core::Interface::as_raw(this), startvector.into_param().abi(), endvector.into_param().abi(), attackgain, sustaingain, releasegain, startdelay.into_param().abi(), attackduration.into_param().abi(), sustainduration.into_param().abi(), releaseduration.into_param().abi(), repeatcount).ok() }
     }
 }
 impl ::core::clone::Clone for RampForceEffect {

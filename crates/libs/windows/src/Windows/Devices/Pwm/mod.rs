@@ -97,7 +97,7 @@ impl PwmController {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PinCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).PinCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
@@ -105,7 +105,7 @@ impl PwmController {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActualFrequency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ActualFrequency)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
@@ -113,7 +113,7 @@ impl PwmController {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetDesiredFrequency)(::core::mem::transmute_copy(this), desiredfrequency, &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).SetDesiredFrequency)(::windows::core::Interface::as_raw(this), desiredfrequency, &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
@@ -121,7 +121,7 @@ impl PwmController {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinFrequency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MinFrequency)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
@@ -129,7 +129,7 @@ impl PwmController {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxFrequency)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).MaxFrequency)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
@@ -137,7 +137,7 @@ impl PwmController {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenPin)(::core::mem::transmute_copy(this), pinnumber, &mut result__).from_abi::<PwmPin>(result__)
+            (::windows::core::Interface::vtable(this).OpenPin)(::windows::core::Interface::as_raw(this), pinnumber, &mut result__).from_abi::<PwmPin>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`, `\"Devices_Pwm_Provider\"`, `\"Foundation_Collections\"`*"]
@@ -145,7 +145,7 @@ impl PwmController {
     pub fn GetControllersAsync<'a, Param0: ::windows::core::IntoParam<'a, Provider::IPwmProvider>>(provider: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>> {
         Self::IPwmControllerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetControllersAsync)(::core::mem::transmute_copy(this), provider.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>(result__)
+            (::windows::core::Interface::vtable(this).GetControllersAsync)(::windows::core::Interface::as_raw(this), provider.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<PwmController>>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`, `\"Foundation\"`*"]
@@ -153,21 +153,21 @@ impl PwmController {
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PwmController>>(result__)
+            (::windows::core::Interface::vtable(this).GetDefaultAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PwmController>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn GetDeviceSelectorFromFriendlyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(friendlyname: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::core::mem::transmute_copy(this), friendlyname.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(::windows::core::Interface::as_raw(this), friendlyname.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`, `\"Foundation\"`*"]
@@ -175,7 +175,7 @@ impl PwmController {
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PwmController>> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PwmController>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PwmController>>(result__)
         })
     }
     #[doc(hidden)]
@@ -274,14 +274,14 @@ impl PwmPin {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn Controller(&self) -> ::windows::core::Result<PwmController> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Controller)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PwmController>(result__)
+            (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PwmController>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
@@ -289,43 +289,43 @@ impl PwmPin {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetActiveDutyCyclePercentage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).GetActiveDutyCyclePercentage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn SetActiveDutyCyclePercentage(&self, dutycyclepercentage: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetActiveDutyCyclePercentage)(::core::mem::transmute_copy(this), dutycyclepercentage).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetActiveDutyCyclePercentage)(::windows::core::Interface::as_raw(this), dutycyclepercentage).ok() }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn Polarity(&self) -> ::windows::core::Result<PwmPulsePolarity> {
         let this = self;
         unsafe {
             let mut result__: PwmPulsePolarity = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Polarity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PwmPulsePolarity>(result__)
+            (::windows::core::Interface::vtable(this).Polarity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PwmPulsePolarity>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn SetPolarity(&self, value: PwmPulsePolarity) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetPolarity)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPolarity)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Start)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Start)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Stop)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Pwm\"`*"]
     pub fn IsStarted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsStarted)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsStarted)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }

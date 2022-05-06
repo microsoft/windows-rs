@@ -207,7 +207,8 @@ fn gen_string_literal(value: &str) -> TokenStream {
     let mut tokens = "\"".to_string();
 
     for u in value.chars() {
-        tokens.push_str(&format!("{}", u.escape_default()));
+        use std::fmt::Write;
+        write!(&mut tokens, "{}", u.escape_default()).unwrap();
     }
 
     tokens.push('\"');

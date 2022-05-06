@@ -109,7 +109,7 @@ impl OcrEngine {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecognizeAsync)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<OcrResult>>(result__)
+            (::windows::core::Interface::vtable(this).RecognizeAsync)(::windows::core::Interface::as_raw(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<OcrResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Globalization\"`*"]
@@ -118,14 +118,14 @@ impl OcrEngine {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecognizerLanguage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Globalization::Language>(result__)
+            (::windows::core::Interface::vtable(this).RecognizerLanguage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Globalization::Language>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Ocr\"`*"]
     pub fn MaxImageDimension() -> ::windows::core::Result<u32> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxImageDimension)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxImageDimension)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Foundation_Collections\"`, `\"Globalization\"`*"]
@@ -133,7 +133,7 @@ impl OcrEngine {
     pub fn AvailableRecognizerLanguages() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableRecognizerLanguages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>(result__)
+            (::windows::core::Interface::vtable(this).AvailableRecognizerLanguages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Globalization::Language>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Globalization\"`*"]
@@ -141,7 +141,7 @@ impl OcrEngine {
     pub fn IsLanguageSupported<'a, Param0: ::windows::core::IntoParam<'a, super::super::Globalization::Language>>(language: Param0) -> ::windows::core::Result<bool> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsLanguageSupported)(::core::mem::transmute_copy(this), language.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsLanguageSupported)(::windows::core::Interface::as_raw(this), language.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Globalization\"`*"]
@@ -149,14 +149,14 @@ impl OcrEngine {
     pub fn TryCreateFromLanguage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Globalization::Language>>(language: Param0) -> ::windows::core::Result<OcrEngine> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFromLanguage)(::core::mem::transmute_copy(this), language.into_param().abi(), &mut result__).from_abi::<OcrEngine>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromLanguage)(::windows::core::Interface::as_raw(this), language.into_param().abi(), &mut result__).from_abi::<OcrEngine>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Ocr\"`*"]
     pub fn TryCreateFromUserProfileLanguages() -> ::windows::core::Result<OcrEngine> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateFromUserProfileLanguages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OcrEngine>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateFromUserProfileLanguages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<OcrEngine>(result__)
         })
     }
     #[doc(hidden)]
@@ -247,7 +247,7 @@ impl OcrLine {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Words)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<OcrWord>>(result__)
+            (::windows::core::Interface::vtable(this).Words)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<OcrWord>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -255,7 +255,7 @@ impl OcrLine {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -341,7 +341,7 @@ impl OcrResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Lines)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<OcrLine>>(result__)
+            (::windows::core::Interface::vtable(this).Lines)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<OcrLine>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Ocr\"`, `\"Foundation\"`*"]
@@ -350,7 +350,7 @@ impl OcrResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TextAngle)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).TextAngle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -358,7 +358,7 @@ impl OcrResult {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -444,7 +444,7 @@ impl OcrWord {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BoundingRect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
+            (::windows::core::Interface::vtable(this).BoundingRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Ocr\"`*"]
@@ -452,7 +452,7 @@ impl OcrWord {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Text)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Text)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }

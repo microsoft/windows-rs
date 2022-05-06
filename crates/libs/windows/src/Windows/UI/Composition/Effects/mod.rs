@@ -57,40 +57,40 @@ impl SceneLightingEffect {
         let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`, `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetName)(::core::mem::transmute_copy(this), name.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetName)(::windows::core::Interface::as_raw(this), name.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn AmbientAmount(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AmbientAmount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).AmbientAmount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn SetAmbientAmount(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAmbientAmount)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAmbientAmount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn DiffuseAmount(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DiffuseAmount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).DiffuseAmount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn SetDiffuseAmount(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDiffuseAmount)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDiffuseAmount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`, `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
@@ -98,53 +98,53 @@ impl SceneLightingEffect {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalMapSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::Effects::IGraphicsEffectSource>(result__)
+            (::windows::core::Interface::vtable(this).NormalMapSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Graphics::Effects::IGraphicsEffectSource>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`, `\"Graphics_Effects\"`*"]
     #[cfg(feature = "Graphics_Effects")]
     pub fn SetNormalMapSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Effects::IGraphicsEffectSource>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetNormalMapSource)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetNormalMapSource)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn SpecularAmount(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SpecularAmount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).SpecularAmount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn SetSpecularAmount(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSpecularAmount)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSpecularAmount)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn SpecularShine(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SpecularShine)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).SpecularShine)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn SetSpecularShine(&self, value: f32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSpecularShine)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSpecularShine)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn ReflectanceModel(&self) -> ::windows::core::Result<SceneLightingEffectReflectanceModel> {
         let this = &::windows::core::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe {
             let mut result__: SceneLightingEffectReflectanceModel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReflectanceModel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SceneLightingEffectReflectanceModel>(result__)
+            (::windows::core::Interface::vtable(this).ReflectanceModel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SceneLightingEffectReflectanceModel>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Composition_Effects\"`*"]
     pub fn SetReflectanceModel(&self, value: SceneLightingEffectReflectanceModel) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISceneLightingEffect2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetReflectanceModel)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReflectanceModel)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for SceneLightingEffect {

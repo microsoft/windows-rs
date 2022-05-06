@@ -1371,229 +1371,229 @@ impl IFeed {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self, count: i32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Url(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Url)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUrl)(::core::mem::transmute_copy(self), feedurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), feedurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), newparentpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), newparentpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastWriteTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastWriteTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LastWriteTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Download(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Download)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).AsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CancelAsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelAsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CancelAsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SyncSetting(&self) -> ::windows::core::Result<FEEDS_SYNC_SETTING> {
         let mut result__: FEEDS_SYNC_SETTING = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SyncSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_SYNC_SETTING>(result__)
+        (::windows::core::Interface::vtable(self).SyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_SYNC_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetSyncSetting(&self, syncsetting: FEEDS_SYNC_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSyncSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncsetting)).ok()
+        (::windows::core::Interface::vtable(self).SetSyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncsetting)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Interval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Interval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LastDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalEnclosurePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalEnclosurePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalEnclosurePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Items(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Items)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Items)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetItem(&self, itemid: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(itemid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Link(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Link)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Image(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Image)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Image)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastBuildDate(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastBuildDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LastBuildDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PubDate(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PubDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).PubDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Ttl(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Ttl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Ttl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Language(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Language)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Language)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Copyright(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Copyright)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Copyright)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MaxItemCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaxItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetMaxItemCount(&self, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadEnclosuresAutomatically(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadEnclosuresAutomatically)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).DownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetDownloadEnclosuresAutomatically(&self, downloadenclosuresautomatically: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDownloadEnclosuresAutomatically)(::core::mem::transmute_copy(self), ::core::mem::transmute(downloadenclosuresautomatically)).ok()
+        (::windows::core::Interface::vtable(self).SetDownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(downloadenclosuresautomatically)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS> {
         let mut result__: FEEDS_DOWNLOAD_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
+        (::windows::core::Interface::vtable(self).DownloadStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadError(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_ERROR> {
         let mut result__: FEEDS_DOWNLOAD_ERROR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastDownloadError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
+        (::windows::core::Interface::vtable(self).LastDownloadError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedxml: Param0, feedurl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::core::mem::transmute_copy(self), feedxml.into_param().abi(), feedurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), feedxml.into_param().abi(), feedurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn IsList(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MarkAllItemsRead(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MarkAllItemsRead)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).MarkAllItemsRead)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWatcher)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnreadItemCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UnreadItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).UnreadItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ItemCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1792,261 +1792,261 @@ impl IFeed2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self, count: i32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(count), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Rename)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Url(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Url)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUrl)(::core::mem::transmute_copy(self), feedurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetUrl)(::windows::core::Interface::as_raw(self), feedurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LocalId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LocalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Move)(::core::mem::transmute_copy(self), newparentpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), newparentpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastWriteTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastWriteTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastWriteTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Download(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Download)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Download)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.AsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CancelAsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CancelAsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.CancelAsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SyncSetting(&self) -> ::windows::core::Result<FEEDS_SYNC_SETTING> {
         let mut result__: FEEDS_SYNC_SETTING = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SyncSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_SYNC_SETTING>(result__)
+        (::windows::core::Interface::vtable(self).base__.SyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_SYNC_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetSyncSetting(&self, syncsetting: FEEDS_SYNC_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSyncSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(syncsetting)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(syncsetting)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Interval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Interval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalEnclosurePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LocalEnclosurePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LocalEnclosurePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Items(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Items)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.Items)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetItem(&self, itemid: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(itemid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Link(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Link)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Image(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Image)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Image)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastBuildDate(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastBuildDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastBuildDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PubDate(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.PubDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.PubDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Ttl(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Ttl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Ttl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Language(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Language)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Language)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Copyright(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Copyright)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Copyright)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MaxItemCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MaxItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MaxItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetMaxItemCount(&self, count: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMaxItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMaxItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadEnclosuresAutomatically(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DownloadEnclosuresAutomatically)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.DownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetDownloadEnclosuresAutomatically(&self, downloadenclosuresautomatically: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDownloadEnclosuresAutomatically)(::core::mem::transmute_copy(self), ::core::mem::transmute(downloadenclosuresautomatically)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(downloadenclosuresautomatically)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS> {
         let mut result__: FEEDS_DOWNLOAD_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DownloadStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
+        (::windows::core::Interface::vtable(self).base__.DownloadStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadError(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_ERROR> {
         let mut result__: FEEDS_DOWNLOAD_ERROR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastDownloadError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastDownloadError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedxml: Param0, feedurl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Merge)(::core::mem::transmute_copy(self), feedxml.into_param().abi(), feedurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), feedxml.into_param().abi(), feedurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn IsList(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MarkAllItemsRead(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MarkAllItemsRead)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.MarkAllItemsRead)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetWatcher)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnreadItemCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.UnreadItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.UnreadItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ItemCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetItemByEffectiveId(&self, itemeffectiveid: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetItemByEffectiveId)(::core::mem::transmute_copy(self), ::core::mem::transmute(itemeffectiveid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetItemByEffectiveId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(itemeffectiveid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastItemDownloadTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastItemDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LastItemDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Username(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Username)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Username)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Password(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Password)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Password)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, username: Param0, password: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::core::mem::transmute_copy(self), username.into_param().abi(), password.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), username.into_param().abi(), password.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ClearCredentials(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClearCredentials)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ClearCredentials)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2180,69 +2180,69 @@ impl IFeedEnclosure {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Url(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Url)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Type(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Length(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Length)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Length)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).AsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CancelAsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelAsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CancelAsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS> {
         let mut result__: FEEDS_DOWNLOAD_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
+        (::windows::core::Interface::vtable(self).DownloadStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadError(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_ERROR> {
         let mut result__: FEEDS_DOWNLOAD_ERROR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastDownloadError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
+        (::windows::core::Interface::vtable(self).LastDownloadError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LocalPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadMimeType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadMimeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DownloadMimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn RemoveFile(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveFile)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RemoveFile)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, downloadurl: Param0, downloadfilepath: Param1, downloadmimetype: Param2, enclosurefilename: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFile)(::core::mem::transmute_copy(self), downloadurl.into_param().abi(), downloadfilepath.into_param().abi(), downloadmimetype.into_param().abi(), enclosurefilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFile)(::windows::core::Interface::as_raw(self), downloadurl.into_param().abi(), downloadfilepath.into_param().abi(), downloadmimetype.into_param().abi(), enclosurefilename.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2366,42 +2366,42 @@ pub struct IFeedEvents(::windows::core::IUnknown);
 impl IFeedEvents {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Error(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Error)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedRenamed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::core::mem::transmute_copy(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedUrlChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMoved)(::core::mem::transmute_copy(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedMoved)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedDownloading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, error: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::core::mem::transmute_copy(self), path.into_param().abi(), ::core::mem::transmute(error)).ok()
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(error)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::core::mem::transmute_copy(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2522,102 +2522,102 @@ impl IFeedFolder {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Feeds(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Feeds)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Feeds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Subfolders(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Subfolders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Subfolders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedname: Param0, feedurl: Param1) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFeed)(::core::mem::transmute_copy(self), feedname.into_param().abi(), feedurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CreateFeed)(::windows::core::Interface::as_raw(self), feedname.into_param().abi(), feedurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateSubfolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, foldername: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSubfolder)(::core::mem::transmute_copy(self), foldername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).CreateSubfolder)(::windows::core::Interface::as_raw(self), foldername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistsFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedname: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::core::mem::transmute_copy(self), feedname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), feedname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedname: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFeed)(::core::mem::transmute_copy(self), feedname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), feedname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistsSubfolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, foldername: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::core::mem::transmute_copy(self), foldername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::windows::core::Interface::as_raw(self), foldername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetSubfolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, foldername: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSubfolder)(::core::mem::transmute_copy(self), foldername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetSubfolder)(::windows::core::Interface::as_raw(self), foldername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, foldername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::core::mem::transmute_copy(self), foldername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), foldername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, newparentpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), newparentpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), newparentpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn IsRoot(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsRoot)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsRoot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn TotalUnreadItemCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TotalUnreadItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).TotalUnreadItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn TotalItemCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TotalItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).TotalItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetWatcher(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetWatcher)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2767,82 +2767,82 @@ pub struct IFeedFolderEvents(::windows::core::IUnknown);
 impl IFeedFolderEvents {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Error(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Error)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FolderAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderAdded)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderAdded)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FolderDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderDeleted)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderDeleted)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FolderRenamed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderRenamed)(::core::mem::transmute_copy(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderRenamed)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FolderMovedFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::core::mem::transmute_copy(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FolderMovedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedTo)(::core::mem::transmute_copy(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderMovedTo)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FolderItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::core::mem::transmute_copy(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
+        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedAdded)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedAdded)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedRenamed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::core::mem::transmute_copy(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedUrlChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedMovedFrom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::core::mem::transmute_copy(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedMovedTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, oldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedTo)(::core::mem::transmute_copy(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedMovedTo)(::windows::core::Interface::as_raw(self), path.into_param().abi(), oldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedDownloading<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, error: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::core::mem::transmute_copy(self), path.into_param().abi(), ::core::mem::transmute(error)).ok()
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(error)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FeedItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0, itemcounttype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::core::mem::transmute_copy(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), path.into_param().abi(), ::core::mem::transmute(itemcounttype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2995,94 +2995,94 @@ impl IFeedItem {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Link(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Link)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Guid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Guid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PubDate(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PubDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).PubDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Comments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Comments)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Comments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Author(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Author)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Author)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Enclosure(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Enclosure)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Enclosure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn IsRead(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsRead)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetIsRead(&self, isread: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsRead)(::core::mem::transmute_copy(self), ::core::mem::transmute(isread)).ok()
+        (::windows::core::Interface::vtable(self).SetIsRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(isread)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LocalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LastDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Modified(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Modified)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).Modified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3221,99 +3221,99 @@ impl IFeedItem2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Link(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Link)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Guid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Guid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PubDate(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.PubDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.PubDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Comments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Comments)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Comments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Author(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Author)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Author)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Enclosure(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Enclosure)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.Enclosure)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn IsRead(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsRead)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetIsRead(&self, isread: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIsRead)(::core::mem::transmute_copy(self), ::core::mem::transmute(isread)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIsRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(isread)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LocalId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.LocalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Parent(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Modified(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Modified)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Modified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EffectiveId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EffectiveId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).EffectiveId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3429,19 +3429,19 @@ impl IFeedsEnum {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Item(&self, index: i32) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(feature = "Win32_System_Ole")]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<super::super::System::Ole::IEnumVARIANT> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Ole::IEnumVARIANT>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Ole::IEnumVARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3542,86 +3542,86 @@ impl IFeedsManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RootFolder(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RootFolder)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).RootFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubscribed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedurl: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsSubscribed)(::core::mem::transmute_copy(self), feedurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsSubscribed)(::windows::core::Interface::as_raw(self), feedurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistsFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedpath: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::core::mem::transmute_copy(self), feedpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), feedpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedpath: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFeed)(::core::mem::transmute_copy(self), feedpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), feedpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFeedByUrl<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedurl: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::core::mem::transmute_copy(self), feedurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::windows::core::Interface::as_raw(self), feedurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistsFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, folderpath: Param0) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFolder)(::core::mem::transmute_copy(self), folderpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFolder)(::windows::core::Interface::as_raw(self), folderpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, folderpath: Param0) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFolder)(::core::mem::transmute_copy(self), folderpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), folderpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteFeed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFeed)(::core::mem::transmute_copy(self), feedpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteFeed)(::windows::core::Interface::as_raw(self), feedpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeleteFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, folderpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFolder)(::core::mem::transmute_copy(self), folderpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), folderpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BackgroundSync(&self, action: FEEDS_BACKGROUNDSYNC_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BackgroundSync)(::core::mem::transmute_copy(self), ::core::mem::transmute(action)).ok()
+        (::windows::core::Interface::vtable(self).BackgroundSync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(action)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BackgroundSyncStatus(&self) -> ::windows::core::Result<FEEDS_BACKGROUNDSYNC_STATUS> {
         let mut result__: FEEDS_BACKGROUNDSYNC_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BackgroundSyncStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_BACKGROUNDSYNC_STATUS>(result__)
+        (::windows::core::Interface::vtable(self).BackgroundSyncStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_BACKGROUNDSYNC_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DefaultInterval(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DefaultInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DefaultInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetDefaultInterval(&self, minutes: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(minutes)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minutes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AsyncSyncAll(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AsyncSyncAll)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).AsyncSyncAll)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Normalize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, feedxmlin: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Normalize)(::core::mem::transmute_copy(self), feedxmlin.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Normalize)(::windows::core::Interface::as_raw(self), feedxmlin.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ItemCountLimit(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ItemCountLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ItemCountLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3760,12 +3760,12 @@ impl IWMPAudioRenderConfig {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn audioOutputDevice(&self, pbstroutputdevice: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).audioOutputDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstroutputdevice)).ok()
+        (::windows::core::Interface::vtable(self).audioOutputDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstroutputdevice)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetaudioOutputDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstroutputdevice: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetaudioOutputDevice)(::core::mem::transmute_copy(self), bstroutputdevice.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetaudioOutputDevice)(::windows::core::Interface::as_raw(self), bstroutputdevice.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPAudioRenderConfig> for ::windows::core::IUnknown {
@@ -3830,17 +3830,17 @@ impl IWMPCdrom {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn driveSpecifier(&self, pbstrdrive: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).driveSpecifier)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdrive)).ok()
+        (::windows::core::Interface::vtable(self).driveSpecifier)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdrive)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).playlist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).playlist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn eject(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).eject)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).eject)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3938,65 +3938,65 @@ impl IWMPCdromBurn {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isAvailable)(::core::mem::transmute_copy(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Interface::vtable(self).isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::core::mem::transmute_copy(self), bstritem.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn label(&self, pbstrlabel: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).label)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrlabel)).ok()
+        (::windows::core::Interface::vtable(self).label)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrlabel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Setlabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrlabel: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setlabel)(::core::mem::transmute_copy(self), bstrlabel.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Setlabel)(::windows::core::Interface::as_raw(self), bstrlabel.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn burnFormat(&self, pwmpbf: *mut WMPBurnFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).burnFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpbf)).ok()
+        (::windows::core::Interface::vtable(self).burnFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpbf)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetburnFormat(&self, wmpbf: WMPBurnFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetburnFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmpbf)).ok()
+        (::windows::core::Interface::vtable(self).SetburnFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmpbf)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn burnPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).burnPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).burnPlaylist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetburnPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetburnPlaylist)(::core::mem::transmute_copy(self), pplaylist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetburnPlaylist)(::windows::core::Interface::as_raw(self), pplaylist.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn refreshStatus(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).refreshStatus)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).refreshStatus)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn burnState(&self, pwmpbs: *mut WMPBurnState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).burnState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpbs)).ok()
+        (::windows::core::Interface::vtable(self).burnState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpbs)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn burnProgress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).burnProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Interface::vtable(self).burnProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn startBurn(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startBurn)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).startBurn)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stopBurn(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stopBurn)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).stopBurn)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn erase(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).erase)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).erase)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IWMPCdromBurn> for ::windows::core::IUnknown {
@@ -4084,19 +4084,19 @@ pub struct IWMPCdromCollection(::windows::core::IUnknown);
 impl IWMPCdromCollection {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, lindex: i32) -> ::windows::core::Result<IWMPCdrom> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdrom>(result__)
+        (::windows::core::Interface::vtable(self).item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdrom>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByDriveSpecifier<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdrivespecifier: Param0) -> ::windows::core::Result<IWMPCdrom> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getByDriveSpecifier)(::core::mem::transmute_copy(self), bstrdrivespecifier.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdrom>(result__)
+        (::windows::core::Interface::vtable(self).getByDriveSpecifier)(::windows::core::Interface::as_raw(self), bstrdrivespecifier.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdrom>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4193,19 +4193,19 @@ pub struct IWMPCdromRip(::windows::core::IUnknown);
 impl IWMPCdromRip {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ripState(&self, pwmprs: *mut WMPRipState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ripState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmprs)).ok()
+        (::windows::core::Interface::vtable(self).ripState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmprs)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ripProgress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ripProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Interface::vtable(self).ripProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn startRip(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startRip)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).startRip)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stopRip(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stopRip)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).stopRip)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IWMPCdromRip> for ::windows::core::IUnknown {
@@ -4266,42 +4266,42 @@ impl IWMPClosedCaption {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAMIStyle(&self, pbstrsamistyle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SAMIStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsamistyle)).ok()
+        (::windows::core::Interface::vtable(self).SAMIStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsamistyle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAMIStyle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamistyle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSAMIStyle)(::core::mem::transmute_copy(self), bstrsamistyle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSAMIStyle)(::windows::core::Interface::as_raw(self), bstrsamistyle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAMILang(&self, pbstrsamilang: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SAMILang)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsamilang)).ok()
+        (::windows::core::Interface::vtable(self).SAMILang)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsamilang)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAMILang<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamilang: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSAMILang)(::core::mem::transmute_copy(self), bstrsamilang.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSAMILang)(::windows::core::Interface::as_raw(self), bstrsamilang.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAMIFileName(&self, pbstrsamifilename: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SAMIFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsamifilename)).ok()
+        (::windows::core::Interface::vtable(self).SAMIFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsamifilename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAMIFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamifilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSAMIFileName)(::core::mem::transmute_copy(self), bstrsamifilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSAMIFileName)(::windows::core::Interface::as_raw(self), bstrsamifilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn captioningId(&self, pbstrcaptioningid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).captioningId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrcaptioningid)).ok()
+        (::windows::core::Interface::vtable(self).captioningId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrcaptioningid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetcaptioningId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaptioningid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcaptioningId)(::core::mem::transmute_copy(self), bstrcaptioningid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetcaptioningId)(::windows::core::Interface::as_raw(self), bstrcaptioningid.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4424,64 +4424,64 @@ impl IWMPClosedCaption2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAMIStyle(&self, pbstrsamistyle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SAMIStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsamistyle)).ok()
+        (::windows::core::Interface::vtable(self).base__.SAMIStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsamistyle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAMIStyle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamistyle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSAMIStyle)(::core::mem::transmute_copy(self), bstrsamistyle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSAMIStyle)(::windows::core::Interface::as_raw(self), bstrsamistyle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAMILang(&self, pbstrsamilang: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SAMILang)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsamilang)).ok()
+        (::windows::core::Interface::vtable(self).base__.SAMILang)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsamilang)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAMILang<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamilang: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSAMILang)(::core::mem::transmute_copy(self), bstrsamilang.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSAMILang)(::windows::core::Interface::as_raw(self), bstrsamilang.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SAMIFileName(&self, pbstrsamifilename: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SAMIFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsamifilename)).ok()
+        (::windows::core::Interface::vtable(self).base__.SAMIFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsamifilename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSAMIFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsamifilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSAMIFileName)(::core::mem::transmute_copy(self), bstrsamifilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSAMIFileName)(::windows::core::Interface::as_raw(self), bstrsamifilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn captioningId(&self, pbstrcaptioningid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.captioningId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrcaptioningid)).ok()
+        (::windows::core::Interface::vtable(self).base__.captioningId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrcaptioningid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetcaptioningId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcaptioningid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcaptioningId)(::core::mem::transmute_copy(self), bstrcaptioningid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcaptioningId)(::windows::core::Interface::as_raw(self), bstrcaptioningid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SAMILangCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SAMILangCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).SAMILangCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getSAMILangName(&self, nindex: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getSAMILangName)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).getSAMILangName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn getSAMILangID(&self, nindex: i32, pllangid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getSAMILangID)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pllangid)).ok()
+        (::windows::core::Interface::vtable(self).getSAMILangID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pllangid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SAMIStyleCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SAMIStyleCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).SAMIStyleCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getSAMIStyleName(&self, nindex: i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getSAMIStyleName)(::core::mem::transmute_copy(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).getSAMIStyleName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nindex), ::core::mem::transmute(pbstrname)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4605,35 +4605,35 @@ impl IWMPContentContainer {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetID(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPrice(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPrice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetPrice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetType(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetContentCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContentCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetContentCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetContentPrice(&self, idxcontent: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContentPrice)(::core::mem::transmute_copy(self), ::core::mem::transmute(idxcontent), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetContentPrice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idxcontent), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetContentID(&self, idxcontent: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContentID)(::core::mem::transmute_copy(self), ::core::mem::transmute(idxcontent), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetContentID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idxcontent), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IWMPContentContainer> for ::windows::core::IUnknown {
@@ -4703,17 +4703,17 @@ impl IWMPContentContainerList {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetTransactionType(&self) -> ::windows::core::Result<WMPTransactionType> {
         let mut result__: WMPTransactionType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetTransactionType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WMPTransactionType>(result__)
+        (::windows::core::Interface::vtable(self).GetTransactionType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WMPTransactionType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetContainerCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainerCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetContainerCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetContainer(&self, idxcontainer: u32) -> ::windows::core::Result<IWMPContentContainer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContainer)(::core::mem::transmute_copy(self), ::core::mem::transmute(idxcontainer), ::core::mem::transmute(&mut result__)).from_abi::<IWMPContentContainer>(result__)
+        (::windows::core::Interface::vtable(self).GetContainer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(idxcontainer), ::core::mem::transmute(&mut result__)).from_abi::<IWMPContentContainer>(result__)
     }
 }
 impl ::core::convert::From<IWMPContentContainerList> for ::windows::core::IUnknown {
@@ -4770,117 +4770,117 @@ pub struct IWMPContentPartner(::windows::core::IUnknown);
 impl IWMPContentPartner {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetCallback<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentPartnerCallback>>(&self, pcallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCallback)(::core::mem::transmute_copy(self), pcallback.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCallback)(::windows::core::Interface::as_raw(self), pcallback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Notify(&self, r#type: WMPPartnerNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinfoname: Param0, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetItemInfo)(::core::mem::transmute_copy(self), bstrinfoname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetItemInfo)(::windows::core::Interface::as_raw(self), bstrinfoname.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetContentPartnerInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinfoname: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetContentPartnerInfo)(::core::mem::transmute_copy(self), bstrinfoname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetContentPartnerInfo)(::windows::core::Interface::as_raw(self), bstrinfoname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCommands<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, location: Param0, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: Param2, prgitemids: &[u32], pcitemids: *mut u32, pprgitems: *mut *mut WMPContextMenuInfo) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCommands)(::core::mem::transmute_copy(self), location.into_param().abi(), ::core::mem::transmute(plocationcontext), itemlocation.into_param().abi(), prgitemids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgitemids)), ::core::mem::transmute(pcitemids), ::core::mem::transmute(pprgitems)).ok()
+        (::windows::core::Interface::vtable(self).GetCommands)(::windows::core::Interface::as_raw(self), location.into_param().abi(), ::core::mem::transmute(plocationcontext), itemlocation.into_param().abi(), prgitemids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgitemids)), ::core::mem::transmute(pcitemids), ::core::mem::transmute(pprgitems)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn InvokeCommand<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dwcommandid: u32, location: Param1, plocationcontext: *const super::super::System::Com::VARIANT, itemlocation: Param3, rgitemids: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InvokeCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcommandid), location.into_param().abi(), ::core::mem::transmute(plocationcontext), itemlocation.into_param().abi(), rgitemids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgitemids))).ok()
+        (::windows::core::Interface::vtable(self).InvokeCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcommandid), location.into_param().abi(), ::core::mem::transmute(plocationcontext), itemlocation.into_param().abi(), rgitemids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(rgitemids))).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CanBuySilent<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentContainerList>>(&self, pinfo: Param0, pbstrtotalprice: *mut super::super::Foundation::BSTR, psilentok: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CanBuySilent)(::core::mem::transmute_copy(self), pinfo.into_param().abi(), ::core::mem::transmute(pbstrtotalprice), ::core::mem::transmute(psilentok)).ok()
+        (::windows::core::Interface::vtable(self).CanBuySilent)(::windows::core::Interface::as_raw(self), pinfo.into_param().abi(), ::core::mem::transmute(pbstrtotalprice), ::core::mem::transmute(psilentok)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Buy<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentContainerList>>(&self, pinfo: Param0, cookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Buy)(::core::mem::transmute_copy(self), pinfo.into_param().abi(), ::core::mem::transmute(cookie)).ok()
+        (::windows::core::Interface::vtable(self).Buy)(::windows::core::Interface::as_raw(self), pinfo.into_param().abi(), ::core::mem::transmute(cookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetStreamingURL(&self, st: WMPStreamingType, pstreamcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetStreamingURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(st), ::core::mem::transmute(pstreamcontext), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetStreamingURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(st), ::core::mem::transmute(pstreamcontext), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Download<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentContainerList>>(&self, pinfo: Param0, cookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Download)(::core::mem::transmute_copy(self), pinfo.into_param().abi(), ::core::mem::transmute(cookie)).ok()
+        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self), pinfo.into_param().abi(), ::core::mem::transmute(cookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadTrackComplete<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, hrresult: ::windows::core::HRESULT, contentid: u32, downloadtrackparam: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DownloadTrackComplete)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrresult), ::core::mem::transmute(contentid), downloadtrackparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DownloadTrackComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrresult), ::core::mem::transmute(contentid), downloadtrackparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RefreshLicense<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dwcookie: u32, flocal: i16, bstrurl: Param2, r#type: WMPStreamingType, contentid: u32, bstrrefreshreason: Param5, preasoncontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RefreshLicense)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie), ::core::mem::transmute(flocal), bstrurl.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(contentid), bstrrefreshreason.into_param().abi(), ::core::mem::transmute(preasoncontext)).ok()
+        (::windows::core::Interface::vtable(self).RefreshLicense)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie), ::core::mem::transmute(flocal), bstrurl.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(contentid), bstrrefreshreason.into_param().abi(), ::core::mem::transmute(preasoncontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetCatalogURL(&self, dwcatalogversion: u32, dwcatalogschemaversion: u32, cataloglcid: u32, pdwnewcatalogversion: *mut u32, pbstrcatalogurl: *mut super::super::Foundation::BSTR, pexpirationdate: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCatalogURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcatalogversion), ::core::mem::transmute(dwcatalogschemaversion), ::core::mem::transmute(cataloglcid), ::core::mem::transmute(pdwnewcatalogversion), ::core::mem::transmute(pbstrcatalogurl), ::core::mem::transmute(pexpirationdate)).ok()
+        (::windows::core::Interface::vtable(self).GetCatalogURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcatalogversion), ::core::mem::transmute(dwcatalogschemaversion), ::core::mem::transmute(cataloglcid), ::core::mem::transmute(pdwnewcatalogversion), ::core::mem::transmute(pbstrcatalogurl), ::core::mem::transmute(pexpirationdate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetTemplate<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, task: WMPTaskType, location: Param1, pcontext: *const super::super::System::Com::VARIANT, clicklocation: Param3, pclickcontext: *const super::super::System::Com::VARIANT, bstrfilter: Param5, bstrviewparams: Param6, pbstrtemplateurl: *mut super::super::Foundation::BSTR, ptemplatesize: *mut WMPTemplateSize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTemplate)(::core::mem::transmute_copy(self), ::core::mem::transmute(task), location.into_param().abi(), ::core::mem::transmute(pcontext), clicklocation.into_param().abi(), ::core::mem::transmute(pclickcontext), bstrfilter.into_param().abi(), bstrviewparams.into_param().abi(), ::core::mem::transmute(pbstrtemplateurl), ::core::mem::transmute(ptemplatesize)).ok()
+        (::windows::core::Interface::vtable(self).GetTemplate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(task), location.into_param().abi(), ::core::mem::transmute(pcontext), clicklocation.into_param().abi(), ::core::mem::transmute(pclickcontext), bstrfilter.into_param().abi(), bstrviewparams.into_param().abi(), ::core::mem::transmute(pbstrtemplateurl), ::core::mem::transmute(ptemplatesize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateDevice)(::core::mem::transmute_copy(self), bstrdevicename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdateDevice)(::windows::core::Interface::as_raw(self), bstrdevicename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetListContents<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, location: Param0, pcontext: *const super::super::System::Com::VARIANT, bstrlisttype: Param2, bstrparams: Param3, dwlistcookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetListContents)(::core::mem::transmute_copy(self), location.into_param().abi(), ::core::mem::transmute(pcontext), bstrlisttype.into_param().abi(), bstrparams.into_param().abi(), ::core::mem::transmute(dwlistcookie)).ok()
+        (::windows::core::Interface::vtable(self).GetListContents)(::windows::core::Interface::as_raw(self), location.into_param().abi(), ::core::mem::transmute(pcontext), bstrlisttype.into_param().abi(), bstrparams.into_param().abi(), ::core::mem::transmute(dwlistcookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Login<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::BLOB>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::BLOB>>(&self, userinfo: Param0, pwdinfo: Param1, fusedcachedcreds: i16, foktocache: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Login)(::core::mem::transmute_copy(self), userinfo.into_param().abi(), pwdinfo.into_param().abi(), ::core::mem::transmute(fusedcachedcreds), ::core::mem::transmute(foktocache)).ok()
+        (::windows::core::Interface::vtable(self).Login)(::windows::core::Interface::as_raw(self), userinfo.into_param().abi(), pwdinfo.into_param().abi(), ::core::mem::transmute(fusedcachedcreds), ::core::mem::transmute(foktocache)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Authenticate<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::BLOB>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::BLOB>>(&self, userinfo: Param0, pwdinfo: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Authenticate)(::core::mem::transmute_copy(self), userinfo.into_param().abi(), pwdinfo.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Authenticate)(::windows::core::Interface::as_raw(self), userinfo.into_param().abi(), pwdinfo.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Logout(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Logout)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Logout)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmsg: Param0, bstrparam: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMessage)(::core::mem::transmute_copy(self), bstrmsg.into_param().abi(), bstrparam.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SendMessage)(::windows::core::Interface::as_raw(self), bstrmsg.into_param().abi(), bstrparam.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StationEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstationeventtype: Param0, stationid: u32, playlistindex: u32, trackid: u32, trackdata: Param4, dwsecondsplayed: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).StationEvent)(::core::mem::transmute_copy(self), bstrstationeventtype.into_param().abi(), ::core::mem::transmute(stationid), ::core::mem::transmute(playlistindex), ::core::mem::transmute(trackid), trackdata.into_param().abi(), ::core::mem::transmute(dwsecondsplayed)).ok()
+        (::windows::core::Interface::vtable(self).StationEvent)(::windows::core::Interface::as_raw(self), bstrstationeventtype.into_param().abi(), ::core::mem::transmute(stationid), ::core::mem::transmute(playlistindex), ::core::mem::transmute(trackid), trackdata.into_param().abi(), ::core::mem::transmute(dwsecondsplayed)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CompareContainerListPrices<'a, Param0: ::windows::core::IntoParam<'a, IWMPContentContainerList>, Param1: ::windows::core::IntoParam<'a, IWMPContentContainerList>>(&self, plistbase: Param0, plistcompare: Param1) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CompareContainerListPrices)(::core::mem::transmute_copy(self), plistbase.into_param().abi(), plistcompare.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CompareContainerListPrices)(::windows::core::Interface::as_raw(self), plistbase.into_param().abi(), plistcompare.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn VerifyPermission<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpermission: Param0, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VerifyPermission)(::core::mem::transmute_copy(self), bstrpermission.into_param().abi(), ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Interface::vtable(self).VerifyPermission)(::windows::core::Interface::as_raw(self), bstrpermission.into_param().abi(), ::core::mem::transmute(pcontext)).ok()
     }
 }
 impl ::core::convert::From<IWMPContentPartner> for ::windows::core::IUnknown {
@@ -5012,61 +5012,61 @@ impl IWMPContentPartnerCallback {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Notify(&self, r#type: WMPCallbackNotification, pcontext: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Notify)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pcontext)).ok()
+        (::windows::core::Interface::vtable(self).Notify)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(pcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BuyComplete(&self, hrresult: ::windows::core::HRESULT, dwbuycookie: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BuyComplete)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrresult), ::core::mem::transmute(dwbuycookie)).ok()
+        (::windows::core::Interface::vtable(self).BuyComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrresult), ::core::mem::transmute(dwbuycookie)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadTrack<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, cookie: u32, bstrtrackurl: Param1, dwservicetrackid: u32, bstrdownloadparams: Param3, hrdownload: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DownloadTrack)(::core::mem::transmute_copy(self), ::core::mem::transmute(cookie), bstrtrackurl.into_param().abi(), ::core::mem::transmute(dwservicetrackid), bstrdownloadparams.into_param().abi(), ::core::mem::transmute(hrdownload)).ok()
+        (::windows::core::Interface::vtable(self).DownloadTrack)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cookie), bstrtrackurl.into_param().abi(), ::core::mem::transmute(dwservicetrackid), bstrdownloadparams.into_param().abi(), ::core::mem::transmute(hrdownload)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCatalogVersion(&self, pdwversion: *mut u32, pdwschemaversion: *mut u32, plcid: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCatalogVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwversion), ::core::mem::transmute(pdwschemaversion), ::core::mem::transmute(plcid)).ok()
+        (::windows::core::Interface::vtable(self).GetCatalogVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwversion), ::core::mem::transmute(pdwschemaversion), ::core::mem::transmute(plcid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UpdateDeviceComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdevicename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateDeviceComplete)(::core::mem::transmute_copy(self), bstrdevicename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UpdateDeviceComplete)(::windows::core::Interface::as_raw(self), bstrdevicename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ChangeView<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtype: Param0, bstrid: Param1, bstrfilter: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ChangeView)(::core::mem::transmute_copy(self), bstrtype.into_param().abi(), bstrid.into_param().abi(), bstrfilter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ChangeView)(::windows::core::Interface::as_raw(self), bstrtype.into_param().abi(), bstrid.into_param().abi(), bstrfilter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AddListContents(&self, dwlistcookie: u32, prgitems: &[u32]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddListContents)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlistcookie), prgitems.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgitems))).ok()
+        (::windows::core::Interface::vtable(self).AddListContents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlistcookie), prgitems.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(prgitems))).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ListContentsComplete(&self, dwlistcookie: u32, hrsuccess: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ListContentsComplete)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwlistcookie), ::core::mem::transmute(hrsuccess)).ok()
+        (::windows::core::Interface::vtable(self).ListContentsComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwlistcookie), ::core::mem::transmute(hrsuccess)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendMessageComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmsg: Param0, bstrparam: Param1, bstrresult: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendMessageComplete)(::core::mem::transmute_copy(self), bstrmsg.into_param().abi(), bstrparam.into_param().abi(), bstrresult.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SendMessageComplete)(::windows::core::Interface::as_raw(self), bstrmsg.into_param().abi(), bstrparam.into_param().abi(), bstrresult.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetContentIDsInLibrary(&self, pccontentids: *mut u32, pprgids: *mut *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetContentIDsInLibrary)(::core::mem::transmute_copy(self), ::core::mem::transmute(pccontentids), ::core::mem::transmute(pprgids)).ok()
+        (::windows::core::Interface::vtable(self).GetContentIDsInLibrary)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pccontentids), ::core::mem::transmute(pprgids)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn RefreshLicenseComplete(&self, dwcookie: u32, contentid: u32, hrrefresh: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RefreshLicenseComplete)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwcookie), ::core::mem::transmute(contentid), ::core::mem::transmute(hrrefresh)).ok()
+        (::windows::core::Interface::vtable(self).RefreshLicenseComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwcookie), ::core::mem::transmute(contentid), ::core::mem::transmute(hrrefresh)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ShowPopup<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lindex: i32, bstrparameters: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ShowPopup)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), bstrparameters.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ShowPopup)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), bstrparameters.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn VerifyPermissionComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpermission: Param0, pcontext: *const super::super::System::Com::VARIANT, hrpermission: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).VerifyPermissionComplete)(::core::mem::transmute_copy(self), bstrpermission.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(hrpermission)).ok()
+        (::windows::core::Interface::vtable(self).VerifyPermissionComplete)(::windows::core::Interface::as_raw(self), bstrpermission.into_param().abi(), ::core::mem::transmute(pcontext), ::core::mem::transmute(hrpermission)).ok()
     }
 }
 impl ::core::convert::From<IWMPContentPartnerCallback> for ::windows::core::IUnknown {
@@ -5157,72 +5157,72 @@ impl IWMPControls {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isAvailable)(::core::mem::transmute_copy(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).play)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).play)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fastForward(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).fastForward)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).fastForward)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fastReverse(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).fastReverse)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).fastReverse)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentPosition(&self, pdcurrentposition: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).currentPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).currentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetcurrentPosition(&self, dcurrentposition: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(dcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).SetcurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn currentPositionString(&self, pbstrcurrentposition: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).currentPositionString)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).currentPositionString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn next(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).next)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).next)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn previous(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).previous)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).previous)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentItem(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).currentItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).currentItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).currentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(plmarker)).ok()
+        (::windows::core::Interface::vtable(self).currentMarker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plmarker)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmarker)).ok()
+        (::windows::core::Interface::vtable(self).SetcurrentMarker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmarker)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).playItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5344,76 +5344,76 @@ impl IWMPControls2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.get_isAvailable)(::core::mem::transmute_copy(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Interface::vtable(self).base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.play)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.play)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fastForward(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.fastForward)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.fastForward)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fastReverse(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.fastReverse)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.fastReverse)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentPosition(&self, pdcurrentposition: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.currentPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.currentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetcurrentPosition(&self, dcurrentposition: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(dcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn currentPositionString(&self, pbstrcurrentposition: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.currentPositionString)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.currentPositionString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn next(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.next)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.next)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn previous(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.previous)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.previous)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentItem(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.currentItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.currentItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.currentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(plmarker)).ok()
+        (::windows::core::Interface::vtable(self).base__.currentMarker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plmarker)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmarker)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentMarker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmarker)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.playItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn step(&self, lstep: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).step)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstep)).ok()
+        (::windows::core::Interface::vtable(self).step)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lstep)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5529,120 +5529,120 @@ impl IWMPControls3 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.get_isAvailable)(::core::mem::transmute_copy(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn play(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.play)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.play)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fastForward(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.fastForward)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.fastForward)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fastReverse(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.fastReverse)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.fastReverse)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentPosition(&self, pdcurrentposition: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.currentPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.currentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetcurrentPosition(&self, dcurrentposition: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(dcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn currentPositionString(&self, pbstrcurrentposition: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.currentPositionString)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrcurrentposition)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.currentPositionString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrcurrentposition)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn next(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.next)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.next)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn previous(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.previous)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.previous)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentItem(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.currentItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.currentItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentMarker(&self, plmarker: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.currentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(plmarker)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.currentMarker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plmarker)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetcurrentMarker(&self, lmarker: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMarker)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmarker)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMarker)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmarker)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.playItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.playItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn step(&self, lstep: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.step)(::core::mem::transmute_copy(self), ::core::mem::transmute(lstep)).ok()
+        (::windows::core::Interface::vtable(self).base__.step)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lstep)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn audioLanguageCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).audioLanguageCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).audioLanguageCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn getAudioLanguageID(&self, lindex: i32, pllangid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getAudioLanguageID)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pllangid)).ok()
+        (::windows::core::Interface::vtable(self).getAudioLanguageID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pllangid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAudioLanguageDescription(&self, lindex: i32, pbstrlangdesc: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getAudioLanguageDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrlangdesc)).ok()
+        (::windows::core::Interface::vtable(self).getAudioLanguageDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrlangdesc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentAudioLanguage(&self, pllangid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).currentAudioLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllangid)).ok()
+        (::windows::core::Interface::vtable(self).currentAudioLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pllangid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetcurrentAudioLanguage(&self, llangid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentAudioLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(llangid)).ok()
+        (::windows::core::Interface::vtable(self).SetcurrentAudioLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llangid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn currentAudioLanguageIndex(&self, plindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).currentAudioLanguageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(plindex)).ok()
+        (::windows::core::Interface::vtable(self).currentAudioLanguageIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetcurrentAudioLanguageIndex(&self, lindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentAudioLanguageIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex)).ok()
+        (::windows::core::Interface::vtable(self).SetcurrentAudioLanguageIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getLanguageName(&self, llangid: i32, pbstrlangname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getLanguageName)(::core::mem::transmute_copy(self), ::core::mem::transmute(llangid), ::core::mem::transmute(pbstrlangname)).ok()
+        (::windows::core::Interface::vtable(self).getLanguageName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llangid), ::core::mem::transmute(pbstrlangname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn currentPositionTimecode(&self, bstrtimecode: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).currentPositionTimecode)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstrtimecode)).ok()
+        (::windows::core::Interface::vtable(self).currentPositionTimecode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstrtimecode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetcurrentPositionTimecode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtimecode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentPositionTimecode)(::core::mem::transmute_copy(self), bstrtimecode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetcurrentPositionTimecode)(::windows::core::Interface::as_raw(self), bstrtimecode.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5801,12 +5801,12 @@ impl IWMPConvert {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ConvertFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrinputfile: Param0, bstrdestinationfolder: Param1, pbstroutputfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConvertFile)(::core::mem::transmute_copy(self), bstrinputfile.into_param().abi(), bstrdestinationfolder.into_param().abi(), ::core::mem::transmute(pbstroutputfile)).ok()
+        (::windows::core::Interface::vtable(self).ConvertFile)(::windows::core::Interface::as_raw(self), bstrinputfile.into_param().abi(), bstrdestinationfolder.into_param().abi(), ::core::mem::transmute(pbstroutputfile)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetErrorURL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetErrorURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).GetErrorURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
 }
 impl ::core::convert::From<IWMPConvert> for ::windows::core::IUnknown {
@@ -5870,114 +5870,114 @@ pub struct IWMPCore(::windows::core::IUnknown);
 impl IWMPCore {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).URL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).URL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).openState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Interface::vtable(self).openState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Interface::vtable(self).playState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
+        (::windows::core::Interface::vtable(self).controls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
+        (::windows::core::Interface::vtable(self).settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).currentMedia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
+        (::windows::core::Interface::vtable(self).playlistCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).versionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrversioninfo)).ok()
+        (::windows::core::Interface::vtable(self).versionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrversioninfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
+        (::windows::core::Interface::vtable(self).network)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).currentPlaylist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
+        (::windows::core::Interface::vtable(self).cdromCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
+        (::windows::core::Interface::vtable(self).closedCaption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Interface::vtable(self).isOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfonline)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
+        (::windows::core::Interface::vtable(self).error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn status(&self, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrstatus)).ok()
+        (::windows::core::Interface::vtable(self).status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrstatus)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6139,120 +6139,120 @@ pub struct IWMPCore2(::windows::core::IUnknown);
 impl IWMPCore2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.URL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.URL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.openState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Interface::vtable(self).base__.openState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Interface::vtable(self).base__.playState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
+        (::windows::core::Interface::vtable(self).base__.controls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
+        (::windows::core::Interface::vtable(self).base__.settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.currentMedia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.playlistCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.versionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrversioninfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.versionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrversioninfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
+        (::windows::core::Interface::vtable(self).base__.network)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.currentPlaylist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.cdromCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
+        (::windows::core::Interface::vtable(self).base__.closedCaption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Interface::vtable(self).base__.isOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfonline)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
+        (::windows::core::Interface::vtable(self).base__.error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn status(&self, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> ::windows::core::Result<IWMPDVD> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).dvd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
+        (::windows::core::Interface::vtable(self).dvd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6370,132 +6370,132 @@ pub struct IWMPCore3(::windows::core::IUnknown);
 impl IWMPCore3 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.URL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.URL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.openState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.openState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.playState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.controls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.currentMedia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.playlistCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.versionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrversioninfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.versionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrversioninfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.network)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.currentPlaylist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.cdromCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.closedCaption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.isOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfonline)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn status(&self, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> ::windows::core::Result<IWMPDVD> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.dvd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
+        (::windows::core::Interface::vtable(self).base__.dvd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrurl: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).newPlaylist)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newMedia<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).newMedia)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).newMedia)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6642,28 +6642,28 @@ impl IWMPDVD {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isAvailable)(::core::mem::transmute_copy(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn domain(&self, strdomain: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).domain)(::core::mem::transmute_copy(self), ::core::mem::transmute(strdomain)).ok()
+        (::windows::core::Interface::vtable(self).domain)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(strdomain)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn topMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).topMenu)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).topMenu)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn titleMenu(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).titleMenu)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).titleMenu)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn back(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).back)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).back)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).resume)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6765,31 +6765,31 @@ pub struct IWMPDownloadCollection(::windows::core::IUnknown);
 impl IWMPDownloadCollection {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn id(&self, plid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).id)(::core::mem::transmute_copy(self), ::core::mem::transmute(plid)).ok()
+        (::windows::core::Interface::vtable(self).id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, litem: i32) -> ::windows::core::Result<IWMPDownloadItem2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(litem), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadItem2>(result__)
+        (::windows::core::Interface::vtable(self).item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(litem), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadItem2>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn startDownload<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsourceurl: Param0, bstrtype: Param1) -> ::windows::core::Result<IWMPDownloadItem2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).startDownload)(::core::mem::transmute_copy(self), bstrsourceurl.into_param().abi(), bstrtype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadItem2>(result__)
+        (::windows::core::Interface::vtable(self).startDownload)(::windows::core::Interface::as_raw(self), bstrsourceurl.into_param().abi(), bstrtype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadItem2>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn removeItem(&self, litem: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).removeItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(litem)).ok()
+        (::windows::core::Interface::vtable(self).removeItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(litem)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6892,36 +6892,36 @@ impl IWMPDownloadItem {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn sourceURL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).sourceURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).sourceURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn size(&self, plsize: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).size)(::core::mem::transmute_copy(self), ::core::mem::transmute(plsize)).ok()
+        (::windows::core::Interface::vtable(self).size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn r#type(&self, pbstrtype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).r#type)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrtype)).ok()
+        (::windows::core::Interface::vtable(self).r#type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).progress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Interface::vtable(self).progress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn downloadState(&self, pwmpsdls: *mut WMPSubscriptionDownloadState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).downloadState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpsdls)).ok()
+        (::windows::core::Interface::vtable(self).downloadState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpsdls)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).resume)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).cancel)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7026,41 +7026,41 @@ impl IWMPDownloadItem2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn sourceURL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.sourceURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.sourceURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn size(&self, plsize: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.size)(::core::mem::transmute_copy(self), ::core::mem::transmute(plsize)).ok()
+        (::windows::core::Interface::vtable(self).base__.size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn r#type(&self, pbstrtype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.r#type)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrtype)).ok()
+        (::windows::core::Interface::vtable(self).base__.r#type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.progress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Interface::vtable(self).base__.progress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn downloadState(&self, pwmpsdls: *mut WMPSubscriptionDownloadState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.downloadState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpsdls)).ok()
+        (::windows::core::Interface::vtable(self).base__.downloadState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpsdls)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.resume)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.cancel)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7180,13 +7180,13 @@ impl IWMPDownloadManager {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getDownloadCollection(&self, lcollectionid: i32) -> ::windows::core::Result<IWMPDownloadCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getDownloadCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcollectionid), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadCollection>(result__)
+        (::windows::core::Interface::vtable(self).getDownloadCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionid), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createDownloadCollection(&self) -> ::windows::core::Result<IWMPDownloadCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).createDownloadCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadCollection>(result__)
+        (::windows::core::Interface::vtable(self).createDownloadCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDownloadCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7283,52 +7283,52 @@ impl IWMPEffects {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Render<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, plevels: *mut TimedLevel, hdc: Param1, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Render)(::core::mem::transmute_copy(self), ::core::mem::transmute(plevels), hdc.into_param().abi(), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Interface::vtable(self).Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plevels), hdc.into_param().abi(), ::core::mem::transmute(prc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MediaInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(lchannelcount), ::core::mem::transmute(lsamplerate), bstrtitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).MediaInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lchannelcount), ::core::mem::transmute(lsamplerate), bstrtitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCapabilities(&self, pdwcapabilities: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcapabilities)).ok()
+        (::windows::core::Interface::vtable(self).GetCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcapabilities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTitle(&self, bstrtitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTitle)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstrtitle)).ok()
+        (::windows::core::Interface::vtable(self).GetTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstrtitle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresetTitle(&self, npreset: i32, bstrpresettitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPresetTitle)(::core::mem::transmute_copy(self), ::core::mem::transmute(npreset), ::core::mem::transmute(bstrpresettitle)).ok()
+        (::windows::core::Interface::vtable(self).GetPresetTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(npreset), ::core::mem::transmute(bstrpresettitle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetPresetCount(&self, pnpresetcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPresetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnpresetcount)).ok()
+        (::windows::core::Interface::vtable(self).GetPresetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnpresetcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetCurrentPreset(&self, npreset: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCurrentPreset)(::core::mem::transmute_copy(self), ::core::mem::transmute(npreset)).ok()
+        (::windows::core::Interface::vtable(self).SetCurrentPreset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(npreset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCurrentPreset(&self, pnpreset: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCurrentPreset)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnpreset)).ok()
+        (::windows::core::Interface::vtable(self).GetCurrentPreset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnpreset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayPropertyPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndowner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayPropertyPage)(::core::mem::transmute_copy(self), hwndowner.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndowner.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GoFullscreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GoFullscreen)(::core::mem::transmute_copy(self), ffullscreen.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GoFullscreen)(::windows::core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenderFullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(plevels)).ok()
+        (::windows::core::Interface::vtable(self).RenderFullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plevels)).ok()
     }
 }
 impl ::core::convert::From<IWMPEffects> for ::windows::core::IUnknown {
@@ -7412,81 +7412,81 @@ impl IWMPEffects2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
     pub unsafe fn Render<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>>(&self, plevels: *mut TimedLevel, hdc: Param1, prc: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Render)(::core::mem::transmute_copy(self), ::core::mem::transmute(plevels), hdc.into_param().abi(), ::core::mem::transmute(prc)).ok()
+        (::windows::core::Interface::vtable(self).base__.Render)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plevels), hdc.into_param().abi(), ::core::mem::transmute(prc)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaInfo<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lchannelcount: i32, lsamplerate: i32, bstrtitle: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MediaInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(lchannelcount), ::core::mem::transmute(lsamplerate), bstrtitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.MediaInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lchannelcount), ::core::mem::transmute(lsamplerate), bstrtitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCapabilities(&self, pdwcapabilities: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwcapabilities)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwcapabilities)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTitle(&self, bstrtitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetTitle)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstrtitle)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstrtitle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresetTitle(&self, npreset: i32, bstrpresettitle: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPresetTitle)(::core::mem::transmute_copy(self), ::core::mem::transmute(npreset), ::core::mem::transmute(bstrpresettitle)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPresetTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(npreset), ::core::mem::transmute(bstrpresettitle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetPresetCount(&self, pnpresetcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetPresetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnpresetcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetPresetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnpresetcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetCurrentPreset(&self, npreset: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCurrentPreset)(::core::mem::transmute_copy(self), ::core::mem::transmute(npreset)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCurrentPreset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(npreset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCurrentPreset(&self, pnpreset: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetCurrentPreset)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnpreset)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetCurrentPreset)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnpreset)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayPropertyPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndowner: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisplayPropertyPage)(::core::mem::transmute_copy(self), hwndowner.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndowner.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GoFullscreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GoFullscreen)(::core::mem::transmute_copy(self), ffullscreen.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.GoFullscreen)(::windows::core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn RenderFullScreen(&self, plevels: *mut TimedLevel) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RenderFullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(plevels)).ok()
+        (::windows::core::Interface::vtable(self).base__.RenderFullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plevels)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCore<'a, Param0: ::windows::core::IntoParam<'a, IWMPCore>>(&self, pplayer: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCore)(::core::mem::transmute_copy(self), pplayer.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCore)(::windows::core::Interface::as_raw(self), pplayer.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), hwndparent.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Destroy)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Destroy)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn NotifyNewMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NotifyNewMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).NotifyNewMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, msg: u32, wparam: Param1, lparam: Param2, plresultparam: *mut super::super::Foundation::LRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnWindowMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresultparam)).ok()
+        (::windows::core::Interface::vtable(self).OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(msg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plresultparam)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RenderWindowed<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pdata: *mut TimedLevel, frequiredrender: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RenderWindowed)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), frequiredrender.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RenderWindowed)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata), frequiredrender.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPEffects2> for ::windows::core::IUnknown {
@@ -7583,21 +7583,21 @@ pub struct IWMPError(::windows::core::IUnknown);
 impl IWMPError {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn clearErrorQueue(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).clearErrorQueue)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).clearErrorQueue)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn errorCount(&self, plnumerrors: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).errorCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plnumerrors)).ok()
+        (::windows::core::Interface::vtable(self).errorCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plnumerrors)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, dwindex: i32) -> ::windows::core::Result<IWMPErrorItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_item)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
+        (::windows::core::Interface::vtable(self).get_item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn webHelp(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).webHelp)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).webHelp)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7694,26 +7694,26 @@ pub struct IWMPErrorItem(::windows::core::IUnknown);
 impl IWMPErrorItem {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn errorCode(&self, phr: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).errorCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(phr)).ok()
+        (::windows::core::Interface::vtable(self).errorCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn errorDescription(&self, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).errorDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).errorDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn errorContext(&self, pvarcontext: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).errorContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvarcontext)).ok()
+        (::windows::core::Interface::vtable(self).errorContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn remedy(&self, plremedy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).remedy)(::core::mem::transmute_copy(self), ::core::mem::transmute(plremedy)).ok()
+        (::windows::core::Interface::vtable(self).remedy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plremedy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn customUrl(&self, pbstrcustomurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).customUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrcustomurl)).ok()
+        (::windows::core::Interface::vtable(self).customUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrcustomurl)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7817,30 +7817,30 @@ pub struct IWMPErrorItem2(::windows::core::IUnknown);
 impl IWMPErrorItem2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn errorCode(&self, phr: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.errorCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(phr)).ok()
+        (::windows::core::Interface::vtable(self).base__.errorCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phr)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn errorDescription(&self, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.errorDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).base__.errorDescription)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn errorContext(&self, pvarcontext: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.errorContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvarcontext)).ok()
+        (::windows::core::Interface::vtable(self).base__.errorContext)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn remedy(&self, plremedy: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.remedy)(::core::mem::transmute_copy(self), ::core::mem::transmute(plremedy)).ok()
+        (::windows::core::Interface::vtable(self).base__.remedy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plremedy)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn customUrl(&self, pbstrcustomurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.customUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrcustomurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.customUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrcustomurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn condition(&self, plcondition: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).condition)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcondition)).ok()
+        (::windows::core::Interface::vtable(self).condition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcondition)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7953,200 +7953,200 @@ pub struct IWMPEvents(::windows::core::IUnknown);
 impl IWMPEvents {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        (::windows::core::Interface::vtable(self).OpenStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).OpenStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        (::windows::core::Interface::vtable(self).PlayStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).PlayStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        (::windows::core::Interface::vtable(self).AudioLanguageChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid))
+        (::windows::core::Interface::vtable(self).AudioLanguageChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(langid))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn StatusChange(&self) {
-        (::windows::core::Interface::vtable(self).StatusChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).StatusChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        (::windows::core::Interface::vtable(self).ScriptCommand)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi())
+        (::windows::core::Interface::vtable(self).ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into_param().abi(), param.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NewStream(&self) {
-        (::windows::core::Interface::vtable(self).NewStream)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).NewStream)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Disconnect(&self, result: i32) {
-        (::windows::core::Interface::vtable(self).Disconnect)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
+        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Buffering(&self, start: i16) {
-        (::windows::core::Interface::vtable(self).Buffering)(::core::mem::transmute_copy(self), ::core::mem::transmute(start))
+        (::windows::core::Interface::vtable(self).Buffering)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(start))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Error(&self) {
-        (::windows::core::Interface::vtable(self).Error)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        (::windows::core::Interface::vtable(self).Warning)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
+        (::windows::core::Interface::vtable(self).Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EndOfStream(&self, result: i32) {
-        (::windows::core::Interface::vtable(self).EndOfStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
+        (::windows::core::Interface::vtable(self).EndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        (::windows::core::Interface::vtable(self).PositionChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
+        (::windows::core::Interface::vtable(self).PositionChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        (::windows::core::Interface::vtable(self).MarkerHit)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum))
+        (::windows::core::Interface::vtable(self).MarkerHit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        (::windows::core::Interface::vtable(self).DurationUnitChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit))
+        (::windows::core::Interface::vtable(self).DurationUnitChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newdurationunit))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        (::windows::core::Interface::vtable(self).CdromMediaChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum))
+        (::windows::core::Interface::vtable(self).CdromMediaChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cdromnum))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).PlaylistChange)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change))
+        (::windows::core::Interface::vtable(self).PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into_param().abi(), ::core::mem::transmute(change))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).CurrentPlaylistChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(change))
+        (::windows::core::Interface::vtable(self).CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(change))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).CurrentPlaylistItemAvailable)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
+        (::windows::core::Interface::vtable(self).CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        (::windows::core::Interface::vtable(self).MediaChange)(::core::mem::transmute_copy(self), item.into_param().abi())
+        (::windows::core::Interface::vtable(self).MediaChange)(::windows::core::Interface::as_raw(self), item.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).CurrentMediaItemAvailable)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
+        (::windows::core::Interface::vtable(self).CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).CurrentItemChange)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MediaCollectionChange(&self) {
-        (::windows::core::Interface::vtable(self).MediaCollectionChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).MediaCollectionChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringAdded)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringRemoved)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringChanged)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlaylistCollectionChange(&self) {
-        (::windows::core::Interface::vtable(self).PlaylistCollectionChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).PlaylistCollectionChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistAdded)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
+        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistRemoved)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
+        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistSetAsDeleted)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
+        (::windows::core::Interface::vtable(self).PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        (::windows::core::Interface::vtable(self).ModeChange)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
+        (::windows::core::Interface::vtable(self).ModeChange)(::windows::core::Interface::as_raw(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        (::windows::core::Interface::vtable(self).MediaError)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi())
+        (::windows::core::Interface::vtable(self).MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        (::windows::core::Interface::vtable(self).OpenPlaylistSwitch)(::core::mem::transmute_copy(self), pitem.into_param().abi())
+        (::windows::core::Interface::vtable(self).OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        (::windows::core::Interface::vtable(self).DomainChange)(::core::mem::transmute_copy(self), strdomain.into_param().abi())
+        (::windows::core::Interface::vtable(self).DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        (::windows::core::Interface::vtable(self).SwitchedToPlayerApplication)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).SwitchedToPlayerApplication)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToControl(&self) {
-        (::windows::core::Interface::vtable(self).SwitchedToControl)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).SwitchedToControl)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayerDockedStateChange(&self) {
-        (::windows::core::Interface::vtable(self).PlayerDockedStateChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).PlayerDockedStateChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayerReconnect(&self) {
-        (::windows::core::Interface::vtable(self).PlayerReconnect)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).PlayerReconnect)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).Click)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).Click)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).DoubleClick)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).DoubleClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        (::windows::core::Interface::vtable(self).KeyDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
+        (::windows::core::Interface::vtable(self).KeyDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        (::windows::core::Interface::vtable(self).KeyPress)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii))
+        (::windows::core::Interface::vtable(self).KeyPress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeyascii))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        (::windows::core::Interface::vtable(self).KeyUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
+        (::windows::core::Interface::vtable(self).KeyUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).MouseDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).MouseDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).MouseMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).MouseMove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).MouseUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).MouseUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
 }
 impl ::core::convert::From<IWMPEvents> for ::windows::core::IUnknown {
@@ -8296,225 +8296,225 @@ pub struct IWMPEvents2(::windows::core::IUnknown);
 impl IWMPEvents2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        (::windows::core::Interface::vtable(self).base__.OpenStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).base__.OpenStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        (::windows::core::Interface::vtable(self).base__.PlayStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).base__.PlayStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        (::windows::core::Interface::vtable(self).base__.AudioLanguageChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid))
+        (::windows::core::Interface::vtable(self).base__.AudioLanguageChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(langid))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn StatusChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.StatusChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.StatusChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        (::windows::core::Interface::vtable(self).base__.ScriptCommand)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into_param().abi(), param.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NewStream(&self) {
-        (::windows::core::Interface::vtable(self).base__.NewStream)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.NewStream)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Disconnect(&self, result: i32) {
-        (::windows::core::Interface::vtable(self).base__.Disconnect)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
+        (::windows::core::Interface::vtable(self).base__.Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Buffering(&self, start: i16) {
-        (::windows::core::Interface::vtable(self).base__.Buffering)(::core::mem::transmute_copy(self), ::core::mem::transmute(start))
+        (::windows::core::Interface::vtable(self).base__.Buffering)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(start))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Error(&self) {
-        (::windows::core::Interface::vtable(self).base__.Error)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.Error)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        (::windows::core::Interface::vtable(self).base__.Warning)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EndOfStream(&self, result: i32) {
-        (::windows::core::Interface::vtable(self).base__.EndOfStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
+        (::windows::core::Interface::vtable(self).base__.EndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        (::windows::core::Interface::vtable(self).base__.PositionChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
+        (::windows::core::Interface::vtable(self).base__.PositionChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        (::windows::core::Interface::vtable(self).base__.MarkerHit)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum))
+        (::windows::core::Interface::vtable(self).base__.MarkerHit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        (::windows::core::Interface::vtable(self).base__.DurationUnitChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit))
+        (::windows::core::Interface::vtable(self).base__.DurationUnitChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newdurationunit))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        (::windows::core::Interface::vtable(self).base__.CdromMediaChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum))
+        (::windows::core::Interface::vtable(self).base__.CdromMediaChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cdromnum))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistChange)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change))
+        (::windows::core::Interface::vtable(self).base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into_param().abi(), ::core::mem::transmute(change))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.CurrentPlaylistChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(change))
+        (::windows::core::Interface::vtable(self).base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(change))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.CurrentPlaylistItemAvailable)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        (::windows::core::Interface::vtable(self).base__.MediaChange)(::core::mem::transmute_copy(self), item.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.CurrentMediaItemAvailable)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.CurrentItemChange)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MediaCollectionChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringAdded)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringRemoved)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringChanged)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlaylistCollectionChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistAdded)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistRemoved)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistSetAsDeleted)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
+        (::windows::core::Interface::vtable(self).base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        (::windows::core::Interface::vtable(self).base__.ModeChange)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
+        (::windows::core::Interface::vtable(self).base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        (::windows::core::Interface::vtable(self).base__.MediaError)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        (::windows::core::Interface::vtable(self).base__.OpenPlaylistSwitch)(::core::mem::transmute_copy(self), pitem.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        (::windows::core::Interface::vtable(self).base__.DomainChange)(::core::mem::transmute_copy(self), strdomain.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        (::windows::core::Interface::vtable(self).base__.SwitchedToPlayerApplication)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.SwitchedToPlayerApplication)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToControl(&self) {
-        (::windows::core::Interface::vtable(self).base__.SwitchedToControl)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.SwitchedToControl)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayerDockedStateChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.PlayerDockedStateChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.PlayerDockedStateChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayerReconnect(&self) {
-        (::windows::core::Interface::vtable(self).base__.PlayerReconnect)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.PlayerReconnect)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.Click)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.Click)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.DoubleClick)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.DoubleClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        (::windows::core::Interface::vtable(self).base__.KeyDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
+        (::windows::core::Interface::vtable(self).base__.KeyDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        (::windows::core::Interface::vtable(self).base__.KeyPress)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii))
+        (::windows::core::Interface::vtable(self).base__.KeyPress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeyascii))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        (::windows::core::Interface::vtable(self).base__.KeyUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
+        (::windows::core::Interface::vtable(self).base__.KeyUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.MouseDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.MouseDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.MouseMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.MouseMove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.MouseUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.MouseUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).DeviceConnect)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
+        (::windows::core::Interface::vtable(self).DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).DeviceDisconnect)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
+        (::windows::core::Interface::vtable(self).DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        (::windows::core::Interface::vtable(self).DeviceStatusChange)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
+        (::windows::core::Interface::vtable(self).DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        (::windows::core::Interface::vtable(self).DeviceSyncStateChange)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).DeviceSyncError)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), pmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).CreatePartnershipComplete)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
+        (::windows::core::Interface::vtable(self).CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
     }
 }
 impl ::core::convert::From<IWMPEvents2> for ::windows::core::IUnknown {
@@ -8597,274 +8597,274 @@ pub struct IWMPEvents3(::windows::core::IUnknown);
 impl IWMPEvents3 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.OpenStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).base__.base__.OpenStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlayStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).base__.base__.PlayStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.AudioLanguageChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid))
+        (::windows::core::Interface::vtable(self).base__.base__.AudioLanguageChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(langid))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn StatusChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.StatusChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.StatusChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.ScriptCommand)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into_param().abi(), param.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NewStream(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.NewStream)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.NewStream)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Disconnect(&self, result: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.Disconnect)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
+        (::windows::core::Interface::vtable(self).base__.base__.Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Buffering(&self, start: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.Buffering)(::core::mem::transmute_copy(self), ::core::mem::transmute(start))
+        (::windows::core::Interface::vtable(self).base__.base__.Buffering)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(start))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Error(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.Error)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.Error)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        (::windows::core::Interface::vtable(self).base__.base__.Warning)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EndOfStream(&self, result: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.EndOfStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
+        (::windows::core::Interface::vtable(self).base__.base__.EndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        (::windows::core::Interface::vtable(self).base__.base__.PositionChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
+        (::windows::core::Interface::vtable(self).base__.base__.PositionChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.MarkerHit)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum))
+        (::windows::core::Interface::vtable(self).base__.base__.MarkerHit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.DurationUnitChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit))
+        (::windows::core::Interface::vtable(self).base__.base__.DurationUnitChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newdurationunit))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.CdromMediaChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum))
+        (::windows::core::Interface::vtable(self).base__.base__.CdromMediaChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cdromnum))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistChange)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change))
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into_param().abi(), ::core::mem::transmute(change))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.base__.CurrentPlaylistChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(change))
+        (::windows::core::Interface::vtable(self).base__.base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(change))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.CurrentPlaylistItemAvailable)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaChange)(::core::mem::transmute_copy(self), item.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.CurrentMediaItemAvailable)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.CurrentItemChange)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MediaCollectionChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringAdded)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringRemoved)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringChanged)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlaylistCollectionChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistAdded)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistRemoved)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
+        (::windows::core::Interface::vtable(self).base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.ModeChange)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
+        (::windows::core::Interface::vtable(self).base__.base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.MediaError)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.OpenPlaylistSwitch)(::core::mem::transmute_copy(self), pitem.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.DomainChange)(::core::mem::transmute_copy(self), strdomain.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.SwitchedToPlayerApplication)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.SwitchedToPlayerApplication)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToControl(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.SwitchedToControl)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.SwitchedToControl)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayerDockedStateChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlayerDockedStateChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.PlayerDockedStateChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayerReconnect(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.PlayerReconnect)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.PlayerReconnect)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.Click)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.Click)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.DoubleClick)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.DoubleClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.KeyDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
+        (::windows::core::Interface::vtable(self).base__.base__.KeyDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.KeyPress)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii))
+        (::windows::core::Interface::vtable(self).base__.base__.KeyPress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeyascii))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.KeyUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
+        (::windows::core::Interface::vtable(self).base__.base__.KeyUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.MouseDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.MouseDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.MouseMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.MouseMove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.MouseUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.MouseUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).base__.DeviceConnect)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).base__.DeviceDisconnect)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        (::windows::core::Interface::vtable(self).base__.DeviceStatusChange)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
+        (::windows::core::Interface::vtable(self).base__.DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        (::windows::core::Interface::vtable(self).base__.DeviceSyncStateChange)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).base__.DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).base__.DeviceSyncError)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), pmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).base__.CreatePartnershipComplete)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
+        (::windows::core::Interface::vtable(self).base__.CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromRipStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>>(&self, pcdromrip: Param0, wmprs: WMPRipState) {
-        (::windows::core::Interface::vtable(self).CdromRipStateChange)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs))
+        (::windows::core::Interface::vtable(self).CdromRipStateChange)(::windows::core::Interface::as_raw(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromRipMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromrip: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).CdromRipMediaError)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), pmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).CdromRipMediaError)(::windows::core::Interface::as_raw(self), pcdromrip.into_param().abi(), pmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromBurnStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, wmpbs: WMPBurnState) {
-        (::windows::core::Interface::vtable(self).CdromBurnStateChange)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs))
+        (::windows::core::Interface::vtable(self).CdromBurnStateChange)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromBurnMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromburn: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).CdromBurnMediaError)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), pmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).CdromBurnMediaError)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), pmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromBurnError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, hrerror: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).CdromBurnError)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror))
+        (::windows::core::Interface::vtable(self).CdromBurnError)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LibraryConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        (::windows::core::Interface::vtable(self).LibraryConnect)(::core::mem::transmute_copy(self), plibrary.into_param().abi())
+        (::windows::core::Interface::vtable(self).LibraryConnect)(::windows::core::Interface::as_raw(self), plibrary.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LibraryDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        (::windows::core::Interface::vtable(self).LibraryDisconnect)(::core::mem::transmute_copy(self), plibrary.into_param().abi())
+        (::windows::core::Interface::vtable(self).LibraryDisconnect)(::windows::core::Interface::as_raw(self), plibrary.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState) {
-        (::windows::core::Interface::vtable(self).FolderScanStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmpfss))
+        (::windows::core::Interface::vtable(self).FolderScanStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmpfss))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StringCollectionChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispstringcollection: Param0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32) {
-        (::windows::core::Interface::vtable(self).StringCollectionChange)(::core::mem::transmute_copy(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex))
+        (::windows::core::Interface::vtable(self).StringCollectionChange)(::windows::core::Interface::as_raw(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).MediaCollectionMediaAdded)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).MediaCollectionMediaAdded)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).MediaCollectionMediaRemoved)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).MediaCollectionMediaRemoved)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
     }
 }
 impl ::core::convert::From<IWMPEvents3> for ::windows::core::IUnknown {
@@ -8984,278 +8984,278 @@ pub struct IWMPEvents4(::windows::core::IUnknown);
 impl IWMPEvents4 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn OpenStateChange(&self, newstate: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.OpenStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.OpenStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayStateChange(&self, newstate: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlayStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlayStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AudioLanguageChange(&self, langid: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.AudioLanguageChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(langid))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.AudioLanguageChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(langid))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn StatusChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.StatusChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.StatusChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ScriptCommand<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sctype: Param0, param: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ScriptCommand)(::core::mem::transmute_copy(self), sctype.into_param().abi(), param.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ScriptCommand)(::windows::core::Interface::as_raw(self), sctype.into_param().abi(), param.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NewStream(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.NewStream)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.NewStream)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Disconnect(&self, result: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Disconnect)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Disconnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Buffering(&self, start: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Buffering)(::core::mem::transmute_copy(self), ::core::mem::transmute(start))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Buffering)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(start))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Error(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Error)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Error)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Warning<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, warningtype: i32, param: i32, description: Param2) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Warning)(::core::mem::transmute_copy(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Warning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(warningtype), ::core::mem::transmute(param), description.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EndOfStream(&self, result: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.EndOfStream)(::core::mem::transmute_copy(self), ::core::mem::transmute(result))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.EndOfStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PositionChange(&self, oldposition: f64, newposition: f64) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PositionChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PositionChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(oldposition), ::core::mem::transmute(newposition))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MarkerHit(&self, markernum: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MarkerHit)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MarkerHit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DurationUnitChange(&self, newdurationunit: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.DurationUnitChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(newdurationunit))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.DurationUnitChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(newdurationunit))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromMediaChange(&self, cdromnum: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CdromMediaChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(cdromnum))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CdromMediaChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cdromnum))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PlaylistChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, playlist: Param0, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistChange)(::core::mem::transmute_copy(self), playlist.into_param().abi(), ::core::mem::transmute(change))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistChange)(::windows::core::Interface::as_raw(self), playlist.into_param().abi(), ::core::mem::transmute(change))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CurrentPlaylistChange(&self, change: WMPPlaylistChangeEventType) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(change))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(change))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentPlaylistItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistItemAvailable)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentPlaylistItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, item: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaChange)(::core::mem::transmute_copy(self), item.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaChange)(::windows::core::Interface::as_raw(self), item.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CurrentMediaItemAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentMediaItemAvailable)(::core::mem::transmute_copy(self), bstritemname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentMediaItemAvailable)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentItemChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentItemChange)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.CurrentItemChange)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MediaCollectionChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringAdded)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringAdded)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstrattribval: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringRemoved)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringRemoved)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstrattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MediaCollectionAttributeStringChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribname: Param0, bstroldattribval: Param1, bstrnewattribval: Param2) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringChanged)(::core::mem::transmute_copy(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaCollectionAttributeStringChanged)(::windows::core::Interface::as_raw(self), bstrattribname.into_param().abi(), bstroldattribval.into_param().abi(), bstrnewattribval.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlaylistCollectionChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistAdded)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistAdded)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistRemoved)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistRemoved)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PlaylistCollectionPlaylistSetAsDeleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplaylistname: Param0, varfisdeleted: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(::core::mem::transmute_copy(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlaylistCollectionPlaylistSetAsDeleted)(::windows::core::Interface::as_raw(self), bstrplaylistname.into_param().abi(), ::core::mem::transmute(varfisdeleted))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ModeChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, modename: Param0, newvalue: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.ModeChange)(::core::mem::transmute_copy(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.ModeChange)(::windows::core::Interface::as_raw(self), modename.into_param().abi(), ::core::mem::transmute(newvalue))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaError<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pmediaobject: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaError)(::core::mem::transmute_copy(self), pmediaobject.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MediaError)(::windows::core::Interface::as_raw(self), pmediaobject.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OpenPlaylistSwitch<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pitem: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.OpenPlaylistSwitch)(::core::mem::transmute_copy(self), pitem.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.OpenPlaylistSwitch)(::windows::core::Interface::as_raw(self), pitem.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DomainChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, strdomain: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.DomainChange)(::core::mem::transmute_copy(self), strdomain.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.base__.DomainChange)(::windows::core::Interface::as_raw(self), strdomain.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToPlayerApplication(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SwitchedToPlayerApplication)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SwitchedToPlayerApplication)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SwitchedToControl(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SwitchedToControl)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SwitchedToControl)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayerDockedStateChange(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlayerDockedStateChange)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlayerDockedStateChange)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn PlayerReconnect(&self) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.PlayerReconnect)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.PlayerReconnect)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Click(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.Click)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.Click)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DoubleClick(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.DoubleClick)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.DoubleClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyDown(&self, nkeycode: i16, nshiftstate: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.KeyDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.KeyDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyPress(&self, nkeyascii: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.KeyPress)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeyascii))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.KeyPress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeyascii))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn KeyUp(&self, nkeycode: i16, nshiftstate: i16) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.KeyUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.KeyUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nkeycode), ::core::mem::transmute(nshiftstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseDown(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MouseDown)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MouseDown)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseMove(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MouseMove)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MouseMove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MouseUp(&self, nbutton: i16, nshiftstate: i16, fx: i32, fy: i32) {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.MouseUp)(::core::mem::transmute_copy(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
+        (::windows::core::Interface::vtable(self).base__.base__.base__.MouseUp)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nbutton), ::core::mem::transmute(nshiftstate), ::core::mem::transmute(fx), ::core::mem::transmute(fy))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceConnect)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceConnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceDisconnect)(::core::mem::transmute_copy(self), pdevice.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceDisconnect)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstatus: WMPDeviceStatus) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceStatusChange)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceStatusChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstatus))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceSyncStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, newstate: WMPSyncState) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceSyncStateChange)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceSyncStateChange)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(newstate))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceSyncError<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdevice: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).base__.base__.DeviceSyncError)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), pmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.base__.DeviceSyncError)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), pmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CreatePartnershipComplete<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).base__.base__.CreatePartnershipComplete)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
+        (::windows::core::Interface::vtable(self).base__.base__.CreatePartnershipComplete)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromRipStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>>(&self, pcdromrip: Param0, wmprs: WMPRipState) {
-        (::windows::core::Interface::vtable(self).base__.CdromRipStateChange)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs))
+        (::windows::core::Interface::vtable(self).base__.CdromRipStateChange)(::windows::core::Interface::as_raw(self), pcdromrip.into_param().abi(), ::core::mem::transmute(wmprs))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromRipMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromRip>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromrip: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).base__.CdromRipMediaError)(::core::mem::transmute_copy(self), pcdromrip.into_param().abi(), pmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.CdromRipMediaError)(::windows::core::Interface::as_raw(self), pcdromrip.into_param().abi(), pmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromBurnStateChange<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, wmpbs: WMPBurnState) {
-        (::windows::core::Interface::vtable(self).base__.CdromBurnStateChange)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs))
+        (::windows::core::Interface::vtable(self).base__.CdromBurnStateChange)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), ::core::mem::transmute(wmpbs))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CdromBurnMediaError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pcdromburn: Param0, pmedia: Param1) {
-        (::windows::core::Interface::vtable(self).base__.CdromBurnMediaError)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), pmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.CdromBurnMediaError)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), pmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CdromBurnError<'a, Param0: ::windows::core::IntoParam<'a, IWMPCdromBurn>>(&self, pcdromburn: Param0, hrerror: ::windows::core::HRESULT) {
-        (::windows::core::Interface::vtable(self).base__.CdromBurnError)(::core::mem::transmute_copy(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror))
+        (::windows::core::Interface::vtable(self).base__.CdromBurnError)(::windows::core::Interface::as_raw(self), pcdromburn.into_param().abi(), ::core::mem::transmute(hrerror))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LibraryConnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        (::windows::core::Interface::vtable(self).base__.LibraryConnect)(::core::mem::transmute_copy(self), plibrary.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.LibraryConnect)(::windows::core::Interface::as_raw(self), plibrary.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LibraryDisconnect<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, plibrary: Param0) {
-        (::windows::core::Interface::vtable(self).base__.LibraryDisconnect)(::core::mem::transmute_copy(self), plibrary.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.LibraryDisconnect)(::windows::core::Interface::as_raw(self), plibrary.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FolderScanStateChange(&self, wmpfss: WMPFolderScanState) {
-        (::windows::core::Interface::vtable(self).base__.FolderScanStateChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmpfss))
+        (::windows::core::Interface::vtable(self).base__.FolderScanStateChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmpfss))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn StringCollectionChange<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispstringcollection: Param0, change: WMPStringCollectionChangeEventType, lcollectionindex: i32) {
-        (::windows::core::Interface::vtable(self).base__.StringCollectionChange)(::core::mem::transmute_copy(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex))
+        (::windows::core::Interface::vtable(self).base__.StringCollectionChange)(::windows::core::Interface::as_raw(self), pdispstringcollection.into_param().abi(), ::core::mem::transmute(change), ::core::mem::transmute(lcollectionindex))
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionMediaAdded)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionMediaAdded)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MediaCollectionMediaRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, pdispmedia: Param0) {
-        (::windows::core::Interface::vtable(self).base__.MediaCollectionMediaRemoved)(::core::mem::transmute_copy(self), pdispmedia.into_param().abi())
+        (::windows::core::Interface::vtable(self).base__.MediaCollectionMediaRemoved)(::windows::core::Interface::as_raw(self), pdispmedia.into_param().abi())
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeviceEstimation<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, hrresult: ::windows::core::HRESULT, qwestimatedusedspace: i64, qwestimatedspace: i64) {
-        (::windows::core::Interface::vtable(self).DeviceEstimation)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult), ::core::mem::transmute(qwestimatedusedspace), ::core::mem::transmute(qwestimatedspace))
+        (::windows::core::Interface::vtable(self).DeviceEstimation)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(hrresult), ::core::mem::transmute(qwestimatedusedspace), ::core::mem::transmute(qwestimatedspace))
     }
 }
 impl ::core::convert::From<IWMPEvents4> for ::windows::core::IUnknown {
@@ -9370,50 +9370,50 @@ pub struct IWMPFolderMonitorServices(::windows::core::IUnknown);
 impl IWMPFolderMonitorServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn item(&self, lindex: i32, pbstrfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrfolder)).ok()
+        (::windows::core::Interface::vtable(self).item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrfolder)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfolder: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).add)(::core::mem::transmute_copy(self), bstrfolder.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).add)(::windows::core::Interface::as_raw(self), bstrfolder.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn remove(&self, lindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex)).ok()
+        (::windows::core::Interface::vtable(self).remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn scanState(&self, pwmpfss: *mut WMPFolderScanState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).scanState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpfss)).ok()
+        (::windows::core::Interface::vtable(self).scanState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpfss)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn currentFolder(&self, pbstrfolder: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).currentFolder)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrfolder)).ok()
+        (::windows::core::Interface::vtable(self).currentFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrfolder)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn scannedFilesCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).scannedFilesCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).scannedFilesCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn addedFilesCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).addedFilesCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).addedFilesCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn updateProgress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).updateProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Interface::vtable(self).updateProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn startScan(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startScan)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).startScan)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stopScan(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stopScan)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).stopScan)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IWMPFolderMonitorServices> for ::windows::core::IUnknown {
@@ -9487,15 +9487,15 @@ pub struct IWMPGraphCreation(::windows::core::IUnknown);
 impl IWMPGraphCreation {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GraphCreationPreRender<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfiltergraph: Param0, preserved: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GraphCreationPreRender)(::core::mem::transmute_copy(self), pfiltergraph.into_param().abi(), preserved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GraphCreationPreRender)(::windows::core::Interface::as_raw(self), pfiltergraph.into_param().abi(), preserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GraphCreationPostRender<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pfiltergraph: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GraphCreationPostRender)(::core::mem::transmute_copy(self), pfiltergraph.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GraphCreationPostRender)(::windows::core::Interface::as_raw(self), pfiltergraph.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetGraphCreationFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetGraphCreationFlags)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Interface::vtable(self).GetGraphCreationFlags)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwflags)).ok()
     }
 }
 impl ::core::convert::From<IWMPGraphCreation> for ::windows::core::IUnknown {
@@ -9553,21 +9553,21 @@ impl IWMPLibrary {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).name)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn r#type(&self, pwmplt: *mut WMPLibraryType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).r#type)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmplt)).ok()
+        (::windows::core::Interface::vtable(self).r#type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmplt)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, piwmplibrary: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isIdentical)(::core::mem::transmute_copy(self), piwmplibrary.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), piwmplibrary.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
 }
 impl ::core::convert::From<IWMPLibrary> for ::windows::core::IUnknown {
@@ -9632,26 +9632,26 @@ impl IWMPLibrary2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).base__.name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn r#type(&self, pwmplt: *mut WMPLibraryType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.r#type)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmplt)).ok()
+        (::windows::core::Interface::vtable(self).base__.r#type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmplt)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPLibrary>>(&self, piwmplibrary: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isIdentical)(::core::mem::transmute_copy(self), piwmplibrary.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).base__.isIdentical)(::windows::core::Interface::as_raw(self), piwmplibrary.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
 }
 impl ::core::convert::From<IWMPLibrary2> for ::windows::core::IUnknown {
@@ -9729,12 +9729,12 @@ pub struct IWMPLibraryServices(::windows::core::IUnknown);
 impl IWMPLibraryServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn getCountByType(&self, wmplt: WMPLibraryType, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getCountByType)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmplt), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).getCountByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmplt), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn getLibraryByType(&self, wmplt: WMPLibraryType, lindex: i32) -> ::windows::core::Result<IWMPLibrary> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getLibraryByType)(::core::mem::transmute_copy(self), ::core::mem::transmute(wmplt), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPLibrary>(result__)
+        (::windows::core::Interface::vtable(self).getLibraryByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wmplt), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPLibrary>(result__)
     }
 }
 impl ::core::convert::From<IWMPLibraryServices> for ::windows::core::IUnknown {
@@ -9790,15 +9790,15 @@ pub struct IWMPLibrarySharingServices(::windows::core::IUnknown);
 impl IWMPLibrarySharingServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isLibraryShared(&self, pvbshared: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isLibraryShared)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvbshared)).ok()
+        (::windows::core::Interface::vtable(self).isLibraryShared)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbshared)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isLibrarySharingEnabled(&self, pvbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isLibrarySharingEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvbenabled)).ok()
+        (::windows::core::Interface::vtable(self).isLibrarySharingEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn showLibrarySharing(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).showLibrarySharing)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).showLibrarySharing)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IWMPLibrarySharingServices> for ::windows::core::IUnknown {
@@ -9858,86 +9858,86 @@ impl IWMPMedia {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isIdentical)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn sourceURL(&self, pbstrsourceurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).sourceURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsourceurl)).ok()
+        (::windows::core::Interface::vtable(self).sourceURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsourceurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).name)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Setname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setname)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Setname)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).imageSourceWidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwidth)).ok()
+        (::windows::core::Interface::vtable(self).imageSourceWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceHeight(&self, pheight: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).imageSourceHeight)(::core::mem::transmute_copy(self), ::core::mem::transmute(pheight)).ok()
+        (::windows::core::Interface::vtable(self).imageSourceHeight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pheight)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn markerCount(&self, pmarkercount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).markerCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmarkercount)).ok()
+        (::windows::core::Interface::vtable(self).markerCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmarkercount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn getMarkerTime(&self, markernum: i32, pmarkertime: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getMarkerTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pmarkertime)).ok()
+        (::windows::core::Interface::vtable(self).getMarkerTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pmarkertime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMarkerName(&self, markernum: i32, pbstrmarkername: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getMarkerName)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pbstrmarkername)).ok()
+        (::windows::core::Interface::vtable(self).getMarkerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pbstrmarkername)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn duration(&self, pduration: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).duration)(::core::mem::transmute_copy(self), ::core::mem::transmute(pduration)).ok()
+        (::windows::core::Interface::vtable(self).duration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn durationString(&self, pbstrduration: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).durationString)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrduration)).ok()
+        (::windows::core::Interface::vtable(self).durationString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).attributeCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).attributeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAttributeName(&self, lindex: i32, pbstritemname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getAttributeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstritemname)).ok()
+        (::windows::core::Interface::vtable(self).getAttributeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstritemname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfoByAtom)(::core::mem::transmute_copy(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfoByAtom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isMemberOf)(::core::mem::transmute_copy(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+        (::windows::core::Interface::vtable(self).isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isReadOnlyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isReadOnlyItem)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
+        (::windows::core::Interface::vtable(self).isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10082,92 +10082,92 @@ impl IWMPMedia2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.get_isIdentical)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).base__.get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn sourceURL(&self, pbstrsourceurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.sourceURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsourceurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.sourceURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsourceurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).base__.name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Setname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Setname)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Setname)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.imageSourceWidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwidth)).ok()
+        (::windows::core::Interface::vtable(self).base__.imageSourceWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceHeight(&self, pheight: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.imageSourceHeight)(::core::mem::transmute_copy(self), ::core::mem::transmute(pheight)).ok()
+        (::windows::core::Interface::vtable(self).base__.imageSourceHeight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pheight)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn markerCount(&self, pmarkercount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.markerCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmarkercount)).ok()
+        (::windows::core::Interface::vtable(self).base__.markerCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmarkercount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn getMarkerTime(&self, markernum: i32, pmarkertime: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getMarkerTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pmarkertime)).ok()
+        (::windows::core::Interface::vtable(self).base__.getMarkerTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pmarkertime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMarkerName(&self, markernum: i32, pbstrmarkername: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getMarkerName)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pbstrmarkername)).ok()
+        (::windows::core::Interface::vtable(self).base__.getMarkerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pbstrmarkername)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn duration(&self, pduration: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.duration)(::core::mem::transmute_copy(self), ::core::mem::transmute(pduration)).ok()
+        (::windows::core::Interface::vtable(self).base__.duration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn durationString(&self, pbstrduration: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.durationString)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrduration)).ok()
+        (::windows::core::Interface::vtable(self).base__.durationString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.attributeCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.attributeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAttributeName(&self, lindex: i32, pbstritemname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getAttributeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstritemname)).ok()
+        (::windows::core::Interface::vtable(self).base__.getAttributeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstritemname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getItemInfoByAtom)(::core::mem::transmute_copy(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).base__.getItemInfoByAtom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isMemberOf)(::core::mem::transmute_copy(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+        (::windows::core::Interface::vtable(self).base__.isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isReadOnlyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isReadOnlyItem)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
+        (::windows::core::Interface::vtable(self).base__.isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPErrorItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
+        (::windows::core::Interface::vtable(self).error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10286,102 +10286,102 @@ impl IWMPMedia3 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.get_isIdentical)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn sourceURL(&self, pbstrsourceurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.sourceURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsourceurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.sourceURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsourceurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.name)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Setname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.Setname)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.Setname)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceWidth(&self, pwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.imageSourceWidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwidth)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.imageSourceWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn imageSourceHeight(&self, pheight: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.imageSourceHeight)(::core::mem::transmute_copy(self), ::core::mem::transmute(pheight)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.imageSourceHeight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pheight)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn markerCount(&self, pmarkercount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.markerCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmarkercount)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.markerCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmarkercount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn getMarkerTime(&self, markernum: i32, pmarkertime: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.getMarkerTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pmarkertime)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.getMarkerTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pmarkertime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMarkerName(&self, markernum: i32, pbstrmarkername: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.getMarkerName)(::core::mem::transmute_copy(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pbstrmarkername)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.getMarkerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(markernum), ::core::mem::transmute(pbstrmarkername)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn duration(&self, pduration: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.duration)(::core::mem::transmute_copy(self), ::core::mem::transmute(pduration)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.duration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn durationString(&self, pbstrduration: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.durationString)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrduration)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.durationString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrduration)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.attributeCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.attributeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAttributeName(&self, lindex: i32, pbstritemname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.getAttributeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstritemname)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.getAttributeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstritemname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.getItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.setItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfoByAtom(&self, latom: i32, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.getItemInfoByAtom)(::core::mem::transmute_copy(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.getItemInfoByAtom)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latom), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isMemberOf<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pplaylist: Param0, pvarfismemberof: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.isMemberOf)(::core::mem::transmute_copy(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.isMemberOf)(::windows::core::Interface::as_raw(self), pplaylist.into_param().abi(), ::core::mem::transmute(pvarfismemberof)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn isReadOnlyItem<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pvarfisreadonly: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.isReadOnlyItem)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.isReadOnlyItem)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pvarfisreadonly)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPErrorItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
+        (::windows::core::Interface::vtable(self).base__.error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPErrorItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAttributeCountByType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtype: Param0, bstrlanguage: Param1, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getAttributeCountByType)(::core::mem::transmute_copy(self), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).getAttributeCountByType)(::windows::core::Interface::as_raw(self), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getItemInfoByType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtype: Param0, bstrlanguage: Param1, lindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfoByType)(::core::mem::transmute_copy(self), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfoByType)(::windows::core::Interface::as_raw(self), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(lindex), ::core::mem::transmute(pvarvalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10529,69 +10529,69 @@ impl IWMPMediaCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).add)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).add)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAll(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getAll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getAll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getByName)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByGenre<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgenre: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getByGenre)(::core::mem::transmute_copy(self), bstrgenre.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByGenre)(::windows::core::Interface::as_raw(self), bstrgenre.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAuthor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthor: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getByAuthor)(::core::mem::transmute_copy(self), bstrauthor.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByAuthor)(::windows::core::Interface::as_raw(self), bstrauthor.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAlbum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstralbum: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getByAlbum)(::core::mem::transmute_copy(self), bstralbum.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByAlbum)(::windows::core::Interface::as_raw(self), bstralbum.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getByAttribute)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByAttribute)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfdeletefile: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).remove)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfdeletefile)).ok()
+        (::windows::core::Interface::vtable(self).remove)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfdeletefile)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getAttributeStringCollection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrmediatype: Param1) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getAttributeStringCollection)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
+        (::windows::core::Interface::vtable(self).getAttributeStringCollection)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMediaAtom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, platom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getMediaAtom)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(platom)).ok()
+        (::windows::core::Interface::vtable(self).getMediaAtom)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(platom)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
+        (::windows::core::Interface::vtable(self).setDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+        (::windows::core::Interface::vtable(self).isDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10731,93 +10731,93 @@ impl IWMPMediaCollection2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.add)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.add)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAll(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getAll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getAll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByName)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByGenre<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgenre: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByGenre)(::core::mem::transmute_copy(self), bstrgenre.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByGenre)(::windows::core::Interface::as_raw(self), bstrgenre.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAuthor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrauthor: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByAuthor)(::core::mem::transmute_copy(self), bstrauthor.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByAuthor)(::windows::core::Interface::as_raw(self), bstrauthor.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAlbum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstralbum: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByAlbum)(::core::mem::transmute_copy(self), bstralbum.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByAlbum)(::windows::core::Interface::as_raw(self), bstralbum.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAttribute<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getByAttribute)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.getByAttribute)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfdeletefile: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.remove)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfdeletefile)).ok()
+        (::windows::core::Interface::vtable(self).base__.remove)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfdeletefile)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getAttributeStringCollection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrmediatype: Param1) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.getAttributeStringCollection)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.getAttributeStringCollection)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMediaAtom<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, platom: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getMediaAtom)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(platom)).ok()
+        (::windows::core::Interface::vtable(self).base__.getMediaAtom)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(platom)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
+        (::windows::core::Interface::vtable(self).base__.setDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+        (::windows::core::Interface::vtable(self).base__.isDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn createQuery(&self) -> ::windows::core::Result<IWMPQuery> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).createQuery)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPQuery>(result__)
+        (::windows::core::Interface::vtable(self).createQuery)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPQuery>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getPlaylistByQuery<'a, Param0: ::windows::core::IntoParam<'a, IWMPQuery>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pquery: Param0, bstrmediatype: Param1, bstrsortattribute: Param2, fsortascending: i16) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getPlaylistByQuery)(::core::mem::transmute_copy(self), pquery.into_param().abi(), bstrmediatype.into_param().abi(), bstrsortattribute.into_param().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getPlaylistByQuery)(::windows::core::Interface::as_raw(self), pquery.into_param().abi(), bstrmediatype.into_param().abi(), bstrsortattribute.into_param().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getStringCollectionByQuery<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IWMPQuery>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, pquery: Param1, bstrmediatype: Param2, bstrsortattribute: Param3, fsortascending: i16) -> ::windows::core::Result<IWMPStringCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getStringCollectionByQuery)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), pquery.into_param().abi(), bstrmediatype.into_param().abi(), bstrsortattribute.into_param().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
+        (::windows::core::Interface::vtable(self).getStringCollectionByQuery)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), pquery.into_param().abi(), bstrmediatype.into_param().abi(), bstrsortattribute.into_param().abi(), ::core::mem::transmute(fsortascending), ::core::mem::transmute(&mut result__)).from_abi::<IWMPStringCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByAttributeAndMediaType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstrvalue: Param1, bstrmediatype: Param2) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getByAttributeAndMediaType)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).getByAttributeAndMediaType)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstrvalue.into_param().abi(), bstrmediatype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10945,11 +10945,11 @@ pub struct IWMPMediaPluginRegistrar(::windows::core::IUnknown);
 impl IWMPMediaPluginRegistrar {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn WMPRegisterPlayerPlugin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param5: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, pwszfriendlyname: Param0, pwszdescription: Param1, pwszuninstallstring: Param2, dwpriority: u32, guidplugintype: Param4, clsid: Param5, cmediatypes: u32, pmediatypes: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WMPRegisterPlayerPlugin)(::core::mem::transmute_copy(self), pwszfriendlyname.into_param().abi(), pwszdescription.into_param().abi(), pwszuninstallstring.into_param().abi(), ::core::mem::transmute(dwpriority), guidplugintype.into_param().abi(), clsid.into_param().abi(), ::core::mem::transmute(cmediatypes), ::core::mem::transmute(pmediatypes)).ok()
+        (::windows::core::Interface::vtable(self).WMPRegisterPlayerPlugin)(::windows::core::Interface::as_raw(self), pwszfriendlyname.into_param().abi(), pwszdescription.into_param().abi(), pwszuninstallstring.into_param().abi(), ::core::mem::transmute(dwpriority), guidplugintype.into_param().abi(), clsid.into_param().abi(), ::core::mem::transmute(cmediatypes), ::core::mem::transmute(pmediatypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn WMPUnRegisterPlayerPlugin<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guidplugintype: Param0, clsid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WMPUnRegisterPlayerPlugin)(::core::mem::transmute_copy(self), guidplugintype.into_param().abi(), clsid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WMPUnRegisterPlayerPlugin)(::windows::core::Interface::as_raw(self), guidplugintype.into_param().abi(), clsid.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPMediaPluginRegistrar> for ::windows::core::IUnknown {
@@ -11008,22 +11008,22 @@ impl IWMPMetadataPicture {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn mimeType(&self, pbstrmimetype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).mimeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrmimetype)).ok()
+        (::windows::core::Interface::vtable(self).mimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrmimetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn pictureType(&self, pbstrpicturetype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).pictureType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrpicturetype)).ok()
+        (::windows::core::Interface::vtable(self).pictureType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrpicturetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn description(&self, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).description)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).URL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).URL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11130,12 +11130,12 @@ impl IWMPMetadataText {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn description(&self, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).description)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdescription)).ok()
+        (::windows::core::Interface::vtable(self).description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdescription)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn text(&self, pbstrtext: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).text)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrtext)).ok()
+        (::windows::core::Interface::vtable(self).text)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtext)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11233,126 +11233,126 @@ pub struct IWMPNetwork(::windows::core::IUnknown);
 impl IWMPNetwork {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn bandWidth(&self, plbandwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).bandWidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(plbandwidth)).ok()
+        (::windows::core::Interface::vtable(self).bandWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plbandwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn recoveredPackets(&self, plrecoveredpackets: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).recoveredPackets)(::core::mem::transmute_copy(self), ::core::mem::transmute(plrecoveredpackets)).ok()
+        (::windows::core::Interface::vtable(self).recoveredPackets)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plrecoveredpackets)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn sourceProtocol(&self, pbstrsourceprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).sourceProtocol)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrsourceprotocol)).ok()
+        (::windows::core::Interface::vtable(self).sourceProtocol)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrsourceprotocol)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn receivedPackets(&self, plreceivedpackets: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).receivedPackets)(::core::mem::transmute_copy(self), ::core::mem::transmute(plreceivedpackets)).ok()
+        (::windows::core::Interface::vtable(self).receivedPackets)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plreceivedpackets)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn lostPackets(&self, pllostpackets: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).lostPackets)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllostpackets)).ok()
+        (::windows::core::Interface::vtable(self).lostPackets)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pllostpackets)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn receptionQuality(&self, plreceptionquality: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).receptionQuality)(::core::mem::transmute_copy(self), ::core::mem::transmute(plreceptionquality)).ok()
+        (::windows::core::Interface::vtable(self).receptionQuality)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plreceptionquality)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn bufferingCount(&self, plbufferingcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).bufferingCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plbufferingcount)).ok()
+        (::windows::core::Interface::vtable(self).bufferingCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plbufferingcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn bufferingProgress(&self, plbufferingprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).bufferingProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plbufferingprogress)).ok()
+        (::windows::core::Interface::vtable(self).bufferingProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plbufferingprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn bufferingTime(&self, plbufferingtime: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).bufferingTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(plbufferingtime)).ok()
+        (::windows::core::Interface::vtable(self).bufferingTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plbufferingtime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetbufferingTime(&self, lbufferingtime: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetbufferingTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(lbufferingtime)).ok()
+        (::windows::core::Interface::vtable(self).SetbufferingTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbufferingtime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn frameRate(&self, plframerate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).frameRate)(::core::mem::transmute_copy(self), ::core::mem::transmute(plframerate)).ok()
+        (::windows::core::Interface::vtable(self).frameRate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plframerate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn maxBitRate(&self, plbitrate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).maxBitRate)(::core::mem::transmute_copy(self), ::core::mem::transmute(plbitrate)).ok()
+        (::windows::core::Interface::vtable(self).maxBitRate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plbitrate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn bitRate(&self, plbitrate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).bitRate)(::core::mem::transmute_copy(self), ::core::mem::transmute(plbitrate)).ok()
+        (::windows::core::Interface::vtable(self).bitRate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plbitrate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getProxySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, plproxysetting: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxySettings)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(plproxysetting)).ok()
+        (::windows::core::Interface::vtable(self).getProxySettings)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(plproxysetting)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setProxySettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, lproxysetting: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxySettings)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxysetting)).ok()
+        (::windows::core::Interface::vtable(self).setProxySettings)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxysetting)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getProxyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, pbstrproxyname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxyName)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pbstrproxyname)).ok()
+        (::windows::core::Interface::vtable(self).getProxyName)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pbstrproxyname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setProxyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, bstrproxyname: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxyName)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), bstrproxyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).setProxyName)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), bstrproxyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getProxyPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, lproxyport: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxyPort)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxyport)).ok()
+        (::windows::core::Interface::vtable(self).getProxyPort)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxyport)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setProxyPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, lproxyport: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxyPort)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxyport)).ok()
+        (::windows::core::Interface::vtable(self).setProxyPort)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(lproxyport)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getProxyExceptionList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, pbstrexceptionlist: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxyExceptionList)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pbstrexceptionlist)).ok()
+        (::windows::core::Interface::vtable(self).getProxyExceptionList)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pbstrexceptionlist)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setProxyExceptionList<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, pbstrexceptionlist: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxyExceptionList)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), pbstrexceptionlist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).setProxyExceptionList)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), pbstrexceptionlist.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getProxyBypassForLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, pfbypassforlocal: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getProxyBypassForLocal)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pfbypassforlocal)).ok()
+        (::windows::core::Interface::vtable(self).getProxyBypassForLocal)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(pfbypassforlocal)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setProxyBypassForLocal<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrprotocol: Param0, fbypassforlocal: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setProxyBypassForLocal)(::core::mem::transmute_copy(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(fbypassforlocal)).ok()
+        (::windows::core::Interface::vtable(self).setProxyBypassForLocal)(::windows::core::Interface::as_raw(self), bstrprotocol.into_param().abi(), ::core::mem::transmute(fbypassforlocal)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn maxBandwidth(&self, lmaxbandwidth: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).maxBandwidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxbandwidth)).ok()
+        (::windows::core::Interface::vtable(self).maxBandwidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxbandwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetmaxBandwidth(&self, lmaxbandwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetmaxBandwidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(lmaxbandwidth)).ok()
+        (::windows::core::Interface::vtable(self).SetmaxBandwidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lmaxbandwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn downloadProgress(&self, pldownloadprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).downloadProgress)(::core::mem::transmute_copy(self), ::core::mem::transmute(pldownloadprogress)).ok()
+        (::windows::core::Interface::vtable(self).downloadProgress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pldownloadprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn encodedFrameRate(&self, plframerate: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).encodedFrameRate)(::core::mem::transmute_copy(self), ::core::mem::transmute(plframerate)).ok()
+        (::windows::core::Interface::vtable(self).encodedFrameRate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plframerate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn framesSkipped(&self, plframes: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).framesSkipped)(::core::mem::transmute_copy(self), ::core::mem::transmute(plframes)).ok()
+        (::windows::core::Interface::vtable(self).framesSkipped)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plframes)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11502,37 +11502,37 @@ impl IWMPNodeRealEstate {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDesiredSize(&self, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDesiredSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(psize)).ok()
+        (::windows::core::Interface::vtable(self).GetDesiredSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRects(&self, psrc: *const super::super::Foundation::RECT, pdest: *const super::super::Foundation::RECT, pclip: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(psrc), ::core::mem::transmute(pdest), ::core::mem::transmute(pclip)).ok()
+        (::windows::core::Interface::vtable(self).SetRects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psrc), ::core::mem::transmute(pdest), ::core::mem::transmute(pclip)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetRects(&self, psrc: *mut super::super::Foundation::RECT, pdest: *mut super::super::Foundation::RECT, pclip: *mut super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetRects)(::core::mem::transmute_copy(self), ::core::mem::transmute(psrc), ::core::mem::transmute(pdest), ::core::mem::transmute(pclip)).ok()
+        (::windows::core::Interface::vtable(self).GetRects)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psrc), ::core::mem::transmute(pdest), ::core::mem::transmute(pclip)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetWindowless<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fwindowless: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWindowless)(::core::mem::transmute_copy(self), fwindowless.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetWindowless)(::windows::core::Interface::as_raw(self), fwindowless.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetWindowless(&self, pfwindowless: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetWindowless)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfwindowless)).ok()
+        (::windows::core::Interface::vtable(self).GetWindowless)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfwindowless)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFullScreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFullScreen)(::core::mem::transmute_copy(self), ffullscreen.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFullScreen)(::windows::core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFullScreen(&self, pffullscreen: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetFullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(pffullscreen)).ok()
+        (::windows::core::Interface::vtable(self).GetFullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pffullscreen)).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeRealEstate> for ::windows::core::IUnknown {
@@ -11615,12 +11615,12 @@ impl IWMPNodeRealEstateHost {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnDesiredSizeChange(&self, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDesiredSizeChange)(::core::mem::transmute_copy(self), ::core::mem::transmute(psize)).ok()
+        (::windows::core::Interface::vtable(self).OnDesiredSizeChange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(psize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnFullScreenTransition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, ffullscreen: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnFullScreenTransition)(::core::mem::transmute_copy(self), ffullscreen.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnFullScreenTransition)(::windows::core::Interface::as_raw(self), ffullscreen.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeRealEstateHost> for ::windows::core::IUnknown {
@@ -11682,11 +11682,11 @@ pub struct IWMPNodeWindowed(::windows::core::IUnknown);
 impl IWMPNodeWindowed {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetOwnerWindow(&self, hwnd: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOwnerWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
+        (::windows::core::Interface::vtable(self).SetOwnerWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hwnd)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetOwnerWindow(&self, phwnd: *mut isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetOwnerWindow)(::core::mem::transmute_copy(self), ::core::mem::transmute(phwnd)).ok()
+        (::windows::core::Interface::vtable(self).GetOwnerWindow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(phwnd)).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeWindowed> for ::windows::core::IUnknown {
@@ -11743,7 +11743,7 @@ impl IWMPNodeWindowedHost {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowMessageFromRenderer<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnWindowMessageFromRenderer)(::core::mem::transmute_copy(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+        (::windows::core::Interface::vtable(self).OnWindowMessageFromRenderer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeWindowedHost> for ::windows::core::IUnknown {
@@ -11802,12 +11802,12 @@ impl IWMPNodeWindowless {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.OnWindowMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+        (::windows::core::Interface::vtable(self).base__.OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnDraw(&self, hdc: isize, prcdraw: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDraw)(::core::mem::transmute_copy(self), ::core::mem::transmute(hdc), ::core::mem::transmute(prcdraw)).ok()
+        (::windows::core::Interface::vtable(self).OnDraw)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hdc), ::core::mem::transmute(prcdraw)).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeWindowless> for ::windows::core::IUnknown {
@@ -11886,7 +11886,7 @@ impl IWMPNodeWindowlessHost {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn InvalidateRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, prc: *const super::super::Foundation::RECT, ferase: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).InvalidateRect)(::core::mem::transmute_copy(self), ::core::mem::transmute(prc), ferase.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).InvalidateRect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prc), ferase.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPNodeWindowlessHost> for ::windows::core::IUnknown {
@@ -11946,148 +11946,148 @@ pub struct IWMPPlayer(::windows::core::IUnknown);
 impl IWMPPlayer {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.URL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.URL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.openState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Interface::vtable(self).base__.openState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Interface::vtable(self).base__.playState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
+        (::windows::core::Interface::vtable(self).base__.controls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
+        (::windows::core::Interface::vtable(self).base__.settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.currentMedia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.playlistCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.versionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrversioninfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.versionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrversioninfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
+        (::windows::core::Interface::vtable(self).base__.network)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.currentPlaylist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.cdromCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
+        (::windows::core::Interface::vtable(self).base__.closedCaption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Interface::vtable(self).base__.isOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfonline)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
+        (::windows::core::Interface::vtable(self).base__.error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn status(&self, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setenabled(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setenabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).Setenabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fullScreen(&self, pbfullscreen: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).fullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbfullscreen)).ok()
+        (::windows::core::Interface::vtable(self).fullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbfullscreen)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetfullScreen(&self, bfullscreen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetfullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(bfullscreen)).ok()
+        (::windows::core::Interface::vtable(self).SetfullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bfullscreen)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enableContextMenu(&self, pbenablecontextmenu: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enableContextMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
+        (::windows::core::Interface::vtable(self).enableContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetenableContextMenu(&self, benablecontextmenu: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetenableContextMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(benablecontextmenu)).ok()
+        (::windows::core::Interface::vtable(self).SetenableContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benablecontextmenu)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetuiMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuiMode)(::core::mem::transmute_copy(self), bstrmode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn uiMode(&self, pbstrmode: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).uiMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrmode)).ok()
+        (::windows::core::Interface::vtable(self).uiMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrmode)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12215,164 +12215,164 @@ pub struct IWMPPlayer2(::windows::core::IUnknown);
 impl IWMPPlayer2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.URL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.URL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.openState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Interface::vtable(self).base__.openState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Interface::vtable(self).base__.playState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
+        (::windows::core::Interface::vtable(self).base__.controls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
+        (::windows::core::Interface::vtable(self).base__.settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.currentMedia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.playlistCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.versionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrversioninfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.versionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrversioninfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
+        (::windows::core::Interface::vtable(self).base__.network)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.currentPlaylist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.cdromCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
+        (::windows::core::Interface::vtable(self).base__.closedCaption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Interface::vtable(self).base__.isOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfonline)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
+        (::windows::core::Interface::vtable(self).base__.error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn status(&self, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setenabled(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setenabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).Setenabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fullScreen(&self, pbfullscreen: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).fullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbfullscreen)).ok()
+        (::windows::core::Interface::vtable(self).fullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbfullscreen)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetfullScreen(&self, bfullscreen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetfullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(bfullscreen)).ok()
+        (::windows::core::Interface::vtable(self).SetfullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bfullscreen)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enableContextMenu(&self, pbenablecontextmenu: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enableContextMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
+        (::windows::core::Interface::vtable(self).enableContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetenableContextMenu(&self, benablecontextmenu: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetenableContextMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(benablecontextmenu)).ok()
+        (::windows::core::Interface::vtable(self).SetenableContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benablecontextmenu)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetuiMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuiMode)(::core::mem::transmute_copy(self), bstrmode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn uiMode(&self, pbstrmode: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).uiMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrmode)).ok()
+        (::windows::core::Interface::vtable(self).uiMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stretchToFit(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stretchToFit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).stretchToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetstretchToFit(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetstretchToFit)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).SetstretchToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn windowlessVideo(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).windowlessVideo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).windowlessVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetwindowlessVideo(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetwindowlessVideo)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).SetwindowlessVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12504,170 +12504,170 @@ pub struct IWMPPlayer3(::windows::core::IUnknown);
 impl IWMPPlayer3 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.URL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.URL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.openState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.openState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.playState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.controls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.currentMedia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.playlistCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.versionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrversioninfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.versionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrversioninfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.network)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.currentPlaylist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.cdromCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.closedCaption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.isOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfonline)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn status(&self, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> ::windows::core::Result<IWMPDVD> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.dvd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
+        (::windows::core::Interface::vtable(self).base__.dvd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setenabled(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setenabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).Setenabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fullScreen(&self, pbfullscreen: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).fullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbfullscreen)).ok()
+        (::windows::core::Interface::vtable(self).fullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbfullscreen)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetfullScreen(&self, bfullscreen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetfullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(bfullscreen)).ok()
+        (::windows::core::Interface::vtable(self).SetfullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bfullscreen)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enableContextMenu(&self, pbenablecontextmenu: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enableContextMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
+        (::windows::core::Interface::vtable(self).enableContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetenableContextMenu(&self, benablecontextmenu: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetenableContextMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(benablecontextmenu)).ok()
+        (::windows::core::Interface::vtable(self).SetenableContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benablecontextmenu)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetuiMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuiMode)(::core::mem::transmute_copy(self), bstrmode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn uiMode(&self, pbstrmode: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).uiMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrmode)).ok()
+        (::windows::core::Interface::vtable(self).uiMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stretchToFit(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stretchToFit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).stretchToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetstretchToFit(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetstretchToFit)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).SetstretchToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn windowlessVideo(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).windowlessVideo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).windowlessVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetwindowlessVideo(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetwindowlessVideo)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).SetwindowlessVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12823,197 +12823,197 @@ pub struct IWMPPlayer4(::windows::core::IUnknown);
 impl IWMPPlayer4 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn close(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.close)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.close)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn URL(&self, pbstrurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.URL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.URL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn openState(&self, pwmpos: *mut WMPOpenState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.openState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpos)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.openState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpos)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playState(&self, pwmpps: *mut WMPPlayState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.playState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpps)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.playState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn controls(&self) -> ::windows::core::Result<IWMPControls> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.controls)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.controls)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPControls>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn settings(&self) -> ::windows::core::Result<IWMPSettings> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.settings)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.settings)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSettings>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentMedia(&self) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.currentMedia)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.currentMedia)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentMedia<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, pmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetcurrentMedia)(::core::mem::transmute_copy(self), pmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetcurrentMedia)(::windows::core::Interface::as_raw(self), pmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn mediaCollection(&self) -> ::windows::core::Result<IWMPMediaCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.mediaCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.mediaCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMediaCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playlistCollection(&self) -> ::windows::core::Result<IWMPPlaylistCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.playlistCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.playlistCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn versionInfo(&self, pbstrversioninfo: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.versionInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrversioninfo)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.versionInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrversioninfo)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn launchURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.launchURL)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.launchURL)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn network(&self) -> ::windows::core::Result<IWMPNetwork> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.network)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.network)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPNetwork>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn currentPlaylist(&self) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.currentPlaylist)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.currentPlaylist)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetcurrentPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, ppl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.SetcurrentPlaylist)(::core::mem::transmute_copy(self), ppl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.SetcurrentPlaylist)(::windows::core::Interface::as_raw(self), ppl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn cdromCollection(&self) -> ::windows::core::Result<IWMPCdromCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.cdromCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.cdromCollection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPCdromCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn closedCaption(&self) -> ::windows::core::Result<IWMPClosedCaption> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.closedCaption)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.closedCaption)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPClosedCaption>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isOnline(&self, pfonline: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.isOnline)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfonline)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.isOnline)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfonline)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn error(&self) -> ::windows::core::Result<IWMPError> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.base__.error)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.base__.error)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPError>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn status(&self, pbstrstatus: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrstatus)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.base__.status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn dvd(&self) -> ::windows::core::Result<IWMPDVD> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.base__.dvd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
+        (::windows::core::Interface::vtable(self).base__.base__.dvd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPDVD>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrurl: Param1) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.newPlaylist)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).base__.newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newMedia<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.newMedia)(::core::mem::transmute_copy(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).base__.newMedia)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enabled(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setenabled(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setenabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).Setenabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn fullScreen(&self, pbfullscreen: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).fullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbfullscreen)).ok()
+        (::windows::core::Interface::vtable(self).fullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbfullscreen)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetfullScreen(&self, bfullscreen: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetfullScreen)(::core::mem::transmute_copy(self), ::core::mem::transmute(bfullscreen)).ok()
+        (::windows::core::Interface::vtable(self).SetfullScreen)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bfullscreen)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enableContextMenu(&self, pbenablecontextmenu: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enableContextMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
+        (::windows::core::Interface::vtable(self).enableContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenablecontextmenu)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetenableContextMenu(&self, benablecontextmenu: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetenableContextMenu)(::core::mem::transmute_copy(self), ::core::mem::transmute(benablecontextmenu)).ok()
+        (::windows::core::Interface::vtable(self).SetenableContextMenu)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benablecontextmenu)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetuiMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetuiMode)(::core::mem::transmute_copy(self), bstrmode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetuiMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn uiMode(&self, pbstrmode: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).uiMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrmode)).ok()
+        (::windows::core::Interface::vtable(self).uiMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stretchToFit(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stretchToFit)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).stretchToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetstretchToFit(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetstretchToFit)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).SetstretchToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn windowlessVideo(&self, pbenabled: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).windowlessVideo)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbenabled)).ok()
+        (::windows::core::Interface::vtable(self).windowlessVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetwindowlessVideo(&self, benabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetwindowlessVideo)(::core::mem::transmute_copy(self), ::core::mem::transmute(benabled)).ok()
+        (::windows::core::Interface::vtable(self).SetwindowlessVideo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(benabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isRemote(&self, pvarfisremote: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isRemote)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvarfisremote)).ok()
+        (::windows::core::Interface::vtable(self).isRemote)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvarfisremote)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn playerApplication(&self) -> ::windows::core::Result<IWMPPlayerApplication> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).playerApplication)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlayerApplication>(result__)
+        (::windows::core::Interface::vtable(self).playerApplication)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlayerApplication>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn openPlayer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).openPlayer)(::core::mem::transmute_copy(self), bstrurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).openPlayer)(::windows::core::Interface::as_raw(self), bstrurl.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13202,19 +13202,19 @@ pub struct IWMPPlayerApplication(::windows::core::IUnknown);
 impl IWMPPlayerApplication {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn switchToPlayerApplication(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).switchToPlayerApplication)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).switchToPlayerApplication)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn switchToControl(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).switchToControl)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).switchToControl)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playerDocked(&self, pbplayerdocked: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).playerDocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbplayerdocked)).ok()
+        (::windows::core::Interface::vtable(self).playerDocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbplayerdocked)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn hasDisplay(&self, pbhasdisplay: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).hasDisplay)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbhasdisplay)).ok()
+        (::windows::core::Interface::vtable(self).hasDisplay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbhasdisplay)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13307,17 +13307,17 @@ impl IWMPPlayerServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn activateUIPlugin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplugin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).activateUIPlugin)(::core::mem::transmute_copy(self), bstrplugin.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).activateUIPlugin)(::windows::core::Interface::as_raw(self), bstrplugin.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setTaskPane<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtaskpane: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setTaskPane)(::core::mem::transmute_copy(self), bstrtaskpane.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).setTaskPane)(::windows::core::Interface::as_raw(self), bstrtaskpane.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setTaskPaneURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtaskpane: Param0, bstrurl: Param1, bstrfriendlyname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setTaskPaneURL)(::core::mem::transmute_copy(self), bstrtaskpane.into_param().abi(), bstrurl.into_param().abi(), bstrfriendlyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).setTaskPaneURL)(::windows::core::Interface::as_raw(self), bstrtaskpane.into_param().abi(), bstrurl.into_param().abi(), bstrfriendlyname.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPPlayerServices> for ::windows::core::IUnknown {
@@ -13384,22 +13384,22 @@ impl IWMPPlayerServices2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn activateUIPlugin<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrplugin: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.activateUIPlugin)(::core::mem::transmute_copy(self), bstrplugin.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.activateUIPlugin)(::windows::core::Interface::as_raw(self), bstrplugin.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setTaskPane<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtaskpane: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setTaskPane)(::core::mem::transmute_copy(self), bstrtaskpane.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.setTaskPane)(::windows::core::Interface::as_raw(self), bstrtaskpane.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setTaskPaneURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtaskpane: Param0, bstrurl: Param1, bstrfriendlyname: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setTaskPaneURL)(::core::mem::transmute_copy(self), bstrtaskpane.into_param().abi(), bstrurl.into_param().abi(), bstrfriendlyname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.setTaskPaneURL)(::windows::core::Interface::as_raw(self), bstrtaskpane.into_param().abi(), bstrurl.into_param().abi(), bstrfriendlyname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setBackgroundProcessingPriority<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpriority: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setBackgroundProcessingPriority)(::core::mem::transmute_copy(self), bstrpriority.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).setBackgroundProcessingPriority)(::windows::core::Interface::as_raw(self), bstrpriority.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPPlayerServices2> for ::windows::core::IUnknown {
@@ -13479,70 +13479,70 @@ pub struct IWMPPlaylist(::windows::core::IUnknown);
 impl IWMPPlaylist {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn name(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).name)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Setname<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setname)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Setname)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn attributeCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).attributeCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).attributeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_attributeName(&self, lindex: i32, pbstrattributename: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_attributeName)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrattributename)).ok()
+        (::windows::core::Interface::vtable(self).get_attributeName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrattributename)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_item(&self, lindex: i32) -> ::windows::core::Result<IWMPMedia> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
+        (::windows::core::Interface::vtable(self).get_item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPMedia>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrvalue: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setItemInfo)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, piwmpplaylist: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isIdentical)(::core::mem::transmute_copy(self), piwmpplaylist.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).get_isIdentical)(::windows::core::Interface::as_raw(self), piwmpplaylist.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn insertItem<'a, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, lindex: i32, piwmpmedia: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).insertItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).insertItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), piwmpmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn appendItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).appendItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).appendItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn removeItem<'a, Param0: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, piwmpmedia: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).removeItem)(::core::mem::transmute_copy(self), piwmpmedia.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).removeItem)(::windows::core::Interface::as_raw(self), piwmpmedia.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn moveItem(&self, lindexold: i32, lindexnew: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).moveItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindexold), ::core::mem::transmute(lindexnew)).ok()
+        (::windows::core::Interface::vtable(self).moveItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindexold), ::core::mem::transmute(lindexnew)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13676,13 +13676,13 @@ pub struct IWMPPlaylistArray(::windows::core::IUnknown);
 impl IWMPPlaylistArray {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn item(&self, lindex: i32) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13779,40 +13779,40 @@ impl IWMPPlaylistCollection {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn newPlaylist<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).newPlaylist)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).newPlaylist)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn getAll(&self) -> ::windows::core::Result<IWMPPlaylistArray> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getAll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistArray>(result__)
+        (::windows::core::Interface::vtable(self).getAll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistArray>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn getByName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IWMPPlaylistArray> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getByName)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistArray>(result__)
+        (::windows::core::Interface::vtable(self).getByName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylistArray>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn remove<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).remove)(::core::mem::transmute_copy(self), pitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).remove)(::windows::core::Interface::as_raw(self), pitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn setDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0, varfisdeleted: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
+        (::windows::core::Interface::vtable(self).setDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(varfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isDeleted<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0, pvarfisdeleted: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isDeleted)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
+        (::windows::core::Interface::vtable(self).isDeleted)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(pvarfisdeleted)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn importPlaylist<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pitem: Param0) -> ::windows::core::Result<IWMPPlaylist> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).importPlaylist)(::core::mem::transmute_copy(self), pitem.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
+        (::windows::core::Interface::vtable(self).importPlaylist)(::windows::core::Interface::as_raw(self), pitem.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IWMPPlaylist>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13928,27 +13928,27 @@ pub struct IWMPPlugin(::windows::core::IUnknown);
 impl IWMPPlugin {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Init(&self, dwplaybackcontext: usize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Init)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwplaybackcontext)).ok()
+        (::windows::core::Interface::vtable(self).Init)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwplaybackcontext)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Shutdown(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Shutdown)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Shutdown)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetID(&self, pguid: *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetID)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguid)).ok()
+        (::windows::core::Interface::vtable(self).GetID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetCaps(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCaps)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwflags)).ok()
+        (::windows::core::Interface::vtable(self).GetCaps)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AdviseWMPServices<'a, Param0: ::windows::core::IntoParam<'a, IWMPServices>>(&self, pwmpservices: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AdviseWMPServices)(::core::mem::transmute_copy(self), pwmpservices.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AdviseWMPServices)(::windows::core::Interface::as_raw(self), pwmpservices.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnAdviseWMPServices(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnAdviseWMPServices)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UnAdviseWMPServices)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IWMPPlugin> for ::windows::core::IUnknown {
@@ -14009,12 +14009,12 @@ impl IWMPPluginEnable {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEnable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnable)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEnable)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEnable(&self, pfenable: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetEnable)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfenable)).ok()
+        (::windows::core::Interface::vtable(self).GetEnable)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfenable)).ok()
     }
 }
 impl ::core::convert::From<IWMPPluginEnable> for ::windows::core::IUnknown {
@@ -14077,36 +14077,36 @@ impl IWMPPluginUI {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCore<'a, Param0: ::windows::core::IntoParam<'a, IWMPCore>>(&self, pcore: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCore)(::core::mem::transmute_copy(self), pcore.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCore)(::windows::core::Interface::as_raw(self), pcore.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, phwndwindow: *mut super::super::Foundation::HWND) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Create)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(phwndwindow)).ok()
+        (::windows::core::Interface::vtable(self).Create)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(phwndwindow)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Destroy(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Destroy)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Destroy)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayPropertyPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayPropertyPage)(::core::mem::transmute_copy(self), hwndparent.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DisplayPropertyPage)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, pvarproperty: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), pwszname.into_param().abi(), ::core::mem::transmute(pvarproperty)).ok()
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), ::core::mem::transmute(pvarproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, pvarproperty: *const super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), pwszname.into_param().abi(), ::core::mem::transmute(pvarproperty)).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), ::core::mem::transmute(pvarproperty)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_UI_WindowsAndMessaging\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
     pub unsafe fn TranslateAccelerator(&self, lpmsg: *mut super::super::UI::WindowsAndMessaging::MSG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).TranslateAccelerator)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpmsg)).ok()
+        (::windows::core::Interface::vtable(self).TranslateAccelerator)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpmsg)).ok()
     }
 }
 impl ::core::convert::From<IWMPPluginUI> for ::windows::core::IUnknown {
@@ -14188,11 +14188,11 @@ impl IWMPQuery {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn addCondition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattribute: Param0, bstroperator: Param1, bstrvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).addCondition)(::core::mem::transmute_copy(self), bstrattribute.into_param().abi(), bstroperator.into_param().abi(), bstrvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).addCondition)(::windows::core::Interface::as_raw(self), bstrattribute.into_param().abi(), bstroperator.into_param().abi(), bstrvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn beginNextGroup(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).beginNextGroup)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).beginNextGroup)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14286,22 +14286,22 @@ impl IWMPRemoteMediaServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetServiceType(&self, pbstrtype: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetServiceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrtype)).ok()
+        (::windows::core::Interface::vtable(self).GetServiceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrtype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetApplicationName(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetApplicationName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).GetApplicationName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetScriptableObject(&self, pbstrname: *mut super::super::Foundation::BSTR, ppdispatch: *mut ::core::option::Option<super::super::System::Com::IDispatch>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetScriptableObject)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname), ::core::mem::transmute(ppdispatch)).ok()
+        (::windows::core::Interface::vtable(self).GetScriptableObject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname), ::core::mem::transmute(ppdispatch)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCustomUIMode(&self, pbstrfile: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCustomUIMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrfile)).ok()
+        (::windows::core::Interface::vtable(self).GetCustomUIMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrfile)).ok()
     }
 }
 impl ::core::convert::From<IWMPRemoteMediaServices> for ::windows::core::IUnknown {
@@ -14372,12 +14372,12 @@ impl IWMPRenderConfig {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetinProcOnly<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, finproc: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetinProcOnly)(::core::mem::transmute_copy(self), finproc.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetinProcOnly)(::windows::core::Interface::as_raw(self), finproc.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn inProcOnly(&self, pfinproc: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).inProcOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfinproc)).ok()
+        (::windows::core::Interface::vtable(self).inProcOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfinproc)).ok()
     }
 }
 impl ::core::convert::From<IWMPRenderConfig> for ::windows::core::IUnknown {
@@ -14439,11 +14439,11 @@ pub struct IWMPServices(::windows::core::IUnknown);
 impl IWMPServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetStreamTime(&self, prt: *mut i64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStreamTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(prt)).ok()
+        (::windows::core::Interface::vtable(self).GetStreamTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(prt)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetStreamState(&self, pstate: *mut WMPServices_StreamState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStreamState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pstate)).ok()
+        (::windows::core::Interface::vtable(self).GetStreamState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pstate)).ok()
     }
 }
 impl ::core::convert::From<IWMPServices> for ::windows::core::IUnknown {
@@ -14502,101 +14502,101 @@ impl IWMPSettings {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).get_isAvailable)(::core::mem::transmute_copy(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Interface::vtable(self).get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn autoStart(&self, pfautostart: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).autoStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfautostart)).ok()
+        (::windows::core::Interface::vtable(self).autoStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfautostart)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetautoStart(&self, fautostart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetautoStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(fautostart)).ok()
+        (::windows::core::Interface::vtable(self).SetautoStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fautostart)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseURL(&self, pbstrbaseurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).baseURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrbaseurl)).ok()
+        (::windows::core::Interface::vtable(self).baseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrbaseurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetbaseURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbaseurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetbaseURL)(::core::mem::transmute_copy(self), bstrbaseurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetbaseURL)(::windows::core::Interface::as_raw(self), bstrbaseurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn defaultFrame(&self, pbstrdefaultframe: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).defaultFrame)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdefaultframe)).ok()
+        (::windows::core::Interface::vtable(self).defaultFrame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdefaultframe)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdefaultFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdefaultframe: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetdefaultFrame)(::core::mem::transmute_copy(self), bstrdefaultframe.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetdefaultFrame)(::windows::core::Interface::as_raw(self), bstrdefaultframe.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn invokeURLs(&self, pfinvokeurls: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).invokeURLs)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfinvokeurls)).ok()
+        (::windows::core::Interface::vtable(self).invokeURLs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfinvokeurls)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetinvokeURLs(&self, finvokeurls: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetinvokeURLs)(::core::mem::transmute_copy(self), ::core::mem::transmute(finvokeurls)).ok()
+        (::windows::core::Interface::vtable(self).SetinvokeURLs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(finvokeurls)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn mute(&self, pfmute: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).mute)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfmute)).ok()
+        (::windows::core::Interface::vtable(self).mute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfmute)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setmute(&self, fmute: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setmute)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmute)).ok()
+        (::windows::core::Interface::vtable(self).Setmute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmute)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).playCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).playCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetplayCount(&self, lcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetplayCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcount)).ok()
+        (::windows::core::Interface::vtable(self).SetplayCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn rate(&self, pdrate: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).rate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdrate)).ok()
+        (::windows::core::Interface::vtable(self).rate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdrate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setrate(&self, drate: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setrate)(::core::mem::transmute_copy(self), ::core::mem::transmute(drate)).ok()
+        (::windows::core::Interface::vtable(self).Setrate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(drate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn balance(&self, plbalance: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).balance)(::core::mem::transmute_copy(self), ::core::mem::transmute(plbalance)).ok()
+        (::windows::core::Interface::vtable(self).balance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plbalance)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setbalance(&self, lbalance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setbalance)(::core::mem::transmute_copy(self), ::core::mem::transmute(lbalance)).ok()
+        (::windows::core::Interface::vtable(self).Setbalance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbalance)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn volume(&self, plvolume: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).volume)(::core::mem::transmute_copy(self), ::core::mem::transmute(plvolume)).ok()
+        (::windows::core::Interface::vtable(self).volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setvolume(&self, lvolume: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Setvolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(lvolume)).ok()
+        (::windows::core::Interface::vtable(self).Setvolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0, pvarfmode: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getMode)(::core::mem::transmute_copy(self), bstrmode.into_param().abi(), ::core::mem::transmute(pvarfmode)).ok()
+        (::windows::core::Interface::vtable(self).getMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi(), ::core::mem::transmute(pvarfmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0, varfmode: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setMode)(::core::mem::transmute_copy(self), bstrmode.into_param().abi(), ::core::mem::transmute(varfmode)).ok()
+        (::windows::core::Interface::vtable(self).setMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi(), ::core::mem::transmute(varfmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enableErrorDialogs(&self, pfenableerrordialogs: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).enableErrorDialogs)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfenableerrordialogs)).ok()
+        (::windows::core::Interface::vtable(self).enableErrorDialogs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfenableerrordialogs)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetenableErrorDialogs(&self, fenableerrordialogs: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetenableErrorDialogs)(::core::mem::transmute_copy(self), ::core::mem::transmute(fenableerrordialogs)).ok()
+        (::windows::core::Interface::vtable(self).SetenableErrorDialogs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fenableerrordialogs)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14731,115 +14731,115 @@ impl IWMPSettings2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn get_isAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritem: Param0, pisavailable: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.get_isAvailable)(::core::mem::transmute_copy(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
+        (::windows::core::Interface::vtable(self).base__.get_isAvailable)(::windows::core::Interface::as_raw(self), bstritem.into_param().abi(), ::core::mem::transmute(pisavailable)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn autoStart(&self, pfautostart: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.autoStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfautostart)).ok()
+        (::windows::core::Interface::vtable(self).base__.autoStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfautostart)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetautoStart(&self, fautostart: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetautoStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(fautostart)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetautoStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fautostart)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn baseURL(&self, pbstrbaseurl: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.baseURL)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrbaseurl)).ok()
+        (::windows::core::Interface::vtable(self).base__.baseURL)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrbaseurl)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetbaseURL<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbaseurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetbaseURL)(::core::mem::transmute_copy(self), bstrbaseurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetbaseURL)(::windows::core::Interface::as_raw(self), bstrbaseurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn defaultFrame(&self, pbstrdefaultframe: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.defaultFrame)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdefaultframe)).ok()
+        (::windows::core::Interface::vtable(self).base__.defaultFrame)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdefaultframe)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetdefaultFrame<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdefaultframe: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetdefaultFrame)(::core::mem::transmute_copy(self), bstrdefaultframe.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetdefaultFrame)(::windows::core::Interface::as_raw(self), bstrdefaultframe.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn invokeURLs(&self, pfinvokeurls: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.invokeURLs)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfinvokeurls)).ok()
+        (::windows::core::Interface::vtable(self).base__.invokeURLs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfinvokeurls)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetinvokeURLs(&self, finvokeurls: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetinvokeURLs)(::core::mem::transmute_copy(self), ::core::mem::transmute(finvokeurls)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetinvokeURLs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(finvokeurls)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn mute(&self, pfmute: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.mute)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfmute)).ok()
+        (::windows::core::Interface::vtable(self).base__.mute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfmute)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setmute(&self, fmute: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Setmute)(::core::mem::transmute_copy(self), ::core::mem::transmute(fmute)).ok()
+        (::windows::core::Interface::vtable(self).base__.Setmute)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fmute)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn playCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.playCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.playCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetplayCount(&self, lcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetplayCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetplayCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn rate(&self, pdrate: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.rate)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdrate)).ok()
+        (::windows::core::Interface::vtable(self).base__.rate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdrate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setrate(&self, drate: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Setrate)(::core::mem::transmute_copy(self), ::core::mem::transmute(drate)).ok()
+        (::windows::core::Interface::vtable(self).base__.Setrate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(drate)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn balance(&self, plbalance: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.balance)(::core::mem::transmute_copy(self), ::core::mem::transmute(plbalance)).ok()
+        (::windows::core::Interface::vtable(self).base__.balance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plbalance)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setbalance(&self, lbalance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Setbalance)(::core::mem::transmute_copy(self), ::core::mem::transmute(lbalance)).ok()
+        (::windows::core::Interface::vtable(self).base__.Setbalance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lbalance)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn volume(&self, plvolume: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.volume)(::core::mem::transmute_copy(self), ::core::mem::transmute(plvolume)).ok()
+        (::windows::core::Interface::vtable(self).base__.volume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Setvolume(&self, lvolume: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Setvolume)(::core::mem::transmute_copy(self), ::core::mem::transmute(lvolume)).ok()
+        (::windows::core::Interface::vtable(self).base__.Setvolume)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lvolume)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0, pvarfmode: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getMode)(::core::mem::transmute_copy(self), bstrmode.into_param().abi(), ::core::mem::transmute(pvarfmode)).ok()
+        (::windows::core::Interface::vtable(self).base__.getMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi(), ::core::mem::transmute(pvarfmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmode: Param0, varfmode: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setMode)(::core::mem::transmute_copy(self), bstrmode.into_param().abi(), ::core::mem::transmute(varfmode)).ok()
+        (::windows::core::Interface::vtable(self).base__.setMode)(::windows::core::Interface::as_raw(self), bstrmode.into_param().abi(), ::core::mem::transmute(varfmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn enableErrorDialogs(&self, pfenableerrordialogs: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.enableErrorDialogs)(::core::mem::transmute_copy(self), ::core::mem::transmute(pfenableerrordialogs)).ok()
+        (::windows::core::Interface::vtable(self).base__.enableErrorDialogs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pfenableerrordialogs)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetenableErrorDialogs(&self, fenableerrordialogs: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetenableErrorDialogs)(::core::mem::transmute_copy(self), ::core::mem::transmute(fenableerrordialogs)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetenableErrorDialogs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fenableerrordialogs)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn defaultAudioLanguage(&self, pllangid: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).defaultAudioLanguage)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllangid)).ok()
+        (::windows::core::Interface::vtable(self).defaultAudioLanguage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pllangid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn mediaAccessRights(&self, pbstrrights: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).mediaAccessRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrrights)).ok()
+        (::windows::core::Interface::vtable(self).mediaAccessRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrrights)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn requestMediaAccessRights<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdesiredaccess: Param0, pvbaccepted: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).requestMediaAccessRights)(::core::mem::transmute_copy(self), bstrdesiredaccess.into_param().abi(), ::core::mem::transmute(pvbaccepted)).ok()
+        (::windows::core::Interface::vtable(self).requestMediaAccessRights)(::windows::core::Interface::as_raw(self), bstrdesiredaccess.into_param().abi(), ::core::mem::transmute(pvbaccepted)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -14961,7 +14961,7 @@ impl IWMPSkinManager {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetVisualStyle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVisualStyle)(::core::mem::transmute_copy(self), bstrpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetVisualStyle)(::windows::core::Interface::as_raw(self), bstrpath.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPSkinManager> for ::windows::core::IUnknown {
@@ -15021,12 +15021,12 @@ pub struct IWMPStringCollection(::windows::core::IUnknown);
 impl IWMPStringCollection {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn item(&self, lindex: i32, pbstrstring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrstring)).ok()
+        (::windows::core::Interface::vtable(self).item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrstring)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15121,32 +15121,32 @@ pub struct IWMPStringCollection2(::windows::core::IUnknown);
 impl IWMPStringCollection2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn count(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.count)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn item(&self, lindex: i32, pbstrstring: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrstring)).ok()
+        (::windows::core::Interface::vtable(self).base__.item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(pbstrstring)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPStringCollection2>>(&self, piwmpstringcollection2: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isIdentical)(::core::mem::transmute_copy(self), piwmpstringcollection2.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), piwmpstringcollection2.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lcollectionindex: i32, bstritemname: Param1, pbstrvalue: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcollectionindex), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrvalue)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getAttributeCountByType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lcollectionindex: i32, bstrtype: Param1, bstrlanguage: Param2, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getAttributeCountByType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcollectionindex), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).getAttributeCountByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn getItemInfoByType<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lcollectionindex: i32, bstrtype: Param1, bstrlanguage: Param2, lattributeindex: i32, pvarvalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfoByType)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcollectionindex), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(lattributeindex), ::core::mem::transmute(pvarvalue)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfoByType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcollectionindex), bstrtype.into_param().abi(), bstrlanguage.into_param().abi(), ::core::mem::transmute(lattributeindex), ::core::mem::transmute(pvarvalue)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15275,22 +15275,22 @@ impl IWMPSubscriptionService {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowPlay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, hwnd: Param0, pmedia: Param1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).allowPlay)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pmedia.into_param().abi(), ::core::mem::transmute(pfallowplay)).ok()
+        (::windows::core::Interface::vtable(self).allowPlay)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pmedia.into_param().abi(), ::core::mem::transmute(pfallowplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowCDBurn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).allowCDBurn)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowburn)).ok()
+        (::windows::core::Interface::vtable(self).allowCDBurn)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowburn)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowPDATransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).allowPDATransfer)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
+        (::windows::core::Interface::vtable(self).allowPDATransfer)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn startBackgroundProcessing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).startBackgroundProcessing)(::core::mem::transmute_copy(self), hwnd.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).startBackgroundProcessing)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPSubscriptionService> for ::windows::core::IUnknown {
@@ -15361,40 +15361,40 @@ impl IWMPSubscriptionService2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowPlay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPMedia>>(&self, hwnd: Param0, pmedia: Param1, pfallowplay: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.allowPlay)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pmedia.into_param().abi(), ::core::mem::transmute(pfallowplay)).ok()
+        (::windows::core::Interface::vtable(self).base__.allowPlay)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pmedia.into_param().abi(), ::core::mem::transmute(pfallowplay)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowCDBurn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowburn: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.allowCDBurn)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowburn)).ok()
+        (::windows::core::Interface::vtable(self).base__.allowCDBurn)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowburn)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn allowPDATransfer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, hwnd: Param0, pplaylist: Param1, pfallowtransfer: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.allowPDATransfer)(::core::mem::transmute_copy(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
+        (::windows::core::Interface::vtable(self).base__.allowPDATransfer)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi(), pplaylist.into_param().abi(), ::core::mem::transmute(pfallowtransfer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn startBackgroundProcessing<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwnd: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.startBackgroundProcessing)(::core::mem::transmute_copy(self), hwnd.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.startBackgroundProcessing)(::windows::core::Interface::as_raw(self), hwnd.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stopBackgroundProcessing(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stopBackgroundProcessing)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).stopBackgroundProcessing)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn serviceEvent(&self, event: WMPSubscriptionServiceEvent) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).serviceEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(event)).ok()
+        (::windows::core::Interface::vtable(self).serviceEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(event)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn deviceAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, IWMPSubscriptionServiceCallback>>(&self, bstrdevicename: Param0, pcb: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).deviceAvailable)(::core::mem::transmute_copy(self), bstrdevicename.into_param().abi(), pcb.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).deviceAvailable)(::windows::core::Interface::as_raw(self), bstrdevicename.into_param().abi(), pcb.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn prepareForSync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IWMPSubscriptionServiceCallback>>(&self, bstrfilename: Param0, bstrdevicename: Param1, pcb: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).prepareForSync)(::core::mem::transmute_copy(self), bstrfilename.into_param().abi(), bstrdevicename.into_param().abi(), pcb.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).prepareForSync)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), bstrdevicename.into_param().abi(), pcb.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPSubscriptionService2> for ::windows::core::IUnknown {
@@ -15478,7 +15478,7 @@ pub struct IWMPSubscriptionServiceCallback(::windows::core::IUnknown);
 impl IWMPSubscriptionServiceCallback {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn onComplete(&self, hrresult: ::windows::core::HRESULT) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).onComplete)(::core::mem::transmute_copy(self), ::core::mem::transmute(hrresult)).ok()
+        (::windows::core::Interface::vtable(self).onComplete)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(hrresult)).ok()
     }
 }
 impl ::core::convert::From<IWMPSubscriptionServiceCallback> for ::windows::core::IUnknown {
@@ -15534,71 +15534,71 @@ impl IWMPSyncDevice {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn friendlyName(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).friendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).friendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetfriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetfriendlyName)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn deviceName(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).deviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).deviceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn deviceId(&self, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).deviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdeviceid)).ok()
+        (::windows::core::Interface::vtable(self).deviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdeviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn partnershipIndex(&self, plindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).partnershipIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(plindex)).ok()
+        (::windows::core::Interface::vtable(self).partnershipIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn connected(&self, pvbconnected: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).connected)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvbconnected)).ok()
+        (::windows::core::Interface::vtable(self).connected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbconnected)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn status(&self, pwmpds: *mut WMPDeviceStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpds)).ok()
+        (::windows::core::Interface::vtable(self).status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpds)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn syncState(&self, pwmpss: *mut WMPSyncState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).syncState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpss)).ok()
+        (::windows::core::Interface::vtable(self).syncState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpss)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).progress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Interface::vtable(self).progress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).getItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn createPartnership(&self, vbshowui: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).createPartnership)(::core::mem::transmute_copy(self), ::core::mem::transmute(vbshowui)).ok()
+        (::windows::core::Interface::vtable(self).createPartnership)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vbshowui)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn deletePartnership(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).deletePartnership)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).deletePartnership)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn start(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).start)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).start)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn showSettings(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).showSettings)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).showSettings)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).isIdentical)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
 }
 impl ::core::convert::From<IWMPSyncDevice> for ::windows::core::IUnknown {
@@ -15684,76 +15684,76 @@ impl IWMPSyncDevice2 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn friendlyName(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.friendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).base__.friendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetfriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetfriendlyName)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn deviceName(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.deviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).base__.deviceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn deviceId(&self, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.deviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdeviceid)).ok()
+        (::windows::core::Interface::vtable(self).base__.deviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdeviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn partnershipIndex(&self, plindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.partnershipIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(plindex)).ok()
+        (::windows::core::Interface::vtable(self).base__.partnershipIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn connected(&self, pvbconnected: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.connected)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvbconnected)).ok()
+        (::windows::core::Interface::vtable(self).base__.connected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbconnected)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn status(&self, pwmpds: *mut WMPDeviceStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpds)).ok()
+        (::windows::core::Interface::vtable(self).base__.status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpds)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn syncState(&self, pwmpss: *mut WMPSyncState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.syncState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpss)).ok()
+        (::windows::core::Interface::vtable(self).base__.syncState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpss)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.progress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Interface::vtable(self).base__.progress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.getItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn createPartnership(&self, vbshowui: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.createPartnership)(::core::mem::transmute_copy(self), ::core::mem::transmute(vbshowui)).ok()
+        (::windows::core::Interface::vtable(self).base__.createPartnership)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vbshowui)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn deletePartnership(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.deletePartnership)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.deletePartnership)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn start(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.start)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.start)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn showSettings(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.showSettings)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.showSettings)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.isIdentical)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).base__.isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).setItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPSyncDevice2> for ::windows::core::IUnknown {
@@ -15832,85 +15832,85 @@ impl IWMPSyncDevice3 {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn friendlyName(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.friendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.friendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetfriendlyName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.SetfriendlyName)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.SetfriendlyName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn deviceName(&self, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.deviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrname)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.deviceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn deviceId(&self, pbstrdeviceid: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.deviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbstrdeviceid)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.deviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbstrdeviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn partnershipIndex(&self, plindex: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.partnershipIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(plindex)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.partnershipIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn connected(&self, pvbconnected: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.connected)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvbconnected)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.connected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvbconnected)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn status(&self, pwmpds: *mut WMPDeviceStatus) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.status)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpds)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpds)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn syncState(&self, pwmpss: *mut WMPSyncState) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.syncState)(::core::mem::transmute_copy(self), ::core::mem::transmute(pwmpss)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.syncState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pwmpss)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn progress(&self, plprogress: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.progress)(::core::mem::transmute_copy(self), ::core::mem::transmute(plprogress)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.progress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plprogress)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn getItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, pbstrval: *mut super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.getItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.getItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), ::core::mem::transmute(pbstrval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn createPartnership(&self, vbshowui: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.createPartnership)(::core::mem::transmute_copy(self), ::core::mem::transmute(vbshowui)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.createPartnership)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(vbshowui)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn deletePartnership(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.deletePartnership)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.deletePartnership)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn start(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.start)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.start)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn stop(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.stop)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.stop)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn showSettings(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.showSettings)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.showSettings)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn isIdentical<'a, Param0: ::windows::core::IntoParam<'a, IWMPSyncDevice>>(&self, pdevice: Param0, pvbool: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.base__.isIdentical)(::core::mem::transmute_copy(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
+        (::windows::core::Interface::vtable(self).base__.base__.isIdentical)(::windows::core::Interface::as_raw(self), pdevice.into_param().abi(), ::core::mem::transmute(pvbool)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn setItemInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstritemname: Param0, bstrval: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.setItemInfo)(::core::mem::transmute_copy(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.setItemInfo)(::windows::core::Interface::as_raw(self), bstritemname.into_param().abi(), bstrval.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn estimateSyncSize<'a, Param0: ::windows::core::IntoParam<'a, IWMPPlaylist>, Param1: ::windows::core::IntoParam<'a, IWMPPlaylist>>(&self, pnonruleplaylist: Param0, prulesplaylist: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).estimateSyncSize)(::core::mem::transmute_copy(self), pnonruleplaylist.into_param().abi(), prulesplaylist.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).estimateSyncSize)(::windows::core::Interface::as_raw(self), pnonruleplaylist.into_param().abi(), prulesplaylist.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn cancelEstimation(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).cancelEstimation)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).cancelEstimation)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IWMPSyncDevice3> for ::windows::core::IUnknown {
@@ -16009,12 +16009,12 @@ pub struct IWMPSyncServices(::windows::core::IUnknown);
 impl IWMPSyncServices {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn deviceCount(&self, plcount: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).deviceCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(plcount)).ok()
+        (::windows::core::Interface::vtable(self).deviceCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(plcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn getDevice(&self, lindex: i32) -> ::windows::core::Result<IWMPSyncDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).getDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSyncDevice>(result__)
+        (::windows::core::Interface::vtable(self).getDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IWMPSyncDevice>(result__)
     }
 }
 impl ::core::convert::From<IWMPSyncServices> for ::windows::core::IUnknown {
@@ -16070,7 +16070,7 @@ pub struct IWMPTranscodePolicy(::windows::core::IUnknown);
 impl IWMPTranscodePolicy {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn allowTranscode(&self, pvballow: *mut i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).allowTranscode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvballow)).ok()
+        (::windows::core::Interface::vtable(self).allowTranscode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvballow)).ok()
     }
 }
 impl ::core::convert::From<IWMPTranscodePolicy> for ::windows::core::IUnknown {
@@ -16125,7 +16125,7 @@ pub struct IWMPUserEventSink(::windows::core::IUnknown);
 impl IWMPUserEventSink {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn NotifyUserEvent(&self, eventcode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NotifyUserEvent)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventcode)).ok()
+        (::windows::core::Interface::vtable(self).NotifyUserEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventcode)).ok()
     }
 }
 impl ::core::convert::From<IWMPUserEventSink> for ::windows::core::IUnknown {
@@ -16181,7 +16181,7 @@ impl IWMPVideoRenderConfig {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Media_MediaFoundation\"`*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn SetpresenterActivate<'a, Param0: ::windows::core::IntoParam<'a, super::MediaFoundation::IMFActivate>>(&self, pactivate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetpresenterActivate)(::core::mem::transmute_copy(self), pactivate.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetpresenterActivate)(::windows::core::Interface::as_raw(self), pactivate.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IWMPVideoRenderConfig> for ::windows::core::IUnknown {
@@ -16240,7 +16240,7 @@ impl IWMPWindowMessageSink {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OnWindowMessage<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(&self, umsg: u32, wparam: Param1, lparam: Param2, plret: *mut super::super::Foundation::LRESULT, pfhandled: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnWindowMessage)(::core::mem::transmute_copy(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
+        (::windows::core::Interface::vtable(self).OnWindowMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::core::mem::transmute(plret), ::core::mem::transmute(pfhandled)).ok()
     }
 }
 impl ::core::convert::From<IWMPWindowMessageSink> for ::windows::core::IUnknown {
@@ -16300,217 +16300,217 @@ impl IXFeed {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Xml(&self, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiitemcount), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiitemcount), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::core::mem::transmute_copy(self), pszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), pszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Url)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUrl)(::core::mem::transmute_copy(self), pszurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetUrl)(::windows::core::Interface::as_raw(self), pszurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).LocalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Path(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastWriteTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastWriteTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).LastWriteTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Download(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Download)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Download)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).AsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CancelAsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelAsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CancelAsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SyncSetting(&self) -> ::windows::core::Result<FEEDS_SYNC_SETTING> {
         let mut result__: FEEDS_SYNC_SETTING = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SyncSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_SYNC_SETTING>(result__)
+        (::windows::core::Interface::vtable(self).SyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_SYNC_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetSyncSetting(&self, fss: FEEDS_SYNC_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSyncSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(fss)).ok()
+        (::windows::core::Interface::vtable(self).SetSyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fss)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Interval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Interval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetInterval(&self, uiinterval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiinterval)).ok()
+        (::windows::core::Interface::vtable(self).SetInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiinterval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).LastDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalEnclosurePath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalEnclosurePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalEnclosurePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Items(&self) -> ::windows::core::Result<IXFeedsEnum> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Items)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXFeedsEnum>(result__)
+        (::windows::core::Interface::vtable(self).Items)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IXFeedsEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetItem<T: ::windows::core::Interface>(&self, uiid: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MarkAllItemsRead(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MarkAllItemsRead)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).MarkAllItemsRead)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MaxItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MaxItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetMaxItemCount(&self, uimaxitemcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(uimaxitemcount)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uimaxitemcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadEnclosuresAutomatically(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadEnclosuresAutomatically)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).DownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDownloadEnclosuresAutomatically<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bdownloadenclosuresautomatically: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDownloadEnclosuresAutomatically)(::core::mem::transmute_copy(self), bdownloadenclosuresautomatically.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), bdownloadenclosuresautomatically.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS> {
         let mut result__: FEEDS_DOWNLOAD_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
+        (::windows::core::Interface::vtable(self).DownloadStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadError(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_ERROR> {
         let mut result__: FEEDS_DOWNLOAD_ERROR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastDownloadError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
+        (::windows::core::Interface::vtable(self).LastDownloadError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pstream: Param0, pszurl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Merge)(::core::mem::transmute_copy(self), pstream.into_param().abi(), pszurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Merge)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), pszurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Link(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Link)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Image(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Image)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Image)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastBuildDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastBuildDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).LastBuildDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PubDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PubDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).PubDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Ttl(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Ttl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Ttl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Language(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Language)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Language)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Copyright(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Copyright)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Copyright)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsList(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetWatcher<T: ::windows::core::Interface>(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetWatcher)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnreadItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UnreadItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).UnreadItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IXFeed> for ::windows::core::IUnknown {
@@ -16637,246 +16637,246 @@ impl IXFeed2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Xml(&self, uiitemcount: u32, sortproperty: FEEDS_XML_SORT_PROPERTY, sortorder: FEEDS_XML_SORT_ORDER, filterflags: FEEDS_XML_FILTER_FLAGS, includeflags: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiitemcount), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiitemcount), ::core::mem::transmute(sortproperty), ::core::mem::transmute(sortorder), ::core::mem::transmute(filterflags), ::core::mem::transmute(includeflags), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Rename)(::core::mem::transmute_copy(self), pszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Rename)(::windows::core::Interface::as_raw(self), pszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Url)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUrl)(::core::mem::transmute_copy(self), pszurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetUrl)(::windows::core::Interface::as_raw(self), pszurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LocalId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).base__.LocalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Path(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Move)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Move)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastWriteTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastWriteTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastWriteTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Download(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Download)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Download)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.AsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.AsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CancelAsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CancelAsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.CancelAsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SyncSetting(&self) -> ::windows::core::Result<FEEDS_SYNC_SETTING> {
         let mut result__: FEEDS_SYNC_SETTING = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SyncSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_SYNC_SETTING>(result__)
+        (::windows::core::Interface::vtable(self).base__.SyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_SYNC_SETTING>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetSyncSetting(&self, fss: FEEDS_SYNC_SETTING) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSyncSetting)(::core::mem::transmute_copy(self), ::core::mem::transmute(fss)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSyncSetting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fss)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Interval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Interval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Interval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetInterval(&self, uiinterval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiinterval)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiinterval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalEnclosurePath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LocalEnclosurePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LocalEnclosurePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Items(&self) -> ::windows::core::Result<IXFeedsEnum> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Items)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXFeedsEnum>(result__)
+        (::windows::core::Interface::vtable(self).base__.Items)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IXFeedsEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetItem<T: ::windows::core::Interface>(&self, uiid: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.GetItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.GetItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MarkAllItemsRead(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.MarkAllItemsRead)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.MarkAllItemsRead)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn MaxItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MaxItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MaxItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetMaxItemCount(&self, uimaxitemcount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMaxItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(uimaxitemcount)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMaxItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uimaxitemcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DownloadEnclosuresAutomatically(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DownloadEnclosuresAutomatically)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.DownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDownloadEnclosuresAutomatically<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bdownloadenclosuresautomatically: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDownloadEnclosuresAutomatically)(::core::mem::transmute_copy(self), bdownloadenclosuresautomatically.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDownloadEnclosuresAutomatically)(::windows::core::Interface::as_raw(self), bdownloadenclosuresautomatically.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS> {
         let mut result__: FEEDS_DOWNLOAD_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DownloadStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
+        (::windows::core::Interface::vtable(self).base__.DownloadStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadError(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_ERROR> {
         let mut result__: FEEDS_DOWNLOAD_ERROR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastDownloadError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastDownloadError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Merge<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pstream: Param0, pszurl: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Merge)(::core::mem::transmute_copy(self), pstream.into_param().abi(), pszurl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Merge)(::windows::core::Interface::as_raw(self), pstream.into_param().abi(), pszurl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Link(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Link)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Image(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Image)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Image)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastBuildDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastBuildDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastBuildDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PubDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.PubDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.PubDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Ttl(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Ttl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Ttl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Language(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Language)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Language)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Copyright(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Copyright)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Copyright)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsList(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetWatcher<T: ::windows::core::Interface>(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.GetWatcher)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn UnreadItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.UnreadItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.UnreadItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetItemByEffectiveId<T: ::windows::core::Interface>(&self, uieffectiveid: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetItemByEffectiveId)(::core::mem::transmute_copy(self), ::core::mem::transmute(uieffectiveid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetItemByEffectiveId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uieffectiveid), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastItemDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastItemDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).LastItemDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Username(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Username)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Username)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Password(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Password)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Password)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszusername: Param0, pszpassword: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::core::mem::transmute_copy(self), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), pszusername.into_param().abi(), pszpassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ClearCredentials(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClearCredentials)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ClearCredentials)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IXFeed2> for ::windows::core::IUnknown {
@@ -16960,63 +16960,63 @@ impl IXFeedEnclosure {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Url(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Url)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Url)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Type(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Type)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Type)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Length(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Length)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Length)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).AsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CancelAsyncDownload(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelAsyncDownload)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CancelAsyncDownload)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadStatus(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_STATUS> {
         let mut result__: FEEDS_DOWNLOAD_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
+        (::windows::core::Interface::vtable(self).DownloadStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LastDownloadError(&self) -> ::windows::core::Result<FEEDS_DOWNLOAD_ERROR> {
         let mut result__: FEEDS_DOWNLOAD_ERROR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastDownloadError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
+        (::windows::core::Interface::vtable(self).LastDownloadError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_DOWNLOAD_ERROR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalPath(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).LocalPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadMimeType(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadMimeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).DownloadMimeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn RemoveFile(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveFile)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).RemoveFile)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszdownloadurl: Param0, pszdownloadfilepath: Param1, pszdownloadmimetype: Param2, pszenclosurefilename: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFile)(::core::mem::transmute_copy(self), pszdownloadurl.into_param().abi(), pszdownloadfilepath.into_param().abi(), pszdownloadmimetype.into_param().abi(), pszenclosurefilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFile)(::windows::core::Interface::as_raw(self), pszdownloadurl.into_param().abi(), pszdownloadfilepath.into_param().abi(), pszdownloadmimetype.into_param().abi(), pszenclosurefilename.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IXFeedEnclosure> for ::windows::core::IUnknown {
@@ -17083,35 +17083,35 @@ pub struct IXFeedEvents(::windows::core::IUnknown);
 impl IXFeedEvents {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Error(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Error)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedDeleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedUrlChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedMoved<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMoved)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedMoved)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedDownloading<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(fde)).ok()
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(fde)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
     }
 }
 impl ::core::convert::From<IXFeedEvents> for ::windows::core::IUnknown {
@@ -17174,90 +17174,90 @@ impl IXFeedFolder {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Feeds(&self) -> ::windows::core::Result<IXFeedsEnum> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Feeds)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXFeedsEnum>(result__)
+        (::windows::core::Interface::vtable(self).Feeds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IXFeedsEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Subfolders(&self) -> ::windows::core::Result<IXFeedsEnum> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Subfolders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IXFeedsEnum>(result__)
+        (::windows::core::Interface::vtable(self).Subfolders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IXFeedsEnum>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CreateFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0, pszurl: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateFeed)(::core::mem::transmute_copy(self), pszname.into_param().abi(), pszurl.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateFeed)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), pszurl.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn CreateSubfolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).CreateSubfolder)(::core::mem::transmute_copy(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).CreateSubfolder)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistsFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0, pbfeedexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::core::mem::transmute_copy(self), pszname.into_param().abi(), ::core::mem::transmute(pbfeedexists)).ok()
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), ::core::mem::transmute(pbfeedexists)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistsSubfolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0, pbsubfolderexists: *const super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::core::mem::transmute_copy(self), pszname.into_param().abi(), ::core::mem::transmute(pbsubfolderexists)).ok()
+        (::windows::core::Interface::vtable(self).ExistsSubfolder)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), ::core::mem::transmute(pbsubfolderexists)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeed)(::core::mem::transmute_copy(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetSubfolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszname: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetSubfolder)(::core::mem::transmute_copy(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetSubfolder)(::windows::core::Interface::as_raw(self), pszname.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Name(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Rename<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Rename)(::core::mem::transmute_copy(self), pszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Rename)(::windows::core::Interface::as_raw(self), pszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Path(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Move<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Move)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Move)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRoot(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsRoot)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsRoot)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetWatcher<T: ::windows::core::Interface>(&self, scope: FEEDS_EVENTS_SCOPE, mask: FEEDS_EVENTS_MASK) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetWatcher)(::core::mem::transmute_copy(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetWatcher)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scope), ::core::mem::transmute(mask), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn TotalUnreadItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TotalUnreadItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).TotalUnreadItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn TotalItemCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TotalItemCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).TotalItemCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IXFeedFolder> for ::windows::core::IUnknown {
@@ -17338,67 +17338,67 @@ pub struct IXFeedFolderEvents(::windows::core::IUnknown);
 impl IXFeedFolderEvents {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Error(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Error)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Error)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FolderAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderAdded)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderAdded)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FolderDeleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderDeleted)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderDeleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FolderRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderRenamed)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderRenamed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FolderMovedFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderMovedFrom)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FolderMovedTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderMovedTo)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FolderMovedTo)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FolderItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
+        (::windows::core::Interface::vtable(self).FolderItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedAdded<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedAdded)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedAdded)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedDeleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDeleted)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedDeleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedRenamed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedRenamed)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedRenamed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedUrlChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedUrlChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedMovedFrom<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedMovedFrom)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedMovedTo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, pszoldpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedMovedTo)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedMovedTo)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), pszoldpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedDownloading<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloading)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).FeedDownloading)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, fde: FEEDS_DOWNLOAD_ERROR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(fde)).ok()
+        (::windows::core::Interface::vtable(self).FeedDownloadCompleted)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(fde)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn FeedItemCountChanged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0, feicfflags: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
+        (::windows::core::Interface::vtable(self).FeedItemCountChanged)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(feicfflags)).ok()
     }
 }
 impl ::core::convert::From<IXFeedFolderEvents> for ::windows::core::IUnknown {
@@ -17470,90 +17470,90 @@ impl IXFeedItem {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Xml(&self, fxif: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(fxif), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fxif), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Link(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Link)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Guid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Guid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PubDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PubDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).PubDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Comments(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Comments)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Comments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Author(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Author)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).Author)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Enclosure<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Enclosure)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Enclosure)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRead(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsRead)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bisread: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIsRead)(::core::mem::transmute_copy(self), bisread.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetIsRead)(::windows::core::Interface::as_raw(self), bisread.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LocalId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).LocalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Parent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Parent)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LastDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).LastDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Modified(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Modified)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).Modified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
 }
 impl ::core::convert::From<IXFeedItem> for ::windows::core::IUnknown {
@@ -17644,95 +17644,95 @@ impl IXFeedItem2 {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Xml(&self, fxif: FEEDS_XML_INCLUDE_FLAGS) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(fxif), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fxif), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Title(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Link(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Link)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Link)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Guid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Guid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Description(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PubDate(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.PubDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.PubDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Comments(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Comments)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Comments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Author(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Author)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Author)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Enclosure<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.Enclosure)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.Enclosure)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsRead(&self) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.IsRead)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).base__.IsRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetIsRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, bisread: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIsRead)(::core::mem::transmute_copy(self), bisread.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIsRead)(::windows::core::Interface::as_raw(self), bisread.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn LocalId(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LocalId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.LocalId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Parent<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.Parent)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.Parent)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DownloadUrl(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DownloadUrl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DownloadUrl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LastDownloadTime(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LastDownloadTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.LastDownloadTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Modified(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Modified)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
+        (::windows::core::Interface::vtable(self).base__.Modified)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn EffectiveId(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EffectiveId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).EffectiveId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IXFeedItem2> for ::windows::core::IUnknown {
@@ -17808,12 +17808,12 @@ impl IXFeedsEnum {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn Item<T: ::windows::core::Interface>(&self, uiindex: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IXFeedsEnum> for ::windows::core::IUnknown {
@@ -17870,81 +17870,81 @@ impl IXFeedsManager {
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn RootFolder<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).RootFolder)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).RootFolder)(::windows::core::Interface::as_raw(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsSubscribed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszurl: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsSubscribed)(::core::mem::transmute_copy(self), pszurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsSubscribed)(::windows::core::Interface::as_raw(self), pszurl.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistsFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFeed)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFeed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszpath: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeed)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetFeedByUrl<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszurl: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::core::mem::transmute_copy(self), pszurl.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFeedByUrl)(::windows::core::Interface::as_raw(self), pszurl.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExistsFolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExistsFolder)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).ExistsFolder)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn GetFolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, T: ::windows::core::Interface>(&self, pszpath: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetFolder)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetFolder)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeleteFeed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFeed)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteFeed)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DeleteFolder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteFolder)(::core::mem::transmute_copy(self), pszpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteFolder)(::windows::core::Interface::as_raw(self), pszpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BackgroundSync(&self, fbsa: FEEDS_BACKGROUNDSYNC_ACTION) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BackgroundSync)(::core::mem::transmute_copy(self), ::core::mem::transmute(fbsa)).ok()
+        (::windows::core::Interface::vtable(self).BackgroundSync)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fbsa)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn BackgroundSyncStatus(&self) -> ::windows::core::Result<FEEDS_BACKGROUNDSYNC_STATUS> {
         let mut result__: FEEDS_BACKGROUNDSYNC_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BackgroundSyncStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_BACKGROUNDSYNC_STATUS>(result__)
+        (::windows::core::Interface::vtable(self).BackgroundSyncStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FEEDS_BACKGROUNDSYNC_STATUS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn DefaultInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DefaultInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).DefaultInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn SetDefaultInterval(&self, uiinterval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDefaultInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiinterval)).ok()
+        (::windows::core::Interface::vtable(self).SetDefaultInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiinterval)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn AsyncSyncAll(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AsyncSyncAll)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).AsyncSyncAll)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Normalize<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstreamin: Param0) -> ::windows::core::Result<super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Normalize)(::core::mem::transmute_copy(self), pstreamin.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
+        (::windows::core::Interface::vtable(self).Normalize)(::windows::core::Interface::as_raw(self), pstreamin.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_MediaPlayer\"`*"]
     pub unsafe fn ItemCountLimit(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ItemCountLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ItemCountLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IXFeedsManager> for ::windows::core::IUnknown {

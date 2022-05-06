@@ -3684,22 +3684,22 @@ impl IFaxAccount {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AccountName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AccountName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).AccountName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Folders(&self) -> ::windows::core::Result<IFaxAccountFolders> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Folders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountFolders>(result__)
+        (::windows::core::Interface::vtable(self).Folders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountFolders>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ListenToAccountEvents(&self, eventtypes: FAX_ACCOUNT_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ListenToAccountEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventtypes)).ok()
+        (::windows::core::Interface::vtable(self).ListenToAccountEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RegisteredEvents(&self) -> ::windows::core::Result<FAX_ACCOUNT_EVENTS_TYPE_ENUM> {
         let mut result__: FAX_ACCOUNT_EVENTS_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisteredEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_ACCOUNT_EVENTS_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).RegisteredEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_ACCOUNT_EVENTS_TYPE_ENUM>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3801,25 +3801,25 @@ impl IFaxAccountFolders {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutgoingQueue(&self) -> ::windows::core::Result<IFaxAccountOutgoingQueue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutgoingQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountOutgoingQueue>(result__)
+        (::windows::core::Interface::vtable(self).OutgoingQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountOutgoingQueue>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncomingQueue(&self) -> ::windows::core::Result<IFaxAccountIncomingQueue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncomingQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountIncomingQueue>(result__)
+        (::windows::core::Interface::vtable(self).IncomingQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountIncomingQueue>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncomingArchive(&self) -> ::windows::core::Result<IFaxAccountIncomingArchive> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncomingArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountIncomingArchive>(result__)
+        (::windows::core::Interface::vtable(self).IncomingArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountIncomingArchive>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutgoingArchive(&self) -> ::windows::core::Result<IFaxAccountOutgoingArchive> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutgoingArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountOutgoingArchive>(result__)
+        (::windows::core::Interface::vtable(self).OutgoingArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountOutgoingArchive>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3926,28 +3926,28 @@ impl IFaxAccountIncomingArchive {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeLow(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeLow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SizeLow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeHigh(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeHigh)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SizeHigh)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxIncomingMessageIterator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMessages)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprefetchsize), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessageIterator>(result__)
+        (::windows::core::Interface::vtable(self).GetMessages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprefetchsize), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessageIterator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessageid: Param0) -> ::windows::core::Result<IFaxIncomingMessage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMessage)(::core::mem::transmute_copy(self), bstrmessageid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessage>(result__)
+        (::windows::core::Interface::vtable(self).GetMessage)(::windows::core::Interface::as_raw(self), bstrmessageid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessage>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4050,13 +4050,13 @@ impl IFaxAccountIncomingQueue {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJobs(&self) -> ::windows::core::Result<IFaxIncomingJobs> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJobs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJobs>(result__)
+        (::windows::core::Interface::vtable(self).GetJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJobs>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrjobid: Param0) -> ::windows::core::Result<IFaxIncomingJob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJob)(::core::mem::transmute_copy(self), bstrjobid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJob>(result__)
+        (::windows::core::Interface::vtable(self).GetJob)(::windows::core::Interface::as_raw(self), bstrjobid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJob>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4240,28 +4240,28 @@ impl IFaxAccountOutgoingArchive {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeLow(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeLow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SizeLow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeHigh(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeHigh)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SizeHigh)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxOutgoingMessageIterator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMessages)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprefetchsize), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessageIterator>(result__)
+        (::windows::core::Interface::vtable(self).GetMessages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprefetchsize), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessageIterator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessageid: Param0) -> ::windows::core::Result<IFaxOutgoingMessage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMessage)(::core::mem::transmute_copy(self), bstrmessageid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessage>(result__)
+        (::windows::core::Interface::vtable(self).GetMessage)(::windows::core::Interface::as_raw(self), bstrmessageid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessage>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4364,13 +4364,13 @@ impl IFaxAccountOutgoingQueue {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJobs(&self) -> ::windows::core::Result<IFaxOutgoingJobs> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJobs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJobs>(result__)
+        (::windows::core::Interface::vtable(self).GetJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJobs>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrjobid: Param0) -> ::windows::core::Result<IFaxOutgoingJob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJob)(::core::mem::transmute_copy(self), bstrjobid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJob>(result__)
+        (::windows::core::Interface::vtable(self).GetJob)(::windows::core::Interface::as_raw(self), bstrjobid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJob>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4470,24 +4470,24 @@ impl IFaxAccountSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetAccounts(&self) -> ::windows::core::Result<IFaxAccounts> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAccounts)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccounts>(result__)
+        (::windows::core::Interface::vtable(self).GetAccounts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccounts>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraccountname: Param0) -> ::windows::core::Result<IFaxAccount> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAccount)(::core::mem::transmute_copy(self), bstraccountname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccount>(result__)
+        (::windows::core::Interface::vtable(self).GetAccount)(::windows::core::Interface::as_raw(self), bstraccountname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccount>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn AddAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraccountname: Param0) -> ::windows::core::Result<IFaxAccount> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AddAccount)(::core::mem::transmute_copy(self), bstraccountname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccount>(result__)
+        (::windows::core::Interface::vtable(self).AddAccount)(::windows::core::Interface::as_raw(self), bstraccountname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccount>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RemoveAccount<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstraccountname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAccount)(::core::mem::transmute_copy(self), bstraccountname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RemoveAccount)(::windows::core::Interface::as_raw(self), bstraccountname.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4594,18 +4594,18 @@ impl IFaxAccounts {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<IFaxAccount> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccount>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccount>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4702,26 +4702,26 @@ impl IFaxActivity {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn IncomingMessages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncomingMessages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).IncomingMessages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RoutingMessages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RoutingMessages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).RoutingMessages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OutgoingMessages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutgoingMessages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).OutgoingMessages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn QueuedMessages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).QueuedMessages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).QueuedMessages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4817,39 +4817,39 @@ impl IFaxActivityLogging {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LogIncoming(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogIncoming)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).LogIncoming)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetLogIncoming(&self, blogincoming: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogIncoming)(::core::mem::transmute_copy(self), ::core::mem::transmute(blogincoming)).ok()
+        (::windows::core::Interface::vtable(self).SetLogIncoming)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(blogincoming)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LogOutgoing(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogOutgoing)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).LogOutgoing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetLogOutgoing(&self, blogoutgoing: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogOutgoing)(::core::mem::transmute_copy(self), ::core::mem::transmute(blogoutgoing)).ok()
+        (::windows::core::Interface::vtable(self).SetLogOutgoing)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(blogoutgoing)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DatabasePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DatabasePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DatabasePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDatabasePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdatabasepath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDatabasePath)(::core::mem::transmute_copy(self), bstrdatabasepath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDatabasePath)(::windows::core::Interface::as_raw(self), bstrdatabasepath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4954,193 +4954,193 @@ impl IFaxConfiguration {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UseArchive(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UseArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).UseArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetUseArchive(&self, busearchive: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(busearchive)).ok()
+        (::windows::core::Interface::vtable(self).SetUseArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(busearchive)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ArchiveLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ArchiveLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ArchiveLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetArchiveLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrarchivelocation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetArchiveLocation)(::core::mem::transmute_copy(self), bstrarchivelocation.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetArchiveLocation)(::windows::core::Interface::as_raw(self), bstrarchivelocation.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeQuotaWarning(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeQuotaWarning)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SizeQuotaWarning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetSizeQuotaWarning(&self, bsizequotawarning: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSizeQuotaWarning)(::core::mem::transmute_copy(self), ::core::mem::transmute(bsizequotawarning)).ok()
+        (::windows::core::Interface::vtable(self).SetSizeQuotaWarning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bsizequotawarning)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HighQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).HighQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetHighQuotaWaterMark(&self, lhighquotawatermark: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(lhighquotawatermark)).ok()
+        (::windows::core::Interface::vtable(self).SetHighQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lhighquotawatermark)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LowQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LowQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LowQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetLowQuotaWaterMark(&self, llowquotawatermark: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLowQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(llowquotawatermark)).ok()
+        (::windows::core::Interface::vtable(self).SetLowQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llowquotawatermark)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ArchiveAgeLimit(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ArchiveAgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ArchiveAgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetArchiveAgeLimit(&self, larchiveagelimit: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetArchiveAgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(larchiveagelimit)).ok()
+        (::windows::core::Interface::vtable(self).SetArchiveAgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(larchiveagelimit)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ArchiveSizeLow(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ArchiveSizeLow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ArchiveSizeLow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ArchiveSizeHigh(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ArchiveSizeHigh)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ArchiveSizeHigh)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OutgoingQueueBlocked(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutgoingQueueBlocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).OutgoingQueueBlocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetOutgoingQueueBlocked(&self, boutgoingblocked: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutgoingQueueBlocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(boutgoingblocked)).ok()
+        (::windows::core::Interface::vtable(self).SetOutgoingQueueBlocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(boutgoingblocked)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OutgoingQueuePaused(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutgoingQueuePaused)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).OutgoingQueuePaused)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetOutgoingQueuePaused(&self, boutgoingpaused: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutgoingQueuePaused)(::core::mem::transmute_copy(self), ::core::mem::transmute(boutgoingpaused)).ok()
+        (::windows::core::Interface::vtable(self).SetOutgoingQueuePaused)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(boutgoingpaused)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AllowPersonalCoverPages(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AllowPersonalCoverPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).AllowPersonalCoverPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAllowPersonalCoverPages(&self, ballowpersonalcoverpages: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllowPersonalCoverPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(ballowpersonalcoverpages)).ok()
+        (::windows::core::Interface::vtable(self).SetAllowPersonalCoverPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ballowpersonalcoverpages)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UseDeviceTSID(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UseDeviceTSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).UseDeviceTSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetUseDeviceTSID(&self, busedevicetsid: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseDeviceTSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(busedevicetsid)).ok()
+        (::windows::core::Interface::vtable(self).SetUseDeviceTSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(busedevicetsid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetRetries(&self, lretries: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRetries)(::core::mem::transmute_copy(self), ::core::mem::transmute(lretries)).ok()
+        (::windows::core::Interface::vtable(self).SetRetries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lretries)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RetryDelay(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RetryDelay)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).RetryDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetRetryDelay(&self, lretrydelay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRetryDelay)(::core::mem::transmute_copy(self), ::core::mem::transmute(lretrydelay)).ok()
+        (::windows::core::Interface::vtable(self).SetRetryDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lretrydelay)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DiscountRateStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DiscountRateStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).DiscountRateStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetDiscountRateStart(&self, datediscountratestart: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDiscountRateStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(datediscountratestart)).ok()
+        (::windows::core::Interface::vtable(self).SetDiscountRateStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datediscountratestart)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DiscountRateEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DiscountRateEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).DiscountRateEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetDiscountRateEnd(&self, datediscountrateend: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDiscountRateEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(datediscountrateend)).ok()
+        (::windows::core::Interface::vtable(self).SetDiscountRateEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datediscountrateend)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OutgoingQueueAgeLimit(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutgoingQueueAgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).OutgoingQueueAgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetOutgoingQueueAgeLimit(&self, loutgoingqueueagelimit: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutgoingQueueAgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(loutgoingqueueagelimit)).ok()
+        (::windows::core::Interface::vtable(self).SetOutgoingQueueAgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(loutgoingqueueagelimit)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Branding(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Branding)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Branding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetBranding(&self, bbranding: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBranding)(::core::mem::transmute_copy(self), ::core::mem::transmute(bbranding)).ok()
+        (::windows::core::Interface::vtable(self).SetBranding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bbranding)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn IncomingQueueBlocked(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncomingQueueBlocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IncomingQueueBlocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetIncomingQueueBlocked(&self, bincomingblocked: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIncomingQueueBlocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(bincomingblocked)).ok()
+        (::windows::core::Interface::vtable(self).SetIncomingQueueBlocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bincomingblocked)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AutoCreateAccountOnConnect(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AutoCreateAccountOnConnect)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).AutoCreateAccountOnConnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAutoCreateAccountOnConnect(&self, bautocreateaccountonconnect: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAutoCreateAccountOnConnect)(::core::mem::transmute_copy(self), ::core::mem::transmute(bautocreateaccountonconnect)).ok()
+        (::windows::core::Interface::vtable(self).SetAutoCreateAccountOnConnect)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bautocreateaccountonconnect)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn IncomingFaxesArePublic(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncomingFaxesArePublic)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IncomingFaxesArePublic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetIncomingFaxesArePublic(&self, bincomingfaxesarepublic: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIncomingFaxesArePublic)(::core::mem::transmute_copy(self), ::core::mem::transmute(bincomingfaxesarepublic)).ok()
+        (::windows::core::Interface::vtable(self).SetIncomingFaxesArePublic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bincomingfaxesarepublic)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5279,133 +5279,133 @@ impl IFaxDevice {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Id(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DeviceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ProviderUniqueName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProviderUniqueName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ProviderUniqueName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn PoweredOff(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PoweredOff)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).PoweredOff)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceivingNow(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceivingNow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ReceivingNow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SendingNow(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SendingNow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SendingNow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn UsedRoutingMethods(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UsedRoutingMethods)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).UsedRoutingMethods)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdescription: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), bstrdescription.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), bstrdescription.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SendEnabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SendEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SendEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetSendEnabled(&self, bsendenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSendEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(bsendenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetSendEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bsendenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceiveMode(&self) -> ::windows::core::Result<FAX_DEVICE_RECEIVE_MODE_ENUM> {
         let mut result__: FAX_DEVICE_RECEIVE_MODE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiveMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_DEVICE_RECEIVE_MODE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ReceiveMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_DEVICE_RECEIVE_MODE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetReceiveMode(&self, receivemode: FAX_DEVICE_RECEIVE_MODE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReceiveMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(receivemode)).ok()
+        (::windows::core::Interface::vtable(self).SetReceiveMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(receivemode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RingsBeforeAnswer(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RingsBeforeAnswer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).RingsBeforeAnswer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetRingsBeforeAnswer(&self, lringsbeforeanswer: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRingsBeforeAnswer)(::core::mem::transmute_copy(self), ::core::mem::transmute(lringsbeforeanswer)).ok()
+        (::windows::core::Interface::vtable(self).SetRingsBeforeAnswer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lringsbeforeanswer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCSID)(::core::mem::transmute_copy(self), bstrcsid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCSID)(::windows::core::Interface::as_raw(self), bstrcsid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTSID)(::core::mem::transmute_copy(self), bstrtsid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTSID)(::windows::core::Interface::as_raw(self), bstrtsid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetExtensionProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetExtensionProperty)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetExtensionProperty)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetExtensionProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrguid: Param0, vproperty: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtensionProperty)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetExtensionProperty)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UseRoutingMethod<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmethodguid: Param0, buse: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UseRoutingMethod)(::core::mem::transmute_copy(self), bstrmethodguid.into_param().abi(), ::core::mem::transmute(buse)).ok()
+        (::windows::core::Interface::vtable(self).UseRoutingMethod)(::windows::core::Interface::as_raw(self), bstrmethodguid.into_param().abi(), ::core::mem::transmute(buse)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RingingNow(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RingingNow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).RingingNow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AnswerCall(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AnswerCall)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).AnswerCall)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5558,29 +5558,29 @@ impl IFaxDeviceIds {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Add(&self, ldeviceid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldeviceid)).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ldeviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Remove(&self, lindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetOrder(&self, ldeviceid: i32, lneworder: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOrder)(::core::mem::transmute_copy(self), ::core::mem::transmute(ldeviceid), ::core::mem::transmute(lneworder)).ok()
+        (::windows::core::Interface::vtable(self).SetOrder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ldeviceid), ::core::mem::transmute(lneworder)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5678,66 +5678,66 @@ impl IFaxDeviceProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImageName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ImageName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ImageName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UniqueName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UniqueName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UniqueName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TapiProviderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TapiProviderName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TapiProviderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MajorVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MajorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MinorVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MajorBuild(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MajorBuild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MajorBuild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MinorBuild(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinorBuild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinorBuild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Debug(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Debug)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Debug)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<FAX_PROVIDER_STATUS_ENUM> {
         let mut result__: FAX_PROVIDER_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PROVIDER_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PROVIDER_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn InitErrorCode(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InitErrorCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).InitErrorCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn DeviceIds(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceIds)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).DeviceIds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5855,18 +5855,18 @@ impl IFaxDeviceProviders {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<IFaxDeviceProvider> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDeviceProvider>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDeviceProvider>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -5963,24 +5963,24 @@ impl IFaxDevices {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<IFaxDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDevice>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDevice>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_ItemById(&self, lid: i32) -> ::windows::core::Result<IFaxDevice> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_ItemById)(::core::mem::transmute_copy(self), ::core::mem::transmute(lid), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDevice>(result__)
+        (::windows::core::Interface::vtable(self).get_ItemById)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lid), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDevice>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6082,174 +6082,174 @@ impl IFaxDocument {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Body(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Body)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Body)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBody)(::core::mem::transmute_copy(self), bstrbody.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBody)(::windows::core::Interface::as_raw(self), bstrbody.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows::core::Result<IFaxSender> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Sender)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
+        (::windows::core::Interface::vtable(self).Sender)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipients(&self) -> ::windows::core::Result<IFaxRecipients> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Recipients)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipients>(result__)
+        (::windows::core::Interface::vtable(self).Recipients)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipients>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoverPage(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CoverPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CoverPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCoverPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcoverpage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCoverPage)(::core::mem::transmute_copy(self), bstrcoverpage.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCoverPage)(::windows::core::Interface::as_raw(self), bstrcoverpage.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Subject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsubject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubject)(::core::mem::transmute_copy(self), bstrsubject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSubject)(::windows::core::Interface::as_raw(self), bstrsubject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Note(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Note)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Note)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNote<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnote: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNote)(::core::mem::transmute_copy(self), bstrnote.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNote)(::windows::core::Interface::as_raw(self), bstrnote.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduleTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ScheduleTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).ScheduleTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetScheduleTime(&self, datescheduletime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScheduleTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(datescheduletime)).ok()
+        (::windows::core::Interface::vtable(self).SetScheduleTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datescheduletime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReceiptAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiptAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ReceiptAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiptAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrreceiptaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReceiptAddress)(::core::mem::transmute_copy(self), bstrreceiptaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetReceiptAddress)(::windows::core::Interface::as_raw(self), bstrreceiptaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DocumentName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DocumentName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocumentName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdocumentname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDocumentName)(::core::mem::transmute_copy(self), bstrdocumentname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDocumentName)(::windows::core::Interface::as_raw(self), bstrdocumentname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CallHandle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CallHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CallHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetCallHandle(&self, lcallhandle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCallHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcallhandle)).ok()
+        (::windows::core::Interface::vtable(self).SetCallHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcallhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CoverPageType(&self) -> ::windows::core::Result<FAX_COVERPAGE_TYPE_ENUM> {
         let mut result__: FAX_COVERPAGE_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CoverPageType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_COVERPAGE_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).CoverPageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_COVERPAGE_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetCoverPageType(&self, coverpagetype: FAX_COVERPAGE_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCoverPageType)(::core::mem::transmute_copy(self), ::core::mem::transmute(coverpagetype)).ok()
+        (::windows::core::Interface::vtable(self).SetCoverPageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(coverpagetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduleType(&self) -> ::windows::core::Result<FAX_SCHEDULE_TYPE_ENUM> {
         let mut result__: FAX_SCHEDULE_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ScheduleType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SCHEDULE_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SCHEDULE_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetScheduleType(&self, scheduletype: FAX_SCHEDULE_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScheduleType)(::core::mem::transmute_copy(self), ::core::mem::transmute(scheduletype)).ok()
+        (::windows::core::Interface::vtable(self).SetScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scheduletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM> {
         let mut result__: FAX_RECEIPT_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiptType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetReceiptType(&self, receipttype: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReceiptType)(::core::mem::transmute_copy(self), ::core::mem::transmute(receipttype)).ok()
+        (::windows::core::Interface::vtable(self).SetReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(receipttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GroupBroadcastReceipts(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GroupBroadcastReceipts)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GroupBroadcastReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetGroupBroadcastReceipts(&self, busegrouping: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroupBroadcastReceipts)(::core::mem::transmute_copy(self), ::core::mem::transmute(busegrouping)).ok()
+        (::windows::core::Interface::vtable(self).SetGroupBroadcastReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(busegrouping)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__: FAX_PRIORITY_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TapiConnection(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TapiConnection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).TapiConnection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_TapiConnection<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, ptapiconnection: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_TapiConnection)(::core::mem::transmute_copy(self), ptapiconnection.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).putref_TapiConnection)(::windows::core::Interface::as_raw(self), ptapiconnection.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Submit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxservername: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Submit)(::core::mem::transmute_copy(self), bstrfaxservername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Submit)(::windows::core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ConnectedSubmit<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer>>(&self, pfaxserver: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ConnectedSubmit)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).ConnectedSubmit)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AttachFaxToReceipt(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AttachFaxToReceipt)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).AttachFaxToReceipt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAttachFaxToReceipt(&self, battachfax: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAttachFaxToReceipt)(::core::mem::transmute_copy(self), ::core::mem::transmute(battachfax)).ok()
+        (::windows::core::Interface::vtable(self).SetAttachFaxToReceipt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(battachfax)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6429,201 +6429,201 @@ impl IFaxDocument2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Body(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Body)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Body)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBody<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbody: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBody)(::core::mem::transmute_copy(self), bstrbody.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBody)(::windows::core::Interface::as_raw(self), bstrbody.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows::core::Result<IFaxSender> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Sender)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
+        (::windows::core::Interface::vtable(self).base__.Sender)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipients(&self) -> ::windows::core::Result<IFaxRecipients> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Recipients)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipients>(result__)
+        (::windows::core::Interface::vtable(self).base__.Recipients)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipients>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CoverPage(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CoverPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CoverPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCoverPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcoverpage: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCoverPage)(::core::mem::transmute_copy(self), bstrcoverpage.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCoverPage)(::windows::core::Interface::as_raw(self), bstrcoverpage.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Subject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsubject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSubject)(::core::mem::transmute_copy(self), bstrsubject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSubject)(::windows::core::Interface::as_raw(self), bstrsubject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Note(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Note)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Note)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNote<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrnote: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetNote)(::core::mem::transmute_copy(self), bstrnote.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetNote)(::windows::core::Interface::as_raw(self), bstrnote.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduleTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ScheduleTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.ScheduleTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetScheduleTime(&self, datescheduletime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetScheduleTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(datescheduletime)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetScheduleTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datescheduletime)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReceiptAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReceiptAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReceiptAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReceiptAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrreceiptaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReceiptAddress)(::core::mem::transmute_copy(self), bstrreceiptaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReceiptAddress)(::windows::core::Interface::as_raw(self), bstrreceiptaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DocumentName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DocumentName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDocumentName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdocumentname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDocumentName)(::core::mem::transmute_copy(self), bstrdocumentname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDocumentName)(::windows::core::Interface::as_raw(self), bstrdocumentname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CallHandle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CallHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CallHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetCallHandle(&self, lcallhandle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCallHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcallhandle)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCallHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcallhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CoverPageType(&self) -> ::windows::core::Result<FAX_COVERPAGE_TYPE_ENUM> {
         let mut result__: FAX_COVERPAGE_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CoverPageType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_COVERPAGE_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.CoverPageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_COVERPAGE_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetCoverPageType(&self, coverpagetype: FAX_COVERPAGE_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetCoverPageType)(::core::mem::transmute_copy(self), ::core::mem::transmute(coverpagetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetCoverPageType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(coverpagetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduleType(&self) -> ::windows::core::Result<FAX_SCHEDULE_TYPE_ENUM> {
         let mut result__: FAX_SCHEDULE_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ScheduleType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SCHEDULE_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.ScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SCHEDULE_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetScheduleType(&self, scheduletype: FAX_SCHEDULE_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetScheduleType)(::core::mem::transmute_copy(self), ::core::mem::transmute(scheduletype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scheduletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM> {
         let mut result__: FAX_RECEIPT_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReceiptType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetReceiptType(&self, receipttype: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReceiptType)(::core::mem::transmute_copy(self), ::core::mem::transmute(receipttype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(receipttype)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GroupBroadcastReceipts(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GroupBroadcastReceipts)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.GroupBroadcastReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetGroupBroadcastReceipts(&self, busegrouping: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetGroupBroadcastReceipts)(::core::mem::transmute_copy(self), ::core::mem::transmute(busegrouping)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetGroupBroadcastReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(busegrouping)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__: FAX_PRIORITY_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetPriority(&self, priority: FAX_PRIORITY_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(priority)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(priority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TapiConnection(&self) -> ::windows::core::Result<super::super::System::Com::IDispatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TapiConnection)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
+        (::windows::core::Interface::vtable(self).base__.TapiConnection)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IDispatch>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn putref_TapiConnection<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::IDispatch>>(&self, ptapiconnection: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.putref_TapiConnection)(::core::mem::transmute_copy(self), ptapiconnection.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putref_TapiConnection)(::windows::core::Interface::as_raw(self), ptapiconnection.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Submit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxservername: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Submit)(::core::mem::transmute_copy(self), bstrfaxservername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.Submit)(::windows::core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ConnectedSubmit<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer>>(&self, pfaxserver: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ConnectedSubmit)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.ConnectedSubmit)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AttachFaxToReceipt(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AttachFaxToReceipt)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.AttachFaxToReceipt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAttachFaxToReceipt(&self, battachfax: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAttachFaxToReceipt)(::core::mem::transmute_copy(self), ::core::mem::transmute(battachfax)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAttachFaxToReceipt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(battachfax)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubmissionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SubmissionId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SubmissionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Bodies(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Bodies)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Bodies)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetBodies<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vbodies: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBodies)(::core::mem::transmute_copy(self), vbodies.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBodies)(::windows::core::Interface::as_raw(self), vbodies.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Submit2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxservername: Param0, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Submit2)(::core::mem::transmute_copy(self), bstrfaxservername.into_param().abi(), ::core::mem::transmute(pvfaxoutgoingjobids), ::core::mem::transmute(plerrorbodyfile)).ok()
+        (::windows::core::Interface::vtable(self).Submit2)(::windows::core::Interface::as_raw(self), bstrfaxservername.into_param().abi(), ::core::mem::transmute(pvfaxoutgoingjobids), ::core::mem::transmute(plerrorbodyfile)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn ConnectedSubmit2<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer>>(&self, pfaxserver: Param0, pvfaxoutgoingjobids: *mut super::super::System::Com::VARIANT, plerrorbodyfile: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ConnectedSubmit2)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), ::core::mem::transmute(pvfaxoutgoingjobids), ::core::mem::transmute(plerrorbodyfile)).ok()
+        (::windows::core::Interface::vtable(self).ConnectedSubmit2)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), ::core::mem::transmute(pvfaxoutgoingjobids), ::core::mem::transmute(plerrorbodyfile)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6758,46 +6758,46 @@ impl IFaxEventLogging {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn InitEventsLevel(&self) -> ::windows::core::Result<FAX_LOG_LEVEL_ENUM> {
         let mut result__: FAX_LOG_LEVEL_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InitEventsLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).InitEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetInitEventsLevel(&self, initeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInitEventsLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(initeventlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetInitEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(initeventlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn InboundEventsLevel(&self) -> ::windows::core::Result<FAX_LOG_LEVEL_ENUM> {
         let mut result__: FAX_LOG_LEVEL_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InboundEventsLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).InboundEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetInboundEventsLevel(&self, inboundeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInboundEventsLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(inboundeventlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetInboundEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inboundeventlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OutboundEventsLevel(&self) -> ::windows::core::Result<FAX_LOG_LEVEL_ENUM> {
         let mut result__: FAX_LOG_LEVEL_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutboundEventsLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).OutboundEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetOutboundEventsLevel(&self, outboundeventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutboundEventsLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(outboundeventlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetOutboundEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(outboundeventlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GeneralEventsLevel(&self) -> ::windows::core::Result<FAX_LOG_LEVEL_ENUM> {
         let mut result__: FAX_LOG_LEVEL_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GeneralEventsLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).GeneralEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_LOG_LEVEL_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetGeneralEventsLevel(&self, generaleventlevel: FAX_LOG_LEVEL_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGeneralEventsLevel)(::core::mem::transmute_copy(self), ::core::mem::transmute(generaleventlevel)).ok()
+        (::windows::core::Interface::vtable(self).SetGeneralEventsLevel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(generaleventlevel)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6899,25 +6899,25 @@ impl IFaxFolders {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutgoingQueue(&self) -> ::windows::core::Result<IFaxOutgoingQueue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutgoingQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingQueue>(result__)
+        (::windows::core::Interface::vtable(self).OutgoingQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingQueue>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncomingQueue(&self) -> ::windows::core::Result<IFaxIncomingQueue> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncomingQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingQueue>(result__)
+        (::windows::core::Interface::vtable(self).IncomingQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingQueue>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncomingArchive(&self) -> ::windows::core::Result<IFaxIncomingArchive> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncomingArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingArchive>(result__)
+        (::windows::core::Interface::vtable(self).IncomingArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingArchive>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutgoingArchive(&self) -> ::windows::core::Result<IFaxOutgoingArchive> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutgoingArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingArchive>(result__)
+        (::windows::core::Interface::vtable(self).OutgoingArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingArchive>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7025,13 +7025,13 @@ impl IFaxInboundRouting {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetExtensions(&self) -> ::windows::core::Result<IFaxInboundRoutingExtensions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetExtensions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRoutingExtensions>(result__)
+        (::windows::core::Interface::vtable(self).GetExtensions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRoutingExtensions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMethods(&self) -> ::windows::core::Result<IFaxInboundRoutingMethods> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMethods)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRoutingMethods>(result__)
+        (::windows::core::Interface::vtable(self).GetMethods)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRoutingMethods>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7131,60 +7131,60 @@ impl IFaxInboundRoutingExtension {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ImageName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ImageName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ImageName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UniqueName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UniqueName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UniqueName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MajorVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MajorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MinorVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MajorBuild(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MajorBuild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MajorBuild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MinorBuild(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinorBuild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinorBuild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Debug(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Debug)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Debug)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<FAX_PROVIDER_STATUS_ENUM> {
         let mut result__: FAX_PROVIDER_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PROVIDER_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PROVIDER_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn InitErrorCode(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InitErrorCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).InitErrorCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Methods(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Methods)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Methods)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7298,18 +7298,18 @@ impl IFaxInboundRoutingExtensions {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<IFaxInboundRoutingExtension> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRoutingExtension>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRoutingExtension>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7407,48 +7407,48 @@ impl IFaxInboundRoutingMethod {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GUID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GUID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GUID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FunctionName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FunctionName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FunctionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtensionFriendlyName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtensionFriendlyName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ExtensionFriendlyName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtensionImageName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtensionImageName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ExtensionImageName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetPriority(&self, lpriority: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPriority)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpriority)).ok()
+        (::windows::core::Interface::vtable(self).SetPriority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpriority)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7563,18 +7563,18 @@ impl IFaxInboundRoutingMethods {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<IFaxInboundRoutingMethod> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRoutingMethod>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRoutingMethod>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7671,88 +7671,88 @@ impl IFaxIncomingArchive {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UseArchive(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UseArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).UseArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetUseArchive(&self, busearchive: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(busearchive)).ok()
+        (::windows::core::Interface::vtable(self).SetUseArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(busearchive)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ArchiveFolder(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ArchiveFolder)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ArchiveFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetArchiveFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrarchivefolder: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetArchiveFolder)(::core::mem::transmute_copy(self), bstrarchivefolder.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetArchiveFolder)(::windows::core::Interface::as_raw(self), bstrarchivefolder.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeQuotaWarning(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeQuotaWarning)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SizeQuotaWarning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetSizeQuotaWarning(&self, bsizequotawarning: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSizeQuotaWarning)(::core::mem::transmute_copy(self), ::core::mem::transmute(bsizequotawarning)).ok()
+        (::windows::core::Interface::vtable(self).SetSizeQuotaWarning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bsizequotawarning)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HighQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).HighQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetHighQuotaWaterMark(&self, lhighquotawatermark: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(lhighquotawatermark)).ok()
+        (::windows::core::Interface::vtable(self).SetHighQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lhighquotawatermark)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LowQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LowQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LowQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetLowQuotaWaterMark(&self, llowquotawatermark: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLowQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(llowquotawatermark)).ok()
+        (::windows::core::Interface::vtable(self).SetLowQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llowquotawatermark)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AgeLimit(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAgeLimit(&self, lagelimit: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(lagelimit)).ok()
+        (::windows::core::Interface::vtable(self).SetAgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lagelimit)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeLow(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeLow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SizeLow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeHigh(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeHigh)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SizeHigh)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxIncomingMessageIterator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMessages)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprefetchsize), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessageIterator>(result__)
+        (::windows::core::Interface::vtable(self).GetMessages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprefetchsize), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessageIterator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessageid: Param0) -> ::windows::core::Result<IFaxIncomingMessage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMessage)(::core::mem::transmute_copy(self), bstrmessageid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessage>(result__)
+        (::windows::core::Interface::vtable(self).GetMessage)(::windows::core::Interface::as_raw(self), bstrmessageid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessage>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7873,101 +7873,101 @@ impl IFaxIncomingJob {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CurrentPage(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CurrentPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DeviceId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DeviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<FAX_JOB_STATUS_ENUM> {
         let mut result__: FAX_JOB_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ExtendedStatusCode(&self) -> ::windows::core::Result<FAX_JOB_EXTENDED_STATUS_ENUM> {
         let mut result__: FAX_JOB_EXTENDED_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtendedStatusCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_EXTENDED_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ExtendedStatusCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_EXTENDED_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtendedStatus(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtendedStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ExtendedStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AvailableOperations(&self) -> ::windows::core::Result<FAX_JOB_OPERATIONS_ENUM> {
         let mut result__: FAX_JOB_OPERATIONS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AvailableOperations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_OPERATIONS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).AvailableOperations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_OPERATIONS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallerId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CallerId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CallerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RoutingInformation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RoutingInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).RoutingInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn JobType(&self) -> ::windows::core::Result<FAX_JOB_TYPE_ENUM> {
         let mut result__: FAX_JOB_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).JobType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).JobType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Cancel)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtiffpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTiff)(::core::mem::transmute_copy(self), bstrtiffpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CopyTiff)(::windows::core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8098,18 +8098,18 @@ impl IFaxIncomingJobs {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<IFaxIncomingJob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJob>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8207,71 +8207,71 @@ impl IFaxIncomingMessage {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Pages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Pages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DeviceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallerId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CallerId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CallerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RoutingInformation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RoutingInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).RoutingInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtiffpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTiff)(::core::mem::transmute_copy(self), bstrtiffpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CopyTiff)(::windows::core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8397,150 +8397,150 @@ impl IFaxIncomingMessage2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Pages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Pages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DeviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DeviceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TransmissionStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.TransmissionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TransmissionEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.TransmissionEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallerId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CallerId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CallerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RoutingInformation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RoutingInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.RoutingInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtiffpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyTiff)(::core::mem::transmute_copy(self), bstrtiffpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyTiff)(::windows::core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Subject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsubject: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubject)(::core::mem::transmute_copy(self), bstrsubject.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSubject)(::windows::core::Interface::as_raw(self), bstrsubject.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SenderName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SenderName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SenderName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSenderName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsendername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderName)(::core::mem::transmute_copy(self), bstrsendername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSenderName)(::windows::core::Interface::as_raw(self), bstrsendername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SenderFaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SenderFaxNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SenderFaxNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSenderFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsenderfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSenderFaxNumber)(::core::mem::transmute_copy(self), bstrsenderfaxnumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSenderFaxNumber)(::windows::core::Interface::as_raw(self), bstrsenderfaxnumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn HasCoverPage(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HasCoverPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).HasCoverPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetHasCoverPage(&self, bhascoverpage: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHasCoverPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(bhascoverpage)).ok()
+        (::windows::core::Interface::vtable(self).SetHasCoverPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bhascoverpage)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Recipients(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Recipients)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Recipients)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRecipients<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrrecipients: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRecipients)(::core::mem::transmute_copy(self), bstrrecipients.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRecipients)(::windows::core::Interface::as_raw(self), bstrrecipients.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn WasReAssigned(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).WasReAssigned)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).WasReAssigned)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Read(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetRead(&self, bread: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRead)(::core::mem::transmute_copy(self), ::core::mem::transmute(bread)).ok()
+        (::windows::core::Interface::vtable(self).SetRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bread)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReAssign(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReAssign)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ReAssign)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8696,29 +8696,29 @@ impl IFaxIncomingMessageIterator {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Message(&self) -> ::windows::core::Result<IFaxIncomingMessage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Message)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessage>(result__)
+        (::windows::core::Interface::vtable(self).Message)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingMessage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn PrefetchSize(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrefetchSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PrefetchSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetPrefetchSize(&self, lprefetchsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrefetchSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprefetchsize)).ok()
+        (::windows::core::Interface::vtable(self).SetPrefetchSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprefetchsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AtEOF(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AtEOF)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).AtEOF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MoveFirst(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MoveFirst)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).MoveFirst)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8818,31 +8818,31 @@ impl IFaxIncomingQueue {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Blocked(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Blocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Blocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetBlocked(&self, bblocked: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBlocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(bblocked)).ok()
+        (::windows::core::Interface::vtable(self).SetBlocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bblocked)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJobs(&self) -> ::windows::core::Result<IFaxIncomingJobs> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJobs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJobs>(result__)
+        (::windows::core::Interface::vtable(self).GetJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJobs>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrjobid: Param0) -> ::windows::core::Result<IFaxIncomingJob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJob)(::core::mem::transmute_copy(self), bstrjobid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJob>(result__)
+        (::windows::core::Interface::vtable(self).GetJob)(::windows::core::Interface::as_raw(self), bstrjobid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxIncomingJob>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -8945,92 +8945,92 @@ impl IFaxJobStatus {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<FAX_JOB_STATUS_ENUM> {
         let mut result__: FAX_JOB_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Pages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Pages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CurrentPage(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CurrentPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DeviceId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DeviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ExtendedStatusCode(&self) -> ::windows::core::Result<FAX_JOB_EXTENDED_STATUS_ENUM> {
         let mut result__: FAX_JOB_EXTENDED_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtendedStatusCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_EXTENDED_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ExtendedStatusCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_EXTENDED_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtendedStatus(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtendedStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ExtendedStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AvailableOperations(&self) -> ::windows::core::Result<FAX_JOB_OPERATIONS_ENUM> {
         let mut result__: FAX_JOB_OPERATIONS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AvailableOperations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_OPERATIONS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).AvailableOperations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_OPERATIONS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn JobType(&self) -> ::windows::core::Result<FAX_JOB_TYPE_ENUM> {
         let mut result__: FAX_JOB_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).JobType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).JobType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduledTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ScheduledTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).ScheduledTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CallerId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CallerId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CallerId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RoutingInformation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RoutingInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).RoutingInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9154,13 +9154,13 @@ impl IFaxLoggingOptions {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EventLogging(&self) -> ::windows::core::Result<IFaxEventLogging> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EventLogging)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxEventLogging>(result__)
+        (::windows::core::Interface::vtable(self).EventLogging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxEventLogging>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ActivityLogging(&self) -> ::windows::core::Result<IFaxActivityLogging> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ActivityLogging)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxActivityLogging>(result__)
+        (::windows::core::Interface::vtable(self).ActivityLogging)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxActivityLogging>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9260,13 +9260,13 @@ impl IFaxOutboundRouting {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetGroups(&self) -> ::windows::core::Result<IFaxOutboundRoutingGroups> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetGroups)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingGroups>(result__)
+        (::windows::core::Interface::vtable(self).GetGroups)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingGroups>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRules(&self) -> ::windows::core::Result<IFaxOutboundRoutingRules> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRules)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingRules>(result__)
+        (::windows::core::Interface::vtable(self).GetRules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingRules>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9366,18 +9366,18 @@ impl IFaxOutboundRoutingGroup {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<FAX_GROUP_STATUS_ENUM> {
         let mut result__: FAX_GROUP_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_GROUP_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_GROUP_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DeviceIds(&self) -> ::windows::core::Result<IFaxDeviceIds> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceIds)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDeviceIds>(result__)
+        (::windows::core::Interface::vtable(self).DeviceIds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDeviceIds>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9477,29 +9477,29 @@ impl IFaxOutboundRoutingGroups {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<IFaxOutboundRoutingGroup> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingGroup>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<IFaxOutboundRoutingGroup> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingGroup>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingGroup>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), vindex.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), vindex.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9604,54 +9604,54 @@ impl IFaxOutboundRoutingRule {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CountryCode(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CountryCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CountryCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AreaCode(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AreaCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AreaCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<FAX_RULE_STATUS_ENUM> {
         let mut result__: FAX_RULE_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RULE_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RULE_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UseDevice(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UseDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).UseDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetUseDevice(&self, busedevice: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(busedevice)).ok()
+        (::windows::core::Interface::vtable(self).SetUseDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(busedevice)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DeviceId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DeviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetDeviceId(&self, deviceid: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(deviceid)).ok()
+        (::windows::core::Interface::vtable(self).SetDeviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(deviceid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GroupName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GroupName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GroupName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGroupName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrgroupname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGroupName)(::core::mem::transmute_copy(self), bstrgroupname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGroupName)(::windows::core::Interface::as_raw(self), bstrgroupname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9759,38 +9759,38 @@ impl IFaxOutboundRoutingRules {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingRule>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ItemByCountryAndArea(&self, lcountrycode: i32, lareacode: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ItemByCountryAndArea)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcountrycode), ::core::mem::transmute(lareacode), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingRule>(result__)
+        (::windows::core::Interface::vtable(self).ItemByCountryAndArea)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcountrycode), ::core::mem::transmute(lareacode), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingRule>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RemoveByCountryAndArea(&self, lcountrycode: i32, lareacode: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveByCountryAndArea)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcountrycode), ::core::mem::transmute(lareacode)).ok()
+        (::windows::core::Interface::vtable(self).RemoveByCountryAndArea)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcountrycode), ::core::mem::transmute(lareacode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Remove(&self, lindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Add<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, lcountrycode: i32, lareacode: i32, busedevice: i16, bstrgroupname: Param3, ldeviceid: i32) -> ::windows::core::Result<IFaxOutboundRoutingRule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), ::core::mem::transmute(lcountrycode), ::core::mem::transmute(lareacode), ::core::mem::transmute(busedevice), bstrgroupname.into_param().abi(), ::core::mem::transmute(ldeviceid), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingRule>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lcountrycode), ::core::mem::transmute(lareacode), ::core::mem::transmute(busedevice), bstrgroupname.into_param().abi(), ::core::mem::transmute(ldeviceid), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRoutingRule>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -9897,88 +9897,88 @@ impl IFaxOutgoingArchive {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UseArchive(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UseArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).UseArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetUseArchive(&self, busearchive: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseArchive)(::core::mem::transmute_copy(self), ::core::mem::transmute(busearchive)).ok()
+        (::windows::core::Interface::vtable(self).SetUseArchive)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(busearchive)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ArchiveFolder(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ArchiveFolder)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ArchiveFolder)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetArchiveFolder<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrarchivefolder: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetArchiveFolder)(::core::mem::transmute_copy(self), bstrarchivefolder.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetArchiveFolder)(::windows::core::Interface::as_raw(self), bstrarchivefolder.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeQuotaWarning(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeQuotaWarning)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SizeQuotaWarning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetSizeQuotaWarning(&self, bsizequotawarning: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSizeQuotaWarning)(::core::mem::transmute_copy(self), ::core::mem::transmute(bsizequotawarning)).ok()
+        (::windows::core::Interface::vtable(self).SetSizeQuotaWarning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bsizequotawarning)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn HighQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HighQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).HighQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetHighQuotaWaterMark(&self, lhighquotawatermark: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(lhighquotawatermark)).ok()
+        (::windows::core::Interface::vtable(self).SetHighQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lhighquotawatermark)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LowQuotaWaterMark(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LowQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LowQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetLowQuotaWaterMark(&self, llowquotawatermark: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLowQuotaWaterMark)(::core::mem::transmute_copy(self), ::core::mem::transmute(llowquotawatermark)).ok()
+        (::windows::core::Interface::vtable(self).SetLowQuotaWaterMark)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(llowquotawatermark)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AgeLimit(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAgeLimit(&self, lagelimit: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(lagelimit)).ok()
+        (::windows::core::Interface::vtable(self).SetAgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lagelimit)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeLow(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeLow)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SizeLow)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SizeHigh(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SizeHigh)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SizeHigh)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetMessages(&self, lprefetchsize: i32) -> ::windows::core::Result<IFaxOutgoingMessageIterator> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMessages)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprefetchsize), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessageIterator>(result__)
+        (::windows::core::Interface::vtable(self).GetMessages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprefetchsize), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessageIterator>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrmessageid: Param0) -> ::windows::core::Result<IFaxOutgoingMessage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetMessage)(::core::mem::transmute_copy(self), bstrmessageid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessage>(result__)
+        (::windows::core::Interface::vtable(self).GetMessage)(::windows::core::Interface::as_raw(self), bstrmessageid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessage>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10100,160 +10100,160 @@ impl IFaxOutgoingJob {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Subject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DocumentName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DocumentName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Pages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Pages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubmissionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SubmissionId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SubmissionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OriginalScheduledTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OriginalScheduledTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).OriginalScheduledTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SubmissionTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SubmissionTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).SubmissionTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM> {
         let mut result__: FAX_RECEIPT_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiptType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__: FAX_PRIORITY_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows::core::Result<IFaxSender> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Sender)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
+        (::windows::core::Interface::vtable(self).Sender)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipient(&self) -> ::windows::core::Result<IFaxRecipient> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Recipient)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
+        (::windows::core::Interface::vtable(self).Recipient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CurrentPage(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).CurrentPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DeviceId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DeviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<FAX_JOB_STATUS_ENUM> {
         let mut result__: FAX_JOB_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ExtendedStatusCode(&self) -> ::windows::core::Result<FAX_JOB_EXTENDED_STATUS_ENUM> {
         let mut result__: FAX_JOB_EXTENDED_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtendedStatusCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_EXTENDED_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ExtendedStatusCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_EXTENDED_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtendedStatus(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtendedStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ExtendedStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AvailableOperations(&self) -> ::windows::core::Result<FAX_JOB_OPERATIONS_ENUM> {
         let mut result__: FAX_JOB_OPERATIONS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AvailableOperations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_OPERATIONS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).AvailableOperations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_OPERATIONS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduledTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ScheduledTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).ScheduledTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GroupBroadcastReceipts(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GroupBroadcastReceipts)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).GroupBroadcastReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Restart(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Restart)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Restart)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtiffpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTiff)(::core::mem::transmute_copy(self), bstrtiffpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CopyTiff)(::windows::core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Cancel)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10406,176 +10406,176 @@ impl IFaxOutgoingJob2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Subject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DocumentName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DocumentName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Pages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Pages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubmissionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SubmissionId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.SubmissionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OriginalScheduledTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OriginalScheduledTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.OriginalScheduledTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SubmissionTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SubmissionTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.SubmissionTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM> {
         let mut result__: FAX_RECEIPT_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReceiptType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__: FAX_PRIORITY_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows::core::Result<IFaxSender> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Sender)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
+        (::windows::core::Interface::vtable(self).base__.Sender)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipient(&self) -> ::windows::core::Result<IFaxRecipient> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Recipient)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
+        (::windows::core::Interface::vtable(self).base__.Recipient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CurrentPage(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CurrentPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.CurrentPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DeviceId(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DeviceId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.DeviceId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<FAX_JOB_STATUS_ENUM> {
         let mut result__: FAX_JOB_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ExtendedStatusCode(&self) -> ::windows::core::Result<FAX_JOB_EXTENDED_STATUS_ENUM> {
         let mut result__: FAX_JOB_EXTENDED_STATUS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ExtendedStatusCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_EXTENDED_STATUS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.ExtendedStatusCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_EXTENDED_STATUS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExtendedStatus(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ExtendedStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ExtendedStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AvailableOperations(&self) -> ::windows::core::Result<FAX_JOB_OPERATIONS_ENUM> {
         let mut result__: FAX_JOB_OPERATIONS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AvailableOperations)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_OPERATIONS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.AvailableOperations)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_JOB_OPERATIONS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduledTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ScheduledTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.ScheduledTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TransmissionStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.TransmissionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TransmissionEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.TransmissionEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GroupBroadcastReceipts(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GroupBroadcastReceipts)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.GroupBroadcastReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pause(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Pause)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Pause)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Resume(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Resume)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Resume)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Restart(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Restart)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Restart)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtiffpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyTiff)(::core::mem::transmute_copy(self), bstrtiffpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyTiff)(::windows::core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Cancel)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn HasCoverPage(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HasCoverPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).HasCoverPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReceiptAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiptAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ReceiptAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ScheduleType(&self) -> ::windows::core::Result<FAX_SCHEDULE_TYPE_ENUM> {
         let mut result__: FAX_SCHEDULE_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ScheduleType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SCHEDULE_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ScheduleType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SCHEDULE_TYPE_ENUM>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10696,18 +10696,18 @@ impl IFaxOutgoingJobs {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vindex: Param0) -> ::windows::core::Result<IFaxOutgoingJob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJob>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), vindex.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJob>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -10805,104 +10805,104 @@ impl IFaxOutgoingMessage {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubmissionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SubmissionId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SubmissionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Subject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DocumentName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DocumentName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Pages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Pages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OriginalScheduledTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OriginalScheduledTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).OriginalScheduledTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SubmissionTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SubmissionTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).SubmissionTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__: FAX_PRIORITY_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows::core::Result<IFaxSender> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Sender)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
+        (::windows::core::Interface::vtable(self).Sender)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipient(&self) -> ::windows::core::Result<IFaxRecipient> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Recipient)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
+        (::windows::core::Interface::vtable(self).Recipient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DeviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DeviceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TransmissionEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).TransmissionEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtiffpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CopyTiff)(::core::mem::transmute_copy(self), bstrtiffpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CopyTiff)(::windows::core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11043,137 +11043,137 @@ impl IFaxOutgoingMessage2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubmissionId(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SubmissionId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.SubmissionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Id(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Id)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Id)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subject(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Subject)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Subject)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DocumentName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DocumentName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DocumentName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Pages(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Pages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Pages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn OriginalScheduledTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OriginalScheduledTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.OriginalScheduledTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SubmissionTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SubmissionTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.SubmissionTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Priority(&self) -> ::windows::core::Result<FAX_PRIORITY_TYPE_ENUM> {
         let mut result__: FAX_PRIORITY_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Priority)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.Priority)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_PRIORITY_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Sender(&self) -> ::windows::core::Result<IFaxSender> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Sender)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
+        (::windows::core::Interface::vtable(self).base__.Sender)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSender>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Recipient(&self) -> ::windows::core::Result<IFaxRecipient> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Recipient)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
+        (::windows::core::Interface::vtable(self).base__.Recipient)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeviceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DeviceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.DeviceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TransmissionStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.TransmissionStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn TransmissionEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TransmissionEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.TransmissionEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CopyTiff<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtiffpath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CopyTiff)(::core::mem::transmute_copy(self), bstrtiffpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.CopyTiff)(::windows::core::Interface::as_raw(self), bstrtiffpath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn HasCoverPage(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HasCoverPage)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).HasCoverPage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ReceiptType(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM> {
         let mut result__: FAX_RECEIPT_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiptType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).ReceiptType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReceiptAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiptAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ReceiptAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Read(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetRead(&self, bread: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRead)(::core::mem::transmute_copy(self), ::core::mem::transmute(bread)).ok()
+        (::windows::core::Interface::vtable(self).SetRead)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bread)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11299,29 +11299,29 @@ impl IFaxOutgoingMessageIterator {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Message(&self) -> ::windows::core::Result<IFaxOutgoingMessage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Message)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessage>(result__)
+        (::windows::core::Interface::vtable(self).Message)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingMessage>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AtEOF(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AtEOF)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).AtEOF)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn PrefetchSize(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PrefetchSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).PrefetchSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetPrefetchSize(&self, lprefetchsize: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPrefetchSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(lprefetchsize)).ok()
+        (::windows::core::Interface::vtable(self).SetPrefetchSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lprefetchsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MoveFirst(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MoveFirst)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).MoveFirst)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MoveNext(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MoveNext)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).MoveNext)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11421,112 +11421,112 @@ impl IFaxOutgoingQueue {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Blocked(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Blocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Blocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetBlocked(&self, bblocked: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBlocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(bblocked)).ok()
+        (::windows::core::Interface::vtable(self).SetBlocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bblocked)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Paused(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Paused)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Paused)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetPaused(&self, bpaused: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPaused)(::core::mem::transmute_copy(self), ::core::mem::transmute(bpaused)).ok()
+        (::windows::core::Interface::vtable(self).SetPaused)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bpaused)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AllowPersonalCoverPages(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AllowPersonalCoverPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).AllowPersonalCoverPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAllowPersonalCoverPages(&self, ballowpersonalcoverpages: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllowPersonalCoverPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(ballowpersonalcoverpages)).ok()
+        (::windows::core::Interface::vtable(self).SetAllowPersonalCoverPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ballowpersonalcoverpages)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UseDeviceTSID(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UseDeviceTSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).UseDeviceTSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetUseDeviceTSID(&self, busedevicetsid: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseDeviceTSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(busedevicetsid)).ok()
+        (::windows::core::Interface::vtable(self).SetUseDeviceTSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(busedevicetsid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Retries(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Retries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Retries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetRetries(&self, lretries: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRetries)(::core::mem::transmute_copy(self), ::core::mem::transmute(lretries)).ok()
+        (::windows::core::Interface::vtable(self).SetRetries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lretries)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RetryDelay(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RetryDelay)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).RetryDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetRetryDelay(&self, lretrydelay: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRetryDelay)(::core::mem::transmute_copy(self), ::core::mem::transmute(lretrydelay)).ok()
+        (::windows::core::Interface::vtable(self).SetRetryDelay)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lretrydelay)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DiscountRateStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DiscountRateStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).DiscountRateStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetDiscountRateStart(&self, datediscountratestart: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDiscountRateStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(datediscountratestart)).ok()
+        (::windows::core::Interface::vtable(self).SetDiscountRateStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datediscountratestart)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DiscountRateEnd(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DiscountRateEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).DiscountRateEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetDiscountRateEnd(&self, datediscountrateend: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDiscountRateEnd)(::core::mem::transmute_copy(self), ::core::mem::transmute(datediscountrateend)).ok()
+        (::windows::core::Interface::vtable(self).SetDiscountRateEnd)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(datediscountrateend)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AgeLimit(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).AgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAgeLimit(&self, lagelimit: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAgeLimit)(::core::mem::transmute_copy(self), ::core::mem::transmute(lagelimit)).ok()
+        (::windows::core::Interface::vtable(self).SetAgeLimit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lagelimit)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Branding(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Branding)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Branding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetBranding(&self, bbranding: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBranding)(::core::mem::transmute_copy(self), ::core::mem::transmute(bbranding)).ok()
+        (::windows::core::Interface::vtable(self).SetBranding)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bbranding)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetJobs(&self) -> ::windows::core::Result<IFaxOutgoingJobs> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJobs)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJobs>(result__)
+        (::windows::core::Interface::vtable(self).GetJobs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJobs>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrjobid: Param0) -> ::windows::core::Result<IFaxOutgoingJob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJob)(::core::mem::transmute_copy(self), bstrjobid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJob>(result__)
+        (::windows::core::Interface::vtable(self).GetJob)(::windows::core::Interface::as_raw(self), bstrjobid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutgoingJob>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11647,90 +11647,90 @@ impl IFaxReceiptOptions {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AuthenticationType(&self) -> ::windows::core::Result<FAX_SMTP_AUTHENTICATION_TYPE_ENUM> {
         let mut result__: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AuthenticationType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SMTP_AUTHENTICATION_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).AuthenticationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SMTP_AUTHENTICATION_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAuthenticationType(&self, r#type: FAX_SMTP_AUTHENTICATION_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAuthenticationType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).SetAuthenticationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SMTPServer(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SMTPServer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SMTPServer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSMTPServer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsmtpserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSMTPServer)(::core::mem::transmute_copy(self), bstrsmtpserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSMTPServer)(::windows::core::Interface::as_raw(self), bstrsmtpserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SMTPPort(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SMTPPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).SMTPPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetSMTPPort(&self, lsmtpport: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSMTPPort)(::core::mem::transmute_copy(self), ::core::mem::transmute(lsmtpport)).ok()
+        (::windows::core::Interface::vtable(self).SetSMTPPort)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lsmtpport)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SMTPSender(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SMTPSender)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SMTPSender)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSMTPSender<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsmtpsender: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSMTPSender)(::core::mem::transmute_copy(self), bstrsmtpsender.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSMTPSender)(::windows::core::Interface::as_raw(self), bstrsmtpsender.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SMTPUser(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SMTPUser)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SMTPUser)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSMTPUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsmtpuser: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSMTPUser)(::core::mem::transmute_copy(self), bstrsmtpuser.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSMTPUser)(::windows::core::Interface::as_raw(self), bstrsmtpuser.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn AllowedReceipts(&self) -> ::windows::core::Result<FAX_RECEIPT_TYPE_ENUM> {
         let mut result__: FAX_RECEIPT_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AllowedReceipts)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).AllowedReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_RECEIPT_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetAllowedReceipts(&self, allowedreceipts: FAX_RECEIPT_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAllowedReceipts)(::core::mem::transmute_copy(self), ::core::mem::transmute(allowedreceipts)).ok()
+        (::windows::core::Interface::vtable(self).SetAllowedReceipts)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allowedreceipts)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SMTPPassword(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SMTPPassword)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SMTPPassword)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSMTPPassword<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsmtppassword: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSMTPPassword)(::core::mem::transmute_copy(self), bstrsmtppassword.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSMTPPassword)(::windows::core::Interface::as_raw(self), bstrsmtppassword.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UseForInboundRouting(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UseForInboundRouting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).UseForInboundRouting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetUseForInboundRouting(&self, buseforinboundrouting: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUseForInboundRouting)(::core::mem::transmute_copy(self), ::core::mem::transmute(buseforinboundrouting)).ok()
+        (::windows::core::Interface::vtable(self).SetUseForInboundRouting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buseforinboundrouting)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11864,23 +11864,23 @@ impl IFaxRecipient {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FaxNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FaxNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFaxNumber)(::core::mem::transmute_copy(self), bstrfaxnumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -11987,28 +11987,28 @@ impl IFaxRecipients {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn get_Item(&self, lindex: i32) -> ::windows::core::Result<IFaxRecipient> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxnumber: Param0, bstrrecipientname: Param1) -> ::windows::core::Result<IFaxRecipient> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), bstrfaxnumber.into_param().abi(), bstrrecipientname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into_param().abi(), bstrrecipientname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFaxRecipient>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Remove(&self, lindex: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), ::core::mem::transmute(lindex)).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lindex)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12111,34 +12111,34 @@ impl IFaxSecurity {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Descriptor(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Descriptor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Descriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vdescriptor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescriptor)(::core::mem::transmute_copy(self), vdescriptor.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescriptor)(::windows::core::Interface::as_raw(self), vdescriptor.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GrantedRights(&self) -> ::windows::core::Result<FAX_ACCESS_RIGHTS_ENUM> {
         let mut result__: FAX_ACCESS_RIGHTS_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GrantedRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_ACCESS_RIGHTS_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).GrantedRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_ACCESS_RIGHTS_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn InformationType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InformationType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).InformationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetInformationType(&self, linformationtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInformationType)(::core::mem::transmute_copy(self), ::core::mem::transmute(linformationtype)).ok()
+        (::windows::core::Interface::vtable(self).SetInformationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(linformationtype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12243,34 +12243,34 @@ impl IFaxSecurity2 {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Descriptor(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Descriptor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Descriptor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetDescriptor<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, vdescriptor: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescriptor)(::core::mem::transmute_copy(self), vdescriptor.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescriptor)(::windows::core::Interface::as_raw(self), vdescriptor.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GrantedRights(&self) -> ::windows::core::Result<FAX_ACCESS_RIGHTS_ENUM_2> {
         let mut result__: FAX_ACCESS_RIGHTS_ENUM_2 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GrantedRights)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_ACCESS_RIGHTS_ENUM_2>(result__)
+        (::windows::core::Interface::vtable(self).GrantedRights)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_ACCESS_RIGHTS_ENUM_2>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Refresh(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Refresh)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Refresh)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Save(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn InformationType(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InformationType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).InformationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetInformationType(&self, linformationtype: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInformationType)(::core::mem::transmute_copy(self), ::core::mem::transmute(linformationtype)).ok()
+        (::windows::core::Interface::vtable(self).SetInformationType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(linformationtype)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12375,185 +12375,185 @@ impl IFaxSender {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BillingCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BillingCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).BillingCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetBillingCode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrbillingcode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBillingCode)(::core::mem::transmute_copy(self), bstrbillingcode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetBillingCode)(::windows::core::Interface::as_raw(self), bstrbillingcode.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn City(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).City)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).City)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcity: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCity)(::core::mem::transmute_copy(self), bstrcity.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCity)(::windows::core::Interface::as_raw(self), bstrcity.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Company(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Company)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Company)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCompany<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcompany: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCompany)(::core::mem::transmute_copy(self), bstrcompany.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCompany)(::windows::core::Interface::as_raw(self), bstrcompany.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Country(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Country)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Country)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCountry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcountry: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCountry)(::core::mem::transmute_copy(self), bstrcountry.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCountry)(::windows::core::Interface::as_raw(self), bstrcountry.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Department(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Department)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Department)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDepartment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdepartment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDepartment)(::core::mem::transmute_copy(self), bstrdepartment.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDepartment)(::windows::core::Interface::as_raw(self), bstrdepartment.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Email(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Email)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Email)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEmail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstremail: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEmail)(::core::mem::transmute_copy(self), bstremail.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEmail)(::windows::core::Interface::as_raw(self), bstremail.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FaxNumber(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FaxNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FaxNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFaxNumber<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfaxnumber: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFaxNumber)(::core::mem::transmute_copy(self), bstrfaxnumber.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFaxNumber)(::windows::core::Interface::as_raw(self), bstrfaxnumber.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HomePhone(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).HomePhone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).HomePhone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetHomePhone<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrhomephone: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHomePhone)(::core::mem::transmute_copy(self), bstrhomephone.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetHomePhone)(::windows::core::Interface::as_raw(self), bstrhomephone.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), bstrname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TSID(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TSID)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TSID)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTSID<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtsid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTSID)(::core::mem::transmute_copy(self), bstrtsid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTSID)(::windows::core::Interface::as_raw(self), bstrtsid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OfficePhone(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OfficePhone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OfficePhone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOfficePhone<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrofficephone: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOfficePhone)(::core::mem::transmute_copy(self), bstrofficephone.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOfficePhone)(::windows::core::Interface::as_raw(self), bstrofficephone.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OfficeLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OfficeLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OfficeLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetOfficeLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrofficelocation: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOfficeLocation)(::core::mem::transmute_copy(self), bstrofficelocation.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOfficeLocation)(::windows::core::Interface::as_raw(self), bstrofficelocation.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn State(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).State)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).State)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetState<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstate: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetState)(::core::mem::transmute_copy(self), bstrstate.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetState)(::windows::core::Interface::as_raw(self), bstrstate.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StreetAddress(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StreetAddress)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).StreetAddress)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetStreetAddress<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrstreetaddress: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStreetAddress)(::core::mem::transmute_copy(self), bstrstreetaddress.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStreetAddress)(::windows::core::Interface::as_raw(self), bstrstreetaddress.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Title(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Title)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Title)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrtitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTitle)(::core::mem::transmute_copy(self), bstrtitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTitle)(::windows::core::Interface::as_raw(self), bstrtitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ZipCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ZipCode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ZipCode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetZipCode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrzipcode: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetZipCode)(::core::mem::transmute_copy(self), bstrzipcode.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetZipCode)(::windows::core::Interface::as_raw(self), bstrzipcode.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LoadDefaultSender(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadDefaultSender)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).LoadDefaultSender)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SaveDefaultSender(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveDefaultSender)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).SaveDefaultSender)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12774,141 +12774,141 @@ impl IFaxServer {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrservername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Connect)(::core::mem::transmute_copy(self), bstrservername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Connect)(::windows::core::Interface::as_raw(self), bstrservername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ServerName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ServerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDeviceProviders(&self) -> ::windows::core::Result<IFaxDeviceProviders> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDeviceProviders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDeviceProviders>(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDeviceProviders>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDevices(&self) -> ::windows::core::Result<IFaxDevices> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDevices>(result__)
+        (::windows::core::Interface::vtable(self).GetDevices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDevices>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InboundRouting(&self) -> ::windows::core::Result<IFaxInboundRouting> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).InboundRouting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRouting>(result__)
+        (::windows::core::Interface::vtable(self).InboundRouting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRouting>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Folders(&self) -> ::windows::core::Result<IFaxFolders> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Folders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxFolders>(result__)
+        (::windows::core::Interface::vtable(self).Folders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxFolders>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoggingOptions(&self) -> ::windows::core::Result<IFaxLoggingOptions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LoggingOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxLoggingOptions>(result__)
+        (::windows::core::Interface::vtable(self).LoggingOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxLoggingOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MajorVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MajorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MinorVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MajorBuild(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MajorBuild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MajorBuild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MinorBuild(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinorBuild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinorBuild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Debug(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Debug)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Debug)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Activity(&self) -> ::windows::core::Result<IFaxActivity> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Activity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxActivity>(result__)
+        (::windows::core::Interface::vtable(self).Activity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxActivity>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutboundRouting(&self) -> ::windows::core::Result<IFaxOutboundRouting> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutboundRouting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRouting>(result__)
+        (::windows::core::Interface::vtable(self).OutboundRouting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRouting>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiptOptions(&self) -> ::windows::core::Result<IFaxReceiptOptions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReceiptOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxReceiptOptions>(result__)
+        (::windows::core::Interface::vtable(self).ReceiptOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxReceiptOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security(&self) -> ::windows::core::Result<IFaxSecurity> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Security)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSecurity>(result__)
+        (::windows::core::Interface::vtable(self).Security)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSecurity>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Disconnect)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Disconnect)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetExtensionProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetExtensionProperty)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetExtensionProperty)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetExtensionProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrguid: Param0, vproperty: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtensionProperty)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetExtensionProperty)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ListenToServerEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventtypes)).ok()
+        (::windows::core::Interface::vtable(self).ListenToServerEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterDeviceProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0, bstrfriendlyname: Param1, bstrimagename: Param2, tspname: Param3, lfspiversion: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterDeviceProvider)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), tspname.into_param().abi(), ::core::mem::transmute(lfspiversion)).ok()
+        (::windows::core::Interface::vtable(self).RegisterDeviceProvider)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), tspname.into_param().abi(), ::core::mem::transmute(lfspiversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnregisterDeviceProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruniquename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterDeviceProvider)(::core::mem::transmute_copy(self), bstruniquename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterDeviceProvider)(::windows::core::Interface::as_raw(self), bstruniquename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RegisterInboundRoutingExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrextensionname: Param0, bstrfriendlyname: Param1, bstrimagename: Param2, vmethods: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterInboundRoutingExtension)(::core::mem::transmute_copy(self), bstrextensionname.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), vmethods.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterInboundRoutingExtension)(::windows::core::Interface::as_raw(self), bstrextensionname.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), vmethods.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnregisterInboundRoutingExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrextensionuniquename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterInboundRoutingExtension)(::core::mem::transmute_copy(self), bstrextensionuniquename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterInboundRoutingExtension)(::windows::core::Interface::as_raw(self), bstrextensionuniquename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RegisteredEvents(&self) -> ::windows::core::Result<FAX_SERVER_EVENTS_TYPE_ENUM> {
         let mut result__: FAX_SERVER_EVENTS_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegisteredEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SERVER_EVENTS_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).RegisteredEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SERVER_EVENTS_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn APIVersion(&self) -> ::windows::core::Result<FAX_SERVER_APIVERSION_ENUM> {
         let mut result__: FAX_SERVER_APIVERSION_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).APIVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SERVER_APIVERSION_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).APIVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SERVER_APIVERSION_ENUM>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13076,165 +13076,165 @@ impl IFaxServer2 {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Connect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrservername: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Connect)(::core::mem::transmute_copy(self), bstrservername.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.Connect)(::windows::core::Interface::as_raw(self), bstrservername.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ServerName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ServerName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.ServerName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDeviceProviders(&self) -> ::windows::core::Result<IFaxDeviceProviders> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDeviceProviders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDeviceProviders>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDeviceProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDeviceProviders>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDevices(&self) -> ::windows::core::Result<IFaxDevices> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetDevices)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDevices>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetDevices)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxDevices>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InboundRouting(&self) -> ::windows::core::Result<IFaxInboundRouting> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.InboundRouting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRouting>(result__)
+        (::windows::core::Interface::vtable(self).base__.InboundRouting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxInboundRouting>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Folders(&self) -> ::windows::core::Result<IFaxFolders> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Folders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxFolders>(result__)
+        (::windows::core::Interface::vtable(self).base__.Folders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxFolders>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoggingOptions(&self) -> ::windows::core::Result<IFaxLoggingOptions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LoggingOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxLoggingOptions>(result__)
+        (::windows::core::Interface::vtable(self).base__.LoggingOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxLoggingOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MajorVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MajorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MajorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MinorVersion(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MinorVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MinorVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MajorBuild(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MajorBuild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MajorBuild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn MinorBuild(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MinorBuild)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MinorBuild)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Debug(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Debug)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Debug)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Activity(&self) -> ::windows::core::Result<IFaxActivity> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Activity)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxActivity>(result__)
+        (::windows::core::Interface::vtable(self).base__.Activity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxActivity>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OutboundRouting(&self) -> ::windows::core::Result<IFaxOutboundRouting> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OutboundRouting)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRouting>(result__)
+        (::windows::core::Interface::vtable(self).base__.OutboundRouting)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxOutboundRouting>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReceiptOptions(&self) -> ::windows::core::Result<IFaxReceiptOptions> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReceiptOptions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxReceiptOptions>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReceiptOptions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxReceiptOptions>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security(&self) -> ::windows::core::Result<IFaxSecurity> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Security)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSecurity>(result__)
+        (::windows::core::Interface::vtable(self).base__.Security)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSecurity>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Disconnect)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Disconnect)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetExtensionProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetExtensionProperty)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetExtensionProperty)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetExtensionProperty<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrguid: Param0, vproperty: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetExtensionProperty)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetExtensionProperty)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), vproperty.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn ListenToServerEvents(&self, eventtypes: FAX_SERVER_EVENTS_TYPE_ENUM) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.ListenToServerEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(eventtypes)).ok()
+        (::windows::core::Interface::vtable(self).base__.ListenToServerEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(eventtypes)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterDeviceProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrguid: Param0, bstrfriendlyname: Param1, bstrimagename: Param2, tspname: Param3, lfspiversion: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterDeviceProvider)(::core::mem::transmute_copy(self), bstrguid.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), tspname.into_param().abi(), ::core::mem::transmute(lfspiversion)).ok()
+        (::windows::core::Interface::vtable(self).base__.RegisterDeviceProvider)(::windows::core::Interface::as_raw(self), bstrguid.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), tspname.into_param().abi(), ::core::mem::transmute(lfspiversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnregisterDeviceProvider<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstruniquename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnregisterDeviceProvider)(::core::mem::transmute_copy(self), bstruniquename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.UnregisterDeviceProvider)(::windows::core::Interface::as_raw(self), bstruniquename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn RegisterInboundRoutingExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param3: ::windows::core::IntoParam<'a, super::super::System::Com::VARIANT>>(&self, bstrextensionname: Param0, bstrfriendlyname: Param1, bstrimagename: Param2, vmethods: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.RegisterInboundRoutingExtension)(::core::mem::transmute_copy(self), bstrextensionname.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), vmethods.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.RegisterInboundRoutingExtension)(::windows::core::Interface::as_raw(self), bstrextensionname.into_param().abi(), bstrfriendlyname.into_param().abi(), bstrimagename.into_param().abi(), vmethods.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UnregisterInboundRoutingExtension<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrextensionuniquename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UnregisterInboundRoutingExtension)(::core::mem::transmute_copy(self), bstrextensionuniquename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.UnregisterInboundRoutingExtension)(::windows::core::Interface::as_raw(self), bstrextensionuniquename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RegisteredEvents(&self) -> ::windows::core::Result<FAX_SERVER_EVENTS_TYPE_ENUM> {
         let mut result__: FAX_SERVER_EVENTS_TYPE_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.RegisteredEvents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SERVER_EVENTS_TYPE_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.RegisteredEvents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SERVER_EVENTS_TYPE_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn APIVersion(&self) -> ::windows::core::Result<FAX_SERVER_APIVERSION_ENUM> {
         let mut result__: FAX_SERVER_APIVERSION_ENUM = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.APIVersion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SERVER_APIVERSION_ENUM>(result__)
+        (::windows::core::Interface::vtable(self).base__.APIVersion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FAX_SERVER_APIVERSION_ENUM>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Configuration(&self) -> ::windows::core::Result<IFaxConfiguration> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Configuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxConfiguration>(result__)
+        (::windows::core::Interface::vtable(self).Configuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxConfiguration>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CurrentAccount(&self) -> ::windows::core::Result<IFaxAccount> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CurrentAccount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccount>(result__)
+        (::windows::core::Interface::vtable(self).CurrentAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccount>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FaxAccountSet(&self) -> ::windows::core::Result<IFaxAccountSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FaxAccountSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountSet>(result__)
+        (::windows::core::Interface::vtable(self).FaxAccountSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxAccountSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Security2(&self) -> ::windows::core::Result<IFaxSecurity2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Security2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSecurity2>(result__)
+        (::windows::core::Interface::vtable(self).Security2)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFaxSecurity2>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -13537,79 +13537,79 @@ impl IStiDevice {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, hinst: Param0, pwszdevicename: Param1, dwversion: u32, dwmode: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), hinst.into_param().abi(), pwszdevicename.into_param().abi(), ::core::mem::transmute(dwversion), ::core::mem::transmute(dwmode)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hinst.into_param().abi(), pwszdevicename.into_param().abi(), ::core::mem::transmute(dwversion), ::core::mem::transmute(dwmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetCapabilities(&self, pdevcaps: *mut STI_DEV_CAPS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdevcaps)).ok()
+        (::windows::core::Interface::vtable(self).GetCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevcaps)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdevstatus)).ok()
+        (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DeviceReset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceReset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DeviceReset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Diagnostic(&self, pbuffer: *mut STI_DIAG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Diagnostic)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbuffer)).ok()
+        (::windows::core::Interface::vtable(self).Diagnostic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Escape(&self, escapefunction: u32, lpindata: *const ::core::ffi::c_void, cbindatasize: u32, poutdata: *mut ::core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Escape)(::core::mem::transmute_copy(self), ::core::mem::transmute(escapefunction), ::core::mem::transmute(lpindata), ::core::mem::transmute(cbindatasize), ::core::mem::transmute(poutdata), ::core::mem::transmute(dwoutdatasize), ::core::mem::transmute(pdwactualdata)).ok()
+        (::windows::core::Interface::vtable(self).Escape)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(escapefunction), ::core::mem::transmute(lpindata), ::core::mem::transmute(cbindatasize), ::core::mem::transmute(poutdata), ::core::mem::transmute(dwoutdatasize), ::core::mem::transmute(pdwactualdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetLastError(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLastError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LockDevice(&self, dwtimeout: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockDevice)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtimeout)).ok()
+        (::windows::core::Interface::vtable(self).LockDevice)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtimeout)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UnLockDevice(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnLockDevice)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UnLockDevice)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawReadData)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawReadData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawWriteData(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawWriteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawWriteData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawReadCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawReadCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawWriteCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawWriteCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subscribe(&self, lpsubsribe: *mut STISUBSCRIBE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Subscribe)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpsubsribe)).ok()
+        (::windows::core::Interface::vtable(self).Subscribe)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpsubsribe)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetLastNotificationData(&self) -> ::windows::core::Result<STINOTIFY> {
         let mut result__: STINOTIFY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastNotificationData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<STINOTIFY>(result__)
+        (::windows::core::Interface::vtable(self).GetLastNotificationData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<STINOTIFY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UnSubscribe(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnSubscribe)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UnSubscribe)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetLastErrorInfo(&self) -> ::windows::core::Result<_ERROR_INFOW> {
         let mut result__: _ERROR_INFOW = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastErrorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<_ERROR_INFOW>(result__)
+        (::windows::core::Interface::vtable(self).GetLastErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<_ERROR_INFOW>(result__)
     }
 }
 impl ::core::convert::From<IStiDevice> for ::windows::core::IUnknown {
@@ -13698,52 +13698,52 @@ pub struct IStiDeviceControl(::windows::core::IUnknown);
 impl IStiDeviceControl {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Initialize<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwdevicetype: u32, dwmode: u32, pwszportname: Param2, dwflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwdevicetype), ::core::mem::transmute(dwmode), pwszportname.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwdevicetype), ::core::mem::transmute(dwmode), pwszportname.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawReadData)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawReadData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawWriteData(&self, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawWriteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawWriteData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawReadCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawReadCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawWriteCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawWriteCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RawDeviceControl(&self, escapefunction: u32, lpindata: *mut ::core::ffi::c_void, cbindatasize: u32, poutdata: *mut ::core::ffi::c_void, dwoutdatasize: u32, pdwactualdata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawDeviceControl)(::core::mem::transmute_copy(self), ::core::mem::transmute(escapefunction), ::core::mem::transmute(lpindata), ::core::mem::transmute(cbindatasize), ::core::mem::transmute(poutdata), ::core::mem::transmute(dwoutdatasize), ::core::mem::transmute(pdwactualdata)).ok()
+        (::windows::core::Interface::vtable(self).RawDeviceControl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(escapefunction), ::core::mem::transmute(lpindata), ::core::mem::transmute(cbindatasize), ::core::mem::transmute(poutdata), ::core::mem::transmute(dwoutdatasize), ::core::mem::transmute(pdwactualdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetLastError(&self, lpdwlasterror: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLastError)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpdwlasterror)).ok()
+        (::windows::core::Interface::vtable(self).GetLastError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpdwlasterror)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetMyDevicePortName(&self, lpszdevicepath: &mut [u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMyDevicePortName)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdevicepath)), lpszdevicepath.len() as _).ok()
+        (::windows::core::Interface::vtable(self).GetMyDevicePortName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(lpszdevicepath)), lpszdevicepath.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMyDeviceHandle(&self, lph: *mut super::super::Foundation::HANDLE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMyDeviceHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(lph)).ok()
+        (::windows::core::Interface::vtable(self).GetMyDeviceHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lph)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetMyDeviceOpenMode(&self, pdwopenmode: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetMyDeviceOpenMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwopenmode)).ok()
+        (::windows::core::Interface::vtable(self).GetMyDeviceOpenMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwopenmode)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn WriteToErrorLog<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwmessagetype: u32, pszmessage: Param1, dwerrorcode: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteToErrorLog)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmessagetype), pszmessage.into_param().abi(), ::core::mem::transmute(dwerrorcode)).ok()
+        (::windows::core::Interface::vtable(self).WriteToErrorLog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwmessagetype), pszmessage.into_param().abi(), ::core::mem::transmute(dwerrorcode)).ok()
     }
 }
 impl ::core::convert::From<IStiDeviceControl> for ::windows::core::IUnknown {
@@ -13826,76 +13826,76 @@ impl IStiUSD {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, IStiDeviceControl>, Param2: ::windows::core::IntoParam<'a, super::super::System::Registry::HKEY>>(&self, pheldcb: Param0, dwstiversion: u32, hparameterskey: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pheldcb.into_param().abi(), ::core::mem::transmute(dwstiversion), hparameterskey.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pheldcb.into_param().abi(), ::core::mem::transmute(dwstiversion), hparameterskey.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetCapabilities(&self) -> ::windows::core::Result<STI_USD_CAPS> {
         let mut result__: STI_USD_CAPS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCapabilities)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<STI_USD_CAPS>(result__)
+        (::windows::core::Interface::vtable(self).GetCapabilities)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<STI_USD_CAPS>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetStatus(&self, pdevstatus: *mut STI_DEVICE_STATUS) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdevstatus)).ok()
+        (::windows::core::Interface::vtable(self).GetStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdevstatus)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn DeviceReset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeviceReset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DeviceReset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Diagnostic(&self, pbuffer: *mut STI_DIAG) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Diagnostic)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbuffer)).ok()
+        (::windows::core::Interface::vtable(self).Diagnostic)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn Escape(&self, escapefunction: u32, lpindata: *const ::core::ffi::c_void, cbindatasize: u32, poutdata: *mut ::core::ffi::c_void, cboutdatasize: u32, pdwactualdata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Escape)(::core::mem::transmute_copy(self), ::core::mem::transmute(escapefunction), ::core::mem::transmute(lpindata), ::core::mem::transmute(cbindatasize), ::core::mem::transmute(poutdata), ::core::mem::transmute(cboutdatasize), ::core::mem::transmute(pdwactualdata)).ok()
+        (::windows::core::Interface::vtable(self).Escape)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(escapefunction), ::core::mem::transmute(lpindata), ::core::mem::transmute(cbindatasize), ::core::mem::transmute(poutdata), ::core::mem::transmute(cboutdatasize), ::core::mem::transmute(pdwactualdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetLastError(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastError)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLastError)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LockDevice(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockDevice)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).LockDevice)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UnLockDevice(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnLockDevice)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UnLockDevice)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawReadData(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawReadData)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawReadData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawWriteData(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawWriteData)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawWriteData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawReadCommand(&self, lpbuffer: *mut ::core::ffi::c_void, lpdwnumberofbytes: *mut u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawReadCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawReadCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(lpdwnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_IO\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
     pub unsafe fn RawWriteCommand(&self, lpbuffer: *const ::core::ffi::c_void, nnumberofbytes: u32, lpoverlapped: *const super::super::System::IO::OVERLAPPED) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RawWriteCommand)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
+        (::windows::core::Interface::vtable(self).RawWriteCommand)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpbuffer), ::core::mem::transmute(nnumberofbytes), ::core::mem::transmute(lpoverlapped)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetNotificationHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNotificationHandle)(::core::mem::transmute_copy(self), hevent.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetNotificationHandle)(::windows::core::Interface::as_raw(self), hevent.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetNotificationData(&self) -> ::windows::core::Result<STINOTIFY> {
         let mut result__: STINOTIFY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNotificationData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<STINOTIFY>(result__)
+        (::windows::core::Interface::vtable(self).GetNotificationData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<STINOTIFY>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetLastErrorInfo(&self) -> ::windows::core::Result<_ERROR_INFOW> {
         let mut result__: _ERROR_INFOW = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLastErrorInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<_ERROR_INFOW>(result__)
+        (::windows::core::Interface::vtable(self).GetLastErrorInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<_ERROR_INFOW>(result__)
     }
 }
 impl ::core::convert::From<IStiUSD> for ::windows::core::IUnknown {
@@ -13984,66 +13984,66 @@ impl IStillImageW {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, hinst: Param0, dwversion: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), hinst.into_param().abi(), ::core::mem::transmute(dwversion)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), hinst.into_param().abi(), ::core::mem::transmute(dwversion)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetDeviceList(&self, dwtype: u32, dwflags: u32, pdwitemsreturned: *mut u32, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceList)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwtype), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwitemsreturned), ::core::mem::transmute(ppbuffer)).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwtype), ::core::mem::transmute(dwflags), ::core::mem::transmute(pdwitemsreturned), ::core::mem::transmute(ppbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetDeviceInfo<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicename: Param0, ppbuffer: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceInfo)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi(), ::core::mem::transmute(ppbuffer)).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceInfo)(::windows::core::Interface::as_raw(self), pwszdevicename.into_param().abi(), ::core::mem::transmute(ppbuffer)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn CreateDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pwszdevicename: Param0, dwmode: u32, pdevice: *mut ::core::option::Option<IStiDevice>, punkouter: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDevice)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdevice), punkouter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).CreateDevice)(::windows::core::Interface::as_raw(self), pwszdevicename.into_param().abi(), ::core::mem::transmute(dwmode), ::core::mem::transmute(pdevice), punkouter.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetDeviceValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicename: Param0, pvaluename: Param1, ptype: *mut u32, pdata: *mut u8, cbdata: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDeviceValue)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)).ok()
+        (::windows::core::Interface::vtable(self).GetDeviceValue)(::windows::core::Interface::as_raw(self), pwszdevicename.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(ptype), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetDeviceValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicename: Param0, pvaluename: Param1, r#type: u32, pdata: *const u8, cbdata: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDeviceValue)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)).ok()
+        (::windows::core::Interface::vtable(self).SetDeviceValue)(::windows::core::Interface::as_raw(self), pwszdevicename.into_param().abi(), pvaluename.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(pdata), ::core::mem::transmute(cbdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn GetSTILaunchInformation(&self, pwszdevicename: &mut [u16; 128], pdweventcode: *mut u32, pwszeventname: &mut [u16; 128]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetSTILaunchInformation)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszdevicename)), ::core::mem::transmute(pdweventcode), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszeventname))).ok()
+        (::windows::core::Interface::vtable(self).GetSTILaunchInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszdevicename)), ::core::mem::transmute(pdweventcode), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwszeventname))).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RegisterLaunchApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszappname: Param0, pwszcommandline: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RegisterLaunchApplication)(::core::mem::transmute_copy(self), pwszappname.into_param().abi(), pwszcommandline.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RegisterLaunchApplication)(::windows::core::Interface::as_raw(self), pwszappname.into_param().abi(), pwszcommandline.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn UnregisterLaunchApplication<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszappname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnregisterLaunchApplication)(::core::mem::transmute_copy(self), pwszappname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnregisterLaunchApplication)(::windows::core::Interface::as_raw(self), pwszappname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EnableHwNotifications<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwszdevicename: Param0, bnewstate: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).EnableHwNotifications)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi(), bnewstate.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).EnableHwNotifications)(::windows::core::Interface::as_raw(self), pwszdevicename.into_param().abi(), bnewstate.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHwNotificationState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicename: Param0) -> ::windows::core::Result<super::super::Foundation::BOOL> {
         let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHwNotificationState)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).GetHwNotificationState)(::windows::core::Interface::as_raw(self), pwszdevicename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn RefreshDeviceBus<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RefreshDeviceBus)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RefreshDeviceBus)(::windows::core::Interface::as_raw(self), pwszdevicename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn LaunchApplicationForDevice<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdevicename: Param0, pwszappname: Param1, pstinotify: *const STINOTIFY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LaunchApplicationForDevice)(::core::mem::transmute_copy(self), pwszdevicename.into_param().abi(), pwszappname.into_param().abi(), ::core::mem::transmute(pstinotify)).ok()
+        (::windows::core::Interface::vtable(self).LaunchApplicationForDevice)(::windows::core::Interface::as_raw(self), pwszdevicename.into_param().abi(), pwszappname.into_param().abi(), ::core::mem::transmute(pstinotify)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn SetupDeviceParameters(&self, param0: *mut STI_DEVICE_INFORMATIONW) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetupDeviceParameters)(::core::mem::transmute_copy(self), ::core::mem::transmute(param0)).ok()
+        (::windows::core::Interface::vtable(self).SetupDeviceParameters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(param0)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`*"]
     pub unsafe fn WriteToErrorLog<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwmessagetype: u32, pszmessage: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteToErrorLog)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwmessagetype), pszmessage.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteToErrorLog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwmessagetype), pszmessage.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IStillImageW> for ::windows::core::IUnknown {
@@ -15089,57 +15089,57 @@ impl _IFaxAccountNotify {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingJobAdded<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxaccount: Param0, bstrjobid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingJobAdded)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingJobAdded)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingJobRemoved<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxaccount: Param0, bstrjobid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingJobRemoved)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingJobRemoved)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingJobChanged<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IFaxJobStatus>>(&self, pfaxaccount: Param0, bstrjobid: Param1, pjobstatus: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingJobChanged)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingJobChanged)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingJobAdded<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxaccount: Param0, bstrjobid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingJobAdded)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingJobAdded)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingJobRemoved<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxaccount: Param0, bstrjobid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingJobRemoved)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingJobRemoved)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingJobChanged<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IFaxJobStatus>>(&self, pfaxaccount: Param0, bstrjobid: Param1, pjobstatus: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingJobChanged)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingJobChanged)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingMessageAdded<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxaccount: Param0, bstrmessageid: Param1, faddedtoreceivefolder: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingMessageAdded)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi(), ::core::mem::transmute(faddedtoreceivefolder)).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingMessageAdded)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi(), ::core::mem::transmute(faddedtoreceivefolder)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingMessageRemoved<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxaccount: Param0, bstrmessageid: Param1, fremovedfromreceivefolder: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingMessageRemoved)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi(), ::core::mem::transmute(fremovedfromreceivefolder)).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingMessageRemoved)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi(), ::core::mem::transmute(fremovedfromreceivefolder)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingMessageAdded<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxaccount: Param0, bstrmessageid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingMessageAdded)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingMessageAdded)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingMessageRemoved<'a, Param0: ::windows::core::IntoParam<'a, IFaxAccount>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxaccount: Param0, bstrmessageid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingMessageRemoved)(::core::mem::transmute_copy(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingMessageRemoved)(::windows::core::Interface::as_raw(self), pfaxaccount.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerShutDown<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnServerShutDown)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnServerShutDown)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -15274,132 +15274,132 @@ impl _IFaxServerNotify2 {
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingJobAdded<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, bstrjobid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingJobAdded)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingJobAdded)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingJobRemoved<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, bstrjobid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingJobRemoved)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingJobRemoved)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingJobChanged<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IFaxJobStatus>>(&self, pfaxserver: Param0, bstrjobid: Param1, pjobstatus: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingJobChanged)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingJobChanged)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingJobAdded<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, bstrjobid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingJobAdded)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingJobAdded)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingJobRemoved<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, bstrjobid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingJobRemoved)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingJobRemoved)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingJobChanged<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param2: ::windows::core::IntoParam<'a, IFaxJobStatus>>(&self, pfaxserver: Param0, bstrjobid: Param1, pjobstatus: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingJobChanged)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingJobChanged)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrjobid.into_param().abi(), pjobstatus.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingMessageAdded<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, bstrmessageid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingMessageAdded)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingMessageAdded)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnIncomingMessageRemoved<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, bstrmessageid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingMessageRemoved)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingMessageRemoved)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingMessageAdded<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, bstrmessageid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingMessageAdded)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingMessageAdded)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnOutgoingMessageRemoved<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, bstrmessageid: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingMessageRemoved)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingMessageRemoved)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), bstrmessageid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnReceiptOptionsChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnReceiptOptionsChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnReceiptOptionsChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnActivityLoggingConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnActivityLoggingConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnActivityLoggingConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSecurityConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnSecurityConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnSecurityConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnEventLoggingConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnEventLoggingConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnEventLoggingConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingQueueConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingQueueConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingQueueConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutgoingArchiveConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutgoingArchiveConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutgoingArchiveConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnIncomingArchiveConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnIncomingArchiveConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnIncomingArchiveConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDevicesConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDevicesConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnDevicesConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutboundRoutingGroupsConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutboundRoutingGroupsConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutboundRoutingGroupsConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnOutboundRoutingRulesConfigChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnOutboundRoutingRulesConfigChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnOutboundRoutingRulesConfigChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerActivityChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0, lincomingmessages: i32, lroutingmessages: i32, loutgoingmessages: i32, lqueuedmessages: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnServerActivityChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), ::core::mem::transmute(lincomingmessages), ::core::mem::transmute(lroutingmessages), ::core::mem::transmute(loutgoingmessages), ::core::mem::transmute(lqueuedmessages)).ok()
+        (::windows::core::Interface::vtable(self).OnServerActivityChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), ::core::mem::transmute(lincomingmessages), ::core::mem::transmute(lroutingmessages), ::core::mem::transmute(loutgoingmessages), ::core::mem::transmute(lqueuedmessages)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQueuesStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0, boutgoingqueueblocked: i16, boutgoingqueuepaused: i16, bincomingqueueblocked: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnQueuesStatusChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), ::core::mem::transmute(boutgoingqueueblocked), ::core::mem::transmute(boutgoingqueuepaused), ::core::mem::transmute(bincomingqueueblocked)).ok()
+        (::windows::core::Interface::vtable(self).OnQueuesStatusChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), ::core::mem::transmute(boutgoingqueueblocked), ::core::mem::transmute(boutgoingqueuepaused), ::core::mem::transmute(bincomingqueueblocked)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn OnNewCall<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pfaxserver: Param0, lcallid: i32, ldeviceid: i32, bstrcallerid: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnNewCall)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), ::core::mem::transmute(lcallid), ::core::mem::transmute(ldeviceid), bstrcallerid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnNewCall)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), ::core::mem::transmute(lcallid), ::core::mem::transmute(ldeviceid), bstrcallerid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnServerShutDown<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnServerShutDown)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnServerShutDown)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnDeviceStatusChange<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0, ldeviceid: i32, bpoweredoff: i16, bsending: i16, breceiving: i16, bringing: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnDeviceStatusChange)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi(), ::core::mem::transmute(ldeviceid), ::core::mem::transmute(bpoweredoff), ::core::mem::transmute(bsending), ::core::mem::transmute(breceiving), ::core::mem::transmute(bringing)).ok()
+        (::windows::core::Interface::vtable(self).OnDeviceStatusChange)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi(), ::core::mem::transmute(ldeviceid), ::core::mem::transmute(bpoweredoff), ::core::mem::transmute(bsending), ::core::mem::transmute(breceiving), ::core::mem::transmute(bringing)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Fax\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnGeneralServerConfigChanged<'a, Param0: ::windows::core::IntoParam<'a, IFaxServer2>>(&self, pfaxserver: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).OnGeneralServerConfigChanged)(::core::mem::transmute_copy(self), pfaxserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).OnGeneralServerConfigChanged)(::windows::core::Interface::as_raw(self), pfaxserver.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]

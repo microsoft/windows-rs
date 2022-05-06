@@ -225,7 +225,7 @@ impl SpeechSynthesisStream {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -233,7 +233,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IContentTypeProvider>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -242,7 +242,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IInputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsync)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -251,7 +251,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteAsync)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
+            (::windows::core::Interface::vtable(this).WriteAsync)(::windows::core::Interface::as_raw(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -260,7 +260,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FlushAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).FlushAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
@@ -269,14 +269,14 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSize(&self, value: u64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSize)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSize)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -284,7 +284,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInputStreamAt)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            (::windows::core::Interface::vtable(this).GetInputStreamAt)(::windows::core::Interface::as_raw(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
@@ -293,7 +293,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetOutputStreamAt)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            (::windows::core::Interface::vtable(this).GetOutputStreamAt)(::windows::core::Interface::as_raw(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
@@ -302,14 +302,14 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Seek(&self, position: u64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Seek)(::core::mem::transmute_copy(this), position).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Seek)(::windows::core::Interface::as_raw(this), position).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -317,7 +317,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CloneStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
+            (::windows::core::Interface::vtable(this).CloneStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
@@ -326,7 +326,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanRead)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanRead)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Storage_Streams\"`*"]
@@ -335,7 +335,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStream>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanWrite)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).CanWrite)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation_Collections\"`*"]
@@ -344,7 +344,7 @@ impl SpeechSynthesisStream {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Markers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>>(result__)
+            (::windows::core::Interface::vtable(this).Markers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::IMediaMarker>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation_Collections\"`, `\"Media_Core\"`*"]
@@ -353,7 +353,7 @@ impl SpeechSynthesisStream {
         let this = &::windows::core::Interface::cast::<super::Core::ITimedMetadataTrackProvider>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimedMetadataTracks)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>(result__)
+            (::windows::core::Interface::vtable(this).TimedMetadataTracks)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack>>(result__)
         }
     }
 }
@@ -626,21 +626,21 @@ impl SpeechSynthesizer {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllVoices() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<VoiceInformation>> {
         Self::IInstalledVoicesStatic(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllVoices)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<VoiceInformation>>(result__)
+            (::windows::core::Interface::vtable(this).AllVoices)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<VoiceInformation>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn DefaultVoice() -> ::windows::core::Result<VoiceInformation> {
         Self::IInstalledVoicesStatic(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultVoice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VoiceInformation>(result__)
+            (::windows::core::Interface::vtable(this).DefaultVoice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<VoiceInformation>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
@@ -648,7 +648,7 @@ impl SpeechSynthesizer {
     pub fn TrySetDefaultVoiceAsync<'a, Param0: ::windows::core::IntoParam<'a, VoiceInformation>>(voice: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IInstalledVoicesStatic2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetDefaultVoiceAsync)(::core::mem::transmute_copy(this), voice.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
+            (::windows::core::Interface::vtable(this).TrySetDefaultVoiceAsync)(::windows::core::Interface::as_raw(this), voice.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
@@ -657,7 +657,7 @@ impl SpeechSynthesizer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SynthesizeTextToStreamAsync)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
+            (::windows::core::Interface::vtable(this).SynthesizeTextToStreamAsync)(::windows::core::Interface::as_raw(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`, `\"Foundation\"`*"]
@@ -666,20 +666,20 @@ impl SpeechSynthesizer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SynthesizeSsmlToStreamAsync)(::core::mem::transmute_copy(this), ssml.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
+            (::windows::core::Interface::vtable(this).SynthesizeSsmlToStreamAsync)(::windows::core::Interface::as_raw(this), ssml.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<SpeechSynthesisStream>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SetVoice<'a, Param0: ::windows::core::IntoParam<'a, VoiceInformation>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVoice)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVoice)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn Voice(&self) -> ::windows::core::Result<VoiceInformation> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Voice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VoiceInformation>(result__)
+            (::windows::core::Interface::vtable(this).Voice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<VoiceInformation>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
@@ -687,7 +687,7 @@ impl SpeechSynthesizer {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizer2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Options)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpeechSynthesizerOptions>(result__)
+            (::windows::core::Interface::vtable(this).Options)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpeechSynthesizerOptions>(result__)
         }
     }
     #[doc(hidden)]
@@ -808,91 +808,91 @@ impl SpeechSynthesizerOptions {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeWordBoundaryMetadata)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IncludeWordBoundaryMetadata)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SetIncludeWordBoundaryMetadata(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncludeWordBoundaryMetadata)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncludeWordBoundaryMetadata)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn IncludeSentenceBoundaryMetadata(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IncludeSentenceBoundaryMetadata)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IncludeSentenceBoundaryMetadata)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SetIncludeSentenceBoundaryMetadata(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIncludeSentenceBoundaryMetadata)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIncludeSentenceBoundaryMetadata)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn AudioVolume(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioVolume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).AudioVolume)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SetAudioVolume(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioVolume)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioVolume)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SpeakingRate(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SpeakingRate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).SpeakingRate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SetSpeakingRate(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetSpeakingRate)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSpeakingRate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn AudioPitch(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioPitch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).AudioPitch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SetAudioPitch(&self, value: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAudioPitch)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAudioPitch)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn AppendedSilence(&self) -> ::windows::core::Result<SpeechAppendedSilence> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe {
             let mut result__: SpeechAppendedSilence = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppendedSilence)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpeechAppendedSilence>(result__)
+            (::windows::core::Interface::vtable(this).AppendedSilence)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpeechAppendedSilence>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SetAppendedSilence(&self, value: SpeechAppendedSilence) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetAppendedSilence)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAppendedSilence)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn PunctuationSilence(&self) -> ::windows::core::Result<SpeechPunctuationSilence> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
         unsafe {
             let mut result__: SpeechPunctuationSilence = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PunctuationSilence)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpeechPunctuationSilence>(result__)
+            (::windows::core::Interface::vtable(this).PunctuationSilence)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpeechPunctuationSilence>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
     pub fn SetPunctuationSilence(&self, value: SpeechPunctuationSilence) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISpeechSynthesizerOptions3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetPunctuationSilence)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetPunctuationSilence)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for SpeechSynthesizerOptions {
@@ -1010,7 +1010,7 @@ impl VoiceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
@@ -1018,7 +1018,7 @@ impl VoiceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
@@ -1026,7 +1026,7 @@ impl VoiceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Language)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Language)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
@@ -1034,7 +1034,7 @@ impl VoiceInformation {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_SpeechSynthesis\"`*"]
@@ -1042,7 +1042,7 @@ impl VoiceInformation {
         let this = self;
         unsafe {
             let mut result__: VoiceGender = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Gender)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VoiceGender>(result__)
+            (::windows::core::Interface::vtable(this).Gender)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<VoiceGender>(result__)
         }
     }
 }

@@ -127,104 +127,104 @@ pub struct IXmlReader(::windows::core::IUnknown);
 impl IXmlReader {
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn SetInput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, pinput: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetInput)(::core::mem::transmute_copy(self), pinput.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetInput)(::windows::core::Interface::as_raw(self), pinput.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
         let mut result__: isize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn Read(&self, pnodetype: *mut XmlNodeType) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).Read)(::core::mem::transmute_copy(self), ::core::mem::transmute(pnodetype)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).Read)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pnodetype)))
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetNodeType(&self) -> ::windows::core::Result<XmlNodeType> {
         let mut result__: XmlNodeType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetNodeType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XmlNodeType>(result__)
+        (::windows::core::Interface::vtable(self).GetNodeType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<XmlNodeType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn MoveToFirstAttribute(&self) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToFirstAttribute)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToFirstAttribute)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn MoveToNextAttribute(&self) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToNextAttribute)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToNextAttribute)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn MoveToAttributeByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszlocalname: Param0, pwsznamespaceuri: Param1) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToAttributeByName)(::core::mem::transmute_copy(self), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi()))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).MoveToAttributeByName)(::windows::core::Interface::as_raw(self), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi()))
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn MoveToElement(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MoveToElement)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).MoveToElement)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetQualifiedName(&self, ppwszqualifiedname: *mut ::windows::core::PWSTR, pcwchqualifiedname: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetQualifiedName)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwszqualifiedname), ::core::mem::transmute(pcwchqualifiedname)).ok()
+        (::windows::core::Interface::vtable(self).GetQualifiedName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppwszqualifiedname), ::core::mem::transmute(pcwchqualifiedname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetNamespaceUri(&self, ppwsznamespaceuri: *mut ::windows::core::PWSTR, pcwchnamespaceuri: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetNamespaceUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwsznamespaceuri), ::core::mem::transmute(pcwchnamespaceuri)).ok()
+        (::windows::core::Interface::vtable(self).GetNamespaceUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppwsznamespaceuri), ::core::mem::transmute(pcwchnamespaceuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetLocalName(&self, ppwszlocalname: *mut ::windows::core::PWSTR, pcwchlocalname: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLocalName)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwszlocalname), ::core::mem::transmute(pcwchlocalname)).ok()
+        (::windows::core::Interface::vtable(self).GetLocalName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppwszlocalname), ::core::mem::transmute(pcwchlocalname)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetPrefix(&self, ppwszprefix: *mut ::windows::core::PWSTR, pcwchprefix: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetPrefix)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwszprefix), ::core::mem::transmute(pcwchprefix)).ok()
+        (::windows::core::Interface::vtable(self).GetPrefix)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppwszprefix), ::core::mem::transmute(pcwchprefix)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetValue(&self, ppwszvalue: *mut ::windows::core::PWSTR, pcwchvalue: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcwchvalue)).ok()
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppwszvalue), ::core::mem::transmute(pcwchvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn ReadValueChunk(&self, pwchbuffer: &mut [u16], pcwchread: *mut u32) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).ReadValueChunk)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwchbuffer)), pwchbuffer.len() as _, ::core::mem::transmute(pcwchread)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).ReadValueChunk)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(pwchbuffer)), pwchbuffer.len() as _, ::core::mem::transmute(pcwchread)))
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetBaseUri(&self, ppwszbaseuri: *mut ::windows::core::PWSTR, pcwchbaseuri: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetBaseUri)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppwszbaseuri), ::core::mem::transmute(pcwchbaseuri)).ok()
+        (::windows::core::Interface::vtable(self).GetBaseUri)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppwszbaseuri), ::core::mem::transmute(pcwchbaseuri)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsDefault(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDefault)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDefault)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEmptyElement(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsEmptyElement)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsEmptyElement)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetLineNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLineNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLineNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetLinePosition(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLinePosition)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetLinePosition)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetAttributeCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetAttributeCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetAttributeCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetDepth(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEOF(&self) -> super::super::super::Foundation::BOOL {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsEOF)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsEOF)(::windows::core::Interface::as_raw(self)))
     }
 }
 impl ::core::convert::From<IXmlReader> for ::windows::core::IUnknown {
@@ -311,7 +311,7 @@ impl IXmlResolver {
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn ResolveUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszbaseuri: Param0, pwszpublicidentifier: Param1, pwszsystemidentifier: Param2) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ResolveUri)(::core::mem::transmute_copy(self), pwszbaseuri.into_param().abi(), pwszpublicidentifier.into_param().abi(), pwszsystemidentifier.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self).ResolveUri)(::windows::core::Interface::as_raw(self), pwszbaseuri.into_param().abi(), pwszpublicidentifier.into_param().abi(), pwszsystemidentifier.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
 }
 impl ::core::convert::From<IXmlResolver> for ::windows::core::IUnknown {
@@ -366,123 +366,123 @@ pub struct IXmlWriter(::windows::core::IUnknown);
 impl IXmlWriter {
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn SetOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, poutput: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutput)(::core::mem::transmute_copy(self), poutput.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOutput)(::windows::core::Interface::as_raw(self), poutput.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
         let mut result__: isize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteAttributes<'a, Param0: ::windows::core::IntoParam<'a, IXmlReader>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, preader: Param0, fwritedefaultattributes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteAttributes)(::core::mem::transmute_copy(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteAttributes)(::windows::core::Interface::as_raw(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteAttributeString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszprefix: Param0, pwszlocalname: Param1, pwsznamespaceuri: Param2, pwszvalue: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteAttributeString)(::core::mem::transmute_copy(self), pwszprefix.into_param().abi(), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi(), pwszvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteAttributeString)(::windows::core::Interface::as_raw(self), pwszprefix.into_param().abi(), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteCData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsztext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteCData)(::core::mem::transmute_copy(self), pwsztext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteCData)(::windows::core::Interface::as_raw(self), pwsztext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteCharEntity(&self, wch: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteCharEntity)(::core::mem::transmute_copy(self), ::core::mem::transmute(wch)).ok()
+        (::windows::core::Interface::vtable(self).WriteCharEntity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wch)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteChars(&self, pwch: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteChars)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteChars)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcomment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteComment)(::core::mem::transmute_copy(self), pwszcomment.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteComment)(::windows::core::Interface::as_raw(self), pwszcomment.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteDocType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, pwszpublicid: Param1, pwszsystemid: Param2, pwszsubset: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteDocType)(::core::mem::transmute_copy(self), pwszname.into_param().abi(), pwszpublicid.into_param().abi(), pwszsystemid.into_param().abi(), pwszsubset.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteDocType)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), pwszpublicid.into_param().abi(), pwszsystemid.into_param().abi(), pwszsubset.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteElementString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszprefix: Param0, pwszlocalname: Param1, pwsznamespaceuri: Param2, pwszvalue: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteElementString)(::core::mem::transmute_copy(self), pwszprefix.into_param().abi(), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi(), pwszvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteElementString)(::windows::core::Interface::as_raw(self), pwszprefix.into_param().abi(), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteEndDocument(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEndDocument)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).WriteEndDocument)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteEndElement(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEndElement)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).WriteEndElement)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteEntityRef<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEntityRef)(::core::mem::transmute_copy(self), pwszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteEntityRef)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteFullEndElement(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteFullEndElement)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).WriteFullEndElement)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteName)(::core::mem::transmute_copy(self), pwszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteName)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteNmToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsznmtoken: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNmToken)(::core::mem::transmute_copy(self), pwsznmtoken.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteNmToken)(::windows::core::Interface::as_raw(self), pwsznmtoken.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteNode<'a, Param0: ::windows::core::IntoParam<'a, IXmlReader>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, preader: Param0, fwritedefaultattributes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNode)(::core::mem::transmute_copy(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteNode)(::windows::core::Interface::as_raw(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteNodeShallow<'a, Param0: ::windows::core::IntoParam<'a, IXmlReader>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, preader: Param0, fwritedefaultattributes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNodeShallow)(::core::mem::transmute_copy(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteNodeShallow)(::windows::core::Interface::as_raw(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteProcessingInstruction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, pwsztext: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteProcessingInstruction)(::core::mem::transmute_copy(self), pwszname.into_param().abi(), pwsztext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteProcessingInstruction)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), pwsztext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteQualifiedName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszlocalname: Param0, pwsznamespaceuri: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteQualifiedName)(::core::mem::transmute_copy(self), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteQualifiedName)(::windows::core::Interface::as_raw(self), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteRaw<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteRaw)(::core::mem::transmute_copy(self), pwszdata.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteRaw)(::windows::core::Interface::as_raw(self), pwszdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteRawChars(&self, pwch: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteRawChars)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteRawChars)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteStartDocument(&self, standalone: XmlStandalone) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteStartDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(standalone)).ok()
+        (::windows::core::Interface::vtable(self).WriteStartDocument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(standalone)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteStartElement<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszprefix: Param0, pwszlocalname: Param1, pwsznamespaceuri: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteStartElement)(::core::mem::transmute_copy(self), pwszprefix.into_param().abi(), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteStartElement)(::windows::core::Interface::as_raw(self), pwszprefix.into_param().abi(), pwszlocalname.into_param().abi(), pwsznamespaceuri.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsztext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteString)(::core::mem::transmute_copy(self), pwsztext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteString)(::windows::core::Interface::as_raw(self), pwsztext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteSurrogateCharEntity(&self, wchlow: u16, wchhigh: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteSurrogateCharEntity)(::core::mem::transmute_copy(self), ::core::mem::transmute(wchlow), ::core::mem::transmute(wchhigh)).ok()
+        (::windows::core::Interface::vtable(self).WriteSurrogateCharEntity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wchlow), ::core::mem::transmute(wchhigh)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteWhitespace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszwhitespace: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteWhitespace)(::core::mem::transmute_copy(self), pwszwhitespace.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteWhitespace)(::windows::core::Interface::as_raw(self), pwszwhitespace.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Flush)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Flush)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IXmlWriter> for ::windows::core::IUnknown {
@@ -574,119 +574,119 @@ pub struct IXmlWriterLite(::windows::core::IUnknown);
 impl IXmlWriterLite {
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn SetOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, poutput: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetOutput)(::core::mem::transmute_copy(self), poutput.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetOutput)(::windows::core::Interface::as_raw(self), poutput.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn GetProperty(&self, nproperty: u32) -> ::windows::core::Result<isize> {
         let mut result__: isize = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
+        (::windows::core::Interface::vtable(self).GetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn SetProperty(&self, nproperty: u32, pvalue: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProperty)(::core::mem::transmute_copy(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(pvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetProperty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nproperty), ::core::mem::transmute(pvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteAttributes<'a, Param0: ::windows::core::IntoParam<'a, IXmlReader>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, preader: Param0, fwritedefaultattributes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteAttributes)(::core::mem::transmute_copy(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteAttributes)(::windows::core::Interface::as_raw(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteAttributeString(&self, pwszqname: &[u16], pwszvalue: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteAttributeString)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszvalue)), pwszvalue.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteAttributeString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszvalue)), pwszvalue.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteCData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsztext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteCData)(::core::mem::transmute_copy(self), pwsztext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteCData)(::windows::core::Interface::as_raw(self), pwsztext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteCharEntity(&self, wch: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteCharEntity)(::core::mem::transmute_copy(self), ::core::mem::transmute(wch)).ok()
+        (::windows::core::Interface::vtable(self).WriteCharEntity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wch)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteChars(&self, pwch: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteChars)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteChars)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszcomment: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteComment)(::core::mem::transmute_copy(self), pwszcomment.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteComment)(::windows::core::Interface::as_raw(self), pwszcomment.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteDocType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param3: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, pwszpublicid: Param1, pwszsystemid: Param2, pwszsubset: Param3) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteDocType)(::core::mem::transmute_copy(self), pwszname.into_param().abi(), pwszpublicid.into_param().abi(), pwszsystemid.into_param().abi(), pwszsubset.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteDocType)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), pwszpublicid.into_param().abi(), pwszsystemid.into_param().abi(), pwszsubset.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteElementString<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszqname: &[u16], pwszvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteElementString)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _, pwszvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteElementString)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _, pwszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteEndDocument(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEndDocument)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).WriteEndDocument)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteEndElement(&self, pwszqname: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEndElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteEndElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteEntityRef<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteEntityRef)(::core::mem::transmute_copy(self), pwszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteEntityRef)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteFullEndElement(&self, pwszqname: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteFullEndElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteFullEndElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteName)(::core::mem::transmute_copy(self), pwszname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteName)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteNmToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsznmtoken: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNmToken)(::core::mem::transmute_copy(self), pwsznmtoken.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteNmToken)(::windows::core::Interface::as_raw(self), pwsznmtoken.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteNode<'a, Param0: ::windows::core::IntoParam<'a, IXmlReader>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, preader: Param0, fwritedefaultattributes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNode)(::core::mem::transmute_copy(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteNode)(::windows::core::Interface::as_raw(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn WriteNodeShallow<'a, Param0: ::windows::core::IntoParam<'a, IXmlReader>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, preader: Param0, fwritedefaultattributes: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteNodeShallow)(::core::mem::transmute_copy(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteNodeShallow)(::windows::core::Interface::as_raw(self), preader.into_param().abi(), fwritedefaultattributes.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteProcessingInstruction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszname: Param0, pwsztext: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteProcessingInstruction)(::core::mem::transmute_copy(self), pwszname.into_param().abi(), pwsztext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteProcessingInstruction)(::windows::core::Interface::as_raw(self), pwszname.into_param().abi(), pwsztext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteRaw<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszdata: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteRaw)(::core::mem::transmute_copy(self), pwszdata.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteRaw)(::windows::core::Interface::as_raw(self), pwszdata.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteRawChars(&self, pwch: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteRawChars)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteRawChars)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwch)), pwch.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteStartDocument(&self, standalone: XmlStandalone) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteStartDocument)(::core::mem::transmute_copy(self), ::core::mem::transmute(standalone)).ok()
+        (::windows::core::Interface::vtable(self).WriteStartDocument)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(standalone)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteStartElement(&self, pwszqname: &[u16]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteStartElement)(::core::mem::transmute_copy(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _).ok()
+        (::windows::core::Interface::vtable(self).WriteStartElement)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(::windows::core::as_ptr_or_null(pwszqname)), pwszqname.len() as _).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwsztext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteString)(::core::mem::transmute_copy(self), pwsztext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteString)(::windows::core::Interface::as_raw(self), pwsztext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteSurrogateCharEntity(&self, wchlow: u16, wchhigh: u16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteSurrogateCharEntity)(::core::mem::transmute_copy(self), ::core::mem::transmute(wchlow), ::core::mem::transmute(wchhigh)).ok()
+        (::windows::core::Interface::vtable(self).WriteSurrogateCharEntity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(wchlow), ::core::mem::transmute(wchhigh)).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn WriteWhitespace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszwhitespace: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).WriteWhitespace)(::core::mem::transmute_copy(self), pwszwhitespace.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).WriteWhitespace)(::windows::core::Interface::as_raw(self), pwszwhitespace.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Data_Xml_XmlLite\"`*"]
     pub unsafe fn Flush(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Flush)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Flush)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IXmlWriterLite> for ::windows::core::IUnknown {

@@ -3086,20 +3086,20 @@ pub struct IEnumNetCfgBindingInterface(::windows::core::IUnknown);
 impl IEnumNetCfgBindingInterface {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgBindingInterface>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgBindingInterface>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgBindingInterface>(result__)
     }
 }
 impl ::core::convert::From<IEnumNetCfgBindingInterface> for ::windows::core::IUnknown {
@@ -3157,20 +3157,20 @@ pub struct IEnumNetCfgBindingPath(::windows::core::IUnknown);
 impl IEnumNetCfgBindingPath {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgBindingPath>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgBindingPath> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgBindingPath>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgBindingPath>(result__)
     }
 }
 impl ::core::convert::From<IEnumNetCfgBindingPath> for ::windows::core::IUnknown {
@@ -3228,20 +3228,20 @@ pub struct IEnumNetCfgComponent(::windows::core::IUnknown);
 impl IEnumNetCfgComponent {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Next(&self, rgelt: &mut [::core::option::Option<INetCfgComponent>], pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Next)(::core::mem::transmute_copy(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
+        (::windows::core::Interface::vtable(self).Next)(::windows::core::Interface::as_raw(self), rgelt.len() as _, ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(rgelt)), ::core::mem::transmute(pceltfetched)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Skip)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+        (::windows::core::Interface::vtable(self).Skip)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(celt)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumNetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Clone)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).Clone)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgComponent>(result__)
     }
 }
 impl ::core::convert::From<IEnumNetCfgComponent> for ::windows::core::IUnknown {
@@ -3303,33 +3303,33 @@ pub struct INetCfg(::windows::core::IUnknown);
 impl INetCfg {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Initialize(&self, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvreserved)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvreserved)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Uninitialize(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Uninitialize)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Uninitialize)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Apply(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Apply)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Apply)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Cancel)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Cancel)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn EnumComponents(&self, pguidclass: *const ::windows::core::GUID) -> ::windows::core::Result<IEnumNetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumComponents)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidclass), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).EnumComponents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidclass), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn FindComponent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwinfid: Param0) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FindComponent)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).FindComponent)(::windows::core::Interface::as_raw(self), pszwinfid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn QueryNetCfgClass(&self, pguidclass: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryNetCfgClass)(::core::mem::transmute_copy(self), ::core::mem::transmute(pguidclass), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
+        (::windows::core::Interface::vtable(self).QueryNetCfgClass)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pguidclass), ::core::mem::transmute(riid), ::core::mem::transmute(ppvobject)).ok()
     }
 }
 impl ::core::convert::From<INetCfg> for ::windows::core::IUnknown {
@@ -3391,17 +3391,17 @@ impl INetCfgBindingInterface {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetUpperComponent(&self) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetUpperComponent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).GetUpperComponent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetLowerComponent(&self) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLowerComponent)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).GetLowerComponent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
 }
 impl ::core::convert::From<INetCfgBindingInterface> for ::windows::core::IUnknown {
@@ -3458,40 +3458,40 @@ pub struct INetCfgBindingPath(::windows::core::IUnknown);
 impl INetCfgBindingPath {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn IsSamePathAs<'a, Param0: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsSamePathAs)(::core::mem::transmute_copy(self), ppath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsSamePathAs)(::windows::core::Interface::as_raw(self), ppath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn IsSubPathOf<'a, Param0: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, ppath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsSubPathOf)(::core::mem::transmute_copy(self), ppath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsSubPathOf)(::windows::core::Interface::as_raw(self), ppath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn IsEnabled(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsEnabled)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).IsEnabled)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Enable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Enable)(::core::mem::transmute_copy(self), fenable.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Enable)(::windows::core::Interface::as_raw(self), fenable.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetPathToken(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPathToken)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetPathToken)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetOwner(&self) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOwner)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).GetOwner)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetDepth(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn EnumBindingInterfaces(&self) -> ::windows::core::Result<IEnumNetCfgBindingInterface> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumBindingInterfaces)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgBindingInterface>(result__)
+        (::windows::core::Interface::vtable(self).EnumBindingInterfaces)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgBindingInterface>(result__)
     }
 }
 impl ::core::convert::From<INetCfgBindingPath> for ::windows::core::IUnknown {
@@ -3557,12 +3557,12 @@ impl INetCfgClass {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn FindComponent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwinfid: Param0) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FindComponent)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).FindComponent)(::windows::core::Interface::as_raw(self), pszwinfid.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn EnumComponents(&self) -> ::windows::core::Result<IEnumNetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumComponents)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).EnumComponents)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgComponent>(result__)
     }
 }
 impl ::core::convert::From<INetCfgClass> for ::windows::core::IUnknown {
@@ -3620,18 +3620,18 @@ impl INetCfgClassSetup {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectAndInstall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pobotoken: *const OBO_TOKEN) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SelectAndInstall)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).SelectAndInstall)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Install<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwinfid: Param0, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: Param4, pszwanswersections: Param5) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Install)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeInstall<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pcomponent: Param0, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeInstall)(::core::mem::transmute_copy(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
+        (::windows::core::Interface::vtable(self).DeInstall)(::windows::core::Interface::as_raw(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
     }
 }
 impl ::core::convert::From<INetCfgClassSetup> for ::windows::core::IUnknown {
@@ -3699,22 +3699,22 @@ impl INetCfgClassSetup2 {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SelectAndInstall<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndparent: Param0, pobotoken: *const OBO_TOKEN) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SelectAndInstall)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).base__.SelectAndInstall)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Install<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param4: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param5: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwinfid: Param0, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: Param4, pszwanswersections: Param5) -> ::windows::core::Result<INetCfgComponent> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Install)(::core::mem::transmute_copy(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
+        (::windows::core::Interface::vtable(self).base__.Install)(::windows::core::Interface::as_raw(self), pszwinfid.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<INetCfgComponent>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DeInstall<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pcomponent: Param0, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeInstall)(::core::mem::transmute_copy(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
+        (::windows::core::Interface::vtable(self).base__.DeInstall)(::windows::core::Interface::as_raw(self), pcomponent.into_param().abi(), ::core::mem::transmute(pobotoken), ::core::mem::transmute(pmszwrefs)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn UpdateNonEnumeratedComponent<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, picomp: Param0, dwsetupflags: u32, dwupgradefrombuildno: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateNonEnumeratedComponent)(::core::mem::transmute_copy(self), picomp.into_param().abi(), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno)).ok()
+        (::windows::core::Interface::vtable(self).UpdateNonEnumeratedComponent)(::windows::core::Interface::as_raw(self), picomp.into_param().abi(), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefrombuildno)).ok()
     }
 }
 impl ::core::convert::From<INetCfgClassSetup2> for ::windows::core::IUnknown {
@@ -3790,62 +3790,62 @@ impl INetCfgComponent {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetDisplayName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetDisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwdisplayname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::core::mem::transmute_copy(self), pszwdisplayname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), pszwdisplayname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetHelpText(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetHelpText)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetHelpText)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetCharacteristics(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCharacteristics)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetCharacteristics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetInstanceGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetInstanceGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetInstanceGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetPnpDevNodeId(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetPnpDevNodeId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetPnpDevNodeId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetClassGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetClassGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetClassGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetBindName(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetBindName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetBindName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetDeviceStatus(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDeviceStatus)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_System_Registry\"`*"]
     #[cfg(feature = "Win32_System_Registry")]
     pub unsafe fn OpenParamKey(&self) -> ::windows::core::Result<super::super::System::Registry::HKEY> {
         let mut result__: super::super::System::Registry::HKEY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OpenParamKey)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Registry::HKEY>(result__)
+        (::windows::core::Interface::vtable(self).OpenParamKey)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Registry::HKEY>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RaisePropertyUi<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, hwndparent: Param0, dwflags: u32, punkcontext: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RaisePropertyUi)(::core::mem::transmute_copy(self), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), punkcontext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).RaisePropertyUi)(::windows::core::Interface::as_raw(self), hwndparent.into_param().abi(), ::core::mem::transmute(dwflags), punkcontext.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponent> for ::windows::core::IUnknown {
@@ -3917,36 +3917,36 @@ pub struct INetCfgComponentBindings(::windows::core::IUnknown);
 impl INetCfgComponentBindings {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn BindTo<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BindTo)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).BindTo)(::windows::core::Interface::as_raw(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn UnbindFrom<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnbindFrom)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).UnbindFrom)(::windows::core::Interface::as_raw(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SupportsBindingInterface<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, dwflags: u32, pszwinterfacename: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SupportsBindingInterface)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), pszwinterfacename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SupportsBindingInterface)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), pszwinterfacename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn IsBoundTo<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsBoundTo)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsBoundTo)(::windows::core::Interface::as_raw(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn IsBindableTo<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, pnccitem: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).IsBindableTo)(::core::mem::transmute_copy(self), pnccitem.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).IsBindableTo)(::windows::core::Interface::as_raw(self), pnccitem.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn EnumBindingPaths(&self, dwflags: u32) -> ::windows::core::Result<IEnumNetCfgBindingPath> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnumBindingPaths)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgBindingPath>(result__)
+        (::windows::core::Interface::vtable(self).EnumBindingPaths)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(&mut result__)).from_abi::<IEnumNetCfgBindingPath>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn MoveBefore<'a, Param0: ::windows::core::IntoParam<'a, INetCfgBindingPath>, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, pncbitemsrc: Param0, pncbitemdest: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MoveBefore)(::core::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).MoveBefore)(::windows::core::Interface::as_raw(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn MoveAfter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgBindingPath>, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, pncbitemsrc: Param0, pncbitemdest: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MoveAfter)(::core::mem::transmute_copy(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).MoveAfter)(::windows::core::Interface::as_raw(self), pncbitemsrc.into_param().abi(), pncbitemdest.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentBindings> for ::windows::core::IUnknown {
@@ -4009,19 +4009,19 @@ impl INetCfgComponentControl {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>, Param1: ::windows::core::IntoParam<'a, INetCfg>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, picomp: Param0, pinetcfg: Param1, finstalling: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), picomp.into_param().abi(), pinetcfg.into_param().abi(), finstalling.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), picomp.into_param().abi(), pinetcfg.into_param().abi(), finstalling.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn ApplyRegistryChanges(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ApplyRegistryChanges)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ApplyRegistryChanges)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn ApplyPnpChanges<'a, Param0: ::windows::core::IntoParam<'a, INetCfgPnpReconfigCallback>>(&self, picallback: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ApplyPnpChanges)(::core::mem::transmute_copy(self), picallback.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ApplyPnpChanges)(::windows::core::Interface::as_raw(self), picallback.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn CancelChanges(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelChanges)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CancelChanges)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentControl> for ::windows::core::IUnknown {
@@ -4082,11 +4082,11 @@ pub struct INetCfgComponentNotifyBinding(::windows::core::IUnknown);
 impl INetCfgComponentNotifyBinding {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn QueryBindingPath<'a, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryBindingPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).QueryBindingPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn NotifyBindingPath<'a, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).NotifyBindingPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).NotifyBindingPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentNotifyBinding> for ::windows::core::IUnknown {
@@ -4143,19 +4143,19 @@ impl INetCfgComponentNotifyGlobal {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetSupportedNotifications(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSupportedNotifications)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetSupportedNotifications)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SysQueryBindingPath<'a, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SysQueryBindingPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SysQueryBindingPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SysNotifyBindingPath<'a, Param1: ::windows::core::IntoParam<'a, INetCfgBindingPath>>(&self, dwchangeflag: u32, pipath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SysNotifyBindingPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SysNotifyBindingPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), pipath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SysNotifyComponent<'a, Param1: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, dwchangeflag: u32, picomp: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SysNotifyComponent)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwchangeflag), picomp.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SysNotifyComponent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwchangeflag), picomp.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentNotifyGlobal> for ::windows::core::IUnknown {
@@ -4213,29 +4213,29 @@ pub struct INetCfgComponentPropertyUi(::windows::core::IUnknown);
 impl INetCfgComponentPropertyUi {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn QueryPropertyUi<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkreserved: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).QueryPropertyUi)(::core::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).QueryPropertyUi)(::windows::core::Interface::as_raw(self), punkreserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SetContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punkreserved: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetContext)(::core::mem::transmute_copy(self), punkreserved.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetContext)(::windows::core::Interface::as_raw(self), punkreserved.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn MergePropPages<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: Param3, pszstartpage: *const ::windows::core::PWSTR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).MergePropPages)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwdefpages), ::core::mem::transmute(pahpspprivate), ::core::mem::transmute(pcpages), hwndparent.into_param().abi(), ::core::mem::transmute(pszstartpage)).ok()
+        (::windows::core::Interface::vtable(self).MergePropPages)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdwdefpages), ::core::mem::transmute(pahpspprivate), ::core::mem::transmute(pcpages), hwndparent.into_param().abi(), ::core::mem::transmute(pszstartpage)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ValidateProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(&self, hwndsheet: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ValidateProperties)(::core::mem::transmute_copy(self), hwndsheet.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ValidateProperties)(::windows::core::Interface::as_raw(self), hwndsheet.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn ApplyProperties(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ApplyProperties)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ApplyProperties)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn CancelProperties(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CancelProperties)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CancelProperties)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentPropertyUi> for ::windows::core::IUnknown {
@@ -4301,19 +4301,19 @@ pub struct INetCfgComponentSetup(::windows::core::IUnknown);
 impl INetCfgComponentSetup {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Install(&self, dwsetupflags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Install)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsetupflags)).ok()
+        (::windows::core::Interface::vtable(self).Install)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsetupflags)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Upgrade(&self, dwsetupflags: u32, dwupgradefombuildno: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Upgrade)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefombuildno)).ok()
+        (::windows::core::Interface::vtable(self).Upgrade)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwsetupflags), ::core::mem::transmute(dwupgradefombuildno)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn ReadAnswerFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwanswerfile: Param0, pszwanswersections: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReadAnswerFile)(::core::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).ReadAnswerFile)(::windows::core::Interface::as_raw(self), pszwanswerfile.into_param().abi(), pszwanswersections.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Removing(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Removing)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Removing)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentSetup> for ::windows::core::IUnknown {
@@ -4371,11 +4371,11 @@ pub struct INetCfgComponentSysPrep(::windows::core::IUnknown);
 impl INetCfgComponentSysPrep {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SaveAdapterParameters<'a, Param0: ::windows::core::IntoParam<'a, INetCfgSysPrep>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pncsp: Param0, pszwanswersections: Param1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveAdapterParameters)(::core::mem::transmute_copy(self), pncsp.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
+        (::windows::core::Interface::vtable(self).SaveAdapterParameters)(::windows::core::Interface::as_raw(self), pncsp.into_param().abi(), pszwanswersections.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn RestoreAdapterParameters<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwanswerfile: Param0, pszwanswersection: Param1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RestoreAdapterParameters)(::core::mem::transmute_copy(self), pszwanswerfile.into_param().abi(), pszwanswersection.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
+        (::windows::core::Interface::vtable(self).RestoreAdapterParameters)(::windows::core::Interface::as_raw(self), pszwanswerfile.into_param().abi(), pszwanswersection.into_param().abi(), ::core::mem::transmute(padapterinstanceguid)).ok()
     }
 }
 impl ::core::convert::From<INetCfgComponentSysPrep> for ::windows::core::IUnknown {
@@ -4432,16 +4432,16 @@ impl INetCfgLock {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn AcquireWriteLock<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, cmstimeout: u32, pszwclientdescription: Param1) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AcquireWriteLock)(::core::mem::transmute_copy(self), ::core::mem::transmute(cmstimeout), pszwclientdescription.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).AcquireWriteLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(cmstimeout), pszwclientdescription.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn ReleaseWriteLock(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ReleaseWriteLock)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ReleaseWriteLock)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn IsWriteLocked(&self) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsWriteLocked)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).IsWriteLocked)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<INetCfgLock> for ::windows::core::IUnknown {
@@ -4498,7 +4498,7 @@ pub struct INetCfgPnpReconfigCallback(::windows::core::IUnknown);
 impl INetCfgPnpReconfigCallback {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn SendPnpReconfig<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, layer: NCPNP_RECONFIG_LAYER, pszwupper: Param1, pszwlower: Param2, pvdata: *const ::core::ffi::c_void, dwsizeofdata: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SendPnpReconfig)(::core::mem::transmute_copy(self), ::core::mem::transmute(layer), pszwupper.into_param().abi(), pszwlower.into_param().abi(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwsizeofdata)).ok()
+        (::windows::core::Interface::vtable(self).SendPnpReconfig)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(layer), pszwupper.into_param().abi(), pszwlower.into_param().abi(), ::core::mem::transmute(pvdata), ::core::mem::transmute(dwsizeofdata)).ok()
     }
 }
 impl ::core::convert::From<INetCfgPnpReconfigCallback> for ::windows::core::IUnknown {
@@ -4553,20 +4553,20 @@ pub struct INetCfgSysPrep(::windows::core::IUnknown);
 impl INetCfgSysPrep {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn HrSetupSetFirstDword<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, dwvalue: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HrSetupSetFirstDword)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
+        (::windows::core::Interface::vtable(self).HrSetupSetFirstDword)(::windows::core::Interface::as_raw(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), ::core::mem::transmute(dwvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn HrSetupSetFirstString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, pwszvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HrSetupSetFirstString)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pwszvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).HrSetupSetFirstString)(::windows::core::Interface::as_raw(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pwszvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HrSetupSetFirstStringAsBool<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pwszsection: Param0, pwszkey: Param1, fvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HrSetupSetFirstStringAsBool)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), fvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).HrSetupSetFirstStringAsBool)(::windows::core::Interface::as_raw(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), fvalue.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn HrSetupSetFirstMultiSzField<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pwszsection: Param0, pwszkey: Param1, pmszvalue: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).HrSetupSetFirstMultiSzField)(::core::mem::transmute_copy(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pmszvalue.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).HrSetupSetFirstMultiSzField)(::windows::core::Interface::as_raw(self), pwszsection.into_param().abi(), pwszkey.into_param().abi(), pmszvalue.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<INetCfgSysPrep> for ::windows::core::IUnknown {
@@ -4628,7 +4628,7 @@ impl INetLanConnectionUiInfo {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn GetDeviceGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDeviceGuid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).GetDeviceGuid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
 }
 impl ::core::convert::From<INetLanConnectionUiInfo> for ::windows::core::IUnknown {
@@ -4685,7 +4685,7 @@ impl INetRasConnectionIpUiInfo {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetUiInfo(&self) -> ::windows::core::Result<RASCON_IPUI> {
         let mut result__: RASCON_IPUI = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetUiInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<RASCON_IPUI>(result__)
+        (::windows::core::Interface::vtable(self).GetUiInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<RASCON_IPUI>(result__)
     }
 }
 impl ::core::convert::From<INetRasConnectionIpUiInfo> for ::windows::core::IUnknown {
@@ -4747,13 +4747,13 @@ pub struct IProvisioningDomain(::windows::core::IUnknown);
 impl IProvisioningDomain {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwpathtofolder: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), pszwpathtofolder.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), pszwpathtofolder.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`, `\"Win32_Data_Xml_MsXml\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
     pub unsafe fn Query<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, pszwdomain: Param0, pszwlanguage: Param1, pszwxpathquery: Param2) -> ::windows::core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Query)(::core::mem::transmute_copy(self), pszwdomain.into_param().abi(), pszwlanguage.into_param().abi(), pszwxpathquery.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>(result__)
+        (::windows::core::Interface::vtable(self).Query)(::windows::core::Interface::as_raw(self), pszwdomain.into_param().abi(), pszwlanguage.into_param().abi(), pszwxpathquery.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Data::Xml::MsXml::IXMLDOMNodeList>(result__)
     }
 }
 impl ::core::convert::From<IProvisioningDomain> for ::windows::core::IUnknown {
@@ -4814,7 +4814,7 @@ impl IProvisioningProfileWireless {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateProfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxmlwirelessconfigprofile: Param0, bstrxmlconnectionconfigprofile: Param1, padapterinstanceguid: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateProfile)(::core::mem::transmute_copy(self), bstrxmlwirelessconfigprofile.into_param().abi(), bstrxmlconnectionconfigprofile.into_param().abi(), ::core::mem::transmute(padapterinstanceguid), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CreateProfile)(::windows::core::Interface::as_raw(self), bstrxmlwirelessconfigprofile.into_param().abi(), bstrxmlconnectionconfigprofile.into_param().abi(), ::core::mem::transmute(padapterinstanceguid), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IProvisioningProfileWireless> for ::windows::core::IUnknown {

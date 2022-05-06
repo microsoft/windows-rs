@@ -342,7 +342,7 @@ impl TargetedContentAction {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InvokeAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).InvokeAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
 }
@@ -498,7 +498,7 @@ impl TargetedContentAvailabilityChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -584,7 +584,7 @@ impl TargetedContentChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -592,7 +592,7 @@ impl TargetedContentChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasPreviousContentExpired)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasPreviousContentExpired)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -677,25 +677,25 @@ impl TargetedContentCollection {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::core::mem::transmute_copy(this), interaction).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportCustomInteraction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::core::mem::transmute_copy(this), custominteractionname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), custominteractionname.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -704,7 +704,7 @@ impl TargetedContentCollection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -713,7 +713,7 @@ impl TargetedContentCollection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Collections)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
+            (::windows::core::Interface::vtable(this).Collections)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -722,7 +722,7 @@ impl TargetedContentCollection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Items)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentItem>>(result__)
+            (::windows::core::Interface::vtable(this).Items)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentItem>>(result__)
         }
     }
 }
@@ -807,7 +807,7 @@ impl TargetedContentContainer {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
@@ -816,7 +816,7 @@ impl TargetedContentContainer {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -824,7 +824,7 @@ impl TargetedContentContainer {
         let this = self;
         unsafe {
             let mut result__: TargetedContentAvailability = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Availability)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAvailability>(result__)
+            (::windows::core::Interface::vtable(this).Availability)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentAvailability>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -832,7 +832,7 @@ impl TargetedContentContainer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Content)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
+            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -840,7 +840,7 @@ impl TargetedContentContainer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSingleObject)(::core::mem::transmute_copy(this), path.into_param().abi(), &mut result__).from_abi::<TargetedContentObject>(result__)
+            (::windows::core::Interface::vtable(this).SelectSingleObject)(::windows::core::Interface::as_raw(this), path.into_param().abi(), &mut result__).from_abi::<TargetedContentObject>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
@@ -848,7 +848,7 @@ impl TargetedContentContainer {
     pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contentid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentContainer>> {
         Self::ITargetedContentContainerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsync)(::core::mem::transmute_copy(this), contentid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), contentid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
         })
     }
     #[doc(hidden)]
@@ -941,7 +941,7 @@ impl TargetedContentFile {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenReadAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
+            (::windows::core::Interface::vtable(this).OpenReadAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
         }
     }
 }
@@ -1070,7 +1070,7 @@ impl TargetedContentImage {
         let this = &::windows::core::Interface::cast::<super::super::Storage::Streams::IRandomAccessStreamReference>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OpenReadAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
+            (::windows::core::Interface::vtable(this).OpenReadAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1078,7 +1078,7 @@ impl TargetedContentImage {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Height)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Height)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1086,7 +1086,7 @@ impl TargetedContentImage {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Width)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Width)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -1242,25 +1242,25 @@ impl TargetedContentItem {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportInteraction(&self, interaction: TargetedContentInteraction) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::core::mem::transmute_copy(this), interaction).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportInteraction)(::windows::core::Interface::as_raw(this), interaction).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn ReportCustomInteraction<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, custominteractionname: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::core::mem::transmute_copy(this), custominteractionname.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportCustomInteraction)(::windows::core::Interface::as_raw(this), custominteractionname.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn State(&self) -> ::windows::core::Result<TargetedContentItemState> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentItemState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentItemState>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -1269,7 +1269,7 @@ impl TargetedContentItem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, TargetedContentValue>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -1278,7 +1278,7 @@ impl TargetedContentItem {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Collections)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
+            (::windows::core::Interface::vtable(this).Collections)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentCollection>>(result__)
         }
     }
 }
@@ -1363,7 +1363,7 @@ impl TargetedContentItemState {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ShouldDisplay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ShouldDisplay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1371,7 +1371,7 @@ impl TargetedContentItemState {
         let this = self;
         unsafe {
             let mut result__: TargetedContentAppInstallationState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AppInstallationState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAppInstallationState>(result__)
+            (::windows::core::Interface::vtable(this).AppInstallationState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentAppInstallationState>(result__)
         }
     }
 }
@@ -1456,7 +1456,7 @@ impl TargetedContentObject {
         let this = self;
         unsafe {
             let mut result__: TargetedContentObjectKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ObjectKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentObjectKind>(result__)
+            (::windows::core::Interface::vtable(this).ObjectKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentObjectKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1464,7 +1464,7 @@ impl TargetedContentObject {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Collection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
+            (::windows::core::Interface::vtable(this).Collection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1472,7 +1472,7 @@ impl TargetedContentObject {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Item)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentItem>(result__)
+            (::windows::core::Interface::vtable(this).Item)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentItem>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1480,7 +1480,7 @@ impl TargetedContentObject {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentValue>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentValue>(result__)
         }
     }
 }
@@ -1601,7 +1601,7 @@ impl TargetedContentStateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -1686,7 +1686,7 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
@@ -1695,7 +1695,7 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetContentContainerAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
+            (::windows::core::Interface::vtable(this).GetContentContainerAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentContainer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
@@ -1704,14 +1704,14 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ContentChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveContentChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveContentChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveContentChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1719,14 +1719,14 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).AvailabilityChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAvailabilityChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveAvailabilityChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1734,28 +1734,28 @@ impl TargetedContentSubscription {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStateChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GetAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subscriptionid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsync)(::core::mem::transmute_copy(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<TargetedContentSubscription>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn GetOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subscriptionid: Param0) -> ::windows::core::Result<TargetedContentSubscriptionOptions> {
         Self::ITargetedContentSubscriptionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetOptions)(::core::mem::transmute_copy(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<TargetedContentSubscriptionOptions>(result__)
+            (::windows::core::Interface::vtable(this).GetOptions)(::windows::core::Interface::as_raw(this), subscriptionid.into_param().abi(), &mut result__).from_abi::<TargetedContentSubscriptionOptions>(result__)
         })
     }
     #[doc(hidden)]
@@ -1845,7 +1845,7 @@ impl TargetedContentSubscriptionOptions {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubscriptionId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).SubscriptionId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1853,13 +1853,13 @@ impl TargetedContentSubscriptionOptions {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowPartialContentAvailability)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowPartialContentAvailability)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn SetAllowPartialContentAvailability(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowPartialContentAvailability)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowPartialContentAvailability)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1867,7 +1867,7 @@ impl TargetedContentSubscriptionOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CloudQueryParameters)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).CloudQueryParameters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -1876,13 +1876,13 @@ impl TargetedContentSubscriptionOptions {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LocalFilters)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).LocalFilters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
     pub fn Update(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Update)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Update)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for TargetedContentSubscriptionOptions {
@@ -1966,7 +1966,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: TargetedContentValueKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ValueKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentValueKind>(result__)
+            (::windows::core::Interface::vtable(this).ValueKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentValueKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1974,7 +1974,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1982,7 +1982,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).String)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).String)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation\"`*"]
@@ -1991,7 +1991,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).Uri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -1999,7 +1999,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Number)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Number)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -2007,7 +2007,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Boolean)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Boolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Storage_Streams\"`*"]
@@ -2016,7 +2016,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).File)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentFile>(result__)
+            (::windows::core::Interface::vtable(this).File)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentFile>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -2024,7 +2024,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImageFile)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentImage>(result__)
+            (::windows::core::Interface::vtable(this).ImageFile)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentImage>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`*"]
@@ -2032,7 +2032,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Action)(::core::mem::transmute_copy(this), &mut result__).from_abi::<TargetedContentAction>(result__)
+            (::windows::core::Interface::vtable(this).Action)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TargetedContentAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -2041,7 +2041,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Strings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
+            (::windows::core::Interface::vtable(this).Strings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -2050,7 +2050,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Uris)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>(result__)
+            (::windows::core::Interface::vtable(this).Uris)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Uri>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -2059,7 +2059,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Numbers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<f64>>(result__)
+            (::windows::core::Interface::vtable(this).Numbers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -2068,7 +2068,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Booleans)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<bool>>(result__)
+            (::windows::core::Interface::vtable(this).Booleans)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<bool>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`*"]
@@ -2077,7 +2077,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Files)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentFile>>(result__)
+            (::windows::core::Interface::vtable(this).Files)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentFile>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -2086,7 +2086,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ImageFiles)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>(result__)
+            (::windows::core::Interface::vtable(this).ImageFiles)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentImage>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_TargetedContent\"`, `\"Foundation_Collections\"`*"]
@@ -2095,7 +2095,7 @@ impl TargetedContentValue {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Actions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentAction>>(result__)
+            (::windows::core::Interface::vtable(this).Actions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<TargetedContentAction>>(result__)
         }
     }
 }

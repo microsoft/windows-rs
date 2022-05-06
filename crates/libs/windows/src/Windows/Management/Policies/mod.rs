@@ -59,7 +59,7 @@ impl NamedPolicy {
     pub fn GetPolicyFromPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(area: Param0, name: Param1) -> ::windows::core::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPolicyFromPath)(::core::mem::transmute_copy(this), area.into_param().abi(), name.into_param().abi(), &mut result__).from_abi::<NamedPolicyData>(result__)
+            (::windows::core::Interface::vtable(this).GetPolicyFromPath)(::windows::core::Interface::as_raw(this), area.into_param().abi(), name.into_param().abi(), &mut result__).from_abi::<NamedPolicyData>(result__)
         })
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"System\"`*"]
@@ -67,7 +67,7 @@ impl NamedPolicy {
     pub fn GetPolicyFromPathForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::System::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, area: Param1, name: Param2) -> ::windows::core::Result<NamedPolicyData> {
         Self::INamedPolicyStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPolicyFromPathForUser)(::core::mem::transmute_copy(this), user.into_param().abi(), area.into_param().abi(), name.into_param().abi(), &mut result__).from_abi::<NamedPolicyData>(result__)
+            (::windows::core::Interface::vtable(this).GetPolicyFromPathForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), area.into_param().abi(), name.into_param().abi(), &mut result__).from_abi::<NamedPolicyData>(result__)
         })
     }
     #[doc(hidden)]
@@ -88,7 +88,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Area)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Area)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -96,7 +96,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -104,7 +104,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: NamedPolicyKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NamedPolicyKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<NamedPolicyKind>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -112,7 +112,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsManaged)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsManaged)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -120,7 +120,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsUserPolicy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsUserPolicy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"System\"`*"]
@@ -129,7 +129,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -137,7 +137,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBoolean)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"Storage_Streams\"`*"]
@@ -146,7 +146,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBinary)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).GetBinary)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -154,7 +154,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -162,7 +162,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt64)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i64>(result__)
+            (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`*"]
@@ -170,7 +170,7 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"Foundation\"`*"]
@@ -179,14 +179,14 @@ impl NamedPolicyData {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Changed)(::core::mem::transmute_copy(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Changed)(::windows::core::Interface::as_raw(this), changedhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Management_Policies\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveChanged)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for NamedPolicyData {

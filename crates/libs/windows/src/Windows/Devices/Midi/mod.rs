@@ -101,7 +101,7 @@ impl IMidiMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -110,7 +110,7 @@ impl IMidiMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -118,7 +118,7 @@ impl IMidiMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
 }
@@ -279,27 +279,27 @@ impl IMidiOutPort {
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::core::mem::transmute_copy(this), midimessage.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::core::mem::transmute_copy(this), mididata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::convert::From<IMidiOutPort> for ::windows::core::IUnknown {
@@ -659,7 +659,7 @@ impl MidiActiveSensingMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -668,7 +668,7 @@ impl MidiActiveSensingMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -676,7 +676,7 @@ impl MidiActiveSensingMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
 }
@@ -783,7 +783,7 @@ impl MidiChannelPressureMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Channel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Channel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -791,14 +791,14 @@ impl MidiChannelPressureMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pressure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiChannelPressureMessage(channel: u8, pressure: u8) -> ::windows::core::Result<MidiChannelPressureMessage> {
         Self::IMidiChannelPressureMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiChannelPressureMessage)(::core::mem::transmute_copy(this), channel, pressure, &mut result__).from_abi::<MidiChannelPressureMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiChannelPressureMessage)(::windows::core::Interface::as_raw(this), channel, pressure, &mut result__).from_abi::<MidiChannelPressureMessage>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
@@ -807,7 +807,7 @@ impl MidiChannelPressureMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -816,7 +816,7 @@ impl MidiChannelPressureMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -824,7 +824,7 @@ impl MidiChannelPressureMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc(hidden)]
@@ -944,7 +944,7 @@ impl MidiContinueMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -953,7 +953,7 @@ impl MidiContinueMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -961,7 +961,7 @@ impl MidiContinueMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
 }
@@ -1068,7 +1068,7 @@ impl MidiControlChangeMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Channel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Channel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1076,7 +1076,7 @@ impl MidiControlChangeMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Controller)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1084,14 +1084,14 @@ impl MidiControlChangeMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ControlValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).ControlValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiControlChangeMessage(channel: u8, controller: u8, controlvalue: u8) -> ::windows::core::Result<MidiControlChangeMessage> {
         Self::IMidiControlChangeMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiControlChangeMessage)(::core::mem::transmute_copy(this), channel, controller, controlvalue, &mut result__).from_abi::<MidiControlChangeMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiControlChangeMessage)(::windows::core::Interface::as_raw(this), channel, controller, controlvalue, &mut result__).from_abi::<MidiControlChangeMessage>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
@@ -1100,7 +1100,7 @@ impl MidiControlChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -1109,7 +1109,7 @@ impl MidiControlChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1117,7 +1117,7 @@ impl MidiControlChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc(hidden)]
@@ -1228,7 +1228,7 @@ impl MidiInPort {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1236,21 +1236,21 @@ impl MidiInPort {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MessageReceived)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).MessageReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveMessageReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveMessageReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
@@ -1258,14 +1258,14 @@ impl MidiInPort {
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiInPort>> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MidiInPort>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MidiInPort>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -1381,7 +1381,7 @@ impl MidiMessageReceivedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Message)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IMidiMessage>(result__)
+            (::windows::core::Interface::vtable(this).Message)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IMidiMessage>(result__)
         }
     }
 }
@@ -1519,7 +1519,7 @@ impl MidiNoteOffMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -1528,7 +1528,7 @@ impl MidiNoteOffMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1536,7 +1536,7 @@ impl MidiNoteOffMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1544,7 +1544,7 @@ impl MidiNoteOffMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Channel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Channel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1552,7 +1552,7 @@ impl MidiNoteOffMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Note)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Note)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1560,14 +1560,14 @@ impl MidiNoteOffMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Velocity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Velocity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiNoteOffMessage(channel: u8, note: u8, velocity: u8) -> ::windows::core::Result<MidiNoteOffMessage> {
         Self::IMidiNoteOffMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiNoteOffMessage)(::core::mem::transmute_copy(this), channel, note, velocity, &mut result__).from_abi::<MidiNoteOffMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiNoteOffMessage)(::windows::core::Interface::as_raw(this), channel, note, velocity, &mut result__).from_abi::<MidiNoteOffMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -1680,7 +1680,7 @@ impl MidiNoteOnMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -1689,7 +1689,7 @@ impl MidiNoteOnMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1697,7 +1697,7 @@ impl MidiNoteOnMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1705,7 +1705,7 @@ impl MidiNoteOnMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Channel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Channel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1713,7 +1713,7 @@ impl MidiNoteOnMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Note)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Note)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -1721,14 +1721,14 @@ impl MidiNoteOnMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Velocity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Velocity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiNoteOnMessage(channel: u8, note: u8, velocity: u8) -> ::windows::core::Result<MidiNoteOnMessage> {
         Self::IMidiNoteOnMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiNoteOnMessage)(::core::mem::transmute_copy(this), channel, note, velocity, &mut result__).from_abi::<MidiNoteOnMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiNoteOnMessage)(::windows::core::Interface::as_raw(this), channel, note, velocity, &mut result__).from_abi::<MidiNoteOnMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -1839,25 +1839,25 @@ impl MidiOutPort {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::core::mem::transmute_copy(this), midimessage.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::core::mem::transmute_copy(this), mididata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
@@ -1865,14 +1865,14 @@ impl MidiOutPort {
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IMidiOutPort>> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<IMidiOutPort>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<IMidiOutPort>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc(hidden)]
@@ -2011,7 +2011,7 @@ impl MidiPitchBendChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -2020,7 +2020,7 @@ impl MidiPitchBendChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2028,7 +2028,7 @@ impl MidiPitchBendChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2036,7 +2036,7 @@ impl MidiPitchBendChangeMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Channel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Channel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2044,14 +2044,14 @@ impl MidiPitchBendChangeMessage {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Bend)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).Bend)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiPitchBendChangeMessage(channel: u8, bend: u16) -> ::windows::core::Result<MidiPitchBendChangeMessage> {
         Self::IMidiPitchBendChangeMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiPitchBendChangeMessage)(::core::mem::transmute_copy(this), channel, bend, &mut result__).from_abi::<MidiPitchBendChangeMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiPitchBendChangeMessage)(::windows::core::Interface::as_raw(this), channel, bend, &mut result__).from_abi::<MidiPitchBendChangeMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -2164,7 +2164,7 @@ impl MidiPolyphonicKeyPressureMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -2173,7 +2173,7 @@ impl MidiPolyphonicKeyPressureMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2181,7 +2181,7 @@ impl MidiPolyphonicKeyPressureMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2189,7 +2189,7 @@ impl MidiPolyphonicKeyPressureMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Channel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Channel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2197,7 +2197,7 @@ impl MidiPolyphonicKeyPressureMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Note)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Note)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2205,14 +2205,14 @@ impl MidiPolyphonicKeyPressureMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pressure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiPolyphonicKeyPressureMessage(channel: u8, note: u8, pressure: u8) -> ::windows::core::Result<MidiPolyphonicKeyPressureMessage> {
         Self::IMidiPolyphonicKeyPressureMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiPolyphonicKeyPressureMessage)(::core::mem::transmute_copy(this), channel, note, pressure, &mut result__).from_abi::<MidiPolyphonicKeyPressureMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiPolyphonicKeyPressureMessage)(::windows::core::Interface::as_raw(this), channel, note, pressure, &mut result__).from_abi::<MidiPolyphonicKeyPressureMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -2325,7 +2325,7 @@ impl MidiProgramChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -2334,7 +2334,7 @@ impl MidiProgramChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2342,7 +2342,7 @@ impl MidiProgramChangeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2350,7 +2350,7 @@ impl MidiProgramChangeMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Channel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Channel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2358,14 +2358,14 @@ impl MidiProgramChangeMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Program)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Program)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiProgramChangeMessage(channel: u8, program: u8) -> ::windows::core::Result<MidiProgramChangeMessage> {
         Self::IMidiProgramChangeMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiProgramChangeMessage)(::core::mem::transmute_copy(this), channel, program, &mut result__).from_abi::<MidiProgramChangeMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiProgramChangeMessage)(::windows::core::Interface::as_raw(this), channel, program, &mut result__).from_abi::<MidiProgramChangeMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -2478,7 +2478,7 @@ impl MidiSongPositionPointerMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -2487,7 +2487,7 @@ impl MidiSongPositionPointerMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2495,7 +2495,7 @@ impl MidiSongPositionPointerMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2503,14 +2503,14 @@ impl MidiSongPositionPointerMessage {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Beats)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).Beats)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiSongPositionPointerMessage(beats: u16) -> ::windows::core::Result<MidiSongPositionPointerMessage> {
         Self::IMidiSongPositionPointerMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiSongPositionPointerMessage)(::core::mem::transmute_copy(this), beats, &mut result__).from_abi::<MidiSongPositionPointerMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiSongPositionPointerMessage)(::windows::core::Interface::as_raw(this), beats, &mut result__).from_abi::<MidiSongPositionPointerMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -2623,7 +2623,7 @@ impl MidiSongSelectMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -2632,7 +2632,7 @@ impl MidiSongSelectMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2640,7 +2640,7 @@ impl MidiSongSelectMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2648,14 +2648,14 @@ impl MidiSongSelectMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Song)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Song)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiSongSelectMessage(song: u8) -> ::windows::core::Result<MidiSongSelectMessage> {
         Self::IMidiSongSelectMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiSongSelectMessage)(::core::mem::transmute_copy(this), song, &mut result__).from_abi::<MidiSongSelectMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiSongSelectMessage)(::windows::core::Interface::as_raw(this), song, &mut result__).from_abi::<MidiSongSelectMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -2775,7 +2775,7 @@ impl MidiStartMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -2784,7 +2784,7 @@ impl MidiStartMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2792,7 +2792,7 @@ impl MidiStartMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
 }
@@ -2907,7 +2907,7 @@ impl MidiStopMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -2916,7 +2916,7 @@ impl MidiStopMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -2924,7 +2924,7 @@ impl MidiStopMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
 }
@@ -3030,25 +3030,25 @@ impl MidiSynthesizer {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn SendMessage<'a, Param0: ::windows::core::IntoParam<'a, IMidiMessage>>(&self, midimessage: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::core::mem::transmute_copy(this), midimessage.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendMessage)(::windows::core::Interface::as_raw(this), midimessage.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SendBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, mididata: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::core::mem::transmute_copy(this), mididata.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SendBuffer)(::windows::core::Interface::as_raw(this), mididata.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IMidiOutPort>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Devices_Enumeration\"`*"]
@@ -3057,7 +3057,7 @@ impl MidiSynthesizer {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioDevice)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Enumeration::DeviceInformation>(result__)
+            (::windows::core::Interface::vtable(this).AudioDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Enumeration::DeviceInformation>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -3065,20 +3065,20 @@ impl MidiSynthesizer {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Volume)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).Volume)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn SetVolume(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVolume)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVolume)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>(result__)
+            (::windows::core::Interface::vtable(this).CreateAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Devices_Enumeration\"`, `\"Foundation\"`*"]
@@ -3086,7 +3086,7 @@ impl MidiSynthesizer {
     pub fn CreateFromAudioDeviceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Enumeration::DeviceInformation>>(audiodevice: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MidiSynthesizer>> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromAudioDeviceAsync)(::core::mem::transmute_copy(this), audiodevice.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromAudioDeviceAsync)(::windows::core::Interface::as_raw(this), audiodevice.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MidiSynthesizer>>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Devices_Enumeration\"`*"]
@@ -3094,7 +3094,7 @@ impl MidiSynthesizer {
     pub fn IsSynthesizer<'a, Param0: ::windows::core::IntoParam<'a, super::Enumeration::DeviceInformation>>(mididevice: Param0) -> ::windows::core::Result<bool> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSynthesizer)(::core::mem::transmute_copy(this), mididevice.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSynthesizer)(::windows::core::Interface::as_raw(this), mididevice.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -3233,7 +3233,7 @@ impl MidiSystemExclusiveMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -3242,7 +3242,7 @@ impl MidiSystemExclusiveMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -3250,7 +3250,7 @@ impl MidiSystemExclusiveMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -3258,7 +3258,7 @@ impl MidiSystemExclusiveMessage {
     pub fn CreateMidiSystemExclusiveMessage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(rawdata: Param0) -> ::windows::core::Result<MidiSystemExclusiveMessage> {
         Self::IMidiSystemExclusiveMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(::core::mem::transmute_copy(this), rawdata.into_param().abi(), &mut result__).from_abi::<MidiSystemExclusiveMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(::windows::core::Interface::as_raw(this), rawdata.into_param().abi(), &mut result__).from_abi::<MidiSystemExclusiveMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -3378,7 +3378,7 @@ impl MidiSystemResetMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -3387,7 +3387,7 @@ impl MidiSystemResetMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -3395,7 +3395,7 @@ impl MidiSystemResetMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
 }
@@ -3503,7 +3503,7 @@ impl MidiTimeCodeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -3512,7 +3512,7 @@ impl MidiTimeCodeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -3520,7 +3520,7 @@ impl MidiTimeCodeMessage {
         let this = &::windows::core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -3528,7 +3528,7 @@ impl MidiTimeCodeMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FrameType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).FrameType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -3536,14 +3536,14 @@ impl MidiTimeCodeMessage {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Values)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Values)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
     pub fn CreateMidiTimeCodeMessage(frametype: u8, values: u8) -> ::windows::core::Result<MidiTimeCodeMessage> {
         Self::IMidiTimeCodeMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateMidiTimeCodeMessage)(::core::mem::transmute_copy(this), frametype, values, &mut result__).from_abi::<MidiTimeCodeMessage>(result__)
+            (::windows::core::Interface::vtable(this).CreateMidiTimeCodeMessage)(::windows::core::Interface::as_raw(this), frametype, values, &mut result__).from_abi::<MidiTimeCodeMessage>(result__)
         })
     }
     #[doc(hidden)]
@@ -3663,7 +3663,7 @@ impl MidiTimingClockMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -3672,7 +3672,7 @@ impl MidiTimingClockMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -3680,7 +3680,7 @@ impl MidiTimingClockMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
 }
@@ -3795,7 +3795,7 @@ impl MidiTuneRequestMessage {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`, `\"Storage_Streams\"`*"]
@@ -3804,7 +3804,7 @@ impl MidiTuneRequestMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).RawData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Midi\"`*"]
@@ -3812,7 +3812,7 @@ impl MidiTuneRequestMessage {
         let this = self;
         unsafe {
             let mut result__: MidiMessageType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MidiMessageType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<MidiMessageType>(result__)
         }
     }
 }

@@ -13,53 +13,53 @@ impl HttpBaseProtocolFilter {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn AllowAutoRedirect(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowAutoRedirect)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowAutoRedirect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetAllowAutoRedirect(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowAutoRedirect)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowAutoRedirect)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn AllowUI(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllowUI)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllowUI)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetAllowUI(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllowUI)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllowUI)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn AutomaticDecompression(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AutomaticDecompression)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AutomaticDecompression)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetAutomaticDecompression(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAutomaticDecompression)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAutomaticDecompression)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn CacheControl(&self) -> ::windows::core::Result<HttpCacheControl> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CacheControl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheControl>(result__)
+            (::windows::core::Interface::vtable(this).CacheControl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpCacheControl>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
@@ -67,7 +67,7 @@ impl HttpBaseProtocolFilter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CookieManager)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpCookieManager>(result__)
+            (::windows::core::Interface::vtable(this).CookieManager)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::HttpCookieManager>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -76,14 +76,14 @@ impl HttpBaseProtocolFilter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClientCertificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            (::windows::core::Interface::vtable(this).ClientCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(feature = "Security_Cryptography_Certificates")]
     pub fn SetClientCertificate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Cryptography::Certificates::Certificate>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetClientCertificate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetClientCertificate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Cryptography_Certificates"))]
@@ -91,7 +91,7 @@ impl HttpBaseProtocolFilter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IgnorableServerCertificateErrors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            (::windows::core::Interface::vtable(this).IgnorableServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
@@ -99,13 +99,13 @@ impl HttpBaseProtocolFilter {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxConnectionsPerServer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxConnectionsPerServer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetMaxConnectionsPerServer(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxConnectionsPerServer)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxConnectionsPerServer)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -113,14 +113,14 @@ impl HttpBaseProtocolFilter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProxyCredential)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Credentials::PasswordCredential>(result__)
+            (::windows::core::Interface::vtable(this).ProxyCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProxyCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
@@ -128,53 +128,53 @@ impl HttpBaseProtocolFilter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCredential)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Credentials::PasswordCredential>(result__)
+            (::windows::core::Interface::vtable(this).ServerCredential)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Credentials\"`*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Security::Credentials::PasswordCredential>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetServerCredential)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn UseProxy(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UseProxy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).UseProxy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetUseProxy(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetUseProxy)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetUseProxy)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn MaxVersion(&self) -> ::windows::core::Result<super::HttpVersion> {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter2>(self)?;
         unsafe {
             let mut result__: super::HttpVersion = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxVersion)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpVersion>(result__)
+            (::windows::core::Interface::vtable(this).MaxVersion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::HttpVersion>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetMaxVersion(&self, value: super::HttpVersion) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetMaxVersion)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMaxVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn CookieUsageBehavior(&self) -> ::windows::core::Result<HttpCookieUsageBehavior> {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
         unsafe {
             let mut result__: HttpCookieUsageBehavior = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CookieUsageBehavior)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpCookieUsageBehavior>(result__)
+            (::windows::core::Interface::vtable(this).CookieUsageBehavior)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpCookieUsageBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetCookieUsageBehavior(&self, value: HttpCookieUsageBehavior) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetCookieUsageBehavior)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetCookieUsageBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -182,19 +182,19 @@ impl HttpBaseProtocolFilter {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCustomValidationRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ServerCustomValidationRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServerCustomValidationRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveServerCustomValidationRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveServerCustomValidationRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn ClearAuthenticationCache(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter4>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).ClearAuthenticationCache)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearAuthenticationCache)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"System\"`*"]
     #[cfg(feature = "System")]
@@ -202,7 +202,7 @@ impl HttpBaseProtocolFilter {
         let this = &::windows::core::Interface::cast::<IHttpBaseProtocolFilter5>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).User)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
+            (::windows::core::Interface::vtable(this).User)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::User>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"System\"`*"]
@@ -210,7 +210,7 @@ impl HttpBaseProtocolFilter {
     pub fn CreateForUser<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::User>>(user: Param0) -> ::windows::core::Result<HttpBaseProtocolFilter> {
         Self::IHttpBaseProtocolFilterStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForUser)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<HttpBaseProtocolFilter>(result__)
+            (::windows::core::Interface::vtable(this).CreateForUser)(::windows::core::Interface::as_raw(this), user.into_param().abi(), &mut result__).from_abi::<HttpBaseProtocolFilter>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
@@ -219,7 +219,7 @@ impl HttpBaseProtocolFilter {
         let this = &::windows::core::Interface::cast::<IHttpFilter>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendRequestAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SendRequestAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>(result__)
         }
     }
     #[doc(hidden)]
@@ -357,26 +357,26 @@ impl HttpCacheControl {
         let this = self;
         unsafe {
             let mut result__: HttpCacheReadBehavior = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadBehavior)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheReadBehavior>(result__)
+            (::windows::core::Interface::vtable(this).ReadBehavior)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpCacheReadBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetReadBehavior(&self, value: HttpCacheReadBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadBehavior)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn WriteBehavior(&self) -> ::windows::core::Result<HttpCacheWriteBehavior> {
         let this = self;
         unsafe {
             let mut result__: HttpCacheWriteBehavior = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteBehavior)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpCacheWriteBehavior>(result__)
+            (::windows::core::Interface::vtable(this).WriteBehavior)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpCacheWriteBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn SetWriteBehavior(&self, value: HttpCacheWriteBehavior) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteBehavior)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteBehavior)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for HttpCacheControl {
@@ -564,7 +564,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::HttpRequestMessage>(result__)
+            (::windows::core::Interface::vtable(this).RequestMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::HttpRequestMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -573,7 +573,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCertificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Networking_Sockets\"`*"]
@@ -582,7 +582,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Networking::Sockets::SocketSslErrorSeverity = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::SocketSslErrorSeverity>(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::SocketSslErrorSeverity>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -591,7 +591,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -600,13 +600,13 @@ impl HttpServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`*"]
     pub fn Reject(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Reject)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Reject)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -614,7 +614,7 @@ impl HttpServerCustomValidationRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Deferral>(result__)
         }
     }
 }
@@ -849,14 +849,14 @@ impl IHttpFilter {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendRequestAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SendRequestAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<super::HttpResponseMessage, super::HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http_Filters\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::convert::From<IHttpFilter> for ::windows::core::IUnknown {

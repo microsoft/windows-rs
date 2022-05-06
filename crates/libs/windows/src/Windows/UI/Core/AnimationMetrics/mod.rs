@@ -8,7 +8,7 @@ impl AnimationDescription {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Animations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>(result__)
+            (::windows::core::Interface::vtable(this).Animations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -17,7 +17,7 @@ impl AnimationDescription {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StaggerDelay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).StaggerDelay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -25,7 +25,7 @@ impl AnimationDescription {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StaggerDelayFactor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).StaggerDelayFactor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -34,7 +34,7 @@ impl AnimationDescription {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DelayLimit)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).DelayLimit)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -42,14 +42,14 @@ impl AnimationDescription {
         let this = self;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ZOrder)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).ZOrder)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
     pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::core::Result<AnimationDescription> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), effect, target, &mut result__).from_abi::<AnimationDescription>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), effect, target, &mut result__).from_abi::<AnimationDescription>(result__)
         })
     }
     #[doc(hidden)]
@@ -315,7 +315,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: PropertyAnimationType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -324,7 +324,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -333,7 +333,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -342,7 +342,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -351,7 +351,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -480,7 +480,7 @@ impl OpacityAnimation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InitialOpacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            (::windows::core::Interface::vtable(this).InitialOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -488,7 +488,7 @@ impl OpacityAnimation {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FinalOpacity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).FinalOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -496,7 +496,7 @@ impl OpacityAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: PropertyAnimationType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -505,7 +505,7 @@ impl OpacityAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -514,7 +514,7 @@ impl OpacityAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -523,7 +523,7 @@ impl OpacityAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -532,7 +532,7 @@ impl OpacityAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -639,7 +639,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: PropertyAnimationType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -648,7 +648,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -657,7 +657,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -666,7 +666,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -675,7 +675,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -817,7 +817,7 @@ impl ScaleAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: PropertyAnimationType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -826,7 +826,7 @@ impl ScaleAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -835,7 +835,7 @@ impl ScaleAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -844,7 +844,7 @@ impl ScaleAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -853,7 +853,7 @@ impl ScaleAnimation {
         let this = &::windows::core::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -862,7 +862,7 @@ impl ScaleAnimation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InitialScaleX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            (::windows::core::Interface::vtable(this).InitialScaleX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -871,7 +871,7 @@ impl ScaleAnimation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InitialScaleY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            (::windows::core::Interface::vtable(this).InitialScaleY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -879,7 +879,7 @@ impl ScaleAnimation {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FinalScaleX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).FinalScaleX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`*"]
@@ -887,7 +887,7 @@ impl ScaleAnimation {
         let this = self;
         unsafe {
             let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FinalScaleY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
+            (::windows::core::Interface::vtable(this).FinalScaleY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -896,7 +896,7 @@ impl ScaleAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedOrigin)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).NormalizedOrigin)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -1003,7 +1003,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__: PropertyAnimationType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -1012,7 +1012,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delay)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Delay)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -1021,7 +1021,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Duration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Duration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -1030,7 +1030,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control1)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control1)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Core_AnimationMetrics\"`, `\"Foundation\"`*"]
@@ -1039,7 +1039,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Control2)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::core::Interface::vtable(this).Control2)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }

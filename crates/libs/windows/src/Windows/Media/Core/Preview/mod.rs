@@ -26,7 +26,7 @@ impl SoundLevelBroker {
     pub fn SoundLevel() -> ::windows::core::Result<super::super::SoundLevel> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__: super::super::SoundLevel = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SoundLevel)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::SoundLevel>(result__)
+            (::windows::core::Interface::vtable(this).SoundLevel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::SoundLevel>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Core_Preview\"`, `\"Foundation\"`*"]
@@ -34,13 +34,13 @@ impl SoundLevelBroker {
     pub fn SoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SoundLevelChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SoundLevelChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Core_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
-        Self::ISoundLevelBrokerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveSoundLevelChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
+        Self::ISoundLevelBrokerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RemoveSoundLevelChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() })
     }
     #[doc(hidden)]
     pub fn ISoundLevelBrokerStatics<R, F: FnOnce(&ISoundLevelBrokerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

@@ -93,12 +93,12 @@ impl IObjectArray {
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetAt<T: ::windows::core::Interface>(&self, uiindex: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).GetAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).GetAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
 }
 impl ::core::convert::From<IObjectArray> for ::windows::core::IUnknown {
@@ -155,28 +155,28 @@ impl IObjectCollection {
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GetCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GetCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn GetAt<T: ::windows::core::Interface>(&self, uiindex: u32) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
-        (::windows::core::Interface::vtable(self).base__.GetAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+        (::windows::core::Interface::vtable(self).base__.GetAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn AddObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, punk: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddObject)(::core::mem::transmute_copy(self), punk.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddObject)(::windows::core::Interface::as_raw(self), punk.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn AddFromArray<'a, Param0: ::windows::core::IntoParam<'a, IObjectArray>>(&self, poasource: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddFromArray)(::core::mem::transmute_copy(self), poasource.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddFromArray)(::windows::core::Interface::as_raw(self), poasource.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveObjectAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(uiindex)).ok()
+        (::windows::core::Interface::vtable(self).RemoveObjectAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(uiindex)).ok()
     }
     #[doc = "*Required features: `\"Win32_UI_Shell_Common\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IObjectCollection> for ::windows::core::IUnknown {

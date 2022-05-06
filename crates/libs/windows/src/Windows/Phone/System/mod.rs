@@ -37,12 +37,12 @@ impl SystemProtection {
     pub fn ScreenLocked() -> ::windows::core::Result<bool> {
         Self::ISystemProtectionStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScreenLocked)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).ScreenLocked)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Phone_System\"`*"]
     pub fn RequestScreenUnlock() -> ::windows::core::Result<()> {
-        Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RequestScreenUnlock)(::core::mem::transmute_copy(this)).ok() })
+        Self::ISystemProtectionUnlockStatics(|this| unsafe { (::windows::core::Interface::vtable(this).RequestScreenUnlock)(::windows::core::Interface::as_raw(this)).ok() })
     }
     #[doc(hidden)]
     pub fn ISystemProtectionStatics<R, F: FnOnce(&ISystemProtectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

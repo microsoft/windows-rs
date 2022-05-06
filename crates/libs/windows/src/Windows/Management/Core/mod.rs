@@ -7,7 +7,7 @@ impl ApplicationDataManager {
     pub fn CreateForPackageFamily<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefamilyname: Param0) -> ::windows::core::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateForPackageFamily)(::core::mem::transmute_copy(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Storage::ApplicationData>(result__)
+            (::windows::core::Interface::vtable(this).CreateForPackageFamily)(::windows::core::Interface::as_raw(this), packagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Storage::ApplicationData>(result__)
         })
     }
     #[doc(hidden)]

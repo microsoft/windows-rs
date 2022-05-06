@@ -89,7 +89,7 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__: OfflineMapPackageStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OfflineMapPackageStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<OfflineMapPackageStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
@@ -97,7 +97,7 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
@@ -105,7 +105,7 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnclosingRegionName)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).EnclosingRegionName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`*"]
@@ -113,14 +113,14 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EstimatedSizeInBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).EstimatedSizeInBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveStatusChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -128,7 +128,7 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StatusChanged)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).StatusChanged)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Foundation\"`*"]
@@ -137,7 +137,7 @@ impl OfflineMapPackage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestStartDownloadAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>>(result__)
+            (::windows::core::Interface::vtable(this).RequestStartDownloadAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -145,7 +145,7 @@ impl OfflineMapPackage {
     pub fn FindPackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::Geopoint>>(querypoint: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesAsync)(::core::mem::transmute_copy(this), querypoint.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesAsync)(::windows::core::Interface::as_raw(this), querypoint.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -153,7 +153,7 @@ impl OfflineMapPackage {
     pub fn FindPackagesInBoundingBoxAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::GeoboundingBox>>(queryboundingbox: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(::core::mem::transmute_copy(this), queryboundingbox.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesInBoundingBoxAsync)(::windows::core::Interface::as_raw(this), queryboundingbox.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
@@ -161,7 +161,7 @@ impl OfflineMapPackage {
     pub fn FindPackagesInGeocircleAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::Geocircle>>(querycircle: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindPackagesInGeocircleAsync)(::core::mem::transmute_copy(this), querycircle.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
+            (::windows::core::Interface::vtable(this).FindPackagesInGeocircleAsync)(::windows::core::Interface::as_raw(this), querycircle.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
     #[doc(hidden)]
@@ -251,7 +251,7 @@ impl OfflineMapPackageQueryResult {
         let this = self;
         unsafe {
             let mut result__: OfflineMapPackageQueryStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OfflineMapPackageQueryStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<OfflineMapPackageQueryStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Services_Maps_OfflineMaps\"`, `\"Foundation_Collections\"`*"]
@@ -260,7 +260,7 @@ impl OfflineMapPackageQueryResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Packages)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>>(result__)
+            (::windows::core::Interface::vtable(this).Packages)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>>(result__)
         }
     }
 }
@@ -381,7 +381,7 @@ impl OfflineMapPackageStartDownloadResult {
         let this = self;
         unsafe {
             let mut result__: OfflineMapPackageStartDownloadStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OfflineMapPackageStartDownloadStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<OfflineMapPackageStartDownloadStatus>(result__)
         }
     }
 }

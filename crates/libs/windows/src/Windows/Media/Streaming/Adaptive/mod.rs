@@ -7,7 +7,7 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsLive)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsLive)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -16,34 +16,34 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredLiveOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).DesiredLiveOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredLiveOffset<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredLiveOffset)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredLiveOffset)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn InitialBitrate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InitialBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).InitialBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn SetInitialBitrate(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInitialBitrate)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInitialBitrate)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn CurrentDownloadBitrate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentDownloadBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentDownloadBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -51,7 +51,7 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CurrentPlaybackBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).CurrentPlaybackBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation_Collections\"`*"]
@@ -60,7 +60,7 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableBitrates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
+            (::windows::core::Interface::vtable(this).AvailableBitrates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -69,14 +69,14 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredMinBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).DesiredMinBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredMinBitrate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredMinBitrate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredMinBitrate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -84,21 +84,21 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredMaxBitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).DesiredMaxBitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredMaxBitrate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<u32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredMaxBitrate)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredMaxBitrate)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn AudioOnlyPlayback(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioOnlyPlayback)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AudioOnlyPlayback)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -106,7 +106,7 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InboundBitsPerSecond)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).InboundBitsPerSecond)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -115,14 +115,14 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InboundBitsPerSecondWindow)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).InboundBitsPerSecondWindow)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInboundBitsPerSecondWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInboundBitsPerSecondWindow)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInboundBitsPerSecondWindow)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -130,14 +130,14 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadBitrateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DownloadBitrateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadBitrateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadBitrateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadBitrateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -145,14 +145,14 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PlaybackBitrateChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).PlaybackBitrateChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePlaybackBitrateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackBitrateChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemovePlaybackBitrateChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -160,14 +160,14 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadRequested)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DownloadRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadRequested)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -175,14 +175,14 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DownloadCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -190,21 +190,21 @@ impl AdaptiveMediaSource {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DownloadFailed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DownloadFailed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadFailed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDownloadFailed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn AdvancedSettings(&self) -> ::windows::core::Result<AdaptiveMediaSourceAdvancedSettings> {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSource2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AdvancedSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceAdvancedSettings>(result__)
+            (::windows::core::Interface::vtable(this).AdvancedSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceAdvancedSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -213,7 +213,7 @@ impl AdaptiveMediaSource {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MinLiveOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).MinLiveOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -222,7 +222,7 @@ impl AdaptiveMediaSource {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxSeekableWindowSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).MaxSeekableWindowSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -231,21 +231,21 @@ impl AdaptiveMediaSource {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredSeekableWindowSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).DesiredSeekableWindowSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredSeekableWindowSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredSeekableWindowSize)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredSeekableWindowSize)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn Diagnostics(&self) -> ::windows::core::Result<AdaptiveMediaSourceDiagnostics> {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Diagnostics)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceDiagnostics>(result__)
+            (::windows::core::Interface::vtable(this).Diagnostics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceDiagnostics>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -253,14 +253,14 @@ impl AdaptiveMediaSource {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSource3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCorrelatedTimes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceCorrelatedTimes>(result__)
+            (::windows::core::Interface::vtable(this).GetCorrelatedTimes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceCorrelatedTimes>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn IsContentTypeSupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(contenttype: Param0) -> ::windows::core::Result<bool> {
         Self::IAdaptiveMediaSourceStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsContentTypeSupported)(::core::mem::transmute_copy(this), contenttype.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsContentTypeSupported)(::windows::core::Interface::as_raw(this), contenttype.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -268,7 +268,7 @@ impl AdaptiveMediaSource {
     pub fn CreateFromUriAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(uri: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>> {
         Self::IAdaptiveMediaSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromUriAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromUriAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`, `\"Web_Http\"`*"]
@@ -276,7 +276,7 @@ impl AdaptiveMediaSource {
     pub fn CreateFromUriWithDownloaderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpClient>>(uri: Param0, httpclient: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>> {
         Self::IAdaptiveMediaSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromUriWithDownloaderAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), httpclient.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromUriWithDownloaderAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), httpclient.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -284,7 +284,7 @@ impl AdaptiveMediaSource {
     pub fn CreateFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(stream: Param0, uri: Param1, contenttype: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>> {
         Self::IAdaptiveMediaSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromStreamAsync)(::core::mem::transmute_copy(this), stream.into_param().abi(), uri.into_param().abi(), contenttype.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromStreamAsync)(::windows::core::Interface::as_raw(this), stream.into_param().abi(), uri.into_param().abi(), contenttype.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`, `\"Storage_Streams\"`, `\"Web_Http\"`*"]
@@ -292,14 +292,14 @@ impl AdaptiveMediaSource {
     pub fn CreateFromStreamWithDownloaderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpClient>>(stream: Param0, uri: Param1, contenttype: Param2, httpclient: Param3) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>> {
         Self::IAdaptiveMediaSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromStreamWithDownloaderAsync)(::core::mem::transmute_copy(this), stream.into_param().abi(), uri.into_param().abi(), contenttype.into_param().abi(), httpclient.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromStreamWithDownloaderAsync)(::windows::core::Interface::as_raw(this), stream.into_param().abi(), uri.into_param().abi(), contenttype.into_param().abi(), httpclient.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<AdaptiveMediaSourceCreationResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc(hidden)]
     pub fn IAdaptiveMediaSourceStatics<R, F: FnOnce(&IAdaptiveMediaSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -440,13 +440,13 @@ impl AdaptiveMediaSourceAdvancedSettings {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AllSegmentsIndependent)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AllSegmentsIndependent)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn SetAllSegmentsIndependent(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAllSegmentsIndependent)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAllSegmentsIndependent)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -454,14 +454,14 @@ impl AdaptiveMediaSourceAdvancedSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredBitrateHeadroomRatio)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).DesiredBitrateHeadroomRatio)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDesiredBitrateHeadroomRatio<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDesiredBitrateHeadroomRatio)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDesiredBitrateHeadroomRatio)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -469,14 +469,14 @@ impl AdaptiveMediaSourceAdvancedSettings {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BitrateDowngradeTriggerRatio)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
+            (::windows::core::Interface::vtable(this).BitrateDowngradeTriggerRatio)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBitrateDowngradeTriggerRatio<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<f64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBitrateDowngradeTriggerRatio)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBitrateDowngradeTriggerRatio)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceAdvancedSettings {
@@ -561,7 +561,7 @@ impl AdaptiveMediaSourceCorrelatedTimes {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -570,7 +570,7 @@ impl AdaptiveMediaSourceCorrelatedTimes {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PresentationTimeStamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).PresentationTimeStamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -579,7 +579,7 @@ impl AdaptiveMediaSourceCorrelatedTimes {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProgramDateTime)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Interface::vtable(this).ProgramDateTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
 }
@@ -664,7 +664,7 @@ impl AdaptiveMediaSourceCreationResult {
         let this = self;
         unsafe {
             let mut result__: AdaptiveMediaSourceCreationStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceCreationStatus>(result__)
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceCreationStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -672,7 +672,7 @@ impl AdaptiveMediaSourceCreationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MediaSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSource>(result__)
+            (::windows::core::Interface::vtable(this).MediaSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Web_Http\"`*"]
@@ -681,7 +681,7 @@ impl AdaptiveMediaSourceCreationResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HttpResponseMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Web::Http::HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).HttpResponseMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Web::Http::HttpResponseMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -689,7 +689,7 @@ impl AdaptiveMediaSourceCreationResult {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceCreationResult2>(self)?;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
 }
@@ -813,7 +813,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: AdaptiveMediaSourceDiagnosticType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DiagnosticType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceDiagnosticType>(result__)
+            (::windows::core::Interface::vtable(this).DiagnosticType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceDiagnosticType>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -822,7 +822,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<i32>>(result__)
+            (::windows::core::Interface::vtable(this).RequestId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<i32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -831,7 +831,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -840,7 +840,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SegmentId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).SegmentId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -849,7 +849,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<AdaptiveMediaSourceResourceType>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<AdaptiveMediaSourceResourceType>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -858,7 +858,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).ResourceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -867,7 +867,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -876,7 +876,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -885,7 +885,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Bitrate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
+            (::windows::core::Interface::vtable(this).Bitrate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -893,7 +893,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -902,7 +902,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -910,7 +910,7 @@ impl AdaptiveMediaSourceDiagnosticAvailableEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDiagnosticAvailableEventArgs3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResourceContentType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1037,14 +1037,14 @@ impl AdaptiveMediaSourceDiagnostics {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DiagnosticAvailable)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DiagnosticAvailable)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDiagnosticAvailable<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDiagnosticAvailable)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDiagnosticAvailable)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDiagnostics {
@@ -1128,7 +1128,7 @@ impl AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OldValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).OldValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1136,7 +1136,7 @@ impl AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NewValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).NewValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1144,7 +1144,7 @@ impl AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadBitrateChangedEventArgs2>(self)?;
         unsafe {
             let mut result__: AdaptiveMediaSourceDownloadBitrateChangedReason = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Reason)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadBitrateChangedReason>(result__)
+            (::windows::core::Interface::vtable(this).Reason)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadBitrateChangedReason>(result__)
         }
     }
 }
@@ -1268,7 +1268,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AdaptiveMediaSourceResourceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceResourceType>(result__)
+            (::windows::core::Interface::vtable(this).ResourceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceResourceType>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1277,7 +1277,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).ResourceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1286,7 +1286,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1295,7 +1295,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Web_Http\"`*"]
@@ -1304,7 +1304,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HttpResponseMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Web::Http::HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).HttpResponseMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Web::Http::HttpResponseMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1312,7 +1312,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).RequestId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1320,7 +1320,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Statistics)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadStatistics>(result__)
+            (::windows::core::Interface::vtable(this).Statistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadStatistics>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1329,7 +1329,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1338,7 +1338,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1346,7 +1346,7 @@ impl AdaptiveMediaSourceDownloadCompletedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadCompletedEventArgs3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResourceContentType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1431,7 +1431,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AdaptiveMediaSourceResourceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceResourceType>(result__)
+            (::windows::core::Interface::vtable(this).ResourceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceResourceType>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1440,7 +1440,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).ResourceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1449,7 +1449,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1458,7 +1458,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Web_Http\"`*"]
@@ -1467,7 +1467,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HttpResponseMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Web::Http::HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).HttpResponseMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Web::Http::HttpResponseMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1475,7 +1475,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs2>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).RequestId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1483,7 +1483,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1491,7 +1491,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Statistics)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadStatistics>(result__)
+            (::windows::core::Interface::vtable(this).Statistics)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadStatistics>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1500,7 +1500,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1509,7 +1509,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1517,7 +1517,7 @@ impl AdaptiveMediaSourceDownloadFailedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadFailedEventArgs3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResourceContentType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1600,7 +1600,7 @@ impl AdaptiveMediaSourceDownloadRequestedDeferral {
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).Complete)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Complete)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadRequestedDeferral {
@@ -1684,7 +1684,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: AdaptiveMediaSourceResourceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceResourceType>(result__)
+            (::windows::core::Interface::vtable(this).ResourceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceResourceType>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1693,7 +1693,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).ResourceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1702,7 +1702,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1711,7 +1711,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1719,7 +1719,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Result)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadResult>(result__)
+            (::windows::core::Interface::vtable(this).Result)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1727,7 +1727,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeferral)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadRequestedDeferral>(result__)
+            (::windows::core::Interface::vtable(this).GetDeferral)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AdaptiveMediaSourceDownloadRequestedDeferral>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1735,7 +1735,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
+            (::windows::core::Interface::vtable(this).RequestId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1744,7 +1744,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -1753,7 +1753,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceDuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceDuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -1761,7 +1761,7 @@ impl AdaptiveMediaSourceDownloadRequestedEventArgs {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadRequestedEventArgs3>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ResourceContentType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1847,14 +1847,14 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).ResourceUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetResourceUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetResourceUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResourceUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -1862,14 +1862,14 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IInputStream>(result__)
+            (::windows::core::Interface::vtable(this).InputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetInputStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IInputStream>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetInputStream)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetInputStream)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -1877,40 +1877,40 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Buffer)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Buffer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetBuffer)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetBuffer)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ContentType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn SetContentType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContentType)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn ExtendedStatus(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
     pub fn SetExtendedStatus(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExtendedStatus)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExtendedStatus)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1918,14 +1918,14 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetResourceByteRangeOffset<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<u64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetResourceByteRangeOffset)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResourceByteRangeOffset)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1933,14 +1933,14 @@ impl AdaptiveMediaSourceDownloadResult {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
+            (::windows::core::Interface::vtable(this).ResourceByteRangeLength)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetResourceByteRangeLength<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<u64>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAdaptiveMediaSourceDownloadResult2>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).SetResourceByteRangeLength)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetResourceByteRangeLength)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for AdaptiveMediaSourceDownloadResult {
@@ -2024,7 +2024,7 @@ impl AdaptiveMediaSourceDownloadStatistics {
         let this = self;
         unsafe {
             let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ContentBytesReceivedCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
+            (::windows::core::Interface::vtable(this).ContentBytesReceivedCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -2033,7 +2033,7 @@ impl AdaptiveMediaSourceDownloadStatistics {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeToHeadersReceived)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).TimeToHeadersReceived)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -2042,7 +2042,7 @@ impl AdaptiveMediaSourceDownloadStatistics {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeToFirstByteReceived)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).TimeToFirstByteReceived)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`, `\"Foundation\"`*"]
@@ -2051,7 +2051,7 @@ impl AdaptiveMediaSourceDownloadStatistics {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeToLastByteReceived)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
+            (::windows::core::Interface::vtable(this).TimeToLastByteReceived)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>>(result__)
         }
     }
 }
@@ -2136,7 +2136,7 @@ impl AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OldValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).OldValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2144,7 +2144,7 @@ impl AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NewValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).NewValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Media_Streaming_Adaptive\"`*"]
@@ -2152,7 +2152,7 @@ impl AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).AudioOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }

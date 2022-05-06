@@ -805,212 +805,212 @@ impl IAlertDataCollector {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorSet>>(&self, group: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::core::mem::transmute_copy(self), group.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::windows::core::Interface::as_raw(self), group.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataCollectorType(&self) -> ::windows::core::Result<DataCollectorType> {
         let mut result__: DataCollectorType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileNameFormat(&self) -> ::windows::core::Result<AutoPathFormat> {
         let mut result__: AutoPathFormat = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileNameFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileNameFormatPattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pattern: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::core::mem::transmute_copy(self), pattern.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::windows::core::Interface::as_raw(self), pattern.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLatestOutputLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogAppend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Index(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Index)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Index)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, xml: Param0) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetXml)(::core::mem::transmute_copy(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetXml)(::windows::core::Interface::as_raw(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AlertThresholds(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AlertThresholds)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).AlertThresholds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAlertThresholds)(::core::mem::transmute_copy(self), ::core::mem::transmute(alerts)).ok()
+        (::windows::core::Interface::vtable(self).SetAlertThresholds)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(alerts)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EventLog(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EventLog)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).EventLog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEventLog(&self, log: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventLog)(::core::mem::transmute_copy(self), ::core::mem::transmute(log)).ok()
+        (::windows::core::Interface::vtable(self).SetEventLog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(log)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SampleInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SampleInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SampleInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSampleInterval(&self, interval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSampleInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(interval)).ok()
+        (::windows::core::Interface::vtable(self).SetSampleInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Task(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Task)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Task)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, task: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTask)(::core::mem::transmute_copy(self), task.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTask)(::windows::core::Interface::as_raw(self), task.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn TaskRunAsSelf(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TaskRunAsSelf)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).TaskRunAsSelf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTaskRunAsSelf(&self, runasself: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskRunAsSelf)(::core::mem::transmute_copy(self), ::core::mem::transmute(runasself)).ok()
+        (::windows::core::Interface::vtable(self).SetTaskRunAsSelf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runasself)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskArguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TaskArguments)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TaskArguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTaskArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, task: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskArguments)(::core::mem::transmute_copy(self), task.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTaskArguments)(::windows::core::Interface::as_raw(self), task.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskUserTextArguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TaskUserTextArguments)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TaskUserTextArguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTaskUserTextArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, task: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskUserTextArguments)(::core::mem::transmute_copy(self), task.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTaskUserTextArguments)(::windows::core::Interface::as_raw(self), task.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TriggerDataCollectorSet(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TriggerDataCollectorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TriggerDataCollectorSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTriggerDataCollectorSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTriggerDataCollectorSet)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTriggerDataCollectorSet)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1172,203 +1172,203 @@ impl IApiTracingDataCollector {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorSet>>(&self, group: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::core::mem::transmute_copy(self), group.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::windows::core::Interface::as_raw(self), group.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataCollectorType(&self) -> ::windows::core::Result<DataCollectorType> {
         let mut result__: DataCollectorType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileNameFormat(&self) -> ::windows::core::Result<AutoPathFormat> {
         let mut result__: AutoPathFormat = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileNameFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileNameFormatPattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pattern: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::core::mem::transmute_copy(self), pattern.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::windows::core::Interface::as_raw(self), pattern.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLatestOutputLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogAppend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Index(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Index)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Index)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, xml: Param0) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetXml)(::core::mem::transmute_copy(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetXml)(::windows::core::Interface::as_raw(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogApiNamesOnly(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogApiNamesOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).LogApiNamesOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogApiNamesOnly(&self, logapinames: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogApiNamesOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(logapinames)).ok()
+        (::windows::core::Interface::vtable(self).SetLogApiNamesOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logapinames)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogApisRecursively(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogApisRecursively)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).LogApisRecursively)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogApisRecursively(&self, logrecursively: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogApisRecursively)(::core::mem::transmute_copy(self), ::core::mem::transmute(logrecursively)).ok()
+        (::windows::core::Interface::vtable(self).SetLogApisRecursively)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(logrecursively)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ExePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ExePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetExePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, exepath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExePath)(::core::mem::transmute_copy(self), exepath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetExePath)(::windows::core::Interface::as_raw(self), exepath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogFilePath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogFilePath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LogFilePath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogFilePath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, logfilepath: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogFilePath)(::core::mem::transmute_copy(self), logfilepath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLogFilePath)(::windows::core::Interface::as_raw(self), logfilepath.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncludeModules(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncludeModules)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).IncludeModules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIncludeModules(&self, includemodules: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIncludeModules)(::core::mem::transmute_copy(self), ::core::mem::transmute(includemodules)).ok()
+        (::windows::core::Interface::vtable(self).SetIncludeModules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includemodules)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn IncludeApis(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IncludeApis)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).IncludeApis)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetIncludeApis(&self, includeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIncludeApis)(::core::mem::transmute_copy(self), ::core::mem::transmute(includeapis)).ok()
+        (::windows::core::Interface::vtable(self).SetIncludeApis)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(includeapis)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ExcludeApis(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExcludeApis)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).ExcludeApis)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExcludeApis)(::core::mem::transmute_copy(self), ::core::mem::transmute(excludeapis)).ok()
+        (::windows::core::Interface::vtable(self).SetExcludeApis)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(excludeapis)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1528,219 +1528,219 @@ impl IConfigurationDataCollector {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorSet>>(&self, group: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::core::mem::transmute_copy(self), group.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::windows::core::Interface::as_raw(self), group.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataCollectorType(&self) -> ::windows::core::Result<DataCollectorType> {
         let mut result__: DataCollectorType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileNameFormat(&self) -> ::windows::core::Result<AutoPathFormat> {
         let mut result__: AutoPathFormat = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileNameFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileNameFormatPattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pattern: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::core::mem::transmute_copy(self), pattern.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::windows::core::Interface::as_raw(self), pattern.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLatestOutputLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogAppend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Index(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Index)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Index)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, xml: Param0) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetXml)(::core::mem::transmute_copy(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetXml)(::windows::core::Interface::as_raw(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileMaxCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FileMaxCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FileMaxCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileMaxCount(&self, count: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileMaxCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).SetFileMaxCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileMaxRecursiveDepth(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FileMaxRecursiveDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FileMaxRecursiveDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileMaxRecursiveDepth(&self, depth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileMaxRecursiveDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(depth)).ok()
+        (::windows::core::Interface::vtable(self).SetFileMaxRecursiveDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(depth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileMaxTotalSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FileMaxTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FileMaxTotalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileMaxTotalSize(&self, size: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileMaxTotalSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(size)).ok()
+        (::windows::core::Interface::vtable(self).SetFileMaxTotalSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(size)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Files(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Files)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).Files)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFiles(&self, files: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(files)).ok()
+        (::windows::core::Interface::vtable(self).SetFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(files)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ManagementQueries(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ManagementQueries)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).ManagementQueries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetManagementQueries(&self, queries: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManagementQueries)(::core::mem::transmute_copy(self), ::core::mem::transmute(queries)).ok()
+        (::windows::core::Interface::vtable(self).SetManagementQueries)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(queries)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn QueryNetworkAdapters(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).QueryNetworkAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).QueryNetworkAdapters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetQueryNetworkAdapters(&self, network: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetQueryNetworkAdapters)(::core::mem::transmute_copy(self), ::core::mem::transmute(network)).ok()
+        (::windows::core::Interface::vtable(self).SetQueryNetworkAdapters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(network)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn RegistryKeys(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegistryKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).RegistryKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetRegistryKeys(&self, query: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRegistryKeys)(::core::mem::transmute_copy(self), ::core::mem::transmute(query)).ok()
+        (::windows::core::Interface::vtable(self).SetRegistryKeys)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(query)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn RegistryMaxRecursiveDepth(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RegistryMaxRecursiveDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).RegistryMaxRecursiveDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRegistryMaxRecursiveDepth)(::core::mem::transmute_copy(self), ::core::mem::transmute(depth)).ok()
+        (::windows::core::Interface::vtable(self).SetRegistryMaxRecursiveDepth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(depth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SystemStateFile(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SystemStateFile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SystemStateFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSystemStateFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSystemStateFile)(::core::mem::transmute_copy(self), filename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSystemStateFile)(::windows::core::Interface::as_raw(self), filename.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1895,57 +1895,57 @@ impl ICounterItem {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Value(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Value)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Color(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Color)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Color)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetWidth(&self, iwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(iwidth)).ok()
+        (::windows::core::Interface::vtable(self).SetWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Width)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Width)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLineStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(ilinestyle)).ok()
+        (::windows::core::Interface::vtable(self).SetLineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ilinestyle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LineStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LineStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetScaleFactor(&self, iscale: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScaleFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(iscale)).ok()
+        (::windows::core::Interface::vtable(self).SetScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iscale)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleFactor(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ScaleFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
+        (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
     }
 }
 impl ::core::convert::From<ICounterItem> for ::windows::core::IUnknown {
@@ -2015,81 +2015,81 @@ impl ICounterItem2 {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Value(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Value)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Color(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Color)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Color)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetWidth(&self, iwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetWidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(iwidth)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Width)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Width)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLineStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(ilinestyle)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ilinestyle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LineStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LineStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.LineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetScaleFactor(&self, iscale: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetScaleFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(iscale)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iscale)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleFactor(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ScaleFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
+        (::windows::core::Interface::vtable(self).base__.GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSelected(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelected)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Selected(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Selected)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Selected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetVisible(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVisible)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetVisible)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Visible(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Visible)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Visible)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDataAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(iindex), ::core::mem::transmute(iwhich), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(iwhich), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<ICounterItem2> for ::windows::core::IUnknown {
@@ -2174,29 +2174,29 @@ impl ICounters {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<DICounterItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pathname: Param0) -> ::windows::core::Result<DICounterItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), pathname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), pathname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), index.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2302,130 +2302,130 @@ impl IDataCollector {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataCollectorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
+        (::windows::core::Interface::vtable(self).DataCollectorSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorSet>>(&self, group: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataCollectorSet)(::core::mem::transmute_copy(self), group.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDataCollectorSet)(::windows::core::Interface::as_raw(self), group.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataCollectorType(&self) -> ::windows::core::Result<DataCollectorType> {
         let mut result__: DataCollectorType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataCollectorType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
+        (::windows::core::Interface::vtable(self).DataCollectorType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFileName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileNameFormat(&self) -> ::windows::core::Result<AutoPathFormat> {
         let mut result__: AutoPathFormat = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
+        (::windows::core::Interface::vtable(self).FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileNameFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FileNameFormatPattern)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).FileNameFormatPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileNameFormatPattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pattern: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFileNameFormatPattern)(::core::mem::transmute_copy(self), pattern.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetFileNameFormatPattern)(::windows::core::Interface::as_raw(self), pattern.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LatestOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LatestOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLatestOutputLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLatestOutputLocation)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLatestOutputLocation)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogAppend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).LogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).LogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).LogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Index(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Index)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Index)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, xml: Param0) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetXml)(::core::mem::transmute_copy(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).SetXml)(::windows::core::Interface::as_raw(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2583,48 +2583,48 @@ impl IDataCollectorCollection {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<IDataCollector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollector>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollector>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IDataCollector>>(&self, collector: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), collector.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), collector.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, collector: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), collector.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), collector.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorCollection>>(&self, collectors: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRange)(::core::mem::transmute_copy(self), collectors.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddRange)(::windows::core::Interface::as_raw(self), collectors.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDataCollectorFromXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxml: Param0, pvalidation: *mut ::core::option::Option<IValueMap>, pcollector: *mut ::core::option::Option<IDataCollector>) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CreateDataCollectorFromXml)(::core::mem::transmute_copy(self), bstrxml.into_param().abi(), ::core::mem::transmute(pvalidation), ::core::mem::transmute(pcollector)).ok()
+        (::windows::core::Interface::vtable(self).CreateDataCollectorFromXml)(::windows::core::Interface::as_raw(self), bstrxml.into_param().abi(), ::core::mem::transmute(pvalidation), ::core::mem::transmute(pcollector)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDataCollector(&self, r#type: DataCollectorType) -> ::windows::core::Result<IDataCollector> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDataCollector)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollector>(result__)
+        (::windows::core::Interface::vtable(self).CreateDataCollector)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollector>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2743,313 +2743,313 @@ impl IDataCollectorSet {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectors(&self) -> ::windows::core::Result<IDataCollectorCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataCollectors)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorCollection>(result__)
+        (::windows::core::Interface::vtable(self).DataCollectors)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Duration(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Duration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Duration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDuration(&self, seconds: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(seconds)).ok()
+        (::windows::core::Interface::vtable(self).SetDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(seconds)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), description.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DescriptionUnresolved(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DescriptionUnresolved)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DescriptionUnresolved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, displayname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::core::mem::transmute_copy(self), displayname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), displayname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayNameUnresolved(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisplayNameUnresolved)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DisplayNameUnresolved)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Keywords(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Keywords)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).Keywords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetKeywords(&self, keywords: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKeywords)(::core::mem::transmute_copy(self), ::core::mem::transmute(keywords)).ok()
+        (::windows::core::Interface::vtable(self).SetKeywords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(keywords)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LatestOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LatestOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLatestOutputLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLatestOutputLocation)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLatestOutputLocation)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).OutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).OutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RootPath(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RootPath)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).RootPath)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRootPath<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, folder: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRootPath)(::core::mem::transmute_copy(self), folder.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRootPath)(::windows::core::Interface::as_raw(self), folder.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Segment(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Segment)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Segment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSegment(&self, segment: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSegment)(::core::mem::transmute_copy(self), ::core::mem::transmute(segment)).ok()
+        (::windows::core::Interface::vtable(self).SetSegment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(segment)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SegmentMaxDuration(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SegmentMaxDuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SegmentMaxDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSegmentMaxDuration(&self, seconds: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSegmentMaxDuration)(::core::mem::transmute_copy(self), ::core::mem::transmute(seconds)).ok()
+        (::windows::core::Interface::vtable(self).SetSegmentMaxDuration)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(seconds)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SegmentMaxSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SegmentMaxSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SegmentMaxSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSegmentMaxSize(&self, size: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSegmentMaxSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(size)).ok()
+        (::windows::core::Interface::vtable(self).SetSegmentMaxSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(size)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SerialNumber(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSerialNumber(&self, index: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSerialNumber)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).SetSerialNumber)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Server(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Server)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Server)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<DataCollectorSetStatus> {
         let mut result__: DataCollectorSetStatus = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Status)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorSetStatus>(result__)
+        (::windows::core::Interface::vtable(self).Status)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorSetStatus>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Subdirectory(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Subdirectory)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Subdirectory)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubdirectory<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, folder: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubdirectory)(::core::mem::transmute_copy(self), folder.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSubdirectory)(::windows::core::Interface::as_raw(self), folder.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SubdirectoryFormat(&self) -> ::windows::core::Result<AutoPathFormat> {
         let mut result__: AutoPathFormat = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SubdirectoryFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
+        (::windows::core::Interface::vtable(self).SubdirectoryFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubdirectoryFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).SetSubdirectoryFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SubdirectoryFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SubdirectoryFormatPattern)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SubdirectoryFormatPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSubdirectoryFormatPattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pattern: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSubdirectoryFormatPattern)(::core::mem::transmute_copy(self), pattern.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSubdirectoryFormatPattern)(::windows::core::Interface::as_raw(self), pattern.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Task(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Task)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Task)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTask<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, task: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTask)(::core::mem::transmute_copy(self), task.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTask)(::windows::core::Interface::as_raw(self), task.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn TaskRunAsSelf(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TaskRunAsSelf)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).TaskRunAsSelf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTaskRunAsSelf(&self, runasself: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskRunAsSelf)(::core::mem::transmute_copy(self), ::core::mem::transmute(runasself)).ok()
+        (::windows::core::Interface::vtable(self).SetTaskRunAsSelf)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(runasself)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskArguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TaskArguments)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TaskArguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTaskArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, task: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskArguments)(::core::mem::transmute_copy(self), task.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTaskArguments)(::windows::core::Interface::as_raw(self), task.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn TaskUserTextArguments(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TaskUserTextArguments)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).TaskUserTextArguments)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTaskUserTextArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, usertext: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTaskUserTextArguments)(::core::mem::transmute_copy(self), usertext.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetTaskUserTextArguments)(::windows::core::Interface::as_raw(self), usertext.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Schedules(&self) -> ::windows::core::Result<IScheduleCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Schedules)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IScheduleCollection>(result__)
+        (::windows::core::Interface::vtable(self).Schedules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IScheduleCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SchedulesEnabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SchedulesEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).SchedulesEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSchedulesEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSchedulesEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetSchedulesEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn UserAccount(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UserAccount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).UserAccount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Security(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Security)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Security)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsecurity: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::core::mem::transmute_copy(self), bstrsecurity.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), bstrsecurity.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn StopOnCompletion(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StopOnCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).StopOnCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetStopOnCompletion(&self, stop: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStopOnCompletion)(::core::mem::transmute_copy(self), ::core::mem::transmute(stop)).ok()
+        (::windows::core::Interface::vtable(self).SetStopOnCompletion)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stop)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataManager(&self) -> ::windows::core::Result<IDataManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataManager)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataManager>(result__)
+        (::windows::core::Interface::vtable(self).DataManager)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataManager>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetCredentials<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, user: Param0, password: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCredentials)(::core::mem::transmute_copy(self), user.into_param().abi(), password.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetCredentials)(::windows::core::Interface::as_raw(self), user.into_param().abi(), password.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Query<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, server: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Query)(::core::mem::transmute_copy(self), name.into_param().abi(), server.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Query)(::windows::core::Interface::as_raw(self), name.into_param().abi(), server.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Commit<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0, server: Param1, mode: CommitMode) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Commit)(::core::mem::transmute_copy(self), name.into_param().abi(), server.into_param().abi(), ::core::mem::transmute(mode), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).Commit)(::windows::core::Interface::as_raw(self), name.into_param().abi(), server.into_param().abi(), ::core::mem::transmute(mode), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Delete(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Delete)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Delete)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Start(&self, synchronous: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Start)(::core::mem::transmute_copy(self), ::core::mem::transmute(synchronous)).ok()
+        (::windows::core::Interface::vtable(self).Start)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(synchronous)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Stop(&self, synchronous: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Stop)(::core::mem::transmute_copy(self), ::core::mem::transmute(synchronous)).ok()
+        (::windows::core::Interface::vtable(self).Stop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(synchronous)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, xml: Param0) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SetXml)(::core::mem::transmute_copy(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).SetXml)(::windows::core::Interface::as_raw(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, key: Param0, value: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::core::mem::transmute_copy(self), key.into_param().abi(), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), key.into_param().abi(), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetValue<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, key: Param0) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetValue)(::core::mem::transmute_copy(self), key.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), key.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3314,42 +3314,42 @@ impl IDataCollectorSetCollection {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorSet>>(&self, set: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), set.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), set.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, set: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), set.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), set.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorSetCollection>>(&self, sets: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRange)(::core::mem::transmute_copy(self), sets.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddRange)(::windows::core::Interface::as_raw(self), sets.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDataCollectorSets<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, server: Param0, filter: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetDataCollectorSets)(::core::mem::transmute_copy(self), server.into_param().abi(), filter.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetDataCollectorSets)(::windows::core::Interface::as_raw(self), server.into_param().abi(), filter.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3463,128 +3463,128 @@ impl IDataManager {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Enabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnabled(&self, fenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(fenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn CheckBeforeRunning(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CheckBeforeRunning)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).CheckBeforeRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetCheckBeforeRunning(&self, fcheck: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetCheckBeforeRunning)(::core::mem::transmute_copy(self), ::core::mem::transmute(fcheck)).ok()
+        (::windows::core::Interface::vtable(self).SetCheckBeforeRunning)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fcheck)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinFreeDisk(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinFreeDisk)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MinFreeDisk)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinFreeDisk(&self, minfreedisk: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinFreeDisk)(::core::mem::transmute_copy(self), ::core::mem::transmute(minfreedisk)).ok()
+        (::windows::core::Interface::vtable(self).SetMinFreeDisk)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(minfreedisk)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaxSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MaxSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaxSize(&self, ulmaxsize: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulmaxsize)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulmaxsize)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaxFolderCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaxFolderCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MaxFolderCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaxFolderCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulmaxfoldercount)).ok()
+        (::windows::core::Interface::vtable(self).SetMaxFolderCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulmaxfoldercount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ResourcePolicy(&self) -> ::windows::core::Result<ResourcePolicy> {
         let mut result__: ResourcePolicy = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ResourcePolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ResourcePolicy>(result__)
+        (::windows::core::Interface::vtable(self).ResourcePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ResourcePolicy>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetResourcePolicy(&self, policy: ResourcePolicy) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetResourcePolicy)(::core::mem::transmute_copy(self), ::core::mem::transmute(policy)).ok()
+        (::windows::core::Interface::vtable(self).SetResourcePolicy)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(policy)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FolderActions(&self) -> ::windows::core::Result<IFolderActionCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FolderActions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFolderActionCollection>(result__)
+        (::windows::core::Interface::vtable(self).FolderActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFolderActionCollection>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReportSchema(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReportSchema)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ReportSchema)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReportSchema<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, reportschema: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportSchema)(::core::mem::transmute_copy(self), reportschema.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetReportSchema)(::windows::core::Interface::as_raw(self), reportschema.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn ReportFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReportFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).ReportFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetReportFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pbstrfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportFileName)(::core::mem::transmute_copy(self), pbstrfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetReportFileName)(::windows::core::Interface::as_raw(self), pbstrfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RuleTargetFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RuleTargetFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).RuleTargetFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRuleTargetFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, filename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRuleTargetFileName)(::core::mem::transmute_copy(self), filename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRuleTargetFileName)(::windows::core::Interface::as_raw(self), filename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn EventsFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EventsFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).EventsFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetEventsFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pbstrfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventsFileName)(::core::mem::transmute_copy(self), pbstrfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEventsFileName)(::windows::core::Interface::as_raw(self), pbstrfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Rules(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Rules)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Rules)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetRules<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrxml: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRules)(::core::mem::transmute_copy(self), bstrxml.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetRules)(::windows::core::Interface::as_raw(self), bstrxml.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Run<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, steps: DataManagerSteps, bstrfolder: Param1) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Run)(::core::mem::transmute_copy(self), ::core::mem::transmute(steps), bstrfolder.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).Run)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(steps), bstrfolder.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Extract<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, cabfilename: Param0, destinationpath: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Extract)(::core::mem::transmute_copy(self), cabfilename.into_param().abi(), destinationpath.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Extract)(::windows::core::Interface::as_raw(self), cabfilename.into_param().abi(), destinationpath.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3739,40 +3739,40 @@ impl IFolderAction {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Age(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Age)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Age)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetAge(&self, ulage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAge)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulage)).ok()
+        (::windows::core::Interface::vtable(self).SetAge)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulage)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Size(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Size)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Size)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSize(&self, ulage: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(ulage)).ok()
+        (::windows::core::Interface::vtable(self).SetSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ulage)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Actions(&self) -> ::windows::core::Result<FolderActionSteps> {
         let mut result__: FolderActionSteps = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Actions)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FolderActionSteps>(result__)
+        (::windows::core::Interface::vtable(self).Actions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FolderActionSteps>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetActions(&self, steps: FolderActionSteps) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetActions)(::core::mem::transmute_copy(self), ::core::mem::transmute(steps)).ok()
+        (::windows::core::Interface::vtable(self).SetActions)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(steps)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SendCabTo(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SendCabTo)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SendCabTo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSendCabTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrdestination: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSendCabTo)(::core::mem::transmute_copy(self), bstrdestination.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSendCabTo)(::windows::core::Interface::as_raw(self), bstrdestination.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3877,43 +3877,43 @@ impl IFolderActionCollection {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<IFolderAction> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFolderAction>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IFolderAction>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IFolderAction>>(&self, action: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), action.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), action.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), index.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<'a, Param0: ::windows::core::IntoParam<'a, IFolderActionCollection>>(&self, actions: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRange)(::core::mem::transmute_copy(self), actions.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddRange)(::windows::core::Interface::as_raw(self), actions.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateFolderAction(&self) -> ::windows::core::Result<IFolderAction> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateFolderAction)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IFolderAction>(result__)
+        (::windows::core::Interface::vtable(self).CreateFolderAction)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IFolderAction>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4026,7 +4026,7 @@ impl ILogFileItem {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 impl ::core::convert::From<ILogFileItem> for ::windows::core::IUnknown {
@@ -4087,29 +4087,29 @@ impl ILogFiles {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<DILogFileItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DILogFileItem>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DILogFileItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pathname: Param0) -> ::windows::core::Result<DILogFileItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), pathname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DILogFileItem>(result__)
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), pathname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DILogFileItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), index.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), index.into_param().abi()).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4215,179 +4215,179 @@ impl IPerformanceCounterDataCollector {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorSet>>(&self, group: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::core::mem::transmute_copy(self), group.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::windows::core::Interface::as_raw(self), group.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataCollectorType(&self) -> ::windows::core::Result<DataCollectorType> {
         let mut result__: DataCollectorType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileNameFormat(&self) -> ::windows::core::Result<AutoPathFormat> {
         let mut result__: AutoPathFormat = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileNameFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileNameFormatPattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pattern: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::core::mem::transmute_copy(self), pattern.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::windows::core::Interface::as_raw(self), pattern.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLatestOutputLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogAppend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Index(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Index)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Index)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, xml: Param0) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetXml)(::core::mem::transmute_copy(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetXml)(::windows::core::Interface::as_raw(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DataSourceName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataSourceName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DataSourceName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDataSourceName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, dsn: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataSourceName)(::core::mem::transmute_copy(self), dsn.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDataSourceName)(::windows::core::Interface::as_raw(self), dsn.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn PerformanceCounters(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PerformanceCounters)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).PerformanceCounters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPerformanceCounters(&self, counters: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPerformanceCounters)(::core::mem::transmute_copy(self), ::core::mem::transmute(counters)).ok()
+        (::windows::core::Interface::vtable(self).SetPerformanceCounters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(counters)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogFileFormat(&self) -> ::windows::core::Result<FileFormat> {
         let mut result__: FileFormat = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogFileFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<FileFormat>(result__)
+        (::windows::core::Interface::vtable(self).LogFileFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<FileFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogFileFormat(&self, format: FileFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogFileFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).SetLogFileFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SampleInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SampleInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SampleInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSampleInterval(&self, interval: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSampleInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(interval)).ok()
+        (::windows::core::Interface::vtable(self).SetSampleInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(interval)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SegmentMaxRecords(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SegmentMaxRecords)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SegmentMaxRecords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSegmentMaxRecords(&self, records: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSegmentMaxRecords)(::core::mem::transmute_copy(self), ::core::mem::transmute(records)).ok()
+        (::windows::core::Interface::vtable(self).SetSegmentMaxRecords)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(records)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4525,43 +4525,43 @@ impl ISchedule {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn StartDate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).StartDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetStartDate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartDate)(::core::mem::transmute_copy(self), start.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStartDate)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn EndDate(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EndDate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).EndDate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetEndDate<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, end: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEndDate)(::core::mem::transmute_copy(self), end.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetEndDate)(::windows::core::Interface::as_raw(self), end.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn StartTime(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).StartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetStartTime<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, start: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStartTime)(::core::mem::transmute_copy(self), start.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetStartTime)(::windows::core::Interface::as_raw(self), start.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Days(&self) -> ::windows::core::Result<WeekDays> {
         let mut result__: WeekDays = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Days)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<WeekDays>(result__)
+        (::windows::core::Interface::vtable(self).Days)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<WeekDays>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDays(&self, days: WeekDays) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDays)(::core::mem::transmute_copy(self), ::core::mem::transmute(days)).ok()
+        (::windows::core::Interface::vtable(self).SetDays)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(days)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4678,43 +4678,43 @@ impl IScheduleCollection {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<ISchedule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISchedule>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ISchedule>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, ISchedule>>(&self, pschedule: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), pschedule.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), pschedule.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vschedule: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), vschedule.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), vschedule.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<'a, Param0: ::windows::core::IntoParam<'a, IScheduleCollection>>(&self, pschedules: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRange)(::core::mem::transmute_copy(self), pschedules.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddRange)(::windows::core::Interface::as_raw(self), pschedules.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateSchedule(&self) -> ::windows::core::Result<ISchedule> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateSchedule)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchedule>(result__)
+        (::windows::core::Interface::vtable(self).CreateSchedule)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ISchedule>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -4826,357 +4826,357 @@ impl ISystemMonitor {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Appearance(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Appearance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Appearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetAppearance(&self, iappearance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppearance)(::core::mem::transmute_copy(self), ::core::mem::transmute(iappearance)).ok()
+        (::windows::core::Interface::vtable(self).SetAppearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iappearance)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BackColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetBackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BorderStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BorderStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).BorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBorderStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(iborderstyle)).ok()
+        (::windows::core::Interface::vtable(self).SetBorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iborderstyle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ForeColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ForeColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetForeColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Font(&self) -> ::windows::core::Result<super::Ole::IFontDisp> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Font)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Ole::IFontDisp>(result__)
+        (::windows::core::Interface::vtable(self).Font)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Ole::IFontDisp>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_Font<'a, Param0: ::windows::core::IntoParam<'a, super::Ole::IFontDisp>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Font)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).putref_Font)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Counters(&self) -> ::windows::core::Result<ICounters> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Counters)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ICounters>(result__)
+        (::windows::core::Interface::vtable(self).Counters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ICounters>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowVerticalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowVerticalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowVerticalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowHorizontalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowHorizontalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowHorizontalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowLegend(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowLegend)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowLegend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowLegend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowScaleLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowScaleLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowScaleLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowValueBar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowValueBar)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowValueBar(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowValueBar)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaximumScale(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaximumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinimumScale(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinimumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpdateInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(fvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetUpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateInterval(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UpdateInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).UpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayType)(::core::mem::transmute_copy(self), ::core::mem::transmute(edisplaytype)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
         let mut result__: DisplayTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisplayType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DisplayTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).DisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DisplayTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetManualUpdate(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManualUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ManualUpdate(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ManualUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGraphTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGraphTitle)(::core::mem::transmute_copy(self), bstitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGraphTitle)(::windows::core::Interface::as_raw(self), bstitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GraphTitle(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GraphTitle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GraphTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetYAxisLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetYAxisLabel)(::core::mem::transmute_copy(self), bstitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetYAxisLabel)(::windows::core::Interface::as_raw(self), bstitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn YAxisLabel(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).YAxisLabel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).YAxisLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn CollectSample(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CollectSample)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CollectSample)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateGraph(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateGraph)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UpdateGraph)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BrowseCounters(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BrowseCounters)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).BrowseCounters)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayProperties(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayProperties)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DisplayProperties)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Counter)(::core::mem::transmute_copy(self), ::core::mem::transmute(iindex), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).Counter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddCounter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bspath: Param0) -> ::windows::core::Result<ICounterItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AddCounter)(::core::mem::transmute_copy(self), bspath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).AddCounter)(::windows::core::Interface::as_raw(self), bspath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DeleteCounter<'a, Param0: ::windows::core::IntoParam<'a, ICounterItem>>(&self, pctr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteCounter)(::core::mem::transmute_copy(self), pctr.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteCounter)(::windows::core::Interface::as_raw(self), pctr.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColorCtl(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BackColorCtl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackColorCtl)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetBackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bsfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogFileName)(::core::mem::transmute_copy(self), bsfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLogFileName)(::windows::core::Interface::as_raw(self), bsfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LogFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStart(&self, starttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogViewStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewStop)(::core::mem::transmute_copy(self), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStop(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogViewStop)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GridColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GridColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetGridColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGridColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetGridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn TimeBarColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TimeBarColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).TimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTimeBarColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetTimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Highlight(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Highlight)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Highlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetHighlight(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighlight)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetHighlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowToolbar(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowToolbar)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowToolbar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowToolbar)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Paste)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Paste)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Copy)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReadOnly(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReadOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReadOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportValueType)(::core::mem::transmute_copy(self), ::core::mem::transmute(ereportvaluetype)).ok()
+        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
         let mut result__: ReportValueTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReportValueType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ReportValueTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).ReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ReportValueTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMonitorDuplicateInstances)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MonitorDuplicateInstances)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).MonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayFilter(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisplayFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LogFiles(&self) -> ::windows::core::Result<ILogFiles> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogFiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ILogFiles>(result__)
+        (::windows::core::Interface::vtable(self).LogFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ILogFiles>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataSourceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(edatasourcetype)).ok()
+        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
         let mut result__: DataSourceTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataSourceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataSourceTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).DataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataSourceTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSqlDsnName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bssqldsnname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSqlDsnName)(::core::mem::transmute_copy(self), bssqldsnname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSqlDsnName)(::windows::core::Interface::as_raw(self), bssqldsnname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SqlDsnName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SqlDsnName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SqlDsnName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSqlLogSetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bssqllogsetname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSqlLogSetName)(::core::mem::transmute_copy(self), bssqllogsetname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSqlLogSetName)(::windows::core::Interface::as_raw(self), bssqllogsetname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SqlLogSetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SqlLogSetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SqlLogSetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
 }
 impl ::core::convert::From<ISystemMonitor> for ::windows::core::IUnknown {
@@ -5352,447 +5352,447 @@ impl ISystemMonitor2 {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Appearance(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Appearance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Appearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetAppearance(&self, iappearance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetAppearance)(::core::mem::transmute_copy(self), ::core::mem::transmute(iappearance)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetAppearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iappearance)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.BackColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.BackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBackColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BorderStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.BorderStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.BorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBorderStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(iborderstyle)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iborderstyle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ForeColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ForeColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.ForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetForeColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Font(&self) -> ::windows::core::Result<super::Ole::IFontDisp> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Font)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Ole::IFontDisp>(result__)
+        (::windows::core::Interface::vtable(self).base__.Font)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Ole::IFontDisp>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_Font<'a, Param0: ::windows::core::IntoParam<'a, super::Ole::IFontDisp>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.putref_Font)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.putref_Font)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Counters(&self) -> ::windows::core::Result<ICounters> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Counters)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ICounters>(result__)
+        (::windows::core::Interface::vtable(self).base__.Counters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ICounters>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowVerticalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowVerticalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ShowVerticalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.ShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowHorizontalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowHorizontalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ShowHorizontalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.ShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowLegend(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowLegend)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowLegend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ShowLegend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.ShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowScaleLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowScaleLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ShowScaleLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.ShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowValueBar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowValueBar)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowValueBar(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ShowValueBar)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.ShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMaximumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaximumScale(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MaximumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMinimumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinimumScale(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MinimumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.MinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetUpdateInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(fvalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetUpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateInterval(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.UpdateInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).base__.UpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayType)(::core::mem::transmute_copy(self), ::core::mem::transmute(edisplaytype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
         let mut result__: DisplayTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DisplayType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DisplayTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).base__.DisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DisplayTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetManualUpdate(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetManualUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ManualUpdate(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ManualUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.ManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGraphTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetGraphTitle)(::core::mem::transmute_copy(self), bstitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetGraphTitle)(::windows::core::Interface::as_raw(self), bstitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GraphTitle(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GraphTitle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.GraphTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetYAxisLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetYAxisLabel)(::core::mem::transmute_copy(self), bstitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetYAxisLabel)(::windows::core::Interface::as_raw(self), bstitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn YAxisLabel(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.YAxisLabel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.YAxisLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn CollectSample(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.CollectSample)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.CollectSample)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateGraph(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.UpdateGraph)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.UpdateGraph)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BrowseCounters(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.BrowseCounters)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.BrowseCounters)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayProperties(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DisplayProperties)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.DisplayProperties)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Counter)(::core::mem::transmute_copy(self), ::core::mem::transmute(iindex), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).base__.Counter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddCounter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bspath: Param0) -> ::windows::core::Result<ICounterItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.AddCounter)(::core::mem::transmute_copy(self), bspath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).base__.AddCounter)(::windows::core::Interface::as_raw(self), bspath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DeleteCounter<'a, Param0: ::windows::core::IntoParam<'a, ICounterItem>>(&self, pctr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.DeleteCounter)(::core::mem::transmute_copy(self), pctr.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.DeleteCounter)(::windows::core::Interface::as_raw(self), pctr.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColorCtl(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.BackColorCtl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.BackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetBackColorCtl)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetBackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bsfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogFileName)(::core::mem::transmute_copy(self), bsfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogFileName)(::windows::core::Interface::as_raw(self), bsfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStart(&self, starttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogViewStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogViewStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogViewStop)(::core::mem::transmute_copy(self), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStop(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogViewStop)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GridColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.GridColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.GridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetGridColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetGridColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetGridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn TimeBarColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.TimeBarColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).base__.TimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetTimeBarColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetTimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Highlight(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Highlight)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.Highlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetHighlight(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetHighlight)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetHighlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowToolbar(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ShowToolbar)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.ShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowToolbar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetShowToolbar)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Paste)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Paste)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Copy)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Copy)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).base__.Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReadOnly(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReadOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReadOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetReportValueType)(::core::mem::transmute_copy(self), ::core::mem::transmute(ereportvaluetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
         let mut result__: ReportValueTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.ReportValueType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ReportValueTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).base__.ReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ReportValueTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetMonitorDuplicateInstances)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.MonitorDuplicateInstances)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.MonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDisplayFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayFilter(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DisplayFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.DisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LogFiles(&self) -> ::windows::core::Result<ILogFiles> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogFiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ILogFiles>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ILogFiles>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDataSourceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(edatasourcetype)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
         let mut result__: DataSourceTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataSourceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataSourceTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataSourceTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSqlDsnName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bssqldsnname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSqlDsnName)(::core::mem::transmute_copy(self), bssqldsnname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSqlDsnName)(::windows::core::Interface::as_raw(self), bssqldsnname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SqlDsnName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SqlDsnName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.SqlDsnName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSqlLogSetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bssqllogsetname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetSqlLogSetName)(::core::mem::transmute_copy(self), bssqllogsetname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetSqlLogSetName)(::windows::core::Interface::as_raw(self), bssqllogsetname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SqlLogSetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SqlLogSetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.SqlLogSetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnableDigitGrouping(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableDigitGrouping)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableDigitGrouping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EnableDigitGrouping(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnableDigitGrouping)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).EnableDigitGrouping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnableToolTips(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableToolTips)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableToolTips)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EnableToolTips(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnableToolTips)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).EnableToolTips)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowTimeAxisLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowTimeAxisLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowTimeAxisLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowTimeAxisLabels(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowTimeAxisLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowTimeAxisLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetChartScroll(&self, bscroll: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChartScroll)(::core::mem::transmute_copy(self), ::core::mem::transmute(bscroll)).ok()
+        (::windows::core::Interface::vtable(self).SetChartScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bscroll)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ChartScroll(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ChartScroll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ChartScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataPointCount(&self, inewcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataPointCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(inewcount)).ok()
+        (::windows::core::Interface::vtable(self).SetDataPointCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inewcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataPointCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataPointCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DataPointCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleToFit(&self, bselectedcountersonly: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScaleToFit)(::core::mem::transmute_copy(self), ::core::mem::transmute(bselectedcountersonly)).ok()
+        (::windows::core::Interface::vtable(self).ScaleToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bselectedcountersonly)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SaveAs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfilename: Param0, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveAs)(::core::mem::transmute_copy(self), bstrfilename.into_param().abi(), ::core::mem::transmute(esysmonfiletype)).ok()
+        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), ::core::mem::transmute(esysmonfiletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Relog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfilename: Param0, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Relog)(::core::mem::transmute_copy(self), bstrfilename.into_param().abi(), ::core::mem::transmute(esysmonfiletype), ::core::mem::transmute(ifilter)).ok()
+        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), ::core::mem::transmute(esysmonfiletype), ::core::mem::transmute(ifilter)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ClearData(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClearData)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ClearData)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogSourceStartTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogSourceStartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LogSourceStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogSourceStopTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogSourceStopTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LogSourceStopTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLogViewRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).GetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BatchingLock)(::core::mem::transmute_copy(self), ::core::mem::transmute(flock), ::core::mem::transmute(ebatchreason)).ok()
+        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flock), ::core::mem::transmute(ebatchreason)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsettingfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadSettings)(::core::mem::transmute_copy(self), bstrsettingfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).LoadSettings)(::windows::core::Interface::as_raw(self), bstrsettingfilename.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<ISystemMonitor2> for ::windows::core::IUnknown {
@@ -5895,23 +5895,23 @@ pub struct ISystemMonitorEvents(::windows::core::IUnknown);
 impl ISystemMonitorEvents {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnCounterSelected(&self, index: i32) {
-        (::windows::core::Interface::vtable(self).OnCounterSelected)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
+        (::windows::core::Interface::vtable(self).OnCounterSelected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index))
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnCounterAdded(&self, index: i32) {
-        (::windows::core::Interface::vtable(self).OnCounterAdded)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
+        (::windows::core::Interface::vtable(self).OnCounterAdded)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index))
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnCounterDeleted(&self, index: i32) {
-        (::windows::core::Interface::vtable(self).OnCounterDeleted)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
+        (::windows::core::Interface::vtable(self).OnCounterDeleted)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index))
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnSampleCollected(&self) {
-        (::windows::core::Interface::vtable(self).OnSampleCollected)(::core::mem::transmute_copy(self))
+        (::windows::core::Interface::vtable(self).OnSampleCollected)(::windows::core::Interface::as_raw(self))
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn OnDblClick(&self, index: i32) {
-        (::windows::core::Interface::vtable(self).OnDblClick)(::core::mem::transmute_copy(self), ::core::mem::transmute(index))
+        (::windows::core::Interface::vtable(self).OnDblClick)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index))
     }
 }
 impl ::core::convert::From<ISystemMonitorEvents> for ::windows::core::IUnknown {
@@ -5974,314 +5974,314 @@ impl ITraceDataCollector {
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DataCollectorSet(&self) -> ::windows::core::Result<IDataCollectorSet> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorSet)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IDataCollectorSet>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetDataCollectorSet<'a, Param0: ::windows::core::IntoParam<'a, IDataCollectorSet>>(&self, group: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::core::mem::transmute_copy(self), group.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetDataCollectorSet)(::windows::core::Interface::as_raw(self), group.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataCollectorType(&self) -> ::windows::core::Result<DataCollectorType> {
         let mut result__: DataCollectorType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
+        (::windows::core::Interface::vtable(self).base__.DataCollectorType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataCollectorType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FileNameFormat(&self) -> ::windows::core::Result<AutoPathFormat> {
         let mut result__: AutoPathFormat = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<AutoPathFormat>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(format)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(format)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FileNameFormatPattern(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.FileNameFormatPattern)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetFileNameFormatPattern<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, pattern: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::core::mem::transmute_copy(self), pattern.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetFileNameFormatPattern)(::windows::core::Interface::as_raw(self), pattern.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LatestOutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.LatestOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLatestOutputLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, path: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::core::mem::transmute_copy(self), path.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLatestOutputLocation)(::windows::core::Interface::as_raw(self), path.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogAppend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogAppend(&self, append: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::core::mem::transmute_copy(self), ::core::mem::transmute(append)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogAppend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(append)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogCircular(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogCircular(&self, circular: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::core::mem::transmute_copy(self), ::core::mem::transmute(circular)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogCircular)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(circular)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogOverwrite(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).base__.LogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogOverwrite(&self, overwrite: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::core::mem::transmute_copy(self), ::core::mem::transmute(overwrite)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetLogOverwrite)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(overwrite)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Name(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Name)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Name)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.SetName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OutputLocation(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.OutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Index(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Index)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).base__.Index)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetIndex(&self, index: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.SetIndex)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)).ok()
+        (::windows::core::Interface::vtable(self).base__.SetIndex)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(index)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Xml(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.Xml)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.Xml)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SetXml<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, xml: Param0) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.SetXml)(::core::mem::transmute_copy(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).base__.SetXml)(::windows::core::Interface::as_raw(self), xml.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateOutputLocation(&self, latest: i16) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::core::mem::transmute_copy(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).base__.CreateOutputLocation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(latest), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BufferSize(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BufferSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BufferSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBufferSize(&self, size: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBufferSize)(::core::mem::transmute_copy(self), ::core::mem::transmute(size)).ok()
+        (::windows::core::Interface::vtable(self).SetBufferSize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(size)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BuffersLost(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BuffersLost)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BuffersLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBuffersLost(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBuffersLost)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetBuffersLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BuffersWritten(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BuffersWritten)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BuffersWritten)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBuffersWritten(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBuffersWritten)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetBuffersWritten)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ClockType(&self) -> ::windows::core::Result<ClockType> {
         let mut result__: ClockType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ClockType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ClockType>(result__)
+        (::windows::core::Interface::vtable(self).ClockType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ClockType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetClockType(&self, clock: ClockType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetClockType)(::core::mem::transmute_copy(self), ::core::mem::transmute(clock)).ok()
+        (::windows::core::Interface::vtable(self).SetClockType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(clock)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EventsLost(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EventsLost)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).EventsLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEventsLost(&self, events: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEventsLost)(::core::mem::transmute_copy(self), ::core::mem::transmute(events)).ok()
+        (::windows::core::Interface::vtable(self).SetEventsLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(events)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ExtendedModes(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ExtendedModes)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ExtendedModes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetExtendedModes(&self, mode: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetExtendedModes)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetExtendedModes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FlushTimer(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FlushTimer)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FlushTimer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFlushTimer(&self, seconds: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFlushTimer)(::core::mem::transmute_copy(self), ::core::mem::transmute(seconds)).ok()
+        (::windows::core::Interface::vtable(self).SetFlushTimer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(seconds)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FreeBuffers(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FreeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FreeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFreeBuffers(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFreeBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetFreeBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Guid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).Guid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGuid)(::core::mem::transmute_copy(self), guid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGuid)(::windows::core::Interface::as_raw(self), guid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn IsKernelTrace(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsKernelTrace)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).IsKernelTrace)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaximumBuffers(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaximumBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MaximumBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaximumBuffers(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetMaximumBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinimumBuffers(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinimumBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).MinimumBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinimumBuffers(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn NumberOfBuffers(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).NumberOfBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).NumberOfBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetNumberOfBuffers(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetNumberOfBuffers)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetNumberOfBuffers)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn PreallocateFile(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).PreallocateFile)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).PreallocateFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetPreallocateFile(&self, allocate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetPreallocateFile)(::core::mem::transmute_copy(self), ::core::mem::transmute(allocate)).ok()
+        (::windows::core::Interface::vtable(self).SetPreallocateFile)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(allocate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ProcessMode(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ProcessMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ProcessMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetProcessMode(&self, process: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetProcessMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(process)).ok()
+        (::windows::core::Interface::vtable(self).SetProcessMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(process)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn RealTimeBuffersLost(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).RealTimeBuffersLost)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).RealTimeBuffersLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetRealTimeBuffersLost(&self, buffers: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetRealTimeBuffersLost)(::core::mem::transmute_copy(self), ::core::mem::transmute(buffers)).ok()
+        (::windows::core::Interface::vtable(self).SetRealTimeBuffersLost)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(buffers)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SessionId(&self) -> ::windows::core::Result<u64> {
         let mut result__: u64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SessionId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        (::windows::core::Interface::vtable(self).SessionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSessionId(&self, id: u64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSessionId)(::core::mem::transmute_copy(self), ::core::mem::transmute(id)).ok()
+        (::windows::core::Interface::vtable(self).SetSessionId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(id)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SessionName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SessionName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SessionName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSessionName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSessionName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSessionName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SessionThreadId(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SessionThreadId)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).SessionThreadId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSessionThreadId(&self, tid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSessionThreadId)(::core::mem::transmute_copy(self), ::core::mem::transmute(tid)).ok()
+        (::windows::core::Interface::vtable(self).SetSessionThreadId)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(tid)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn StreamMode(&self) -> ::windows::core::Result<StreamMode> {
         let mut result__: StreamMode = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).StreamMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<StreamMode>(result__)
+        (::windows::core::Interface::vtable(self).StreamMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<StreamMode>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetStreamMode(&self, mode: StreamMode) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetStreamMode)(::core::mem::transmute_copy(self), ::core::mem::transmute(mode)).ok()
+        (::windows::core::Interface::vtable(self).SetStreamMode)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(mode)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TraceDataProviders(&self) -> ::windows::core::Result<ITraceDataProviderCollection> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TraceDataProviders)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITraceDataProviderCollection>(result__)
+        (::windows::core::Interface::vtable(self).TraceDataProviders)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ITraceDataProviderCollection>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6446,101 +6446,101 @@ impl ITraceDataProvider {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn DisplayName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisplayName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).DisplayName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDisplayName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, name: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayName)(::core::mem::transmute_copy(self), name.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayName)(::windows::core::Interface::as_raw(self), name.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Guid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        (::windows::core::Interface::vtable(self).Guid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, guid: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGuid)(::core::mem::transmute_copy(self), guid.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGuid)(::windows::core::Interface::as_raw(self), guid.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Level(&self) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Level)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).Level)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn KeywordsAny(&self) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).KeywordsAny)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).KeywordsAny)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn KeywordsAll(&self) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).KeywordsAll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).KeywordsAll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Properties(&self) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Properties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).Properties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FilterEnabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FilterEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).FilterEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFilterEnabled(&self, filterenabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilterEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(filterenabled)).ok()
+        (::windows::core::Interface::vtable(self).SetFilterEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(filterenabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn FilterType(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).FilterType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetFilterType(&self, ultype: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilterType)(::core::mem::transmute_copy(self), ::core::mem::transmute(ultype)).ok()
+        (::windows::core::Interface::vtable(self).SetFilterType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ultype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FilterData(&self) -> ::windows::core::Result<*mut super::Com::SAFEARRAY> {
         let mut result__: *mut super::Com::SAFEARRAY = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).FilterData)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
+        (::windows::core::Interface::vtable(self).FilterData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::Com::SAFEARRAY>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetFilterData)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata)).ok()
+        (::windows::core::Interface::vtable(self).SetFilterData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Query<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, bstrserver: Param1) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Query)(::core::mem::transmute_copy(self), bstrname.into_param().abi(), bstrserver.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Query)(::windows::core::Interface::as_raw(self), bstrname.into_param().abi(), bstrserver.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Resolve<'a, Param0: ::windows::core::IntoParam<'a, super::Com::IDispatch>>(&self, pfrom: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Resolve)(::core::mem::transmute_copy(self), pfrom.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Resolve)(::windows::core::Interface::as_raw(self), pfrom.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, sddl: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSecurity)(::core::mem::transmute_copy(self), sddl.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSecurity)(::windows::core::Interface::as_raw(self), sddl.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSecurity(&self, securityinfo: u32) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetSecurity)(::core::mem::transmute_copy(self), ::core::mem::transmute(securityinfo), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetSecurity)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(securityinfo), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRegisteredProcesses(&self) -> ::windows::core::Result<IValueMap> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRegisteredProcesses)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
+        (::windows::core::Interface::vtable(self).GetRegisteredProcesses)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMap>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6689,53 +6689,53 @@ impl ITraceDataProviderCollection {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<ITraceDataProvider> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ITraceDataProvider>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ITraceDataProvider>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, ITraceDataProvider>>(&self, pprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), pprovider.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), pprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, vprovider: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), vprovider.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), vprovider.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<'a, Param0: ::windows::core::IntoParam<'a, ITraceDataProviderCollection>>(&self, providers: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRange)(::core::mem::transmute_copy(self), providers.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddRange)(::windows::core::Interface::as_raw(self), providers.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateTraceDataProvider(&self) -> ::windows::core::Result<ITraceDataProvider> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTraceDataProvider)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ITraceDataProvider>(result__)
+        (::windows::core::Interface::vtable(self).CreateTraceDataProvider)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ITraceDataProvider>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTraceDataProviders<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, server: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTraceDataProviders)(::core::mem::transmute_copy(self), server.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetTraceDataProviders)(::windows::core::Interface::as_raw(self), server.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTraceDataProvidersByProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, server: Param0, pid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetTraceDataProvidersByProcess)(::core::mem::transmute_copy(self), server.into_param().abi(), ::core::mem::transmute(pid)).ok()
+        (::windows::core::Interface::vtable(self).GetTraceDataProvidersByProcess)(::windows::core::Interface::as_raw(self), server.into_param().abi(), ::core::mem::transmute(pid)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6857,74 +6857,74 @@ impl IValueMap {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Count(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Count)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Count)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn get_Item<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, index: Param0) -> ::windows::core::Result<IValueMapItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).get_Item)(::core::mem::transmute_copy(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMapItem>(result__)
+        (::windows::core::Interface::vtable(self).get_Item)(::windows::core::Interface::as_raw(self), index.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IValueMapItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn _NewEnum(&self) -> ::windows::core::Result<::windows::core::IUnknown> {
         let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self)._NewEnum)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        (::windows::core::Interface::vtable(self)._NewEnum)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), description.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Value)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ValueMapType(&self) -> ::windows::core::Result<ValueMapType> {
         let mut result__: ValueMapType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ValueMapType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ValueMapType>(result__)
+        (::windows::core::Interface::vtable(self).ValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ValueMapType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueMapType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Add)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Add)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Remove)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).Remove)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Clear(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Clear)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Clear)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn AddRange<'a, Param0: ::windows::core::IntoParam<'a, IValueMap>>(&self, map: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddRange)(::core::mem::transmute_copy(self), map.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).AddRange)(::windows::core::Interface::as_raw(self), map.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateValueMapItem(&self) -> ::windows::core::Result<IValueMapItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateValueMapItem)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMapItem>(result__)
+        (::windows::core::Interface::vtable(self).CreateValueMapItem)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<IValueMapItem>(result__)
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -7057,52 +7057,52 @@ impl IValueMapItem {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Description(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Description)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Description)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetDescription<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, description: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), description.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetDescription)(::windows::core::Interface::as_raw(self), description.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Enabled(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Enabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Enabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnabled(&self, enabled: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnabled)(::core::mem::transmute_copy(self), ::core::mem::transmute(enabled)).ok()
+        (::windows::core::Interface::vtable(self).SetEnabled)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(enabled)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Key(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Key)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Key)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetKey<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, key: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetKey)(::core::mem::transmute_copy(self), key.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetKey)(::windows::core::Interface::as_raw(self), key.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Value(&self) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Value)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, super::Com::VARIANT>>(&self, value: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValue)(::core::mem::transmute_copy(self), value.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetValue)(::windows::core::Interface::as_raw(self), value.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ValueMapType(&self) -> ::windows::core::Result<ValueMapType> {
         let mut result__: ValueMapType = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ValueMapType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ValueMapType>(result__)
+        (::windows::core::Interface::vtable(self).ValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ValueMapType>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetValueMapType)(::core::mem::transmute_copy(self), ::core::mem::transmute(r#type)).ok()
+        (::windows::core::Interface::vtable(self).SetValueMapType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(r#type)).ok()
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -12341,81 +12341,81 @@ impl _ICounterItemUnion {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Value(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Value)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).Value)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Color(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Color)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).Color)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetWidth(&self, iwidth: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetWidth)(::core::mem::transmute_copy(self), ::core::mem::transmute(iwidth)).ok()
+        (::windows::core::Interface::vtable(self).SetWidth)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iwidth)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Width(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Width)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Width)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLineStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(ilinestyle)).ok()
+        (::windows::core::Interface::vtable(self).SetLineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ilinestyle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LineStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LineStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).LineStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetScaleFactor(&self, iscale: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetScaleFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(iscale)).ok()
+        (::windows::core::Interface::vtable(self).SetScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iscale)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleFactor(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ScaleFactor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).ScaleFactor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Path(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Path)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).Path)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetValue)(::core::mem::transmute_copy(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
+        (::windows::core::Interface::vtable(self).GetValue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(value), ::core::mem::transmute(status)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetStatistics)(::core::mem::transmute_copy(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
+        (::windows::core::Interface::vtable(self).GetStatistics)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(max), ::core::mem::transmute(min), ::core::mem::transmute(avg), ::core::mem::transmute(status)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetSelected(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSelected)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetSelected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Selected(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Selected)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Selected)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetVisible(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetVisible)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetVisible)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Visible(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Visible)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Visible)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> ::windows::core::Result<super::Com::VARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetDataAt)(::core::mem::transmute_copy(self), ::core::mem::transmute(iindex), ::core::mem::transmute(iwhich), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
+        (::windows::core::Interface::vtable(self).GetDataAt)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(iwhich), ::core::mem::transmute(&mut result__)).from_abi::<super::Com::VARIANT>(result__)
     }
 }
 impl ::core::convert::From<_ICounterItemUnion> for ::windows::core::IUnknown {
@@ -12493,447 +12493,447 @@ impl _ISystemMonitorUnion {
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Appearance(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Appearance)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).Appearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetAppearance(&self, iappearance: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAppearance)(::core::mem::transmute_copy(self), ::core::mem::transmute(iappearance)).ok()
+        (::windows::core::Interface::vtable(self).SetAppearance)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iappearance)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BackColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetBackColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BorderStyle(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BorderStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).BorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBorderStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(iborderstyle)).ok()
+        (::windows::core::Interface::vtable(self).SetBorderStyle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iborderstyle)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ForeColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ForeColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).ForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetForeColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetForeColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetForeColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Font(&self) -> ::windows::core::Result<super::Ole::IFontDisp> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Font)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Ole::IFontDisp>(result__)
+        (::windows::core::Interface::vtable(self).Font)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::Ole::IFontDisp>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`, `\"Win32_System_Ole\"`*"]
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn putref_Font<'a, Param0: ::windows::core::IntoParam<'a, super::Ole::IFontDisp>>(&self, pfont: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).putref_Font)(::core::mem::transmute_copy(self), pfont.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).putref_Font)(::windows::core::Interface::as_raw(self), pfont.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Counters(&self) -> ::windows::core::Result<ICounters> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Counters)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ICounters>(result__)
+        (::windows::core::Interface::vtable(self).Counters)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ICounters>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowVerticalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowVerticalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowVerticalGrid(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowVerticalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowVerticalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowHorizontalGrid(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowHorizontalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowHorizontalGrid(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowHorizontalGrid)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowHorizontalGrid)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowLegend(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowLegend)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowLegend(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowLegend)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowLegend)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowScaleLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowScaleLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowScaleLabels(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowScaleLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowScaleLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowValueBar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowValueBar)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowValueBar(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowValueBar)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowValueBar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMaximumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MaximumScale(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MaximumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MaximumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMinimumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetMinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MinimumScale(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MinimumScale)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).MinimumScale)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetUpdateInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(fvalue)).ok()
+        (::windows::core::Interface::vtable(self).SetUpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(fvalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateInterval(&self) -> ::windows::core::Result<f32> {
         let mut result__: f32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).UpdateInterval)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        (::windows::core::Interface::vtable(self).UpdateInterval)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayType)(::core::mem::transmute_copy(self), ::core::mem::transmute(edisplaytype)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edisplaytype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayType(&self) -> ::windows::core::Result<DisplayTypeConstants> {
         let mut result__: DisplayTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisplayType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DisplayTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).DisplayType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DisplayTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetManualUpdate(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetManualUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ManualUpdate(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ManualUpdate)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ManualUpdate)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetGraphTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGraphTitle)(::core::mem::transmute_copy(self), bstitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetGraphTitle)(::windows::core::Interface::as_raw(self), bstitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GraphTitle(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GraphTitle)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).GraphTitle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetYAxisLabel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstitle: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetYAxisLabel)(::core::mem::transmute_copy(self), bstitle.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetYAxisLabel)(::windows::core::Interface::as_raw(self), bstitle.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn YAxisLabel(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).YAxisLabel)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).YAxisLabel)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn CollectSample(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CollectSample)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).CollectSample)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn UpdateGraph(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UpdateGraph)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UpdateGraph)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BrowseCounters(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BrowseCounters)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).BrowseCounters)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayProperties(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DisplayProperties)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).DisplayProperties)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Counter(&self, iindex: i32) -> ::windows::core::Result<ICounterItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Counter)(::core::mem::transmute_copy(self), ::core::mem::transmute(iindex), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).Counter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(iindex), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddCounter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bspath: Param0) -> ::windows::core::Result<ICounterItem> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).AddCounter)(::core::mem::transmute_copy(self), bspath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
+        (::windows::core::Interface::vtable(self).AddCounter)(::windows::core::Interface::as_raw(self), bspath.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ICounterItem>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DeleteCounter<'a, Param0: ::windows::core::IntoParam<'a, ICounterItem>>(&self, pctr: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DeleteCounter)(::core::mem::transmute_copy(self), pctr.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).DeleteCounter)(::windows::core::Interface::as_raw(self), pctr.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BackColorCtl(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).BackColorCtl)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).BackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetBackColorCtl(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetBackColorCtl)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetBackColorCtl)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetLogFileName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bsfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogFileName)(::core::mem::transmute_copy(self), bsfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetLogFileName)(::windows::core::Interface::as_raw(self), bsfilename.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LogFileName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogFileName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).LogFileName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStart(&self, starttime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStart(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogViewStart)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LogViewStart)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewStop)(::core::mem::transmute_copy(self), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogViewStop(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogViewStop)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LogViewStop)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GridColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GridColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetGridColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetGridColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetGridColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn TimeBarColor(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).TimeBarColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).TimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetTimeBarColor(&self, color: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetTimeBarColor)(::core::mem::transmute_copy(self), ::core::mem::transmute(color)).ok()
+        (::windows::core::Interface::vtable(self).SetTimeBarColor)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(color)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Highlight(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).Highlight)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).Highlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetHighlight(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetHighlight)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetHighlight)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowToolbar(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowToolbar)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowToolbar(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowToolbar)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowToolbar)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Paste(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Paste)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Paste)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Copy(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Copy)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Copy)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReadOnly(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReadOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReadOnly(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReadOnly)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ReadOnly)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetReportValueType)(::core::mem::transmute_copy(self), ::core::mem::transmute(ereportvaluetype)).ok()
+        (::windows::core::Interface::vtable(self).SetReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ereportvaluetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ReportValueType(&self) -> ::windows::core::Result<ReportValueTypeConstants> {
         let mut result__: ReportValueTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ReportValueType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ReportValueTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).ReportValueType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ReportValueTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetMonitorDuplicateInstances)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetMonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn MonitorDuplicateInstances(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).MonitorDuplicateInstances)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).MonitorDuplicateInstances)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDisplayFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(ivalue)).ok()
+        (::windows::core::Interface::vtable(self).SetDisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ivalue)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DisplayFilter(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DisplayFilter)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DisplayFilter)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LogFiles(&self) -> ::windows::core::Result<ILogFiles> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogFiles)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ILogFiles>(result__)
+        (::windows::core::Interface::vtable(self).LogFiles)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<ILogFiles>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataSourceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(edatasourcetype)).ok()
+        (::windows::core::Interface::vtable(self).SetDataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(edatasourcetype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataSourceType(&self) -> ::windows::core::Result<DataSourceTypeConstants> {
         let mut result__: DataSourceTypeConstants = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataSourceType)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<DataSourceTypeConstants>(result__)
+        (::windows::core::Interface::vtable(self).DataSourceType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<DataSourceTypeConstants>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSqlDsnName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bssqldsnname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSqlDsnName)(::core::mem::transmute_copy(self), bssqldsnname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSqlDsnName)(::windows::core::Interface::as_raw(self), bssqldsnname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SqlDsnName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SqlDsnName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SqlDsnName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSqlLogSetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bssqllogsetname: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetSqlLogSetName)(::core::mem::transmute_copy(self), bssqllogsetname.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetSqlLogSetName)(::windows::core::Interface::as_raw(self), bssqllogsetname.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SqlLogSetName(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).SqlLogSetName)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
+        (::windows::core::Interface::vtable(self).SqlLogSetName)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnableDigitGrouping(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableDigitGrouping)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableDigitGrouping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EnableDigitGrouping(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnableDigitGrouping)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).EnableDigitGrouping)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetEnableToolTips(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetEnableToolTips)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetEnableToolTips)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn EnableToolTips(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).EnableToolTips)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).EnableToolTips)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetShowTimeAxisLabels(&self, bstate: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetShowTimeAxisLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(bstate)).ok()
+        (::windows::core::Interface::vtable(self).SetShowTimeAxisLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bstate)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ShowTimeAxisLabels(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ShowTimeAxisLabels)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ShowTimeAxisLabels)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetChartScroll(&self, bscroll: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetChartScroll)(::core::mem::transmute_copy(self), ::core::mem::transmute(bscroll)).ok()
+        (::windows::core::Interface::vtable(self).SetChartScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bscroll)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ChartScroll(&self) -> ::windows::core::Result<i16> {
         let mut result__: i16 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).ChartScroll)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
+        (::windows::core::Interface::vtable(self).ChartScroll)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i16>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetDataPointCount(&self, inewcount: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetDataPointCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(inewcount)).ok()
+        (::windows::core::Interface::vtable(self).SetDataPointCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(inewcount)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn DataPointCount(&self) -> ::windows::core::Result<i32> {
         let mut result__: i32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).DataPointCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
+        (::windows::core::Interface::vtable(self).DataPointCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i32>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ScaleToFit(&self, bselectedcountersonly: i16) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ScaleToFit)(::core::mem::transmute_copy(self), ::core::mem::transmute(bselectedcountersonly)).ok()
+        (::windows::core::Interface::vtable(self).ScaleToFit)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(bselectedcountersonly)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SaveAs<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfilename: Param0, esysmonfiletype: SysmonFileType) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SaveAs)(::core::mem::transmute_copy(self), bstrfilename.into_param().abi(), ::core::mem::transmute(esysmonfiletype)).ok()
+        (::windows::core::Interface::vtable(self).SaveAs)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), ::core::mem::transmute(esysmonfiletype)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Relog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrfilename: Param0, esysmonfiletype: SysmonFileType, ifilter: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Relog)(::core::mem::transmute_copy(self), bstrfilename.into_param().abi(), ::core::mem::transmute(esysmonfiletype), ::core::mem::transmute(ifilter)).ok()
+        (::windows::core::Interface::vtable(self).Relog)(::windows::core::Interface::as_raw(self), bstrfilename.into_param().abi(), ::core::mem::transmute(esysmonfiletype), ::core::mem::transmute(ifilter)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn ClearData(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ClearData)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).ClearData)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogSourceStartTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogSourceStartTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LogSourceStartTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn LogSourceStopTime(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).LogSourceStopTime)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
+        (::windows::core::Interface::vtable(self).LogSourceStopTime)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetLogViewRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).SetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetLogViewRange)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
+        (::windows::core::Interface::vtable(self).GetLogViewRange)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(starttime), ::core::mem::transmute(stoptime)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`*"]
     pub unsafe fn BatchingLock(&self, flock: i16, ebatchreason: SysmonBatchReason) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).BatchingLock)(::core::mem::transmute_copy(self), ::core::mem::transmute(flock), ::core::mem::transmute(ebatchreason)).ok()
+        (::windows::core::Interface::vtable(self).BatchingLock)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(flock), ::core::mem::transmute(ebatchreason)).ok()
     }
     #[doc = "*Required features: `\"Win32_System_Performance\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadSettings<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrsettingfilename: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LoadSettings)(::core::mem::transmute_copy(self), bstrsettingfilename.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).LoadSettings)(::windows::core::Interface::as_raw(self), bstrsettingfilename.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<_ISystemMonitorUnion> for ::windows::core::IUnknown {

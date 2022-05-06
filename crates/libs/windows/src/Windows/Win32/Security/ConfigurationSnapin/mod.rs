@@ -8,19 +8,19 @@ pub struct ISceSvcAttachmentData(::windows::core::IUnknown);
 impl ISceSvcAttachmentData {
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
     pub unsafe fn GetData(&self, scesvchandle: *mut ::core::ffi::c_void, scetype: SCESVC_INFO_TYPE, ppvdata: *mut *mut ::core::ffi::c_void, psceenumhandle: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetData)(::core::mem::transmute_copy(self), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(scetype), ::core::mem::transmute(ppvdata), ::core::mem::transmute(psceenumhandle)).ok()
+        (::windows::core::Interface::vtable(self).GetData)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(scetype), ::core::mem::transmute(ppvdata), ::core::mem::transmute(psceenumhandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
     pub unsafe fn Initialize<'a, Param2: ::windows::core::IntoParam<'a, ISceSvcAttachmentPersistInfo>>(&self, lpservicename: *mut i8, lptemplatename: *mut i8, lpscesvcpersistinfo: Param2, pscesvchandle: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lptemplatename), lpscesvcpersistinfo.into_param().abi(), ::core::mem::transmute(pscesvchandle)).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lpservicename), ::core::mem::transmute(lptemplatename), lpscesvcpersistinfo.into_param().abi(), ::core::mem::transmute(pscesvchandle)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
     pub unsafe fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata)).ok()
+        (::windows::core::Interface::vtable(self).FreeBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvdata)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
     pub unsafe fn CloseHandle(&self, scesvchandle: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).CloseHandle)(::core::mem::transmute_copy(self), ::core::mem::transmute(scesvchandle)).ok()
+        (::windows::core::Interface::vtable(self).CloseHandle)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(scesvchandle)).ok()
     }
 }
 impl ::core::convert::From<ISceSvcAttachmentData> for ::windows::core::IUnknown {
@@ -79,15 +79,15 @@ impl ISceSvcAttachmentPersistInfo {
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Save(&self, lptemplatename: *mut i8, scesvchandle: *mut *mut ::core::ffi::c_void, ppvdata: *mut *mut ::core::ffi::c_void, pboverwriteall: *mut super::super::Foundation::BOOL) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Save)(::core::mem::transmute_copy(self), ::core::mem::transmute(lptemplatename), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(ppvdata), ::core::mem::transmute(pboverwriteall)).ok()
+        (::windows::core::Interface::vtable(self).Save)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lptemplatename), ::core::mem::transmute(scesvchandle), ::core::mem::transmute(ppvdata), ::core::mem::transmute(pboverwriteall)).ok()
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
     pub unsafe fn IsDirty(&self, lptemplatename: *mut i8) -> ::windows::core::HRESULT {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::core::mem::transmute_copy(self), ::core::mem::transmute(lptemplatename)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).IsDirty)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(lptemplatename)))
     }
     #[doc = "*Required features: `\"Win32_Security_ConfigurationSnapin\"`*"]
     pub unsafe fn FreeBuffer(&self, pvdata: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).FreeBuffer)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvdata)).ok()
+        (::windows::core::Interface::vtable(self).FreeBuffer)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pvdata)).ok()
     }
 }
 impl ::core::convert::From<ISceSvcAttachmentPersistInfo> for ::windows::core::IUnknown {

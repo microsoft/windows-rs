@@ -12,14 +12,14 @@ impl HttpBufferContent {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateFromBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(content: Param0) -> ::windows::core::Result<HttpBufferContent> {
         Self::IHttpBufferContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::core::mem::transmute_copy(this), content.into_param().abi(), &mut result__).from_abi::<HttpBufferContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBuffer)(::windows::core::Interface::as_raw(this), content.into_param().abi(), &mut result__).from_abi::<HttpBufferContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
@@ -27,7 +27,7 @@ impl HttpBufferContent {
     pub fn CreateFromBufferWithOffset<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(content: Param0, offset: u32, count: u32) -> ::windows::core::Result<HttpBufferContent> {
         Self::IHttpBufferContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromBufferWithOffset)(::core::mem::transmute_copy(this), content.into_param().abi(), offset, count, &mut result__).from_abi::<HttpBufferContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromBufferWithOffset)(::windows::core::Interface::as_raw(this), content.into_param().abi(), offset, count, &mut result__).from_abi::<HttpBufferContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
@@ -36,7 +36,7 @@ impl HttpBufferContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -45,7 +45,7 @@ impl HttpBufferContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -54,7 +54,7 @@ impl HttpBufferContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -63,7 +63,7 @@ impl HttpBufferContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -72,7 +72,7 @@ impl HttpBufferContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -80,7 +80,7 @@ impl HttpBufferContent {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLength)(::core::mem::transmute_copy(this), length, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -89,7 +89,7 @@ impl HttpBufferContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -98,7 +98,7 @@ impl HttpBufferContent {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -268,7 +268,7 @@ impl HttpClient {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -276,7 +276,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeleteAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).DeleteAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -285,7 +285,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).GetAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -294,7 +294,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetWithOptionAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), completionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).GetWithOptionAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), completionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -303,7 +303,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBufferAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).GetBufferAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -312,7 +312,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInputStreamAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).GetInputStreamAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -321,7 +321,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetStringAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).GetStringAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -330,7 +330,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PostAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).PostAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -339,7 +339,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PutAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).PutAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -348,7 +348,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendRequestAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SendRequestAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -357,7 +357,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendRequestWithOptionAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), completionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).SendRequestWithOptionAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), completionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpResponseMessage, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
@@ -366,7 +366,7 @@ impl HttpClient {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultRequestHeaders)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpRequestHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).DefaultRequestHeaders)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpRequestHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -375,7 +375,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryDeleteAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryDeleteAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -384,7 +384,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -393,7 +393,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAsync2)(::core::mem::transmute_copy(this), uri.into_param().abi(), completionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAsync2)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), completionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -402,7 +402,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetBufferAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpGetBufferResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetBufferAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpGetBufferResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -411,7 +411,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetInputStreamAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpGetInputStreamResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetInputStreamAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpGetInputStreamResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -420,7 +420,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetStringAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpGetStringResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetStringAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpGetStringResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -429,7 +429,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryPostAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryPostAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -438,7 +438,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryPutAsync)(::core::mem::transmute_copy(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TryPutAsync)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), content.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -447,7 +447,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySendRequestAsync)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TrySendRequestAsync)(::windows::core::Interface::as_raw(this), request.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -456,7 +456,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<IHttpClient2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySendRequestAsync2)(::core::mem::transmute_copy(this), request.into_param().abi(), completionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
+            (::windows::core::Interface::vtable(this).TrySendRequestAsync2)(::windows::core::Interface::as_raw(this), request.into_param().abi(), completionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<HttpRequestResult, HttpProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Filters\"`*"]
@@ -464,7 +464,7 @@ impl HttpClient {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, Filters::IHttpFilter>>(filter: Param0) -> ::windows::core::Result<HttpClient> {
         Self::IHttpClientFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), filter.into_param().abi(), &mut result__).from_abi::<HttpClient>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), filter.into_param().abi(), &mut result__).from_abi::<HttpClient>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -473,7 +473,7 @@ impl HttpClient {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -649,7 +649,7 @@ impl HttpCookie {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -657,7 +657,7 @@ impl HttpCookie {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Domain)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Domain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -665,7 +665,7 @@ impl HttpCookie {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Path)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -674,59 +674,59 @@ impl HttpCookie {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Expires)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
+            (::windows::core::Interface::vtable(this).Expires)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetExpires<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::super::Foundation::DateTime>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetExpires)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetExpires)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn HttpOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HttpOnly)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HttpOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetHttpOnly(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetHttpOnly)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetHttpOnly)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Secure(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Secure)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Secure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetSecure(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSecure)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSecure)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0, domain: Param1, path: Param2) -> ::windows::core::Result<HttpCookie> {
         Self::IHttpCookieFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), name.into_param().abi(), domain.into_param().abi(), path.into_param().abi(), &mut result__).from_abi::<HttpCookie>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), name.into_param().abi(), domain.into_param().abi(), path.into_param().abi(), &mut result__).from_abi::<HttpCookie>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -735,7 +735,7 @@ impl HttpCookie {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -854,7 +854,7 @@ impl HttpCookieCollection {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<HttpCookie>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<HttpCookie>>(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<HttpCookie>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
@@ -863,7 +863,7 @@ impl HttpCookieCollection {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAt)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<HttpCookie>(result__)
+            (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi::<HttpCookie>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
@@ -872,7 +872,7 @@ impl HttpCookieCollection {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
@@ -881,7 +881,7 @@ impl HttpCookieCollection {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
@@ -890,7 +890,7 @@ impl HttpCookieCollection {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetMany)(::core::mem::transmute_copy(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
         }
     }
 }
@@ -1060,7 +1060,7 @@ impl HttpCookieManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetCookie)(::core::mem::transmute_copy(this), cookie.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SetCookie)(::windows::core::Interface::as_raw(this), cookie.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1068,13 +1068,13 @@ impl HttpCookieManager {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SetCookieWithThirdParty)(::core::mem::transmute_copy(this), cookie.into_param().abi(), thirdparty, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SetCookieWithThirdParty)(::windows::core::Interface::as_raw(this), cookie.into_param().abi(), thirdparty, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn DeleteCookie<'a, Param0: ::windows::core::IntoParam<'a, HttpCookie>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).DeleteCookie)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).DeleteCookie)(::windows::core::Interface::as_raw(this), cookie.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1082,7 +1082,7 @@ impl HttpCookieManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCookies)(::core::mem::transmute_copy(this), uri.into_param().abi(), &mut result__).from_abi::<HttpCookieCollection>(result__)
+            (::windows::core::Interface::vtable(this).GetCookies)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<HttpCookieCollection>(result__)
         }
     }
 }
@@ -1166,7 +1166,7 @@ impl HttpFormUrlEncodedContent {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
     #[cfg(feature = "Web_Http_Headers")]
@@ -1174,7 +1174,7 @@ impl HttpFormUrlEncodedContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -1183,7 +1183,7 @@ impl HttpFormUrlEncodedContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1192,7 +1192,7 @@ impl HttpFormUrlEncodedContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1201,7 +1201,7 @@ impl HttpFormUrlEncodedContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -1210,7 +1210,7 @@ impl HttpFormUrlEncodedContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1218,7 +1218,7 @@ impl HttpFormUrlEncodedContent {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLength)(::core::mem::transmute_copy(this), length, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1227,7 +1227,7 @@ impl HttpFormUrlEncodedContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
@@ -1235,7 +1235,7 @@ impl HttpFormUrlEncodedContent {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(content: Param0) -> ::windows::core::Result<HttpFormUrlEncodedContent> {
         Self::IHttpFormUrlEncodedContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), content.into_param().abi(), &mut result__).from_abi::<HttpFormUrlEncodedContent>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), content.into_param().abi(), &mut result__).from_abi::<HttpFormUrlEncodedContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -1244,7 +1244,7 @@ impl HttpFormUrlEncodedContent {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -1407,14 +1407,14 @@ impl HttpGetBufferResult {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1422,7 +1422,7 @@ impl HttpGetBufferResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
+            (::windows::core::Interface::vtable(this).RequestMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1430,7 +1430,7 @@ impl HttpGetBufferResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).ResponseMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1438,7 +1438,7 @@ impl HttpGetBufferResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Succeeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
@@ -1447,7 +1447,7 @@ impl HttpGetBufferResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -1456,7 +1456,7 @@ impl HttpGetBufferResult {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1592,14 +1592,14 @@ impl HttpGetInputStreamResult {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1607,7 +1607,7 @@ impl HttpGetInputStreamResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
+            (::windows::core::Interface::vtable(this).RequestMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1615,7 +1615,7 @@ impl HttpGetInputStreamResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).ResponseMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1623,7 +1623,7 @@ impl HttpGetInputStreamResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Succeeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
@@ -1632,7 +1632,7 @@ impl HttpGetInputStreamResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -1641,7 +1641,7 @@ impl HttpGetInputStreamResult {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1777,14 +1777,14 @@ impl HttpGetStringResult {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1792,7 +1792,7 @@ impl HttpGetStringResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
+            (::windows::core::Interface::vtable(this).RequestMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1800,7 +1800,7 @@ impl HttpGetStringResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).ResponseMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1808,7 +1808,7 @@ impl HttpGetStringResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Succeeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -1816,7 +1816,7 @@ impl HttpGetStringResult {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -1825,7 +1825,7 @@ impl HttpGetStringResult {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -1962,63 +1962,63 @@ impl HttpMethod {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Method)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).Method)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(method: Param0) -> ::windows::core::Result<HttpMethod> {
         Self::IHttpMethodFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), method.into_param().abi(), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), method.into_param().abi(), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Delete() -> ::windows::core::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delete)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Delete)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Get() -> ::windows::core::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Get)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Get)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Head() -> ::windows::core::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Head)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Head)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Options() -> ::windows::core::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Options)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Options)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Patch() -> ::windows::core::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Patch)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Patch)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Post() -> ::windows::core::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Post)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Post)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Put() -> ::windows::core::Result<HttpMethod> {
         Self::IHttpMethodStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Put)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Put)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpMethod>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2027,7 +2027,7 @@ impl HttpMethod {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -2154,7 +2154,7 @@ impl HttpMultipartContent {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
     #[cfg(feature = "Web_Http_Headers")]
@@ -2162,7 +2162,7 @@ impl HttpMultipartContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2171,7 +2171,7 @@ impl HttpMultipartContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2180,7 +2180,7 @@ impl HttpMultipartContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2189,7 +2189,7 @@ impl HttpMultipartContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2198,7 +2198,7 @@ impl HttpMultipartContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -2206,7 +2206,7 @@ impl HttpMultipartContent {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLength)(::core::mem::transmute_copy(this), length, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2215,26 +2215,26 @@ impl HttpMultipartContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Add<'a, Param0: ::windows::core::IntoParam<'a, IHttpContent>>(&self, content: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpMultipartContent>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Add)(::core::mem::transmute_copy(this), content.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Add)(::windows::core::Interface::as_raw(this), content.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn CreateWithSubtype<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subtype: Param0) -> ::windows::core::Result<HttpMultipartContent> {
         Self::IHttpMultipartContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithSubtype)(::core::mem::transmute_copy(this), subtype.into_param().abi(), &mut result__).from_abi::<HttpMultipartContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithSubtype)(::windows::core::Interface::as_raw(this), subtype.into_param().abi(), &mut result__).from_abi::<HttpMultipartContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn CreateWithSubtypeAndBoundary<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(subtype: Param0, boundary: Param1) -> ::windows::core::Result<HttpMultipartContent> {
         Self::IHttpMultipartContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithSubtypeAndBoundary)(::core::mem::transmute_copy(this), subtype.into_param().abi(), boundary.into_param().abi(), &mut result__).from_abi::<HttpMultipartContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithSubtypeAndBoundary)(::windows::core::Interface::as_raw(this), subtype.into_param().abi(), boundary.into_param().abi(), &mut result__).from_abi::<HttpMultipartContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
@@ -2243,7 +2243,7 @@ impl HttpMultipartContent {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<IHttpContent>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<IHttpContent>>(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<IHttpContent>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2252,7 +2252,7 @@ impl HttpMultipartContent {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -2464,7 +2464,7 @@ impl HttpMultipartFormDataContent {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
     #[cfg(feature = "Web_Http_Headers")]
@@ -2472,7 +2472,7 @@ impl HttpMultipartFormDataContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2481,7 +2481,7 @@ impl HttpMultipartFormDataContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2490,7 +2490,7 @@ impl HttpMultipartFormDataContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2499,7 +2499,7 @@ impl HttpMultipartFormDataContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2508,7 +2508,7 @@ impl HttpMultipartFormDataContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -2516,7 +2516,7 @@ impl HttpMultipartFormDataContent {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLength)(::core::mem::transmute_copy(this), length, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -2525,29 +2525,29 @@ impl HttpMultipartFormDataContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Add<'a, Param0: ::windows::core::IntoParam<'a, IHttpContent>>(&self, content: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Add)(::core::mem::transmute_copy(this), content.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Add)(::windows::core::Interface::as_raw(this), content.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn AddWithName<'a, Param0: ::windows::core::IntoParam<'a, IHttpContent>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, content: Param0, name: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AddWithName)(::core::mem::transmute_copy(this), content.into_param().abi(), name.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddWithName)(::windows::core::Interface::as_raw(this), content.into_param().abi(), name.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn AddWithNameAndFileName<'a, Param0: ::windows::core::IntoParam<'a, IHttpContent>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, content: Param0, name: Param1, filename: Param2) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IHttpMultipartFormDataContent>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).AddWithNameAndFileName)(::core::mem::transmute_copy(this), content.into_param().abi(), name.into_param().abi(), filename.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).AddWithNameAndFileName)(::windows::core::Interface::as_raw(this), content.into_param().abi(), name.into_param().abi(), filename.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn CreateWithBoundary<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(boundary: Param0) -> ::windows::core::Result<HttpMultipartFormDataContent> {
         Self::IHttpMultipartFormDataContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithBoundary)(::core::mem::transmute_copy(this), boundary.into_param().abi(), &mut result__).from_abi::<HttpMultipartFormDataContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithBoundary)(::windows::core::Interface::as_raw(this), boundary.into_param().abi(), &mut result__).from_abi::<HttpMultipartFormDataContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
@@ -2556,7 +2556,7 @@ impl HttpMultipartFormDataContent {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IIterable<IHttpContent>>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<IHttpContent>>(result__)
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<IHttpContent>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2565,7 +2565,7 @@ impl HttpMultipartFormDataContent {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -2875,20 +2875,20 @@ impl HttpRequestMessage {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Content(&self) -> ::windows::core::Result<IHttpContent> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Content)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IHttpContent>(result__)
+            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IHttpContent>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, IHttpContent>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
     #[cfg(feature = "Web_Http_Headers")]
@@ -2896,7 +2896,7 @@ impl HttpRequestMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpRequestHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpRequestHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -2904,13 +2904,13 @@ impl HttpRequestMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Method)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpMethod>(result__)
+            (::windows::core::Interface::vtable(this).Method)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpMethod>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetMethod<'a, Param0: ::windows::core::IntoParam<'a, HttpMethod>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetMethod)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetMethod)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2918,7 +2918,7 @@ impl HttpRequestMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2927,21 +2927,21 @@ impl HttpRequestMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestUri)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
+            (::windows::core::Interface::vtable(this).RequestUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRequestUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestUri)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestUri)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn TransportInformation(&self) -> ::windows::core::Result<HttpTransportInformation> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TransportInformation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpTransportInformation>(result__)
+            (::windows::core::Interface::vtable(this).TransportInformation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpTransportInformation>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2949,7 +2949,7 @@ impl HttpRequestMessage {
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, HttpMethod>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(method: Param0, uri: Param1) -> ::windows::core::Result<HttpRequestMessage> {
         Self::IHttpRequestMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), method.into_param().abi(), uri.into_param().abi(), &mut result__).from_abi::<HttpRequestMessage>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), method.into_param().abi(), uri.into_param().abi(), &mut result__).from_abi::<HttpRequestMessage>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -2958,7 +2958,7 @@ impl HttpRequestMessage {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -3099,14 +3099,14 @@ impl HttpRequestResult {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn ExtendedError(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExtendedError)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            (::windows::core::Interface::vtable(this).ExtendedError)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -3114,7 +3114,7 @@ impl HttpRequestResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
+            (::windows::core::Interface::vtable(this).RequestMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -3122,7 +3122,7 @@ impl HttpRequestResult {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ResponseMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).ResponseMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -3130,7 +3130,7 @@ impl HttpRequestResult {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Succeeded)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -3139,7 +3139,7 @@ impl HttpRequestResult {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -3282,20 +3282,20 @@ impl HttpResponseMessage {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Content(&self) -> ::windows::core::Result<IHttpContent> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Content)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IHttpContent>(result__)
+            (::windows::core::Interface::vtable(this).Content)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IHttpContent>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, IHttpContent>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetContent)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
     #[cfg(feature = "Web_Http_Headers")]
@@ -3303,7 +3303,7 @@ impl HttpResponseMessage {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpResponseHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpResponseHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -3311,7 +3311,7 @@ impl HttpResponseMessage {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSuccessStatusCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSuccessStatusCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -3319,79 +3319,79 @@ impl HttpResponseMessage {
         let this = self;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReasonPhrase)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ReasonPhrase)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetReasonPhrase<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReasonPhrase)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReasonPhrase)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn RequestMessage(&self) -> ::windows::core::Result<HttpRequestMessage> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestMessage)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
+            (::windows::core::Interface::vtable(this).RequestMessage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpRequestMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetRequestMessage<'a, Param0: ::windows::core::IntoParam<'a, HttpRequestMessage>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestMessage)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestMessage)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Source(&self) -> ::windows::core::Result<HttpResponseMessageSource> {
         let this = self;
         unsafe {
             let mut result__: HttpResponseMessageSource = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessageSource>(result__)
+            (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpResponseMessageSource>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetSource(&self, value: HttpResponseMessageSource) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSource)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn StatusCode(&self) -> ::windows::core::Result<HttpStatusCode> {
         let this = self;
         unsafe {
             let mut result__: HttpStatusCode = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).StatusCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpStatusCode>(result__)
+            (::windows::core::Interface::vtable(this).StatusCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpStatusCode>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetStatusCode(&self, value: HttpStatusCode) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetStatusCode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetStatusCode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Version(&self) -> ::windows::core::Result<HttpVersion> {
         let this = self;
         unsafe {
             let mut result__: HttpVersion = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Version)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpVersion>(result__)
+            (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpVersion>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn SetVersion(&self, value: HttpVersion) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetVersion)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn EnsureSuccessStatusCode(&self) -> ::windows::core::Result<HttpResponseMessage> {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EnsureSuccessStatusCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).EnsureSuccessStatusCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HttpResponseMessage>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn Create(statuscode: HttpStatusCode) -> ::windows::core::Result<HttpResponseMessage> {
         Self::IHttpResponseMessageFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), statuscode, &mut result__).from_abi::<HttpResponseMessage>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), statuscode, &mut result__).from_abi::<HttpResponseMessage>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -3400,7 +3400,7 @@ impl HttpResponseMessage {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -3666,7 +3666,7 @@ impl HttpStreamContent {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
     #[cfg(feature = "Web_Http_Headers")]
@@ -3674,7 +3674,7 @@ impl HttpStreamContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -3683,7 +3683,7 @@ impl HttpStreamContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -3692,7 +3692,7 @@ impl HttpStreamContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -3701,7 +3701,7 @@ impl HttpStreamContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -3710,7 +3710,7 @@ impl HttpStreamContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -3718,7 +3718,7 @@ impl HttpStreamContent {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLength)(::core::mem::transmute_copy(this), length, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -3727,7 +3727,7 @@ impl HttpStreamContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
@@ -3735,7 +3735,7 @@ impl HttpStreamContent {
     pub fn CreateFromInputStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(content: Param0) -> ::windows::core::Result<HttpStreamContent> {
         Self::IHttpStreamContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromInputStream)(::core::mem::transmute_copy(this), content.into_param().abi(), &mut result__).from_abi::<HttpStreamContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromInputStream)(::windows::core::Interface::as_raw(this), content.into_param().abi(), &mut result__).from_abi::<HttpStreamContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -3744,7 +3744,7 @@ impl HttpStreamContent {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -3907,7 +3907,7 @@ impl HttpStringContent {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Web_Http_Headers\"`*"]
     #[cfg(feature = "Web_Http_Headers")]
@@ -3915,7 +3915,7 @@ impl HttpStringContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -3924,7 +3924,7 @@ impl HttpStringContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -3933,7 +3933,7 @@ impl HttpStringContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -3942,7 +3942,7 @@ impl HttpStringContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -3951,7 +3951,7 @@ impl HttpStringContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -3959,7 +3959,7 @@ impl HttpStringContent {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLength)(::core::mem::transmute_copy(this), length, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -3968,14 +3968,14 @@ impl HttpStringContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
     pub fn CreateFromString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(content: Param0) -> ::windows::core::Result<HttpStringContent> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromString)(::core::mem::transmute_copy(this), content.into_param().abi(), &mut result__).from_abi::<HttpStringContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromString)(::windows::core::Interface::as_raw(this), content.into_param().abi(), &mut result__).from_abi::<HttpStringContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
@@ -3983,7 +3983,7 @@ impl HttpStringContent {
     pub fn CreateFromStringWithEncoding<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(content: Param0, encoding: super::super::Storage::Streams::UnicodeEncoding) -> ::windows::core::Result<HttpStringContent> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromStringWithEncoding)(::core::mem::transmute_copy(this), content.into_param().abi(), encoding, &mut result__).from_abi::<HttpStringContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromStringWithEncoding)(::windows::core::Interface::as_raw(this), content.into_param().abi(), encoding, &mut result__).from_abi::<HttpStringContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Storage_Streams\"`*"]
@@ -3991,7 +3991,7 @@ impl HttpStringContent {
     pub fn CreateFromStringWithEncodingAndMediaType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(content: Param0, encoding: super::super::Storage::Streams::UnicodeEncoding, mediatype: Param2) -> ::windows::core::Result<HttpStringContent> {
         Self::IHttpStringContentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateFromStringWithEncodingAndMediaType)(::core::mem::transmute_copy(this), content.into_param().abi(), encoding, mediatype.into_param().abi(), &mut result__).from_abi::<HttpStringContent>(result__)
+            (::windows::core::Interface::vtable(this).CreateFromStringWithEncodingAndMediaType)(::windows::core::Interface::as_raw(this), content.into_param().abi(), encoding, mediatype.into_param().abi(), &mut result__).from_abi::<HttpStringContent>(result__)
         })
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -4000,7 +4000,7 @@ impl HttpStringContent {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -4165,7 +4165,7 @@ impl HttpTransportInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCertificate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Security::Cryptography::Certificates::Certificate>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Networking_Sockets\"`*"]
@@ -4174,7 +4174,7 @@ impl HttpTransportInformation {
         let this = self;
         unsafe {
             let mut result__: super::super::Networking::Sockets::SocketSslErrorSeverity = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Networking::Sockets::SocketSslErrorSeverity>(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrorSeverity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Networking::Sockets::SocketSslErrorSeverity>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -4183,7 +4183,7 @@ impl HttpTransportInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
+            (::windows::core::Interface::vtable(this).ServerCertificateErrors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::ChainValidationResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation_Collections\"`, `\"Security_Cryptography_Certificates\"`*"]
@@ -4192,7 +4192,7 @@ impl HttpTransportInformation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
+            (::windows::core::Interface::vtable(this).ServerIntermediateCertificates)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Security::Cryptography::Certificates::Certificate>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -4201,7 +4201,7 @@ impl HttpTransportInformation {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -4493,7 +4493,7 @@ impl IHttpContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Headers)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
+            (::windows::core::Interface::vtable(this).Headers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Headers::HttpContentHeaderCollection>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -4502,7 +4502,7 @@ impl IHttpContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BufferAllAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).BufferAllAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -4511,7 +4511,7 @@ impl IHttpContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsBufferAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IBuffer, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -4520,7 +4520,7 @@ impl IHttpContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsInputStreamAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::super::Storage::Streams::IInputStream, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
@@ -4529,7 +4529,7 @@ impl IHttpContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
+            (::windows::core::Interface::vtable(this).ReadAsStringAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<::windows::core::HSTRING, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`*"]
@@ -4537,7 +4537,7 @@ impl IHttpContent {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryComputeLength)(::core::mem::transmute_copy(this), length, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryComputeLength)(::windows::core::Interface::as_raw(this), length, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -4546,14 +4546,14 @@ impl IHttpContent {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
+            (::windows::core::Interface::vtable(this).WriteToStreamAsync)(::windows::core::Interface::as_raw(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u64, u64>>(result__)
         }
     }
     #[doc = "*Required features: `\"Web_Http\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
 }
 impl ::core::convert::From<IHttpContent> for ::windows::core::IUnknown {

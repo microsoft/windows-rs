@@ -1101,16 +1101,16 @@ pub struct IApoAuxiliaryInputConfiguration(::windows::core::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, pbydata: &[u8], pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).AddAuxiliaryInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputid), pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata)), ::core::mem::transmute(pinputconnection)).ok()
+        (::windows::core::Interface::vtable(self).AddAuxiliaryInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputid), pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata)), ::core::mem::transmute(pinputconnection)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).RemoveAuxiliaryInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputid)).ok()
+        (::windows::core::Interface::vtable(self).RemoveAuxiliaryInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputid)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn IsInputFormatSupported<'a, Param0: ::windows::core::IntoParam<'a, IAudioMediaType>>(&self, prequestedinputformat: Param0) -> ::windows::core::Result<IAudioMediaType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsInputFormatSupported)(::core::mem::transmute_copy(self), prequestedinputformat.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
+        (::windows::core::Interface::vtable(self).IsInputFormatSupported)(::windows::core::Interface::as_raw(self), prequestedinputformat.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
     }
 }
 impl ::core::convert::From<IApoAuxiliaryInputConfiguration> for ::windows::core::IUnknown {
@@ -1167,7 +1167,7 @@ pub struct IApoAuxiliaryInputRT(::windows::core::IUnknown);
 impl IApoAuxiliaryInputRT {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn AcceptInput(&self, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY) {
-        (::windows::core::Interface::vtable(self).AcceptInput)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputid), ::core::mem::transmute(pinputconnection))
+        (::windows::core::Interface::vtable(self).AcceptInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputid), ::core::mem::transmute(pinputconnection))
     }
 }
 impl ::core::convert::From<IApoAuxiliaryInputRT> for ::windows::core::IUnknown {
@@ -1222,7 +1222,7 @@ pub struct IAudioDeviceModulesClient(::windows::core::IUnknown);
 impl IAudioDeviceModulesClient {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn SetAudioDeviceModulesManager<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, paudiodevicemodulesmanager: Param0) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAudioDeviceModulesManager)(::core::mem::transmute_copy(self), paudiodevicemodulesmanager.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).SetAudioDeviceModulesManager)(::windows::core::Interface::as_raw(self), paudiodevicemodulesmanager.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IAudioDeviceModulesClient> for ::windows::core::IUnknown {
@@ -1279,21 +1279,21 @@ impl IAudioMediaType {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsCompressedFormat(&self) -> ::windows::core::Result<super::super::super::Foundation::BOOL> {
         let mut result__: super::super::super::Foundation::BOOL = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsCompressedFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
+        (::windows::core::Interface::vtable(self).IsCompressedFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, IAudioMediaType>>(&self, piaudiotype: Param0) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsEqual)(::core::mem::transmute_copy(self), piaudiotype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).IsEqual)(::windows::core::Interface::as_raw(self), piaudiotype.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAudioFormat)(::core::mem::transmute_copy(self)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).GetAudioFormat)(::windows::core::Interface::as_raw(self)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetUncompressedAudioFormat(&self) -> ::windows::core::Result<UNCOMPRESSEDAUDIOFORMAT> {
         let mut result__: UNCOMPRESSEDAUDIOFORMAT = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetUncompressedAudioFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<UNCOMPRESSEDAUDIOFORMAT>(result__)
+        (::windows::core::Interface::vtable(self).GetUncompressedAudioFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<UNCOMPRESSEDAUDIOFORMAT>(result__)
     }
 }
 impl ::core::convert::From<IAudioMediaType> for ::windows::core::IUnknown {
@@ -1354,36 +1354,36 @@ pub struct IAudioProcessingObject(::windows::core::IUnknown);
 impl IAudioProcessingObject {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Reset)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).Reset)(::windows::core::Interface::as_raw(self)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetLatency(&self) -> ::windows::core::Result<i64> {
         let mut result__: i64 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetLatency)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
+        (::windows::core::Interface::vtable(self).GetLatency)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows::core::Result<*mut APO_REG_PROPERTIES> {
         let mut result__: *mut APO_REG_PROPERTIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRegistrationProperties)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut APO_REG_PROPERTIES>(result__)
+        (::windows::core::Interface::vtable(self).GetRegistrationProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut APO_REG_PROPERTIES>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn Initialize(&self, pbydata: &[u8]) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).Initialize)(::core::mem::transmute_copy(self), pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata))).ok()
+        (::windows::core::Interface::vtable(self).Initialize)(::windows::core::Interface::as_raw(self), pbydata.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pbydata))).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn IsInputFormatSupported<'a, Param0: ::windows::core::IntoParam<'a, IAudioMediaType>, Param1: ::windows::core::IntoParam<'a, IAudioMediaType>>(&self, poppositeformat: Param0, prequestedinputformat: Param1) -> ::windows::core::Result<IAudioMediaType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsInputFormatSupported)(::core::mem::transmute_copy(self), poppositeformat.into_param().abi(), prequestedinputformat.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
+        (::windows::core::Interface::vtable(self).IsInputFormatSupported)(::windows::core::Interface::as_raw(self), poppositeformat.into_param().abi(), prequestedinputformat.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn IsOutputFormatSupported<'a, Param0: ::windows::core::IntoParam<'a, IAudioMediaType>, Param1: ::windows::core::IntoParam<'a, IAudioMediaType>>(&self, poppositeformat: Param0, prequestedoutputformat: Param1) -> ::windows::core::Result<IAudioMediaType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsOutputFormatSupported)(::core::mem::transmute_copy(self), poppositeformat.into_param().abi(), prequestedoutputformat.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
+        (::windows::core::Interface::vtable(self).IsOutputFormatSupported)(::windows::core::Interface::as_raw(self), poppositeformat.into_param().abi(), prequestedoutputformat.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetInputChannelCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetInputChannelCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetInputChannelCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IAudioProcessingObject> for ::windows::core::IUnknown {
@@ -1444,11 +1444,11 @@ pub struct IAudioProcessingObjectConfiguration(::windows::core::IUnknown);
 impl IAudioProcessingObjectConfiguration {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).LockForProcess)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32numinputconnections), ::core::mem::transmute(ppinputconnections), ::core::mem::transmute(u32numoutputconnections), ::core::mem::transmute(ppoutputconnections)).ok()
+        (::windows::core::Interface::vtable(self).LockForProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32numinputconnections), ::core::mem::transmute(ppinputconnections), ::core::mem::transmute(u32numoutputconnections), ::core::mem::transmute(ppoutputconnections)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn UnlockForProcess(&self) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).UnlockForProcess)(::core::mem::transmute_copy(self)).ok()
+        (::windows::core::Interface::vtable(self).UnlockForProcess)(::windows::core::Interface::as_raw(self)).ok()
     }
 }
 impl ::core::convert::From<IAudioProcessingObjectConfiguration> for ::windows::core::IUnknown {
@@ -1504,7 +1504,7 @@ pub struct IAudioProcessingObjectLoggingService(::windows::core::IUnknown);
 impl IAudioProcessingObjectLoggingService {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn ApoLog<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>>(&self, level: APO_LOG_LEVEL, format: Param1) {
-        (::windows::core::Interface::vtable(self).ApoLog)(::core::mem::transmute_copy(self), ::core::mem::transmute(level), format.into_param().abi())
+        (::windows::core::Interface::vtable(self).ApoLog)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(level), format.into_param().abi())
     }
 }
 impl ::core::convert::From<IAudioProcessingObjectLoggingService> for ::windows::core::IUnknown {
@@ -1559,12 +1559,12 @@ pub struct IAudioProcessingObjectNotifications(::windows::core::IUnknown);
 impl IAudioProcessingObjectNotifications {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetApoNotificationRegistrationInfo(&self, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetApoNotificationRegistrationInfo)(::core::mem::transmute_copy(self), ::core::mem::transmute(aponotifications), ::core::mem::transmute(count)).ok()
+        (::windows::core::Interface::vtable(self).GetApoNotificationRegistrationInfo)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aponotifications), ::core::mem::transmute(count)).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`, `\"Win32_UI_Shell_PropertiesSystem\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn HandleNotification(&self, aponotification: *const APO_NOTIFICATION) {
-        (::windows::core::Interface::vtable(self).HandleNotification)(::core::mem::transmute_copy(self), ::core::mem::transmute(aponotification))
+        (::windows::core::Interface::vtable(self).HandleNotification)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(aponotification))
     }
 }
 impl ::core::convert::From<IAudioProcessingObjectNotifications> for ::windows::core::IUnknown {
@@ -1623,15 +1623,15 @@ pub struct IAudioProcessingObjectRT(::windows::core::IUnknown);
 impl IAudioProcessingObjectRT {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY) {
-        (::windows::core::Interface::vtable(self).APOProcess)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32numinputconnections), ::core::mem::transmute(ppinputconnections), ::core::mem::transmute(u32numoutputconnections), ::core::mem::transmute(ppoutputconnections))
+        (::windows::core::Interface::vtable(self).APOProcess)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32numinputconnections), ::core::mem::transmute(ppinputconnections), ::core::mem::transmute(u32numoutputconnections), ::core::mem::transmute(ppoutputconnections))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn CalcInputFrames(&self, u32outputframecount: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).CalcInputFrames)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32outputframecount)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).CalcInputFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32outputframecount)))
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn CalcOutputFrames(&self, u32inputframecount: u32) -> u32 {
-        ::core::mem::transmute((::windows::core::Interface::vtable(self).CalcOutputFrames)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32inputframecount)))
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).CalcOutputFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32inputframecount)))
     }
 }
 impl ::core::convert::From<IAudioProcessingObjectRT> for ::windows::core::IUnknown {
@@ -1689,7 +1689,7 @@ impl IAudioProcessingObjectRTQueueService {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetRealTimeWorkQueue(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRealTimeWorkQueue)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetRealTimeWorkQueue)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IAudioProcessingObjectRTQueueService> for ::windows::core::IUnknown {
@@ -1745,12 +1745,12 @@ impl IAudioProcessingObjectVBR {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CalcMaxInputFrames)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32maxoutputframecount), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CalcMaxInputFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32maxoutputframecount), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CalcMaxOutputFrames)(::core::mem::transmute_copy(self), ::core::mem::transmute(u32maxinputframecount), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).CalcMaxOutputFrames)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(u32maxinputframecount), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IAudioProcessingObjectVBR> for ::windows::core::IUnknown {
@@ -1856,7 +1856,7 @@ impl IAudioSystemEffects2 {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectsList<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetEffectsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppeffectsids), ::core::mem::transmute(pceffects), event.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetEffectsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppeffectsids), ::core::mem::transmute(pceffects), event.into_param().abi()).ok()
     }
 }
 impl ::core::convert::From<IAudioSystemEffects2> for ::windows::core::IUnknown {
@@ -1935,16 +1935,16 @@ impl IAudioSystemEffects3 {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEffectsList<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base__.GetEffectsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(ppeffectsids), ::core::mem::transmute(pceffects), event.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).base__.GetEffectsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(ppeffectsids), ::core::mem::transmute(pceffects), event.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetControllableSystemEffectsList<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: Param2) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).GetControllableSystemEffectsList)(::core::mem::transmute_copy(self), ::core::mem::transmute(effects), ::core::mem::transmute(numeffects), event.into_param().abi()).ok()
+        (::windows::core::Interface::vtable(self).GetControllableSystemEffectsList)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(effects), ::core::mem::transmute(numeffects), event.into_param().abi()).ok()
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn SetAudioSystemEffectState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, effectid: Param0, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).SetAudioSystemEffectState)(::core::mem::transmute_copy(self), effectid.into_param().abi(), ::core::mem::transmute(state)).ok()
+        (::windows::core::Interface::vtable(self).SetAudioSystemEffectState)(::windows::core::Interface::as_raw(self), effectid.into_param().abi(), ::core::mem::transmute(state)).ok()
     }
 }
 impl ::core::convert::From<IAudioSystemEffects3> for ::windows::core::IUnknown {
@@ -2044,17 +2044,17 @@ impl IAudioSystemEffectsCustomFormats {
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetFormatCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormatCount)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        (::windows::core::Interface::vtable(self).GetFormatCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetFormat(&self, nformat: u32) -> ::windows::core::Result<IAudioMediaType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormat)(::core::mem::transmute_copy(self), ::core::mem::transmute(nformat), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
+        (::windows::core::Interface::vtable(self).GetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nformat), ::core::mem::transmute(&mut result__)).from_abi::<IAudioMediaType>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_Apo\"`*"]
     pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::core::Result<::windows::core::PWSTR> {
         let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetFormatRepresentation)(::core::mem::transmute_copy(self), ::core::mem::transmute(nformat), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        (::windows::core::Interface::vtable(self).GetFormatRepresentation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(nformat), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
     }
 }
 impl ::core::convert::From<IAudioSystemEffectsCustomFormats> for ::windows::core::IUnknown {

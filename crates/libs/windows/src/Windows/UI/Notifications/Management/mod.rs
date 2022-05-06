@@ -53,7 +53,7 @@ impl UserNotificationListener {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>(result__)
+            (::windows::core::Interface::vtable(this).RequestAccessAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UserNotificationListenerAccessStatus>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
@@ -61,7 +61,7 @@ impl UserNotificationListener {
         let this = self;
         unsafe {
             let mut result__: UserNotificationListenerAccessStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAccessStatus)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListenerAccessStatus>(result__)
+            (::windows::core::Interface::vtable(this).GetAccessStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UserNotificationListenerAccessStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`, `\"Foundation\"`*"]
@@ -70,14 +70,14 @@ impl UserNotificationListener {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NotificationChanged)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NotificationChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNotificationChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNotificationChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNotificationChanged)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -85,7 +85,7 @@ impl UserNotificationListener {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNotificationsAsync)(::core::mem::transmute_copy(this), kinds, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
+            (::windows::core::Interface::vtable(this).GetNotificationsAsync)(::windows::core::Interface::as_raw(this), kinds, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::UserNotification>>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
@@ -93,24 +93,24 @@ impl UserNotificationListener {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetNotification)(::core::mem::transmute_copy(this), notificationid, &mut result__).from_abi::<super::UserNotification>(result__)
+            (::windows::core::Interface::vtable(this).GetNotification)(::windows::core::Interface::as_raw(this), notificationid, &mut result__).from_abi::<super::UserNotification>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
     pub fn ClearNotifications(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ClearNotifications)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ClearNotifications)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
     pub fn RemoveNotification(&self, notificationid: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNotification)(::core::mem::transmute_copy(this), notificationid).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNotification)(::windows::core::Interface::as_raw(this), notificationid).ok() }
     }
     #[doc = "*Required features: `\"UI_Notifications_Management\"`*"]
     pub fn Current() -> ::windows::core::Result<UserNotificationListener> {
         Self::IUserNotificationListenerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Current)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserNotificationListener>(result__)
+            (::windows::core::Interface::vtable(this).Current)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UserNotificationListener>(result__)
         })
     }
     #[doc(hidden)]

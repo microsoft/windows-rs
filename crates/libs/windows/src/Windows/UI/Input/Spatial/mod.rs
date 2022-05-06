@@ -925,14 +925,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecognitionStarted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RecognitionStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRecognitionStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionStarted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -940,14 +940,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RecognitionEnded)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).RecognitionEnded)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRecognitionEnded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionEnded)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveRecognitionEnded)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -955,14 +955,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Tapped)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).Tapped)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTapped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveTapped)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveTapped)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -970,14 +970,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HoldStarted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HoldStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHoldStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldStarted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -985,14 +985,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HoldCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HoldCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHoldCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1000,14 +1000,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HoldCanceled)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).HoldCanceled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHoldCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldCanceled)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveHoldCanceled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1015,14 +1015,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ManipulationStarted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ManipulationStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveManipulationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationStarted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1030,14 +1030,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ManipulationUpdated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ManipulationUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveManipulationUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationUpdated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1045,14 +1045,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ManipulationCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ManipulationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveManipulationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1060,14 +1060,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ManipulationCanceled)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).ManipulationCanceled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveManipulationCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationCanceled)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveManipulationCanceled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1075,14 +1075,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NavigationStarted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationStarted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNavigationStarted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationStarted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationStarted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1090,14 +1090,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NavigationUpdated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNavigationUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationUpdated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1105,14 +1105,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NavigationCompleted)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationCompleted)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNavigationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCompleted)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCompleted)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1120,31 +1120,31 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NavigationCanceled)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).NavigationCanceled)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveNavigationCanceled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCanceled)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveNavigationCanceled)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
     pub fn CaptureInteraction<'a, Param0: ::windows::core::IntoParam<'a, SpatialInteraction>>(&self, interaction: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CaptureInteraction)(::core::mem::transmute_copy(this), interaction.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CaptureInteraction)(::windows::core::Interface::as_raw(this), interaction.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
     pub fn CancelPendingGestures(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).CancelPendingGestures)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).CancelPendingGestures)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
     pub fn TrySetGestureSettings(&self, settings: SpatialGestureSettings) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetGestureSettings)(::core::mem::transmute_copy(this), settings, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TrySetGestureSettings)(::windows::core::Interface::as_raw(this), settings, &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1152,14 +1152,14 @@ impl SpatialGestureRecognizer {
         let this = self;
         unsafe {
             let mut result__: SpatialGestureSettings = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GestureSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialGestureSettings>(result__)
+            (::windows::core::Interface::vtable(this).GestureSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialGestureSettings>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
     pub fn Create(settings: SpatialGestureSettings) -> ::windows::core::Result<SpatialGestureRecognizer> {
         Self::ISpatialGestureRecognizerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::core::mem::transmute_copy(this), settings, &mut result__).from_abi::<SpatialGestureRecognizer>(result__)
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), settings, &mut result__).from_abi::<SpatialGestureRecognizer>(result__)
         })
     }
     #[doc(hidden)]
@@ -1320,7 +1320,7 @@ impl SpatialHoldCanceledEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
 }
@@ -1405,7 +1405,7 @@ impl SpatialHoldCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
 }
@@ -1490,7 +1490,7 @@ impl SpatialHoldStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -1499,7 +1499,7 @@ impl SpatialHoldStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
 }
@@ -1584,7 +1584,7 @@ impl SpatialInteraction {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceState)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceState>(result__)
+            (::windows::core::Interface::vtable(this).SourceState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceState>(result__)
         }
     }
 }
@@ -1669,7 +1669,7 @@ impl SpatialInteractionController {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasTouchpad)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasTouchpad)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1677,7 +1677,7 @@ impl SpatialInteractionController {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HasThumbstick)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).HasThumbstick)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Devices_Haptics\"`*"]
@@ -1686,7 +1686,7 @@ impl SpatialInteractionController {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SimpleHapticsController)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Devices::Haptics::SimpleHapticsController>(result__)
+            (::windows::core::Interface::vtable(this).SimpleHapticsController)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Haptics::SimpleHapticsController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1694,7 +1694,7 @@ impl SpatialInteractionController {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VendorId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).VendorId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1702,7 +1702,7 @@ impl SpatialInteractionController {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProductId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).ProductId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1710,7 +1710,7 @@ impl SpatialInteractionController {
         let this = self;
         unsafe {
             let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Version)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
+            (::windows::core::Interface::vtable(this).Version)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1719,7 +1719,7 @@ impl SpatialInteractionController {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionController2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetRenderableModelAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetRenderableModelAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStreamWithContentType>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Devices_Power\"`*"]
@@ -1728,7 +1728,7 @@ impl SpatialInteractionController {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionController3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetBatteryReport)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Devices::Power::BatteryReport>(result__)
+            (::windows::core::Interface::vtable(this).TryGetBatteryReport)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Power::BatteryReport>(result__)
         }
     }
 }
@@ -1813,7 +1813,7 @@ impl SpatialInteractionControllerProperties {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTouchpadTouched)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTouchpadTouched)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1821,7 +1821,7 @@ impl SpatialInteractionControllerProperties {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsTouchpadPressed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsTouchpadPressed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1829,7 +1829,7 @@ impl SpatialInteractionControllerProperties {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsThumbstickPressed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsThumbstickPressed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1837,7 +1837,7 @@ impl SpatialInteractionControllerProperties {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ThumbstickX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ThumbstickX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1845,7 +1845,7 @@ impl SpatialInteractionControllerProperties {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ThumbstickY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).ThumbstickY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1853,7 +1853,7 @@ impl SpatialInteractionControllerProperties {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TouchpadX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).TouchpadX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1861,7 +1861,7 @@ impl SpatialInteractionControllerProperties {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TouchpadY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).TouchpadY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
 }
@@ -1946,7 +1946,7 @@ impl SpatialInteractionDetectedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -1955,7 +1955,7 @@ impl SpatialInteractionDetectedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1963,7 +1963,7 @@ impl SpatialInteractionDetectedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Interaction)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteraction>(result__)
+            (::windows::core::Interface::vtable(this).Interaction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteraction>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -1971,7 +1971,7 @@ impl SpatialInteractionDetectedEventArgs {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionDetectedEventArgs2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSource)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSource>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSource>(result__)
         }
     }
 }
@@ -2057,14 +2057,14 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceDetected)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceDetected)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceDetected)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceDetected)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2072,14 +2072,14 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceLost)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceLost)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceLost<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceLost)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceLost)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2087,14 +2087,14 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceUpdated)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceUpdated)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceUpdated)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceUpdated)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2102,14 +2102,14 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourcePressed)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourcePressed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourcePressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourcePressed)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourcePressed)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2117,14 +2117,14 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceReleased)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).SourceReleased)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSourceReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceReleased)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveSourceReleased)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2132,14 +2132,14 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionDetected)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).InteractionDetected)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInteractionDetected<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveInteractionDetected)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveInteractionDetected)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Collections\"`, `\"Perception\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Perception"))]
@@ -2147,21 +2147,21 @@ impl SpatialInteractionManager {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDetectedSourcesAtTimestamp)(::core::mem::transmute_copy(this), timestamp.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>(result__)
+            (::windows::core::Interface::vtable(this).GetDetectedSourcesAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<SpatialInteractionSourceState>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<SpatialInteractionManager> {
         Self::ISpatialInteractionManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetForCurrentView)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionManager>(result__)
+            (::windows::core::Interface::vtable(this).GetForCurrentView)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionManager>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
     pub fn IsSourceKindSupported(kind: SpatialInteractionSourceKind) -> ::windows::core::Result<bool> {
         Self::ISpatialInteractionManagerStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSourceKindSupported)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSourceKindSupported)(::windows::core::Interface::as_raw(this), kind, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -2294,7 +2294,7 @@ impl SpatialInteractionSource {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2302,7 +2302,7 @@ impl SpatialInteractionSource {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2310,7 +2310,7 @@ impl SpatialInteractionSource {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPointingSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPointingSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2318,7 +2318,7 @@ impl SpatialInteractionSource {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsMenuSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsMenuSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2326,7 +2326,7 @@ impl SpatialInteractionSource {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsGraspSupported)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGraspSupported)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2334,7 +2334,7 @@ impl SpatialInteractionSource {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Controller)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionController>(result__)
+            (::windows::core::Interface::vtable(this).Controller)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionController>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception\"`*"]
@@ -2343,7 +2343,7 @@ impl SpatialInteractionSource {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetStateAtTimestamp)(::core::mem::transmute_copy(this), timestamp.into_param().abi(), &mut result__).from_abi::<SpatialInteractionSourceState>(result__)
+            (::windows::core::Interface::vtable(this).TryGetStateAtTimestamp)(::windows::core::Interface::as_raw(this), timestamp.into_param().abi(), &mut result__).from_abi::<SpatialInteractionSourceState>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2351,7 +2351,7 @@ impl SpatialInteractionSource {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource3>(self)?;
         unsafe {
             let mut result__: SpatialInteractionSourceHandedness = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handedness)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceHandedness>(result__)
+            (::windows::core::Interface::vtable(this).Handedness)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceHandedness>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_People\"`*"]
@@ -2360,7 +2360,7 @@ impl SpatialInteractionSource {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateHandMeshObserver)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::People::HandMeshObserver>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateHandMeshObserver)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Perception::People::HandMeshObserver>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation\"`, `\"Perception_People\"`*"]
@@ -2369,7 +2369,7 @@ impl SpatialInteractionSource {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSource4>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateHandMeshObserverAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>>(result__)
+            (::windows::core::Interface::vtable(this).TryCreateHandMeshObserverAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Perception::People::HandMeshObserver>>(result__)
         }
     }
 }
@@ -2454,7 +2454,7 @@ impl SpatialInteractionSourceEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).State)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceState>(result__)
+            (::windows::core::Interface::vtable(this).State)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceState>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2462,7 +2462,7 @@ impl SpatialInteractionSourceEventArgs {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceEventArgs2>(self)?;
         unsafe {
             let mut result__: SpatialInteractionPressKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PressKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionPressKind>(result__)
+            (::windows::core::Interface::vtable(this).PressKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionPressKind>(result__)
         }
     }
 }
@@ -2619,7 +2619,7 @@ impl SpatialInteractionSourceLocation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -2628,7 +2628,7 @@ impl SpatialInteractionSourceLocation {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Velocity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
+            (::windows::core::Interface::vtable(this).Velocity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -2637,7 +2637,7 @@ impl SpatialInteractionSourceLocation {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceLocation2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Orientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>>(result__)
+            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Quaternion>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2645,7 +2645,7 @@ impl SpatialInteractionSourceLocation {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
             let mut result__: SpatialInteractionSourcePositionAccuracy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PositionAccuracy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourcePositionAccuracy>(result__)
+            (::windows::core::Interface::vtable(this).PositionAccuracy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourcePositionAccuracy>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -2654,7 +2654,7 @@ impl SpatialInteractionSourceLocation {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AngularVelocity)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
+            (::windows::core::Interface::vtable(this).AngularVelocity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2662,7 +2662,7 @@ impl SpatialInteractionSourceLocation {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceLocation3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourcePointerPose)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialPointerInteractionSourcePose>(result__)
+            (::windows::core::Interface::vtable(this).SourcePointerPose)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialPointerInteractionSourcePose>(result__)
         }
     }
 }
@@ -2782,7 +2782,7 @@ impl SpatialInteractionSourceProperties {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetSourceLossMitigationDirection)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
+            (::windows::core::Interface::vtable(this).TryGetSourceLossMitigationDirection)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Numerics::Vector3>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2790,7 +2790,7 @@ impl SpatialInteractionSourceProperties {
         let this = self;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SourceLossRisk)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).SourceLossRisk)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -2799,7 +2799,7 @@ impl SpatialInteractionSourceProperties {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetLocation)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialInteractionSourceLocation>(result__)
+            (::windows::core::Interface::vtable(this).TryGetLocation)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialInteractionSourceLocation>(result__)
         }
     }
 }
@@ -2884,7 +2884,7 @@ impl SpatialInteractionSourceState {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Source)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSource>(result__)
+            (::windows::core::Interface::vtable(this).Source)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSource>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2892,7 +2892,7 @@ impl SpatialInteractionSourceState {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Properties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceProperties>(result__)
+            (::windows::core::Interface::vtable(this).Properties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2900,7 +2900,7 @@ impl SpatialInteractionSourceState {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsPressed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsPressed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception\"`*"]
@@ -2909,7 +2909,7 @@ impl SpatialInteractionSourceState {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::PerceptionTimestamp>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Perception::PerceptionTimestamp>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -2918,7 +2918,7 @@ impl SpatialInteractionSourceState {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2926,7 +2926,7 @@ impl SpatialInteractionSourceState {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsSelectPressed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsSelectPressed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2934,7 +2934,7 @@ impl SpatialInteractionSourceState {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsMenuPressed)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsMenuPressed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2942,7 +2942,7 @@ impl SpatialInteractionSourceState {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsGrasped)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGrasped)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2950,7 +2950,7 @@ impl SpatialInteractionSourceState {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
             let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectPressedValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
+            (::windows::core::Interface::vtable(this).SelectPressedValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -2958,7 +2958,7 @@ impl SpatialInteractionSourceState {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceState2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ControllerProperties)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionControllerProperties>(result__)
+            (::windows::core::Interface::vtable(this).ControllerProperties)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionControllerProperties>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_People\"`*"]
@@ -2967,7 +2967,7 @@ impl SpatialInteractionSourceState {
         let this = &::windows::core::Interface::cast::<ISpatialInteractionSourceState3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetHandPose)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::People::HandPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetHandPose)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Perception::People::HandPose>(result__)
         }
     }
 }
@@ -3052,7 +3052,7 @@ impl SpatialManipulationCanceledEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
 }
@@ -3137,7 +3137,7 @@ impl SpatialManipulationCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -3146,7 +3146,7 @@ impl SpatialManipulationCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetCumulativeDelta)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).TryGetCumulativeDelta)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialManipulationDelta>(result__)
         }
     }
 }
@@ -3232,7 +3232,7 @@ impl SpatialManipulationDelta {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Translation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).Translation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
 }
@@ -3317,7 +3317,7 @@ impl SpatialManipulationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -3326,7 +3326,7 @@ impl SpatialManipulationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
 }
@@ -3411,7 +3411,7 @@ impl SpatialManipulationUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -3420,7 +3420,7 @@ impl SpatialManipulationUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetCumulativeDelta)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialManipulationDelta>(result__)
+            (::windows::core::Interface::vtable(this).TryGetCumulativeDelta)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialManipulationDelta>(result__)
         }
     }
 }
@@ -3505,7 +3505,7 @@ impl SpatialNavigationCanceledEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
 }
@@ -3590,7 +3590,7 @@ impl SpatialNavigationCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -3599,7 +3599,7 @@ impl SpatialNavigationCompletedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).NormalizedOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
 }
@@ -3684,7 +3684,7 @@ impl SpatialNavigationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -3693,7 +3693,7 @@ impl SpatialNavigationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3701,7 +3701,7 @@ impl SpatialNavigationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsNavigatingX)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsNavigatingX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3709,7 +3709,7 @@ impl SpatialNavigationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsNavigatingY)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsNavigatingY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3717,7 +3717,7 @@ impl SpatialNavigationStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsNavigatingZ)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsNavigatingZ)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -3802,7 +3802,7 @@ impl SpatialNavigationUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -3811,7 +3811,7 @@ impl SpatialNavigationUpdatedEventArgs {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NormalizedOffset)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).NormalizedOffset)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
 }
@@ -3897,7 +3897,7 @@ impl SpatialPointerInteractionSourcePose {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -3906,7 +3906,7 @@ impl SpatialPointerInteractionSourcePose {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ForwardDirection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).ForwardDirection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -3915,7 +3915,7 @@ impl SpatialPointerInteractionSourcePose {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Vector3 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UpDirection)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
+            (::windows::core::Interface::vtable(this).UpDirection)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Vector3>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Foundation_Numerics\"`*"]
@@ -3924,7 +3924,7 @@ impl SpatialPointerInteractionSourcePose {
         let this = &::windows::core::Interface::cast::<ISpatialPointerInteractionSourcePose2>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Numerics::Quaternion = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Orientation)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Quaternion>(result__)
+            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Numerics::Quaternion>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -3932,7 +3932,7 @@ impl SpatialPointerInteractionSourcePose {
         let this = &::windows::core::Interface::cast::<ISpatialPointerInteractionSourcePose2>(self)?;
         unsafe {
             let mut result__: SpatialInteractionSourcePositionAccuracy = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PositionAccuracy)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourcePositionAccuracy>(result__)
+            (::windows::core::Interface::vtable(this).PositionAccuracy)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourcePositionAccuracy>(result__)
         }
     }
 }
@@ -4018,7 +4018,7 @@ impl SpatialPointerPose {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Timestamp)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::PerceptionTimestamp>(result__)
+            (::windows::core::Interface::vtable(this).Timestamp)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Perception::PerceptionTimestamp>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_People\"`*"]
@@ -4027,7 +4027,7 @@ impl SpatialPointerPose {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Head)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::People::HeadPose>(result__)
+            (::windows::core::Interface::vtable(this).Head)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Perception::People::HeadPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -4035,7 +4035,7 @@ impl SpatialPointerPose {
         let this = &::windows::core::Interface::cast::<ISpatialPointerPose2>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetInteractionSourcePose)(::core::mem::transmute_copy(this), source.into_param().abi(), &mut result__).from_abi::<SpatialPointerInteractionSourcePose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetInteractionSourcePose)(::windows::core::Interface::as_raw(this), source.into_param().abi(), &mut result__).from_abi::<SpatialPointerInteractionSourcePose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_People\"`*"]
@@ -4044,7 +4044,7 @@ impl SpatialPointerPose {
         let this = &::windows::core::Interface::cast::<ISpatialPointerPose3>(self)?;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Eyes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Perception::People::EyesPose>(result__)
+            (::windows::core::Interface::vtable(this).Eyes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Perception::People::EyesPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -4052,7 +4052,7 @@ impl SpatialPointerPose {
         let this = &::windows::core::Interface::cast::<ISpatialPointerPose3>(self)?;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsHeadCapturedBySystem)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsHeadCapturedBySystem)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -4060,7 +4060,7 @@ impl SpatialPointerPose {
     pub fn TryGetAtTimestamp<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Perception::Spatial::SpatialCoordinateSystem>, Param1: ::windows::core::IntoParam<'a, super::super::super::Perception::PerceptionTimestamp>>(coordinatesystem: Param0, timestamp: Param1) -> ::windows::core::Result<SpatialPointerPose> {
         Self::ISpatialPointerPoseStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetAtTimestamp)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), timestamp.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetAtTimestamp)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), timestamp.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         })
     }
     #[doc(hidden)]
@@ -4150,7 +4150,7 @@ impl SpatialRecognitionEndedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
 }
@@ -4235,7 +4235,7 @@ impl SpatialRecognitionStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -4244,7 +4244,7 @@ impl SpatialRecognitionStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -4252,7 +4252,7 @@ impl SpatialRecognitionStartedEventArgs {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsGesturePossible)(::core::mem::transmute_copy(this), gesture, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsGesturePossible)(::windows::core::Interface::as_raw(this), gesture, &mut result__).from_abi::<bool>(result__)
         }
     }
 }
@@ -4337,7 +4337,7 @@ impl SpatialTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: SpatialInteractionSourceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
+            (::windows::core::Interface::vtable(this).InteractionSourceKind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<SpatialInteractionSourceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`, `\"Perception_Spatial\"`*"]
@@ -4346,7 +4346,7 @@ impl SpatialTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
+            (::windows::core::Interface::vtable(this).TryGetPointerPose)(::windows::core::Interface::as_raw(this), coordinatesystem.into_param().abi(), &mut result__).from_abi::<SpatialPointerPose>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Spatial\"`*"]
@@ -4354,7 +4354,7 @@ impl SpatialTappedEventArgs {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TapCount)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).TapCount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
 }

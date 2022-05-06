@@ -585,7 +585,7 @@ impl UsbBulkInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxPacketSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -593,7 +593,7 @@ impl UsbBulkInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -601,7 +601,7 @@ impl UsbBulkInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pipe)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbBulkInPipe>(result__)
+            (::windows::core::Interface::vtable(this).Pipe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbBulkInPipe>(result__)
         }
     }
 }
@@ -686,7 +686,7 @@ impl UsbBulkInPipe {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxTransferSizeBytes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxTransferSizeBytes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -694,7 +694,7 @@ impl UsbBulkInPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbBulkInEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbBulkInEndpointDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -703,26 +703,26 @@ impl UsbBulkInPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClearStallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearStallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetReadOptions(&self, value: UsbReadOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetReadOptions)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetReadOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn ReadOptions(&self) -> ::windows::core::Result<UsbReadOptions> {
         let this = self;
         unsafe {
             let mut result__: UsbReadOptions = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ReadOptions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbReadOptions>(result__)
+            (::windows::core::Interface::vtable(this).ReadOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbReadOptions>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn FlushBuffer(&self) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).FlushBuffer)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).FlushBuffer)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -730,7 +730,7 @@ impl UsbBulkInPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
+            (::windows::core::Interface::vtable(this).InputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
 }
@@ -815,7 +815,7 @@ impl UsbBulkOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxPacketSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -823,7 +823,7 @@ impl UsbBulkOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -831,7 +831,7 @@ impl UsbBulkOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pipe)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbBulkOutPipe>(result__)
+            (::windows::core::Interface::vtable(this).Pipe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbBulkOutPipe>(result__)
         }
     }
 }
@@ -916,7 +916,7 @@ impl UsbBulkOutPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbBulkOutEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbBulkOutEndpointDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -925,20 +925,20 @@ impl UsbBulkOutPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClearStallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearStallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetWriteOptions(&self, value: UsbWriteOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions> {
         let this = self;
         unsafe {
             let mut result__: UsbWriteOptions = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteOptions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbWriteOptions>(result__)
+            (::windows::core::Interface::vtable(this).WriteOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbWriteOptions>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
@@ -947,7 +947,7 @@ impl UsbBulkOutPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OutputStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
 }
@@ -1033,7 +1033,7 @@ impl UsbConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UsbInterfaces)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterface>>(result__)
+            (::windows::core::Interface::vtable(this).UsbInterfaces)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterface>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1041,7 +1041,7 @@ impl UsbConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConfigurationDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbConfigurationDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).ConfigurationDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbConfigurationDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -1050,7 +1050,7 @@ impl UsbConfiguration {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Descriptors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>(result__)
         }
     }
 }
@@ -1135,7 +1135,7 @@ impl UsbConfigurationDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ConfigurationValue)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).ConfigurationValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1143,7 +1143,7 @@ impl UsbConfigurationDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxPowerMilliamps)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxPowerMilliamps)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1151,7 +1151,7 @@ impl UsbConfigurationDescriptor {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelfPowered)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).SelfPowered)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1159,21 +1159,21 @@ impl UsbConfigurationDescriptor {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RemoteWakeup)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).RemoteWakeup)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbConfigurationDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), parsed as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), parsed as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0) -> ::windows::core::Result<UsbConfigurationDescriptor> {
         Self::IUsbConfigurationDescriptorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), &mut result__).from_abi::<UsbConfigurationDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), &mut result__).from_abi::<UsbConfigurationDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -1307,52 +1307,52 @@ impl UsbControlRequestType {
         let this = self;
         unsafe {
             let mut result__: UsbTransferDirection = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Direction)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbTransferDirection>(result__)
+            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbTransferDirection>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetDirection(&self, value: UsbTransferDirection) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetDirection)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn ControlTransferType(&self) -> ::windows::core::Result<UsbControlTransferType> {
         let this = self;
         unsafe {
             let mut result__: UsbControlTransferType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ControlTransferType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbControlTransferType>(result__)
+            (::windows::core::Interface::vtable(this).ControlTransferType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbControlTransferType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetControlTransferType(&self, value: UsbControlTransferType) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetControlTransferType)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetControlTransferType)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Recipient(&self) -> ::windows::core::Result<UsbControlRecipient> {
         let this = self;
         unsafe {
             let mut result__: UsbControlRecipient = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Recipient)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbControlRecipient>(result__)
+            (::windows::core::Interface::vtable(this).Recipient)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbControlRecipient>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetRecipient(&self, value: UsbControlRecipient) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRecipient)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRecipient)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn AsByte(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AsByte)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).AsByte)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetAsByte(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetAsByte)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetAsByte)(::windows::core::Interface::as_raw(this), value).ok() }
     }
 }
 impl ::core::clone::Clone for UsbControlRequestType {
@@ -1471,7 +1471,7 @@ impl UsbDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Length)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1479,14 +1479,14 @@ impl UsbDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DescriptorType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).DescriptorType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ReadDescriptorBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReadDescriptorBuffer)(::core::mem::transmute_copy(this), buffer.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReadDescriptorBuffer)(::windows::core::Interface::as_raw(this), buffer.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for UsbDescriptor {
@@ -1569,7 +1569,7 @@ impl UsbDevice {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -1577,7 +1577,7 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendControlOutTransferAsync)(::core::mem::transmute_copy(this), setuppacket.into_param().abi(), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).SendControlOutTransferAsync)(::windows::core::Interface::as_raw(this), setuppacket.into_param().abi(), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -1586,7 +1586,7 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendControlOutTransferAsyncNoBuffer)(::core::mem::transmute_copy(this), setuppacket.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
+            (::windows::core::Interface::vtable(this).SendControlOutTransferAsyncNoBuffer)(::windows::core::Interface::as_raw(this), setuppacket.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1595,7 +1595,7 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendControlInTransferAsync)(::core::mem::transmute_copy(this), setuppacket.into_param().abi(), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).SendControlInTransferAsync)(::windows::core::Interface::as_raw(this), setuppacket.into_param().abi(), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
@@ -1604,7 +1604,7 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SendControlInTransferAsyncNoBuffer)(::core::mem::transmute_copy(this), setuppacket.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
+            (::windows::core::Interface::vtable(this).SendControlInTransferAsyncNoBuffer)(::windows::core::Interface::as_raw(this), setuppacket.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1612,7 +1612,7 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DefaultInterface)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbInterface>(result__)
+            (::windows::core::Interface::vtable(this).DefaultInterface)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbInterface>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1620,7 +1620,7 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).DeviceDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -1628,35 +1628,35 @@ impl UsbDevice {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Configuration)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).Configuration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbConfiguration>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn GetDeviceSelector<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(vendorid: u32, productid: u32, winusbinterfaceclass: Param2) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::core::mem::transmute_copy(this), vendorid, productid, winusbinterfaceclass.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelector)(::windows::core::Interface::as_raw(this), vendorid, productid, winusbinterfaceclass.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn GetDeviceSelectorGuidOnly<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(winusbinterfaceclass: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorGuidOnly)(::core::mem::transmute_copy(this), winusbinterfaceclass.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorGuidOnly)(::windows::core::Interface::as_raw(this), winusbinterfaceclass.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn GetDeviceSelectorVidPidOnly(vendorid: u32, productid: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceSelectorVidPidOnly)(::core::mem::transmute_copy(this), vendorid, productid, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceSelectorVidPidOnly)(::windows::core::Interface::as_raw(this), vendorid, productid, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn GetDeviceClassSelector<'a, Param0: ::windows::core::IntoParam<'a, UsbDeviceClass>>(usbclass: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDeviceClassSelector)(::core::mem::transmute_copy(this), usbclass.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            (::windows::core::Interface::vtable(this).GetDeviceClassSelector)(::windows::core::Interface::as_raw(this), usbclass.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -1664,7 +1664,7 @@ impl UsbDevice {
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UsbDevice>> {
         Self::IUsbDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromIdAsync)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UsbDevice>>(result__)
+            (::windows::core::Interface::vtable(this).FromIdAsync)(::windows::core::Interface::as_raw(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UsbDevice>>(result__)
         })
     }
     #[doc(hidden)]
@@ -1787,13 +1787,13 @@ impl UsbDeviceClass {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClassCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).ClassCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetClassCode(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetClassCode)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetClassCode)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1801,14 +1801,14 @@ impl UsbDeviceClass {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubclassCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).SubclassCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u8>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSubclassCode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u8>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetSubclassCode)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetSubclassCode)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1816,14 +1816,14 @@ impl UsbDeviceClass {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u8>>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IReference<u8>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn SetProtocolCode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<u8>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetProtocolCode)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetProtocolCode)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for UsbDeviceClass {
@@ -1906,63 +1906,63 @@ impl UsbDeviceClasses {
     pub fn CdcControl() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CdcControl)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).CdcControl)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Physical() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Physical)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).Physical)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn PersonalHealthcare() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PersonalHealthcare)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).PersonalHealthcare)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn ActiveSync() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ActiveSync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).ActiveSync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn PalmSync() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PalmSync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).PalmSync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn DeviceFirmwareUpdate() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceFirmwareUpdate)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).DeviceFirmwareUpdate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Irda() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Irda)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).Irda)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Measurement() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Measurement)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).Measurement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn VendorSpecific() -> ::windows::core::Result<UsbDeviceClass> {
         Self::IUsbDeviceClassesStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VendorSpecific)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
+            (::windows::core::Interface::vtable(this).VendorSpecific)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbDeviceClass>(result__)
         })
     }
     #[doc(hidden)]
@@ -2052,7 +2052,7 @@ impl UsbDeviceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BcdUsb)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).BcdUsb)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2060,7 +2060,7 @@ impl UsbDeviceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxPacketSize0)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize0)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2068,7 +2068,7 @@ impl UsbDeviceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VendorId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).VendorId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2076,7 +2076,7 @@ impl UsbDeviceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProductId)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).ProductId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2084,7 +2084,7 @@ impl UsbDeviceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BcdDeviceRevision)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).BcdDeviceRevision)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2092,7 +2092,7 @@ impl UsbDeviceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NumberOfConfigurations)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).NumberOfConfigurations)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
 }
@@ -2177,7 +2177,7 @@ impl UsbEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2185,7 +2185,7 @@ impl UsbEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: UsbTransferDirection = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Direction)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbTransferDirection>(result__)
+            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbTransferDirection>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2193,7 +2193,7 @@ impl UsbEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: UsbEndpointType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbEndpointType>(result__)
+            (::windows::core::Interface::vtable(this).EndpointType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbEndpointType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2201,7 +2201,7 @@ impl UsbEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AsBulkInEndpointDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbBulkInEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).AsBulkInEndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbBulkInEndpointDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2209,7 +2209,7 @@ impl UsbEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AsInterruptInEndpointDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbInterruptInEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).AsInterruptInEndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbInterruptInEndpointDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2217,7 +2217,7 @@ impl UsbEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AsBulkOutEndpointDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbBulkOutEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).AsBulkOutEndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbBulkOutEndpointDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2225,21 +2225,21 @@ impl UsbEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AsInterruptOutEndpointDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbInterruptOutEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).AsInterruptOutEndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbInterruptOutEndpointDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbEndpointDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), parsed as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), parsed as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0) -> ::windows::core::Result<UsbEndpointDescriptor> {
         Self::IUsbEndpointDescriptorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), &mut result__).from_abi::<UsbEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), &mut result__).from_abi::<UsbEndpointDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -2366,7 +2366,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BulkInPipes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>>(result__)
+            (::windows::core::Interface::vtable(this).BulkInPipes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbBulkInPipe>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2375,7 +2375,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterruptInPipes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>>(result__)
+            (::windows::core::Interface::vtable(this).InterruptInPipes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterruptInPipe>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2384,7 +2384,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BulkOutPipes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbBulkOutPipe>>(result__)
+            (::windows::core::Interface::vtable(this).BulkOutPipes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbBulkOutPipe>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2393,7 +2393,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterruptOutPipes)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterruptOutPipe>>(result__)
+            (::windows::core::Interface::vtable(this).InterruptOutPipes)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterruptOutPipe>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2402,7 +2402,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterfaceSettings)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterfaceSetting>>(result__)
+            (::windows::core::Interface::vtable(this).InterfaceSettings)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterfaceSetting>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2410,7 +2410,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterfaceNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InterfaceNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2419,7 +2419,7 @@ impl UsbInterface {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Descriptors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>(result__)
         }
     }
 }
@@ -2504,7 +2504,7 @@ impl UsbInterfaceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClassCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).ClassCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2512,7 +2512,7 @@ impl UsbInterfaceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SubclassCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).SubclassCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2520,7 +2520,7 @@ impl UsbInterfaceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ProtocolCode)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).ProtocolCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2528,7 +2528,7 @@ impl UsbInterfaceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AlternateSettingNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).AlternateSettingNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2536,21 +2536,21 @@ impl UsbInterfaceDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterfaceNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).InterfaceNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn TryParse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0, parsed: &mut ::core::option::Option<UsbInterfaceDescriptor>) -> ::windows::core::Result<bool> {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryParse)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), parsed as *mut _ as _, &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).TryParse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), parsed as *mut _ as _, &mut result__).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Parse<'a, Param0: ::windows::core::IntoParam<'a, UsbDescriptor>>(descriptor: Param0) -> ::windows::core::Result<UsbInterfaceDescriptor> {
         Self::IUsbInterfaceDescriptorStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parse)(::core::mem::transmute_copy(this), descriptor.into_param().abi(), &mut result__).from_abi::<UsbInterfaceDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).Parse)(::windows::core::Interface::as_raw(this), descriptor.into_param().abi(), &mut result__).from_abi::<UsbInterfaceDescriptor>(result__)
         })
     }
     #[doc(hidden)]
@@ -2641,7 +2641,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BulkInEndpoints)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).BulkInEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbBulkInEndpointDescriptor>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2650,7 +2650,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterruptInEndpoints)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).InterruptInEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterruptInEndpointDescriptor>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2659,7 +2659,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BulkOutEndpoints)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbBulkOutEndpointDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).BulkOutEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbBulkOutEndpointDescriptor>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2668,7 +2668,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterruptOutEndpoints)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterruptOutEndpointDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).InterruptOutEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbInterruptOutEndpointDescriptor>>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2676,7 +2676,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Selected)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Selected)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -2685,7 +2685,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SelectSettingAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).SelectSettingAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2693,7 +2693,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterfaceDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbInterfaceDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).InterfaceDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbInterfaceDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation_Collections\"`*"]
@@ -2702,7 +2702,7 @@ impl UsbInterfaceSetting {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Descriptors)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>(result__)
+            (::windows::core::Interface::vtable(this).Descriptors)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UsbDescriptor>>(result__)
         }
     }
 }
@@ -2787,7 +2787,7 @@ impl UsbInterruptInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxPacketSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2795,7 +2795,7 @@ impl UsbInterruptInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -2804,7 +2804,7 @@ impl UsbInterruptInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Interval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Interval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -2812,7 +2812,7 @@ impl UsbInterruptInEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pipe)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbInterruptInPipe>(result__)
+            (::windows::core::Interface::vtable(this).Pipe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbInterruptInPipe>(result__)
         }
     }
 }
@@ -2898,7 +2898,7 @@ impl UsbInterruptInEventArgs {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InterruptData)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
+            (::windows::core::Interface::vtable(this).InterruptData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
 }
@@ -2983,7 +2983,7 @@ impl UsbInterruptInPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbInterruptInEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbInterruptInEndpointDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -2992,7 +2992,7 @@ impl UsbInterruptInPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClearStallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearStallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -3001,14 +3001,14 @@ impl UsbInterruptInPipe {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DataReceived)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
+            (::windows::core::Interface::vtable(this).DataReceived)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RemoveDataReceived)(::windows::core::Interface::as_raw(this), token.into_param().abi()).ok() }
     }
 }
 impl ::core::clone::Clone for UsbInterruptInPipe {
@@ -3092,7 +3092,7 @@ impl UsbInterruptOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MaxPacketSize)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).MaxPacketSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -3100,7 +3100,7 @@ impl UsbInterruptOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointNumber)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).EndpointNumber)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -3109,7 +3109,7 @@ impl UsbInterruptOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: super::super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Interval)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
+            (::windows::core::Interface::vtable(this).Interval)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
@@ -3117,7 +3117,7 @@ impl UsbInterruptOutEndpointDescriptor {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pipe)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbInterruptOutPipe>(result__)
+            (::windows::core::Interface::vtable(this).Pipe)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbInterruptOutPipe>(result__)
         }
     }
 }
@@ -3202,7 +3202,7 @@ impl UsbInterruptOutPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbInterruptOutEndpointDescriptor>(result__)
+            (::windows::core::Interface::vtable(this).EndpointDescriptor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbInterruptOutEndpointDescriptor>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Foundation\"`*"]
@@ -3211,20 +3211,20 @@ impl UsbInterruptOutPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ClearStallAsync)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
+            (::windows::core::Interface::vtable(this).ClearStallAsync)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetWriteOptions(&self, value: UsbWriteOptions) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetWriteOptions)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn WriteOptions(&self) -> ::windows::core::Result<UsbWriteOptions> {
         let this = self;
         unsafe {
             let mut result__: UsbWriteOptions = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).WriteOptions)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbWriteOptions>(result__)
+            (::windows::core::Interface::vtable(this).WriteOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbWriteOptions>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
@@ -3233,7 +3233,7 @@ impl UsbInterruptOutPipe {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OutputStream)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
+            (::windows::core::Interface::vtable(this).OutputStream)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Storage::Streams::IOutputStream>(result__)
         }
     }
 }
@@ -3390,72 +3390,72 @@ impl UsbSetupPacket {
         let this = self;
         unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RequestType)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UsbControlRequestType>(result__)
+            (::windows::core::Interface::vtable(this).RequestType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<UsbControlRequestType>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetRequestType<'a, Param0: ::windows::core::IntoParam<'a, UsbControlRequestType>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequestType)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequestType)(::windows::core::Interface::as_raw(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Request(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Request)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
+            (::windows::core::Interface::vtable(this).Request)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetRequest(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetRequest)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetRequest)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetValue(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetValue)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Index(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Index)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Index)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetIndex(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIndex)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn Length(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Length)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
+            (::windows::core::Interface::vtable(this).Length)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`*"]
     pub fn SetLength(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetLength)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetLength)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"Devices_Usb\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateWithEightByteBuffer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(eightbytebuffer: Param0) -> ::windows::core::Result<UsbSetupPacket> {
         Self::IUsbSetupPacketFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithEightByteBuffer)(::core::mem::transmute_copy(this), eightbytebuffer.into_param().abi(), &mut result__).from_abi::<UsbSetupPacket>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithEightByteBuffer)(::windows::core::Interface::as_raw(this), eightbytebuffer.into_param().abi(), &mut result__).from_abi::<UsbSetupPacket>(result__)
         })
     }
     #[doc(hidden)]

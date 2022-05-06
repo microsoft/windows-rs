@@ -36,41 +36,41 @@ impl RemoteTextConnection {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
-        unsafe { (::windows::core::Interface::vtable(this).Close)(::core::mem::transmute_copy(this)).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).Close)(::windows::core::Interface::as_raw(this)).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn SetIsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::core::mem::transmute_copy(this), value).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::windows::core::Interface::as_raw(this), value).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn RegisterThread(&self, threadid: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).RegisterThread)(::core::mem::transmute_copy(this), threadid).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).RegisterThread)(::windows::core::Interface::as_raw(this), threadid).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn UnregisterThread(&self, threadid: u32) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).UnregisterThread)(::core::mem::transmute_copy(this), threadid).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).UnregisterThread)(::windows::core::Interface::as_raw(this), threadid).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn ReportDataReceived(&self, pdudata: &[u8]) -> ::windows::core::Result<()> {
         let this = self;
-        unsafe { (::windows::core::Interface::vtable(this).ReportDataReceived)(::core::mem::transmute_copy(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr())).ok() }
+        unsafe { (::windows::core::Interface::vtable(this).ReportDataReceived)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr())).ok() }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, RemoteTextConnectionDataHandler>>(connectionid: Param0, pduforwarder: Param1) -> ::windows::core::Result<RemoteTextConnection> {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), connectionid.into_param().abi(), pduforwarder.into_param().abi(), &mut result__).from_abi::<RemoteTextConnection>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), connectionid.into_param().abi(), pduforwarder.into_param().abi(), &mut result__).from_abi::<RemoteTextConnection>(result__)
         })
     }
     #[doc(hidden)]
@@ -190,7 +190,7 @@ impl RemoteTextConnectionDataHandler {
         let this = self;
         unsafe {
             let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Invoke)(::core::mem::transmute_copy(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr()), &mut result__).from_abi::<bool>(result__)
+            (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr()), &mut result__).from_abi::<bool>(result__)
         }
     }
 }
