@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for ISideShowBulkCapabilities {}
 impl ISideShowBulkCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowBulkCapabilities_Impl, const OFFSET: isize>() -> ISideShowBulkCapabilities_Vtbl {
         unsafe extern "system" fn GetCapabilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowBulkCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_keycollection: ::windows::core::RawPtr, inout_pvalues: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetCapabilities(::core::mem::transmute(&in_keycollection), ::core::mem::transmute_copy(&inout_pvalues)).into()
         }
@@ -28,7 +28,7 @@ impl ::windows::core::RuntimeName for ISideShowCapabilities {}
 impl ISideShowCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowCapabilities_Impl, const OFFSET: isize>() -> ISideShowCapabilities_Vtbl {
         unsafe extern "system" fn GetCapability<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_keycapability: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, inout_pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetCapability(::core::mem::transmute_copy(&in_keycapability), ::core::mem::transmute_copy(&inout_pvalue)).into()
         }
@@ -46,7 +46,7 @@ impl ::windows::core::RuntimeName for ISideShowCapabilitiesCollection {}
 impl ISideShowCapabilitiesCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowCapabilitiesCollection_Impl, const OFFSET: isize>() -> ISideShowCapabilitiesCollection_Vtbl {
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowCapabilitiesCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_pdwcount: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -57,7 +57,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
             }
         }
         unsafe extern "system" fn GetAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowCapabilitiesCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_dwindex: u32, out_ppcapabilities: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetAt(::core::mem::transmute_copy(&in_dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -89,12 +89,12 @@ impl ::windows::core::RuntimeName for ISideShowContent {}
 impl ISideShowContent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContent_Impl, const OFFSET: isize>() -> ISideShowContent_Vtbl {
         unsafe extern "system" fn GetContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_picapabilities: ::windows::core::RawPtr, out_pdwsize: *mut u32, out_ppbdata: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetContent(::core::mem::transmute(&in_picapabilities), ::core::mem::transmute_copy(&out_pdwsize), ::core::mem::transmute_copy(&out_ppbdata)).into()
         }
         unsafe extern "system" fn ContentId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_pcontentid: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ContentId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -105,7 +105,7 @@ impl ISideShowContent_Vtbl {
             }
         }
         unsafe extern "system" fn DifferentiateContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_pfdifferentiatecontent: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DifferentiateContent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -137,27 +137,27 @@ impl ::windows::core::RuntimeName for ISideShowContentManager {}
 impl ISideShowContentManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>() -> ISideShowContentManager_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_picontent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute(&in_picontent)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_contentid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute_copy(&in_contentid)).into()
         }
         unsafe extern "system" fn RemoveAll<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveAll().into()
         }
         unsafe extern "system" fn SetEventSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pievents: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetEventSink(::core::mem::transmute(&in_pievents)).into()
         }
         unsafe extern "system" fn GetDeviceCapabilities<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowContentManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetDeviceCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
@@ -190,7 +190,7 @@ impl ::windows::core::RuntimeName for ISideShowEvents {}
 impl ISideShowEvents_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowEvents_Impl, const OFFSET: isize>() -> ISideShowEvents_Vtbl {
         unsafe extern "system" fn ContentMissing<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_contentid: u32, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ContentMissing(::core::mem::transmute_copy(&in_contentid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -201,17 +201,17 @@ impl ISideShowEvents_Vtbl {
             }
         }
         unsafe extern "system" fn ApplicationEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_picapabilities: ::windows::core::RawPtr, in_dweventid: u32, in_dweventsize: u32, in_pbeventdata: *const u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ApplicationEvent(::core::mem::transmute(&in_picapabilities), ::core::mem::transmute_copy(&in_dweventid), ::core::mem::transmute_copy(&in_dweventsize), ::core::mem::transmute_copy(&in_pbeventdata)).into()
         }
         unsafe extern "system" fn DeviceAdded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pidevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeviceAdded(::core::mem::transmute(&in_pidevice)).into()
         }
         unsafe extern "system" fn DeviceRemoved<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowEvents_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pidevice: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeviceRemoved(::core::mem::transmute(&in_pidevice)).into()
         }
@@ -241,27 +241,27 @@ impl ::windows::core::RuntimeName for ISideShowKeyCollection {}
 impl ISideShowKeyCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowKeyCollection_Impl, const OFFSET: isize>() -> ISideShowKeyCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, key: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute_copy(&key)).into()
         }
         unsafe extern "system" fn Clear<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Clear().into()
         }
         unsafe extern "system" fn GetAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pkey: *mut super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetAt(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pkey)).into()
         }
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcelems: *const u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetCount(::core::mem::transmute_copy(&pcelems)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowKeyCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveAt(::core::mem::transmute_copy(&dwindex)).into()
         }
@@ -297,7 +297,7 @@ impl ::windows::core::RuntimeName for ISideShowNotification {}
 impl ISideShowNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>() -> ISideShowNotification_Vtbl {
         unsafe extern "system" fn NotificationId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_pnotificationid: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NotificationId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -308,12 +308,12 @@ impl ISideShowNotification_Vtbl {
             }
         }
         unsafe extern "system" fn SetNotificationId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_notificationid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetNotificationId(::core::mem::transmute_copy(&in_notificationid)).into()
         }
         unsafe extern "system" fn Title<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ppwsztitle: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Title() {
                 ::core::result::Result::Ok(ok__) => {
@@ -324,12 +324,12 @@ impl ISideShowNotification_Vtbl {
             }
         }
         unsafe extern "system" fn SetTitle<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pwsztitle: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetTitle(::core::mem::transmute(&in_pwsztitle)).into()
         }
         unsafe extern "system" fn Message<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ppwszmessage: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Message() {
                 ::core::result::Result::Ok(ok__) => {
@@ -340,12 +340,12 @@ impl ISideShowNotification_Vtbl {
             }
         }
         unsafe extern "system" fn SetMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pwszmessage: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetMessage(::core::mem::transmute(&in_pwszmessage)).into()
         }
         unsafe extern "system" fn Image<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_phicon: *mut super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Image() {
                 ::core::result::Result::Ok(ok__) => {
@@ -356,12 +356,12 @@ impl ISideShowNotification_Vtbl {
             }
         }
         unsafe extern "system" fn SetImage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_hicon: super::super::UI::WindowsAndMessaging::HICON) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetImage(::core::mem::transmute_copy(&in_hicon)).into()
         }
         unsafe extern "system" fn ExpirationTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, out_ptime: *mut super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ExpirationTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -372,7 +372,7 @@ impl ISideShowNotification_Vtbl {
             }
         }
         unsafe extern "system" fn SetExpirationTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_ptime: *const super::super::Foundation::SYSTEMTIME) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetExpirationTime(::core::mem::transmute_copy(&in_ptime)).into()
         }
@@ -403,17 +403,17 @@ impl ::windows::core::RuntimeName for ISideShowNotificationManager {}
 impl ISideShowNotificationManager_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>() -> ISideShowNotificationManager_Vtbl {
         unsafe extern "system" fn Show<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_pinotification: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Show(::core::mem::transmute(&in_pinotification)).into()
         }
         unsafe extern "system" fn Revoke<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_notificationid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Revoke(::core::mem::transmute_copy(&in_notificationid)).into()
         }
         unsafe extern "system" fn RevokeAll<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowNotificationManager_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RevokeAll().into()
         }
@@ -442,27 +442,27 @@ impl ::windows::core::RuntimeName for ISideShowPropVariantCollection {}
 impl ISideShowPropVariantCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>() -> ISideShowPropVariantCollection_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvalue: *const super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn Clear<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Clear().into()
         }
         unsafe extern "system" fn GetAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32, pvalue: *mut super::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetAt(::core::mem::transmute_copy(&dwindex), ::core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn GetCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcelems: *const u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetCount(::core::mem::transmute_copy(&pcelems)).into()
         }
         unsafe extern "system" fn RemoveAt<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowPropVariantCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwindex: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveAt(::core::mem::transmute_copy(&dwindex)).into()
         }
@@ -487,7 +487,7 @@ impl ::windows::core::RuntimeName for ISideShowSession {}
 impl ISideShowSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowSession_Impl, const OFFSET: isize>() -> ISideShowSession_Vtbl {
         unsafe extern "system" fn RegisterContent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, in_endpointid: *const ::windows::core::GUID, out_ppicontent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RegisterContent(::core::mem::transmute_copy(&in_applicationid), ::core::mem::transmute_copy(&in_endpointid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -498,7 +498,7 @@ impl ISideShowSession_Vtbl {
             }
         }
         unsafe extern "system" fn RegisterNotifications<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ISideShowSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, in_applicationid: *const ::windows::core::GUID, out_ppinotification: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RegisterNotifications(::core::mem::transmute_copy(&in_applicationid)) {
                 ::core::result::Result::Ok(ok__) => {

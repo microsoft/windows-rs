@@ -68,7 +68,7 @@ impl ::windows::core::RuntimeName for IAzApplication {}
 impl IAzApplication_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>() -> IAzApplication_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -79,12 +79,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -95,12 +95,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrapplicationdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -111,12 +111,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn SetApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplicationData(::core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn AuthzInterfaceClsid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AuthzInterfaceClsid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -127,12 +127,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn SetAuthzInterfaceClsid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAuthzInterfaceClsid(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn Version<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Version() {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,12 +143,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn SetVersion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetVersion(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn GenerateAudits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GenerateAudits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -159,12 +159,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn SetGenerateAudits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bprop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetGenerateAudits(::core::mem::transmute_copy(&bprop)).into()
         }
         unsafe extern "system" fn ApplyStoreSacl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplyStoreSacl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -175,12 +175,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn SetApplyStoreSacl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bprop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplyStoreSacl(::core::mem::transmute_copy(&bprop)).into()
         }
         unsafe extern "system" fn Writable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -191,7 +191,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -202,12 +202,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn PolicyAdministrators<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyAdministrators() {
                 ::core::result::Result::Ok(ok__) => {
@@ -218,7 +218,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn PolicyReaders<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyReaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -229,27 +229,27 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn AddPolicyAdministrator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyAdministrator(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministrator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyAdministrator(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyReader(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyReader(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Scopes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppscopecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Scopes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -260,7 +260,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn OpenScope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppscope: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenScope(::core::mem::transmute(&bstrscopename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -271,7 +271,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn CreateScope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppscope: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateScope(::core::mem::transmute(&bstrscopename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -282,12 +282,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteScope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteScope(::core::mem::transmute(&bstrscopename), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Operations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppoperationcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Operations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -298,7 +298,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn OpenOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstroperationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppoperation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenOperation(::core::mem::transmute(&bstroperationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -309,7 +309,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn CreateOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstroperationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppoperation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateOperation(::core::mem::transmute(&bstroperationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -320,12 +320,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstroperationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteOperation(::core::mem::transmute(&bstroperationname), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Tasks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptaskcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Tasks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -336,7 +336,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn OpenTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtaskname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pptask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -347,7 +347,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn CreateTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtaskname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pptask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -358,12 +358,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtaskname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn ApplicationGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroupcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -374,7 +374,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn OpenApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -385,7 +385,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn CreateApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -396,12 +396,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Roles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprolecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Roles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -412,7 +412,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn OpenRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pprole: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -423,7 +423,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn CreateRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pprole: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -434,12 +434,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn InitializeClientContextFromToken<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulltokenhandle: u64, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppclientcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.InitializeClientContextFromToken(::core::mem::transmute_copy(&ulltokenhandle), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -450,22 +450,22 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn AddPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn InitializeClientContextFromName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, clientname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, domainname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppclientcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.InitializeClientContextFromName(::core::mem::transmute(&clientname), ::core::mem::transmute(&domainname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -476,7 +476,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn DelegatedPolicyUsers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DelegatedPolicyUsers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -487,17 +487,17 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn AddDelegatedPolicyUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddDelegatedPolicyUser(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteDelegatedPolicyUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteDelegatedPolicyUser(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn InitializeClientContextFromStringSid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sidstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loptions: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppclientcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.InitializeClientContextFromStringSid(::core::mem::transmute(&sidstring), ::core::mem::transmute_copy(&loptions), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -508,7 +508,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn PolicyAdministratorsName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyAdministratorsName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -519,7 +519,7 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn PolicyReadersName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyReadersName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -530,27 +530,27 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn AddPolicyAdministratorName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyAdministratorName(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministratorName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyAdministratorName(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReaderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyReaderName(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReaderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyReaderName(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DelegatedPolicyUsersName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DelegatedPolicyUsersName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -561,12 +561,12 @@ impl IAzApplication_Vtbl {
             }
         }
         unsafe extern "system" fn AddDelegatedPolicyUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddDelegatedPolicyUserName(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteDelegatedPolicyUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteDelegatedPolicyUserName(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
@@ -650,7 +650,7 @@ impl ::windows::core::RuntimeName for IAzApplication2 {}
 impl IAzApplication2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication2_Impl, const OFFSET: isize>() -> IAzApplication2_Vtbl {
         unsafe extern "system" fn InitializeClientContextFromToken2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ultokenhandlelowpart: u32, ultokenhandlehighpart: u32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppclientcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.InitializeClientContextFromToken2(::core::mem::transmute_copy(&ultokenhandlelowpart), ::core::mem::transmute_copy(&ultokenhandlehighpart), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -661,7 +661,7 @@ impl IAzApplication2_Vtbl {
             }
         }
         unsafe extern "system" fn InitializeClientContext2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, identifyingstring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppclientcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.InitializeClientContext2(::core::mem::transmute(&identifyingstring), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -704,7 +704,7 @@ impl ::windows::core::RuntimeName for IAzApplication3 {}
 impl IAzApplication3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>() -> IAzApplication3_Vtbl {
         unsafe extern "system" fn ScopeExists<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbexist: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ScopeExists(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -715,7 +715,7 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn OpenScope2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppscope2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenScope2(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -726,7 +726,7 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn CreateScope2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppscope2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateScope2(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -737,12 +737,12 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteScope2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteScope2(::core::mem::transmute(&bstrscopename)).into()
         }
         unsafe extern "system" fn RoleDefinitions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -753,7 +753,7 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn CreateRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinitionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -764,7 +764,7 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn OpenRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinitionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -775,12 +775,12 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinitionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)).into()
         }
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleAssignments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -791,7 +791,7 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn CreateRoleAssignment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleassignmentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproleassignment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -802,7 +802,7 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn OpenRoleAssignment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleassignmentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproleassignment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -813,12 +813,12 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteRoleAssignment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleassignmentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)).into()
         }
         unsafe extern "system" fn BizRulesEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbenabled: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRulesEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -829,7 +829,7 @@ impl IAzApplication3_Vtbl {
             }
         }
         unsafe extern "system" fn SetBizRulesEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplication3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, benabled: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBizRulesEnabled(::core::mem::transmute_copy(&benabled)).into()
         }
@@ -896,7 +896,7 @@ impl ::windows::core::RuntimeName for IAzApplicationGroup {}
 impl IAzApplicationGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>() -> IAzApplicationGroup_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -907,12 +907,12 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Type<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plprop: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
@@ -923,12 +923,12 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn SetType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprop: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetType(::core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn LdapQuery<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LdapQuery() {
                 ::core::result::Result::Ok(ok__) => {
@@ -939,12 +939,12 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn SetLdapQuery<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetLdapQuery(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn AppMembers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AppMembers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -955,7 +955,7 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn AppNonMembers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AppNonMembers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -966,7 +966,7 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn Members<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Members() {
                 ::core::result::Result::Ok(ok__) => {
@@ -977,7 +977,7 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn NonMembers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NonMembers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -988,7 +988,7 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -999,52 +999,52 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn AddAppMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddAppMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteAppMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteAppMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddAppNonMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddAppNonMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteAppNonMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteAppNonMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddNonMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddNonMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteNonMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteNonMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Writable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1055,7 +1055,7 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1066,47 +1066,47 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddMemberName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddMemberName(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteMemberName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteMemberName(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddNonMemberName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddNonMemberName(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteNonMemberName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteNonMemberName(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn MembersName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MembersName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1117,7 +1117,7 @@ impl IAzApplicationGroup_Vtbl {
             }
         }
         unsafe extern "system" fn NonMembersName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NonMembersName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1183,7 +1183,7 @@ impl ::windows::core::RuntimeName for IAzApplicationGroup2 {}
 impl IAzApplicationGroup2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>() -> IAzApplicationGroup2_Vtbl {
         unsafe extern "system" fn BizRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1194,12 +1194,12 @@ impl IAzApplicationGroup2_Vtbl {
             }
         }
         unsafe extern "system" fn SetBizRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBizRule(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn BizRuleLanguage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRuleLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1210,12 +1210,12 @@ impl IAzApplicationGroup2_Vtbl {
             }
         }
         unsafe extern "system" fn SetBizRuleLanguage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBizRuleLanguage(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn BizRuleImportedPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRuleImportedPath() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1226,12 +1226,12 @@ impl IAzApplicationGroup2_Vtbl {
             }
         }
         unsafe extern "system" fn SetBizRuleImportedPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBizRuleImportedPath(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroup2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleAssignments(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&brecursive)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1268,7 +1268,7 @@ impl ::windows::core::RuntimeName for IAzApplicationGroups {}
 impl IAzApplicationGroups_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>() -> IAzApplicationGroups_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1279,7 +1279,7 @@ impl IAzApplicationGroups_Vtbl {
             }
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1290,7 +1290,7 @@ impl IAzApplicationGroups_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplicationGroups_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1323,7 +1323,7 @@ impl ::windows::core::RuntimeName for IAzApplications {}
 impl IAzApplications_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplications_Impl, const OFFSET: isize>() -> IAzApplications_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1334,7 +1334,7 @@ impl IAzApplications_Vtbl {
             }
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1345,7 +1345,7 @@ impl IAzApplications_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzApplications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1426,7 +1426,7 @@ impl ::windows::core::RuntimeName for IAzAuthorizationStore {}
 impl IAzAuthorizationStore_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>() -> IAzAuthorizationStore_Vtbl {
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1437,12 +1437,12 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrapplicationdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1453,12 +1453,12 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn SetApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplicationData(::core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn DomainTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plprop: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DomainTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1469,12 +1469,12 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn SetDomainTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprop: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDomainTimeout(::core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn ScriptEngineTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plprop: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ScriptEngineTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1485,12 +1485,12 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn SetScriptEngineTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprop: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetScriptEngineTimeout(::core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn MaxScriptEngines<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plprop: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MaxScriptEngines() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1501,12 +1501,12 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn SetMaxScriptEngines<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprop: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetMaxScriptEngines(::core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn GenerateAudits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GenerateAudits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1517,12 +1517,12 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn SetGenerateAudits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bprop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetGenerateAudits(::core::mem::transmute_copy(&bprop)).into()
         }
         unsafe extern "system" fn Writable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1533,7 +1533,7 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1544,22 +1544,22 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: AZ_PROP_CONSTANTS, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn PolicyAdministrators<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyAdministrators() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1570,7 +1570,7 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn PolicyReaders<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyReaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1581,42 +1581,42 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn AddPolicyAdministrator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyAdministrator(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministrator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyAdministrator(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyReader(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyReader(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: AZ_PROP_CONSTANTS, bstrpolicyurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&bstrpolicyurl), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn UpdateCache<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UpdateCache(::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Delete<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Delete(::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Applications<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppappcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Applications() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1627,7 +1627,7 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn OpenApplication<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppapplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenApplication(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1638,7 +1638,7 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn CreateApplication<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppapplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateApplication(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1649,12 +1649,12 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteApplication<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteApplication(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn ApplicationGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroupcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1665,7 +1665,7 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn CreateApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1676,7 +1676,7 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn OpenApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1687,17 +1687,17 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DelegatedPolicyUsers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DelegatedPolicyUsers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1708,17 +1708,17 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn AddDelegatedPolicyUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddDelegatedPolicyUser(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteDelegatedPolicyUser<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteDelegatedPolicyUser(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn TargetMachine<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrtargetmachine: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TargetMachine() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1729,7 +1729,7 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn ApplyStoreSacl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbapplystoresacl: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplyStoreSacl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1740,12 +1740,12 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn SetApplyStoreSacl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bapplystoresacl: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplyStoreSacl(::core::mem::transmute_copy(&bapplystoresacl)).into()
         }
         unsafe extern "system" fn PolicyAdministratorsName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyAdministratorsName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1756,7 +1756,7 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn PolicyReadersName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyReadersName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1767,27 +1767,27 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn AddPolicyAdministratorName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyAdministratorName(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministratorName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyAdministratorName(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReaderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyReaderName(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReaderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyReaderName(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DelegatedPolicyUsersName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvardelegatedpolicyusers: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DelegatedPolicyUsersName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1798,17 +1798,17 @@ impl IAzAuthorizationStore_Vtbl {
             }
         }
         unsafe extern "system" fn AddDelegatedPolicyUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddDelegatedPolicyUserName(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteDelegatedPolicyUserName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdelegatedpolicyuser: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteDelegatedPolicyUserName(::core::mem::transmute(&bstrdelegatedpolicyuser), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn CloseApplication<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lflag: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.CloseApplication(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute_copy(&lflag)).into()
         }
@@ -1882,7 +1882,7 @@ impl ::windows::core::RuntimeName for IAzAuthorizationStore2 {}
 impl IAzAuthorizationStore2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore2_Impl, const OFFSET: isize>() -> IAzAuthorizationStore2_Vtbl {
         unsafe extern "system" fn OpenApplication2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppapplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenApplication2(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1893,7 +1893,7 @@ impl IAzAuthorizationStore2_Vtbl {
             }
         }
         unsafe extern "system" fn CreateApplication2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppapplication: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateApplication2(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1927,7 +1927,7 @@ impl ::windows::core::RuntimeName for IAzAuthorizationStore3 {}
 impl IAzAuthorizationStore3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>() -> IAzAuthorizationStore3_Vtbl {
         unsafe extern "system" fn IsUpdateNeeded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbisupdateneeded: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsUpdateNeeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1938,7 +1938,7 @@ impl IAzAuthorizationStore3_Vtbl {
             }
         }
         unsafe extern "system" fn BizruleGroupSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbsupported: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizruleGroupSupported() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1949,12 +1949,12 @@ impl IAzAuthorizationStore3_Vtbl {
             }
         }
         unsafe extern "system" fn UpgradeStoresFunctionalLevel<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfunctionallevel: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UpgradeStoresFunctionalLevel(::core::mem::transmute_copy(&lfunctionallevel)).into()
         }
         unsafe extern "system" fn IsFunctionalLevelUpgradeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfunctionallevel: i32, pbsupported: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsFunctionalLevelUpgradeSupported(::core::mem::transmute_copy(&lfunctionallevel)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1965,7 +1965,7 @@ impl IAzAuthorizationStore3_Vtbl {
             }
         }
         unsafe extern "system" fn GetSchemaVersion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzAuthorizationStore3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmajorversion: *mut i32, plminorversion: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetSchemaVersion(::core::mem::transmute_copy(&plmajorversion), ::core::mem::transmute_copy(&plminorversion)).into()
         }
@@ -1995,17 +1995,17 @@ impl ::windows::core::RuntimeName for IAzBizRuleContext {}
 impl IAzBizRuleContext_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>() -> IAzBizRuleContext_Vtbl {
         unsafe extern "system" fn SetBusinessRuleResult<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bresult: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBusinessRuleResult(::core::mem::transmute_copy(&bresult)).into()
         }
         unsafe extern "system" fn SetBusinessRuleString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrbusinessrulestring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBusinessRuleString(::core::mem::transmute(&bstrbusinessrulestring)).into()
         }
         unsafe extern "system" fn BusinessRuleString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbusinessrulestring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BusinessRuleString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2016,7 +2016,7 @@ impl IAzBizRuleContext_Vtbl {
             }
         }
         unsafe extern "system" fn GetParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrparametername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarparametervalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetParameter(::core::mem::transmute(&bstrparametername)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2053,32 +2053,32 @@ impl ::windows::core::RuntimeName for IAzBizRuleInterfaces {}
 impl IAzBizRuleInterfaces_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>() -> IAzBizRuleInterfaces_Vtbl {
         unsafe extern "system" fn AddInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinterfacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linterfaceflag: i32, varinterface: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddInterface(::core::mem::transmute(&bstrinterfacename), ::core::mem::transmute_copy(&linterfaceflag), ::core::mem::transmute(&varinterface)).into()
         }
         unsafe extern "system" fn AddInterfaces<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varinterfacenames: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varinterfaceflags: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varinterfaces: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddInterfaces(::core::mem::transmute(&varinterfacenames), ::core::mem::transmute(&varinterfaceflags), ::core::mem::transmute(&varinterfaces)).into()
         }
         unsafe extern "system" fn GetInterfaceValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinterfacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, linterfaceflag: *mut i32, varinterface: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetInterfaceValue(::core::mem::transmute(&bstrinterfacename), ::core::mem::transmute_copy(&linterfaceflag), ::core::mem::transmute_copy(&varinterface)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinterfacename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&bstrinterfacename)).into()
         }
         unsafe extern "system" fn RemoveAll<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveAll().into()
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleInterfaces_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2117,17 +2117,17 @@ impl ::windows::core::RuntimeName for IAzBizRuleParameters {}
 impl IAzBizRuleParameters_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>() -> IAzBizRuleParameters_Vtbl {
         unsafe extern "system" fn AddParameter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrparametername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varparametervalue: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddParameter(::core::mem::transmute(&bstrparametername), ::core::mem::transmute(&varparametervalue)).into()
         }
         unsafe extern "system" fn AddParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varparameternames: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varparametervalues: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddParameters(::core::mem::transmute(&varparameternames), ::core::mem::transmute(&varparametervalues)).into()
         }
         unsafe extern "system" fn GetParameterValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrparametername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarparametervalue: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetParameterValue(::core::mem::transmute(&bstrparametername)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2138,17 +2138,17 @@ impl IAzBizRuleParameters_Vtbl {
             }
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varparametername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute(&varparametername)).into()
         }
         unsafe extern "system" fn RemoveAll<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveAll().into()
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzBizRuleParameters_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2205,7 +2205,7 @@ impl IAzClientContext_Vtbl {
             varinterfaces: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
             pvarresults: *mut super::super::System::Com::VARIANT,
         ) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AccessCheck(::core::mem::transmute(&bstrobjectname), ::core::mem::transmute(&varscopenames), ::core::mem::transmute(&varoperations), ::core::mem::transmute(&varparameternames), ::core::mem::transmute(&varparametervalues), ::core::mem::transmute(&varinterfacenames), ::core::mem::transmute(&varinterfaceflags), ::core::mem::transmute(&varinterfaces)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2216,7 +2216,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn GetBusinessRuleString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrbusinessrulestring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetBusinessRuleString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2227,7 +2227,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn UserDn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.UserDn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2238,7 +2238,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn UserSamCompat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.UserSamCompat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2249,7 +2249,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn UserDisplay<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.UserDisplay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2260,7 +2260,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn UserGuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.UserGuid() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2271,7 +2271,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn UserCanonical<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.UserCanonical() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2282,7 +2282,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn UserUpn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.UserUpn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2293,7 +2293,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn UserDnsSamCompat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.UserDnsSamCompat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2304,7 +2304,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2315,7 +2315,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn GetRoles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvarrolenames: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetRoles(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2326,7 +2326,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn RoleForAccessCheck<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleForAccessCheck() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2337,7 +2337,7 @@ impl IAzClientContext_Vtbl {
             }
         }
         unsafe extern "system" fn SetRoleForAccessCheck<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetRoleForAccessCheck(::core::mem::transmute(&bstrprop)).into()
         }
@@ -2377,32 +2377,32 @@ impl ::windows::core::RuntimeName for IAzClientContext2 {}
 impl IAzClientContext2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>() -> IAzClientContext2_Vtbl {
         unsafe extern "system" fn GetAssignedScopesPage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, loptions: i32, pagesize: i32, pvarcursor: *mut super::super::System::Com::VARIANT, pvarscopenames: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetAssignedScopesPage(::core::mem::transmute_copy(&loptions), ::core::mem::transmute_copy(&pagesize), ::core::mem::transmute_copy(&pvarcursor), ::core::mem::transmute_copy(&pvarscopenames)).into()
         }
         unsafe extern "system" fn AddRoles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varroles: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddRoles(::core::mem::transmute(&varroles), ::core::mem::transmute(&bstrscopename)).into()
         }
         unsafe extern "system" fn AddApplicationGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varapplicationgroups: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddApplicationGroups(::core::mem::transmute(&varapplicationgroups)).into()
         }
         unsafe extern "system" fn AddStringSids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, varstringsids: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddStringSids(::core::mem::transmute(&varstringsids)).into()
         }
         unsafe extern "system" fn SetLDAPQueryDN<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrldapquerydn: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetLDAPQueryDN(::core::mem::transmute(&bstrldapquerydn)).into()
         }
         unsafe extern "system" fn LDAPQueryDN<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrldapquerydn: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LDAPQueryDN() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2443,7 +2443,7 @@ impl ::windows::core::RuntimeName for IAzClientContext3 {}
 impl IAzClientContext3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>() -> IAzClientContext3_Vtbl {
         unsafe extern "system" fn AccessCheck2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrobjectname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, loperation: i32, plresult: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AccessCheck2(::core::mem::transmute(&bstrobjectname), ::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&loperation)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2454,7 +2454,7 @@ impl IAzClientContext3_Vtbl {
             }
         }
         unsafe extern "system" fn IsInRoleAssignment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbisinrole: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsInRoleAssignment(::core::mem::transmute(&bstrscopename), ::core::mem::transmute(&bstrrolename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2465,7 +2465,7 @@ impl IAzClientContext3_Vtbl {
             }
         }
         unsafe extern "system" fn GetOperations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppoperationcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetOperations(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2476,7 +2476,7 @@ impl IAzClientContext3_Vtbl {
             }
         }
         unsafe extern "system" fn GetTasks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptaskcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetTasks(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2487,7 +2487,7 @@ impl IAzClientContext3_Vtbl {
             }
         }
         unsafe extern "system" fn BizRuleParameters<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbizruleparam: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRuleParameters() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2498,7 +2498,7 @@ impl IAzClientContext3_Vtbl {
             }
         }
         unsafe extern "system" fn BizRuleInterfaces<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppbizruleinterfaces: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRuleInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2509,7 +2509,7 @@ impl IAzClientContext3_Vtbl {
             }
         }
         unsafe extern "system" fn GetGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, uloptions: AZ_PROP_CONSTANTS, pgrouparray: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetGroups(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&uloptions)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2520,7 +2520,7 @@ impl IAzClientContext3_Vtbl {
             }
         }
         unsafe extern "system" fn Sids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzClientContext3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstringsidarray: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Sids() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2557,12 +2557,12 @@ impl ::windows::core::RuntimeName for IAzNameResolver {}
 impl IAzNameResolver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzNameResolver_Impl, const OFFSET: isize>() -> IAzNameResolver_Vtbl {
         unsafe extern "system" fn NameFromSid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzNameResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, psidtype: *mut i32, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.NameFromSid(::core::mem::transmute(&bstrsid), ::core::mem::transmute_copy(&psidtype), ::core::mem::transmute_copy(&pbstrname)).into()
         }
         unsafe extern "system" fn NamesFromSids<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzNameResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vsids: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.NamesFromSids(::core::mem::transmute(&vsids), ::core::mem::transmute_copy(&pvsidtypes), ::core::mem::transmute_copy(&pvnames)).into()
         }
@@ -2587,12 +2587,12 @@ impl ::windows::core::RuntimeName for IAzObjectPicker {}
 impl IAzObjectPicker_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzObjectPicker_Impl, const OFFSET: isize>() -> IAzObjectPicker_Vtbl {
         unsafe extern "system" fn GetPrincipals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzObjectPicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hparentwnd: super::super::Foundation::HWND, bstrtitle: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvsidtypes: *mut super::super::System::Com::VARIANT, pvnames: *mut super::super::System::Com::VARIANT, pvsids: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetPrincipals(::core::mem::transmute_copy(&hparentwnd), ::core::mem::transmute(&bstrtitle), ::core::mem::transmute_copy(&pvsidtypes), ::core::mem::transmute_copy(&pvnames), ::core::mem::transmute_copy(&pvsids)).into()
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzObjectPicker_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2633,7 +2633,7 @@ impl ::windows::core::RuntimeName for IAzOperation {}
 impl IAzOperation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>() -> IAzOperation_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2644,12 +2644,12 @@ impl IAzOperation_Vtbl {
             }
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2660,12 +2660,12 @@ impl IAzOperation_Vtbl {
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrapplicationdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2676,12 +2676,12 @@ impl IAzOperation_Vtbl {
             }
         }
         unsafe extern "system" fn SetApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplicationData(::core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn OperationID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plprop: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OperationID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2692,12 +2692,12 @@ impl IAzOperation_Vtbl {
             }
         }
         unsafe extern "system" fn SetOperationID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lprop: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetOperationID(::core::mem::transmute_copy(&lprop)).into()
         }
         unsafe extern "system" fn Writable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2708,7 +2708,7 @@ impl IAzOperation_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2719,12 +2719,12 @@ impl IAzOperation_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
@@ -2758,7 +2758,7 @@ impl ::windows::core::RuntimeName for IAzOperation2 {}
 impl IAzOperation2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation2_Impl, const OFFSET: isize>() -> IAzOperation2_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleAssignments(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&brecursive)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2786,7 +2786,7 @@ impl ::windows::core::RuntimeName for IAzOperations {}
 impl IAzOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperations_Impl, const OFFSET: isize>() -> IAzOperations_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2797,7 +2797,7 @@ impl IAzOperations_Vtbl {
             }
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2808,7 +2808,7 @@ impl IAzOperations_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2840,7 +2840,7 @@ impl ::windows::core::RuntimeName for IAzPrincipalLocator {}
 impl IAzPrincipalLocator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzPrincipalLocator_Impl, const OFFSET: isize>() -> IAzPrincipalLocator_Vtbl {
         unsafe extern "system" fn NameResolver<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzPrincipalLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnameresolver: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NameResolver() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2851,7 +2851,7 @@ impl IAzPrincipalLocator_Vtbl {
             }
         }
         unsafe extern "system" fn ObjectPicker<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzPrincipalLocator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppobjectpicker: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ObjectPicker() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2907,7 +2907,7 @@ impl ::windows::core::RuntimeName for IAzRole {}
 impl IAzRole_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>() -> IAzRole_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2918,12 +2918,12 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2934,12 +2934,12 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrapplicationdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2950,52 +2950,52 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn SetApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplicationData(::core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn AddAppMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddAppMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteAppMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteAppMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddTask(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteTask(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddOperation(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteOperation(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteMember<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteMember(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Writable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3006,7 +3006,7 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3017,12 +3017,12 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AppMembers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AppMembers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3033,7 +3033,7 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn Members<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Members() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3044,7 +3044,7 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn Operations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Operations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3055,7 +3055,7 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn Tasks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Tasks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3066,32 +3066,32 @@ impl IAzRole_Vtbl {
             }
         }
         unsafe extern "system" fn AddPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddMemberName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddMemberName(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteMemberName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteMemberName(::core::mem::transmute(&bstrprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn MembersName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRole_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MembersName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3149,17 +3149,17 @@ impl ::windows::core::RuntimeName for IAzRoleAssignment {}
 impl IAzRoleAssignment_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>() -> IAzRoleAssignment_Vtbl {
         unsafe extern "system" fn AddRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinition: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddRoleDefinition(::core::mem::transmute(&bstrroledefinition)).into()
         }
         unsafe extern "system" fn DeleteRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinition: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteRoleDefinition(::core::mem::transmute(&bstrroledefinition)).into()
         }
         unsafe extern "system" fn RoleDefinitions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3170,7 +3170,7 @@ impl IAzRoleAssignment_Vtbl {
             }
         }
         unsafe extern "system" fn Scope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignment_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppscope: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Scope() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3204,7 +3204,7 @@ impl ::windows::core::RuntimeName for IAzRoleAssignments {}
 impl IAzRoleAssignments_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignments_Impl, const OFFSET: isize>() -> IAzRoleAssignments_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignments_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3215,7 +3215,7 @@ impl IAzRoleAssignments_Vtbl {
             }
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignments_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3226,7 +3226,7 @@ impl IAzRoleAssignments_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleAssignments_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3260,7 +3260,7 @@ impl ::windows::core::RuntimeName for IAzRoleDefinition {}
 impl IAzRoleDefinition_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>() -> IAzRoleDefinition_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleAssignments(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&brecursive)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3271,17 +3271,17 @@ impl IAzRoleDefinition_Vtbl {
             }
         }
         unsafe extern "system" fn AddRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinition: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddRoleDefinition(::core::mem::transmute(&bstrroledefinition)).into()
         }
         unsafe extern "system" fn DeleteRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinition: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteRoleDefinition(::core::mem::transmute(&bstrroledefinition)).into()
         }
         unsafe extern "system" fn RoleDefinitions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinition_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3315,7 +3315,7 @@ impl ::windows::core::RuntimeName for IAzRoleDefinitions {}
 impl IAzRoleDefinitions_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>() -> IAzRoleDefinitions_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3326,7 +3326,7 @@ impl IAzRoleDefinitions_Vtbl {
             }
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3337,7 +3337,7 @@ impl IAzRoleDefinitions_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoleDefinitions_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3370,7 +3370,7 @@ impl ::windows::core::RuntimeName for IAzRoles {}
 impl IAzRoles_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoles_Impl, const OFFSET: isize>() -> IAzRoles_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3381,7 +3381,7 @@ impl IAzRoles_Vtbl {
             }
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3392,7 +3392,7 @@ impl IAzRoles_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzRoles_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3460,7 +3460,7 @@ impl ::windows::core::RuntimeName for IAzScope {}
 impl IAzScope_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>() -> IAzScope_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3471,12 +3471,12 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3487,12 +3487,12 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrapplicationdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3503,12 +3503,12 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn SetApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplicationData(::core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn Writable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3519,7 +3519,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3530,22 +3530,22 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn PolicyAdministrators<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyAdministrators() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3556,7 +3556,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn PolicyReaders<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyReaders() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3567,27 +3567,27 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn AddPolicyAdministrator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyAdministrator(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministrator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyAdministrator(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyReader(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReader<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyReader(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn ApplicationGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroupcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3598,7 +3598,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn OpenApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3609,7 +3609,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn CreateApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3620,12 +3620,12 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteApplicationGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrgroupname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Roles<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprolecollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Roles() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3636,7 +3636,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn OpenRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pprole: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3647,7 +3647,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn CreateRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pprole: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3658,12 +3658,12 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteRole<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrrolename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Tasks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptaskcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Tasks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3674,7 +3674,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn OpenTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtaskname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pptask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3685,7 +3685,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn CreateTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtaskname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pptask: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3696,17 +3696,17 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtaskname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn CanBeDelegated<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CanBeDelegated() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3717,7 +3717,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn BizrulesWritable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizrulesWritable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3728,7 +3728,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn PolicyAdministratorsName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvaradmins: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyAdministratorsName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3739,7 +3739,7 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn PolicyReadersName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarreaders: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PolicyReadersName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3750,22 +3750,22 @@ impl IAzScope_Vtbl {
             }
         }
         unsafe extern "system" fn AddPolicyAdministratorName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyAdministratorName(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyAdministratorName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstradmin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyAdministratorName(::core::mem::transmute(&bstradmin), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPolicyReaderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPolicyReaderName(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePolicyReaderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrreader: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePolicyReaderName(::core::mem::transmute(&bstrreader), ::core::mem::transmute(&varreserved)).into()
         }
@@ -3832,7 +3832,7 @@ impl ::windows::core::RuntimeName for IAzScope2 {}
 impl IAzScope2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>() -> IAzScope2_Vtbl {
         unsafe extern "system" fn RoleDefinitions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3843,7 +3843,7 @@ impl IAzScope2_Vtbl {
             }
         }
         unsafe extern "system" fn CreateRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinitionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3854,7 +3854,7 @@ impl IAzScope2_Vtbl {
             }
         }
         unsafe extern "system" fn OpenRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinitionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproledefinitions: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3865,12 +3865,12 @@ impl IAzScope2_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroledefinitionname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)).into()
         }
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleAssignments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3881,7 +3881,7 @@ impl IAzScope2_Vtbl {
             }
         }
         unsafe extern "system" fn CreateRoleAssignment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleassignmentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproleassignment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3892,7 +3892,7 @@ impl IAzScope2_Vtbl {
             }
         }
         unsafe extern "system" fn OpenRoleAssignment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleassignmentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pproleassignment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3903,7 +3903,7 @@ impl IAzScope2_Vtbl {
             }
         }
         unsafe extern "system" fn DeleteRoleAssignment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScope2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrroleassignmentname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)).into()
         }
@@ -3935,7 +3935,7 @@ impl ::windows::core::RuntimeName for IAzScopes {}
 impl IAzScopes_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScopes_Impl, const OFFSET: isize>() -> IAzScopes_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScopes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3946,7 +3946,7 @@ impl IAzScopes_Vtbl {
             }
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScopes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3957,7 +3957,7 @@ impl IAzScopes_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzScopes_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4013,7 +4013,7 @@ impl ::windows::core::RuntimeName for IAzTask {}
 impl IAzTask_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>() -> IAzTask_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4024,12 +4024,12 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&bstrname)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4040,12 +4040,12 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&bstrdescription)).into()
         }
         unsafe extern "system" fn ApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrapplicationdata: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4056,12 +4056,12 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn SetApplicationData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrapplicationdata: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplicationData(::core::mem::transmute(&bstrapplicationdata)).into()
         }
         unsafe extern "system" fn BizRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4072,12 +4072,12 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn SetBizRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBizRule(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn BizRuleLanguage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRuleLanguage() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4088,12 +4088,12 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn SetBizRuleLanguage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBizRuleLanguage(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn BizRuleImportedPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrprop: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BizRuleImportedPath() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4104,12 +4104,12 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn SetBizRuleImportedPath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrprop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBizRuleImportedPath(::core::mem::transmute(&bstrprop)).into()
         }
         unsafe extern "system" fn IsRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsRoleDefinition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4120,12 +4120,12 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn SetIsRoleDefinition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fprop: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetIsRoleDefinition(::core::mem::transmute_copy(&fprop)).into()
         }
         unsafe extern "system" fn Operations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Operations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4136,7 +4136,7 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn Tasks<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Tasks() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4147,27 +4147,27 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn AddOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddOperation(::core::mem::transmute(&bstrop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrop: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteOperation(::core::mem::transmute(&bstrop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtask: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddTask(::core::mem::transmute(&bstrtask), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeleteTask<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrtask: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteTask(::core::mem::transmute(&bstrtask), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Writable<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfprop: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4178,7 +4178,7 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvarprop: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4189,22 +4189,22 @@ impl IAzTask_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn AddPropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddPropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn DeletePropertyItem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpropid: i32, varprop: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeletePropertyItem(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varprop), ::core::mem::transmute(&varreserved)).into()
         }
         unsafe extern "system" fn Submit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lflags: i32, varreserved: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Submit(::core::mem::transmute_copy(&lflags), ::core::mem::transmute(&varreserved)).into()
         }
@@ -4252,7 +4252,7 @@ impl ::windows::core::RuntimeName for IAzTask2 {}
 impl IAzTask2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask2_Impl, const OFFSET: isize>() -> IAzTask2_Vtbl {
         unsafe extern "system" fn RoleAssignments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTask2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrscopename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, brecursive: i16, pproleassignments: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RoleAssignments(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&brecursive)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4280,7 +4280,7 @@ impl ::windows::core::RuntimeName for IAzTasks {}
 impl IAzTasks_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTasks_Impl, const OFFSET: isize>() -> IAzTasks_Vtbl {
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTasks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvarobtptr: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4291,7 +4291,7 @@ impl IAzTasks_Vtbl {
             }
         }
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTasks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4302,7 +4302,7 @@ impl IAzTasks_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAzTasks_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumptr: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {

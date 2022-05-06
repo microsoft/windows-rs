@@ -9,7 +9,7 @@ impl ::windows::core::RuntimeName for IGeoshape {
 impl IGeoshape_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeoshape_Impl, const OFFSET: isize>() -> IGeoshape_Vtbl {
         unsafe extern "system" fn GeoshapeType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut GeoshapeType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GeoshapeType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -21,7 +21,7 @@ impl IGeoshape_Vtbl {
             }
         }
         unsafe extern "system" fn SpatialReferenceId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.SpatialReferenceId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -33,7 +33,7 @@ impl IGeoshape_Vtbl {
             }
         }
         unsafe extern "system" fn AltitudeReferenceSystem<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IGeoshape_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut AltitudeReferenceSystem) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AltitudeReferenceSystem() {
                 ::core::result::Result::Ok(ok__) => {

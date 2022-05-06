@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for ILampArrayEffect {
 impl ILampArrayEffect_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILampArrayEffect_Impl, const OFFSET: isize>() -> ILampArrayEffect_Vtbl {
         unsafe extern "system" fn ZIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ZIndex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -20,7 +20,7 @@ impl ILampArrayEffect_Vtbl {
             }
         }
         unsafe extern "system" fn SetZIndex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ILampArrayEffect_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetZIndex(value).into()
         }

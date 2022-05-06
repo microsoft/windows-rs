@@ -8,7 +8,7 @@ impl ::windows::core::RuntimeName for IDDEInitializer {}
 impl IDDEInitializer_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDDEInitializer_Impl, const OFFSET: isize>() -> IDDEInitializer_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDDEInitializer_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fileextensionorprotocol: ::windows::core::PCWSTR, method: CreateProcessMethod, currentdirectory: ::windows::core::PCWSTR, exectarget: ::windows::core::RawPtr, site: *mut ::core::ffi::c_void, application: ::windows::core::PCWSTR, targetfile: ::windows::core::PCWSTR, arguments: ::windows::core::PCWSTR, verb: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute(&fileextensionorprotocol), ::core::mem::transmute_copy(&method), ::core::mem::transmute(&currentdirectory), ::core::mem::transmute(&exectarget), ::core::mem::transmute(&site), ::core::mem::transmute(&application), ::core::mem::transmute(&targetfile), ::core::mem::transmute(&arguments), ::core::mem::transmute(&verb)).into()
         }

@@ -11,22 +11,22 @@ impl ::windows::core::RuntimeName for IEnumACDGroup {}
 impl IEnumACDGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumACDGroup_Impl, const OFFSET: isize>() -> IEnumACDGroup_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -61,22 +61,22 @@ impl ::windows::core::RuntimeName for IEnumAddress {}
 impl IEnumAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAddress_Impl, const OFFSET: isize>() -> IEnumAddress_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -111,22 +111,22 @@ impl ::windows::core::RuntimeName for IEnumAgent {}
 impl IEnumAgent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgent_Impl, const OFFSET: isize>() -> IEnumAgent_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -161,22 +161,22 @@ impl ::windows::core::RuntimeName for IEnumAgentHandler {}
 impl IEnumAgentHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentHandler_Impl, const OFFSET: isize>() -> IEnumAgentHandler_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -211,22 +211,22 @@ impl ::windows::core::RuntimeName for IEnumAgentSession {}
 impl IEnumAgentSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentSession_Impl, const OFFSET: isize>() -> IEnumAgentSession_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -261,22 +261,22 @@ impl ::windows::core::RuntimeName for IEnumBstr {}
 impl IEnumBstr_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumBstr_Impl, const OFFSET: isize>() -> IEnumBstr_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumBstr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppstrings: *mut super::super::Foundation::BSTR, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppstrings), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumBstr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumBstr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumBstr_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -311,22 +311,22 @@ impl ::windows::core::RuntimeName for IEnumCall {}
 impl IEnumCall_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCall_Impl, const OFFSET: isize>() -> IEnumCall_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCall_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCall_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCall_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCall_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -361,22 +361,22 @@ impl ::windows::core::RuntimeName for IEnumCallHub {}
 impl IEnumCallHub_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallHub_Impl, const OFFSET: isize>() -> IEnumCallHub_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -411,22 +411,22 @@ impl ::windows::core::RuntimeName for IEnumCallingCard {}
 impl IEnumCallingCard_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallingCard_Impl, const OFFSET: isize>() -> IEnumCallingCard_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -461,22 +461,22 @@ impl ::windows::core::RuntimeName for IEnumDialableAddrs {}
 impl IEnumDialableAddrs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDialableAddrs_Impl, const OFFSET: isize>() -> IEnumDialableAddrs_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDialableAddrs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut super::super::Foundation::BSTR, pcfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pcfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDialableAddrs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDialableAddrs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDialableAddrs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -511,22 +511,22 @@ impl ::windows::core::RuntimeName for IEnumDirectory {}
 impl IEnumDirectory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectory_Impl, const OFFSET: isize>() -> IEnumDirectory_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pcfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -561,22 +561,22 @@ impl ::windows::core::RuntimeName for IEnumDirectoryObject {}
 impl IEnumDirectoryObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectoryObject_Impl, const OFFSET: isize>() -> IEnumDirectoryObject_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, pval: *mut ::windows::core::RawPtr, pcfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&pval), ::core::mem::transmute_copy(&pcfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -611,22 +611,22 @@ impl ::windows::core::RuntimeName for IEnumLocation {}
 impl IEnumLocation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumLocation_Impl, const OFFSET: isize>() -> IEnumLocation_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumLocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -661,22 +661,22 @@ impl ::windows::core::RuntimeName for IEnumMcastScope {}
 impl IEnumMcastScope_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMcastScope_Impl, const OFFSET: isize>() -> IEnumMcastScope_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppscopes: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppscopes), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -711,22 +711,22 @@ impl ::windows::core::RuntimeName for IEnumPhone {}
 impl IEnumPhone_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPhone_Impl, const OFFSET: isize>() -> IEnumPhone_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -761,22 +761,22 @@ impl ::windows::core::RuntimeName for IEnumPluggableSuperclassInfo {}
 impl IEnumPluggableSuperclassInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableSuperclassInfo_Impl, const OFFSET: isize>() -> IEnumPluggableSuperclassInfo_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableSuperclassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableSuperclassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableSuperclassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableSuperclassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -811,22 +811,22 @@ impl ::windows::core::RuntimeName for IEnumPluggableTerminalClassInfo {}
 impl IEnumPluggableTerminalClassInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableTerminalClassInfo_Impl, const OFFSET: isize>() -> IEnumPluggableTerminalClassInfo_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -861,22 +861,22 @@ impl ::windows::core::RuntimeName for IEnumQueue {}
 impl IEnumQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumQueue_Impl, const OFFSET: isize>() -> IEnumQueue_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -911,22 +911,22 @@ impl ::windows::core::RuntimeName for IEnumStream {}
 impl IEnumStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumStream_Impl, const OFFSET: isize>() -> IEnumStream_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -961,22 +961,22 @@ impl ::windows::core::RuntimeName for IEnumSubStream {}
 impl IEnumSubStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumSubStream_Impl, const OFFSET: isize>() -> IEnumSubStream_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1011,22 +1011,22 @@ impl ::windows::core::RuntimeName for IEnumTerminal {}
 impl IEnumTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminal_Impl, const OFFSET: isize>() -> IEnumTerminal_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, ppelements: *mut ::windows::core::RawPtr, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&ppelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1058,22 +1058,22 @@ impl ::windows::core::RuntimeName for IEnumTerminalClass {}
 impl IEnumTerminalClass_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminalClass_Impl, const OFFSET: isize>() -> IEnumTerminalClass_Vtbl {
         unsafe extern "system" fn Next<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminalClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32, pelements: *mut ::windows::core::GUID, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Next(::core::mem::transmute_copy(&celt), ::core::mem::transmute_copy(&pelements), ::core::mem::transmute_copy(&pceltfetched)).into()
         }
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminalClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn Skip<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminalClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Skip(::core::mem::transmute_copy(&celt)).into()
         }
         unsafe extern "system" fn Clone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEnumTerminalClass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1111,7 +1111,7 @@ impl ::windows::core::RuntimeName for IMcastAddressAllocation {}
 impl IMcastAddressAllocation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>() -> IMcastAddressAllocation_Vtbl {
         unsafe extern "system" fn Scopes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Scopes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1122,7 +1122,7 @@ impl IMcastAddressAllocation_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateScopes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenummcastscope: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateScopes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1133,7 +1133,7 @@ impl IMcastAddressAllocation_Vtbl {
             }
         }
         unsafe extern "system" fn RequestAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pscope: ::windows::core::RawPtr, leasestarttime: f64, leasestoptime: f64, numaddresses: i32, ppleaseresponse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RequestAddress(::core::mem::transmute(&pscope), ::core::mem::transmute_copy(&leasestarttime), ::core::mem::transmute_copy(&leasestoptime), ::core::mem::transmute_copy(&numaddresses)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1144,7 +1144,7 @@ impl IMcastAddressAllocation_Vtbl {
             }
         }
         unsafe extern "system" fn RenewAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lreserved: i32, prenewrequest: ::windows::core::RawPtr, pprenewresponse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RenewAddress(::core::mem::transmute_copy(&lreserved), ::core::mem::transmute(&prenewrequest)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1155,12 +1155,12 @@ impl IMcastAddressAllocation_Vtbl {
             }
         }
         unsafe extern "system" fn ReleaseAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preleaserequest: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ReleaseAddress(::core::mem::transmute(&preleaserequest)).into()
         }
         unsafe extern "system" fn CreateLeaseInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, dwnumaddresses: u32, ppaddresses: *const ::windows::core::PWSTR, prequestid: ::windows::core::PCWSTR, pserveraddress: ::windows::core::PCWSTR, ppreleaserequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateLeaseInfo(::core::mem::transmute_copy(&leasestarttime), ::core::mem::transmute_copy(&leasestoptime), ::core::mem::transmute_copy(&dwnumaddresses), ::core::mem::transmute_copy(&ppaddresses), ::core::mem::transmute(&prequestid), ::core::mem::transmute(&pserveraddress)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1171,7 +1171,7 @@ impl IMcastAddressAllocation_Vtbl {
             }
         }
         unsafe extern "system" fn CreateLeaseInfoFromVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastAddressAllocation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, leasestarttime: f64, leasestoptime: f64, vaddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, prequestid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pserveraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppreleaserequest: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateLeaseInfoFromVariant(::core::mem::transmute_copy(&leasestarttime), ::core::mem::transmute_copy(&leasestoptime), ::core::mem::transmute(&vaddresses), ::core::mem::transmute(&prequestid), ::core::mem::transmute(&pserveraddress)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1215,7 +1215,7 @@ impl ::windows::core::RuntimeName for IMcastLeaseInfo {}
 impl IMcastLeaseInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>() -> IMcastLeaseInfo_Vtbl {
         unsafe extern "system" fn RequestID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprequestid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RequestID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1226,7 +1226,7 @@ impl IMcastLeaseInfo_Vtbl {
             }
         }
         unsafe extern "system" fn LeaseStartTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptime: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LeaseStartTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1237,12 +1237,12 @@ impl IMcastLeaseInfo_Vtbl {
             }
         }
         unsafe extern "system" fn SetLeaseStartTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, time: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetLeaseStartTime(::core::mem::transmute_copy(&time)).into()
         }
         unsafe extern "system" fn LeaseStopTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptime: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LeaseStopTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1253,12 +1253,12 @@ impl IMcastLeaseInfo_Vtbl {
             }
         }
         unsafe extern "system" fn SetLeaseStopTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, time: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetLeaseStopTime(::core::mem::transmute_copy(&time)).into()
         }
         unsafe extern "system" fn AddressCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AddressCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1269,7 +1269,7 @@ impl IMcastLeaseInfo_Vtbl {
             }
         }
         unsafe extern "system" fn ServerAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ServerAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1280,7 +1280,7 @@ impl IMcastLeaseInfo_Vtbl {
             }
         }
         unsafe extern "system" fn TTL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pttl: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TTL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1291,7 +1291,7 @@ impl IMcastLeaseInfo_Vtbl {
             }
         }
         unsafe extern "system" fn Addresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Addresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1302,7 +1302,7 @@ impl IMcastLeaseInfo_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastLeaseInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumaddresses: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateAddresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1344,7 +1344,7 @@ impl ::windows::core::RuntimeName for IMcastScope {}
 impl IMcastScope_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastScope_Impl, const OFFSET: isize>() -> IMcastScope_Vtbl {
         unsafe extern "system" fn ScopeID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ScopeID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1355,7 +1355,7 @@ impl IMcastScope_Vtbl {
             }
         }
         unsafe extern "system" fn ServerID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ServerID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1366,7 +1366,7 @@ impl IMcastScope_Vtbl {
             }
         }
         unsafe extern "system" fn InterfaceID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.InterfaceID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1377,7 +1377,7 @@ impl IMcastScope_Vtbl {
             }
         }
         unsafe extern "system" fn ScopeDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ScopeDescription() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1388,7 +1388,7 @@ impl IMcastScope_Vtbl {
             }
         }
         unsafe extern "system" fn TTL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMcastScope_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pttl: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TTL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1423,7 +1423,7 @@ impl ::windows::core::RuntimeName for ITACDGroup {}
 impl ITACDGroup_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITACDGroup_Impl, const OFFSET: isize>() -> ITACDGroup_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1434,7 +1434,7 @@ impl ITACDGroup_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateQueues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateQueues() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1445,7 +1445,7 @@ impl ITACDGroup_Vtbl {
             }
         }
         unsafe extern "system" fn Queues<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITACDGroup_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Queues() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1477,7 +1477,7 @@ impl ::windows::core::RuntimeName for ITACDGroupEvent {}
 impl ITACDGroupEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITACDGroupEvent_Impl, const OFFSET: isize>() -> ITACDGroupEvent_Vtbl {
         unsafe extern "system" fn Group<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITACDGroupEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Group() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1488,7 +1488,7 @@ impl ITACDGroupEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITACDGroupEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut ACDGROUP_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1519,7 +1519,7 @@ impl ::windows::core::RuntimeName for ITAMMediaFormat {}
 impl ITAMMediaFormat_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAMMediaFormat_Impl, const OFFSET: isize>() -> ITAMMediaFormat_Vtbl {
         unsafe extern "system" fn MediaFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAMMediaFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MediaFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1530,7 +1530,7 @@ impl ITAMMediaFormat_Vtbl {
             }
         }
         unsafe extern "system" fn SetMediaFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAMMediaFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetMediaFormat(::core::mem::transmute_copy(&pmt)).into()
         }
@@ -1556,7 +1556,7 @@ impl ::windows::core::RuntimeName for ITASRTerminalEvent {}
 impl ITASRTerminalEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITASRTerminalEvent_Impl, const OFFSET: isize>() -> ITASRTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITASRTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Terminal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1567,7 +1567,7 @@ impl ITASRTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITASRTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1578,7 +1578,7 @@ impl ITASRTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITASRTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrerrorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1623,7 +1623,7 @@ impl ::windows::core::RuntimeName for ITAddress {}
 impl ITAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>() -> ITAddress_Vtbl {
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddressstate: *mut ADDRESS_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1634,7 +1634,7 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn AddressName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AddressName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1645,7 +1645,7 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn ServiceProviderName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ServiceProviderName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1656,7 +1656,7 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn TAPIObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptapiobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TAPIObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1667,7 +1667,7 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn CreateCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, laddresstype: i32, lmediatypes: i32, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateCall(::core::mem::transmute(&pdestaddress), ::core::mem::transmute_copy(&laddresstype), ::core::mem::transmute_copy(&lmediatypes)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1678,7 +1678,7 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn Calls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Calls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1689,7 +1689,7 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1700,7 +1700,7 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn DialableAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdialableaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DialableAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1711,7 +1711,7 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn CreateForwardInfoObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppforwardinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateForwardInfoObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1722,12 +1722,12 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn Forward<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pforwardinfo: ::windows::core::RawPtr, pcall: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Forward(::core::mem::transmute(&pforwardinfo), ::core::mem::transmute(&pcall)).into()
         }
         unsafe extern "system" fn CurrentForwardInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppforwardinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CurrentForwardInfo() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1738,12 +1738,12 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn SetMessageWaiting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fmessagewaiting: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetMessageWaiting(::core::mem::transmute_copy(&fmessagewaiting)).into()
         }
         unsafe extern "system" fn MessageWaiting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfmessagewaiting: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MessageWaiting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1754,12 +1754,12 @@ impl ITAddress_Vtbl {
             }
         }
         unsafe extern "system" fn SetDoNotDisturb<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fdonotdisturb: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDoNotDisturb(::core::mem::transmute_copy(&fdonotdisturb)).into()
         }
         unsafe extern "system" fn DoNotDisturb<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdonotdisturb: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DoNotDisturb() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1811,7 +1811,7 @@ impl ::windows::core::RuntimeName for ITAddress2 {}
 impl ITAddress2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>() -> ITAddress2_Vtbl {
         unsafe extern "system" fn Phones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphones: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Phones() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1822,7 +1822,7 @@ impl ITAddress2_Vtbl {
             }
         }
         unsafe extern "system" fn EnumeratePhones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumeratePhones() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1833,7 +1833,7 @@ impl ITAddress2_Vtbl {
             }
         }
         unsafe extern "system" fn GetPhoneFromTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr, ppphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetPhoneFromTerminal(::core::mem::transmute(&pterminal)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1844,7 +1844,7 @@ impl ITAddress2_Vtbl {
             }
         }
         unsafe extern "system" fn PreferredPhones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphones: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PreferredPhones() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1855,7 +1855,7 @@ impl ITAddress2_Vtbl {
             }
         }
         unsafe extern "system" fn EnumeratePreferredPhones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumeratePreferredPhones() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1866,7 +1866,7 @@ impl ITAddress2_Vtbl {
             }
         }
         unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1877,22 +1877,22 @@ impl ITAddress2_Vtbl {
             }
         }
         unsafe extern "system" fn put_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
         }
         unsafe extern "system" fn DeviceSpecific<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr, pparams: *const u8, dwsize: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeviceSpecific(::core::mem::transmute(&pcall), ::core::mem::transmute_copy(&pparams), ::core::mem::transmute_copy(&dwsize)).into()
         }
         unsafe extern "system" fn DeviceSpecificVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr, vardevspecificbytearray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeviceSpecificVariant(::core::mem::transmute(&pcall), ::core::mem::transmute(&vardevspecificbytearray)).into()
         }
         unsafe extern "system" fn NegotiateExtVersion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddress2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NegotiateExtVersion(::core::mem::transmute_copy(&llowversion), ::core::mem::transmute_copy(&lhighversion)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1937,7 +1937,7 @@ impl ::windows::core::RuntimeName for ITAddressCapabilities {}
 impl ITAddressCapabilities_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>() -> ITAddressCapabilities_Vtbl {
         unsafe extern "system" fn get_AddressCapability<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresscap: ADDRESS_CAPABILITY, plcapability: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_AddressCapability(::core::mem::transmute_copy(&addresscap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1948,7 +1948,7 @@ impl ITAddressCapabilities_Vtbl {
             }
         }
         unsafe extern "system" fn get_AddressCapabilityString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, addresscapstring: ADDRESS_CAPABILITY_STRING, ppcapabilitystring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_AddressCapabilityString(::core::mem::transmute_copy(&addresscapstring)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -1959,7 +1959,7 @@ impl ITAddressCapabilities_Vtbl {
             }
         }
         unsafe extern "system" fn CallTreatments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallTreatments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1970,7 +1970,7 @@ impl ITAddressCapabilities_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateCallTreatments<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumcalltreatment: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateCallTreatments() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1981,7 +1981,7 @@ impl ITAddressCapabilities_Vtbl {
             }
         }
         unsafe extern "system" fn CompletionMessages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CompletionMessages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -1992,7 +1992,7 @@ impl ITAddressCapabilities_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateCompletionMessages<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumcompletionmessage: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateCompletionMessages() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2003,7 +2003,7 @@ impl ITAddressCapabilities_Vtbl {
             }
         }
         unsafe extern "system" fn DeviceClasses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DeviceClasses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2014,7 +2014,7 @@ impl ITAddressCapabilities_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateDeviceClasses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressCapabilities_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumdeviceclass: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateDeviceClasses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2054,7 +2054,7 @@ impl ::windows::core::RuntimeName for ITAddressDeviceSpecificEvent {}
 impl ITAddressDeviceSpecificEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>() -> ITAddressDeviceSpecificEvent_Vtbl {
         unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2065,7 +2065,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2076,7 +2076,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
             }
         }
         unsafe extern "system" fn lParam1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparam1: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.lParam1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2087,7 +2087,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
             }
         }
         unsafe extern "system" fn lParam2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparam2: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.lParam2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2098,7 +2098,7 @@ impl ITAddressDeviceSpecificEvent_Vtbl {
             }
         }
         unsafe extern "system" fn lParam3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparam3: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.lParam3() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2133,7 +2133,7 @@ impl ::windows::core::RuntimeName for ITAddressEvent {}
 impl ITAddressEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressEvent_Impl, const OFFSET: isize>() -> ITAddressEvent_Vtbl {
         unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2144,7 +2144,7 @@ impl ITAddressEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut ADDRESS_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2155,7 +2155,7 @@ impl ITAddressEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Terminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Terminal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2191,7 +2191,7 @@ impl ::windows::core::RuntimeName for ITAddressTranslation {}
 impl ITAddressTranslation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslation_Impl, const OFFSET: isize>() -> ITAddressTranslation_Vtbl {
         unsafe extern "system" fn TranslateAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddresstotranslate: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lcard: i32, ltranslateoptions: i32, pptranslated: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TranslateAddress(::core::mem::transmute(&paddresstotranslate), ::core::mem::transmute_copy(&lcard), ::core::mem::transmute_copy(&ltranslateoptions)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2202,12 +2202,12 @@ impl ITAddressTranslation_Vtbl {
             }
         }
         unsafe extern "system" fn TranslateDialog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: isize, paddressin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.TranslateDialog(::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute(&paddressin)).into()
         }
         unsafe extern "system" fn EnumerateLocations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumlocation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateLocations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2218,7 +2218,7 @@ impl ITAddressTranslation_Vtbl {
             }
         }
         unsafe extern "system" fn Locations<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Locations() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2229,7 +2229,7 @@ impl ITAddressTranslation_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateCallingCards<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumcallingcard: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateCallingCards() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2240,7 +2240,7 @@ impl ITAddressTranslation_Vtbl {
             }
         }
         unsafe extern "system" fn CallingCards<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallingCards() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2278,7 +2278,7 @@ impl ::windows::core::RuntimeName for ITAddressTranslationInfo {}
 impl ITAddressTranslationInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslationInfo_Impl, const OFFSET: isize>() -> ITAddressTranslationInfo_Vtbl {
         unsafe extern "system" fn DialableString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdialablestring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DialableString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2289,7 +2289,7 @@ impl ITAddressTranslationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn DisplayableString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdisplayablestring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DisplayableString() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2300,7 +2300,7 @@ impl ITAddressTranslationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CurrentCountryCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, countrycode: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CurrentCountryCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2311,7 +2311,7 @@ impl ITAddressTranslationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn DestinationCountryCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, countrycode: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DestinationCountryCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2322,7 +2322,7 @@ impl ITAddressTranslationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn TranslationResults<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAddressTranslationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plresults: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TranslationResults() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2371,7 +2371,7 @@ impl ::windows::core::RuntimeName for ITAgent {}
 impl ITAgent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>() -> ITAgent_Vtbl {
         unsafe extern "system" fn EnumerateAgentSessions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumagentsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateAgentSessions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2382,7 +2382,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pacdgroup: ::windows::core::RawPtr, paddress: ::windows::core::RawPtr, ppagentsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateSession(::core::mem::transmute(&pacdgroup), ::core::mem::transmute(&paddress)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2393,7 +2393,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn CreateSessionWithPIN<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pacdgroup: ::windows::core::RawPtr, paddress: ::windows::core::RawPtr, ppin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppagentsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateSessionWithPIN(::core::mem::transmute(&pacdgroup), ::core::mem::transmute(&paddress), ::core::mem::transmute(&ppin)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2404,7 +2404,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn ID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2415,7 +2415,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn User<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppuser: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.User() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2426,12 +2426,12 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn SetState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, agentstate: AGENT_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetState(::core::mem::transmute_copy(&agentstate)).into()
         }
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pagentstate: *mut AGENT_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2442,12 +2442,12 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn SetMeasurementPeriod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lperiod: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetMeasurementPeriod(::core::mem::transmute_copy(&lperiod)).into()
         }
         unsafe extern "system" fn MeasurementPeriod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plperiod: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MeasurementPeriod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2458,7 +2458,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn OverallCallRate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcycallrate: *mut super::super::System::Com::CY) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OverallCallRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2469,7 +2469,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn NumberOfACDCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NumberOfACDCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2480,7 +2480,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn NumberOfIncomingCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NumberOfIncomingCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2491,7 +2491,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn NumberOfOutgoingCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NumberOfOutgoingCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2502,7 +2502,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn TotalACDTalkTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltalktime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalACDTalkTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2513,7 +2513,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn TotalACDCallTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalltime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalACDCallTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2524,7 +2524,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn TotalWrapUpTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwrapuptime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalWrapUpTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2535,7 +2535,7 @@ impl ITAgent_Vtbl {
             }
         }
         unsafe extern "system" fn AgentSessions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AgentSessions() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2581,7 +2581,7 @@ impl ::windows::core::RuntimeName for ITAgentEvent {}
 impl ITAgentEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentEvent_Impl, const OFFSET: isize>() -> ITAgentEvent_Vtbl {
         unsafe extern "system" fn Agent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppagent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Agent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2592,7 +2592,7 @@ impl ITAgentEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut AGENT_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2628,7 +2628,7 @@ impl ::windows::core::RuntimeName for ITAgentHandler {}
 impl ITAgentHandler_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandler_Impl, const OFFSET: isize>() -> ITAgentHandler_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2639,7 +2639,7 @@ impl ITAgentHandler_Vtbl {
             }
         }
         unsafe extern "system" fn CreateAgent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppagent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateAgent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2650,7 +2650,7 @@ impl ITAgentHandler_Vtbl {
             }
         }
         unsafe extern "system" fn CreateAgentWithID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppin: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppagent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateAgentWithID(::core::mem::transmute(&pid), ::core::mem::transmute(&ppin)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -2661,7 +2661,7 @@ impl ITAgentHandler_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateACDGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumacdgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateACDGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2672,7 +2672,7 @@ impl ITAgentHandler_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateUsableAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateUsableAddresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2683,7 +2683,7 @@ impl ITAgentHandler_Vtbl {
             }
         }
         unsafe extern "system" fn ACDGroups<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ACDGroups() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2694,7 +2694,7 @@ impl ITAgentHandler_Vtbl {
             }
         }
         unsafe extern "system" fn UsableAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandler_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.UsableAddresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2730,7 +2730,7 @@ impl ::windows::core::RuntimeName for ITAgentHandlerEvent {}
 impl ITAgentHandlerEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandlerEvent_Impl, const OFFSET: isize>() -> ITAgentHandlerEvent_Vtbl {
         unsafe extern "system" fn AgentHandler<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandlerEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppagenthandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AgentHandler() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2741,7 +2741,7 @@ impl ITAgentHandlerEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentHandlerEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut AGENTHANDLER_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2787,7 +2787,7 @@ impl ::windows::core::RuntimeName for ITAgentSession {}
 impl ITAgentSession_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>() -> ITAgentSession_Vtbl {
         unsafe extern "system" fn Agent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppagent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Agent() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2798,7 +2798,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2809,7 +2809,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn ACDGroup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppacdgroup: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ACDGroup() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2820,12 +2820,12 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn SetState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sessionstate: AGENT_SESSION_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetState(::core::mem::transmute_copy(&sessionstate)).into()
         }
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psessionstate: *mut AGENT_SESSION_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2836,7 +2836,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn SessionStartTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdatesessionstart: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.SessionStartTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2847,7 +2847,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn SessionDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plduration: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.SessionDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2858,7 +2858,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn NumberOfCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NumberOfCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2869,7 +2869,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn TotalTalkTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltalktime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalTalkTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2880,7 +2880,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn AverageTalkTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltalktime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AverageTalkTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2891,7 +2891,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn TotalCallTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalltime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalCallTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2902,7 +2902,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn AverageCallTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalltime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AverageCallTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2913,7 +2913,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn TotalWrapUpTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwrapuptime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalWrapUpTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2924,7 +2924,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn AverageWrapUpTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwrapuptime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AverageWrapUpTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2935,7 +2935,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn ACDCallRate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcycallrate: *mut super::super::System::Com::CY) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ACDCallRate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2946,7 +2946,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn LongestTimeToAnswer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, planswertime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LongestTimeToAnswer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -2957,7 +2957,7 @@ impl ITAgentSession_Vtbl {
             }
         }
         unsafe extern "system" fn AverageTimeToAnswer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSession_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, planswertime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AverageTimeToAnswer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3003,7 +3003,7 @@ impl ::windows::core::RuntimeName for ITAgentSessionEvent {}
 impl ITAgentSessionEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSessionEvent_Impl, const OFFSET: isize>() -> ITAgentSessionEvent_Vtbl {
         unsafe extern "system" fn Session<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSessionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3014,7 +3014,7 @@ impl ITAgentSessionEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAgentSessionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut AGENT_SESSION_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3049,12 +3049,12 @@ impl ::windows::core::RuntimeName for ITAllocatorProperties {}
 impl ITAllocatorProperties_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAllocatorProperties_Impl, const OFFSET: isize>() -> ITAllocatorProperties_Vtbl {
         unsafe extern "system" fn SetAllocatorProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallocproperties: *const super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAllocatorProperties(::core::mem::transmute_copy(&pallocproperties)).into()
         }
         unsafe extern "system" fn GetAllocatorProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pallocproperties: *mut super::super::Media::DirectShow::ALLOCATOR_PROPERTIES) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetAllocatorProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3065,12 +3065,12 @@ impl ITAllocatorProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetAllocateBuffers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ballocbuffers: super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAllocateBuffers(::core::mem::transmute_copy(&ballocbuffers)).into()
         }
         unsafe extern "system" fn GetAllocateBuffers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pballocbuffers: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetAllocateBuffers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3081,12 +3081,12 @@ impl ITAllocatorProperties_Vtbl {
             }
         }
         unsafe extern "system" fn SetBufferSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, buffersize: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBufferSize(::core::mem::transmute_copy(&buffersize)).into()
         }
         unsafe extern "system" fn GetBufferSize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAllocatorProperties_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbuffersize: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetBufferSize() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3151,17 +3151,17 @@ impl ::windows::core::RuntimeName for ITAutomatedPhoneControl {}
 impl ITAutomatedPhoneControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>() -> ITAutomatedPhoneControl_Vtbl {
         unsafe extern "system" fn StartTone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tone: PHONE_TONE, lduration: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.StartTone(::core::mem::transmute_copy(&tone), ::core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn StopTone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.StopTone().into()
         }
         unsafe extern "system" fn Tone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptone: *mut PHONE_TONE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Tone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3172,17 +3172,17 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn StartRinger<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lringmode: i32, lduration: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.StartRinger(::core::mem::transmute_copy(&lringmode), ::core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn StopRinger<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.StopRinger().into()
         }
         unsafe extern "system" fn Ringer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfringing: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Ringer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3193,12 +3193,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetPhoneHandlingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetPhoneHandlingEnabled(::core::mem::transmute_copy(&fenabled)).into()
         }
         unsafe extern "system" fn PhoneHandlingEnabled<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PhoneHandlingEnabled() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3209,12 +3209,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoEndOfNumberTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ltimeout: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoEndOfNumberTimeout(::core::mem::transmute_copy(&ltimeout)).into()
         }
         unsafe extern "system" fn AutoEndOfNumberTimeout<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltimeout: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoEndOfNumberTimeout() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3225,12 +3225,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoDialtone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoDialtone(::core::mem::transmute_copy(&fenabled)).into()
         }
         unsafe extern "system" fn AutoDialtone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoDialtone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3241,12 +3241,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoStopTonesOnOnHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoStopTonesOnOnHook(::core::mem::transmute_copy(&fenabled)).into()
         }
         unsafe extern "system" fn AutoStopTonesOnOnHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoStopTonesOnOnHook() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3257,12 +3257,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoStopRingOnOffHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoStopRingOnOffHook(::core::mem::transmute_copy(&fenabled)).into()
         }
         unsafe extern "system" fn AutoStopRingOnOffHook<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoStopRingOnOffHook() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3273,12 +3273,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoKeypadTones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoKeypadTones(::core::mem::transmute_copy(&fenabled)).into()
         }
         unsafe extern "system" fn AutoKeypadTones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfenabled: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoKeypadTones() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3289,12 +3289,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoKeypadTonesMinimumDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lduration: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoKeypadTonesMinimumDuration(::core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn AutoKeypadTonesMinimumDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plduration: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoKeypadTonesMinimumDuration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3305,12 +3305,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoVolumeControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoVolumeControl(::core::mem::transmute_copy(&fenabled)).into()
         }
         unsafe extern "system" fn AutoVolumeControl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenabled: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoVolumeControl() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3321,12 +3321,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoVolumeControlStep<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lstepsize: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoVolumeControlStep(::core::mem::transmute_copy(&lstepsize)).into()
         }
         unsafe extern "system" fn AutoVolumeControlStep<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plstepsize: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoVolumeControlStep() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3337,12 +3337,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoVolumeControlRepeatDelay<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ldelay: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoVolumeControlRepeatDelay(::core::mem::transmute_copy(&ldelay)).into()
         }
         unsafe extern "system" fn AutoVolumeControlRepeatDelay<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldelay: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoVolumeControlRepeatDelay() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3353,12 +3353,12 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SetAutoVolumeControlRepeatPeriod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lperiod: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAutoVolumeControlRepeatPeriod(::core::mem::transmute_copy(&lperiod)).into()
         }
         unsafe extern "system" fn AutoVolumeControlRepeatPeriod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plperiod: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AutoVolumeControlRepeatPeriod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3369,17 +3369,17 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SelectCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr, fselectdefaultterminals: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SelectCall(::core::mem::transmute(&pcall), ::core::mem::transmute_copy(&fselectdefaultterminals)).into()
         }
         unsafe extern "system" fn UnselectCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UnselectCall(::core::mem::transmute(&pcall)).into()
         }
         unsafe extern "system" fn EnumerateSelectedCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateSelectedCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3390,7 +3390,7 @@ impl ITAutomatedPhoneControl_Vtbl {
             }
         }
         unsafe extern "system" fn SelectedCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITAutomatedPhoneControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.SelectedCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3453,12 +3453,12 @@ impl ::windows::core::RuntimeName for ITBasicAudioTerminal {}
 impl ITBasicAudioTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicAudioTerminal_Impl, const OFFSET: isize>() -> ITBasicAudioTerminal_Vtbl {
         unsafe extern "system" fn SetVolume<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicAudioTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lvolume: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetVolume(::core::mem::transmute_copy(&lvolume)).into()
         }
         unsafe extern "system" fn Volume<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicAudioTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plvolume: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Volume() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3469,12 +3469,12 @@ impl ITBasicAudioTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn SetBalance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicAudioTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbalance: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBalance(::core::mem::transmute_copy(&lbalance)).into()
         }
         unsafe extern "system" fn Balance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicAudioTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plbalance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Balance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3523,62 +3523,62 @@ impl ::windows::core::RuntimeName for ITBasicCallControl {}
 impl ITBasicCallControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>() -> ITBasicCallControl_Vtbl {
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsync: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Connect(::core::mem::transmute_copy(&fsync)).into()
         }
         unsafe extern "system" fn Answer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Answer().into()
         }
         unsafe extern "system" fn Disconnect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, code: DISCONNECT_CODE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Disconnect(::core::mem::transmute_copy(&code)).into()
         }
         unsafe extern "system" fn Hold<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fhold: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Hold(::core::mem::transmute_copy(&fhold)).into()
         }
         unsafe extern "system" fn HandoffDirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, papplicationname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.HandoffDirect(::core::mem::transmute(&papplicationname)).into()
         }
         unsafe extern "system" fn HandoffIndirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.HandoffIndirect(::core::mem::transmute_copy(&lmediatype)).into()
         }
         unsafe extern "system" fn Conference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr, fsync: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Conference(::core::mem::transmute(&pcall), ::core::mem::transmute_copy(&fsync)).into()
         }
         unsafe extern "system" fn Transfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr, fsync: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Transfer(::core::mem::transmute(&pcall), ::core::mem::transmute_copy(&fsync)).into()
         }
         unsafe extern "system" fn BlindTransfer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.BlindTransfer(::core::mem::transmute(&pdestaddress)).into()
         }
         unsafe extern "system" fn SwapHold<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcall: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SwapHold(::core::mem::transmute(&pcall)).into()
         }
         unsafe extern "system" fn ParkDirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparkaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ParkDirect(::core::mem::transmute(&pparkaddress)).into()
         }
         unsafe extern "system" fn ParkIndirect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnondiraddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ParkIndirect() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3589,32 +3589,32 @@ impl ITBasicCallControl_Vtbl {
             }
         }
         unsafe extern "system" fn Unpark<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Unpark().into()
         }
         unsafe extern "system" fn SetQOS<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, servicelevel: QOS_SERVICE_LEVEL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetQOS(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&servicelevel)).into()
         }
         unsafe extern "system" fn Pickup<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgroupid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Pickup(::core::mem::transmute(&pgroupid)).into()
         }
         unsafe extern "system" fn Dial<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Dial(::core::mem::transmute(&pdestaddress)).into()
         }
         unsafe extern "system" fn Finish<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, finishmode: FINISH_MODE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Finish(::core::mem::transmute_copy(&finishmode)).into()
         }
         unsafe extern "system" fn RemoveFromConference<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveFromConference().into()
         }
@@ -3656,7 +3656,7 @@ impl ::windows::core::RuntimeName for ITBasicCallControl2 {}
 impl ITBasicCallControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl2_Impl, const OFFSET: isize>() -> ITBasicCallControl2_Vtbl {
         unsafe extern "system" fn RequestTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrterminalclassguid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RequestTerminal(::core::mem::transmute(&bstrterminalclassguid), ::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3667,12 +3667,12 @@ impl ITBasicCallControl2_Vtbl {
             }
         }
         unsafe extern "system" fn SelectTerminalOnCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SelectTerminalOnCall(::core::mem::transmute(&pterminal)).into()
         }
         unsafe extern "system" fn UnselectTerminalOnCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITBasicCallControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UnselectTerminalOnCall(::core::mem::transmute(&pterminal)).into()
         }
@@ -3701,12 +3701,12 @@ impl ::windows::core::RuntimeName for ITCallHub {}
 impl ITCallHub_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHub_Impl, const OFFSET: isize>() -> ITCallHub_Vtbl {
         unsafe extern "system" fn Clear<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Clear().into()
         }
         unsafe extern "system" fn EnumerateCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3717,7 +3717,7 @@ impl ITCallHub_Vtbl {
             }
         }
         unsafe extern "system" fn Calls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcalls: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Calls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3728,7 +3728,7 @@ impl ITCallHub_Vtbl {
             }
         }
         unsafe extern "system" fn NumCalls<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NumCalls() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3739,7 +3739,7 @@ impl ITCallHub_Vtbl {
             }
         }
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHub_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstate: *mut CALLHUB_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3774,7 +3774,7 @@ impl ::windows::core::RuntimeName for ITCallHubEvent {}
 impl ITCallHubEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHubEvent_Impl, const OFFSET: isize>() -> ITCallHubEvent_Vtbl {
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHubEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut CALLHUB_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3785,7 +3785,7 @@ impl ITCallHubEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallHub<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHubEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallhub: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallHub() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3796,7 +3796,7 @@ impl ITCallHubEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallHubEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3839,7 +3839,7 @@ impl ::windows::core::RuntimeName for ITCallInfo {}
 impl ITCallInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>() -> ITCallInfo_Vtbl {
         unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3850,7 +3850,7 @@ impl ITCallInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CallState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallstate: *mut CALL_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3861,7 +3861,7 @@ impl ITCallInfo_Vtbl {
             }
         }
         unsafe extern "system" fn Privilege<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprivilege: *mut CALL_PRIVILEGE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Privilege() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3872,7 +3872,7 @@ impl ITCallInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CallHub<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallhub: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallHub() {
                 ::core::result::Result::Ok(ok__) => {
@@ -3883,7 +3883,7 @@ impl ITCallInfo_Vtbl {
             }
         }
         unsafe extern "system" fn get_CallInfoLong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfolong: CALLINFO_LONG, plcallinfolongval: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_CallInfoLong(::core::mem::transmute_copy(&callinfolong)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3894,12 +3894,12 @@ impl ITCallInfo_Vtbl {
             }
         }
         unsafe extern "system" fn put_CallInfoLong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfolong: CALLINFO_LONG, lcallinfolongval: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_CallInfoLong(::core::mem::transmute_copy(&callinfolong), ::core::mem::transmute_copy(&lcallinfolongval)).into()
         }
         unsafe extern "system" fn get_CallInfoString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfostring: CALLINFO_STRING, ppcallinfostring: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_CallInfoString(::core::mem::transmute_copy(&callinfostring)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3910,12 +3910,12 @@ impl ITCallInfo_Vtbl {
             }
         }
         unsafe extern "system" fn put_CallInfoString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfostring: CALLINFO_STRING, pcallinfostring: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_CallInfoString(::core::mem::transmute_copy(&callinfostring), ::core::mem::transmute(&pcallinfostring)).into()
         }
         unsafe extern "system" fn get_CallInfoBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, ppcallinfobuffer: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_CallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3926,22 +3926,22 @@ impl ITCallInfo_Vtbl {
             }
         }
         unsafe extern "system" fn put_CallInfoBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pcallinfobuffer: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_CallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer), ::core::mem::transmute(&pcallinfobuffer)).into()
         }
         unsafe extern "system" fn GetCallInfoBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, pdwsize: *mut u32, ppcallinfobuffer: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetCallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer), ::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&ppcallinfobuffer)).into()
         }
         unsafe extern "system" fn SetCallInfoBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, callinfobuffer: CALLINFO_BUFFER, dwsize: u32, pcallinfobuffer: *const u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetCallInfoBuffer(::core::mem::transmute_copy(&callinfobuffer), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pcallinfobuffer)).into()
         }
         unsafe extern "system" fn ReleaseUserUserInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ReleaseUserUserInfo().into()
         }
@@ -3977,7 +3977,7 @@ impl ::windows::core::RuntimeName for ITCallInfo2 {}
 impl ITCallInfo2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo2_Impl, const OFFSET: isize>() -> ITCallInfo2_Vtbl {
         unsafe extern "system" fn get_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, penable: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -3988,7 +3988,7 @@ impl ITCallInfo2_Vtbl {
             }
         }
         unsafe extern "system" fn put_EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfo2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, lsubevent: i32, benable: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_EventFilter(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute_copy(&lsubevent), ::core::mem::transmute_copy(&benable)).into()
         }
@@ -4014,7 +4014,7 @@ impl ::windows::core::RuntimeName for ITCallInfoChangeEvent {}
 impl ITCallInfoChangeEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfoChangeEvent_Impl, const OFFSET: isize>() -> ITCallInfoChangeEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfoChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4025,7 +4025,7 @@ impl ITCallInfoChangeEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Cause<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfoChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcic: *mut CALLINFOCHANGE_CAUSE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Cause() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4036,7 +4036,7 @@ impl ITCallInfoChangeEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallbackInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallInfoChangeEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallbackInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4072,7 +4072,7 @@ impl ::windows::core::RuntimeName for ITCallMediaEvent {}
 impl ITCallMediaEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallMediaEvent_Impl, const OFFSET: isize>() -> ITCallMediaEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4083,7 +4083,7 @@ impl ITCallMediaEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallmediaevent: *mut CALL_MEDIA_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4094,7 +4094,7 @@ impl ITCallMediaEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrerror: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4105,7 +4105,7 @@ impl ITCallMediaEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Terminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Terminal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4116,7 +4116,7 @@ impl ITCallMediaEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Stream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Stream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4127,7 +4127,7 @@ impl ITCallMediaEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Cause<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallMediaEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcause: *mut CALL_MEDIA_EVENT_CAUSE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Cause() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4163,7 +4163,7 @@ impl ::windows::core::RuntimeName for ITCallNotificationEvent {}
 impl ITCallNotificationEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallNotificationEvent_Impl, const OFFSET: isize>() -> ITCallNotificationEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallNotificationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4174,7 +4174,7 @@ impl ITCallNotificationEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallNotificationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallnotificationevent: *mut CALL_NOTIFICATION_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4185,7 +4185,7 @@ impl ITCallNotificationEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallbackInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallNotificationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallbackInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4219,7 +4219,7 @@ impl ::windows::core::RuntimeName for ITCallStateEvent {}
 impl ITCallStateEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallStateEvent_Impl, const OFFSET: isize>() -> ITCallStateEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallStateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4230,7 +4230,7 @@ impl ITCallStateEvent_Vtbl {
             }
         }
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallStateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallstate: *mut CALL_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4241,7 +4241,7 @@ impl ITCallStateEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Cause<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallStateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcec: *mut CALL_STATE_EVENT_CAUSE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Cause() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4252,7 +4252,7 @@ impl ITCallStateEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallbackInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallStateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallbackInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4290,7 +4290,7 @@ impl ::windows::core::RuntimeName for ITCallingCard {}
 impl ITCallingCard_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallingCard_Impl, const OFFSET: isize>() -> ITCallingCard_Vtbl {
         unsafe extern "system" fn PermanentCardID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcardid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PermanentCardID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4301,7 +4301,7 @@ impl ITCallingCard_Vtbl {
             }
         }
         unsafe extern "system" fn NumberOfDigits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldigits: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NumberOfDigits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4312,7 +4312,7 @@ impl ITCallingCard_Vtbl {
             }
         }
         unsafe extern "system" fn Options<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ploptions: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Options() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4323,7 +4323,7 @@ impl ITCallingCard_Vtbl {
             }
         }
         unsafe extern "system" fn CardName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcardname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CardName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4334,7 +4334,7 @@ impl ITCallingCard_Vtbl {
             }
         }
         unsafe extern "system" fn SameAreaDialingRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprule: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.SameAreaDialingRule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4345,7 +4345,7 @@ impl ITCallingCard_Vtbl {
             }
         }
         unsafe extern "system" fn LongDistanceDialingRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprule: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LongDistanceDialingRule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4356,7 +4356,7 @@ impl ITCallingCard_Vtbl {
             }
         }
         unsafe extern "system" fn InternationalDialingRule<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCallingCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprule: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.InternationalDialingRule() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4393,7 +4393,7 @@ impl ::windows::core::RuntimeName for ITCollection {}
 impl ITCollection_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCollection_Impl, const OFFSET: isize>() -> ITCollection_Vtbl {
         unsafe extern "system" fn Count<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4404,7 +4404,7 @@ impl ITCollection_Vtbl {
             }
         }
         unsafe extern "system" fn get_Item<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4415,7 +4415,7 @@ impl ITCollection_Vtbl {
             }
         }
         unsafe extern "system" fn _NewEnum<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCollection_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnewenum: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4447,12 +4447,12 @@ impl ::windows::core::RuntimeName for ITCollection2 {}
 impl ITCollection2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCollection2_Impl, const OFFSET: isize>() -> ITCollection2_Vtbl {
         unsafe extern "system" fn Add<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, pvariant: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Add(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&pvariant)).into()
         }
         unsafe extern "system" fn Remove<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCollection2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Remove(::core::mem::transmute_copy(&index)).into()
         }
@@ -4479,7 +4479,7 @@ impl ::windows::core::RuntimeName for ITCustomTone {}
 impl ITCustomTone_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>() -> ITCustomTone_Vtbl {
         unsafe extern "system" fn Frequency<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plfrequency: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Frequency() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4490,12 +4490,12 @@ impl ITCustomTone_Vtbl {
             }
         }
         unsafe extern "system" fn SetFrequency<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfrequency: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetFrequency(::core::mem::transmute_copy(&lfrequency)).into()
         }
         unsafe extern "system" fn CadenceOn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcadenceon: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CadenceOn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4506,12 +4506,12 @@ impl ITCustomTone_Vtbl {
             }
         }
         unsafe extern "system" fn SetCadenceOn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cadenceon: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetCadenceOn(::core::mem::transmute_copy(&cadenceon)).into()
         }
         unsafe extern "system" fn CadenceOff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcadenceoff: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CadenceOff() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4522,12 +4522,12 @@ impl ITCustomTone_Vtbl {
             }
         }
         unsafe extern "system" fn SetCadenceOff<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lcadenceoff: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetCadenceOff(::core::mem::transmute_copy(&lcadenceoff)).into()
         }
         unsafe extern "system" fn Volume<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plvolume: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Volume() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4538,7 +4538,7 @@ impl ITCustomTone_Vtbl {
             }
         }
         unsafe extern "system" fn SetVolume<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITCustomTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lvolume: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetVolume(::core::mem::transmute_copy(&lvolume)).into()
         }
@@ -4573,7 +4573,7 @@ impl ::windows::core::RuntimeName for ITDetectTone {}
 impl ITDetectTone_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDetectTone_Impl, const OFFSET: isize>() -> ITDetectTone_Vtbl {
         unsafe extern "system" fn AppSpecific<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AppSpecific() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4584,12 +4584,12 @@ impl ITDetectTone_Vtbl {
             }
         }
         unsafe extern "system" fn SetAppSpecific<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lappspecific: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAppSpecific(::core::mem::transmute_copy(&lappspecific)).into()
         }
         unsafe extern "system" fn Duration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plduration: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Duration() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4600,12 +4600,12 @@ impl ITDetectTone_Vtbl {
             }
         }
         unsafe extern "system" fn SetDuration<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lduration: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDuration(::core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn get_Frequency<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, plfrequency: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Frequency(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4616,7 +4616,7 @@ impl ITDetectTone_Vtbl {
             }
         }
         unsafe extern "system" fn put_Frequency<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDetectTone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: i32, lfrequency: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_Frequency(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&lfrequency)).into()
         }
@@ -4648,7 +4648,7 @@ impl ::windows::core::RuntimeName for ITDigitDetectionEvent {}
 impl ITDigitDetectionEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitDetectionEvent_Impl, const OFFSET: isize>() -> ITDigitDetectionEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4659,7 +4659,7 @@ impl ITDigitDetectionEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Digit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pucdigit: *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Digit() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4670,7 +4670,7 @@ impl ITDigitDetectionEvent_Vtbl {
             }
         }
         unsafe extern "system" fn DigitMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdigitmode: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DigitMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4681,7 +4681,7 @@ impl ITDigitDetectionEvent_Vtbl {
             }
         }
         unsafe extern "system" fn TickCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltickcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TickCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4692,7 +4692,7 @@ impl ITDigitDetectionEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallbackInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallbackInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4728,7 +4728,7 @@ impl ::windows::core::RuntimeName for ITDigitGenerationEvent {}
 impl ITDigitGenerationEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitGenerationEvent_Impl, const OFFSET: isize>() -> ITDigitGenerationEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitGenerationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4739,7 +4739,7 @@ impl ITDigitGenerationEvent_Vtbl {
             }
         }
         unsafe extern "system" fn GenerationTermination<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitGenerationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plgenerationtermination: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GenerationTermination() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4750,7 +4750,7 @@ impl ITDigitGenerationEvent_Vtbl {
             }
         }
         unsafe extern "system" fn TickCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitGenerationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltickcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TickCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4761,7 +4761,7 @@ impl ITDigitGenerationEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallbackInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitGenerationEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallbackInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4797,7 +4797,7 @@ impl ::windows::core::RuntimeName for ITDigitsGatheredEvent {}
 impl ITDigitsGatheredEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitsGatheredEvent_Impl, const OFFSET: isize>() -> ITDigitsGatheredEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitsGatheredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4808,7 +4808,7 @@ impl ITDigitsGatheredEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Digits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitsGatheredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdigits: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Digits() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4819,7 +4819,7 @@ impl ITDigitsGatheredEvent_Vtbl {
             }
         }
         unsafe extern "system" fn GatherTermination<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitsGatheredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pgathertermination: *mut TAPI_GATHERTERM) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GatherTermination() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4830,7 +4830,7 @@ impl ITDigitsGatheredEvent_Vtbl {
             }
         }
         unsafe extern "system" fn TickCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitsGatheredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltickcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TickCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4841,7 +4841,7 @@ impl ITDigitsGatheredEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallbackInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDigitsGatheredEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallbackInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4887,7 +4887,7 @@ impl ::windows::core::RuntimeName for ITDirectory {}
 impl ITDirectory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>() -> ITDirectory_Vtbl {
         unsafe extern "system" fn DirectoryType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectorytype: *mut DIRECTORY_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DirectoryType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4898,7 +4898,7 @@ impl ITDirectory_Vtbl {
             }
         }
         unsafe extern "system" fn DisplayName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4909,7 +4909,7 @@ impl ITDirectory_Vtbl {
             }
         }
         unsafe extern "system" fn IsDynamic<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfdynamic: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsDynamic() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4920,7 +4920,7 @@ impl ITDirectory_Vtbl {
             }
         }
         unsafe extern "system" fn DefaultObjectTTL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pttl: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DefaultObjectTTL() {
                 ::core::result::Result::Ok(ok__) => {
@@ -4931,47 +4931,47 @@ impl ITDirectory_Vtbl {
             }
         }
         unsafe extern "system" fn SetDefaultObjectTTL<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ttl: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDefaultObjectTTL(::core::mem::transmute_copy(&ttl)).into()
         }
         unsafe extern "system" fn EnableAutoRefresh<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fenable: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.EnableAutoRefresh(::core::mem::transmute_copy(&fenable)).into()
         }
         unsafe extern "system" fn Connect<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fsecure: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Connect(::core::mem::transmute_copy(&fsecure)).into()
         }
         unsafe extern "system" fn Bind<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdomainname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pusername: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppassword: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lflags: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Bind(::core::mem::transmute(&pdomainname), ::core::mem::transmute(&pusername), ::core::mem::transmute(&ppassword), ::core::mem::transmute_copy(&lflags)).into()
         }
         unsafe extern "system" fn AddDirectoryObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectoryobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddDirectoryObject(::core::mem::transmute(&pdirectoryobject)).into()
         }
         unsafe extern "system" fn ModifyDirectoryObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectoryobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ModifyDirectoryObject(::core::mem::transmute(&pdirectoryobject)).into()
         }
         unsafe extern "system" fn RefreshDirectoryObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectoryobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RefreshDirectoryObject(::core::mem::transmute(&pdirectoryobject)).into()
         }
         unsafe extern "system" fn DeleteDirectoryObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirectoryobject: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeleteDirectoryObject(::core::mem::transmute(&pdirectoryobject)).into()
         }
         unsafe extern "system" fn get_DirectoryObjects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_DirectoryObjects(::core::mem::transmute_copy(&directoryobjecttype), ::core::mem::transmute(&pname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -4982,7 +4982,7 @@ impl ITDirectory_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateDirectoryObjects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppenumobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateDirectoryObjects(::core::mem::transmute_copy(&directoryobjecttype), ::core::mem::transmute(&pname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5030,7 +5030,7 @@ impl ::windows::core::RuntimeName for ITDirectoryObject {}
 impl ITDirectoryObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObject_Impl, const OFFSET: isize>() -> ITDirectoryObject_Vtbl {
         unsafe extern "system" fn ObjectType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pobjecttype: *mut DIRECTORY_OBJECT_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ObjectType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5041,7 +5041,7 @@ impl ITDirectoryObject_Vtbl {
             }
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5052,12 +5052,12 @@ impl ITDirectoryObject_Vtbl {
             }
         }
         unsafe extern "system" fn SetName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetName(::core::mem::transmute(&pname)).into()
         }
         unsafe extern "system" fn get_DialableAddrs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaddresstype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_DialableAddrs(::core::mem::transmute_copy(&dwaddresstype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5068,7 +5068,7 @@ impl ITDirectoryObject_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateDialableAddrs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwaddresstype: u32, ppenumdialableaddrs: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateDialableAddrs(::core::mem::transmute_copy(&dwaddresstype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5079,7 +5079,7 @@ impl ITDirectoryObject_Vtbl {
             }
         }
         unsafe extern "system" fn SecurityDescriptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsecdes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.SecurityDescriptor() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5090,7 +5090,7 @@ impl ITDirectoryObject_Vtbl {
             }
         }
         unsafe extern "system" fn SetSecurityDescriptor<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psecdes: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetSecurityDescriptor(::core::mem::transmute(&psecdes)).into()
         }
@@ -5133,7 +5133,7 @@ impl ::windows::core::RuntimeName for ITDirectoryObjectConference {}
 impl ITDirectoryObjectConference_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>() -> ITDirectoryObjectConference_Vtbl {
         unsafe extern "system" fn Protocol<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppprotocol: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Protocol() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5144,7 +5144,7 @@ impl ITDirectoryObjectConference_Vtbl {
             }
         }
         unsafe extern "system" fn Originator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pporiginator: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Originator() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5155,12 +5155,12 @@ impl ITDirectoryObjectConference_Vtbl {
             }
         }
         unsafe extern "system" fn SetOriginator<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poriginator: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetOriginator(::core::mem::transmute(&poriginator)).into()
         }
         unsafe extern "system" fn AdvertisingScope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, padvertisingscope: *mut RND_ADVERTISING_SCOPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AdvertisingScope() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5171,12 +5171,12 @@ impl ITDirectoryObjectConference_Vtbl {
             }
         }
         unsafe extern "system" fn SetAdvertisingScope<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, advertisingscope: RND_ADVERTISING_SCOPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAdvertisingScope(::core::mem::transmute_copy(&advertisingscope)).into()
         }
         unsafe extern "system" fn Url<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppurl: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Url() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5187,12 +5187,12 @@ impl ITDirectoryObjectConference_Vtbl {
             }
         }
         unsafe extern "system" fn SetUrl<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetUrl(::core::mem::transmute(&purl)).into()
         }
         unsafe extern "system" fn Description<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdescription: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5203,12 +5203,12 @@ impl ITDirectoryObjectConference_Vtbl {
             }
         }
         unsafe extern "system" fn SetDescription<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdescription: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDescription(::core::mem::transmute(&pdescription)).into()
         }
         unsafe extern "system" fn IsEncrypted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfencrypted: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsEncrypted() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5219,12 +5219,12 @@ impl ITDirectoryObjectConference_Vtbl {
             }
         }
         unsafe extern "system" fn SetIsEncrypted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, fencrypted: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetIsEncrypted(::core::mem::transmute_copy(&fencrypted)).into()
         }
         unsafe extern "system" fn StartTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.StartTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5235,12 +5235,12 @@ impl ITDirectoryObjectConference_Vtbl {
             }
         }
         unsafe extern "system" fn SetStartTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, date: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetStartTime(::core::mem::transmute_copy(&date)).into()
         }
         unsafe extern "system" fn StopTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdate: *mut f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.StopTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5251,7 +5251,7 @@ impl ITDirectoryObjectConference_Vtbl {
             }
         }
         unsafe extern "system" fn SetStopTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectConference_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, date: f64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetStopTime(::core::mem::transmute_copy(&date)).into()
         }
@@ -5289,7 +5289,7 @@ impl ::windows::core::RuntimeName for ITDirectoryObjectUser {}
 impl ITDirectoryObjectUser_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectUser_Impl, const OFFSET: isize>() -> ITDirectoryObjectUser_Vtbl {
         unsafe extern "system" fn IPPhonePrimary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IPPhonePrimary() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5300,7 +5300,7 @@ impl ITDirectoryObjectUser_Vtbl {
             }
         }
         unsafe extern "system" fn SetIPPhonePrimary<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDirectoryObjectUser_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetIPPhonePrimary(::core::mem::transmute(&pname)).into()
         }
@@ -5324,7 +5324,7 @@ impl ::windows::core::RuntimeName for ITDispatchMapper {}
 impl ITDispatchMapper_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDispatchMapper_Impl, const OFFSET: isize>() -> ITDispatchMapper_Vtbl {
         unsafe extern "system" fn QueryDispatchInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITDispatchMapper_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pinterfacetomap: ::windows::core::RawPtr, ppreturnedinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.QueryDispatchInterface(::core::mem::transmute(&piid), ::core::mem::transmute(&pinterfacetomap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5358,7 +5358,7 @@ impl ::windows::core::RuntimeName for ITFileTerminalEvent {}
 impl ITFileTerminalEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTerminalEvent_Impl, const OFFSET: isize>() -> ITFileTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Terminal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5369,7 +5369,7 @@ impl ITFileTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Track<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptrackterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Track() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5380,7 +5380,7 @@ impl ITFileTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5391,7 +5391,7 @@ impl ITFileTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstate: *mut TERMINAL_MEDIA_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5402,7 +5402,7 @@ impl ITFileTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Cause<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcause: *mut FT_STATE_EVENT_CAUSE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Cause() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5413,7 +5413,7 @@ impl ITFileTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrerrorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5452,7 +5452,7 @@ impl ::windows::core::RuntimeName for ITFileTrack {}
 impl ITFileTrack_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTrack_Impl, const OFFSET: isize>() -> ITFileTrack_Vtbl {
         unsafe extern "system" fn Format<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Format() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5463,12 +5463,12 @@ impl ITFileTrack_Vtbl {
             }
         }
         unsafe extern "system" fn SetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetFormat(::core::mem::transmute_copy(&pmt)).into()
         }
         unsafe extern "system" fn ControllingTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcontrollingterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ControllingTerminal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5479,7 +5479,7 @@ impl ITFileTrack_Vtbl {
             }
         }
         unsafe extern "system" fn AudioFormatForScripting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaudioformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AudioFormatForScripting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5490,12 +5490,12 @@ impl ITFileTrack_Vtbl {
             }
         }
         unsafe extern "system" fn SetAudioFormatForScripting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paudioformat: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAudioFormatForScripting(::core::mem::transmute(&paudioformat)).into()
         }
         unsafe extern "system" fn EmptyAudioFormatForScripting<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITFileTrack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaudioformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EmptyAudioFormatForScripting() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5535,12 +5535,12 @@ impl ::windows::core::RuntimeName for ITForwardInformation {}
 impl ITForwardInformation_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation_Impl, const OFFSET: isize>() -> ITForwardInformation_Vtbl {
         unsafe extern "system" fn SetNumRingsNoAnswer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lnumrings: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetNumRingsNoAnswer(::core::mem::transmute_copy(&lnumrings)).into()
         }
         unsafe extern "system" fn NumRingsNoAnswer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plnumrings: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NumRingsNoAnswer() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5551,12 +5551,12 @@ impl ITForwardInformation_Vtbl {
             }
         }
         unsafe extern "system" fn SetForwardType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcalleraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetForwardType(::core::mem::transmute_copy(&forwardtype), ::core::mem::transmute(&pdestaddress), ::core::mem::transmute(&pcalleraddress)).into()
         }
         unsafe extern "system" fn get_ForwardTypeDestination<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, ppdestaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_ForwardTypeDestination(::core::mem::transmute_copy(&forwardtype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5567,7 +5567,7 @@ impl ITForwardInformation_Vtbl {
             }
         }
         unsafe extern "system" fn get_ForwardTypeCaller<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, ppcalleraddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_ForwardTypeCaller(::core::mem::transmute_copy(&forwardtype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5578,12 +5578,12 @@ impl ITForwardInformation_Vtbl {
             }
         }
         unsafe extern "system" fn GetForwardType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, ppdestinationaddress: *mut super::super::Foundation::BSTR, ppcalleraddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetForwardType(::core::mem::transmute_copy(&forwardtype), ::core::mem::transmute_copy(&ppdestinationaddress), ::core::mem::transmute_copy(&ppcalleraddress)).into()
         }
         unsafe extern "system" fn Clear<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Clear().into()
         }
@@ -5615,17 +5615,17 @@ impl ::windows::core::RuntimeName for ITForwardInformation2 {}
 impl ITForwardInformation2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation2_Impl, const OFFSET: isize>() -> ITForwardInformation2_Vtbl {
         unsafe extern "system" fn SetForwardType2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, destaddresstype: i32, pcalleraddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, calleraddresstype: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetForwardType2(::core::mem::transmute_copy(&forwardtype), ::core::mem::transmute(&pdestaddress), ::core::mem::transmute_copy(&destaddresstype), ::core::mem::transmute(&pcalleraddress), ::core::mem::transmute_copy(&calleraddresstype)).into()
         }
         unsafe extern "system" fn GetForwardType2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, ppdestinationaddress: *mut super::super::Foundation::BSTR, pdestaddresstype: *mut i32, ppcalleraddress: *mut super::super::Foundation::BSTR, pcalleraddresstype: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetForwardType2(::core::mem::transmute_copy(&forwardtype), ::core::mem::transmute_copy(&ppdestinationaddress), ::core::mem::transmute_copy(&pdestaddresstype), ::core::mem::transmute_copy(&ppcalleraddress), ::core::mem::transmute_copy(&pcalleraddresstype)).into()
         }
         unsafe extern "system" fn get_ForwardTypeDestinationAddressType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pdestaddresstype: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_ForwardTypeDestinationAddressType(::core::mem::transmute_copy(&forwardtype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5636,7 +5636,7 @@ impl ITForwardInformation2_Vtbl {
             }
         }
         unsafe extern "system" fn get_ForwardTypeCallerAddressType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITForwardInformation2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, forwardtype: i32, pcalleraddresstype: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_ForwardTypeCallerAddressType(::core::mem::transmute_copy(&forwardtype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5669,7 +5669,7 @@ impl ::windows::core::RuntimeName for ITILSConfig {}
 impl ITILSConfig_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITILSConfig_Impl, const OFFSET: isize>() -> ITILSConfig_Vtbl {
         unsafe extern "system" fn Port<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITILSConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pport: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Port() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5680,7 +5680,7 @@ impl ITILSConfig_Vtbl {
             }
         }
         unsafe extern "system" fn SetPort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITILSConfig_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, port: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetPort(::core::mem::transmute_copy(&port)).into()
         }
@@ -5706,17 +5706,17 @@ impl ::windows::core::RuntimeName for ITLegacyAddressMediaControl {}
 impl ITLegacyAddressMediaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyAddressMediaControl_Impl, const OFFSET: isize>() -> ITLegacyAddressMediaControl_Vtbl {
         unsafe extern "system" fn GetID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyAddressMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetID(::core::mem::transmute(&pdeviceclass), ::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&ppdeviceid)).into()
         }
         unsafe extern "system" fn GetDevConfig<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyAddressMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwsize: *mut u32, ppdeviceconfig: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetDevConfig(::core::mem::transmute(&pdeviceclass), ::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&ppdeviceconfig)).into()
         }
         unsafe extern "system" fn SetDevConfig<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyAddressMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwsize: u32, pdeviceconfig: *const u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDevConfig(::core::mem::transmute(&pdeviceclass), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute_copy(&pdeviceconfig)).into()
         }
@@ -5742,12 +5742,12 @@ impl ::windows::core::RuntimeName for ITLegacyAddressMediaControl2 {}
 impl ITLegacyAddressMediaControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyAddressMediaControl2_Impl, const OFFSET: isize>() -> ITLegacyAddressMediaControl2_Vtbl {
         unsafe extern "system" fn ConfigDialog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyAddressMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ConfigDialog(::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute(&pdeviceclass)).into()
         }
         unsafe extern "system" fn ConfigDialogEdit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyAddressMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwndowner: super::super::Foundation::HWND, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, dwsizein: u32, pdeviceconfigin: *const u8, pdwsizeout: *mut u32, ppdeviceconfigout: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ConfigDialogEdit(::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute(&pdeviceclass), ::core::mem::transmute_copy(&dwsizein), ::core::mem::transmute_copy(&pdeviceconfigin), ::core::mem::transmute_copy(&pdwsizeout), ::core::mem::transmute_copy(&ppdeviceconfigout)).into()
         }
@@ -5775,27 +5775,27 @@ impl ::windows::core::RuntimeName for ITLegacyCallMediaControl {}
 impl ITLegacyCallMediaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl_Impl, const OFFSET: isize>() -> ITLegacyCallMediaControl_Vtbl {
         unsafe extern "system" fn DetectDigits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digitmode: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DetectDigits(::core::mem::transmute_copy(&digitmode)).into()
         }
         unsafe extern "system" fn GenerateDigits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdigits: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, digitmode: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GenerateDigits(::core::mem::transmute(&pdigits), ::core::mem::transmute_copy(&digitmode)).into()
         }
         unsafe extern "system" fn GetID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pdwsize: *mut u32, ppdeviceid: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetID(::core::mem::transmute(&pdeviceclass), ::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&ppdeviceid)).into()
         }
         unsafe extern "system" fn SetMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetMediaType(::core::mem::transmute_copy(&lmediatype)).into()
         }
         unsafe extern "system" fn MonitorMedia<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.MonitorMedia(::core::mem::transmute_copy(&lmediatype)).into()
         }
@@ -5831,42 +5831,42 @@ impl ::windows::core::RuntimeName for ITLegacyCallMediaControl2 {}
 impl ITLegacyCallMediaControl2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>() -> ITLegacyCallMediaControl2_Vtbl {
         unsafe extern "system" fn GenerateDigits2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdigits: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, digitmode: i32, lduration: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GenerateDigits2(::core::mem::transmute(&pdigits), ::core::mem::transmute_copy(&digitmode), ::core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn GatherDigits<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, digitmode: i32, lnumdigits: i32, pterminationdigits: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lfirstdigittimeout: i32, linterdigittimeout: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GatherDigits(::core::mem::transmute_copy(&digitmode), ::core::mem::transmute_copy(&lnumdigits), ::core::mem::transmute(&pterminationdigits), ::core::mem::transmute_copy(&lfirstdigittimeout), ::core::mem::transmute_copy(&linterdigittimeout)).into()
         }
         unsafe extern "system" fn DetectTones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptonelist: *const TAPI_DETECTTONE, lnumtones: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DetectTones(::core::mem::transmute_copy(&ptonelist), ::core::mem::transmute_copy(&lnumtones)).into()
         }
         unsafe extern "system" fn DetectTonesByCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdetecttonecollection: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DetectTonesByCollection(::core::mem::transmute(&pdetecttonecollection)).into()
         }
         unsafe extern "system" fn GenerateTone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tonemode: TAPI_TONEMODE, lduration: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GenerateTone(::core::mem::transmute_copy(&tonemode), ::core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn GenerateCustomTones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptonelist: *const TAPI_CUSTOMTONE, lnumtones: i32, lduration: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GenerateCustomTones(::core::mem::transmute_copy(&ptonelist), ::core::mem::transmute_copy(&lnumtones), ::core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn GenerateCustomTonesByCollection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcustomtonecollection: ::windows::core::RawPtr, lduration: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GenerateCustomTonesByCollection(::core::mem::transmute(&pcustomtonecollection), ::core::mem::transmute_copy(&lduration)).into()
         }
         unsafe extern "system" fn CreateDetectToneObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdetecttone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateDetectToneObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5877,7 +5877,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
             }
         }
         unsafe extern "system" fn CreateCustomToneObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcustomtone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateCustomToneObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5888,7 +5888,7 @@ impl ITLegacyCallMediaControl2_Vtbl {
             }
         }
         unsafe extern "system" fn GetIDAsVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyCallMediaControl2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrdeviceclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pvardeviceid: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetIDAsVariant(::core::mem::transmute(&bstrdeviceclass)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -5926,7 +5926,7 @@ impl ::windows::core::RuntimeName for ITLegacyWaveSupport {}
 impl ITLegacyWaveSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyWaveSupport_Impl, const OFFSET: isize>() -> ITLegacyWaveSupport_Vtbl {
         unsafe extern "system" fn IsFullDuplex<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLegacyWaveSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psupport: *mut FULLDUPLEX_SUPPORT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsFullDuplex() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5962,7 +5962,7 @@ impl ::windows::core::RuntimeName for ITLocationInfo {}
 impl ITLocationInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>() -> ITLocationInfo_Vtbl {
         unsafe extern "system" fn PermanentLocationID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pllocationid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PermanentLocationID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5973,7 +5973,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CountryCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcountrycode: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CountryCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5984,7 +5984,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CountryID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcountryid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CountryID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -5995,7 +5995,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn Options<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ploptions: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Options() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6006,7 +6006,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn PreferredCardID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcardid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PreferredCardID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6017,7 +6017,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn LocationName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplocationname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LocationName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6028,7 +6028,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CityCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CityCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6039,7 +6039,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn LocalAccessCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LocalAccessCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6050,7 +6050,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn LongDistanceAccessCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LongDistanceAccessCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6061,7 +6061,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn TollPrefixList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptolllist: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TollPrefixList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6072,7 +6072,7 @@ impl ITLocationInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CancelCallWaitingCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITLocationInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcode: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CancelCallWaitingCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6113,17 +6113,17 @@ impl ::windows::core::RuntimeName for ITMSPAddress {}
 impl ITMSPAddress_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMSPAddress_Impl, const OFFSET: isize>() -> ITMSPAddress_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hevent: *const i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&hevent)).into()
         }
         unsafe extern "system" fn Shutdown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Shutdown().into()
         }
         unsafe extern "system" fn CreateMSPCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hcall: *const i32, dwreserved: u32, dwmediatype: u32, pouterunknown: *mut ::core::ffi::c_void, ppstreamcontrol: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateMSPCall(::core::mem::transmute_copy(&hcall), ::core::mem::transmute_copy(&dwreserved), ::core::mem::transmute_copy(&dwmediatype), ::core::mem::transmute(&pouterunknown)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6134,17 +6134,17 @@ impl ITMSPAddress_Vtbl {
             }
         }
         unsafe extern "system" fn ShutdownMSPCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstreamcontrol: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ShutdownMSPCall(::core::mem::transmute(&pstreamcontrol)).into()
         }
         unsafe extern "system" fn ReceiveTSPData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmspcall: *mut ::core::ffi::c_void, pbuffer: *const u8, dwsize: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ReceiveTSPData(::core::mem::transmute(&pmspcall), ::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&dwsize)).into()
         }
         unsafe extern "system" fn GetEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMSPAddress_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwsize: *mut u32, peventbuffer: *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetEvent(::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&peventbuffer)).into()
         }
@@ -6175,22 +6175,22 @@ impl ::windows::core::RuntimeName for ITMediaControl {}
 impl ITMediaControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaControl_Impl, const OFFSET: isize>() -> ITMediaControl_Vtbl {
         unsafe extern "system" fn Start<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Start().into()
         }
         unsafe extern "system" fn Stop<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Stop().into()
         }
         unsafe extern "system" fn Pause<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Pause().into()
         }
         unsafe extern "system" fn MediaState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminalmediastate: *mut TERMINAL_MEDIA_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MediaState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6223,12 +6223,12 @@ impl ::windows::core::RuntimeName for ITMediaPlayback {}
 impl ITMediaPlayback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaPlayback_Impl, const OFFSET: isize>() -> ITMediaPlayback_Vtbl {
         unsafe extern "system" fn SetPlayList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaPlayback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, playlistvariant: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetPlayList(::core::mem::transmute(&playlistvariant)).into()
         }
         unsafe extern "system" fn PlayList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaPlayback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pplaylistvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PlayList() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6259,12 +6259,12 @@ impl ::windows::core::RuntimeName for ITMediaRecord {}
 impl ITMediaRecord_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaRecord_Impl, const OFFSET: isize>() -> ITMediaRecord_Vtbl {
         unsafe extern "system" fn SetFileName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetFileName(::core::mem::transmute(&bstrfilename)).into()
         }
         unsafe extern "system" fn FileName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaRecord_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrfilename: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.FileName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6295,7 +6295,7 @@ impl ::windows::core::RuntimeName for ITMediaSupport {}
 impl ITMediaSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaSupport_Impl, const OFFSET: isize>() -> ITMediaSupport_Vtbl {
         unsafe extern "system" fn MediaTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmediatypes: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MediaTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6306,7 +6306,7 @@ impl ITMediaSupport_Vtbl {
             }
         }
         unsafe extern "system" fn QueryMediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMediaSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, pfsupport: *mut i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.QueryMediaType(::core::mem::transmute_copy(&lmediatype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6341,7 +6341,7 @@ impl ::windows::core::RuntimeName for ITMultiTrackTerminal {}
 impl ITMultiTrackTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMultiTrackTerminal_Impl, const OFFSET: isize>() -> ITMultiTrackTerminal_Vtbl {
         unsafe extern "system" fn TrackTerminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TrackTerminals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6352,7 +6352,7 @@ impl ITMultiTrackTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateTrackTerminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateTrackTerminals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6363,7 +6363,7 @@ impl ITMultiTrackTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn CreateTrackTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mediatype: i32, terminaldirection: TERMINAL_DIRECTION, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateTrackTerminal(::core::mem::transmute_copy(&mediatype), ::core::mem::transmute_copy(&terminaldirection)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6374,7 +6374,7 @@ impl ITMultiTrackTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn MediaTypesInUse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmediatypesinuse: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MediaTypesInUse() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6385,7 +6385,7 @@ impl ITMultiTrackTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn DirectionsInUse<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pldirectionsinused: *mut TERMINAL_DIRECTION) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DirectionsInUse() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6396,7 +6396,7 @@ impl ITMultiTrackTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn RemoveTrackTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITMultiTrackTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptrackterminaltoremove: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveTrackTerminal(::core::mem::transmute(&ptrackterminaltoremove)).into()
         }
@@ -6456,17 +6456,17 @@ impl ::windows::core::RuntimeName for ITPhone {}
 impl ITPhone_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>() -> ITPhone_Vtbl {
         unsafe extern "system" fn Open<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, privilege: PHONE_PRIVILEGE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Open(::core::mem::transmute_copy(&privilege)).into()
         }
         unsafe extern "system" fn Close<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Close().into()
         }
         unsafe extern "system" fn Addresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddresses: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Addresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6477,7 +6477,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateAddresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6488,7 +6488,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn get_PhoneCapsLong<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclcap: PHONECAPS_LONG, plcapability: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_PhoneCapsLong(::core::mem::transmute_copy(&pclcap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6499,7 +6499,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn get_PhoneCapsString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcscap: PHONECAPS_STRING, ppcapability: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_PhoneCapsString(::core::mem::transmute_copy(&pcscap)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6510,7 +6510,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn get_Terminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: ::windows::core::RawPtr, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_Terminals(::core::mem::transmute(&paddress)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6521,7 +6521,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateTerminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: ::windows::core::RawPtr, ppenumterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateTerminals(::core::mem::transmute(&paddress)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6532,7 +6532,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn get_ButtonMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonmode: *mut PHONE_BUTTON_MODE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_ButtonMode(::core::mem::transmute_copy(&lbuttonid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6543,12 +6543,12 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn put_ButtonMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, buttonmode: PHONE_BUTTON_MODE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_ButtonMode(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute_copy(&buttonmode)).into()
         }
         unsafe extern "system" fn get_ButtonFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonfunction: *mut PHONE_BUTTON_FUNCTION) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_ButtonFunction(::core::mem::transmute_copy(&lbuttonid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6559,12 +6559,12 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn put_ButtonFunction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, buttonfunction: PHONE_BUTTON_FUNCTION) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_ButtonFunction(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute_copy(&buttonfunction)).into()
         }
         unsafe extern "system" fn get_ButtonText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, ppbuttontext: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_ButtonText(::core::mem::transmute_copy(&lbuttonid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6575,12 +6575,12 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn put_ButtonText<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, bstrbuttontext: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_ButtonText(::core::mem::transmute_copy(&lbuttonid), ::core::mem::transmute(&bstrbuttontext)).into()
         }
         unsafe extern "system" fn get_ButtonState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lbuttonid: i32, pbuttonstate: *mut PHONE_BUTTON_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_ButtonState(::core::mem::transmute_copy(&lbuttonid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6591,7 +6591,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn get_HookSwitchState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, phookswitchstate: *mut PHONE_HOOK_SWITCH_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_HookSwitchState(::core::mem::transmute_copy(&hookswitchdevice)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6602,17 +6602,17 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn put_HookSwitchState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hookswitchdevice: PHONE_HOOK_SWITCH_DEVICE, hookswitchstate: PHONE_HOOK_SWITCH_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_HookSwitchState(::core::mem::transmute_copy(&hookswitchdevice), ::core::mem::transmute_copy(&hookswitchstate)).into()
         }
         unsafe extern "system" fn SetRingMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lringmode: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetRingMode(::core::mem::transmute_copy(&lringmode)).into()
         }
         unsafe extern "system" fn RingMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plringmode: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6623,12 +6623,12 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn SetRingVolume<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lringvolume: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetRingVolume(::core::mem::transmute_copy(&lringvolume)).into()
         }
         unsafe extern "system" fn RingVolume<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plringvolume: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RingVolume() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6639,7 +6639,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn Privilege<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pprivilege: *mut PHONE_PRIVILEGE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Privilege() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6650,12 +6650,12 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn GetPhoneCapsBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pdwsize: *mut u32, ppphonecapsbuffer: *mut *mut u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetPhoneCapsBuffer(::core::mem::transmute_copy(&pcbcaps), ::core::mem::transmute_copy(&pdwsize), ::core::mem::transmute_copy(&ppphonecapsbuffer)).into()
         }
         unsafe extern "system" fn get_PhoneCapsBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcbcaps: PHONECAPS_BUFFER, pvarbuffer: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_PhoneCapsBuffer(::core::mem::transmute_copy(&pcbcaps)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6666,7 +6666,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn get_LampMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llampid: i32, plampmode: *mut PHONE_LAMP_MODE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_LampMode(::core::mem::transmute_copy(&llampid)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6677,12 +6677,12 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn put_LampMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llampid: i32, lampmode: PHONE_LAMP_MODE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.put_LampMode(::core::mem::transmute_copy(&llampid), ::core::mem::transmute_copy(&lampmode)).into()
         }
         unsafe extern "system" fn Display<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbstrdisplay: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Display() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6693,12 +6693,12 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn SetDisplay<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lrow: i32, lcolumn: i32, bstrdisplay: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetDisplay(::core::mem::transmute_copy(&lrow), ::core::mem::transmute_copy(&lcolumn), ::core::mem::transmute(&bstrdisplay)).into()
         }
         unsafe extern "system" fn PreferredAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddresses: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PreferredAddresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6709,7 +6709,7 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn EnumeratePreferredAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumeratePreferredAddresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6720,17 +6720,17 @@ impl ITPhone_Vtbl {
             }
         }
         unsafe extern "system" fn DeviceSpecific<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparams: *const u8, dwsize: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeviceSpecific(::core::mem::transmute_copy(&pparams), ::core::mem::transmute_copy(&dwsize)).into()
         }
         unsafe extern "system" fn DeviceSpecificVariant<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, vardevspecificbytearray: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.DeviceSpecificVariant(::core::mem::transmute(&vardevspecificbytearray)).into()
         }
         unsafe extern "system" fn NegotiateExtVersion<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhone_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, llowversion: i32, lhighversion: i32, plextversion: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NegotiateExtVersion(::core::mem::transmute_copy(&llowversion), ::core::mem::transmute_copy(&lhighversion)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -6794,7 +6794,7 @@ impl ::windows::core::RuntimeName for ITPhoneDeviceSpecificEvent {}
 impl ITPhoneDeviceSpecificEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>() -> ITPhoneDeviceSpecificEvent_Vtbl {
         unsafe extern "system" fn Phone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Phone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6805,7 +6805,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
             }
         }
         unsafe extern "system" fn lParam1<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparam1: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.lParam1() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6816,7 +6816,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
             }
         }
         unsafe extern "system" fn lParam2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparam2: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.lParam2() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6827,7 +6827,7 @@ impl ITPhoneDeviceSpecificEvent_Vtbl {
             }
         }
         unsafe extern "system" fn lParam3<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneDeviceSpecificEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pparam3: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.lParam3() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6867,7 +6867,7 @@ impl ::windows::core::RuntimeName for ITPhoneEvent {}
 impl ITPhoneEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>() -> ITPhoneEvent_Vtbl {
         unsafe extern "system" fn Phone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Phone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6878,7 +6878,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut PHONE_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6889,7 +6889,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         unsafe extern "system" fn ButtonState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstate: *mut PHONE_BUTTON_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ButtonState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6900,7 +6900,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         unsafe extern "system" fn HookSwitchState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstate: *mut PHONE_HOOK_SWITCH_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.HookSwitchState() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6911,7 +6911,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         unsafe extern "system" fn HookSwitchDevice<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdevice: *mut PHONE_HOOK_SWITCH_DEVICE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.HookSwitchDevice() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6922,7 +6922,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         unsafe extern "system" fn RingMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plringmode: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RingMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6933,7 +6933,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         unsafe extern "system" fn ButtonLampId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plbuttonlampid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ButtonLampId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6944,7 +6944,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         unsafe extern "system" fn NumberGathered<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppnumber: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NumberGathered() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6955,7 +6955,7 @@ impl ITPhoneEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPhoneEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -6998,7 +6998,7 @@ impl ::windows::core::RuntimeName for ITPluggableTerminalClassInfo {}
 impl ITPluggableTerminalClassInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>() -> ITPluggableTerminalClassInfo_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7009,7 +7009,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
             }
         }
         unsafe extern "system" fn Company<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcompany: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Company() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7020,7 +7020,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
             }
         }
         unsafe extern "system" fn Version<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pversion: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Version() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7031,7 +7031,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
             }
         }
         unsafe extern "system" fn TerminalClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminalclass: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TerminalClass() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7042,7 +7042,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CLSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CLSID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7053,7 +7053,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
             }
         }
         unsafe extern "system" fn Direction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirection: *mut TERMINAL_DIRECTION) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7064,7 +7064,7 @@ impl ITPluggableTerminalClassInfo_Vtbl {
             }
         }
         unsafe extern "system" fn MediaTypes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalClassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmediatypes: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MediaTypes() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7099,7 +7099,7 @@ impl ::windows::core::RuntimeName for ITPluggableTerminalEventSink {}
 impl ITPluggableTerminalEventSink_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalEventSink_Impl, const OFFSET: isize>() -> ITPluggableTerminalEventSink_Vtbl {
         unsafe extern "system" fn FireEvent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalEventSink_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmspeventinfo: *const MSP_EVENT_INFO) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.FireEvent(::core::mem::transmute_copy(&pmspeventinfo)).into()
         }
@@ -7117,12 +7117,12 @@ impl ::windows::core::RuntimeName for ITPluggableTerminalEventSinkRegistration {
 impl ITPluggableTerminalEventSinkRegistration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalEventSinkRegistration_Impl, const OFFSET: isize>() -> ITPluggableTerminalEventSinkRegistration_Vtbl {
         unsafe extern "system" fn RegisterSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalEventSinkRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventsink: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RegisterSink(::core::mem::transmute(&peventsink)).into()
         }
         unsafe extern "system" fn UnregisterSink<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalEventSinkRegistration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UnregisterSink().into()
         }
@@ -7147,7 +7147,7 @@ impl ::windows::core::RuntimeName for ITPluggableTerminalSuperclassInfo {}
 impl ITPluggableTerminalSuperclassInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalSuperclassInfo_Impl, const OFFSET: isize>() -> ITPluggableTerminalSuperclassInfo_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalSuperclassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7158,7 +7158,7 @@ impl ITPluggableTerminalSuperclassInfo_Vtbl {
             }
         }
         unsafe extern "system" fn CLSID<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPluggableTerminalSuperclassInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pclsid: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CLSID() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7192,7 +7192,7 @@ impl ::windows::core::RuntimeName for ITPrivateEvent {}
 impl ITPrivateEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPrivateEvent_Impl, const OFFSET: isize>() -> ITPrivateEvent_Vtbl {
         unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPrivateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7203,7 +7203,7 @@ impl ITPrivateEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPrivateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7214,7 +7214,7 @@ impl ITPrivateEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallHub<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPrivateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallhub: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallHub() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7225,7 +7225,7 @@ impl ITPrivateEvent_Vtbl {
             }
         }
         unsafe extern "system" fn EventCode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPrivateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pleventcode: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EventCode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7236,7 +7236,7 @@ impl ITPrivateEvent_Vtbl {
             }
         }
         unsafe extern "system" fn EventInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITPrivateEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, peventinterface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EventInterface() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7271,7 +7271,7 @@ impl ::windows::core::RuntimeName for ITQOSEvent {}
 impl ITQOSEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQOSEvent_Impl, const OFFSET: isize>() -> ITQOSEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQOSEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7282,7 +7282,7 @@ impl ITQOSEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQOSEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pqosevent: *mut QOS_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7293,7 +7293,7 @@ impl ITQOSEvent_Vtbl {
             }
         }
         unsafe extern "system" fn MediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQOSEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmediatype: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MediaType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7335,12 +7335,12 @@ impl ::windows::core::RuntimeName for ITQueue {}
 impl ITQueue_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>() -> ITQueue_Vtbl {
         unsafe extern "system" fn SetMeasurementPeriod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lperiod: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetMeasurementPeriod(::core::mem::transmute_copy(&lperiod)).into()
         }
         unsafe extern "system" fn MeasurementPeriod<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plperiod: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MeasurementPeriod() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7351,7 +7351,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn TotalCallsQueued<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalCallsQueued() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7362,7 +7362,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn CurrentCallsQueued<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CurrentCallsQueued() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7373,7 +7373,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn TotalCallsAbandoned<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalCallsAbandoned() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7384,7 +7384,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn TotalCallsFlowedIn<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalCallsFlowedIn() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7395,7 +7395,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn TotalCallsFlowedOut<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TotalCallsFlowedOut() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7406,7 +7406,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn LongestEverWaitTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwaittime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.LongestEverWaitTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7417,7 +7417,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn CurrentLongestWaitTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwaittime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CurrentLongestWaitTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7428,7 +7428,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn AverageWaitTime<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwaittime: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AverageWaitTime() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7439,7 +7439,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn FinalDisposition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcalls: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.FinalDisposition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7450,7 +7450,7 @@ impl ITQueue_Vtbl {
             }
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueue_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7491,7 +7491,7 @@ impl ::windows::core::RuntimeName for ITQueueEvent {}
 impl ITQueueEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueueEvent_Impl, const OFFSET: isize>() -> ITQueueEvent_Vtbl {
         unsafe extern "system" fn Queue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueueEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppqueue: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Queue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7502,7 +7502,7 @@ impl ITQueueEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITQueueEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut ACDQUEUE_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7535,7 +7535,7 @@ impl ::windows::core::RuntimeName for ITRendezvous {}
 impl ITRendezvous_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRendezvous_Impl, const OFFSET: isize>() -> ITRendezvous_Vtbl {
         unsafe extern "system" fn DefaultDirectories<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRendezvous_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DefaultDirectories() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7546,7 +7546,7 @@ impl ITRendezvous_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateDefaultDirectories<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRendezvous_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumdirectory: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateDefaultDirectories() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7557,7 +7557,7 @@ impl ITRendezvous_Vtbl {
             }
         }
         unsafe extern "system" fn CreateDirectory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRendezvous_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, directorytype: DIRECTORY_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdir: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateDirectory(::core::mem::transmute_copy(&directorytype), ::core::mem::transmute(&pname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7568,7 +7568,7 @@ impl ITRendezvous_Vtbl {
             }
         }
         unsafe extern "system" fn CreateDirectoryObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRendezvous_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, directoryobjecttype: DIRECTORY_OBJECT_TYPE, pname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppdirectoryobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateDirectoryObject(::core::mem::transmute_copy(&directoryobjecttype), ::core::mem::transmute(&pname)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -7600,7 +7600,7 @@ impl ::windows::core::RuntimeName for ITRequest {}
 impl ITRequest_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequest_Impl, const OFFSET: isize>() -> ITRequest_Vtbl {
         unsafe extern "system" fn MakeCall<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequest_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdestaddress: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pappname: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcalledparty: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcomment: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.MakeCall(::core::mem::transmute(&pdestaddress), ::core::mem::transmute(&pappname), ::core::mem::transmute(&pcalledparty), ::core::mem::transmute(&pcomment)).into()
         }
@@ -7625,7 +7625,7 @@ impl ::windows::core::RuntimeName for ITRequestEvent {}
 impl ITRequestEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequestEvent_Impl, const OFFSET: isize>() -> ITRequestEvent_Vtbl {
         unsafe extern "system" fn RegistrationInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plregistrationinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RegistrationInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7636,7 +7636,7 @@ impl ITRequestEvent_Vtbl {
             }
         }
         unsafe extern "system" fn RequestMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plrequestmode: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RequestMode() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7647,7 +7647,7 @@ impl ITRequestEvent_Vtbl {
             }
         }
         unsafe extern "system" fn DestAddress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppdestaddress: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DestAddress() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7658,7 +7658,7 @@ impl ITRequestEvent_Vtbl {
             }
         }
         unsafe extern "system" fn AppName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppappname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AppName() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7669,7 +7669,7 @@ impl ITRequestEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CalledParty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcalledparty: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CalledParty() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7680,7 +7680,7 @@ impl ITRequestEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Comment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITRequestEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcomment: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Comment() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7725,7 +7725,7 @@ impl ::windows::core::RuntimeName for ITScriptableAudioFormat {}
 impl ITScriptableAudioFormat_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>() -> ITScriptableAudioFormat_Vtbl {
         unsafe extern "system" fn Channels<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Channels() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7736,12 +7736,12 @@ impl ITScriptableAudioFormat_Vtbl {
             }
         }
         unsafe extern "system" fn SetChannels<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nnewval: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetChannels(::core::mem::transmute_copy(&nnewval)).into()
         }
         unsafe extern "system" fn SamplesPerSec<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.SamplesPerSec() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7752,12 +7752,12 @@ impl ITScriptableAudioFormat_Vtbl {
             }
         }
         unsafe extern "system" fn SetSamplesPerSec<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nnewval: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetSamplesPerSec(::core::mem::transmute_copy(&nnewval)).into()
         }
         unsafe extern "system" fn AvgBytesPerSec<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AvgBytesPerSec() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7768,12 +7768,12 @@ impl ITScriptableAudioFormat_Vtbl {
             }
         }
         unsafe extern "system" fn SetAvgBytesPerSec<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nnewval: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAvgBytesPerSec(::core::mem::transmute_copy(&nnewval)).into()
         }
         unsafe extern "system" fn BlockAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BlockAlign() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7784,12 +7784,12 @@ impl ITScriptableAudioFormat_Vtbl {
             }
         }
         unsafe extern "system" fn SetBlockAlign<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nnewval: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBlockAlign(::core::mem::transmute_copy(&nnewval)).into()
         }
         unsafe extern "system" fn BitsPerSample<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.BitsPerSample() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7800,12 +7800,12 @@ impl ITScriptableAudioFormat_Vtbl {
             }
         }
         unsafe extern "system" fn SetBitsPerSample<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nnewval: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetBitsPerSample(::core::mem::transmute_copy(&nnewval)).into()
         }
         unsafe extern "system" fn FormatTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pval: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.FormatTag() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7816,7 +7816,7 @@ impl ITScriptableAudioFormat_Vtbl {
             }
         }
         unsafe extern "system" fn SetFormatTag<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITScriptableAudioFormat_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nnewval: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetFormatTag(::core::mem::transmute_copy(&nnewval)).into()
         }
@@ -7850,7 +7850,7 @@ impl ::windows::core::RuntimeName for ITStaticAudioTerminal {}
 impl ITStaticAudioTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStaticAudioTerminal_Impl, const OFFSET: isize>() -> ITStaticAudioTerminal_Vtbl {
         unsafe extern "system" fn WaveId<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStaticAudioTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plwaveid: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.WaveId() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7885,7 +7885,7 @@ impl ::windows::core::RuntimeName for ITStream {}
 impl ITStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>() -> ITStream_Vtbl {
         unsafe extern "system" fn MediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmediatype: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MediaType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7896,7 +7896,7 @@ impl ITStream_Vtbl {
             }
         }
         unsafe extern "system" fn Direction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptd: *mut TERMINAL_DIRECTION) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7907,7 +7907,7 @@ impl ITStream_Vtbl {
             }
         }
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7918,32 +7918,32 @@ impl ITStream_Vtbl {
             }
         }
         unsafe extern "system" fn StartStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.StartStream().into()
         }
         unsafe extern "system" fn PauseStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.PauseStream().into()
         }
         unsafe extern "system" fn StopStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.StopStream().into()
         }
         unsafe extern "system" fn SelectTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SelectTerminal(::core::mem::transmute(&pterminal)).into()
         }
         unsafe extern "system" fn UnselectTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UnselectTerminal(::core::mem::transmute(&pterminal)).into()
         }
         unsafe extern "system" fn EnumerateTerminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateTerminals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7954,7 +7954,7 @@ impl ITStream_Vtbl {
             }
         }
         unsafe extern "system" fn Terminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Terminals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -7995,7 +7995,7 @@ impl ::windows::core::RuntimeName for ITStreamControl {}
 impl ITStreamControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStreamControl_Impl, const OFFSET: isize>() -> ITStreamControl_Vtbl {
         unsafe extern "system" fn CreateStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, td: TERMINAL_DIRECTION, ppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateStream(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&td)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8006,12 +8006,12 @@ impl ITStreamControl_Vtbl {
             }
         }
         unsafe extern "system" fn RemoveStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveStream(::core::mem::transmute(&pstream)).into()
         }
         unsafe extern "system" fn EnumerateStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateStreams() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8022,7 +8022,7 @@ impl ITStreamControl_Vtbl {
             }
         }
         unsafe extern "system" fn Streams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Streams() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8061,32 +8061,32 @@ impl ::windows::core::RuntimeName for ITSubStream {}
 impl ITSubStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>() -> ITSubStream_Vtbl {
         unsafe extern "system" fn StartSubStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.StartSubStream().into()
         }
         unsafe extern "system" fn PauseSubStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.PauseSubStream().into()
         }
         unsafe extern "system" fn StopSubStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.StopSubStream().into()
         }
         unsafe extern "system" fn SelectTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SelectTerminal(::core::mem::transmute(&pterminal)).into()
         }
         unsafe extern "system" fn UnselectTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminal: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UnselectTerminal(::core::mem::transmute(&pterminal)).into()
         }
         unsafe extern "system" fn EnumerateTerminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateTerminals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8097,7 +8097,7 @@ impl ITSubStream_Vtbl {
             }
         }
         unsafe extern "system" fn Terminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminals: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Terminals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8108,7 +8108,7 @@ impl ITSubStream_Vtbl {
             }
         }
         unsafe extern "system" fn Stream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppitstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Stream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8147,7 +8147,7 @@ impl ::windows::core::RuntimeName for ITSubStreamControl {}
 impl ITSubStreamControl_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStreamControl_Impl, const OFFSET: isize>() -> ITSubStreamControl_Vtbl {
         unsafe extern "system" fn CreateSubStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsubstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateSubStream() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8158,12 +8158,12 @@ impl ITSubStreamControl_Vtbl {
             }
         }
         unsafe extern "system" fn RemoveSubStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, psubstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveSubStream(::core::mem::transmute(&psubstream)).into()
         }
         unsafe extern "system" fn EnumerateSubStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumsubstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateSubStreams() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8174,7 +8174,7 @@ impl ITSubStreamControl_Vtbl {
             }
         }
         unsafe extern "system" fn SubStreams<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITSubStreamControl_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.SubStreams() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8221,17 +8221,17 @@ impl ::windows::core::RuntimeName for ITTAPI {}
 impl ITTAPI_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>() -> ITTAPI_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Initialize().into()
         }
         unsafe extern "system" fn Shutdown<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Shutdown().into()
         }
         unsafe extern "system" fn Addresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Addresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8242,7 +8242,7 @@ impl ITTAPI_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateAddresses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateAddresses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8253,7 +8253,7 @@ impl ITTAPI_Vtbl {
             }
         }
         unsafe extern "system" fn RegisterCallNotifications<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddress: ::windows::core::RawPtr, fmonitor: i16, fowner: i16, lmediatypes: i32, lcallbackinstance: i32, plregister: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RegisterCallNotifications(::core::mem::transmute(&paddress), ::core::mem::transmute_copy(&fmonitor), ::core::mem::transmute_copy(&fowner), ::core::mem::transmute_copy(&lmediatypes), ::core::mem::transmute_copy(&lcallbackinstance)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8264,12 +8264,12 @@ impl ITTAPI_Vtbl {
             }
         }
         unsafe extern "system" fn UnregisterNotifications<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lregister: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UnregisterNotifications(::core::mem::transmute_copy(&lregister)).into()
         }
         unsafe extern "system" fn CallHubs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallHubs() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8280,7 +8280,7 @@ impl ITTAPI_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateCallHubs<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumcallhub: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateCallHubs() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8291,12 +8291,12 @@ impl ITTAPI_Vtbl {
             }
         }
         unsafe extern "system" fn SetCallHubTracking<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paddresses: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT>, btracking: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetCallHubTracking(::core::mem::transmute(&paddresses), ::core::mem::transmute_copy(&btracking)).into()
         }
         unsafe extern "system" fn EnumeratePrivateTAPIObjects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumunknown: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumeratePrivateTAPIObjects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8307,7 +8307,7 @@ impl ITTAPI_Vtbl {
             }
         }
         unsafe extern "system" fn PrivateTAPIObjects<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PrivateTAPIObjects() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8318,27 +8318,27 @@ impl ITTAPI_Vtbl {
             }
         }
         unsafe extern "system" fn RegisterRequestRecipient<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lregistrationinstance: i32, lrequestmode: i32, fenable: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RegisterRequestRecipient(::core::mem::transmute_copy(&lregistrationinstance), ::core::mem::transmute_copy(&lrequestmode), ::core::mem::transmute_copy(&fenable)).into()
         }
         unsafe extern "system" fn SetAssistedTelephonyPriority<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, fpriority: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAssistedTelephonyPriority(::core::mem::transmute(&pappfilename), ::core::mem::transmute_copy(&fpriority)).into()
         }
         unsafe extern "system" fn SetApplicationPriority<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pappfilename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, fpriority: i16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetApplicationPriority(::core::mem::transmute(&pappfilename), ::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&fpriority)).into()
         }
         unsafe extern "system" fn SetEventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lfiltermask: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetEventFilter(::core::mem::transmute_copy(&lfiltermask)).into()
         }
         unsafe extern "system" fn EventFilter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plfiltermask: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EventFilter() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8384,7 +8384,7 @@ impl ::windows::core::RuntimeName for ITTAPI2 {}
 impl ITTAPI2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI2_Impl, const OFFSET: isize>() -> ITTAPI2_Vtbl {
         unsafe extern "system" fn Phones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pphones: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Phones() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8395,7 +8395,7 @@ impl ITTAPI2_Vtbl {
             }
         }
         unsafe extern "system" fn EnumeratePhones<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumeratePhones() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8406,7 +8406,7 @@ impl ITTAPI2_Vtbl {
             }
         }
         unsafe extern "system" fn CreateEmptyCollectionObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPI2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcollection: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateEmptyCollectionObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8438,7 +8438,7 @@ impl ::windows::core::RuntimeName for ITTAPICallCenter {}
 impl ITTAPICallCenter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPICallCenter_Impl, const OFFSET: isize>() -> ITTAPICallCenter_Vtbl {
         unsafe extern "system" fn EnumerateAgentHandlers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPICallCenter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppenumhandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateAgentHandlers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8449,7 +8449,7 @@ impl ITTAPICallCenter_Vtbl {
             }
         }
         unsafe extern "system" fn AgentHandlers<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPICallCenter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AgentHandlers() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8492,7 +8492,7 @@ impl ::windows::core::RuntimeName for ITTAPIEventNotification {}
 impl ITTAPIEventNotification_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIEventNotification_Impl, const OFFSET: isize>() -> ITTAPIEventNotification_Vtbl {
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIEventNotification_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, tapievent: TAPI_EVENT, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Event(::core::mem::transmute_copy(&tapievent), ::core::mem::transmute(&pevent)).into()
         }
@@ -8515,7 +8515,7 @@ impl ::windows::core::RuntimeName for ITTAPIObjectEvent {}
 impl ITTAPIObjectEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIObjectEvent_Impl, const OFFSET: isize>() -> ITTAPIObjectEvent_Vtbl {
         unsafe extern "system" fn TAPIObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIObjectEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pptapiobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TAPIObject() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8526,7 +8526,7 @@ impl ITTAPIObjectEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Event<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIObjectEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pevent: *mut TAPIOBJECT_EVENT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Event() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8537,7 +8537,7 @@ impl ITTAPIObjectEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Address<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIObjectEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppaddress: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Address() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8548,7 +8548,7 @@ impl ITTAPIObjectEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallbackInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIObjectEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallbackInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8580,7 +8580,7 @@ impl ::windows::core::RuntimeName for ITTAPIObjectEvent2 {}
 impl ITTAPIObjectEvent2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIObjectEvent2_Impl, const OFFSET: isize>() -> ITTAPIObjectEvent2_Vtbl {
         unsafe extern "system" fn Phone<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTAPIObjectEvent2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppphone: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Phone() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8608,7 +8608,7 @@ impl ::windows::core::RuntimeName for ITTTSTerminalEvent {}
 impl ITTTSTerminalEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTTSTerminalEvent_Impl, const OFFSET: isize>() -> ITTTSTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTTSTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Terminal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8619,7 +8619,7 @@ impl ITTTSTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTTSTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8630,7 +8630,7 @@ impl ITTTSTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTTSTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrerrorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8666,7 +8666,7 @@ impl ::windows::core::RuntimeName for ITTerminal {}
 impl ITTerminal_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminal_Impl, const OFFSET: isize>() -> ITTerminal_Vtbl {
         unsafe extern "system" fn Name<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppname: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8677,7 +8677,7 @@ impl ITTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn State<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminalstate: *mut TERMINAL_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8688,7 +8688,7 @@ impl ITTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn TerminalType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptype: *mut TERMINAL_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TerminalType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8699,7 +8699,7 @@ impl ITTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn TerminalClass<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminalclass: *mut super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TerminalClass() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8710,7 +8710,7 @@ impl ITTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn MediaType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plmediatype: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.MediaType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8721,7 +8721,7 @@ impl ITTerminal_Vtbl {
             }
         }
         unsafe extern "system" fn Direction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminal_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdirection: *mut TERMINAL_DIRECTION) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Direction() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8760,7 +8760,7 @@ impl ::windows::core::RuntimeName for ITTerminalSupport {}
 impl ITTerminalSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport_Impl, const OFFSET: isize>() -> ITTerminalSupport_Vtbl {
         unsafe extern "system" fn StaticTerminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.StaticTerminals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8771,7 +8771,7 @@ impl ITTerminalSupport_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateStaticTerminals<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminalenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateStaticTerminals() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8782,7 +8782,7 @@ impl ITTerminalSupport_Vtbl {
             }
         }
         unsafe extern "system" fn DynamicTerminalClasses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.DynamicTerminalClasses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8793,7 +8793,7 @@ impl ITTerminalSupport_Vtbl {
             }
         }
         unsafe extern "system" fn EnumerateDynamicTerminalClasses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminalclassenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumerateDynamicTerminalClasses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8804,7 +8804,7 @@ impl ITTerminalSupport_Vtbl {
             }
         }
         unsafe extern "system" fn CreateTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pterminalclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CreateTerminal(::core::mem::transmute(&pterminalclass), ::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8815,7 +8815,7 @@ impl ITTerminalSupport_Vtbl {
             }
         }
         unsafe extern "system" fn GetDefaultStaticTerminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lmediatype: i32, direction: TERMINAL_DIRECTION, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetDefaultStaticTerminal(::core::mem::transmute_copy(&lmediatype), ::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8852,7 +8852,7 @@ impl ::windows::core::RuntimeName for ITTerminalSupport2 {}
 impl ITTerminalSupport2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>() -> ITTerminalSupport2_Vtbl {
         unsafe extern "system" fn PluggableSuperclasses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.PluggableSuperclasses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8863,7 +8863,7 @@ impl ITTerminalSupport2_Vtbl {
             }
         }
         unsafe extern "system" fn EnumeratePluggableSuperclasses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppsuperclassenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumeratePluggableSuperclasses() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8874,7 +8874,7 @@ impl ITTerminalSupport2_Vtbl {
             }
         }
         unsafe extern "system" fn get_PluggableTerminalClasses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrterminalsuperclass: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, lmediatype: i32, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.get_PluggableTerminalClasses(::core::mem::transmute(&bstrterminalsuperclass), ::core::mem::transmute_copy(&lmediatype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8885,7 +8885,7 @@ impl ITTerminalSupport2_Vtbl {
             }
         }
         unsafe extern "system" fn EnumeratePluggableTerminalClasses<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITTerminalSupport2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, iidterminalsuperclass: ::windows::core::GUID, lmediatype: i32, ppclassenumerator: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.EnumeratePluggableTerminalClasses(::core::mem::transmute(&iidterminalsuperclass), ::core::mem::transmute_copy(&lmediatype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -8920,7 +8920,7 @@ impl ::windows::core::RuntimeName for ITToneDetectionEvent {}
 impl ITToneDetectionEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneDetectionEvent_Impl, const OFFSET: isize>() -> ITToneDetectionEvent_Vtbl {
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcallinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8931,7 +8931,7 @@ impl ITToneDetectionEvent_Vtbl {
             }
         }
         unsafe extern "system" fn AppSpecific<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plappspecific: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.AppSpecific() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8942,7 +8942,7 @@ impl ITToneDetectionEvent_Vtbl {
             }
         }
         unsafe extern "system" fn TickCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pltickcount: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.TickCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8953,7 +8953,7 @@ impl ITToneDetectionEvent_Vtbl {
             }
         }
         unsafe extern "system" fn CallbackInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneDetectionEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, plcallbackinstance: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CallbackInstance() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8987,7 +8987,7 @@ impl ::windows::core::RuntimeName for ITToneTerminalEvent {}
 impl ITToneTerminalEvent_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneTerminalEvent_Impl, const OFFSET: isize>() -> ITToneTerminalEvent_Vtbl {
         unsafe extern "system" fn Terminal<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Terminal() {
                 ::core::result::Result::Ok(ok__) => {
@@ -8998,7 +8998,7 @@ impl ITToneTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Call<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppcall: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Call() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9009,7 +9009,7 @@ impl ITToneTerminalEvent_Vtbl {
             }
         }
         unsafe extern "system" fn Error<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITToneTerminalEvent_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phrerrorcode: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
@@ -9046,22 +9046,22 @@ impl ::windows::core::RuntimeName for ITnef {}
 impl ITnef_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITnef_Impl, const OFFSET: isize>() -> ITnef_Vtbl {
         unsafe extern "system" fn AddProps<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITnef_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulflags: u32, ulelemid: u32, lpvdata: *mut ::core::ffi::c_void, lpproplist: *mut super::super::System::AddressBook::SPropTagArray) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddProps(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&ulelemid), ::core::mem::transmute_copy(&lpvdata), ::core::mem::transmute_copy(&lpproplist)).into()
         }
         unsafe extern "system" fn ExtractProps<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITnef_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulflags: u32, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ExtractProps(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&lpproplist), ::core::mem::transmute_copy(&lpproblems)).into()
         }
         unsafe extern "system" fn Finish<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITnef_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulflags: u32, lpkey: *mut u16, lpproblems: *mut *mut STnefProblemArray) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Finish(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&lpkey), ::core::mem::transmute_copy(&lpproblems)).into()
         }
         unsafe extern "system" fn OpenTaggedBody<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITnef_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, lpmessage: ::windows::core::RawPtr, ulflags: u32, lppstream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.OpenTaggedBody(::core::mem::transmute(&lpmessage), ::core::mem::transmute_copy(&ulflags)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -9072,17 +9072,17 @@ impl ITnef_Vtbl {
             }
         }
         unsafe extern "system" fn SetProps<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITnef_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulflags: u32, ulelemid: u32, cvalues: u32, lpprops: *mut super::super::System::AddressBook::SPropValue) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProps(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&ulelemid), ::core::mem::transmute_copy(&cvalues), ::core::mem::transmute_copy(&lpprops)).into()
         }
         unsafe extern "system" fn EncodeRecips<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITnef_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulflags: u32, lprecipienttable: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.EncodeRecips(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute(&lprecipienttable)).into()
         }
         unsafe extern "system" fn FinishComponent<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ITnef_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulflags: u32, ulcomponentid: u32, lpcustomproplist: *mut super::super::System::AddressBook::SPropTagArray, lpcustomprops: *mut super::super::System::AddressBook::SPropValue, lpproplist: *mut super::super::System::AddressBook::SPropTagArray, lpproblems: *mut *mut STnefProblemArray) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.FinishComponent(::core::mem::transmute_copy(&ulflags), ::core::mem::transmute_copy(&ulcomponentid), ::core::mem::transmute_copy(&lpcustomproplist), ::core::mem::transmute_copy(&lpcustomprops), ::core::mem::transmute_copy(&lpproplist), ::core::mem::transmute_copy(&lpproblems)).into()
         }

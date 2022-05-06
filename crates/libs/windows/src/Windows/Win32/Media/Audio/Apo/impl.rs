@@ -17,17 +17,17 @@ impl ::windows::core::RuntimeName for IApoAuxiliaryInputConfiguration {}
 impl IApoAuxiliaryInputConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>() -> IApoAuxiliaryInputConfiguration_Vtbl {
         unsafe extern "system" fn AddAuxiliaryInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AddAuxiliaryInput(::core::mem::transmute_copy(&dwinputid), ::core::mem::transmute_copy(&cbdatasize), ::core::mem::transmute_copy(&pbydata), ::core::mem::transmute_copy(&pinputconnection)).into()
         }
         unsafe extern "system" fn RemoveAuxiliaryInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputid: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.RemoveAuxiliaryInput(::core::mem::transmute_copy(&dwinputid)).into()
         }
         unsafe extern "system" fn IsInputFormatSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, prequestedinputformat: ::windows::core::RawPtr, ppsupportedinputformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsInputFormatSupported(::core::mem::transmute(&prequestedinputformat)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -55,7 +55,7 @@ impl ::windows::core::RuntimeName for IApoAuxiliaryInputRT {}
 impl IApoAuxiliaryInputRT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IApoAuxiliaryInputRT_Impl, const OFFSET: isize>() -> IApoAuxiliaryInputRT_Vtbl {
         unsafe extern "system" fn AcceptInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IApoAuxiliaryInputRT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwinputid: u32, pinputconnection: *const APO_CONNECTION_PROPERTY) {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.AcceptInput(::core::mem::transmute_copy(&dwinputid), ::core::mem::transmute_copy(&pinputconnection))
         }
@@ -72,7 +72,7 @@ impl ::windows::core::RuntimeName for IAudioDeviceModulesClient {}
 impl IAudioDeviceModulesClient_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioDeviceModulesClient_Impl, const OFFSET: isize>() -> IAudioDeviceModulesClient_Vtbl {
         unsafe extern "system" fn SetAudioDeviceModulesManager<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioDeviceModulesClient_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, paudiodevicemodulesmanager: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAudioDeviceModulesManager(::core::mem::transmute(&paudiodevicemodulesmanager)).into()
         }
@@ -98,7 +98,7 @@ impl ::windows::core::RuntimeName for IAudioMediaType {}
 impl IAudioMediaType_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioMediaType_Impl, const OFFSET: isize>() -> IAudioMediaType_Vtbl {
         unsafe extern "system" fn IsCompressedFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pfcompressed: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsCompressedFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -109,7 +109,7 @@ impl IAudioMediaType_Vtbl {
             }
         }
         unsafe extern "system" fn IsEqual<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piaudiotype: ::windows::core::RawPtr, pdwflags: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsEqual(::core::mem::transmute(&piaudiotype)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -120,12 +120,12 @@ impl IAudioMediaType_Vtbl {
             }
         }
         unsafe extern "system" fn GetAudioFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> *mut super::WAVEFORMATEX {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetAudioFormat()
         }
         unsafe extern "system" fn GetUncompressedAudioFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioMediaType_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetUncompressedAudioFormat() {
                 ::core::result::Result::Ok(ok__) => {
@@ -160,12 +160,12 @@ impl ::windows::core::RuntimeName for IAudioProcessingObject {}
 impl IAudioProcessingObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>() -> IAudioProcessingObject_Vtbl {
         unsafe extern "system" fn Reset<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reset().into()
         }
         unsafe extern "system" fn GetLatency<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ptime: *mut i64) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetLatency() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl IAudioProcessingObject_Vtbl {
             }
         }
         unsafe extern "system" fn GetRegistrationProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppregprops: *mut *mut APO_REG_PROPERTIES) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetRegistrationProperties() {
                 ::core::result::Result::Ok(ok__) => {
@@ -187,12 +187,12 @@ impl IAudioProcessingObject_Vtbl {
             }
         }
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cbdatasize: u32, pbydata: *const u8) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&cbdatasize), ::core::mem::transmute_copy(&pbydata)).into()
         }
         unsafe extern "system" fn IsInputFormatSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poppositeformat: ::windows::core::RawPtr, prequestedinputformat: ::windows::core::RawPtr, ppsupportedinputformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsInputFormatSupported(::core::mem::transmute(&poppositeformat), ::core::mem::transmute(&prequestedinputformat)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -203,7 +203,7 @@ impl IAudioProcessingObject_Vtbl {
             }
         }
         unsafe extern "system" fn IsOutputFormatSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poppositeformat: ::windows::core::RawPtr, prequestedoutputformat: ::windows::core::RawPtr, ppsupportedoutputformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.IsOutputFormatSupported(::core::mem::transmute(&poppositeformat), ::core::mem::transmute(&prequestedoutputformat)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -214,7 +214,7 @@ impl IAudioProcessingObject_Vtbl {
             }
         }
         unsafe extern "system" fn GetInputChannelCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pu32channelcount: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetInputChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -247,12 +247,12 @@ impl ::windows::core::RuntimeName for IAudioProcessingObjectConfiguration {}
 impl IAudioProcessingObjectConfiguration_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectConfiguration_Impl, const OFFSET: isize>() -> IAudioProcessingObjectConfiguration_Vtbl {
         unsafe extern "system" fn LockForProcess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.LockForProcess(::core::mem::transmute_copy(&u32numinputconnections), ::core::mem::transmute_copy(&ppinputconnections), ::core::mem::transmute_copy(&u32numoutputconnections), ::core::mem::transmute_copy(&ppoutputconnections)).into()
         }
         unsafe extern "system" fn UnlockForProcess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectConfiguration_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UnlockForProcess().into()
         }
@@ -273,7 +273,7 @@ impl ::windows::core::RuntimeName for IAudioProcessingObjectLoggingService {}
 impl IAudioProcessingObjectLoggingService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectLoggingService_Impl, const OFFSET: isize>() -> IAudioProcessingObjectLoggingService_Vtbl {
         unsafe extern "system" fn ApoLog<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectLoggingService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, level: APO_LOG_LEVEL, format: ::windows::core::PCWSTR) {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ApoLog(::core::mem::transmute_copy(&level), ::core::mem::transmute(&format))
         }
@@ -294,12 +294,12 @@ impl ::windows::core::RuntimeName for IAudioProcessingObjectNotifications {}
 impl IAudioProcessingObjectNotifications_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>() -> IAudioProcessingObjectNotifications_Vtbl {
         unsafe extern "system" fn GetApoNotificationRegistrationInfo<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetApoNotificationRegistrationInfo(::core::mem::transmute_copy(&aponotifications), ::core::mem::transmute_copy(&count)).into()
         }
         unsafe extern "system" fn HandleNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectNotifications_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, aponotification: *const APO_NOTIFICATION) {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.HandleNotification(::core::mem::transmute_copy(&aponotification))
         }
@@ -322,17 +322,17 @@ impl ::windows::core::RuntimeName for IAudioProcessingObjectRT {}
 impl IAudioProcessingObjectRT_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectRT_Impl, const OFFSET: isize>() -> IAudioProcessingObjectRT_Vtbl {
         unsafe extern "system" fn APOProcess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectRT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut APO_CONNECTION_PROPERTY) {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.APOProcess(::core::mem::transmute_copy(&u32numinputconnections), ::core::mem::transmute_copy(&ppinputconnections), ::core::mem::transmute_copy(&u32numoutputconnections), ::core::mem::transmute_copy(&ppoutputconnections))
         }
         unsafe extern "system" fn CalcInputFrames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectRT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32outputframecount: u32) -> u32 {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.CalcInputFrames(::core::mem::transmute_copy(&u32outputframecount))
         }
         unsafe extern "system" fn CalcOutputFrames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectRT_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32inputframecount: u32) -> u32 {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.CalcOutputFrames(::core::mem::transmute_copy(&u32inputframecount))
         }
@@ -354,7 +354,7 @@ impl ::windows::core::RuntimeName for IAudioProcessingObjectRTQueueService {}
 impl IAudioProcessingObjectRTQueueService_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectRTQueueService_Impl, const OFFSET: isize>() -> IAudioProcessingObjectRTQueueService_Vtbl {
         unsafe extern "system" fn GetRealTimeWorkQueue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectRTQueueService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, workqueueid: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetRealTimeWorkQueue() {
                 ::core::result::Result::Ok(ok__) => {
@@ -378,7 +378,7 @@ impl ::windows::core::RuntimeName for IAudioProcessingObjectVBR {}
 impl IAudioProcessingObjectVBR_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectVBR_Impl, const OFFSET: isize>() -> IAudioProcessingObjectVBR_Vtbl {
         unsafe extern "system" fn CalcMaxInputFrames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectVBR_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32maxoutputframecount: u32, pu32inputframecount: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CalcMaxInputFrames(::core::mem::transmute_copy(&u32maxoutputframecount)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -389,7 +389,7 @@ impl IAudioProcessingObjectVBR_Vtbl {
             }
         }
         unsafe extern "system" fn CalcMaxOutputFrames<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioProcessingObjectVBR_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, u32maxinputframecount: u32, pu32outputframecount: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.CalcMaxOutputFrames(::core::mem::transmute_copy(&u32maxinputframecount)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -429,7 +429,7 @@ impl ::windows::core::RuntimeName for IAudioSystemEffects2 {}
 impl IAudioSystemEffects2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects2_Impl, const OFFSET: isize>() -> IAudioSystemEffects2_Vtbl {
         unsafe extern "system" fn GetEffectsList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppeffectsids: *mut *mut ::windows::core::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetEffectsList(::core::mem::transmute_copy(&ppeffectsids), ::core::mem::transmute_copy(&pceffects), ::core::mem::transmute_copy(&event)).into()
         }
@@ -450,12 +450,12 @@ impl ::windows::core::RuntimeName for IAudioSystemEffects3 {}
 impl IAudioSystemEffects3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects3_Impl, const OFFSET: isize>() -> IAudioSystemEffects3_Vtbl {
         unsafe extern "system" fn GetControllableSystemEffectsList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effects: *mut *mut AUDIO_SYSTEMEFFECT, numeffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetControllableSystemEffectsList(::core::mem::transmute_copy(&effects), ::core::mem::transmute_copy(&numeffects), ::core::mem::transmute_copy(&event)).into()
         }
         unsafe extern "system" fn SetAudioSystemEffectState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffects3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, effectid: ::windows::core::GUID, state: AUDIO_SYSTEMEFFECT_STATE) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAudioSystemEffectState(::core::mem::transmute(&effectid), ::core::mem::transmute_copy(&state)).into()
         }
@@ -478,7 +478,7 @@ impl ::windows::core::RuntimeName for IAudioSystemEffectsCustomFormats {}
 impl IAudioSystemEffectsCustomFormats_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>() -> IAudioSystemEffectsCustomFormats_Vtbl {
         unsafe extern "system" fn GetFormatCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcformats: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetFormatCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -489,7 +489,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
             }
         }
         unsafe extern "system" fn GetFormat<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nformat: u32, ppformat: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetFormat(::core::mem::transmute_copy(&nformat)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -500,7 +500,7 @@ impl IAudioSystemEffectsCustomFormats_Vtbl {
             }
         }
         unsafe extern "system" fn GetFormatRepresentation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAudioSystemEffectsCustomFormats_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nformat: u32, ppwstrformatrep: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetFormatRepresentation(::core::mem::transmute_copy(&nformat)) {
                 ::core::result::Result::Ok(ok__) => {

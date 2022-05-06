@@ -14,27 +14,27 @@ impl ::windows::core::RuntimeName for IDXCoreAdapter {}
 impl IDXCoreAdapter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>() -> IDXCoreAdapter_Vtbl {
         unsafe extern "system" fn IsValid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsValid()
         }
         unsafe extern "system" fn IsAttributeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attributeguid: *const ::windows::core::GUID) -> bool {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsAttributeSupported(::core::mem::transmute_copy(&attributeguid))
         }
         unsafe extern "system" fn IsPropertySupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: DXCoreAdapterProperty) -> bool {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsPropertySupported(::core::mem::transmute_copy(&property))
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: usize, propertydata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetProperty(::core::mem::transmute_copy(&property), ::core::mem::transmute_copy(&buffersize), ::core::mem::transmute_copy(&propertydata)).into()
         }
         unsafe extern "system" fn GetPropertySize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: DXCoreAdapterProperty, buffersize: *mut usize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetPropertySize(::core::mem::transmute_copy(&property)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -45,27 +45,27 @@ impl IDXCoreAdapter_Vtbl {
             }
         }
         unsafe extern "system" fn IsQueryStateSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: DXCoreAdapterState) -> bool {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsQueryStateSupported(::core::mem::transmute_copy(&property))
         }
         unsafe extern "system" fn QueryState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, outputbuffersize: usize, outputbuffer: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.QueryState(::core::mem::transmute_copy(&state), ::core::mem::transmute_copy(&inputstatedetailssize), ::core::mem::transmute_copy(&inputstatedetails), ::core::mem::transmute_copy(&outputbuffersize), ::core::mem::transmute_copy(&outputbuffer)).into()
         }
         unsafe extern "system" fn IsSetStateSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, property: DXCoreAdapterState) -> bool {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsSetStateSupported(::core::mem::transmute_copy(&property))
         }
         unsafe extern "system" fn SetState<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, state: DXCoreAdapterState, inputstatedetailssize: usize, inputstatedetails: *const ::core::ffi::c_void, inputdatasize: usize, inputdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetState(::core::mem::transmute_copy(&state), ::core::mem::transmute_copy(&inputstatedetailssize), ::core::mem::transmute_copy(&inputstatedetails), ::core::mem::transmute_copy(&inputdatasize), ::core::mem::transmute_copy(&inputdata)).into()
         }
         unsafe extern "system" fn GetFactory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetFactory(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvfactory)).into()
         }
@@ -101,22 +101,22 @@ impl ::windows::core::RuntimeName for IDXCoreAdapterFactory {}
 impl IDXCoreAdapterFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>() -> IDXCoreAdapterFactory_Vtbl {
         unsafe extern "system" fn CreateAdapterList<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numattributes: u32, filterattributes: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvadapterlist: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.CreateAdapterList(::core::mem::transmute_copy(&numattributes), ::core::mem::transmute_copy(&filterattributes), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvadapterlist)).into()
         }
         unsafe extern "system" fn GetAdapterByLuid<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, adapterluid: *const super::super::Foundation::LUID, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetAdapterByLuid(::core::mem::transmute_copy(&adapterluid), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvadapter)).into()
         }
         unsafe extern "system" fn IsNotificationTypeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, notificationtype: DXCoreNotificationType) -> bool {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsNotificationTypeSupported(::core::mem::transmute_copy(&notificationtype))
         }
         unsafe extern "system" fn RegisterEventNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dxcoreobject: *mut ::core::ffi::c_void, notificationtype: DXCoreNotificationType, callbackfunction: ::windows::core::RawPtr, callbackcontext: *const ::core::ffi::c_void, eventcookie: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.RegisterEventNotification(::core::mem::transmute(&dxcoreobject), ::core::mem::transmute_copy(&notificationtype), ::core::mem::transmute(&callbackfunction), ::core::mem::transmute_copy(&callbackcontext)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -127,7 +127,7 @@ impl IDXCoreAdapterFactory_Vtbl {
             }
         }
         unsafe extern "system" fn UnregisterEventNotification<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, eventcookie: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UnregisterEventNotification(::core::mem::transmute_copy(&eventcookie)).into()
         }
@@ -156,32 +156,32 @@ impl ::windows::core::RuntimeName for IDXCoreAdapterList {}
 impl IDXCoreAdapterList_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>() -> IDXCoreAdapterList_Vtbl {
         unsafe extern "system" fn GetAdapter<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, index: u32, riid: *const ::windows::core::GUID, ppvadapter: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetAdapter(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvadapter)).into()
         }
         unsafe extern "system" fn GetAdapterCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> u32 {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetAdapterCount()
         }
         unsafe extern "system" fn IsStale<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> bool {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsStale()
         }
         unsafe extern "system" fn GetFactory<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetFactory(::core::mem::transmute_copy(&riid), ::core::mem::transmute_copy(&ppvfactory)).into()
         }
         unsafe extern "system" fn Sort<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, numpreferences: u32, preferences: *const DXCoreAdapterPreference) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Sort(::core::mem::transmute_copy(&numpreferences), ::core::mem::transmute_copy(&preferences)).into()
         }
         unsafe extern "system" fn IsAdapterPreferenceSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IDXCoreAdapterList_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preference: DXCoreAdapterPreference) -> bool {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsAdapterPreferenceSupported(::core::mem::transmute_copy(&preference))
         }

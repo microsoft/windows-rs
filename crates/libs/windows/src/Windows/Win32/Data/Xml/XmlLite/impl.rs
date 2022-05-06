@@ -30,12 +30,12 @@ impl ::windows::core::RuntimeName for IXmlReader {}
 impl IXmlReader_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>() -> IXmlReader_Vtbl {
         unsafe extern "system" fn SetInput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetInput(::core::mem::transmute(&pinput)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&nproperty)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -46,17 +46,17 @@ impl IXmlReader_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, pvalue: isize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&nproperty), ::core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn Read<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnodetype: *mut XmlNodeType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Read(::core::mem::transmute_copy(&pnodetype))
         }
         unsafe extern "system" fn GetNodeType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnodetype: *mut XmlNodeType) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetNodeType() {
                 ::core::result::Result::Ok(ok__) => {
@@ -67,72 +67,72 @@ impl IXmlReader_Vtbl {
             }
         }
         unsafe extern "system" fn MoveToFirstAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.MoveToFirstAttribute()
         }
         unsafe extern "system" fn MoveToNextAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.MoveToNextAttribute()
         }
         unsafe extern "system" fn MoveToAttributeByName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszlocalname: ::windows::core::PCWSTR, pwsznamespaceuri: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.MoveToAttributeByName(::core::mem::transmute(&pwszlocalname), ::core::mem::transmute(&pwsznamespaceuri))
         }
         unsafe extern "system" fn MoveToElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.MoveToElement().into()
         }
         unsafe extern "system" fn GetQualifiedName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszqualifiedname: *mut ::windows::core::PWSTR, pcwchqualifiedname: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetQualifiedName(::core::mem::transmute_copy(&ppwszqualifiedname), ::core::mem::transmute_copy(&pcwchqualifiedname)).into()
         }
         unsafe extern "system" fn GetNamespaceUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwsznamespaceuri: *mut ::windows::core::PWSTR, pcwchnamespaceuri: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetNamespaceUri(::core::mem::transmute_copy(&ppwsznamespaceuri), ::core::mem::transmute_copy(&pcwchnamespaceuri)).into()
         }
         unsafe extern "system" fn GetLocalName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszlocalname: *mut ::windows::core::PWSTR, pcwchlocalname: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetLocalName(::core::mem::transmute_copy(&ppwszlocalname), ::core::mem::transmute_copy(&pcwchlocalname)).into()
         }
         unsafe extern "system" fn GetPrefix<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszprefix: *mut ::windows::core::PWSTR, pcwchprefix: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetPrefix(::core::mem::transmute_copy(&ppwszprefix), ::core::mem::transmute_copy(&pcwchprefix)).into()
         }
         unsafe extern "system" fn GetValue<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszvalue: *mut ::windows::core::PWSTR, pcwchvalue: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetValue(::core::mem::transmute_copy(&ppwszvalue), ::core::mem::transmute_copy(&pcwchvalue)).into()
         }
         unsafe extern "system" fn ReadValueChunk<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwchbuffer: ::windows::core::PWSTR, cwchchunksize: u32, pcwchread: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ReadValueChunk(::core::mem::transmute_copy(&pwchbuffer), ::core::mem::transmute_copy(&cwchchunksize), ::core::mem::transmute_copy(&pcwchread))
         }
         unsafe extern "system" fn GetBaseUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ppwszbaseuri: *mut ::windows::core::PWSTR, pcwchbaseuri: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetBaseUri(::core::mem::transmute_copy(&ppwszbaseuri), ::core::mem::transmute_copy(&pcwchbaseuri)).into()
         }
         unsafe extern "system" fn IsDefault<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsDefault()
         }
         unsafe extern "system" fn IsEmptyElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsEmptyElement()
         }
         unsafe extern "system" fn GetLineNumber<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnlinenumber: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetLineNumber() {
                 ::core::result::Result::Ok(ok__) => {
@@ -143,7 +143,7 @@ impl IXmlReader_Vtbl {
             }
         }
         unsafe extern "system" fn GetLinePosition<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnlineposition: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetLinePosition() {
                 ::core::result::Result::Ok(ok__) => {
@@ -154,7 +154,7 @@ impl IXmlReader_Vtbl {
             }
         }
         unsafe extern "system" fn GetAttributeCount<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnattributecount: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetAttributeCount() {
                 ::core::result::Result::Ok(ok__) => {
@@ -165,7 +165,7 @@ impl IXmlReader_Vtbl {
             }
         }
         unsafe extern "system" fn GetDepth<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pndepth: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetDepth() {
                 ::core::result::Result::Ok(ok__) => {
@@ -176,7 +176,7 @@ impl IXmlReader_Vtbl {
             }
         }
         unsafe extern "system" fn IsEOF<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlReader_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsEOF()
         }
@@ -218,7 +218,7 @@ impl ::windows::core::RuntimeName for IXmlResolver {}
 impl IXmlResolver_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlResolver_Impl, const OFFSET: isize>() -> IXmlResolver_Vtbl {
         unsafe extern "system" fn ResolveUri<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlResolver_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszbaseuri: ::windows::core::PCWSTR, pwszpublicidentifier: ::windows::core::PCWSTR, pwszsystemidentifier: ::windows::core::PCWSTR, ppresolvedinput: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ResolveUri(::core::mem::transmute(&pwszbaseuri), ::core::mem::transmute(&pwszpublicidentifier), ::core::mem::transmute(&pwszsystemidentifier)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -272,12 +272,12 @@ impl ::windows::core::RuntimeName for IXmlWriter {}
 impl IXmlWriter_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>() -> IXmlWriter_Vtbl {
         unsafe extern "system" fn SetOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetOutput(::core::mem::transmute(&poutput)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&nproperty)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -288,137 +288,137 @@ impl IXmlWriter_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, pvalue: isize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&nproperty), ::core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn WriteAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteAttributes(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteAttributeString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszprefix: ::windows::core::PCWSTR, pwszlocalname: ::windows::core::PCWSTR, pwsznamespaceuri: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteAttributeString(::core::mem::transmute(&pwszprefix), ::core::mem::transmute(&pwszlocalname), ::core::mem::transmute(&pwsznamespaceuri), ::core::mem::transmute(&pwszvalue)).into()
         }
         unsafe extern "system" fn WriteCData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteCData(::core::mem::transmute(&pwsztext)).into()
         }
         unsafe extern "system" fn WriteCharEntity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wch: u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteCharEntity(::core::mem::transmute_copy(&wch)).into()
         }
         unsafe extern "system" fn WriteChars<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwch: ::windows::core::PCWSTR, cwch: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteChars(::core::mem::transmute(&pwch), ::core::mem::transmute_copy(&cwch)).into()
         }
         unsafe extern "system" fn WriteComment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcomment: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteComment(::core::mem::transmute(&pwszcomment)).into()
         }
         unsafe extern "system" fn WriteDocType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pwszpublicid: ::windows::core::PCWSTR, pwszsystemid: ::windows::core::PCWSTR, pwszsubset: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteDocType(::core::mem::transmute(&pwszname), ::core::mem::transmute(&pwszpublicid), ::core::mem::transmute(&pwszsystemid), ::core::mem::transmute(&pwszsubset)).into()
         }
         unsafe extern "system" fn WriteElementString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszprefix: ::windows::core::PCWSTR, pwszlocalname: ::windows::core::PCWSTR, pwsznamespaceuri: ::windows::core::PCWSTR, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteElementString(::core::mem::transmute(&pwszprefix), ::core::mem::transmute(&pwszlocalname), ::core::mem::transmute(&pwsznamespaceuri), ::core::mem::transmute(&pwszvalue)).into()
         }
         unsafe extern "system" fn WriteEndDocument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteEndDocument().into()
         }
         unsafe extern "system" fn WriteEndElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteEndElement().into()
         }
         unsafe extern "system" fn WriteEntityRef<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteEntityRef(::core::mem::transmute(&pwszname)).into()
         }
         unsafe extern "system" fn WriteFullEndElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteFullEndElement().into()
         }
         unsafe extern "system" fn WriteName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteName(::core::mem::transmute(&pwszname)).into()
         }
         unsafe extern "system" fn WriteNmToken<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsznmtoken: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteNmToken(::core::mem::transmute(&pwsznmtoken)).into()
         }
         unsafe extern "system" fn WriteNode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteNode(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteNodeShallow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteNodeShallow(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteProcessingInstruction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pwsztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteProcessingInstruction(::core::mem::transmute(&pwszname), ::core::mem::transmute(&pwsztext)).into()
         }
         unsafe extern "system" fn WriteQualifiedName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszlocalname: ::windows::core::PCWSTR, pwsznamespaceuri: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteQualifiedName(::core::mem::transmute(&pwszlocalname), ::core::mem::transmute(&pwsznamespaceuri)).into()
         }
         unsafe extern "system" fn WriteRaw<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteRaw(::core::mem::transmute(&pwszdata)).into()
         }
         unsafe extern "system" fn WriteRawChars<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwch: ::windows::core::PCWSTR, cwch: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteRawChars(::core::mem::transmute(&pwch), ::core::mem::transmute_copy(&cwch)).into()
         }
         unsafe extern "system" fn WriteStartDocument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, standalone: XmlStandalone) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteStartDocument(::core::mem::transmute_copy(&standalone)).into()
         }
         unsafe extern "system" fn WriteStartElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszprefix: ::windows::core::PCWSTR, pwszlocalname: ::windows::core::PCWSTR, pwsznamespaceuri: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteStartElement(::core::mem::transmute(&pwszprefix), ::core::mem::transmute(&pwszlocalname), ::core::mem::transmute(&pwsznamespaceuri)).into()
         }
         unsafe extern "system" fn WriteString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteString(::core::mem::transmute(&pwsztext)).into()
         }
         unsafe extern "system" fn WriteSurrogateCharEntity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wchlow: u16, wchhigh: u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteSurrogateCharEntity(::core::mem::transmute_copy(&wchlow), ::core::mem::transmute_copy(&wchhigh)).into()
         }
         unsafe extern "system" fn WriteWhitespace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszwhitespace: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteWhitespace(::core::mem::transmute(&pwszwhitespace)).into()
         }
         unsafe extern "system" fn Flush<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriter_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Flush().into()
         }
@@ -496,12 +496,12 @@ impl ::windows::core::RuntimeName for IXmlWriterLite {}
 impl IXmlWriterLite_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>() -> IXmlWriterLite_Vtbl {
         unsafe extern "system" fn SetOutput<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poutput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetOutput(::core::mem::transmute(&poutput)).into()
         }
         unsafe extern "system" fn GetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, ppvalue: *mut isize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&nproperty)) {
                 ::core::result::Result::Ok(ok__) => {
@@ -512,132 +512,132 @@ impl IXmlWriterLite_Vtbl {
             }
         }
         unsafe extern "system" fn SetProperty<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, nproperty: u32, pvalue: isize) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProperty(::core::mem::transmute_copy(&nproperty), ::core::mem::transmute_copy(&pvalue)).into()
         }
         unsafe extern "system" fn WriteAttributes<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteAttributes(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteAttributeString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszqname: ::windows::core::PCWSTR, cwszqname: u32, pwszvalue: ::windows::core::PCWSTR, cwszvalue: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteAttributeString(::core::mem::transmute(&pwszqname), ::core::mem::transmute_copy(&cwszqname), ::core::mem::transmute(&pwszvalue), ::core::mem::transmute_copy(&cwszvalue)).into()
         }
         unsafe extern "system" fn WriteCData<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteCData(::core::mem::transmute(&pwsztext)).into()
         }
         unsafe extern "system" fn WriteCharEntity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wch: u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteCharEntity(::core::mem::transmute_copy(&wch)).into()
         }
         unsafe extern "system" fn WriteChars<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwch: ::windows::core::PCWSTR, cwch: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteChars(::core::mem::transmute(&pwch), ::core::mem::transmute_copy(&cwch)).into()
         }
         unsafe extern "system" fn WriteComment<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszcomment: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteComment(::core::mem::transmute(&pwszcomment)).into()
         }
         unsafe extern "system" fn WriteDocType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pwszpublicid: ::windows::core::PCWSTR, pwszsystemid: ::windows::core::PCWSTR, pwszsubset: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteDocType(::core::mem::transmute(&pwszname), ::core::mem::transmute(&pwszpublicid), ::core::mem::transmute(&pwszsystemid), ::core::mem::transmute(&pwszsubset)).into()
         }
         unsafe extern "system" fn WriteElementString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszqname: ::windows::core::PCWSTR, cwszqname: u32, pwszvalue: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteElementString(::core::mem::transmute(&pwszqname), ::core::mem::transmute_copy(&cwszqname), ::core::mem::transmute(&pwszvalue)).into()
         }
         unsafe extern "system" fn WriteEndDocument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteEndDocument().into()
         }
         unsafe extern "system" fn WriteEndElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszqname: ::windows::core::PCWSTR, cwszqname: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteEndElement(::core::mem::transmute(&pwszqname), ::core::mem::transmute_copy(&cwszqname)).into()
         }
         unsafe extern "system" fn WriteEntityRef<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteEntityRef(::core::mem::transmute(&pwszname)).into()
         }
         unsafe extern "system" fn WriteFullEndElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszqname: ::windows::core::PCWSTR, cwszqname: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteFullEndElement(::core::mem::transmute(&pwszqname), ::core::mem::transmute_copy(&cwszqname)).into()
         }
         unsafe extern "system" fn WriteName<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteName(::core::mem::transmute(&pwszname)).into()
         }
         unsafe extern "system" fn WriteNmToken<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsznmtoken: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteNmToken(::core::mem::transmute(&pwsznmtoken)).into()
         }
         unsafe extern "system" fn WriteNode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteNode(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteNodeShallow<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, preader: ::windows::core::RawPtr, fwritedefaultattributes: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteNodeShallow(::core::mem::transmute(&preader), ::core::mem::transmute_copy(&fwritedefaultattributes)).into()
         }
         unsafe extern "system" fn WriteProcessingInstruction<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszname: ::windows::core::PCWSTR, pwsztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteProcessingInstruction(::core::mem::transmute(&pwszname), ::core::mem::transmute(&pwsztext)).into()
         }
         unsafe extern "system" fn WriteRaw<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszdata: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteRaw(::core::mem::transmute(&pwszdata)).into()
         }
         unsafe extern "system" fn WriteRawChars<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwch: ::windows::core::PCWSTR, cwch: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteRawChars(::core::mem::transmute(&pwch), ::core::mem::transmute_copy(&cwch)).into()
         }
         unsafe extern "system" fn WriteStartDocument<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, standalone: XmlStandalone) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteStartDocument(::core::mem::transmute_copy(&standalone)).into()
         }
         unsafe extern "system" fn WriteStartElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszqname: ::windows::core::PCWSTR, cwszqname: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteStartElement(::core::mem::transmute(&pwszqname), ::core::mem::transmute_copy(&cwszqname)).into()
         }
         unsafe extern "system" fn WriteString<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwsztext: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteString(::core::mem::transmute(&pwsztext)).into()
         }
         unsafe extern "system" fn WriteSurrogateCharEntity<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, wchlow: u16, wchhigh: u16) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteSurrogateCharEntity(::core::mem::transmute_copy(&wchlow), ::core::mem::transmute_copy(&wchhigh)).into()
         }
         unsafe extern "system" fn WriteWhitespace<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszwhitespace: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.WriteWhitespace(::core::mem::transmute(&pwszwhitespace)).into()
         }
         unsafe extern "system" fn Flush<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXmlWriterLite_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Flush().into()
         }

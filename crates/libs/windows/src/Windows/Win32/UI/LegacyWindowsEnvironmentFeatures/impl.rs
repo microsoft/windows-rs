@@ -11,22 +11,22 @@ impl ::windows::core::RuntimeName for IADesktopP2 {}
 impl IADesktopP2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADesktopP2_Impl, const OFFSET: isize>() -> IADesktopP2_Vtbl {
         unsafe extern "system" fn ReReadWallpaper<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADesktopP2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ReReadWallpaper().into()
         }
         unsafe extern "system" fn GetADObjectFlags<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADesktopP2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32, dwmask: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetADObjectFlags(::core::mem::transmute_copy(&pdwflags), ::core::mem::transmute_copy(&dwmask)).into()
         }
         unsafe extern "system" fn UpdateAllDesktopSubscriptions<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADesktopP2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.UpdateAllDesktopSubscriptions().into()
         }
         unsafe extern "system" fn MakeDynamicChanges<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IADesktopP2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, poleobj: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.MakeDynamicChanges(::core::mem::transmute(&poleobj)).into()
         }
@@ -52,22 +52,22 @@ impl ::windows::core::RuntimeName for IActiveDesktopP {}
 impl IActiveDesktopP_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveDesktopP_Impl, const OFFSET: isize>() -> IActiveDesktopP_Vtbl {
         unsafe extern "system" fn SetSafeMode<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveDesktopP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwflags: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetSafeMode(::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn EnsureUpdateHTML<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveDesktopP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.EnsureUpdateHTML().into()
         }
         unsafe extern "system" fn SetScheme<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveDesktopP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszschemename: ::windows::core::PCWSTR, dwflags: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetScheme(::core::mem::transmute(&pwszschemename), ::core::mem::transmute_copy(&dwflags)).into()
         }
         unsafe extern "system" fn GetScheme<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveDesktopP_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pwszschemename: ::windows::core::PWSTR, pdwcchbuffer: *mut u32, dwflags: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetScheme(::core::mem::transmute_copy(&pwszschemename), ::core::mem::transmute_copy(&pdwcchbuffer), ::core::mem::transmute_copy(&dwflags)).into()
         }
@@ -93,7 +93,7 @@ impl ::windows::core::RuntimeName for IBriefcaseInitiator {}
 impl IBriefcaseInitiator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBriefcaseInitiator_Impl, const OFFSET: isize>() -> IBriefcaseInitiator_Vtbl {
         unsafe extern "system" fn IsMonikerInBriefcase<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IBriefcaseInitiator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmk: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.IsMonikerInBriefcase(::core::mem::transmute(&pmk)).into()
         }
@@ -117,27 +117,27 @@ impl ::windows::core::RuntimeName for IEmptyVolumeCache {}
 impl IEmptyVolumeCache_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>() -> IEmptyVolumeCache_Vtbl {
         unsafe extern "system" fn Initialize<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: ::windows::core::PCWSTR, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Initialize(::core::mem::transmute_copy(&hkregkey), ::core::mem::transmute(&pcwszvolume), ::core::mem::transmute_copy(&ppwszdisplayname), ::core::mem::transmute_copy(&ppwszdescription), ::core::mem::transmute_copy(&pdwflags)).into()
         }
         unsafe extern "system" fn GetSpaceUsed<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwlspaceused: *mut u64, picb: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.GetSpaceUsed(::core::mem::transmute_copy(&pdwlspaceused), ::core::mem::transmute(&picb)).into()
         }
         unsafe extern "system" fn Purge<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwlspacetofree: u64, picb: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Purge(::core::mem::transmute_copy(&dwlspacetofree), ::core::mem::transmute(&picb)).into()
         }
         unsafe extern "system" fn ShowProperties<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hwnd: super::super::Foundation::HWND) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ShowProperties(::core::mem::transmute_copy(&hwnd)).into()
         }
         unsafe extern "system" fn Deactivate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pdwflags: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Deactivate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -170,7 +170,7 @@ impl ::windows::core::RuntimeName for IEmptyVolumeCache2 {}
 impl IEmptyVolumeCache2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache2_Impl, const OFFSET: isize>() -> IEmptyVolumeCache2_Vtbl {
         unsafe extern "system" fn InitializeEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCache2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, hkregkey: super::super::System::Registry::HKEY, pcwszvolume: ::windows::core::PCWSTR, pcwszkeyname: ::windows::core::PCWSTR, ppwszdisplayname: *mut ::windows::core::PWSTR, ppwszdescription: *mut ::windows::core::PWSTR, ppwszbtntext: *mut ::windows::core::PWSTR, pdwflags: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.InitializeEx(::core::mem::transmute_copy(&hkregkey), ::core::mem::transmute(&pcwszvolume), ::core::mem::transmute(&pcwszkeyname), ::core::mem::transmute_copy(&ppwszdisplayname), ::core::mem::transmute_copy(&ppwszdescription), ::core::mem::transmute_copy(&ppwszbtntext), ::core::mem::transmute_copy(&pdwflags)).into()
         }
@@ -188,12 +188,12 @@ impl ::windows::core::RuntimeName for IEmptyVolumeCacheCallBack {}
 impl IEmptyVolumeCacheCallBack_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCacheCallBack_Impl, const OFFSET: isize>() -> IEmptyVolumeCacheCallBack_Vtbl {
         unsafe extern "system" fn ScanProgress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCacheCallBack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwlspaceused: u64, dwflags: u32, pcwszstatus: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.ScanProgress(::core::mem::transmute_copy(&dwlspaceused), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pcwszstatus)).into()
         }
         unsafe extern "system" fn PurgeProgress<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IEmptyVolumeCacheCallBack_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dwlspacefreed: u64, dwlspacetofree: u64, dwflags: u32, pcwszstatus: ::windows::core::PCWSTR) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.PurgeProgress(::core::mem::transmute_copy(&dwlspacefreed), ::core::mem::transmute_copy(&dwlspacetofree), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&pcwszstatus)).into()
         }
@@ -218,12 +218,12 @@ impl ::windows::core::RuntimeName for IReconcilableObject {}
 impl IReconcilableObject_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcilableObject_Impl, const OFFSET: isize>() -> IReconcilableObject_Vtbl {
         unsafe extern "system" fn Reconcile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcilableObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pinitiator: ::windows::core::RawPtr, dwflags: u32, hwndowner: super::super::Foundation::HWND, hwndprogressfeedback: super::super::Foundation::HWND, ulcinput: u32, rgpmkotherinput: *mut ::windows::core::RawPtr, ploutindex: *mut i32, pstgnewresidues: ::windows::core::RawPtr, pvreserved: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.Reconcile(::core::mem::transmute(&pinitiator), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&hwndowner), ::core::mem::transmute_copy(&hwndprogressfeedback), ::core::mem::transmute_copy(&ulcinput), ::core::mem::transmute_copy(&rgpmkotherinput), ::core::mem::transmute_copy(&ploutindex), ::core::mem::transmute(&pstgnewresidues), ::core::mem::transmute_copy(&pvreserved)).into()
         }
         unsafe extern "system" fn GetProgressFeedbackMaxEstimate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcilableObject_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pulprogressmax: *mut u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.GetProgressFeedbackMaxEstimate() {
                 ::core::result::Result::Ok(ok__) => {
@@ -251,12 +251,12 @@ impl ::windows::core::RuntimeName for IReconcileInitiator {}
 impl IReconcileInitiator_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcileInitiator_Impl, const OFFSET: isize>() -> IReconcileInitiator_Vtbl {
         unsafe extern "system" fn SetAbortCallback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcileInitiator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, punkforabort: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetAbortCallback(::core::mem::transmute(&punkforabort)).into()
         }
         unsafe extern "system" fn SetProgressFeedback<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IReconcileInitiator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, ulprogress: u32, ulprogressmax: u32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetProgressFeedback(::core::mem::transmute_copy(&ulprogress), ::core::mem::transmute_copy(&ulprogressmax)).into()
         }

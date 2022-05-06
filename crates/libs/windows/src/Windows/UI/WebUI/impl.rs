@@ -7,7 +7,7 @@ impl ::windows::core::RuntimeName for IActivatedEventArgsDeferral {
 impl IActivatedEventArgsDeferral_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>() -> IActivatedEventArgsDeferral_Vtbl {
         unsafe extern "system" fn ActivatedOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActivatedEventArgsDeferral_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.ActivatedOperation() {
                 ::core::result::Result::Ok(ok__) => {
@@ -37,7 +37,7 @@ impl ::windows::core::RuntimeName for IWebUIBackgroundTaskInstance {
 impl IWebUIBackgroundTaskInstance_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>() -> IWebUIBackgroundTaskInstance_Vtbl {
         unsafe extern "system" fn Succeeded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.Succeeded() {
                 ::core::result::Result::Ok(ok__) => {
@@ -49,7 +49,7 @@ impl IWebUIBackgroundTaskInstance_Vtbl {
             }
         }
         unsafe extern "system" fn SetSucceeded<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebUIBackgroundTaskInstance_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, succeeded: bool) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             this.SetSucceeded(succeeded).into()
         }
@@ -72,7 +72,7 @@ impl ::windows::core::RuntimeName for IWebUINavigatedEventArgs {
 impl IWebUINavigatedEventArgs_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>() -> IWebUINavigatedEventArgs_Vtbl {
         unsafe extern "system" fn NavigatedOperation<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWebUINavigatedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Identity;
+            let this = this.offset(OFFSET) as *mut Identity;
             let this = (*this).get_impl();
             match this.NavigatedOperation() {
                 ::core::result::Result::Ok(ok__) => {
