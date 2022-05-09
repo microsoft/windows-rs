@@ -182,12 +182,34 @@ fn hstring_compat() -> Result<()> {
 
         let mut len = 0;
         let buffer = WindowsGetStringRawBuffer(&world, &mut len);
-        assert_eq!(std::slice::from_raw_parts(buffer.0, len as _), world.as_wide());
+        assert_eq!(len, 5);
+        // Adding +1 to the length of the slice to validate that it is null terminated.
+        assert_eq!(std::slice::from_raw_parts(buffer.0, 6), [87, 111, 114, 108, 100, 0]);
 
         // We need to drop to windows-sys to call the raw WindowsDeleteString function to avoid double-freeing the HSTRING,
         // but this test is important as it ensures that the allocators match.
         let hresult = windows_sys::Win32::System::WinRT::WindowsDeleteString(std::mem::transmute_copy(&*std::mem::ManuallyDrop::new(hey)));
         assert_eq!(hresult, 0);
+
+        // An HSTRING reference a.k.a. "fast pass" string is a kind of stack-based HSTRING used by C++ callers
+        // to avoid the heap allocation in some cases. It's not used in Rust since it assumes a wide character
+        // string literal, which is inconvenient to create in Rust. Here we again use windows-sys to make one
+        // and thereby excercise the windows::core::HSTRING support for HSTRING reference duplication.
+        let mut header: windows_sys::Win32::System::WinRT::HSTRING_HEADER = std::mem::zeroed();
+        let mut stack_hstring: windows_sys::core::HSTRING = std::mem::zeroed();
+        let hresult = windows_sys::Win32::System::WinRT::WindowsCreateStringReference([87, 111, 114, 108, 100, 0].as_ptr(), 5, &mut header, &mut stack_hstring);
+        assert_eq!(hresult, 0);
+        assert_eq!(header.length, 5);
+        let stack_hstring: std::mem::ManuallyDrop<HSTRING> = std::mem::transmute(stack_hstring);
+        let duplicate: HSTRING = (*stack_hstring).clone();
+        assert_eq!(&duplicate, &*stack_hstring);
+        assert_eq!(duplicate, "World");
+
+        let mut len = 0;
+        let buffer = WindowsGetStringRawBuffer(&duplicate, &mut len);
+        assert_eq!(len, 5);
+        // Adding +1 to the length of the slice to validate that it is null terminated.
+        assert_eq!(std::slice::from_raw_parts(buffer.0, 6), [87, 111, 114, 108, 100, 0]);
 
         Ok(())
     }
