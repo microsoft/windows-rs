@@ -66,7 +66,7 @@ impl HSTRING {
             let header = self.0;
             debug_assert!((*header).flags & REFERENCE_FLAG == 0);
 
-            if (*((*header).shared.as_mut_ptr())).count.release() == 0 {
+            if (*header).count.release() == 0 {
                 heap_free(self.0 as RawPtr);
             }
         }
@@ -402,11 +402,6 @@ struct Header {
     _0: u32,
     _1: u32,
     data: *mut u16,
-    shared: core::mem::MaybeUninit<Shared>,
-}
-
-#[repr(C)]
-struct Shared {
     count: RefCount,
     buffer_start: u16,
 }
@@ -420,11 +415,12 @@ impl Header {
         // TODO: allow this failure to propagate
         let header = heap_alloc(alloc_size).expect("Could not successfully allocate for HSTRING") as *mut Header;
 
+        // SAFETY: uses `std::ptr::write` (since `header` is unintialized). `Header` is safe to be all zeros.
         unsafe {
-            (*header).flags = 0;
+            header.write(std::mem::MaybeUninit::<Header>::zeroed().assume_init());
             (*header).len = len;
-            (*header).data = &mut (*(*header).shared.as_mut_ptr()).buffer_start;
-            (*(*header).shared.as_mut_ptr()).count = RefCount::new(1);
+            (*header).count = RefCount::new(1);
+            (*header).data = &mut (*header).buffer_start;
         }
         header
     }
@@ -432,15 +428,14 @@ impl Header {
     fn duplicate(&mut self) -> *mut Header {
         if self.flags & REFERENCE_FLAG == 0 {
             // If this is not a "fast pass" string then simply increment the reference count.
-            unsafe {
-                (*self.shared.as_ptr()).count.add_ref();
-                self
-            }
+            self.count.add_ref();
+            self
         } else {
             // Otherwise, allocate a new string and copy the value into the new string.
             let copy = Header::alloc(self.len);
+            // SAFETY: since we are duplicating the string it is safe to copy all data from self to the initialized `copy`.
             unsafe {
-                core::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize + 1);
+                core::ptr::copy_nonoverlapping(self.data, (*copy).data, self.len as usize);
             }
             copy
         }
