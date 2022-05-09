@@ -218,7 +218,7 @@ pub fn gen_abi_element_name(ty: &Type, gen: &Gen) -> TokenStream {
 fn gen_abi_element_name_impl(ty: &Type, ptr: bool, gen: &Gen) -> TokenStream {
     match ty {
         Type::String => {
-            quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
+            quote! { ::windows::core::HSTRING }
         }
         Type::IUnknown | Type::IInspectable => {
             quote! { *mut ::core::ffi::c_void }
@@ -233,15 +233,7 @@ fn gen_abi_element_name_impl(ty: &Type, ptr: bool, gen: &Gen) -> TokenStream {
             quote! { <#name as ::windows::core::Abi>::Abi }
         }
         Type::TypeDef(def) => match def.kind() {
-            TypeKind::Enum => gen_type_name(def, gen),
-            TypeKind::Struct => {
-                let tokens = gen_type_name(def, gen);
-                if def.is_blittable() || ptr {
-                    tokens
-                } else {
-                    quote! { ::core::mem::ManuallyDrop<#tokens> }
-                }
-            }
+            TypeKind::Enum | TypeKind::Struct => gen_type_name(def, gen),
             _ => quote! { ::windows::core::RawPtr },
         },
         Type::MutPtr((kind, pointers)) => {

@@ -99,7 +99,7 @@ impl HSTRING {
 }
 
 unsafe impl Abi for HSTRING {
-    type Abi = core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 
 unsafe impl RuntimeType for HSTRING {

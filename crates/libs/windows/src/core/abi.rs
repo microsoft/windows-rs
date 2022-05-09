@@ -5,7 +5,10 @@ use super::*;
 /// # Safety
 ///
 /// * The associated type `Abi` must be safe to transfer over FFI boundaries (e.g., it must have a stable layout)
-/// * `from_abi` must be implemented if there are some in-memory representations of `Abi` that are not valid representations of `Self`
+/// * It must be legal for `Abi` to be all zeros
+/// * `from_abi` must be implemented if there are any in-memory representations of `Abi` that are not valid representations of `Self`. 
+///   `from_abi` must then check for this illegal representations and return an error if they are found.
+///   * For example, size `Abi` can be all zeros, if `Self` cannot be, then `from_abi` must check for all zeros and return an error if found.
 #[doc(hidden)]
 pub unsafe trait Abi: Sized {
     /// The type used to represent `Self` across FFI boundaries
