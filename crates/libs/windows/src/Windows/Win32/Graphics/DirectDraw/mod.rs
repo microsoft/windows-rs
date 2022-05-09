@@ -311,7 +311,7 @@ impl ::core::fmt::Debug for DDBLTBATCH {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DDBLTBATCH {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DDBLTBATCH {
@@ -394,7 +394,7 @@ impl ::core::clone::Clone for DDBLTFX {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDBLTFX {
     fn eq(&self, other: &Self) -> bool {
@@ -441,7 +441,7 @@ impl ::core::clone::Clone for DDBLTFX_0 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDBLTFX_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -466,7 +466,7 @@ impl ::core::clone::Clone for DDBLTFX_1 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDBLTFX_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -491,7 +491,7 @@ impl ::core::clone::Clone for DDBLTFX_2 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDBLTFX_2 {
     fn eq(&self, other: &Self) -> bool {
@@ -516,7 +516,7 @@ impl ::core::clone::Clone for DDBLTFX_3 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_3 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDBLTFX_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -543,7 +543,7 @@ impl ::core::clone::Clone for DDBLTFX_4 {
     }
 }
 unsafe impl ::windows::core::Abi for DDBLTFX_4 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDBLTFX_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -2511,7 +2511,7 @@ impl ::core::clone::Clone for DDHAL_BLTDATA {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_BLTDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_BLTDATA {
@@ -5548,7 +5548,7 @@ impl ::core::clone::Clone for DDHAL_UPDATEOVERLAYDATA {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDHAL_UPDATEOVERLAYDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDHAL_UPDATEOVERLAYDATA {
@@ -6483,7 +6483,7 @@ impl ::core::clone::Clone for DDOVERLAYFX {
     }
 }
 unsafe impl ::windows::core::Abi for DDOVERLAYFX {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDOVERLAYFX {
     fn eq(&self, other: &Self) -> bool {
@@ -6508,7 +6508,7 @@ impl ::core::clone::Clone for DDOVERLAYFX_0 {
     }
 }
 unsafe impl ::windows::core::Abi for DDOVERLAYFX_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDOVERLAYFX_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -6533,7 +6533,7 @@ impl ::core::clone::Clone for DDOVERLAYFX_1 {
     }
 }
 unsafe impl ::windows::core::Abi for DDOVERLAYFX_1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for DDOVERLAYFX_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -7300,7 +7300,7 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWCLIPPER_LCL {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDRAWCLIPPER_LCL {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWCLIPPER_LCL {
@@ -7473,7 +7473,7 @@ impl ::core::fmt::Debug for DDRAWI_DDRAWPALETTE_LCL {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DDRAWPALETTE_LCL {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DDRAWPALETTE_LCL {
@@ -8326,7 +8326,7 @@ impl ::core::fmt::Debug for DDRAWI_DIRECTDRAW_LCL {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for DDRAWI_DIRECTDRAW_LCL {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for DDRAWI_DIRECTDRAW_LCL {
@@ -10184,7 +10184,7 @@ impl ::core::clone::Clone for DD_BLTDATA {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_BLTDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_BLTDATA {
@@ -13593,7 +13593,7 @@ impl ::core::clone::Clone for DD_UPDATEOVERLAYDATA {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DD_UPDATEOVERLAYDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DD_UPDATEOVERLAYDATA {
@@ -17117,7 +17117,7 @@ impl ::core::fmt::Debug for IUNKNOWN_LIST {
     }
 }
 unsafe impl ::windows::core::Abi for IUNKNOWN_LIST {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for IUNKNOWN_LIST {
     fn eq(&self, other: &Self) -> bool {

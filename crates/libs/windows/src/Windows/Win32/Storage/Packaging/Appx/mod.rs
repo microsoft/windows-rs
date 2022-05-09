@@ -317,7 +317,7 @@ impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS {
@@ -361,7 +361,7 @@ impl ::core::fmt::Debug for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for APPX_ENCRYPTED_PACKAGE_SETTINGS2 {
@@ -616,7 +616,7 @@ impl ::core::fmt::Debug for APPX_PACKAGE_SETTINGS {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_SETTINGS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::cmp::PartialEq for APPX_PACKAGE_SETTINGS {
@@ -655,7 +655,7 @@ impl ::core::fmt::Debug for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
 }
 #[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for APPX_PACKAGE_WRITER_PAYLOAD_STREAM {

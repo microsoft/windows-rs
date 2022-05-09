@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IAdaptiveCard {
 }
 impl IAdaptiveCard_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCard_Impl, const OFFSET: isize>() -> IAdaptiveCard_Vtbl {
-        unsafe extern "system" fn ToJson<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToJson<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCard_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HSTRING) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ToJson() {
@@ -32,7 +32,7 @@ impl ::windows::core::RuntimeName for IAdaptiveCardBuilderStatics {
 }
 impl IAdaptiveCardBuilderStatics_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>() -> IAdaptiveCardBuilderStatics_Vtbl {
-        unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateAdaptiveCardFromJson<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: ::windows::core::HSTRING, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateAdaptiveCardFromJson(::core::mem::transmute(&value)) {

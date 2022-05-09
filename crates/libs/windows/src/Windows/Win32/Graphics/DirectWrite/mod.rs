@@ -256,7 +256,7 @@ impl ::core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_COLOR_GLYPH_RUN {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_COLOR_GLYPH_RUN {
@@ -294,7 +294,7 @@ impl ::core::fmt::Debug for DWRITE_COLOR_GLYPH_RUN1 {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_COLOR_GLYPH_RUN1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_COLOR_GLYPH_RUN1 {
@@ -1624,7 +1624,7 @@ impl ::core::fmt::Debug for DWRITE_GLYPH_RUN {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DWRITE_GLYPH_RUN {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DWRITE_GLYPH_RUN {

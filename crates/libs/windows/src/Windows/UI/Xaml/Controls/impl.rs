@@ -887,7 +887,7 @@ impl ::windows::core::RuntimeName for INavigate {
 #[cfg(feature = "UI_Xaml_Interop")]
 impl INavigate_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INavigate_Impl, const OFFSET: isize>() -> INavigate_Vtbl {
-        unsafe extern "system" fn Navigate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INavigate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcepagetype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Navigate<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: INavigate_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, sourcepagetype: super::Interop::TypeName, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Navigate(::core::mem::transmute(&sourcepagetype)) {

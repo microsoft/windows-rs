@@ -339,7 +339,7 @@ impl ::core::ops::Drop for BSTR {
     }
 }
 unsafe impl ::windows::core::Abi for BSTR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "alloc")]
 impl<'a> ::windows::core::IntoParam<'a, BSTR> for &str {
@@ -12836,7 +12836,7 @@ pub unsafe fn SysAddRefString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysAddRefString(bstrstring: ::core::mem::ManuallyDrop<BSTR>) -> ::windows::core::HRESULT;
+            fn SysAddRefString(bstrstring: BSTR) -> ::windows::core::HRESULT;
         }
         SysAddRefString(bstrstring.into_param().abi()).ok()
     }
@@ -12892,7 +12892,7 @@ pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bs
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
+            fn SysFreeString(bstrstring: BSTR);
         }
         SysFreeString(bstrstring.into_param().abi())
     }
@@ -12934,7 +12934,7 @@ pub unsafe fn SysReleaseString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysReleaseString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
+            fn SysReleaseString(bstrstring: BSTR);
         }
         SysReleaseString(bstrstring.into_param().abi())
     }
@@ -12948,7 +12948,7 @@ pub unsafe fn SysStringByteLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysStringByteLen(bstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
+            fn SysStringByteLen(bstr: BSTR) -> u32;
         }
         ::core::mem::transmute(SysStringByteLen(bstr.into_param().abi()))
     }
@@ -12962,7 +12962,7 @@ pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbs
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
+            fn SysStringLen(pbstr: BSTR) -> u32;
         }
         ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
     }

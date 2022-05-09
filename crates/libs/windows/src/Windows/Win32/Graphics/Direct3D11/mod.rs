@@ -13160,7 +13160,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     }
 }
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D11_VIDEO_DECODER_BEGIN_FRAME_CRYPTO_SESSION {
     fn eq(&self, other: &Self) -> bool {
@@ -14708,7 +14708,7 @@ impl ::core::fmt::Debug for D3D11_VIDEO_PROCESSOR_STREAM {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for D3D11_VIDEO_PROCESSOR_STREAM {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for D3D11_VIDEO_PROCESSOR_STREAM {

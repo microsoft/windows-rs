@@ -276,7 +276,7 @@ impl ::windows::core::RuntimeName for IFrameworkElementOverrides2 {
 }
 impl IFrameworkElementOverrides2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkElementOverrides2_Impl, const OFFSET: isize>() -> IFrameworkElementOverrides2_Vtbl {
-        unsafe extern "system" fn GoToElementStateCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkElementOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, usetransitions: bool, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GoToElementStateCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IFrameworkElementOverrides2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, statename: ::windows::core::HSTRING, usetransitions: bool, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GoToElementStateCore(::core::mem::transmute(&statename), usetransitions) {
@@ -442,7 +442,7 @@ impl ::windows::core::RuntimeName for IUIElementOverrides9 {
 #[cfg(feature = "UI_Composition")]
 impl IUIElementOverrides9_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIElementOverrides9_Impl, const OFFSET: isize>() -> IUIElementOverrides9_Vtbl {
-        unsafe extern "system" fn PopulatePropertyInfoOverride<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIElementOverrides9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, animationpropertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn PopulatePropertyInfoOverride<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUIElementOverrides9_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, propertyname: ::windows::core::HSTRING, animationpropertyinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.PopulatePropertyInfoOverride(::core::mem::transmute(&propertyname), ::core::mem::transmute(&animationpropertyinfo)).into()
@@ -467,7 +467,7 @@ impl ::windows::core::RuntimeName for IVisualStateManagerOverrides {
 #[cfg(feature = "UI_Xaml_Controls")]
 impl IVisualStateManagerOverrides_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualStateManagerOverrides_Impl, const OFFSET: isize>() -> IVisualStateManagerOverrides_Vtbl {
-        unsafe extern "system" fn GoToStateCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualStateManagerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, control: ::windows::core::RawPtr, templateroot: ::windows::core::RawPtr, statename: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, group: ::windows::core::RawPtr, state: ::windows::core::RawPtr, usetransitions: bool, result__: *mut bool) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GoToStateCore<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualStateManagerOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, control: ::windows::core::RawPtr, templateroot: ::windows::core::RawPtr, statename: ::windows::core::HSTRING, group: ::windows::core::RawPtr, state: ::windows::core::RawPtr, usetransitions: bool, result__: *mut bool) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GoToStateCore(::core::mem::transmute(&control), ::core::mem::transmute(&templateroot), ::core::mem::transmute(&statename), ::core::mem::transmute(&group), ::core::mem::transmute(&state), usetransitions) {

@@ -174,7 +174,7 @@ impl IWSDAsyncResult {
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
     pub unsafe fn GetEvent(&self) -> ::windows::core::Result<WSD_EVENT> {
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<WSD_EVENT>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<WSD_EVENT>::zeroed();
         (::windows::core::Interface::vtable(self).GetEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WSD_EVENT>(result__)
     }
     #[doc = "*Required features: `\"Win32_Devices_WebServicesOnDevices\"`*"]
@@ -4664,7 +4664,7 @@ impl ::core::fmt::Debug for WSD_EVENT {
     }
 }
 unsafe impl ::windows::core::Abi for WSD_EVENT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for WSD_EVENT {
     fn eq(&self, other: &Self) -> bool {
@@ -4858,7 +4858,7 @@ impl ::core::fmt::Debug for WSD_HANDLER_CONTEXT {
     }
 }
 unsafe impl ::windows::core::Abi for WSD_HANDLER_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for WSD_HANDLER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
@@ -5991,7 +5991,7 @@ impl ::core::fmt::Debug for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSD_SYNCHRONOUS_RESPONSE_CONTEXT {

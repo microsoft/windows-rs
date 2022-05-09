@@ -972,7 +972,7 @@ impl ::core::fmt::Debug for D2D1_BITMAP_PROPERTIES1 {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_BITMAP_PROPERTIES1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D2D1_BITMAP_PROPERTIES1 {
@@ -2887,7 +2887,7 @@ impl ::core::fmt::Debug for D2D1_EFFECT_INPUT_DESCRIPTION {
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 unsafe impl ::windows::core::Abi for D2D1_EFFECT_INPUT_DESCRIPTION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl ::core::cmp::PartialEq for D2D1_EFFECT_INPUT_DESCRIPTION {
@@ -4531,7 +4531,7 @@ impl ::core::fmt::Debug for D2D1_LAYER_PARAMETERS {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_LAYER_PARAMETERS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS {
@@ -4581,7 +4581,7 @@ impl ::core::fmt::Debug for D2D1_LAYER_PARAMETERS1 {
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 unsafe impl ::windows::core::Abi for D2D1_LAYER_PARAMETERS1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
 impl ::core::cmp::PartialEq for D2D1_LAYER_PARAMETERS1 {

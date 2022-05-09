@@ -1917,7 +1917,7 @@ impl ::core::clone::Clone for WINML_BINDING_DESC {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for WINML_BINDING_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for WINML_BINDING_DESC {
@@ -1951,7 +1951,7 @@ impl ::core::clone::Clone for WINML_BINDING_DESC_0 {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for WINML_BINDING_DESC_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for WINML_BINDING_DESC_0 {
@@ -2272,7 +2272,7 @@ impl ::core::fmt::Debug for WINML_RESOURCE_BINDING_DESC {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for WINML_RESOURCE_BINDING_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for WINML_RESOURCE_BINDING_DESC {

@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IXamlUIPresenterHost {
 }
 impl IXamlUIPresenterHost_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost_Impl, const OFFSET: isize>() -> IXamlUIPresenterHost_Vtbl {
-        unsafe extern "system" fn ResolveFileResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ResolveFileResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, path: ::windows::core::HSTRING, result__: *mut ::windows::core::HSTRING) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ResolveFileResource(::core::mem::transmute(&path)) {
@@ -35,7 +35,7 @@ impl ::windows::core::RuntimeName for IXamlUIPresenterHost2 {
 }
 impl IXamlUIPresenterHost2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost2_Impl, const OFFSET: isize>() -> IXamlUIPresenterHost2_Vtbl {
-        unsafe extern "system" fn GetGenericXamlFilePath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetGenericXamlFilePath<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IXamlUIPresenterHost2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HSTRING) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetGenericXamlFilePath() {

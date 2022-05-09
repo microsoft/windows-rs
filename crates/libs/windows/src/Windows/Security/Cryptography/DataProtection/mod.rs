@@ -169,7 +169,7 @@ unsafe impl ::windows::core::Interface for IDataProtectionProviderFactory {
 #[doc(hidden)]
 pub struct IDataProtectionProviderFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub CreateOverloadExplicit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectiondescriptor: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateOverloadExplicit: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, protectiondescriptor: ::windows::core::HSTRING, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

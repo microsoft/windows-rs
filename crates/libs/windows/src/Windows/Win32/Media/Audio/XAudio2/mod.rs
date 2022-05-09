@@ -2340,7 +2340,7 @@ pub struct XAUDIO2_EFFECT_DESCRIPTOR {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for XAUDIO2_EFFECT_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for XAUDIO2_EFFECT_DESCRIPTOR {
@@ -2533,7 +2533,7 @@ pub struct XAUDIO2_SEND_DESCRIPTOR {
     pub pOutputVoice: ::core::option::Option<IXAudio2Voice>,
 }
 unsafe impl ::windows::core::Abi for XAUDIO2_SEND_DESCRIPTOR {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for XAUDIO2_SEND_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {

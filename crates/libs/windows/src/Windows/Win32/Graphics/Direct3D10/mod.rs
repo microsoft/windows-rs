@@ -3770,7 +3770,7 @@ impl ::core::fmt::Debug for D3D10_PASS_SHADER_DESC {
     }
 }
 unsafe impl ::windows::core::Abi for D3D10_PASS_SHADER_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D10_PASS_SHADER_DESC {
     fn eq(&self, other: &Self) -> bool {

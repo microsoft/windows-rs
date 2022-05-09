@@ -181,7 +181,7 @@ impl ::core::fmt::Debug for D3D12_AUTO_BREADCRUMB_NODE {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_AUTO_BREADCRUMB_NODE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_AUTO_BREADCRUMB_NODE {
     fn eq(&self, other: &Self) -> bool {
@@ -247,7 +247,7 @@ impl ::core::fmt::Debug for D3D12_AUTO_BREADCRUMB_NODE1 {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_AUTO_BREADCRUMB_NODE1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_AUTO_BREADCRUMB_NODE1 {
     fn eq(&self, other: &Self) -> bool {
@@ -1673,7 +1673,7 @@ impl ::core::fmt::Debug for D3D12_COMPUTE_PIPELINE_STATE_DESC {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_COMPUTE_PIPELINE_STATE_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_COMPUTE_PIPELINE_STATE_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -3190,7 +3190,7 @@ impl ::core::fmt::Debug for D3D12_DRED_ALLOCATION_NODE1 {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_DRED_ALLOCATION_NODE1 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_DRED_ALLOCATION_NODE1 {
     fn eq(&self, other: &Self) -> bool {
@@ -3961,7 +3961,7 @@ impl ::core::fmt::Debug for D3D12_EXISTING_COLLECTION_DESC {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_EXISTING_COLLECTION_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_EXISTING_COLLECTION_DESC {
     fn eq(&self, other: &Self) -> bool {
@@ -5913,7 +5913,7 @@ impl ::core::fmt::Debug for D3D12_GLOBAL_ROOT_SIGNATURE {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_GLOBAL_ROOT_SIGNATURE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_GLOBAL_ROOT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
@@ -6227,7 +6227,7 @@ impl ::core::fmt::Debug for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_GRAPHICS_PIPELINE_STATE_DESC {
@@ -7372,7 +7372,7 @@ impl ::core::fmt::Debug for D3D12_LOCAL_ROOT_SIGNATURE {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_LOCAL_ROOT_SIGNATURE {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_LOCAL_ROOT_SIGNATURE {
     fn eq(&self, other: &Self) -> bool {
@@ -12085,7 +12085,7 @@ impl ::core::clone::Clone for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_DEPTH_STENCIL_DESC {
@@ -12116,7 +12116,7 @@ impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_ENDING_ACCESS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS {
@@ -12146,7 +12146,7 @@ impl ::core::clone::Clone for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS_0 {
@@ -12196,7 +12196,7 @@ impl ::core::fmt::Debug for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_ENDING_ACCESS_RESOLVE_PARAMETERS {
@@ -12360,7 +12360,7 @@ impl ::core::clone::Clone for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 unsafe impl ::windows::core::Abi for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::cmp::PartialEq for D3D12_RENDER_PASS_RENDER_TARGET_DESC {
@@ -12719,7 +12719,7 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_ALIASING_BARRIER {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_ALIASING_BARRIER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_ALIASING_BARRIER {
     fn eq(&self, other: &Self) -> bool {
@@ -12808,7 +12808,7 @@ impl ::core::clone::Clone for D3D12_RESOURCE_BARRIER {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_BARRIER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_BARRIER {
     fn eq(&self, other: &Self) -> bool {
@@ -12834,7 +12834,7 @@ impl ::core::clone::Clone for D3D12_RESOURCE_BARRIER_0 {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_BARRIER_0 {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_BARRIER_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -13312,7 +13312,7 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_TRANSITION_BARRIER {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_TRANSITION_BARRIER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_TRANSITION_BARRIER {
     fn eq(&self, other: &Self) -> bool {
@@ -13341,7 +13341,7 @@ impl ::core::fmt::Debug for D3D12_RESOURCE_UAV_BARRIER {
     }
 }
 unsafe impl ::windows::core::Abi for D3D12_RESOURCE_UAV_BARRIER {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for D3D12_RESOURCE_UAV_BARRIER {
     fn eq(&self, other: &Self) -> bool {
@@ -16885,7 +16885,7 @@ impl ::core::clone::Clone for D3D12_TEXTURE_COPY_LOCATION {
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 unsafe impl ::windows::core::Abi for D3D12_TEXTURE_COPY_LOCATION {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::cmp::PartialEq for D3D12_TEXTURE_COPY_LOCATION {

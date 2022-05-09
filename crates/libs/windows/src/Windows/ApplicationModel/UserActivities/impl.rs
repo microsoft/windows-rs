@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for IUserActivityContentInfo {
 }
 impl IUserActivityContentInfo_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserActivityContentInfo_Impl, const OFFSET: isize>() -> IUserActivityContentInfo_Vtbl {
-        unsafe extern "system" fn ToJson<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserActivityContentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn ToJson<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IUserActivityContentInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HSTRING) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.ToJson() {

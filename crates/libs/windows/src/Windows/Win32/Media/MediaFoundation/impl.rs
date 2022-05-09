@@ -6454,7 +6454,7 @@ impl ::windows::core::RuntimeName for IMFExtendedDRMTypeSupport {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFExtendedDRMTypeSupport_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFExtendedDRMTypeSupport_Impl, const OFFSET: isize>() -> IMFExtendedDRMTypeSupport_Vtbl {
-        unsafe extern "system" fn IsTypeSupportedEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFExtendedDRMTypeSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTypeSupportedEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFExtendedDRMTypeSupport_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: super::super::Foundation::BSTR, keysystem: super::super::Foundation::BSTR, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsTypeSupportedEx(::core::mem::transmute(&r#type), ::core::mem::transmute(&keysystem)) {
@@ -6846,7 +6846,7 @@ impl ::windows::core::RuntimeName for IMFImageSharingEngineClassFactory {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFImageSharingEngineClassFactory_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFImageSharingEngineClassFactory_Impl, const OFFSET: isize>() -> IMFImageSharingEngineClassFactory_Vtbl {
-        unsafe extern "system" fn CreateInstanceFromUDN<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFImageSharingEngineClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puniquedevicename: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstanceFromUDN<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFImageSharingEngineClassFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, puniquedevicename: super::super::Foundation::BSTR, ppengine: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateInstanceFromUDN(::core::mem::transmute(&puniquedevicename)) {
@@ -7078,7 +7078,7 @@ impl IMFMediaEngine_Vtbl {
             let this = (*this).get_impl();
             this.SetSourceElements(::core::mem::transmute(&psrcelements)).into()
         }
-        unsafe extern "system" fn SetSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purl: super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSource(::core::mem::transmute(&purl)).into()
@@ -7125,7 +7125,7 @@ impl IMFMediaEngine_Vtbl {
             let this = (*this).get_impl();
             this.Load().into()
         }
-        unsafe extern "system" fn CanPlayType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanPlayType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngine_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: super::super::Foundation::BSTR, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CanPlayType(::core::mem::transmute(&r#type)) {
@@ -7453,7 +7453,7 @@ impl ::windows::core::RuntimeName for IMFMediaEngineClassFactory2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineClassFactory2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactory2_Impl, const OFFSET: isize>() -> IMFMediaEngineClassFactory2_Vtbl {
-        unsafe extern "system" fn CreateMediaKeys2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, defaultcdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, inprivatecdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMediaKeys2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactory2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::BSTR, defaultcdmstorepath: super::super::Foundation::BSTR, inprivatecdmstorepath: super::super::Foundation::BSTR, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateMediaKeys2(::core::mem::transmute(&keysystem), ::core::mem::transmute(&defaultcdmstorepath), ::core::mem::transmute(&inprivatecdmstorepath)) {
@@ -7479,7 +7479,7 @@ impl ::windows::core::RuntimeName for IMFMediaEngineClassFactory3 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))]
 impl IMFMediaEngineClassFactory3_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactory3_Impl, const OFFSET: isize>() -> IMFMediaEngineClassFactory3_Vtbl {
-        unsafe extern "system" fn CreateMediaKeySystemAccess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactory3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsupportedconfigurationsarray: *const ::windows::core::RawPtr, usize: u32, ppkeyaccess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMediaKeySystemAccess<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactory3_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::BSTR, ppsupportedconfigurationsarray: *const ::windows::core::RawPtr, usize: u32, ppkeyaccess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateMediaKeySystemAccess(::core::mem::transmute(&keysystem), ::core::mem::transmute_copy(&ppsupportedconfigurationsarray), ::core::mem::transmute_copy(&usize)) {
@@ -7541,7 +7541,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn CreateMediaKeys<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactoryEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, cdmstorepath: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateMediaKeys<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactoryEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::BSTR, cdmstorepath: super::super::Foundation::BSTR, ppkeys: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateMediaKeys(::core::mem::transmute(&keysystem), ::core::mem::transmute(&cdmstorepath)) {
@@ -7552,7 +7552,7 @@ impl IMFMediaEngineClassFactoryEx_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn IsTypeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactoryEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn IsTypeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineClassFactoryEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: super::super::Foundation::BSTR, keysystem: super::super::Foundation::BSTR, issupported: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.IsTypeSupported(::core::mem::transmute(&r#type), ::core::mem::transmute(&keysystem)) {
@@ -7617,7 +7617,7 @@ impl ::windows::core::RuntimeName for IMFMediaEngineEMENotify {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineEMENotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEMENotify_Impl, const OFFSET: isize>() -> IMFMediaEngineEMENotify_Vtbl {
-        unsafe extern "system" fn Encrypted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEMENotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbinitdata: *const u8, cb: u32, bstrinitdatatype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) {
+        unsafe extern "system" fn Encrypted<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEMENotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbinitdata: *const u8, cb: u32, bstrinitdatatype: super::super::Foundation::BSTR) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Encrypted(::core::mem::transmute_copy(&pbinitdata), ::core::mem::transmute_copy(&cb), ::core::mem::transmute(&bstrinitdatatype))
@@ -7682,7 +7682,7 @@ impl ::windows::core::RuntimeName for IMFMediaEngineEx {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl IMFMediaEngineEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>() -> IMFMediaEngineEx_Vtbl {
-        unsafe extern "system" fn SetSourceFromByteStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn SetSourceFromByteStream<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, purl: super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.SetSourceFromByteStream(::core::mem::transmute(&pbytestream), ::core::mem::transmute(&purl)).into()
@@ -8008,7 +8008,7 @@ impl ::windows::core::RuntimeName for IMFMediaEngineExtension {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineExtension_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineExtension_Impl, const OFFSET: isize>() -> IMFMediaEngineExtension_Vtbl {
-        unsafe extern "system" fn CanPlayType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioonly: super::super::Foundation::BOOL, mimetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CanPlayType<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, audioonly: super::super::Foundation::BOOL, mimetype: super::super::Foundation::BSTR, panswer: *mut MF_MEDIA_ENGINE_CANPLAY) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CanPlayType(::core::mem::transmute_copy(&audioonly), ::core::mem::transmute(&mimetype)) {
@@ -8019,7 +8019,7 @@ impl IMFMediaEngineExtension_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn BeginCreateObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbytestream: ::windows::core::RawPtr, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn BeginCreateObject<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrurl: super::super::Foundation::BSTR, pbytestream: ::windows::core::RawPtr, r#type: MF_OBJECT_TYPE, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.BeginCreateObject(::core::mem::transmute(&bstrurl), ::core::mem::transmute(&pbytestream), ::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&ppiunknowncancelcookie), ::core::mem::transmute(&pcallback), ::core::mem::transmute(&punkstate)).into()
@@ -8228,7 +8228,7 @@ impl IMFMediaEngineSrcElements_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn AddElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineSrcElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ptype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pmedia: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddElement<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineSrcElements_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purl: super::super::Foundation::BSTR, ptype: super::super::Foundation::BSTR, pmedia: super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddElement(::core::mem::transmute(&purl), ::core::mem::transmute(&ptype), ::core::mem::transmute(&pmedia)).into()
@@ -8262,7 +8262,7 @@ impl ::windows::core::RuntimeName for IMFMediaEngineSrcElementsEx {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaEngineSrcElementsEx_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineSrcElementsEx_Impl, const OFFSET: isize>() -> IMFMediaEngineSrcElementsEx_Vtbl {
-        unsafe extern "system" fn AddElementEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineSrcElementsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ptype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pmedia: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddElementEx<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaEngineSrcElementsEx_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, purl: super::super::Foundation::BSTR, ptype: super::super::Foundation::BSTR, pmedia: super::super::Foundation::BSTR, keysystem: super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.AddElementEx(::core::mem::transmute(&purl), ::core::mem::transmute(&ptype), ::core::mem::transmute(&pmedia), ::core::mem::transmute(&keysystem)).into()
@@ -8718,7 +8718,7 @@ impl IMFMediaKeySession2_Vtbl {
             let this = (*this).get_impl();
             this.get_KeyStatuses(::core::mem::transmute_copy(&pkeystatusesarray), ::core::mem::transmute_copy(&pusize)).into()
         }
-        unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsessionid: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pfloaded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Load<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrsessionid: super::super::Foundation::BSTR, pfloaded: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.Load(::core::mem::transmute(&bstrsessionid)) {
@@ -8729,7 +8729,7 @@ impl IMFMediaKeySession2_Vtbl {
                 ::core::result::Result::Err(err) => err.into(),
             }
         }
-        unsafe extern "system" fn GenerateRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initdatatype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbinitdata: *const u8, cb: u32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GenerateRequest<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySession2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, initdatatype: super::super::Foundation::BSTR, pbinitdata: *const u8, cb: u32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.GenerateRequest(::core::mem::transmute(&initdatatype), ::core::mem::transmute_copy(&pbinitdata), ::core::mem::transmute_copy(&cb)).into()
@@ -8780,7 +8780,7 @@ impl ::windows::core::RuntimeName for IMFMediaKeySessionNotify {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeySessionNotify_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySessionNotify_Impl, const OFFSET: isize>() -> IMFMediaKeySessionNotify_Vtbl {
-        unsafe extern "system" fn KeyMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySessionNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, message: *const u8, cb: u32) {
+        unsafe extern "system" fn KeyMessage<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySessionNotify_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, destinationurl: super::super::Foundation::BSTR, message: *const u8, cb: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.KeyMessage(::core::mem::transmute(&destinationurl), ::core::mem::transmute_copy(&message), ::core::mem::transmute_copy(&cb))
@@ -8816,7 +8816,7 @@ impl ::windows::core::RuntimeName for IMFMediaKeySessionNotify2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeySessionNotify2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySessionNotify2_Impl, const OFFSET: isize>() -> IMFMediaKeySessionNotify2_Vtbl {
-        unsafe extern "system" fn KeyMessage2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySessionNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbmessage: *const u8, cbmessage: u32) {
+        unsafe extern "system" fn KeyMessage2<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeySessionNotify2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, emessagetype: MF_MEDIAKEYSESSION_MESSAGETYPE, destinationurl: super::super::Foundation::BSTR, pbmessage: *const u8, cbmessage: u32) {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.KeyMessage2(::core::mem::transmute_copy(&emessagetype), ::core::mem::transmute(&destinationurl), ::core::mem::transmute_copy(&pbmessage), ::core::mem::transmute_copy(&cbmessage))
@@ -8903,7 +8903,7 @@ impl ::windows::core::RuntimeName for IMFMediaKeys {}
 #[cfg(feature = "Win32_Foundation")]
 impl IMFMediaKeys_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeys_Impl, const OFFSET: isize>() -> IMFMediaKeys_Vtbl {
-        unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mimetype: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, initdata: *const u8, cb: u32, customdata: *const u8, cbcustomdata: u32, notify: ::windows::core::RawPtr, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateSession<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaKeys_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, mimetype: super::super::Foundation::BSTR, initdata: *const u8, cb: u32, customdata: *const u8, cbcustomdata: u32, notify: ::windows::core::RawPtr, ppsession: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateSession(::core::mem::transmute(&mimetype), ::core::mem::transmute_copy(&initdata), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&customdata), ::core::mem::transmute_copy(&cbcustomdata), ::core::mem::transmute(&notify)) {
@@ -9466,7 +9466,7 @@ impl IMFMediaSourceExtension_Vtbl {
             let this = (*this).get_impl();
             this.SetDuration(::core::mem::transmute_copy(&duration)).into()
         }
-        unsafe extern "system" fn AddSourceBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSourceExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, pnotify: ::windows::core::RawPtr, ppsourcebuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn AddSourceBuffer<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSourceExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: super::super::Foundation::BSTR, pnotify: ::windows::core::RawPtr, ppsourcebuffer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.AddSourceBuffer(::core::mem::transmute(&r#type), ::core::mem::transmute(&pnotify)) {
@@ -9487,7 +9487,7 @@ impl IMFMediaSourceExtension_Vtbl {
             let this = (*this).get_impl();
             this.SetEndOfStream(::core::mem::transmute_copy(&error)).into()
         }
-        unsafe extern "system" fn IsTypeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSourceExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> super::super::Foundation::BOOL {
+        unsafe extern "system" fn IsTypeSupported<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMFMediaSourceExtension_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, r#type: super::super::Foundation::BSTR) -> super::super::Foundation::BOOL {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.IsTypeSupported(::core::mem::transmute(&r#type))

@@ -1241,7 +1241,7 @@ impl ::core::fmt::Debug for TypeName {
     }
 }
 unsafe impl ::windows::core::Abi for TypeName {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 unsafe impl ::windows::core::RuntimeType for TypeName {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.UI.Xaml.Interop.TypeName;string;enum(Windows.UI.Xaml.Interop.TypeKind;i4))");

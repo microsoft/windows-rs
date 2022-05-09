@@ -703,7 +703,7 @@ impl ::core::fmt::Debug for CONFIRMSAFETY {
     }
 }
 unsafe impl ::windows::core::Abi for CONFIRMSAFETY {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for CONFIRMSAFETY {
     fn eq(&self, other: &Self) -> bool {
@@ -1023,7 +1023,7 @@ pub unsafe fn CopyBindInfo(pcbisrc: *const super::BINDINFO) -> ::windows::core::
         extern "system" {
             fn CopyBindInfo(pcbisrc: *const super::BINDINFO, pbidest: *mut super::BINDINFO) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::BINDINFO>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<super::BINDINFO>::zeroed();
         CopyBindInfo(::core::mem::transmute(pcbisrc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::BINDINFO>(result__)
     }
     #[cfg(not(windows))]
@@ -1039,7 +1039,7 @@ pub unsafe fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM) -> ::windows::
         extern "system" {
             fn CopyStgMedium(pcstgmedsrc: *const super::STGMEDIUM, pstgmeddest: *mut super::STGMEDIUM) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::STGMEDIUM>>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<super::STGMEDIUM>::zeroed();
         CopyStgMedium(::core::mem::transmute(pcstgmedsrc), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::STGMEDIUM>(result__)
     }
     #[cfg(not(windows))]
@@ -5778,7 +5778,7 @@ impl ::core::fmt::Debug for PROTOCOLFILTERDATA {
     }
 }
 unsafe impl ::windows::core::Abi for PROTOCOLFILTERDATA {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for PROTOCOLFILTERDATA {
     fn eq(&self, other: &Self) -> bool {
@@ -6169,7 +6169,7 @@ impl ::core::fmt::Debug for RemBINDINFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RemBINDINFO {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RemBINDINFO {
@@ -6415,7 +6415,7 @@ impl ::core::fmt::Debug for StartParam {
     }
 }
 unsafe impl ::windows::core::Abi for StartParam {
-    type Abi = ::core::mem::ManuallyDrop<Self>;
+    type Abi = Self;
 }
 impl ::core::cmp::PartialEq for StartParam {
     fn eq(&self, other: &Self) -> bool {

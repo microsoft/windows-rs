@@ -678,7 +678,7 @@ impl ::windows::core::RuntimeName for IActiveScriptHostEncode {}
 #[cfg(feature = "Win32_Foundation")]
 impl IActiveScriptHostEncode_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptHostEncode_Impl, const OFFSET: isize>() -> IActiveScriptHostEncode_Vtbl {
-        unsafe extern "system" fn EncodeScriptHostFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptHostEncode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfile: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pbstroutfile: *mut super::super::super::Foundation::BSTR, cflags: u32, bstrdefaultlang: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn EncodeScriptHostFile<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptHostEncode_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bstrinfile: super::super::super::Foundation::BSTR, pbstroutfile: *mut super::super::super::Foundation::BSTR, cflags: u32, bstrdefaultlang: super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.EncodeScriptHostFile(::core::mem::transmute(&bstrinfile), ::core::mem::transmute_copy(&pbstroutfile), ::core::mem::transmute_copy(&cflags), ::core::mem::transmute(&bstrdefaultlang)).into()
@@ -1594,7 +1594,7 @@ impl ::windows::core::RuntimeName for IActiveScriptStringCompare {}
 #[cfg(feature = "Win32_Foundation")]
 impl IActiveScriptStringCompare_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptStringCompare_Impl, const OFFSET: isize>() -> IActiveScriptStringCompare_Vtbl {
-        unsafe extern "system" fn StrComp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptStringCompare_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszstr1: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, bszstr2: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, iret: *mut i32) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn StrComp<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IActiveScriptStringCompare_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, bszstr1: super::super::super::Foundation::BSTR, bszstr2: super::super::super::Foundation::BSTR, iret: *mut i32) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.StrComp(::core::mem::transmute(&bszstr1), ::core::mem::transmute(&bszstr2)) {
