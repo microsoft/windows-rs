@@ -14,11 +14,13 @@ pub fn gen() -> TokenStream {
         }
         impl ::core::convert::From<IN6_ADDR> for ::std::net::Ipv6Addr {
             fn from(in6_addr: IN6_ADDR) -> Self {
+                // SAFETY: this is safe because the union variants are just views of the same exact data
                 Self::from( unsafe { in6_addr.u.Byte } )
             }
         }
         impl ::core::convert::From<&IN6_ADDR> for ::std::net::Ipv6Addr {
             fn from(in6_addr: &IN6_ADDR) -> Self {
+                // SAFETY: this is safe because the union variants are just views of the same exact data
                 Self::from( unsafe { in6_addr.u.Byte } )
             }
         }

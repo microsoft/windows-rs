@@ -14,11 +14,13 @@ pub fn gen() -> TokenStream {
         }
         impl ::core::convert::From<IN_ADDR> for ::std::net::Ipv4Addr {
             fn from(in_addr: IN_ADDR) -> Self {
+                // SAFETY: this is safe because the union variants are just views of the same exact data
                 Self::from( unsafe { in_addr.S_un.S_addr } )
             }
         }
         impl ::core::convert::From<&IN_ADDR> for  ::std::net::Ipv4Addr{
             fn from(in_addr: &IN_ADDR) -> Self {
+                // SAFETY: this is safe because the union variants are just views of the same exact data
                 Self::from( unsafe { in_addr.S_un.S_addr } )
             }
         }

@@ -4,22 +4,22 @@ pub fn gen() -> TokenStream {
     quote! {
         impl ::core::convert::From<::std::net::SocketAddrV4> for SOCKADDR_INET {
             fn from(addr: ::std::net::SocketAddrV4) -> Self {
-                SOCKADDR_INET {                    Ipv4: addr.into()                }
+                SOCKADDR_INET { Ipv4: addr.into() }
             }
         }
         impl ::core::convert::From<&::std::net::SocketAddrV4> for SOCKADDR_INET {
             fn from(addr: &::std::net::SocketAddrV4) -> Self {
-                SOCKADDR_INET {                    Ipv4: addr.into()                }
+                SOCKADDR_INET { Ipv4: addr.into() }
             }
         }
         impl ::core::convert::From<::std::net::SocketAddrV6> for SOCKADDR_INET {
             fn from(addr: ::std::net::SocketAddrV6) -> Self {
-                SOCKADDR_INET {                    Ipv6: addr.into()                }
+                SOCKADDR_INET { Ipv6: addr.into() }
             }
         }
         impl ::core::convert::From<&::std::net::SocketAddrV6> for SOCKADDR_INET {
             fn from(addr: &::std::net::SocketAddrV6) -> Self {
-                SOCKADDR_INET {                    Ipv6: addr.into()                }
+                SOCKADDR_INET { Ipv6: addr.into() }
             }
         }
         impl ::core::convert::From<::std::net::SocketAddr> for SOCKADDR_INET {
