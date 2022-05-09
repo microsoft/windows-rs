@@ -60,16 +60,16 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     unsafe { ::core::mem::transmute_copy(&vtable_ptr) }
                 }
             }
-            impl <#constraints> ::windows::core::ToImpl<#original_ident::<#(#generics,)*>> for #interface_ident {
+            impl <#constraints> ::windows::core::AsImpl<#original_ident::<#(#generics,)*>> for #interface_ident {
                 fn as_impl(&self) -> &#original_ident::<#(#generics,)*> {
                     let this = ::windows::core::Interface::as_raw(self);
-                    // SAFETY: the offset is guranteed to be in bounds, and the implementation struct 
+                    // SAFETY: the offset is guranteed to be in bounds, and the implementation struct
                     // is guaranteed to live at least as long as `self`.
-                    unsafe { 
-                        // Subtract away the vtable offset plus 2 (for the `base` and `identity` fields) to get 
+                    unsafe {
+                        // Subtract away the vtable offset plus 2 (for the `base` and `identity` fields) to get
                         // to the impl struct which contains that original implementation type.
                         let this = (this as *mut ::windows::core::RawPtr).sub(2 + #offset) as *mut #impl_ident::<#(#generics,)*>;
-                        &(*this).this 
+                        &(*this).this
                     }
                 }
             }
