@@ -5,11 +5,13 @@ use super::*;
 /// # Safety
 ///
 /// * The associated type `Abi` must be safe to transfer over FFI boundaries (e.g., it must have a stable layout)
-///     * The type must also be trivially droppable. For non-trivially droppable types consider wrapping in `ManuallyDrop`
+///     * The type must also be trivially droppable. For non-trivially droppable types consider wrapping in `ManuallyDrop`.
+///       This ensures that when the type is passed over an FFI boundary, the `Drop` impl is not called.
 /// * It must be legal for `Abi` to be all zeros
+///     * This allows for outparams across the FFI boundary to be initialized as zero.
 /// * `from_abi` must be implemented if there are any in-memory representations of `Abi` that are not valid representations of `Self`.
-///   `from_abi` must then check for this illegal representations and return an error if they are found.
-///   * For example, size `Abi` can be all zeros, if `Self` cannot be, then `from_abi` must check for all zeros and return an error if found.
+///     * `from_abi` must then check for this illegal representations and return an error if they are found.
+///     * For example, since `Abi` can be all zeros, if `Self` cannot be, then `from_abi` must check for all zeros and return an error if found.
 #[doc(hidden)]
 pub unsafe trait Abi: Sized {
     /// The type used to represent `Self` across FFI boundaries
@@ -20,8 +22,6 @@ pub unsafe trait Abi: Sized {
     /// # Safety
     ///
     /// This function is safe to call if `abi` can safely be trivial transmuted to `Self`.
-    /// Note that if `abi`'s drop implementation will be run. If this is incorrect for `Self`,
-    /// consider a custom implementation of `from_abi`.
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(core::mem::transmute_copy(&abi))
     }
