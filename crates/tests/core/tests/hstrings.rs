@@ -175,6 +175,7 @@ fn hstring_compat() -> Result<()> {
         assert_eq!(WindowsGetStringLen(&world), 5);
         assert_eq!(WindowsGetStringLen("World"), 5);
 
+        assert_eq!(WindowsIsStringEmpty(HSTRING::new()), true);
         assert_eq!(WindowsIsStringEmpty(""), true);
         assert_eq!(WindowsIsStringEmpty(&world), false);
         assert_eq!(WindowsIsStringEmpty("World"), false);
