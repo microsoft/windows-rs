@@ -7,19 +7,19 @@ fn hstring_works() {
     assert!(empty.is_empty());
     assert!(empty.is_empty());
 
-    let mut hey = HSTRING::from("Hello");
-    assert!(!hey.is_empty());
-    assert!(hey.len() == 5);
+    let mut hello = HSTRING::from("Hello");
+    assert!(!hello.is_empty());
+    assert!(hello.len() == 5);
 
-    let rust = hey.to_string();
+    let rust = hello.to_string();
     assert!(rust == "Hello");
     assert!(rust.len() == 5);
 
-    let hello2 = hey.clone();
-    hey.clear();
-    assert!(hey.is_empty());
-    hey.clear();
-    assert!(hey.is_empty());
+    let hello2 = hello.clone();
+    hello.clear();
+    assert!(hello.is_empty());
+    hello.clear();
+    assert!(hello.is_empty());
     assert!(!hello2.is_empty());
     assert!(hello2.len() == 5);
 
@@ -183,7 +183,7 @@ fn hstring_compat() -> Result<()> {
         let buffer = WindowsGetStringRawBuffer(&world, &mut len);
         assert_eq!(std::slice::from_raw_parts(buffer.0, len as _), world.as_wide());
 
-        // We need to drop to windows-sys to call the raw WindowsDeleteString function to double-freeing the HSTRING,
+        // We need to drop to windows-sys to call the raw WindowsDeleteString function to avoid double-freeing the HSTRING,
         // but this test is important as it ensures that the allocators match.
         let hresult = windows_sys::Win32::System::WinRT::WindowsDeleteString(std::mem::transmute_copy(&*std::mem::ManuallyDrop::new(hey)));
         assert_eq!(hresult, 0);
