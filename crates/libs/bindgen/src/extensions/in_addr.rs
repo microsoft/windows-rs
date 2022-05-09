@@ -12,14 +12,14 @@ pub fn gen() -> TokenStream {
                 Self { S_un: IN_ADDR_0 { S_addr: u32::from(*addr) } }
             }
         }
-        impl ::core::convert::Into<::std::net::Ipv4Addr> for &IN_ADDR {
-            fn into(self) -> ::std::net::Ipv4Addr {
-                ::std::net::Ipv4Addr::from( unsafe { self.S_un.S_addr } )
+        impl ::core::convert::From<IN_ADDR> for ::std::net::Ipv4Addr {
+            fn from(in_addr: IN_ADDR) -> Self {
+                Self::from( unsafe { in_addr.S_un.S_addr } )
             }
         }
-        impl ::core::convert::Into<::std::net::Ipv4Addr> for IN_ADDR {
-            fn into(self) -> ::std::net::Ipv4Addr {
-                ::std::net::Ipv4Addr::from( unsafe { self.S_un.S_addr } )
+        impl ::core::convert::From<&IN_ADDR> for  ::std::net::Ipv4Addr{
+            fn from(in_addr: &IN_ADDR) -> Self {
+                Self::from( unsafe { in_addr.S_un.S_addr } )
             }
         }
     }
