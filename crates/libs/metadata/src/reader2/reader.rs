@@ -190,6 +190,7 @@ impl<'a> Reader<'a> {
             Type::U64 => Value::U64(blob.read_u64()),
             Type::F32 => Value::F32(blob.read_f32()),
             Type::F64 => Value::F64(blob.read_f64()),
+            Type::String => Value::String(blob.read_string()),
             _ => unimplemented!(),
         }
     }
@@ -801,15 +802,42 @@ impl<'a> Reader<'a> {
         self.cfg_add_attributes(&mut cfg, self.type_def_attributes(row));
         cfg
     }
-    fn type_def_cfg_impl(&self, _row: TypeDef, _generics: &[Type]) -> Cfg {
-        todo!()
-    }
-    fn type_def_cfg_combine(&self, _row: TypeDef, _generics: &[Type], _cfg: &mut Cfg) {
-        // for generic in &self.generics {
-        //     self.type_cfg_combine(generic, cfg);
-        // }
+    fn type_def_cfg_impl(&self, def: TypeDef, generics: &[Type]) -> Cfg {
+        let mut cfg = Cfg::default();
 
-        // if cfg.types.entry(self.type_def_namespace(row).or_default().insert(row) {
+        fn combine<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type], cfg: &'a mut Cfg) {
+           reader.type_def_cfg_combine(def, generics, cfg);
+
+            for method in reader.type_def_methods(def) {
+                reader.method_def_cfg_combine(method, cfg);
+            }
+        }
+
+        combine(self, def, generics, &mut cfg);
+
+        for def in self.type_def_vtables(def) {
+            if let Type::TypeDef((def, generics)) = def {
+                combine(self, def, &generics, &mut cfg);
+            }
+        }
+
+        if self.type_def_flags(def).winrt() {
+            for interface in self.type_def_interfaces(def, generics) {
+                if let Type::TypeDef((def, generics)) = interface.ty {
+                combine(self, def, &generics, &mut cfg);
+                }
+            }
+        }
+
+        self.cfg_add_attributes(&mut cfg, self.type_def_attributes(def));
+        cfg
+    }
+    fn type_def_cfg_combine(&self, row: TypeDef, generics: &[Type], cfg: &mut Cfg) {
+        for generic in generics {
+            self.type_cfg_combine(generic, cfg);
+        }
+
+         if cfg.types.entry(self.type_def_namespace(row).to_string()).or_default().insert(row) {
         //     match self.type_def_kind(row) {
         //         TypeKind::Class => {
         //             if let Some(Type::TypeDef(row, _)) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).filter(|interface|interface.ty) {
@@ -839,7 +867,7 @@ impl<'a> Reader<'a> {
         //         TypeKind::Delegate => self.invoke_method().combine_cfg(cfg),
         //         _ => {}
         //     }
-        // }
+         }
     }
     pub fn type_def_vtables(&self, row: TypeDef) -> Vec<Type> {
         let mut result = Vec::new();
@@ -986,7 +1014,7 @@ impl<'a> Reader<'a> {
                     }
                 }
                 "DeprecatedAttribute" => {
-                    cfg.types.entry("deprecated").or_default();
+                    cfg.add_feature("deprecated");
                 }
                 _ => {}
             }

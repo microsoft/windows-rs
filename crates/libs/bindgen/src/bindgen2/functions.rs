@@ -2,14 +2,7 @@ use super::*;
 
 pub fn gen(gen: &Gen, def: MethodDef) -> TokenStream {
     if gen.sys {
-        let function = gen_sys_function(gen, def);
-
-        quote! {
-            #[link(name = "windows")]
-            extern "system" {
-                #function
-            }
-        }
+        gen_sys_function(gen, def)
     } else {
         gen_win_function(gen, def)
     }
@@ -82,6 +75,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                 #features
                 #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(#params) -> ::windows::core::Result<T> {
+                    // TODO: do we still need this cfg os split?
                     #[cfg(windows)]
                     {
                         #link_attr

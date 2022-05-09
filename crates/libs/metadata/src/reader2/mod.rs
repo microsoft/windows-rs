@@ -163,23 +163,24 @@ pub struct SignatureParam {
 }
 
 #[derive(Default, Clone)]
-pub struct Cfg<'a> {
-    pub types: BTreeMap<&'a str, BTreeSet<Row>>,
+pub struct Cfg {
+    // TODO: use String for now and maybe StringRef if that's too slow
+    pub types: BTreeMap<String, BTreeSet<TypeDef>>,
     pub arches: BTreeSet<&'static str>,
 }
 
 // TODO: get rid of this
-impl<'a> Cfg<'a> {
-    pub fn add_feature(&mut self, feature: &'a str) {
-        self.types.entry(feature).or_default();
+impl Cfg {
+    pub fn add_feature(&mut self, feature: &str) {
+        self.types.entry(feature.to_string()).or_default();
     }
     pub fn union(&self, other: &Self) -> Self {
         let mut union = Self::default();
         self.types.keys().for_each(|feature| {
-            union.types.entry(feature).or_default();
+            union.types.entry(feature.clone()).or_default();
         });
         other.types.keys().for_each(|feature| {
-            union.types.entry(feature).or_default();
+            union.types.entry(feature.clone()).or_default();
         });
         self.arches.iter().for_each(|arch| {
             union.arches.insert(arch);

@@ -35,13 +35,17 @@ impl<'a> Gen<'a> {
     // Definitions
     //
 
-    pub(crate) fn define(&self, def: TypeDef) -> TokenStream {
+    pub(crate) fn define(&self, def: TypeDef) -> Option<TokenStream> {
         match self.reader.type_def_kind(def) {
-            TypeKind::Class => classes::gen(self, def),
-            TypeKind::Interface => interfaces::gen(self, def),
-            TypeKind::Enum => enums::gen(self, def),
-            TypeKind::Struct => structs::gen(self, def),
-            TypeKind::Delegate => delegates::gen(self, def),
+            TypeKind::Class => if self.reader.type_def_flags(def).winrt() {
+                Some(classes::gen(self, def))
+            } else {
+                None
+            },
+            TypeKind::Interface => Some(interfaces::gen(self, def)),
+            TypeKind::Enum => Some(enums::gen(self, def)),
+            TypeKind::Struct => Some(structs::gen(self, def)),
+            TypeKind::Delegate => Some(delegates::gen(self, def)),
         }
     }
 

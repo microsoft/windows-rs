@@ -9,7 +9,7 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
 
     if let Some(constant) = gen.reader.field_constant(def) {
         if ty == gen.reader.constant_type(constant) {
-            let value = gen.value(&gen.reader.constant_value(constant));
+            let value = gen.typed_value(&gen.reader.constant_value(constant));
             quote! {
                 #doc
                 #features
