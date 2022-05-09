@@ -39,7 +39,7 @@ impl IUserDataAccountProviderOperation {
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderOperationKind>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderOperationKind>::zeroed();
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
@@ -153,7 +153,7 @@ impl UserDataAccountPartnerAccountInfo {
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).DisplayName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -161,7 +161,7 @@ impl UserDataAccountPartnerAccountInfo {
     pub fn Priority(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<u32>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
             (::windows::core::Interface::vtable(this).Priority)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
@@ -169,7 +169,7 @@ impl UserDataAccountPartnerAccountInfo {
     pub fn AccountKind(&self) -> ::windows::core::Result<UserDataAccountProviderPartnerAccountKind> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderPartnerAccountKind>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderPartnerAccountKind>::zeroed();
             (::windows::core::Interface::vtable(this).AccountKind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataAccountProviderPartnerAccountKind>(result__)
         }
     }
@@ -254,7 +254,7 @@ impl UserDataAccountProviderAddAccountOperation {
     pub fn ContentKinds(&self) -> ::windows::core::Result<super::UserDataAccountContentKinds> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::UserDataAccountContentKinds>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<super::UserDataAccountContentKinds>::zeroed();
             (::windows::core::Interface::vtable(this).ContentKinds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UserDataAccountContentKinds>(result__)
         }
     }
@@ -263,7 +263,7 @@ impl UserDataAccountProviderAddAccountOperation {
     pub fn PartnerAccountInfos(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
             (::windows::core::Interface::vtable(this).PartnerAccountInfos)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>>(result__)
         }
     }
@@ -276,7 +276,7 @@ impl UserDataAccountProviderAddAccountOperation {
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderOperationKind>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderOperationKind>::zeroed();
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
@@ -452,7 +452,7 @@ impl UserDataAccountProviderResolveErrorsOperation {
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderOperationKind>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderOperationKind>::zeroed();
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
@@ -460,7 +460,7 @@ impl UserDataAccountProviderResolveErrorsOperation {
     pub fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).UserDataAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -572,7 +572,7 @@ impl UserDataAccountProviderSettingsOperation {
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderOperationKind>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<UserDataAccountProviderOperationKind>::zeroed();
             (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
@@ -580,7 +580,7 @@ impl UserDataAccountProviderSettingsOperation {
     pub fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).UserDataAccountId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }

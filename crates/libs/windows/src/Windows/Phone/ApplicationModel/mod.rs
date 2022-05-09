@@ -4,7 +4,7 @@ impl ApplicationProfile {
     #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {
         Self::IApplicationProfileStatics(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<ApplicationProfileModes>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<ApplicationProfileModes>::zeroed();
             (::windows::core::Interface::vtable(this).Modes)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ApplicationProfileModes>(result__)
         })
     }

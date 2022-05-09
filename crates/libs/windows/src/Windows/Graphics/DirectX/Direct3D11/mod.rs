@@ -305,7 +305,7 @@ impl IDirect3DSurface {
     pub fn Description(&self) -> ::windows::core::Result<Direct3DSurfaceDescription> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<Direct3DSurfaceDescription>::uninit();
+            let mut result__ = ::core::mem::MaybeUninit::<Direct3DSurfaceDescription>::zeroed();
             (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Direct3DSurfaceDescription>(result__)
         }
     }

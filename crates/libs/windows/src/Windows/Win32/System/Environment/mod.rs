@@ -251,7 +251,7 @@ pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32) -> ::windows::c
         extern "system" {
             fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<ENCLAVE_INFORMATION>::uninit();
+        let mut result__ = ::core::mem::MaybeUninit::<ENCLAVE_INFORMATION>::zeroed();
         EnclaveGetEnclaveInformation(::core::mem::transmute(informationsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ENCLAVE_INFORMATION>(result__)
     }
     #[cfg(not(windows))]

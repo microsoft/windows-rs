@@ -1859,7 +1859,7 @@ pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows::core::Result<
         extern "system" {
             fn GetMachineTypeAttributes(machine: u16, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<MACHINE_ATTRIBUTES>::uninit();
+        let mut result__ = ::core::mem::MaybeUninit::<MACHINE_ATTRIBUTES>::zeroed();
         GetMachineTypeAttributes(::core::mem::transmute(machine), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MACHINE_ATTRIBUTES>(result__)
     }
     #[cfg(not(windows))]
@@ -2381,7 +2381,7 @@ pub unsafe fn GetThreadDescription<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn GetThreadDescription(hthread: super::super::Foundation::HANDLE, ppszthreaddescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::uninit();
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
         GetThreadDescription(hthread.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[cfg(not(windows))]

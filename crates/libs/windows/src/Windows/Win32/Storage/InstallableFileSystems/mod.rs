@@ -625,7 +625,7 @@ pub unsafe fn FilterConnectCommunicationPort<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn FilterConnectCommunicationPort(lpportname: ::windows::core::PCWSTR, dwoptions: u32, lpcontext: *const ::core::ffi::c_void, wsizeofcontext: u16, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, hport: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::uninit();
+        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::HANDLE>::zeroed();
         FilterConnectCommunicationPort(lpportname.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(lpcontext), ::core::mem::transmute(wsizeofcontext), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
@@ -640,7 +640,7 @@ pub unsafe fn FilterCreate<'a, Param0: ::windows::core::IntoParam<'a, ::windows:
         extern "system" {
             fn FilterCreate(lpfiltername: ::windows::core::PCWSTR, hfilter: *mut HFILTER) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<HFILTER>::uninit();
+        let mut result__ = ::core::mem::MaybeUninit::<HFILTER>::zeroed();
         FilterCreate(lpfiltername.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HFILTER>(result__)
     }
     #[cfg(not(windows))]
@@ -797,7 +797,7 @@ pub unsafe fn FilterInstanceCreate<'a, Param0: ::windows::core::IntoParam<'a, ::
         extern "system" {
             fn FilterInstanceCreate(lpfiltername: ::windows::core::PCWSTR, lpvolumename: ::windows::core::PCWSTR, lpinstancename: ::windows::core::PCWSTR, hinstance: *mut HFILTER_INSTANCE) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<HFILTER_INSTANCE>::uninit();
+        let mut result__ = ::core::mem::MaybeUninit::<HFILTER_INSTANCE>::zeroed();
         FilterInstanceCreate(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HFILTER_INSTANCE>(result__)
     }
     #[cfg(not(windows))]
