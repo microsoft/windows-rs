@@ -41,8 +41,12 @@ impl<'a> Reader<'a> {
     // Hash functions for fast type lookup
     //
 
-    pub fn namespace_types(&self, namespace: &str) -> impl Iterator<Item = TypeDef> + '_ {
-        self.types[namespace].values().flatten().copied()
+    // TODO: do this same Option trick for other iterators below.
+    pub fn namespace_types(&self, namespace: &str) -> Option<impl Iterator<Item = TypeDef> + '_> {
+        if let Some(types) = self.types.get(namespace) {
+            return Some(types.values().flatten().copied());
+        }
+        None
     }
     pub fn nested_types(&'a self, type_def: TypeDef) -> Vec<TypeDef> {
         // TODO: shouldn't have to collect, like we do in the `get` function below...
@@ -838,35 +842,35 @@ impl<'a> Reader<'a> {
         }
 
          if cfg.types.entry(self.type_def_namespace(row).to_string()).or_default().insert(row) {
-        //     match self.type_def_kind(row) {
-        //         TypeKind::Class => {
-        //             if let Some(Type::TypeDef(row, _)) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).filter(|interface|interface.ty) {
-        //                 cfg.types.entry(self.type_def_namespace(row).or_default());
-        //             }
-        //         }
-        //         TypeKind::Interface => {
-        //             if !self.type_def_flags(row).winrt() {
-        //                 for def in self.vtable_types() {
-        //                     if let Type::TypeDef(def) = def {
-        //                         cfg.add_feature(def.namespace());
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //         TypeKind::Struct => {
-        //             self.fields().for_each(|field| field.combine_cfg(Some(self), cfg));
-
-        //             if let Some(entry) = TypeReader::get().get_type_entry(self.type_name()) {
-        //                 for def in entry {
-        //                     if let Type::TypeDef(def) = def {
-        //                         def.combine_cfg(cfg);
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //         TypeKind::Delegate => self.invoke_method().combine_cfg(cfg),
-        //         _ => {}
-        //     }
+            match self.type_def_kind(row) {
+                TypeKind::Class => {
+                    if let Some(Type::TypeDef((row, _))) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).map(|interface|interface.ty) {
+                        cfg.add_feature(self.type_def_namespace(row));
+                    }
+                }
+                TypeKind::Interface => {
+                    if !self.type_def_flags(row).winrt() {
+                        for def in self.type_def_vtables(row) {
+                            if let Type::TypeDef((def, _)) = def {
+                                cfg.add_feature(self.type_def_namespace(def));
+                            }
+                        }
+                    }
+                }
+                TypeKind::Struct => {
+                    self.type_def_fields(row).for_each(|field| self.field_cfg_combine(field, Some(row), cfg));
+                    let type_name = self.type_def_type_name(row);
+                    if !type_name.namespace.is_empty() {
+                        for def in self.get(type_name) {
+                            if def != row {
+                                self.type_def_cfg_combine(def, &[], cfg);
+                            }
+                        }
+                    }
+                }
+                TypeKind::Delegate => self.method_def_cfg_combine(self.type_def_invoke_method(row), cfg),
+                _ => {}
+            }
          }
     }
     pub fn type_def_vtables(&self, row: TypeDef) -> Vec<Type> {

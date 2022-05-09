@@ -5,11 +5,14 @@ const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 
 fn main() {
     let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
-    // TODO: remove exclusion once testing is stable
-    //let _ = std::fs::remove_dir_all(&output);
+    let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let files = vec![metadata::reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap()];
+    let files = vec![
+        metadata::reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), 
+        metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
+        metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap(),
+    ];
     let reader = &metadata::reader2::Reader::new(&files);
     let root = &reader.tree().nested["Windows"];
 
@@ -95,13 +98,10 @@ deprecated = []
 }
 
 fn gen_tree(reader: &metadata::reader2::Reader, output: &std::path::Path, tree: &metadata::reader2::Tree) {
-    // TODO: remove exclusion once this namespace is stable
-    if tree.namespace != "Windows.Win32.System.Com" {
-        return;
-    }
     let mut path = std::path::PathBuf::from(output);
 
     path.push(tree.namespace.replace('.', "/"));
+    std::fs::create_dir_all(&path).unwrap();
     path.push("mod.rs");
 
     let mut gen = bindgen::bindgen2::Gen::new(reader);
