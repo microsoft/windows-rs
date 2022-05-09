@@ -97,8 +97,8 @@ impl AccessKeyDisplayRequestedEventArgs {
     pub fn PressedKeys(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PressedKeys)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::uninit();
+            (::windows::core::Interface::vtable(this).PressedKeys)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -189,8 +189,8 @@ impl AccessKeyInvokedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -278,16 +278,16 @@ impl AccessKeyManager {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn IsDisplayModeEnabled() -> ::windows::core::Result<bool> {
         Self::IAccessKeyManagerStatics(|this| unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDisplayModeEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).IsDisplayModeEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn IsDisplayModeEnabledChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<::windows::core::IInspectable, ::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IAccessKeyManagerStatics(|this| unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsDisplayModeEnabledChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).IsDisplayModeEnabledChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -302,8 +302,8 @@ impl AccessKeyManager {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn AreKeyTipsEnabled() -> ::windows::core::Result<bool> {
         Self::IAccessKeyManagerStatics2(|this| unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AreKeyTipsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).AreKeyTipsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -401,16 +401,16 @@ impl CanExecuteRequestedEventArgs {
     pub fn Parameter(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parameter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::uninit();
+            (::windows::core::Interface::vtable(this).Parameter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CanExecute(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanExecute)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).CanExecute)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -499,8 +499,8 @@ impl CharacterReceivedRoutedEventArgs {
     pub fn Character(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Character)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::uninit();
+            (::windows::core::Interface::vtable(this).Character)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"UI_Core\"`*"]
@@ -508,16 +508,16 @@ impl CharacterReceivedRoutedEventArgs {
     pub fn KeyStatus(&self) -> ::windows::core::Result<super::super::Core::CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Core::CorePhysicalKeyStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Core::CorePhysicalKeyStatus>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Core::CorePhysicalKeyStatus>::uninit();
+            (::windows::core::Interface::vtable(this).KeyStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Core::CorePhysicalKeyStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -633,8 +633,8 @@ impl ContextRequestedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -647,8 +647,8 @@ impl ContextRequestedEventArgs {
     pub fn TryGetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, relativeto: Param0, point: &mut super::super::super::Foundation::Point) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryGetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), point, &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).TryGetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), point, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -845,16 +845,16 @@ impl DoubleTappedRoutedEventArgs {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -867,8 +867,8 @@ impl DoubleTappedRoutedEventArgs {
     pub fn GetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, relativeto: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::uninit();
+            (::windows::core::Interface::vtable(this).GetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -972,8 +972,8 @@ impl ExecuteRequestedEventArgs {
     pub fn Parameter(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Parameter)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::uninit();
+            (::windows::core::Interface::vtable(this).Parameter)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -1064,8 +1064,8 @@ impl FindNextElementOptions {
     pub fn SearchRoot(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SearchRoot)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).SearchRoot)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -1078,8 +1078,8 @@ impl FindNextElementOptions {
     pub fn ExclusionRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExclusionRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Rect>::uninit();
+            (::windows::core::Interface::vtable(this).ExclusionRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -1093,8 +1093,8 @@ impl FindNextElementOptions {
     pub fn HintRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HintRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Rect>::uninit();
+            (::windows::core::Interface::vtable(this).HintRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -1107,8 +1107,8 @@ impl FindNextElementOptions {
     pub fn XYFocusNavigationStrategyOverride(&self) -> ::windows::core::Result<XYFocusNavigationStrategyOverride> {
         let this = self;
         unsafe {
-            let mut result__: XYFocusNavigationStrategyOverride = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).XYFocusNavigationStrategyOverride)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<XYFocusNavigationStrategyOverride>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<XYFocusNavigationStrategyOverride>::uninit();
+            (::windows::core::Interface::vtable(this).XYFocusNavigationStrategyOverride)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<XYFocusNavigationStrategyOverride>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -1234,97 +1234,97 @@ impl FocusManager {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn GetFocusedElement() -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IFocusManagerStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetFocusedElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::uninit();
+            (::windows::core::Interface::vtable(this).GetFocusedElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn TryMoveFocus(focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<bool> {
         Self::IFocusManagerStatics2(|this| unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveFocus)(::windows::core::Interface::as_raw(this), focusnavigationdirection, &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).TryMoveFocus)(::windows::core::Interface::as_raw(this), focusnavigationdirection, result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn FindNextFocusableElement(focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::UIElement> {
         Self::IFocusManagerStatics3(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindNextFocusableElement)(::windows::core::Interface::as_raw(this), focusnavigationdirection, &mut result__).from_abi::<super::UIElement>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).FindNextFocusableElement)(::windows::core::Interface::as_raw(this), focusnavigationdirection, result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FindNextFocusableElementWithHint<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(focusnavigationdirection: FocusNavigationDirection, hintrect: Param1) -> ::windows::core::Result<super::UIElement> {
         Self::IFocusManagerStatics3(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindNextFocusableElementWithHint)(::windows::core::Interface::as_raw(this), focusnavigationdirection, hintrect.into_param().abi(), &mut result__).from_abi::<super::UIElement>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).FindNextFocusableElementWithHint)(::windows::core::Interface::as_raw(this), focusnavigationdirection, hintrect.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn TryMoveFocusWithOptions<'a, Param1: ::windows::core::IntoParam<'a, FindNextElementOptions>>(focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: Param1) -> ::windows::core::Result<bool> {
         Self::IFocusManagerStatics4(|this| unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveFocusWithOptions)(::windows::core::Interface::as_raw(this), focusnavigationdirection, focusnavigationoptions.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).TryMoveFocusWithOptions)(::windows::core::Interface::as_raw(this), focusnavigationdirection, focusnavigationoptions.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn FindNextElement(focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::DependencyObject> {
         Self::IFocusManagerStatics4(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindNextElement)(::windows::core::Interface::as_raw(this), focusnavigationdirection, &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).FindNextElement)(::windows::core::Interface::as_raw(this), focusnavigationdirection, result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn FindFirstFocusableElement<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(searchscope: Param0) -> ::windows::core::Result<super::DependencyObject> {
         Self::IFocusManagerStatics4(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindFirstFocusableElement)(::windows::core::Interface::as_raw(this), searchscope.into_param().abi(), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).FindFirstFocusableElement)(::windows::core::Interface::as_raw(this), searchscope.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn FindLastFocusableElement<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(searchscope: Param0) -> ::windows::core::Result<super::DependencyObject> {
         Self::IFocusManagerStatics4(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindLastFocusableElement)(::windows::core::Interface::as_raw(this), searchscope.into_param().abi(), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).FindLastFocusableElement)(::windows::core::Interface::as_raw(this), searchscope.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn FindNextElementWithOptions<'a, Param1: ::windows::core::IntoParam<'a, FindNextElementOptions>>(focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: Param1) -> ::windows::core::Result<super::DependencyObject> {
         Self::IFocusManagerStatics4(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FindNextElementWithOptions)(::windows::core::Interface::as_raw(this), focusnavigationdirection, focusnavigationoptions.into_param().abi(), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).FindNextElementWithOptions)(::windows::core::Interface::as_raw(this), focusnavigationdirection, focusnavigationoptions.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryFocusAsync<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(element: Param0, value: super::FocusState) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>> {
         Self::IFocusManagerStatics5(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryFocusAsync)(::windows::core::Interface::as_raw(this), element.into_param().abi(), value, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).TryFocusAsync)(::windows::core::Interface::as_raw(this), element.into_param().abi(), value, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryMoveFocusAsync(focusnavigationdirection: FocusNavigationDirection) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>> {
         Self::IFocusManagerStatics5(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveFocusAsync)(::windows::core::Interface::as_raw(this), focusnavigationdirection, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).TryMoveFocusAsync)(::windows::core::Interface::as_raw(this), focusnavigationdirection, result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn TryMoveFocusWithOptionsAsync<'a, Param1: ::windows::core::IntoParam<'a, FindNextElementOptions>>(focusnavigationdirection: FocusNavigationDirection, focusnavigationoptions: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>> {
         Self::IFocusManagerStatics5(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryMoveFocusWithOptionsAsync)(::windows::core::Interface::as_raw(this), focusnavigationdirection, focusnavigationoptions.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).TryMoveFocusWithOptionsAsync)(::windows::core::Interface::as_raw(this), focusnavigationdirection, focusnavigationoptions.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::IAsyncOperation<FocusMovementResult>>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn GotFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<FocusManagerGotFocusEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IFocusManagerStatics6(|this| unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GotFocus)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).GotFocus)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -1336,8 +1336,8 @@ impl FocusManager {
     #[cfg(feature = "Foundation")]
     pub fn LostFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<FocusManagerLostFocusEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IFocusManagerStatics6(|this| unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LostFocus)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).LostFocus)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -1349,8 +1349,8 @@ impl FocusManager {
     #[cfg(feature = "Foundation")]
     pub fn GettingFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<GettingFocusEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IFocusManagerStatics6(|this| unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GettingFocus)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).GettingFocus)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -1362,8 +1362,8 @@ impl FocusManager {
     #[cfg(feature = "Foundation")]
     pub fn LosingFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<LosingFocusEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IFocusManagerStatics6(|this| unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LosingFocus)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).LosingFocus)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -1374,8 +1374,8 @@ impl FocusManager {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn GetFocusedElement2<'a, Param0: ::windows::core::IntoParam<'a, super::XamlRoot>>(xamlroot: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IFocusManagerStatics7(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetFocusedElement)(::windows::core::Interface::as_raw(this), xamlroot.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::uninit();
+            (::windows::core::Interface::vtable(this).GetFocusedElement)(::windows::core::Interface::as_raw(this), xamlroot.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc(hidden)]
@@ -1494,16 +1494,16 @@ impl FocusManagerGotFocusEventArgs {
     pub fn NewFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NewFocusedElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).NewFocusedElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::uninit();
+            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
 }
@@ -1587,16 +1587,16 @@ impl FocusManagerLostFocusEventArgs {
     pub fn OldFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OldFocusedElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).OldFocusedElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::uninit();
+            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
 }
@@ -1680,8 +1680,8 @@ impl FocusMovementResult {
     pub fn Succeeded(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Succeeded)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -1804,16 +1804,16 @@ impl GettingFocusEventArgs {
     pub fn OldFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OldFocusedElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).OldFocusedElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn NewFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NewFocusedElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).NewFocusedElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -1825,24 +1825,24 @@ impl GettingFocusEventArgs {
     pub fn FocusState(&self) -> ::windows::core::Result<super::FocusState> {
         let this = self;
         unsafe {
-            let mut result__: super::FocusState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::FocusState>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::FocusState>::uninit();
+            (::windows::core::Interface::vtable(this).FocusState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FocusState>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Direction(&self) -> ::windows::core::Result<FocusNavigationDirection> {
         let this = self;
         unsafe {
-            let mut result__: FocusNavigationDirection = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FocusNavigationDirection>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<FocusNavigationDirection>::uninit();
+            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusNavigationDirection>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -1854,16 +1854,16 @@ impl GettingFocusEventArgs {
     pub fn InputDevice(&self) -> ::windows::core::Result<FocusInputDeviceKind> {
         let this = self;
         unsafe {
-            let mut result__: FocusInputDeviceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FocusInputDeviceKind>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<FocusInputDeviceKind>::uninit();
+            (::windows::core::Interface::vtable(this).InputDevice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusInputDeviceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -1875,24 +1875,24 @@ impl GettingFocusEventArgs {
     pub fn TryCancel(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IGettingFocusEventArgs2>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCancel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).TryCancel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn TrySetNewFocusedElement<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, element: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IGettingFocusEventArgs2>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetNewFocusedElement)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).TrySetNewFocusedElement)(::windows::core::Interface::as_raw(this), element.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IGettingFocusEventArgs3>(self)?;
         unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::uninit();
+            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
 }
@@ -2089,8 +2089,8 @@ impl HoldingRoutedEventArgs {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"UI_Input\"`*"]
@@ -2098,16 +2098,16 @@ impl HoldingRoutedEventArgs {
     pub fn HoldingState(&self) -> ::windows::core::Result<super::super::Input::HoldingState> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::HoldingState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).HoldingState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::HoldingState>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::HoldingState>::uninit();
+            (::windows::core::Interface::vtable(this).HoldingState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::HoldingState>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -2120,8 +2120,8 @@ impl HoldingRoutedEventArgs {
     pub fn GetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, relativeto: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::uninit();
+            (::windows::core::Interface::vtable(this).GetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -2347,8 +2347,8 @@ impl ICommand {
     pub fn CanExecuteChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanExecuteChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).CanExecuteChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -2361,8 +2361,8 @@ impl ICommand {
     pub fn CanExecute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, parameter: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanExecute)(::windows::core::Interface::as_raw(this), parameter.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).CanExecute)(::windows::core::Interface::as_raw(this), parameter.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -3582,8 +3582,8 @@ impl InertiaExpansionBehavior {
     pub fn DesiredDeceleration(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredDeceleration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).DesiredDeceleration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -3595,8 +3595,8 @@ impl InertiaExpansionBehavior {
     pub fn DesiredExpansion(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredExpansion)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).DesiredExpansion)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -3685,8 +3685,8 @@ impl InertiaRotationBehavior {
     pub fn DesiredDeceleration(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredDeceleration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).DesiredDeceleration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -3698,8 +3698,8 @@ impl InertiaRotationBehavior {
     pub fn DesiredRotation(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredRotation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).DesiredRotation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -3788,8 +3788,8 @@ impl InertiaTranslationBehavior {
     pub fn DesiredDeceleration(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredDeceleration)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).DesiredDeceleration)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -3801,8 +3801,8 @@ impl InertiaTranslationBehavior {
     pub fn DesiredDisplacement(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DesiredDisplacement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).DesiredDisplacement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -3899,8 +3899,8 @@ impl InputScope {
     pub fn Names(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<InputScopeName>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Names)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<InputScopeName>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Names)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<InputScopeName>>(result__)
         }
     }
 }
@@ -4011,8 +4011,8 @@ impl InputScopeName {
     pub fn NameValue(&self) -> ::windows::core::Result<InputScopeNameValue> {
         let this = self;
         unsafe {
-            let mut result__: InputScopeNameValue = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NameValue)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InputScopeNameValue>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InputScopeNameValue>::uninit();
+            (::windows::core::Interface::vtable(this).NameValue)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InputScopeNameValue>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -4023,8 +4023,8 @@ impl InputScopeName {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CreateInstance(namevalue: InputScopeNameValue) -> ::windows::core::Result<InputScopeName> {
         Self::IInputScopeNameFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), namevalue, &mut result__).from_abi::<InputScopeName>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), namevalue, result__.as_mut_ptr()).from_abi::<InputScopeName>(result__)
         })
     }
     #[doc(hidden)]
@@ -4295,8 +4295,8 @@ impl KeyRoutedEventArgs {
     pub fn Key(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::VirtualKey>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::System::VirtualKey>::uninit();
+            (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"UI_Core\"`*"]
@@ -4304,16 +4304,16 @@ impl KeyRoutedEventArgs {
     pub fn KeyStatus(&self) -> ::windows::core::Result<super::super::Core::CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Core::CorePhysicalKeyStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyStatus)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Core::CorePhysicalKeyStatus>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Core::CorePhysicalKeyStatus>::uninit();
+            (::windows::core::Interface::vtable(this).KeyStatus)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Core::CorePhysicalKeyStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -4326,16 +4326,16 @@ impl KeyRoutedEventArgs {
     pub fn OriginalKey(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey> {
         let this = &::windows::core::Interface::cast::<IKeyRoutedEventArgs2>(self)?;
         unsafe {
-            let mut result__: super::super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OriginalKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::VirtualKey>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::System::VirtualKey>::uninit();
+            (::windows::core::Interface::vtable(this).OriginalKey)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IKeyRoutedEventArgs3>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::uninit();
+            (::windows::core::Interface::vtable(this).DeviceId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -4479,8 +4479,8 @@ impl KeyboardAccelerator {
     pub fn Key(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::VirtualKey>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::System::VirtualKey>::uninit();
+            (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"System\"`*"]
@@ -4494,8 +4494,8 @@ impl KeyboardAccelerator {
     pub fn Modifiers(&self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Modifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::VirtualKeyModifiers>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::System::VirtualKeyModifiers>::uninit();
+            (::windows::core::Interface::vtable(this).Modifiers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"System\"`*"]
@@ -4508,8 +4508,8 @@ impl KeyboardAccelerator {
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -4521,8 +4521,8 @@ impl KeyboardAccelerator {
     pub fn ScopeOwner(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScopeOwner)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).ScopeOwner)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -4535,8 +4535,8 @@ impl KeyboardAccelerator {
     pub fn Invoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<KeyboardAccelerator, KeyboardAcceleratorInvokedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Invoked)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).Invoked)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -4548,44 +4548,44 @@ impl KeyboardAccelerator {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn new() -> ::windows::core::Result<KeyboardAccelerator> {
         Self::IKeyboardAcceleratorFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<KeyboardAccelerator>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<KeyboardAccelerator>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<KeyboardAccelerator> {
         Self::IKeyboardAcceleratorFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<KeyboardAccelerator>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<KeyboardAccelerator>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn KeyProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IKeyboardAcceleratorStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).KeyProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn ModifiersProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IKeyboardAcceleratorStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ModifiersProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).ModifiersProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn IsEnabledProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IKeyboardAcceleratorStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabledProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).IsEnabledProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn ScopeOwnerProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IKeyboardAcceleratorStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScopeOwnerProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).ScopeOwnerProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -4699,8 +4699,8 @@ impl KeyboardAcceleratorInvokedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -4712,16 +4712,16 @@ impl KeyboardAcceleratorInvokedEventArgs {
     pub fn Element(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Element)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Element)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn KeyboardAccelerator(&self) -> ::windows::core::Result<KeyboardAccelerator> {
         let this = &::windows::core::Interface::cast::<IKeyboardAcceleratorInvokedEventArgs2>(self)?;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyboardAccelerator)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<KeyboardAccelerator>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).KeyboardAccelerator)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<KeyboardAccelerator>(result__)
         }
     }
 }
@@ -4874,16 +4874,16 @@ impl LosingFocusEventArgs {
     pub fn OldFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).OldFocusedElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).OldFocusedElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn NewFocusedElement(&self) -> ::windows::core::Result<super::DependencyObject> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).NewFocusedElement)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyObject>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).NewFocusedElement)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyObject>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -4895,24 +4895,24 @@ impl LosingFocusEventArgs {
     pub fn FocusState(&self) -> ::windows::core::Result<super::FocusState> {
         let this = self;
         unsafe {
-            let mut result__: super::FocusState = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FocusState)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::FocusState>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::FocusState>::uninit();
+            (::windows::core::Interface::vtable(this).FocusState)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::FocusState>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Direction(&self) -> ::windows::core::Result<FocusNavigationDirection> {
         let this = self;
         unsafe {
-            let mut result__: FocusNavigationDirection = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FocusNavigationDirection>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<FocusNavigationDirection>::uninit();
+            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusNavigationDirection>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -4924,16 +4924,16 @@ impl LosingFocusEventArgs {
     pub fn InputDevice(&self) -> ::windows::core::Result<FocusInputDeviceKind> {
         let this = self;
         unsafe {
-            let mut result__: FocusInputDeviceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FocusInputDeviceKind>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<FocusInputDeviceKind>::uninit();
+            (::windows::core::Interface::vtable(this).InputDevice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusInputDeviceKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Cancel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Cancel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -4945,24 +4945,24 @@ impl LosingFocusEventArgs {
     pub fn TryCancel(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILosingFocusEventArgs2>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCancel)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).TryCancel)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn TrySetNewFocusedElement<'a, Param0: ::windows::core::IntoParam<'a, super::DependencyObject>>(&self, element: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ILosingFocusEventArgs2>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TrySetNewFocusedElement)(::windows::core::Interface::as_raw(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).TrySetNewFocusedElement)(::windows::core::Interface::as_raw(this), element.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<ILosingFocusEventArgs3>(self)?;
         unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::uninit();
+            (::windows::core::Interface::vtable(this).CorrelationId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
 }
@@ -5158,8 +5158,8 @@ impl ManipulationCompletedRoutedEventArgs {
     pub fn Container(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::UIElement>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -5167,16 +5167,16 @@ impl ManipulationCompletedRoutedEventArgs {
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::uninit();
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn IsInertial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInertial)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).IsInertial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -5184,8 +5184,8 @@ impl ManipulationCompletedRoutedEventArgs {
     pub fn Cumulative(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationDelta = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cumulative)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationDelta>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationDelta>::uninit();
+            (::windows::core::Interface::vtable(this).Cumulative)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationDelta>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -5193,16 +5193,16 @@ impl ManipulationCompletedRoutedEventArgs {
     pub fn Velocities(&self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationVelocities = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Velocities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationVelocities>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationVelocities>::uninit();
+            (::windows::core::Interface::vtable(this).Velocities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationVelocities>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -5215,8 +5215,8 @@ impl ManipulationCompletedRoutedEventArgs {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
 }
@@ -5412,8 +5412,8 @@ impl ManipulationDeltaRoutedEventArgs {
     pub fn Container(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::UIElement>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -5421,16 +5421,16 @@ impl ManipulationDeltaRoutedEventArgs {
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::uninit();
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn IsInertial(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInertial)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).IsInertial)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -5438,8 +5438,8 @@ impl ManipulationDeltaRoutedEventArgs {
     pub fn Delta(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationDelta = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationDelta>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationDelta>::uninit();
+            (::windows::core::Interface::vtable(this).Delta)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationDelta>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -5447,8 +5447,8 @@ impl ManipulationDeltaRoutedEventArgs {
     pub fn Cumulative(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationDelta = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cumulative)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationDelta>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationDelta>::uninit();
+            (::windows::core::Interface::vtable(this).Cumulative)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationDelta>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -5456,16 +5456,16 @@ impl ManipulationDeltaRoutedEventArgs {
     pub fn Velocities(&self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationVelocities = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Velocities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationVelocities>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationVelocities>::uninit();
+            (::windows::core::Interface::vtable(this).Velocities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationVelocities>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -5478,8 +5478,8 @@ impl ManipulationDeltaRoutedEventArgs {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -5680,16 +5680,16 @@ impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn Container(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::UIElement>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn ExpansionBehavior(&self) -> ::windows::core::Result<InertiaExpansionBehavior> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExpansionBehavior)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InertiaExpansionBehavior>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).ExpansionBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InertiaExpansionBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -5701,8 +5701,8 @@ impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn RotationBehavior(&self) -> ::windows::core::Result<InertiaRotationBehavior> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RotationBehavior)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InertiaRotationBehavior>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).RotationBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InertiaRotationBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -5714,8 +5714,8 @@ impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn TranslationBehavior(&self) -> ::windows::core::Result<InertiaTranslationBehavior> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TranslationBehavior)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InertiaTranslationBehavior>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).TranslationBehavior)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InertiaTranslationBehavior>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -5727,8 +5727,8 @@ impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -5741,8 +5741,8 @@ impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -5750,8 +5750,8 @@ impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn Delta(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationDelta = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Delta)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationDelta>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationDelta>::uninit();
+            (::windows::core::Interface::vtable(this).Delta)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationDelta>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -5759,8 +5759,8 @@ impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn Cumulative(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationDelta = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cumulative)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationDelta>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationDelta>::uninit();
+            (::windows::core::Interface::vtable(this).Cumulative)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationDelta>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -5768,8 +5768,8 @@ impl ManipulationInertiaStartingRoutedEventArgs {
     pub fn Velocities(&self) -> ::windows::core::Result<super::super::Input::ManipulationVelocities> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationVelocities = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Velocities)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationVelocities>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationVelocities>::uninit();
+            (::windows::core::Interface::vtable(this).Velocities)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationVelocities>(result__)
         }
     }
 }
@@ -5953,8 +5953,8 @@ impl ManipulationPivot {
     pub fn Center(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Center)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::uninit();
+            (::windows::core::Interface::vtable(this).Center)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -5967,8 +5967,8 @@ impl ManipulationPivot {
     pub fn Radius(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Radius)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).Radius)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -5980,8 +5980,8 @@ impl ManipulationPivot {
     #[cfg(feature = "Foundation")]
     pub fn CreateInstanceWithCenterAndRadius<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Point>>(center: Param0, radius: f64) -> ::windows::core::Result<ManipulationPivot> {
         Self::IManipulationPivotFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithCenterAndRadius)(::windows::core::Interface::as_raw(this), center.into_param().abi(), radius, &mut result__).from_abi::<ManipulationPivot>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithCenterAndRadius)(::windows::core::Interface::as_raw(this), center.into_param().abi(), radius, result__.as_mut_ptr()).from_abi::<ManipulationPivot>(result__)
         })
     }
     #[doc(hidden)]
@@ -6155,8 +6155,8 @@ impl ManipulationStartedRoutedEventArgs {
     pub fn Container(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::UIElement>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -6164,16 +6164,16 @@ impl ManipulationStartedRoutedEventArgs {
     pub fn Position(&self) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::uninit();
+            (::windows::core::Interface::vtable(this).Position)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -6186,8 +6186,8 @@ impl ManipulationStartedRoutedEventArgs {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`, `\"UI_Input\"`*"]
@@ -6195,8 +6195,8 @@ impl ManipulationStartedRoutedEventArgs {
     pub fn Cumulative(&self) -> ::windows::core::Result<super::super::Input::ManipulationDelta> {
         let this = self;
         unsafe {
-            let mut result__: super::super::Input::ManipulationDelta = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Cumulative)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::Input::ManipulationDelta>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::Input::ManipulationDelta>::uninit();
+            (::windows::core::Interface::vtable(this).Cumulative)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::Input::ManipulationDelta>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -6207,16 +6207,16 @@ impl ManipulationStartedRoutedEventArgs {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn new() -> ::windows::core::Result<ManipulationStartedRoutedEventArgs> {
         Self::IManipulationStartedRoutedEventArgsFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ManipulationStartedRoutedEventArgs> {
         Self::IManipulationStartedRoutedEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -6417,8 +6417,8 @@ impl ManipulationStartingRoutedEventArgs {
     pub fn Mode(&self) -> ::windows::core::Result<ManipulationModes> {
         let this = self;
         unsafe {
-            let mut result__: ManipulationModes = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ManipulationModes>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ManipulationModes>::uninit();
+            (::windows::core::Interface::vtable(this).Mode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ManipulationModes>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -6430,8 +6430,8 @@ impl ManipulationStartingRoutedEventArgs {
     pub fn Container(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::UIElement>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Container)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::UIElement>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -6443,8 +6443,8 @@ impl ManipulationStartingRoutedEventArgs {
     pub fn Pivot(&self) -> ::windows::core::Result<ManipulationPivot> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pivot)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ManipulationPivot>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Pivot)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ManipulationPivot>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -6456,8 +6456,8 @@ impl ManipulationStartingRoutedEventArgs {
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -6566,16 +6566,16 @@ impl NoFocusCandidateFoundEventArgs {
     pub fn Direction(&self) -> ::windows::core::Result<FocusNavigationDirection> {
         let this = self;
         unsafe {
-            let mut result__: FocusNavigationDirection = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FocusNavigationDirection>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<FocusNavigationDirection>::uninit();
+            (::windows::core::Interface::vtable(this).Direction)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusNavigationDirection>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -6587,8 +6587,8 @@ impl NoFocusCandidateFoundEventArgs {
     pub fn InputDevice(&self) -> ::windows::core::Result<FocusInputDeviceKind> {
         let this = self;
         unsafe {
-            let mut result__: FocusInputDeviceKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).InputDevice)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<FocusInputDeviceKind>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<FocusInputDeviceKind>::uninit();
+            (::windows::core::Interface::vtable(this).InputDevice)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<FocusInputDeviceKind>(result__)
         }
     }
 }
@@ -6692,8 +6692,8 @@ impl Pointer {
     pub fn PointerId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerId)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::uninit();
+            (::windows::core::Interface::vtable(this).PointerId)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Devices_Input\"`*"]
@@ -6701,24 +6701,24 @@ impl Pointer {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn IsInContact(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInContact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).IsInContact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn IsInRange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsInRange)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).IsInRange)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -6887,8 +6887,8 @@ impl PointerRoutedEventArgs {
     pub fn Pointer(&self) -> ::windows::core::Result<Pointer> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pointer)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Pointer>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Pointer)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Pointer>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"System\"`*"]
@@ -6896,16 +6896,16 @@ impl PointerRoutedEventArgs {
     pub fn KeyModifiers(&self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyModifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::VirtualKeyModifiers>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::System::VirtualKeyModifiers>::uninit();
+            (::windows::core::Interface::vtable(this).KeyModifiers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -6918,8 +6918,8 @@ impl PointerRoutedEventArgs {
     pub fn GetCurrentPoint<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, relativeto: Param0) -> ::windows::core::Result<super::super::Input::PointerPoint> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetCurrentPoint)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::Input::PointerPoint>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).GetCurrentPoint)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::Input::PointerPoint>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation_Collections\"`, `\"UI_Input\"`*"]
@@ -6927,16 +6927,16 @@ impl PointerRoutedEventArgs {
     pub fn GetIntermediatePoints<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, relativeto: Param0) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<super::super::Input::PointerPoint>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetIntermediatePoints)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<super::super::Input::PointerPoint>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).GetIntermediatePoints)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<super::super::Input::PointerPoint>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn IsGenerated(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPointerRoutedEventArgs2>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsGenerated)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).IsGenerated)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -7041,8 +7041,8 @@ impl ProcessKeyboardAcceleratorEventArgs {
     pub fn Key(&self) -> ::windows::core::Result<super::super::super::System::VirtualKey> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::System::VirtualKey = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::VirtualKey>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::System::VirtualKey>::uninit();
+            (::windows::core::Interface::vtable(this).Key)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::VirtualKey>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"System\"`*"]
@@ -7050,16 +7050,16 @@ impl ProcessKeyboardAcceleratorEventArgs {
     pub fn Modifiers(&self) -> ::windows::core::Result<super::super::super::System::VirtualKeyModifiers> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::System::VirtualKeyModifiers = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Modifiers)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::System::VirtualKeyModifiers>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::System::VirtualKeyModifiers>::uninit();
+            (::windows::core::Interface::vtable(this).Modifiers)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::System::VirtualKeyModifiers>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -7241,16 +7241,16 @@ impl RightTappedRoutedEventArgs {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -7263,8 +7263,8 @@ impl RightTappedRoutedEventArgs {
     pub fn GetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, relativeto: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::uninit();
+            (::windows::core::Interface::vtable(this).GetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -7368,8 +7368,8 @@ impl StandardUICommand {
     pub fn Kind(&self) -> ::windows::core::Result<StandardUICommandKind> {
         let this = self;
         unsafe {
-            let mut result__: StandardUICommandKind = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<StandardUICommandKind>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<StandardUICommandKind>::uninit();
+            (::windows::core::Interface::vtable(this).Kind)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<StandardUICommandKind>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -7380,38 +7380,38 @@ impl StandardUICommand {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn new() -> ::windows::core::Result<StandardUICommand> {
         Self::IStandardUICommandFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<StandardUICommand>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<StandardUICommand> {
         Self::IStandardUICommandFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<StandardUICommand>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CreateInstanceWithKind(kind: StandardUICommandKind) -> ::windows::core::Result<StandardUICommand> {
         Self::IStandardUICommandFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithKind)(::windows::core::Interface::as_raw(this), kind, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithKind)(::windows::core::Interface::as_raw(this), kind, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<StandardUICommand>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CreateInstanceWithKind_compose<T: ::windows::core::Compose>(kind: StandardUICommandKind, compose: T) -> ::windows::core::Result<StandardUICommand> {
         Self::IStandardUICommandFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithKind)(::windows::core::Interface::as_raw(this), kind, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithKind)(::windows::core::Interface::as_raw(this), kind, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<StandardUICommand>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn KindProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IStandardUICommandStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KindProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).KindProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]
@@ -7709,16 +7709,16 @@ impl TappedRoutedEventArgs {
     pub fn PointerDeviceType(&self) -> ::windows::core::Result<super::super::super::Devices::Input::PointerDeviceType> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Devices::Input::PointerDeviceType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Devices::Input::PointerDeviceType>::uninit();
+            (::windows::core::Interface::vtable(this).PointerDeviceType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Devices::Input::PointerDeviceType>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).Handled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -7731,8 +7731,8 @@ impl TappedRoutedEventArgs {
     pub fn GetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, relativeto: Param0) -> ::windows::core::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::Point>::uninit();
+            (::windows::core::Interface::vtable(this).GetPosition)(::windows::core::Interface::as_raw(this), relativeto.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
@@ -7945,8 +7945,8 @@ impl XamlUICommand {
     pub fn CanExecuteChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<ICommand>(self)?;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanExecuteChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).CanExecuteChanged)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -7959,8 +7959,8 @@ impl XamlUICommand {
     pub fn CanExecute<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, parameter: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommand>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanExecute)(::windows::core::Interface::as_raw(this), parameter.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::uninit();
+            (::windows::core::Interface::vtable(this).CanExecute)(::windows::core::Interface::as_raw(this), parameter.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -7972,8 +7972,8 @@ impl XamlUICommand {
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::uninit();
+            (::windows::core::Interface::vtable(this).Label)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -7986,8 +7986,8 @@ impl XamlUICommand {
     pub fn IconSource(&self) -> ::windows::core::Result<super::Controls::IconSource> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IconSource)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Controls::IconSource>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).IconSource)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Controls::IconSource>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"UI_Xaml_Controls\"`*"]
@@ -8001,16 +8001,16 @@ impl XamlUICommand {
     pub fn KeyboardAccelerators(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<KeyboardAccelerator>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyboardAccelerators)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<KeyboardAccelerator>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).KeyboardAccelerators)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::Collections::IVector<KeyboardAccelerator>>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn AccessKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccessKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::uninit();
+            (::windows::core::Interface::vtable(this).AccessKey)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -8022,8 +8022,8 @@ impl XamlUICommand {
     pub fn Description(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::uninit();
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -8035,8 +8035,8 @@ impl XamlUICommand {
     pub fn Command(&self) -> ::windows::core::Result<ICommand> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Command)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ICommand>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).Command)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ICommand>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
@@ -8049,8 +8049,8 @@ impl XamlUICommand {
     pub fn ExecuteRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<XamlUICommand, ExecuteRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ExecuteRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).ExecuteRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -8064,8 +8064,8 @@ impl XamlUICommand {
     pub fn CanExecuteRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<XamlUICommand, CanExecuteRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CanExecuteRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::uninit();
+            (::windows::core::Interface::vtable(this).CanExecuteRequested)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`, `\"Foundation\"`*"]
@@ -8082,58 +8082,58 @@ impl XamlUICommand {
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn new() -> ::windows::core::Result<XamlUICommand> {
         Self::IXamlUICommandFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<XamlUICommand>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, result__.as_mut_ptr()).from_abi::<XamlUICommand>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<XamlUICommand> {
         Self::IXamlUICommandFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<XamlUICommand>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, result__.as_mut_ptr()).from_abi::<XamlUICommand>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn LabelProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IXamlUICommandStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LabelProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).LabelProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn IconSourceProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IXamlUICommandStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IconSourceProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).IconSourceProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn KeyboardAcceleratorsProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IXamlUICommandStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyboardAcceleratorsProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).KeyboardAcceleratorsProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn AccessKeyProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IXamlUICommandStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AccessKeyProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).AccessKeyProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn DescriptionProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IXamlUICommandStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DescriptionProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).DescriptionProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Xaml_Input\"`*"]
     pub fn CommandProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IXamlUICommandStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CommandProperty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CommandProperty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::DependencyProperty>(result__)
         })
     }
     #[doc(hidden)]

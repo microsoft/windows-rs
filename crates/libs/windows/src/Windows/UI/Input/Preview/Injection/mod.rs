@@ -264,8 +264,8 @@ impl InjectedInputGamepadInfo {
     pub fn Buttons(&self) -> ::windows::core::Result<super::super::super::super::Gaming::Input::GamepadButtons> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::super::Gaming::Input::GamepadButtons = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Buttons)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::super::super::Gaming::Input::GamepadButtons>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::super::Gaming::Input::GamepadButtons>::uninit();
+            (::windows::core::Interface::vtable(this).Buttons)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::super::super::Gaming::Input::GamepadButtons>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`, `\"Gaming_Input\"`*"]
@@ -278,8 +278,8 @@ impl InjectedInputGamepadInfo {
     pub fn LeftThumbstickX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LeftThumbstickX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).LeftThumbstickX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -291,8 +291,8 @@ impl InjectedInputGamepadInfo {
     pub fn LeftThumbstickY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LeftThumbstickY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).LeftThumbstickY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -304,8 +304,8 @@ impl InjectedInputGamepadInfo {
     pub fn LeftTrigger(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).LeftTrigger)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).LeftTrigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -317,8 +317,8 @@ impl InjectedInputGamepadInfo {
     pub fn RightThumbstickX(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RightThumbstickX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).RightThumbstickX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -330,8 +330,8 @@ impl InjectedInputGamepadInfo {
     pub fn RightThumbstickY(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RightThumbstickY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).RightThumbstickY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -343,8 +343,8 @@ impl InjectedInputGamepadInfo {
     pub fn RightTrigger(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RightTrigger)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).RightTrigger)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -356,8 +356,8 @@ impl InjectedInputGamepadInfo {
     #[cfg(feature = "Gaming_Input")]
     pub fn CreateInstanceFromGamepadReading<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Gaming::Input::GamepadReading>>(reading: Param0) -> ::windows::core::Result<InjectedInputGamepadInfo> {
         Self::IInjectedInputGamepadInfoFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceFromGamepadReading)(::windows::core::Interface::as_raw(this), reading.into_param().abi(), &mut result__).from_abi::<InjectedInputGamepadInfo>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).CreateInstanceFromGamepadReading)(::windows::core::Interface::as_raw(this), reading.into_param().abi(), result__.as_mut_ptr()).from_abi::<InjectedInputGamepadInfo>(result__)
         })
     }
     #[doc(hidden)]
@@ -516,8 +516,8 @@ impl InjectedInputKeyboardInfo {
     pub fn KeyOptions(&self) -> ::windows::core::Result<InjectedInputKeyOptions> {
         let this = self;
         unsafe {
-            let mut result__: InjectedInputKeyOptions = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).KeyOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InjectedInputKeyOptions>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InjectedInputKeyOptions>::uninit();
+            (::windows::core::Interface::vtable(this).KeyOptions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputKeyOptions>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -529,8 +529,8 @@ impl InjectedInputKeyboardInfo {
     pub fn ScanCode(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ScanCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::uninit();
+            (::windows::core::Interface::vtable(this).ScanCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -542,8 +542,8 @@ impl InjectedInputKeyboardInfo {
     pub fn VirtualKey(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).VirtualKey)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::uninit();
+            (::windows::core::Interface::vtable(this).VirtualKey)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -637,8 +637,8 @@ impl InjectedInputMouseInfo {
     pub fn MouseOptions(&self) -> ::windows::core::Result<InjectedInputMouseOptions> {
         let this = self;
         unsafe {
-            let mut result__: InjectedInputMouseOptions = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MouseOptions)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InjectedInputMouseOptions>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InjectedInputMouseOptions>::uninit();
+            (::windows::core::Interface::vtable(this).MouseOptions)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputMouseOptions>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -650,8 +650,8 @@ impl InjectedInputMouseInfo {
     pub fn MouseData(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).MouseData)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::uninit();
+            (::windows::core::Interface::vtable(this).MouseData)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -663,8 +663,8 @@ impl InjectedInputMouseInfo {
     pub fn DeltaY(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeltaY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::uninit();
+            (::windows::core::Interface::vtable(this).DeltaY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -676,8 +676,8 @@ impl InjectedInputMouseInfo {
     pub fn DeltaX(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeltaX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::uninit();
+            (::windows::core::Interface::vtable(this).DeltaX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -689,8 +689,8 @@ impl InjectedInputMouseInfo {
     pub fn TimeOffsetInMilliseconds(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TimeOffsetInMilliseconds)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::uninit();
+            (::windows::core::Interface::vtable(this).TimeOffsetInMilliseconds)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -923,8 +923,8 @@ impl InjectedInputPenInfo {
     pub fn PointerInfo(&self) -> ::windows::core::Result<InjectedInputPointerInfo> {
         let this = self;
         unsafe {
-            let mut result__: InjectedInputPointerInfo = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InjectedInputPointerInfo>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InjectedInputPointerInfo>::uninit();
+            (::windows::core::Interface::vtable(this).PointerInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPointerInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -936,8 +936,8 @@ impl InjectedInputPenInfo {
     pub fn PenButtons(&self) -> ::windows::core::Result<InjectedInputPenButtons> {
         let this = self;
         unsafe {
-            let mut result__: InjectedInputPenButtons = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PenButtons)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InjectedInputPenButtons>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InjectedInputPenButtons>::uninit();
+            (::windows::core::Interface::vtable(this).PenButtons)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPenButtons>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -949,8 +949,8 @@ impl InjectedInputPenInfo {
     pub fn PenParameters(&self) -> ::windows::core::Result<InjectedInputPenParameters> {
         let this = self;
         unsafe {
-            let mut result__: InjectedInputPenParameters = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PenParameters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InjectedInputPenParameters>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InjectedInputPenParameters>::uninit();
+            (::windows::core::Interface::vtable(this).PenParameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPenParameters>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -962,8 +962,8 @@ impl InjectedInputPenInfo {
     pub fn Pressure(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -975,8 +975,8 @@ impl InjectedInputPenInfo {
     pub fn Rotation(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Rotation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).Rotation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -988,8 +988,8 @@ impl InjectedInputPenInfo {
     pub fn TiltX(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TiltX)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::uninit();
+            (::windows::core::Interface::vtable(this).TiltX)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1001,8 +1001,8 @@ impl InjectedInputPenInfo {
     pub fn TiltY(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TiltY)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::uninit();
+            (::windows::core::Interface::vtable(this).TiltY)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1388,8 +1388,8 @@ impl InjectedInputTouchInfo {
     pub fn Contact(&self) -> ::windows::core::Result<InjectedInputRectangle> {
         let this = self;
         unsafe {
-            let mut result__: InjectedInputRectangle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InjectedInputRectangle>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InjectedInputRectangle>::uninit();
+            (::windows::core::Interface::vtable(this).Contact)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputRectangle>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1401,8 +1401,8 @@ impl InjectedInputTouchInfo {
     pub fn Orientation(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::uninit();
+            (::windows::core::Interface::vtable(this).Orientation)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1414,8 +1414,8 @@ impl InjectedInputTouchInfo {
     pub fn PointerInfo(&self) -> ::windows::core::Result<InjectedInputPointerInfo> {
         let this = self;
         unsafe {
-            let mut result__: InjectedInputPointerInfo = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PointerInfo)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InjectedInputPointerInfo>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InjectedInputPointerInfo>::uninit();
+            (::windows::core::Interface::vtable(this).PointerInfo)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputPointerInfo>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1427,8 +1427,8 @@ impl InjectedInputTouchInfo {
     pub fn Pressure(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::uninit();
+            (::windows::core::Interface::vtable(this).Pressure)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1440,8 +1440,8 @@ impl InjectedInputTouchInfo {
     pub fn TouchParameters(&self) -> ::windows::core::Result<InjectedInputTouchParameters> {
         let this = self;
         unsafe {
-            let mut result__: InjectedInputTouchParameters = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TouchParameters)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InjectedInputTouchParameters>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<InjectedInputTouchParameters>::uninit();
+            (::windows::core::Interface::vtable(this).TouchParameters)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InjectedInputTouchParameters>(result__)
         }
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
@@ -1689,15 +1689,15 @@ impl InputInjector {
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn TryCreate() -> ::windows::core::Result<InputInjector> {
         Self::IInputInjectorStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreate)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InputInjector>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).TryCreate)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InputInjector>(result__)
         })
     }
     #[doc = "*Required features: `\"UI_Input_Preview_Injection\"`*"]
     pub fn TryCreateForAppBroadcastOnly() -> ::windows::core::Result<InputInjector> {
         Self::IInputInjectorStatics2(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TryCreateForAppBroadcastOnly)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<InputInjector>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).TryCreateForAppBroadcastOnly)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<InputInjector>(result__)
         })
     }
     #[doc(hidden)]

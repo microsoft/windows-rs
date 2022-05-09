@@ -251,8 +251,8 @@ pub unsafe fn EnclaveGetEnclaveInformation(informationsize: u32) -> ::windows::c
         extern "system" {
             fn EnclaveGetEnclaveInformation(informationsize: u32, enclaveinformation: *mut ENCLAVE_INFORMATION) -> ::windows::core::HRESULT;
         }
-        let mut result__: ENCLAVE_INFORMATION = ::core::mem::zeroed();
-        EnclaveGetEnclaveInformation(::core::mem::transmute(informationsize), ::core::mem::transmute(&mut result__)).from_abi::<ENCLAVE_INFORMATION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<ENCLAVE_INFORMATION>::uninit();
+        EnclaveGetEnclaveInformation(::core::mem::transmute(informationsize), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<ENCLAVE_INFORMATION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

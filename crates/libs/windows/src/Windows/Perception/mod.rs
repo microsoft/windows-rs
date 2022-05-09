@@ -81,8 +81,8 @@ impl PerceptionTimestamp {
     pub fn TargetTime(&self) -> ::windows::core::Result<super::Foundation::DateTime> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).TargetTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Foundation::DateTime>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::DateTime>::uninit();
+            (::windows::core::Interface::vtable(this).TargetTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception\"`, `\"Foundation\"`*"]
@@ -90,8 +90,8 @@ impl PerceptionTimestamp {
     pub fn PredictionAmount(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).PredictionAmount)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::TimeSpan>::uninit();
+            (::windows::core::Interface::vtable(this).PredictionAmount)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Perception\"`, `\"Foundation\"`*"]
@@ -99,8 +99,8 @@ impl PerceptionTimestamp {
     pub fn SystemRelativeTargetTime(&self) -> ::windows::core::Result<super::Foundation::TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPerceptionTimestamp2>(self)?;
         unsafe {
-            let mut result__: super::Foundation::TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SystemRelativeTargetTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::Foundation::TimeSpan>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::Foundation::TimeSpan>::uninit();
+            (::windows::core::Interface::vtable(this).SystemRelativeTargetTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Foundation::TimeSpan>(result__)
         }
     }
 }
@@ -183,16 +183,16 @@ impl PerceptionTimestampHelper {
     #[cfg(feature = "Foundation")]
     pub fn FromHistoricalTargetTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::DateTime>>(targettime: Param0) -> ::windows::core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromHistoricalTargetTime)(::windows::core::Interface::as_raw(this), targettime.into_param().abi(), &mut result__).from_abi::<PerceptionTimestamp>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).FromHistoricalTargetTime)(::windows::core::Interface::as_raw(this), targettime.into_param().abi(), result__.as_mut_ptr()).from_abi::<PerceptionTimestamp>(result__)
         })
     }
     #[doc = "*Required features: `\"Perception\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
     pub fn FromSystemRelativeTargetTime<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::TimeSpan>>(targettime: Param0) -> ::windows::core::Result<PerceptionTimestamp> {
         Self::IPerceptionTimestampHelperStatics2(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FromSystemRelativeTargetTime)(::windows::core::Interface::as_raw(this), targettime.into_param().abi(), &mut result__).from_abi::<PerceptionTimestamp>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::uninit();
+            (::windows::core::Interface::vtable(this).FromSystemRelativeTargetTime)(::windows::core::Interface::as_raw(this), targettime.into_param().abi(), result__.as_mut_ptr()).from_abi::<PerceptionTimestamp>(result__)
         })
     }
     #[doc(hidden)]
