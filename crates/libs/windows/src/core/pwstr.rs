@@ -32,4 +32,8 @@ impl ::core::fmt::Debug for PWSTR {
 }
 unsafe impl Abi for PWSTR {
     type Abi = Self;
+
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+        Ok(abi)
+    }
 }

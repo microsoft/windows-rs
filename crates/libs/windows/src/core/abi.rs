@@ -6,7 +6,7 @@ use super::*;
 ///
 /// * The associated type `Abi` must be safe to transfer over FFI boundaries (e.g., it must have a stable layout)
 /// * It must be legal for `Abi` to be all zeros
-/// * `from_abi` must be implemented if there are any in-memory representations of `Abi` that are not valid representations of `Self`. 
+/// * `from_abi` must be implemented if there are any in-memory representations of `Abi` that are not valid representations of `Self`.
 ///   `from_abi` must then check for this illegal representations and return an error if they are found.
 ///   * For example, size `Abi` can be all zeros, if `Self` cannot be, then `from_abi` must check for all zeros and return an error if found.
 #[doc(hidden)]
@@ -18,7 +18,9 @@ pub unsafe trait Abi: Sized {
     ///
     /// # Safety
     ///
-    /// This function is safe to call if `abi` can safely be trivial transmuted to `Self`
+    /// This function is safe to call if `abi` can safely be trivial transmuted to `Self`.
+    /// Note that if `abi`'s drop implementation will be run. If this is incorrect for `Self`,
+    /// consider a custom implementation of `from_abi`.
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         Ok(core::mem::transmute_copy(&abi))
     }
@@ -49,11 +51,13 @@ unsafe impl<T: Interface> Abi for T {
     /// # Safety
     ///
     /// This function is safe as long as `abi` is a valid interface pointer or null
+    /// The interface's ref count is assumed to already have been incremented for
+    /// this handle meaning that if the interface pointer gets dropped it is
+    /// safe to call `Release`.
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
         if abi.is_null() {
             Err(Error::OK)
         } else {
-            // TODO: shouldn't `AddRef` be called here?
             Ok(core::mem::transmute_copy(&abi))
         }
     }

@@ -100,6 +100,10 @@ impl HSTRING {
 
 unsafe impl Abi for HSTRING {
     type Abi = Self;
+
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+        Ok(abi)
+    }
 }
 
 unsafe impl RuntimeType for HSTRING {
