@@ -82,7 +82,7 @@ impl ColorHelper {
     #[doc = "*Required features: `\"UI\"`*"]
     pub fn ToDisplayName<'a, Param0: ::windows::core::IntoParam<'a, Color>>(color: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IColorHelperStatics2(|this| unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HSTRING>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).ToDisplayName)(::windows::core::Interface::as_raw(this), color.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
@@ -1274,7 +1274,7 @@ unsafe impl ::windows::core::Interface for IColorHelperStatics2 {
 #[doc(hidden)]
 pub struct IColorHelperStatics2_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub ToDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: Color, result__: *mut ::windows::core::HSTRING) -> ::windows::core::HRESULT,
+    pub ToDisplayName: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, color: Color, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]

@@ -2294,7 +2294,7 @@ impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSA {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
@@ -2346,7 +2346,7 @@ impl ::core::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DICONFIGUREDEVICESPARAMSW {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DICONFIGUREDEVICESPARAMSW {

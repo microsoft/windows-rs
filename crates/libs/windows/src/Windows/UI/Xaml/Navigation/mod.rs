@@ -173,7 +173,7 @@ pub struct INavigatingCancelEventArgs_Vtbl {
     pub SetCancel: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub NavigationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NavigationMode) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Interop")]
-    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Interop::TypeName) -> ::windows::core::HRESULT,
+    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))]
     SourcePageType: usize,
 }
@@ -208,7 +208,7 @@ pub struct INavigationEventArgs_Vtbl {
     pub Content: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Interop")]
-    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Interop::TypeName) -> ::windows::core::HRESULT,
+    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))]
     SourcePageType: usize,
     pub NavigationMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut NavigationMode) -> ::windows::core::HRESULT,
@@ -252,7 +252,7 @@ pub struct INavigationFailedEventArgs_Vtbl {
     pub Handled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub SetHandled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "UI_Xaml_Interop")]
-    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Interop::TypeName) -> ::windows::core::HRESULT,
+    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))]
     SourcePageType: usize,
 }
@@ -268,7 +268,7 @@ unsafe impl ::windows::core::Interface for IPageStackEntry {
 pub struct IPageStackEntry_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(feature = "UI_Xaml_Interop")]
-    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Interop::TypeName) -> ::windows::core::HRESULT,
+    pub SourcePageType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<super::Interop::TypeName>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Interop"))]
     SourcePageType: usize,
     pub Parameter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -289,7 +289,7 @@ unsafe impl ::windows::core::Interface for IPageStackEntryFactory {
 pub struct IPageStackEntryFactory_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
     #[cfg(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation"))]
-    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepagetype: super::Interop::TypeName, parameter: *mut ::core::ffi::c_void, navigationtransitioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateInstance: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepagetype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, parameter: *mut ::core::ffi::c_void, navigationtransitioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation")))]
     CreateInstance: usize,
 }
@@ -506,7 +506,7 @@ impl NavigatingCancelEventArgs {
     pub fn SourcePageType(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::Interop::TypeName>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Interop::TypeName>>::zeroed();
             (::windows::core::Interface::vtable(this).SourcePageType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Interop::TypeName>(result__)
         }
     }
@@ -745,7 +745,7 @@ impl NavigationEventArgs {
     pub fn SourcePageType(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::Interop::TypeName>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Interop::TypeName>>::zeroed();
             (::windows::core::Interface::vtable(this).SourcePageType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Interop::TypeName>(result__)
         }
     }
@@ -884,7 +884,7 @@ impl NavigationFailedEventArgs {
     pub fn SourcePageType(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::Interop::TypeName>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Interop::TypeName>>::zeroed();
             (::windows::core::Interface::vtable(this).SourcePageType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Interop::TypeName>(result__)
         }
     }
@@ -1176,7 +1176,7 @@ impl PageStackEntry {
     pub fn SourcePageType(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<super::Interop::TypeName>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<super::Interop::TypeName>>::zeroed();
             (::windows::core::Interface::vtable(this).SourcePageType)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::Interop::TypeName>(result__)
         }
     }

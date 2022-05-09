@@ -99,10 +99,10 @@ impl HSTRING {
 }
 
 unsafe impl Abi for HSTRING {
-    type Abi = Self;
+    type Abi = core::mem::ManuallyDrop<Self>;
 
     unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
-        Ok(abi)
+        Ok(core::mem::ManuallyDrop::into_inner(abi))
     }
 }
 

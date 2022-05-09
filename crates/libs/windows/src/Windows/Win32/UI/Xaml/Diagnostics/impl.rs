@@ -95,7 +95,7 @@ impl IVisualTreeService_Vtbl {
             let this = (*this).get_impl();
             this.GetEnums(::core::mem::transmute_copy(&pcount), ::core::mem::transmute_copy(&ppenums)).into()
         }
-        unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typename: super::super::super::Foundation::BSTR, value: super::super::super::Foundation::BSTR, pinstancehandle: *mut u64) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn CreateInstance<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeService_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, typename: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, value: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR>, pinstancehandle: *mut u64) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.CreateInstance(::core::mem::transmute(&typename), ::core::mem::transmute(&value)) {
@@ -293,7 +293,7 @@ impl ::windows::core::RuntimeName for IVisualTreeServiceCallback {}
 #[cfg(feature = "Win32_Foundation")]
 impl IVisualTreeServiceCallback_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeServiceCallback_Impl, const OFFSET: isize>() -> IVisualTreeServiceCallback_Vtbl {
-        unsafe extern "system" fn OnVisualTreeChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: VisualElement, mutationtype: VisualMutationType) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn OnVisualTreeChange<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IVisualTreeServiceCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, relation: ParentChildRelation, element: ::core::mem::ManuallyDrop<VisualElement>, mutationtype: VisualMutationType) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.OnVisualTreeChange(::core::mem::transmute(&relation), ::core::mem::transmute(&element), ::core::mem::transmute_copy(&mutationtype)).into()

@@ -6,7 +6,7 @@ impl ::windows::core::RuntimeName for ICustomXamlResourceLoaderOverrides {
 }
 impl ICustomXamlResourceLoaderOverrides_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICustomXamlResourceLoaderOverrides_Impl, const OFFSET: isize>() -> ICustomXamlResourceLoaderOverrides_Vtbl {
-        unsafe extern "system" fn GetResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICustomXamlResourceLoaderOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: ::windows::core::HSTRING, objecttype: ::windows::core::HSTRING, propertyname: ::windows::core::HSTRING, propertytype: ::windows::core::HSTRING, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetResource<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: ICustomXamlResourceLoaderOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, resourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objecttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertytype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             match this.GetResource(::core::mem::transmute(&resourceid), ::core::mem::transmute(&objecttype), ::core::mem::transmute(&propertyname), ::core::mem::transmute(&propertytype)) {

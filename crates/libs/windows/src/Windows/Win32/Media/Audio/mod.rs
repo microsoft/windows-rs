@@ -1964,7 +1964,7 @@ impl ::core::fmt::Debug for AudioExtensionParams {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AudioExtensionParams {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AudioExtensionParams {
@@ -11053,7 +11053,7 @@ pub struct SpatialAudioHrtfActivationParams {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfActivationParams {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SpatialAudioHrtfActivationParams {
@@ -11088,7 +11088,7 @@ pub struct SpatialAudioHrtfActivationParams2 {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioHrtfActivationParams2 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SpatialAudioHrtfActivationParams2 {
@@ -11430,7 +11430,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamActivationParams {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SpatialAudioObjectRenderStreamActivationParams {
@@ -11461,7 +11461,7 @@ pub struct SpatialAudioObjectRenderStreamActivationParams2 {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamActivationParams2 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SpatialAudioObjectRenderStreamActivationParams2 {
@@ -11494,7 +11494,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for SpatialAudioObjectRenderStreamForMetadataActivationParams {
@@ -11528,7 +11528,7 @@ pub struct SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 unsafe impl ::windows::core::Abi for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::cmp::PartialEq for SpatialAudioObjectRenderStreamForMetadataActivationParams2 {

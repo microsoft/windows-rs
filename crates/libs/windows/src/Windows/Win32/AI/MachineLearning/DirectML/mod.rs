@@ -1122,7 +1122,7 @@ impl ::core::fmt::Debug for DML_BINDING_TABLE_DESC {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for DML_BINDING_TABLE_DESC {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BINDING_TABLE_DESC {
@@ -1228,7 +1228,7 @@ impl ::core::fmt::Debug for DML_BUFFER_BINDING {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Abi for DML_BUFFER_BINDING {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::core::cmp::PartialEq for DML_BUFFER_BINDING {
@@ -5303,7 +5303,7 @@ impl ::core::fmt::Debug for DML_OPERATOR_GRAPH_NODE_DESC {
     }
 }
 unsafe impl ::windows::core::Abi for DML_OPERATOR_GRAPH_NODE_DESC {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for DML_OPERATOR_GRAPH_NODE_DESC {
     fn eq(&self, other: &Self) -> bool {

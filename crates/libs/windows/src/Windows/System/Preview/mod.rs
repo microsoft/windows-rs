@@ -98,7 +98,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewReading_Vtbl {
     #[cfg(not(all(feature = "Devices_Sensors", feature = "deprecated")))]
     Panel1Orientation: usize,
     #[cfg(feature = "deprecated")]
-    pub Panel1Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HSTRING) -> ::windows::core::HRESULT,
+    pub Panel1Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Panel1Id: usize,
     #[cfg(all(feature = "Devices_Sensors", feature = "deprecated"))]
@@ -106,7 +106,7 @@ pub struct ITwoPanelHingedDevicePosturePreviewReading_Vtbl {
     #[cfg(not(all(feature = "Devices_Sensors", feature = "deprecated")))]
     Panel2Orientation: usize,
     #[cfg(feature = "deprecated")]
-    pub Panel2Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HSTRING) -> ::windows::core::HRESULT,
+    pub Panel2Id: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))]
     Panel2Id: usize,
 }
@@ -320,7 +320,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
     pub fn Panel1Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HSTRING>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).Panel1Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
@@ -338,7 +338,7 @@ impl TwoPanelHingedDevicePosturePreviewReading {
     pub fn Panel2Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HSTRING>::zeroed();
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
             (::windows::core::Interface::vtable(this).Panel2Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }

@@ -2544,7 +2544,7 @@ impl ::core::clone::Clone for PROPVARIANT {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPVARIANT {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROPVARIANT {
@@ -2575,7 +2575,7 @@ impl ::core::clone::Clone for PROPVARIANT_0 {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPVARIANT_0 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROPVARIANT_0 {
@@ -2609,7 +2609,7 @@ impl ::core::clone::Clone for PROPVARIANT_0_0 {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPVARIANT_0_0 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROPVARIANT_0_0 {
@@ -2711,7 +2711,7 @@ impl ::core::clone::Clone for PROPVARIANT_0_0_0 {
 }
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROPVARIANT_0_0_0 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROPVARIANT_0_0_0 {
@@ -3363,7 +3363,7 @@ pub unsafe fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, c
         extern "system" {
             fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows::core::HRESULT;
         }
-        let mut result__ = ::core::mem::MaybeUninit::<PROPVARIANT>::zeroed();
+        let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<PROPVARIANT>>::zeroed();
         StgDeserializePropVariant(::core::mem::transmute(pprop), ::core::mem::transmute(cbmax), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<PROPVARIANT>(result__)
     }
     #[cfg(not(windows))]
@@ -3578,7 +3578,7 @@ impl ::core::fmt::Debug for VERSIONEDSTREAM {
     }
 }
 unsafe impl ::windows::core::Abi for VERSIONEDSTREAM {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VERSIONEDSTREAM {
     fn eq(&self, other: &Self) -> bool {

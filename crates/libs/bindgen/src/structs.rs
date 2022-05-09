@@ -110,7 +110,11 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
     if gen.sys {
         quote! {}
     } else {
-        let abi = quote! { Self };
+        let abi = if def.is_blittable() {
+            quote! { Self }
+        } else {
+            quote! { ::core::mem::ManuallyDrop<Self> }
+        };
         let features = gen.cfg(cfg);
 
         let mut tokens = quote! {

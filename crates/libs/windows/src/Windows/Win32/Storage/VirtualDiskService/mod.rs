@@ -2661,7 +2661,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT {
     fn eq(&self, other: &Self) -> bool {
@@ -2692,7 +2692,7 @@ impl ::core::clone::Clone for VDS_ASYNC_OUTPUT_0 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2721,7 +2721,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_0 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_0 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_0 {
     fn eq(&self, other: &Self) -> bool {
@@ -2750,7 +2750,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_1 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_1 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_1 {
     fn eq(&self, other: &Self) -> bool {
@@ -2810,7 +2810,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_3 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_3 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_3 {
     fn eq(&self, other: &Self) -> bool {
@@ -2839,7 +2839,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_4 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_4 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_4 {
     fn eq(&self, other: &Self) -> bool {
@@ -2868,7 +2868,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_5 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_5 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_5 {
     fn eq(&self, other: &Self) -> bool {
@@ -2897,7 +2897,7 @@ impl ::core::fmt::Debug for VDS_ASYNC_OUTPUT_0_6 {
     }
 }
 unsafe impl ::windows::core::Abi for VDS_ASYNC_OUTPUT_0_6 {
-    type Abi = Self;
+    type Abi = ::core::mem::ManuallyDrop<Self>;
 }
 impl ::core::cmp::PartialEq for VDS_ASYNC_OUTPUT_0_6 {
     fn eq(&self, other: &Self) -> bool {

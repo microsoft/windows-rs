@@ -147,7 +147,7 @@ unsafe impl ::windows::core::Interface for ICustomXamlResourceLoaderOverrides {
 #[doc(hidden)]
 pub struct ICustomXamlResourceLoaderOverrides_Vtbl {
     pub base__: ::windows::core::IInspectableVtbl,
-    pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceid: ::windows::core::HSTRING, objecttype: ::windows::core::HSTRING, propertyname: ::windows::core::HSTRING, propertytype: ::windows::core::HSTRING, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub GetResource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, resourceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, objecttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertyname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, propertytype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc(hidden)]
 #[repr(transparent)]
