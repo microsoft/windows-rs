@@ -42,7 +42,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetPatternCore(patterninterface) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -54,7 +54,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetAcceleratorKeyCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -66,7 +66,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetAccessKeyCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -78,7 +78,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutomationControlTypeCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -90,7 +90,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutomationIdCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -102,7 +102,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetBoundingRectangleCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -114,7 +114,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetChildrenCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -126,7 +126,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetClassNameCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -138,7 +138,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetClickablePointCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -150,7 +150,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetHelpTextCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -162,7 +162,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemStatusCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -174,7 +174,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemTypeCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -186,7 +186,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetLabeledByCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -198,7 +198,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalizedControlTypeCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -210,7 +210,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetNameCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -222,7 +222,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetOrientationCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -234,7 +234,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.HasKeyboardFocusCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -246,7 +246,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.IsContentElementCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -258,7 +258,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.IsControlElementCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -270,7 +270,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.IsEnabledCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -282,7 +282,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.IsKeyboardFocusableCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -294,7 +294,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.IsOffscreenCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -306,7 +306,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.IsPasswordCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -318,7 +318,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.IsRequiredForFormCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -335,7 +335,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetPeerFromPointCore(::core::mem::transmute(&point)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -347,7 +347,7 @@ impl IAutomationPeerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetLiveSettingCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -413,7 +413,7 @@ impl IAutomationPeerOverrides2_Vtbl {
             let this = (*this).get_impl();
             match this.GetControlledPeersCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -452,7 +452,7 @@ impl IAutomationPeerOverrides3_Vtbl {
             let this = (*this).get_impl();
             match this.NavigateCore(direction) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -464,7 +464,7 @@ impl IAutomationPeerOverrides3_Vtbl {
             let this = (*this).get_impl();
             match this.GetElementFromPointCore(::core::mem::transmute(&pointinwindowcoordinates)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -476,7 +476,7 @@ impl IAutomationPeerOverrides3_Vtbl {
             let this = (*this).get_impl();
             match this.GetFocusedElementCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -488,7 +488,7 @@ impl IAutomationPeerOverrides3_Vtbl {
             let this = (*this).get_impl();
             match this.GetAnnotationsCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -500,7 +500,7 @@ impl IAutomationPeerOverrides3_Vtbl {
             let this = (*this).get_impl();
             match this.GetPositionInSetCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -512,7 +512,7 @@ impl IAutomationPeerOverrides3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSizeOfSetCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -524,7 +524,7 @@ impl IAutomationPeerOverrides3_Vtbl {
             let this = (*this).get_impl();
             match this.GetLevelCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -560,7 +560,7 @@ impl IAutomationPeerOverrides4_Vtbl {
             let this = (*this).get_impl();
             match this.GetLandmarkTypeCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -572,7 +572,7 @@ impl IAutomationPeerOverrides4_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalizedLandmarkTypeCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -610,7 +610,7 @@ impl IAutomationPeerOverrides5_Vtbl {
             let this = (*this).get_impl();
             match this.IsPeripheralCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -622,7 +622,7 @@ impl IAutomationPeerOverrides5_Vtbl {
             let this = (*this).get_impl();
             match this.IsDataValidForFormCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -634,7 +634,7 @@ impl IAutomationPeerOverrides5_Vtbl {
             let this = (*this).get_impl();
             match this.GetFullDescriptionCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -646,7 +646,7 @@ impl IAutomationPeerOverrides5_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescribedByCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -658,7 +658,7 @@ impl IAutomationPeerOverrides5_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlowsToCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -670,7 +670,7 @@ impl IAutomationPeerOverrides5_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlowsFromCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -704,7 +704,7 @@ impl IAutomationPeerOverrides6_Vtbl {
             let this = (*this).get_impl();
             match this.GetCultureCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -733,7 +733,7 @@ impl IAutomationPeerOverrides8_Vtbl {
             let this = (*this).get_impl();
             match this.GetHeadingLevelCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -762,7 +762,7 @@ impl IAutomationPeerOverrides9_Vtbl {
             let this = (*this).get_impl();
             match this.IsDialogCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -791,7 +791,7 @@ impl IItemsControlAutomationPeerOverrides2_Vtbl {
             let this = (*this).get_impl();
             match this.OnCreateItemAutomationPeer(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

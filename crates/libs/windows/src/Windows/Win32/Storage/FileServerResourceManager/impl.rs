@@ -25,7 +25,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
             let this = (*this).get_impl();
             match this.Show(::core::mem::transmute_copy(&parentwnd), ::core::mem::transmute(&accesspath), ::core::mem::transmute_copy(&errortype), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&windowtitle), ::core::mem::transmute(&windowmessage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -55,7 +55,7 @@ impl IFsrmAction_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -66,7 +66,7 @@ impl IFsrmAction_Vtbl {
             let this = (*this).get_impl();
             match this.ActionType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *actiontype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(actiontype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -77,7 +77,7 @@ impl IFsrmAction_Vtbl {
             let this = (*this).get_impl();
             match this.RunLimitInterval() {
                 ::core::result::Result::Ok(ok__) => {
-                    *minutes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(minutes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IFsrmActionCommand_Vtbl {
             let this = (*this).get_impl();
             match this.ExecutablePath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *executablepath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(executablepath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl IFsrmActionCommand_Vtbl {
             let this = (*this).get_impl();
             match this.Arguments() {
                 ::core::result::Result::Ok(ok__) => {
-                    *arguments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(arguments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -165,7 +165,7 @@ impl IFsrmActionCommand_Vtbl {
             let this = (*this).get_impl();
             match this.Account() {
                 ::core::result::Result::Ok(ok__) => {
-                    *account = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(account, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -181,7 +181,7 @@ impl IFsrmActionCommand_Vtbl {
             let this = (*this).get_impl();
             match this.WorkingDirectory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *workingdirectory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(workingdirectory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -197,7 +197,7 @@ impl IFsrmActionCommand_Vtbl {
             let this = (*this).get_impl();
             match this.MonitorCommand() {
                 ::core::result::Result::Ok(ok__) => {
-                    *monitorcommand = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(monitorcommand, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -213,7 +213,7 @@ impl IFsrmActionCommand_Vtbl {
             let this = (*this).get_impl();
             match this.KillTimeOut() {
                 ::core::result::Result::Ok(ok__) => {
-                    *minutes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(minutes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -229,7 +229,7 @@ impl IFsrmActionCommand_Vtbl {
             let this = (*this).get_impl();
             match this.LogResult() {
                 ::core::result::Result::Ok(ok__) => {
-                    *logresults = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(logresults, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl IFsrmActionEmail_Vtbl {
             let this = (*this).get_impl();
             match this.MailFrom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailfrom = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailfrom, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -305,7 +305,7 @@ impl IFsrmActionEmail_Vtbl {
             let this = (*this).get_impl();
             match this.MailReplyTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailreplyto = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailreplyto, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -321,7 +321,7 @@ impl IFsrmActionEmail_Vtbl {
             let this = (*this).get_impl();
             match this.MailTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailto = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailto, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -337,7 +337,7 @@ impl IFsrmActionEmail_Vtbl {
             let this = (*this).get_impl();
             match this.MailCc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailcc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailcc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl IFsrmActionEmail_Vtbl {
             let this = (*this).get_impl();
             match this.MailBcc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailbcc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailbcc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -369,7 +369,7 @@ impl IFsrmActionEmail_Vtbl {
             let this = (*this).get_impl();
             match this.MailSubject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailsubject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailsubject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -385,7 +385,7 @@ impl IFsrmActionEmail_Vtbl {
             let this = (*this).get_impl();
             match this.MessageText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *messagetext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(messagetext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -433,7 +433,7 @@ impl IFsrmActionEmail2_Vtbl {
             let this = (*this).get_impl();
             match this.AttachmentFileListSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attachmentfilelistsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attachmentfilelistsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -471,7 +471,7 @@ impl IFsrmActionEventLog_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *eventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -487,7 +487,7 @@ impl IFsrmActionEventLog_Vtbl {
             let this = (*this).get_impl();
             match this.MessageText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *messagetext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(messagetext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -527,7 +527,7 @@ impl IFsrmActionReport_Vtbl {
             let this = (*this).get_impl();
             match this.ReportTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *reporttypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reporttypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -543,7 +543,7 @@ impl IFsrmActionReport_Vtbl {
             let this = (*this).get_impl();
             match this.MailTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailto = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailto, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -582,7 +582,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
             let this = (*this).get_impl();
             match this.ExcludeFolders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *folders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(folders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -598,7 +598,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
             let this = (*this).get_impl();
             match this.CommitAndUpdateDerived(::core::mem::transmute_copy(&commitoptions), ::core::mem::transmute_copy(&applyoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *derivedobjectsresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(derivedobjectsresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -655,7 +655,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.ClassificationReportFormats() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formats = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formats, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -671,7 +671,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.Logging() {
                 ::core::result::Result::Ok(ok__) => {
-                    *logging = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(logging, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -687,7 +687,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.ClassificationReportMailTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailto = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailto, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -703,7 +703,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.ClassificationReportEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *reportenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reportenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -719,7 +719,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.ClassificationLastReportPathWithoutExtension() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastreportpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastreportpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -730,7 +730,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.ClassificationLastError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lasterror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lasterror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -741,7 +741,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.ClassificationRunningStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *runningstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(runningstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -752,7 +752,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumPropertyDefinitions(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertydefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertydefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -763,7 +763,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePropertyDefinition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertydefinition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertydefinition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -774,7 +774,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyDefinition(::core::mem::transmute(&propertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertydefinition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertydefinition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -785,7 +785,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumRules(::core::mem::transmute_copy(&ruletype), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rules = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rules, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -796,7 +796,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRule(::core::mem::transmute_copy(&ruletype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rule = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rule, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -807,7 +807,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetRule(::core::mem::transmute(&rulename), ::core::mem::transmute_copy(&ruletype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rule = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rule, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -818,7 +818,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumModuleDefinitions(::core::mem::transmute_copy(&moduletype), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *moduledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moduledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -829,7 +829,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateModuleDefinition(::core::mem::transmute_copy(&moduletype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *moduledefinition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moduledefinition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -840,7 +840,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetModuleDefinition(::core::mem::transmute(&modulename), ::core::mem::transmute_copy(&moduletype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *moduledefinition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moduledefinition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -856,7 +856,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.WaitForClassificationCompletion(::core::mem::transmute_copy(&waitseconds)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *completed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(completed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -872,7 +872,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumFileProperties(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *fileproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(fileproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -883,7 +883,7 @@ impl IFsrmClassificationManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileProperty(::core::mem::transmute(&filepath), ::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *property = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(property, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -973,7 +973,7 @@ impl IFsrmClassificationRule_Vtbl {
             let this = (*this).get_impl();
             match this.ExecutionOption() {
                 ::core::result::Result::Ok(ok__) => {
-                    *executionoption = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(executionoption, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -989,7 +989,7 @@ impl IFsrmClassificationRule_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyAffected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *property = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(property, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1005,7 +1005,7 @@ impl IFsrmClassificationRule_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1049,7 +1049,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.PropertiesAffected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertiesaffected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertiesaffected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1065,7 +1065,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.PropertiesUsed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertiesused = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertiesused, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1081,7 +1081,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.NeedsExplicitValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *needsexplicitvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(needsexplicitvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1125,7 +1125,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
             let this = (*this).get_impl();
             match this.LastModified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastmodified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastmodified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1190,7 +1190,7 @@ impl IFsrmCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *unknown = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(unknown, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1201,7 +1201,7 @@ impl IFsrmCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1212,7 +1212,7 @@ impl IFsrmCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1223,7 +1223,7 @@ impl IFsrmCollection_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *state = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(state, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1239,7 +1239,7 @@ impl IFsrmCollection_Vtbl {
             let this = (*this).get_impl();
             match this.WaitForCompletion(::core::mem::transmute_copy(&waitseconds)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *completed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(completed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1250,7 +1250,7 @@ impl IFsrmCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetById(::core::mem::transmute(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *entry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(entry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1285,7 +1285,7 @@ impl IFsrmCommittableCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Commit(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *results = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(results, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1312,7 +1312,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
             let this = (*this).get_impl();
             match this.DerivedObjects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *derivedobjects = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(derivedobjects, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1323,7 +1323,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
             let this = (*this).get_impl();
             match this.Results() {
                 ::core::result::Result::Ok(ok__) => {
-                    *results = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(results, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1363,7 +1363,7 @@ impl IFsrmExportImport_Vtbl {
             let this = (*this).get_impl();
             match this.ImportFileGroups(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&filegroupnamessafearray), ::core::mem::transmute(&remotehost)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filegroups = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filegroups, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1379,7 +1379,7 @@ impl IFsrmExportImport_Vtbl {
             let this = (*this).get_impl();
             match this.ImportFileScreenTemplates(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&templatenamessafearray), ::core::mem::transmute(&remotehost)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *templates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(templates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1395,7 +1395,7 @@ impl IFsrmExportImport_Vtbl {
             let this = (*this).get_impl();
             match this.ImportQuotaTemplates(::core::mem::transmute(&filepath), ::core::mem::transmute_copy(&templatenamessafearray), ::core::mem::transmute(&remotehost)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *templates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(templates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1430,7 +1430,7 @@ impl IFsrmFileCondition_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1474,7 +1474,7 @@ impl IFsrmFileConditionProperty_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1490,7 +1490,7 @@ impl IFsrmFileConditionProperty_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1506,7 +1506,7 @@ impl IFsrmFileConditionProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Operator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1522,7 +1522,7 @@ impl IFsrmFileConditionProperty_Vtbl {
             let this = (*this).get_impl();
             match this.ValueType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1538,7 +1538,7 @@ impl IFsrmFileConditionProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1586,7 +1586,7 @@ impl IFsrmFileGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1602,7 +1602,7 @@ impl IFsrmFileGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Members() {
                 ::core::result::Result::Ok(ok__) => {
-                    *members = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(members, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1618,7 +1618,7 @@ impl IFsrmFileGroup_Vtbl {
             let this = (*this).get_impl();
             match this.NonMembers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *nonmembers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nonmembers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1658,7 +1658,7 @@ impl IFsrmFileGroupImported_Vtbl {
             let this = (*this).get_impl();
             match this.OverwriteOnCommit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *overwrite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(overwrite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1697,7 +1697,7 @@ impl IFsrmFileGroupManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filegroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filegroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1708,7 +1708,7 @@ impl IFsrmFileGroupManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileGroup(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filegroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filegroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1719,7 +1719,7 @@ impl IFsrmFileGroupManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumFileGroups(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filegroups = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filegroups, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1730,7 +1730,7 @@ impl IFsrmFileGroupManager_Vtbl {
             let this = (*this).get_impl();
             match this.ExportFileGroups(::core::mem::transmute_copy(&filegroupnamesarray)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *serializedfilegroups = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(serializedfilegroups, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1741,7 +1741,7 @@ impl IFsrmFileGroupManager_Vtbl {
             let this = (*this).get_impl();
             match this.ImportFileGroups(::core::mem::transmute(&serializedfilegroups), ::core::mem::transmute_copy(&filegroupnamesarray)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filegroups = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filegroups, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1822,7 +1822,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1838,7 +1838,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.NamespaceRoots() {
                 ::core::result::Result::Ok(ok__) => {
-                    *namespaceroots = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(namespaceroots, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1854,7 +1854,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1870,7 +1870,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.OperationType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *operationtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(operationtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1886,7 +1886,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.ExpirationDirectory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *expirationdirectory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(expirationdirectory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1902,7 +1902,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.CustomAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *action = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(action, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1913,7 +1913,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.Notifications() {
                 ::core::result::Result::Ok(ok__) => {
-                    *notifications = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(notifications, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1924,7 +1924,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.Logging() {
                 ::core::result::Result::Ok(ok__) => {
-                    *loggingflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(loggingflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1940,7 +1940,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.ReportEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *reportenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reportenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1956,7 +1956,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.Formats() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formats = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formats, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1972,7 +1972,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.MailTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailto = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailto, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1988,7 +1988,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.DaysSinceFileCreated() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dayssincecreation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dayssincecreation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2004,7 +2004,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.DaysSinceFileLastAccessed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dayssinceaccess = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dayssinceaccess, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2020,7 +2020,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.DaysSinceFileLastModified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dayssincemodify = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dayssincemodify, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2036,7 +2036,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyConditions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyconditions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyconditions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2047,7 +2047,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.FromDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *fromdate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(fromdate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2063,7 +2063,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.Task() {
                 ::core::result::Result::Ok(ok__) => {
-                    *taskname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(taskname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2079,7 +2079,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.Parameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *parameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2095,7 +2095,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.RunningStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *runningstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(runningstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2106,7 +2106,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.LastError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lasterror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lasterror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2117,7 +2117,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.LastReportPathWithoutExtension() {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2128,7 +2128,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.LastRun() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastrun = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastrun, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2139,7 +2139,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.FileNamePattern() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filenamepattern = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filenamepattern, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2160,7 +2160,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.WaitForCompletion(::core::mem::transmute_copy(&waitseconds)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *completed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(completed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2191,7 +2191,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.CreateNotificationAction(::core::mem::transmute_copy(&days), ::core::mem::transmute_copy(&actiontype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *action = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(action, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2202,7 +2202,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.EnumNotificationActions(::core::mem::transmute_copy(&days)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *actions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(actions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2213,7 +2213,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePropertyCondition(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertycondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertycondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2224,7 +2224,7 @@ impl IFsrmFileManagementJob_Vtbl {
             let this = (*this).get_impl();
             match this.CreateCustomAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *customaction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(customaction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2305,7 +2305,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
             let this = (*this).get_impl();
             match this.ActionVariables() {
                 ::core::result::Result::Ok(ok__) => {
-                    *variables = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(variables, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2316,7 +2316,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
             let this = (*this).get_impl();
             match this.ActionVariableDescriptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *descriptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descriptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2327,7 +2327,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumFileManagementJobs(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filemanagementjobs = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filemanagementjobs, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2338,7 +2338,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileManagementJob() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filemanagementjob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filemanagementjob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2349,7 +2349,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileManagementJob(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filemanagementjob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filemanagementjob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2387,7 +2387,7 @@ impl IFsrmFileScreen_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2398,7 +2398,7 @@ impl IFsrmFileScreen_Vtbl {
             let this = (*this).get_impl();
             match this.SourceTemplateName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreentemplatename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreentemplatename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2409,7 +2409,7 @@ impl IFsrmFileScreen_Vtbl {
             let this = (*this).get_impl();
             match this.MatchesSourceTemplate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *matches = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(matches, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2420,7 +2420,7 @@ impl IFsrmFileScreen_Vtbl {
             let this = (*this).get_impl();
             match this.UserSid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *usersid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(usersid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2431,7 +2431,7 @@ impl IFsrmFileScreen_Vtbl {
             let this = (*this).get_impl();
             match this.UserAccount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *useraccount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(useraccount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2475,7 +2475,7 @@ impl IFsrmFileScreenBase_Vtbl {
             let this = (*this).get_impl();
             match this.BlockedFileGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *blocklist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(blocklist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2491,7 +2491,7 @@ impl IFsrmFileScreenBase_Vtbl {
             let this = (*this).get_impl();
             match this.FileScreenFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreenflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreenflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2507,7 +2507,7 @@ impl IFsrmFileScreenBase_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAction(::core::mem::transmute_copy(&actiontype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *action = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(action, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2518,7 +2518,7 @@ impl IFsrmFileScreenBase_Vtbl {
             let this = (*this).get_impl();
             match this.EnumActions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *actions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(actions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2554,7 +2554,7 @@ impl IFsrmFileScreenException_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2565,7 +2565,7 @@ impl IFsrmFileScreenException_Vtbl {
             let this = (*this).get_impl();
             match this.AllowedFileGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *allowlist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(allowlist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2609,7 +2609,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.ActionVariables() {
                 ::core::result::Result::Ok(ok__) => {
-                    *variables = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(variables, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2620,7 +2620,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.ActionVariableDescriptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *descriptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descriptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2631,7 +2631,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileScreen(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreen = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreen, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2642,7 +2642,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileScreen(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreen = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreen, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2653,7 +2653,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumFileScreens(::core::mem::transmute(&path), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreens = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreens, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2664,7 +2664,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileScreenException(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreenexception = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreenexception, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2675,7 +2675,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileScreenException(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreenexception = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreenexception, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2686,7 +2686,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumFileScreenExceptions(::core::mem::transmute(&path), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreenexceptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreenexceptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2697,7 +2697,7 @@ impl IFsrmFileScreenManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileScreenCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2737,7 +2737,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2758,7 +2758,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
             let this = (*this).get_impl();
             match this.CommitAndUpdateDerived(::core::mem::transmute_copy(&commitoptions), ::core::mem::transmute_copy(&applyoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *derivedobjectsresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(derivedobjectsresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2791,7 +2791,7 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
             let this = (*this).get_impl();
             match this.OverwriteOnCommit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *overwrite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(overwrite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2830,7 +2830,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTemplate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreentemplate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreentemplate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2841,7 +2841,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetTemplate(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreentemplate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreentemplate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2852,7 +2852,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumTemplates(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreentemplates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreentemplates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2863,7 +2863,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.ExportTemplates(::core::mem::transmute_copy(&filescreentemplatenamesarray)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *serializedfilescreentemplates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(serializedfilescreentemplates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2874,7 +2874,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.ImportTemplates(::core::mem::transmute(&serializedfilescreentemplates), ::core::mem::transmute_copy(&filescreentemplatenamesarray)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filescreentemplates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filescreentemplates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2925,7 +2925,7 @@ impl IFsrmMutableCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2961,7 +2961,7 @@ impl IFsrmObject_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2972,7 +2972,7 @@ impl IFsrmObject_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *description = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(description, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3020,7 +3020,7 @@ impl IFsrmPathMapper_Vtbl {
             let this = (*this).get_impl();
             match this.GetSharePathsForLocalPath(::core::mem::transmute(&localpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *sharepaths = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sharepaths, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3053,7 +3053,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             let this = (*this).get_impl();
             match this.ModuleImplementation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pipelinemoduleimplementation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pipelinemoduleimplementation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3064,7 +3064,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             let this = (*this).get_impl();
             match this.ModuleName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *username = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(username, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3075,7 +3075,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             let this = (*this).get_impl();
             match this.HostingUserAccount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *useraccount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(useraccount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3086,7 +3086,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
             let this = (*this).get_impl();
             match this.HostingProcessPid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3142,7 +3142,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.ModuleClsid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *moduleclsid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moduleclsid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3158,7 +3158,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3174,7 +3174,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Company() {
                 ::core::result::Result::Ok(ok__) => {
-                    *company = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(company, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3190,7 +3190,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Version() {
                 ::core::result::Result::Ok(ok__) => {
-                    *version = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(version, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3206,7 +3206,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.ModuleType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *moduletype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moduletype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3217,7 +3217,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3233,7 +3233,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.NeedsFileContent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *needsfilecontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(needsfilecontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3249,7 +3249,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Account() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retrievalaccount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retrievalaccount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3265,7 +3265,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedExtensions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedextensions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedextensions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3281,7 +3281,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Parameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *parameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3334,7 +3334,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
             let this = (*this).get_impl();
             match this.OnLoad(::core::mem::transmute(&moduledefinition)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *moduleconnector = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moduleconnector, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3372,7 +3372,7 @@ impl IFsrmProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3383,7 +3383,7 @@ impl IFsrmProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3394,7 +3394,7 @@ impl IFsrmProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Sources() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sources = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sources, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3405,7 +3405,7 @@ impl IFsrmProperty_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3457,7 +3457,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3468,7 +3468,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.RelativePath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3479,7 +3479,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *volumename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(volumename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3490,7 +3490,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.RelativeNamespaceRoot() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relativenamespaceroot = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relativenamespaceroot, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3501,7 +3501,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *volumeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(volumeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3512,7 +3512,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.FileId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *fileid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(fileid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3523,7 +3523,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.ParentDirectoryId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *parentdirectoryid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parentdirectoryid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3534,7 +3534,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.Size() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3545,7 +3545,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.SizeAllocated() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sizeallocated = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sizeallocated, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3556,7 +3556,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.CreationTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *creationtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(creationtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3567,7 +3567,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.LastAccessTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastaccesstime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastaccesstime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3578,7 +3578,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.LastModificationTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastmodificationtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastmodificationtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3589,7 +3589,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.Attributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attributes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attributes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3600,7 +3600,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.OwnerSid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ownersid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ownersid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3611,7 +3611,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.FilePropertyNames() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filepropertynames = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filepropertynames, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3622,7 +3622,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.Messages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *messages = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(messages, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3633,7 +3633,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyBagFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3644,7 +3644,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileProperty(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *fileproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(fileproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3665,7 +3665,7 @@ impl IFsrmPropertyBag_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileStreamInterface(::core::mem::transmute_copy(&accessmode), ::core::mem::transmute_copy(&interfacetype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstreaminterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstreaminterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3715,7 +3715,7 @@ impl IFsrmPropertyBag2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldValue(::core::mem::transmute_copy(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3726,7 +3726,7 @@ impl IFsrmPropertyBag2_Vtbl {
             let this = (*this).get_impl();
             match this.GetUntrustedInFileProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *props = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(props, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3762,7 +3762,7 @@ impl IFsrmPropertyCondition_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3778,7 +3778,7 @@ impl IFsrmPropertyCondition_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3794,7 +3794,7 @@ impl IFsrmPropertyCondition_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3848,7 +3848,7 @@ impl IFsrmPropertyDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3864,7 +3864,7 @@ impl IFsrmPropertyDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3880,7 +3880,7 @@ impl IFsrmPropertyDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.PossibleValues() {
                 ::core::result::Result::Ok(ok__) => {
-                    *possiblevalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(possiblevalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3896,7 +3896,7 @@ impl IFsrmPropertyDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.ValueDescriptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *valuedescriptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(valuedescriptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3912,7 +3912,7 @@ impl IFsrmPropertyDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Parameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *parameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3959,7 +3959,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyDefinitionFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertydefinitionflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertydefinitionflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3970,7 +3970,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
             let this = (*this).get_impl();
             match this.DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3986,7 +3986,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
             let this = (*this).get_impl();
             match this.AppliesTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *appliesto = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(appliesto, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3997,7 +3997,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
             let this = (*this).get_impl();
             match this.ValueDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *valuedefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(valuedefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4033,7 +4033,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4044,7 +4044,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             let this = (*this).get_impl();
             match this.DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *displayname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(displayname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4055,7 +4055,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *description = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(description, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4066,7 +4066,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
             let this = (*this).get_impl();
             match this.UniqueID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uniqueid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uniqueid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4102,7 +4102,7 @@ impl IFsrmQuota_Vtbl {
             let this = (*this).get_impl();
             match this.QuotaUsed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *used = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(used, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4113,7 +4113,7 @@ impl IFsrmQuota_Vtbl {
             let this = (*this).get_impl();
             match this.QuotaPeakUsage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peakusage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peakusage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4124,7 +4124,7 @@ impl IFsrmQuota_Vtbl {
             let this = (*this).get_impl();
             match this.QuotaPeakUsageTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peakusagedatetime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peakusagedatetime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4176,7 +4176,7 @@ impl IFsrmQuotaBase_Vtbl {
             let this = (*this).get_impl();
             match this.QuotaLimit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotalimit = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotalimit, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4192,7 +4192,7 @@ impl IFsrmQuotaBase_Vtbl {
             let this = (*this).get_impl();
             match this.QuotaFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotaflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotaflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4208,7 +4208,7 @@ impl IFsrmQuotaBase_Vtbl {
             let this = (*this).get_impl();
             match this.Thresholds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *thresholds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(thresholds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4234,7 +4234,7 @@ impl IFsrmQuotaBase_Vtbl {
             let this = (*this).get_impl();
             match this.CreateThresholdAction(::core::mem::transmute_copy(&threshold), ::core::mem::transmute_copy(&actiontype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *action = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(action, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4245,7 +4245,7 @@ impl IFsrmQuotaBase_Vtbl {
             let this = (*this).get_impl();
             match this.EnumThresholdActions(::core::mem::transmute_copy(&threshold)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *actions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(actions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4294,7 +4294,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.ActionVariables() {
                 ::core::result::Result::Ok(ok__) => {
-                    *variables = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(variables, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4305,7 +4305,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.ActionVariableDescriptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *descriptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descriptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4316,7 +4316,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQuota(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quota = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quota, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4327,7 +4327,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAutoApplyQuota(::core::mem::transmute(&quotatemplatename), ::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quota = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quota, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4338,7 +4338,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetQuota(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quota = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quota, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4349,7 +4349,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutoApplyQuota(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quota = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quota, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4360,7 +4360,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetRestrictiveQuota(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quota = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quota, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4371,7 +4371,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumQuotas(::core::mem::transmute(&path), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotas = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotas, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4382,7 +4382,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumAutoApplyQuotas(::core::mem::transmute(&path), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotas = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotas, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4393,7 +4393,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumEffectiveQuotas(::core::mem::transmute(&path), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotas = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotas, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4409,7 +4409,7 @@ impl IFsrmQuotaManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQuotaCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4449,7 +4449,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
             let this = (*this).get_impl();
             match this.IsAffectedByQuota(::core::mem::transmute(&path), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *affected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(affected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4480,7 +4480,7 @@ impl IFsrmQuotaObject_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4491,7 +4491,7 @@ impl IFsrmQuotaObject_Vtbl {
             let this = (*this).get_impl();
             match this.UserSid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *usersid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(usersid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4502,7 +4502,7 @@ impl IFsrmQuotaObject_Vtbl {
             let this = (*this).get_impl();
             match this.UserAccount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *useraccount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(useraccount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4513,7 +4513,7 @@ impl IFsrmQuotaObject_Vtbl {
             let this = (*this).get_impl();
             match this.SourceTemplateName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotatemplatename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotatemplatename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4524,7 +4524,7 @@ impl IFsrmQuotaObject_Vtbl {
             let this = (*this).get_impl();
             match this.MatchesSourceTemplate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *matches = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(matches, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4566,7 +4566,7 @@ impl IFsrmQuotaTemplate_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4587,7 +4587,7 @@ impl IFsrmQuotaTemplate_Vtbl {
             let this = (*this).get_impl();
             match this.CommitAndUpdateDerived(::core::mem::transmute_copy(&commitoptions), ::core::mem::transmute_copy(&applyoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *derivedobjectsresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(derivedobjectsresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4620,7 +4620,7 @@ impl IFsrmQuotaTemplateImported_Vtbl {
             let this = (*this).get_impl();
             match this.OverwriteOnCommit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *overwrite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(overwrite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4659,7 +4659,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTemplate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotatemplate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotatemplate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4670,7 +4670,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetTemplate(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotatemplate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotatemplate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4681,7 +4681,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumTemplates(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotatemplates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotatemplates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4692,7 +4692,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.ExportTemplates(::core::mem::transmute_copy(&quotatemplatenamesarray)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *serializedquotatemplates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(serializedquotatemplates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4703,7 +4703,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
             let this = (*this).get_impl();
             match this.ImportTemplates(::core::mem::transmute(&serializedquotatemplates), ::core::mem::transmute_copy(&quotatemplatenamesarray)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *quotatemplates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quotatemplates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4744,7 +4744,7 @@ impl IFsrmReport_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *reporttype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reporttype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4755,7 +4755,7 @@ impl IFsrmReport_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4771,7 +4771,7 @@ impl IFsrmReport_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *description = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(description, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4787,7 +4787,7 @@ impl IFsrmReport_Vtbl {
             let this = (*this).get_impl();
             match this.LastGeneratedFileNamePrefix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prefix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prefix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4798,7 +4798,7 @@ impl IFsrmReport_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilter(::core::mem::transmute_copy(&filter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filtervalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filtervalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4861,7 +4861,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.Task() {
                 ::core::result::Result::Ok(ok__) => {
-                    *taskname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(taskname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4877,7 +4877,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.NamespaceRoots() {
                 ::core::result::Result::Ok(ok__) => {
-                    *namespaceroots = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(namespaceroots, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4893,7 +4893,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.Formats() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formats = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formats, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4909,7 +4909,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.MailTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailto = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailto, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4925,7 +4925,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.RunningStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *runningstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(runningstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4936,7 +4936,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.LastRun() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastrun = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastrun, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4947,7 +4947,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.LastError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lasterror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lasterror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4958,7 +4958,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.LastGeneratedInDirectory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4969,7 +4969,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.EnumReports() {
                 ::core::result::Result::Ok(ok__) => {
-                    *reports = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reports, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4980,7 +4980,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.CreateReport(::core::mem::transmute_copy(&reporttype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *report = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(report, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4996,7 +4996,7 @@ impl IFsrmReportJob_Vtbl {
             let this = (*this).get_impl();
             match this.WaitForCompletion(::core::mem::transmute_copy(&waitseconds)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *completed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(completed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5055,7 +5055,7 @@ impl IFsrmReportManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumReportJobs(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *reportjobs = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reportjobs, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5066,7 +5066,7 @@ impl IFsrmReportManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateReportJob() {
                 ::core::result::Result::Ok(ok__) => {
-                    *reportjob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reportjob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5077,7 +5077,7 @@ impl IFsrmReportManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetReportJob(::core::mem::transmute(&taskname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *reportjob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reportjob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5088,7 +5088,7 @@ impl IFsrmReportManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputDirectory(::core::mem::transmute_copy(&context)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5104,7 +5104,7 @@ impl IFsrmReportManager_Vtbl {
             let this = (*this).get_impl();
             match this.IsFilterValidForReportType(::core::mem::transmute_copy(&reporttype), ::core::mem::transmute_copy(&filter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *valid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(valid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5115,7 +5115,7 @@ impl IFsrmReportManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultFilter(::core::mem::transmute_copy(&reporttype), ::core::mem::transmute_copy(&filter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filtervalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filtervalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5131,7 +5131,7 @@ impl IFsrmReportManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetReportSizeLimit(::core::mem::transmute_copy(&limit)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *limitvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(limitvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5229,7 +5229,7 @@ impl IFsrmRule_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5245,7 +5245,7 @@ impl IFsrmRule_Vtbl {
             let this = (*this).get_impl();
             match this.RuleType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ruletype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ruletype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5256,7 +5256,7 @@ impl IFsrmRule_Vtbl {
             let this = (*this).get_impl();
             match this.ModuleDefinitionName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *moduledefinitionname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moduledefinitionname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5272,7 +5272,7 @@ impl IFsrmRule_Vtbl {
             let this = (*this).get_impl();
             match this.NamespaceRoots() {
                 ::core::result::Result::Ok(ok__) => {
-                    *namespaceroots = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(namespaceroots, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5288,7 +5288,7 @@ impl IFsrmRule_Vtbl {
             let this = (*this).get_impl();
             match this.RuleFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ruleflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ruleflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5304,7 +5304,7 @@ impl IFsrmRule_Vtbl {
             let this = (*this).get_impl();
             match this.Parameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *parameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5320,7 +5320,7 @@ impl IFsrmRule_Vtbl {
             let this = (*this).get_impl();
             match this.LastModified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastmodified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastmodified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5372,7 +5372,7 @@ impl IFsrmSetting_Vtbl {
             let this = (*this).get_impl();
             match this.SmtpServer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *smtpserver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(smtpserver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5388,7 +5388,7 @@ impl IFsrmSetting_Vtbl {
             let this = (*this).get_impl();
             match this.MailFrom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mailfrom = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mailfrom, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5404,7 +5404,7 @@ impl IFsrmSetting_Vtbl {
             let this = (*this).get_impl();
             match this.AdminEmail() {
                 ::core::result::Result::Ok(ok__) => {
-                    *adminemail = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(adminemail, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5420,7 +5420,7 @@ impl IFsrmSetting_Vtbl {
             let this = (*this).get_impl();
             match this.DisableCommandLine() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disablecommandline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disablecommandline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5436,7 +5436,7 @@ impl IFsrmSetting_Vtbl {
             let this = (*this).get_impl();
             match this.EnableScreeningAudit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enablescreeningaudit = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enablescreeningaudit, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5462,7 +5462,7 @@ impl IFsrmSetting_Vtbl {
             let this = (*this).get_impl();
             match this.GetActionRunLimitInterval(::core::mem::transmute_copy(&actiontype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *delaytimeminutes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(delaytimeminutes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5508,7 +5508,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *capabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(capabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5524,7 +5524,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.StorageType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *storagetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(storagetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5540,7 +5540,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.UpdatesFileContent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *updatesfilecontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(updatesfilecontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

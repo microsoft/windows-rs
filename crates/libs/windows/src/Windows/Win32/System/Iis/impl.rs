@@ -45,7 +45,7 @@ impl AsyncIFtpAuthorizationProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_GetUserAccessPermission() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pftpaccess = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pftpaccess, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -78,7 +78,7 @@ impl AsyncIFtpHomeDirectoryProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_GetUserHomeDirectoryData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszhomedirectorydata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszhomedirectorydata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -141,7 +141,7 @@ impl AsyncIFtpPostprocessProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_HandlePostprocess() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pftpprocessstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pftpprocessstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -177,7 +177,7 @@ impl AsyncIFtpPreprocessProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_HandlePreprocess() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pftpprocessstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pftpprocessstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -213,7 +213,7 @@ impl AsyncIFtpRoleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_IsUserInRole() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfisinrole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfisinrole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl IFtpAuthorizationProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserAccessPermission(::core::mem::transmute(&pszsessionid), ::core::mem::transmute(&pszsitename), ::core::mem::transmute(&pszvirtualpath), ::core::mem::transmute(&pszusername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pftpaccess = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pftpaccess, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -358,7 +358,7 @@ impl IFtpHomeDirectoryProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserHomeDirectoryData(::core::mem::transmute(&pszsessionid), ::core::mem::transmute(&pszsitename), ::core::mem::transmute(&pszusername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszhomedirectorydata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszhomedirectorydata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -401,7 +401,7 @@ impl IFtpPostprocessProvider_Vtbl {
             let this = (*this).get_impl();
             match this.HandlePostprocess(::core::mem::transmute_copy(&ppostprocessparameters)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pftpprocessstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pftpprocessstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -427,7 +427,7 @@ impl IFtpPreprocessProvider_Vtbl {
             let this = (*this).get_impl();
             match this.HandlePreprocess(::core::mem::transmute_copy(&ppreprocessparameters)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pftpprocessstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pftpprocessstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -473,7 +473,7 @@ impl IFtpRoleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsUserInRole(::core::mem::transmute(&pszsessionid), ::core::mem::transmute(&pszsitename), ::core::mem::transmute(&pszusername), ::core::mem::transmute(&pszrole)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfisinrole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfisinrole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -704,7 +704,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match this.OpenKey(::core::mem::transmute_copy(&hmdhandle), ::core::mem::transmute(&pszmdpath), ::core::mem::transmute_copy(&dwmdaccessrequested), ::core::mem::transmute_copy(&dwmdtimeout)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phmdnewhandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phmdnewhandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -730,7 +730,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match this.GetHandleInfo(::core::mem::transmute_copy(&hmdhandle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmdhiinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmdhiinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -741,7 +741,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match this.GetSystemChangeNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwsystemchangenumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwsystemchangenumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -752,7 +752,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match this.GetDataSetNumber(::core::mem::transmute_copy(&hmdhandle), ::core::mem::transmute(&pszmdpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwmddatasetnumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwmddatasetnumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -803,7 +803,7 @@ impl IMSAdminBaseW_Vtbl {
             let this = (*this).get_impl();
             match this.UnmarshalInterface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *piadmbwinterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(piadmbwinterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

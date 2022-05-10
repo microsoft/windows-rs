@@ -15,7 +15,7 @@ impl IAudioEffectDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.ActivatableClassId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -27,7 +27,7 @@ impl IAudioEffectDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Properties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -65,7 +65,7 @@ impl IBasicAudioEffect_Vtbl {
             let this = (*this).get_impl();
             match this.UseInputFrameForOutput() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -77,7 +77,7 @@ impl IBasicAudioEffect_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedEncodingProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -141,7 +141,7 @@ impl IBasicVideoEffect_Vtbl {
             let this = (*this).get_impl();
             match this.IsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -153,7 +153,7 @@ impl IBasicVideoEffect_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedMemoryTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -165,7 +165,7 @@ impl IBasicVideoEffect_Vtbl {
             let this = (*this).get_impl();
             match this.TimeIndependent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -177,7 +177,7 @@ impl IBasicVideoEffect_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedEncodingProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -240,7 +240,7 @@ impl IVideoCompositor_Vtbl {
             let this = (*this).get_impl();
             match this.TimeIndependent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -297,7 +297,7 @@ impl IVideoCompositorDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.ActivatableClassId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -309,7 +309,7 @@ impl IVideoCompositorDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Properties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -343,7 +343,7 @@ impl IVideoEffectDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.ActivatableClassId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -355,7 +355,7 @@ impl IVideoEffectDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Properties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

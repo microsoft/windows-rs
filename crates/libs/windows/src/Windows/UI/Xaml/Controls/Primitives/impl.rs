@@ -11,7 +11,7 @@ impl IFlyoutBaseOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePresenter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -75,7 +75,7 @@ impl IPickerFlyoutBaseOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.ShouldShowConfirmationButtons() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -157,7 +157,7 @@ impl IScrollSnapPointsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AreHorizontalSnapPointsRegular() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -169,7 +169,7 @@ impl IScrollSnapPointsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AreVerticalSnapPointsRegular() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -181,7 +181,7 @@ impl IScrollSnapPointsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.HorizontalSnapPointsChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -198,7 +198,7 @@ impl IScrollSnapPointsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.VerticalSnapPointsChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -215,7 +215,7 @@ impl IScrollSnapPointsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetIrregularSnapPoints(orientation, alignment) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -227,7 +227,7 @@ impl IScrollSnapPointsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegularSnapPoints(orientation, alignment, ::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

@@ -11,7 +11,7 @@ impl ICashDrawerEventSourceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.CashDrawer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.CharactersPerLine() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -80,7 +80,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.LineHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -97,7 +97,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.LineSpacing() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -109,7 +109,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.LineWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -126,7 +126,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.IsLetterQuality() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -138,7 +138,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.IsPaperNearEnd() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -155,7 +155,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.ColorCartridge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -167,7 +167,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.IsCoverOpen() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -179,7 +179,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.IsCartridgeRemoved() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -191,7 +191,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.IsCartridgeEmpty() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -203,7 +203,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.IsHeadCleaning() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -215,7 +215,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.IsPaperEmpty() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -227,7 +227,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.IsReadyToPrint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -239,7 +239,7 @@ impl ICommonClaimedPosPrinterStation_Vtbl {
             let this = (*this).get_impl();
             match this.ValidateData(::core::mem::transmute(&data)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -301,7 +301,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsPrinterPresent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -313,7 +313,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsDualColorSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -325,7 +325,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.ColorCartridgeCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -337,7 +337,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.CartridgeSensors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -349,7 +349,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsBoldSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -361,7 +361,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsItalicSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -373,7 +373,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsUnderlineSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -385,7 +385,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsDoubleHighPrintSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -397,7 +397,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsDoubleWidePrintSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -409,7 +409,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsDoubleHighDoubleWidePrintSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -421,7 +421,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsPaperEmptySensorSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -433,7 +433,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsPaperNearEndSensorSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -445,7 +445,7 @@ impl ICommonPosPrintStationCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedCharactersPerLine() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -497,7 +497,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsBarcodeSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -509,7 +509,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsBitmapSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -521,7 +521,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsLeft90RotationSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -533,7 +533,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsRight90RotationSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -545,7 +545,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.Is180RotationSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -557,7 +557,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsPrintAreaSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -569,7 +569,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.RuledLineCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -581,7 +581,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedBarcodeRotations() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -593,7 +593,7 @@ impl ICommonReceiptSlipCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedBitmapRotations() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -651,7 +651,7 @@ impl IPosPrinterJob_Vtbl {
             let this = (*this).get_impl();
             match this.ExecuteAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

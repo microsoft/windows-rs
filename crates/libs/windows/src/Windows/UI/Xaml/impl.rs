@@ -147,7 +147,7 @@ impl IDataTemplateExtension_Vtbl {
             let this = (*this).get_impl();
             match this.ProcessBinding(phase) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -159,7 +159,7 @@ impl IDataTemplateExtension_Vtbl {
             let this = (*this).get_impl();
             match this.ProcessBindings(::core::mem::transmute(&arg)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -191,7 +191,7 @@ impl IElementFactory_Vtbl {
             let this = (*this).get_impl();
             match this.GetElement(::core::mem::transmute(&args)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -233,7 +233,7 @@ impl IFrameworkElementOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.MeasureOverride(::core::mem::transmute(&availablesize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -245,7 +245,7 @@ impl IFrameworkElementOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.ArrangeOverride(::core::mem::transmute(&finalsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -281,7 +281,7 @@ impl IFrameworkElementOverrides2_Vtbl {
             let this = (*this).get_impl();
             match this.GoToElementStateCore(::core::mem::transmute(&statename), usetransitions) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -317,7 +317,7 @@ impl IUIElementOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.OnCreateAutomationPeer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -334,7 +334,7 @@ impl IUIElementOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.FindSubElementsForTouchTargeting(::core::mem::transmute(&point), ::core::mem::transmute(&boundingrect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -371,7 +371,7 @@ impl IUIElementOverrides7_Vtbl {
             let this = (*this).get_impl();
             match this.GetChildrenInTabFocusOrder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -472,7 +472,7 @@ impl IVisualStateManagerOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GoToStateCore(::core::mem::transmute(&control), ::core::mem::transmute(&templateroot), ::core::mem::transmute(&statename), ::core::mem::transmute(&group), ::core::mem::transmute(&state), usetransitions) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

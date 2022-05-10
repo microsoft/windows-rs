@@ -79,7 +79,7 @@ impl IKsFormatSupport_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevicePreferredFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppksformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppksformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl IKsJackContainerId_Vtbl {
             let this = (*this).get_impl();
             match this.GetJackContainerId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pjackcontainerid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pjackcontainerid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IKsJackDescription_Vtbl {
             let this = (*this).get_impl();
             match this.GetJackCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcjacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcjacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -144,7 +144,7 @@ impl IKsJackDescription_Vtbl {
             let this = (*this).get_impl();
             match this.GetJackDescription(::core::mem::transmute_copy(&njack)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -172,7 +172,7 @@ impl IKsJackDescription2_Vtbl {
             let this = (*this).get_impl();
             match this.GetJackCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcjacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcjacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -183,7 +183,7 @@ impl IKsJackDescription2_Vtbl {
             let this = (*this).get_impl();
             match this.GetJackDescription2(::core::mem::transmute_copy(&njack)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdescription2 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdescription2, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -213,7 +213,7 @@ impl IKsJackSinkInformation_Vtbl {
             let this = (*this).get_impl();
             match this.GetJackSinkInformation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pjacksinkinformation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pjacksinkinformation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -248,7 +248,7 @@ impl IKsPropertySet_Vtbl {
             let this = (*this).get_impl();
             match this.QuerySupported(::core::mem::transmute_copy(&propset), ::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typesupport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typesupport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

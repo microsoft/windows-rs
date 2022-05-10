@@ -25,7 +25,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetThumbnailAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.BitmapProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -49,7 +49,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.BitmapPixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -61,7 +61,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.BitmapAlphaMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -73,7 +73,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.DpiX() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -85,7 +85,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.DpiY() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -97,7 +97,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.PixelWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -109,7 +109,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.PixelHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -121,7 +121,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.OrientedPixelWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -133,7 +133,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.OrientedPixelHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -145,7 +145,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetPixelDataAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -157,7 +157,7 @@ impl IBitmapFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetPixelDataTransformedAsync(pixelformat, alphamode, ::core::mem::transmute(&transform), exiforientationmode, colormanagementmode) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -202,7 +202,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
             let this = (*this).get_impl();
             match this.GetSoftwareBitmapAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -214,7 +214,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
             let this = (*this).get_impl();
             match this.GetSoftwareBitmapConvertedAsync(pixelformat, alphamode) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -226,7 +226,7 @@ impl IBitmapFrameWithSoftwareBitmap_Vtbl {
             let this = (*this).get_impl();
             match this.GetSoftwareBitmapTransformedAsync(pixelformat, alphamode, ::core::mem::transmute(&transform), exiforientationmode, colormanagementmode) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -260,7 +260,7 @@ impl IBitmapPropertiesView_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertiesAsync(::core::mem::transmute(&propertiestoretrieve)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

@@ -26,7 +26,7 @@ impl IDynamicRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *benabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(benabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl IDynamicRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.HWND() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl IDynamicRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.ClipRectangle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prccliprect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prccliprect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl IDynamicRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.ClipRegion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phcliprgn = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phcliprgn, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -90,7 +90,7 @@ impl IDynamicRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.DrawingAttributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppida = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppida, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl IDynamicRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.DataCacheEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcachedata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcachedata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -174,7 +174,7 @@ impl IGestureRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl IGestureRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.MaxStrokeCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcstrokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcstrokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -321,7 +321,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.hWnd() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentwindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentwindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -337,7 +337,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collecting = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collecting, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultDrawingAttributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentattributes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentattributes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -369,7 +369,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.Renderer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentinkrenderer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentinkrenderer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -385,7 +385,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.Ink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -401,7 +401,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.AutoRedraw() {
                 ::core::result::Result::Ok(ok__) => {
-                    *autoredraw = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(autoredraw, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -417,7 +417,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.CollectingInk() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collecting = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collecting, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -428,7 +428,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.CollectionMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -444,7 +444,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.DynamicRendering() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -460,7 +460,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.DesiredPacketDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packetguids = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packetguids, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -476,7 +476,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.MouseIcon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mouseicon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mouseicon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -497,7 +497,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.MousePointer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mousepointer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mousepointer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -513,7 +513,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.Cursors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cursors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cursors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.MarginX() {
                 ::core::result::Result::Ok(ok__) => {
-                    *marginx = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(marginx, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.MarginY() {
                 ::core::result::Result::Ok(ok__) => {
-                    *marginy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(marginy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -556,7 +556,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.Tablet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *singletablet = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(singletablet, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -567,7 +567,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.SupportHighContrastInk() {
                 ::core::result::Result::Ok(ok__) => {
-                    *support = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(support, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -588,7 +588,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.GetGestureStatus(::core::mem::transmute_copy(&gesture)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *listening = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(listening, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl IInkCollector_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventInterest(::core::mem::transmute_copy(&eventid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *listen = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(listen, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -698,7 +698,7 @@ impl IInkCursor_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -709,7 +709,7 @@ impl IInkCursor_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -720,7 +720,7 @@ impl IInkCursor_Vtbl {
             let this = (*this).get_impl();
             match this.Inverted() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -731,7 +731,7 @@ impl IInkCursor_Vtbl {
             let this = (*this).get_impl();
             match this.DrawingAttributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attributes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attributes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -747,7 +747,7 @@ impl IInkCursor_Vtbl {
             let this = (*this).get_impl();
             match this.Tablet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *tablet = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(tablet, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -758,7 +758,7 @@ impl IInkCursor_Vtbl {
             let this = (*this).get_impl();
             match this.Buttons() {
                 ::core::result::Result::Ok(ok__) => {
-                    *buttons = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(buttons, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -795,7 +795,7 @@ impl IInkCursorButton_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -806,7 +806,7 @@ impl IInkCursorButton_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -817,7 +817,7 @@ impl IInkCursorButton_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -850,7 +850,7 @@ impl IInkCursorButtons_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -861,7 +861,7 @@ impl IInkCursorButtons_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -872,7 +872,7 @@ impl IInkCursorButtons_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&identifier)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *button = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(button, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -905,7 +905,7 @@ impl IInkCursors_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -916,7 +916,7 @@ impl IInkCursors_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -927,7 +927,7 @@ impl IInkCursors_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *cursor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cursor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -963,7 +963,7 @@ impl IInkCustomStrokes_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -974,7 +974,7 @@ impl IInkCustomStrokes_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -985,7 +985,7 @@ impl IInkCustomStrokes_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&identifier)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1058,7 +1058,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.Strokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1069,7 +1069,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.ExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *properties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(properties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1080,7 +1080,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.Dirty() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dirty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dirty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1096,7 +1096,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.CustomStrokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkinkcustomstrokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkinkcustomstrokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1107,7 +1107,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.GetBoundingBox(::core::mem::transmute_copy(&boundingboxmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectangle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectangle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1128,7 +1128,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.ExtractStrokes(::core::mem::transmute(&strokes), ::core::mem::transmute_copy(&extractflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *extractedink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(extractedink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1139,7 +1139,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.ExtractWithRectangle(::core::mem::transmute(&rectangle), ::core::mem::transmute_copy(&extractflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *extractedink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(extractedink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1155,7 +1155,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1166,7 +1166,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.HitTestCircle(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&radius)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1177,7 +1177,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.HitTestWithRectangle(::core::mem::transmute(&selectionrectangle), ::core::mem::transmute_copy(&intersectpercent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1198,7 +1198,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStrokes(::core::mem::transmute(&strokeids)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1214,7 +1214,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.Save(::core::mem::transmute_copy(&persistenceformat), ::core::mem::transmute_copy(&compressionmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *data = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(data, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1230,7 +1230,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStroke(::core::mem::transmute(&packetdata), ::core::mem::transmute(&packetdescription)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *stroke = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(stroke, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1241,7 +1241,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.ClipboardCopyWithRectangle(::core::mem::transmute(&rectangle), ::core::mem::transmute_copy(&clipboardformats), ::core::mem::transmute_copy(&clipboardmodes)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *dataobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dataobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1252,7 +1252,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.ClipboardCopy(::core::mem::transmute(&strokes), ::core::mem::transmute_copy(&clipboardformats), ::core::mem::transmute_copy(&clipboardmodes)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *dataobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dataobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1263,7 +1263,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.CanPaste(::core::mem::transmute(&dataobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *canpaste = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(canpaste, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1274,7 +1274,7 @@ impl IInkDisp_Vtbl {
             let this = (*this).get_impl();
             match this.ClipboardPaste(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute(&dataobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1333,7 +1333,7 @@ impl IInkDivider_Vtbl {
             let this = (*this).get_impl();
             match this.Strokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1349,7 +1349,7 @@ impl IInkDivider_Vtbl {
             let this = (*this).get_impl();
             match this.RecognizerContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recognizercontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recognizercontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1365,7 +1365,7 @@ impl IInkDivider_Vtbl {
             let this = (*this).get_impl();
             match this.LineHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lineheight = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lineheight, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1381,7 +1381,7 @@ impl IInkDivider_Vtbl {
             let this = (*this).get_impl();
             match this.Divide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *inkdivisionresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(inkdivisionresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1417,7 +1417,7 @@ impl IInkDivisionResult_Vtbl {
             let this = (*this).get_impl();
             match this.Strokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1428,7 +1428,7 @@ impl IInkDivisionResult_Vtbl {
             let this = (*this).get_impl();
             match this.ResultByType(::core::mem::transmute_copy(&divisiontype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *inkdivisionunits = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(inkdivisionunits, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1461,7 +1461,7 @@ impl IInkDivisionUnit_Vtbl {
             let this = (*this).get_impl();
             match this.Strokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1472,7 +1472,7 @@ impl IInkDivisionUnit_Vtbl {
             let this = (*this).get_impl();
             match this.DivisionType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *divisiontype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(divisiontype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1483,7 +1483,7 @@ impl IInkDivisionUnit_Vtbl {
             let this = (*this).get_impl();
             match this.RecognizedString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recostring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recostring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1494,7 +1494,7 @@ impl IInkDivisionUnit_Vtbl {
             let this = (*this).get_impl();
             match this.RotationTransform() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rotationtransform = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rotationtransform, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1528,7 +1528,7 @@ impl IInkDivisionUnits_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1539,7 +1539,7 @@ impl IInkDivisionUnits_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1550,7 +1550,7 @@ impl IInkDivisionUnits_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *inkdivisionunit = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(inkdivisionunit, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1600,7 +1600,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.Color() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentcolor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentcolor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1616,7 +1616,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.Width() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentwidth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentwidth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1632,7 +1632,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.Height() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentheight = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentheight, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1648,7 +1648,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.FitToCurve() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1664,7 +1664,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.IgnorePressure() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1680,7 +1680,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.AntiAliased() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1696,7 +1696,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.Transparency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currenttransparency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currenttransparency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1712,7 +1712,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.RasterOperation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentrasteroperation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentrasteroperation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1728,7 +1728,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.PenTip() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentpentip = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentpentip, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1744,7 +1744,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.ExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *properties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(properties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1755,7 +1755,7 @@ impl IInkDrawingAttributes_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *drawingattributes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(drawingattributes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1879,7 +1879,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Status() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1890,7 +1890,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.UseMouseForInput() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1906,7 +1906,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.InkMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1922,7 +1922,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.InkInsertMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1938,7 +1938,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.DrawingAttributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1954,7 +1954,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.RecognitionTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1970,7 +1970,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Recognizer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1986,7 +1986,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Factoid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2002,7 +2002,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelInks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pselink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pselink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2018,7 +2018,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelInksDisplayMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinkdisplaymode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinkdisplaymode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2039,7 +2039,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.GetGestureStatus(::core::mem::transmute_copy(&gesture)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plisten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plisten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2060,7 +2060,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.BackColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2071,7 +2071,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Appearance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pappearance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pappearance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2087,7 +2087,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.BorderStyle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pborderstyle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pborderstyle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2103,7 +2103,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Hwnd() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pohhwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pohhwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2114,7 +2114,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Font() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2130,7 +2130,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Text() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2146,7 +2146,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.MouseIcon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mouseicon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mouseicon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2167,7 +2167,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.MousePointer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mousepointer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mousepointer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2183,7 +2183,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Locked() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2199,7 +2199,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2215,7 +2215,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.MaxLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmaxlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmaxlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2231,7 +2231,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.MultiLine() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2247,7 +2247,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.ScrollBars() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2263,7 +2263,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.DisableNoScroll() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2279,7 +2279,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelAlignment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselalignment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselalignment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2295,7 +2295,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelBold() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselbold = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselbold, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2311,7 +2311,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelItalic() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselitalic = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselitalic, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2327,7 +2327,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelUnderline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselunderline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselunderline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2343,7 +2343,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselcolor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselcolor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2359,7 +2359,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelFontName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselfontname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselfontname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2375,7 +2375,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelFontSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselfontsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselfontsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2391,7 +2391,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelCharOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselcharoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselcharoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2407,7 +2407,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.TextRTF() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtextrtf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtextrtf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2423,7 +2423,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelStart() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plselstart = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plselstart, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2439,7 +2439,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plsellength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plsellength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2455,7 +2455,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrseltext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrseltext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2471,7 +2471,7 @@ impl IInkEdit_Vtbl {
             let this = (*this).get_impl();
             match this.SelRTF() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrselrtf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrselrtf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2592,7 +2592,7 @@ impl IInkExtendedProperties_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2603,7 +2603,7 @@ impl IInkExtendedProperties_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2614,7 +2614,7 @@ impl IInkExtendedProperties_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute(&identifier)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2625,7 +2625,7 @@ impl IInkExtendedProperties_Vtbl {
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&guid), ::core::mem::transmute(&data)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *inkextendedproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(inkextendedproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2646,7 +2646,7 @@ impl IInkExtendedProperties_Vtbl {
             let this = (*this).get_impl();
             match this.DoesPropertyExist(::core::mem::transmute(&guid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *doespropertyexist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(doespropertyexist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2683,7 +2683,7 @@ impl IInkExtendedProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Guid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *guid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(guid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2694,7 +2694,7 @@ impl IInkExtendedProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *data = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(data, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2732,7 +2732,7 @@ impl IInkGesture_Vtbl {
             let this = (*this).get_impl();
             match this.Confidence() {
                 ::core::result::Result::Ok(ok__) => {
-                    *confidence = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(confidence, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2743,7 +2743,7 @@ impl IInkGesture_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2887,7 +2887,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.hWnd() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentwindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentwindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2903,7 +2903,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collecting = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collecting, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2919,7 +2919,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultDrawingAttributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentattributes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentattributes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2935,7 +2935,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.Renderer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentinkrenderer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentinkrenderer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2951,7 +2951,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.Ink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2967,7 +2967,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.AutoRedraw() {
                 ::core::result::Result::Ok(ok__) => {
-                    *autoredraw = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(autoredraw, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2983,7 +2983,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.CollectingInk() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collecting = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collecting, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2994,7 +2994,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.CollectionMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3010,7 +3010,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.DynamicRendering() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3026,7 +3026,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.DesiredPacketDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packetguids = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packetguids, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3042,7 +3042,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.MouseIcon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mouseicon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mouseicon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3063,7 +3063,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.MousePointer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mousepointer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mousepointer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3079,7 +3079,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.EditingMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *editingmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(editingmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3095,7 +3095,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.Selection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *selection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(selection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3111,7 +3111,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.EraserMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *erasermode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(erasermode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3127,7 +3127,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.EraserWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *eraserwidth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eraserwidth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3143,7 +3143,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.AttachMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attachmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attachmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3159,7 +3159,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.Cursors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cursors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cursors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3170,7 +3170,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.MarginX() {
                 ::core::result::Result::Ok(ok__) => {
-                    *marginx = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(marginx, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3186,7 +3186,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.MarginY() {
                 ::core::result::Result::Ok(ok__) => {
-                    *marginy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(marginy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3202,7 +3202,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.Tablet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *singletablet = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(singletablet, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3213,7 +3213,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.SupportHighContrastInk() {
                 ::core::result::Result::Ok(ok__) => {
-                    *support = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(support, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3229,7 +3229,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.SupportHighContrastSelectionUI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *support = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(support, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3245,7 +3245,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.HitTestSelection(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *selarea = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(selarea, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3266,7 +3266,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.GetGestureStatus(::core::mem::transmute_copy(&gesture)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *listening = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(listening, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3297,7 +3297,7 @@ impl IInkOverlay_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventInterest(::core::mem::transmute_copy(&eventid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *listen = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(listen, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3442,7 +3442,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.hWnd() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentwindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentwindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3453,7 +3453,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultDrawingAttributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentattributes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentattributes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3469,7 +3469,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Renderer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentinkrenderer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentinkrenderer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3485,7 +3485,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Ink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3501,7 +3501,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.AutoRedraw() {
                 ::core::result::Result::Ok(ok__) => {
-                    *autoredraw = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(autoredraw, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3517,7 +3517,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.CollectingInk() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collecting = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collecting, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3528,7 +3528,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.CollectionMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3544,7 +3544,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.DynamicRendering() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3560,7 +3560,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.DesiredPacketDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packetguids = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packetguids, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3576,7 +3576,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.MouseIcon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mouseicon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mouseicon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3597,7 +3597,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.MousePointer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mousepointer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mousepointer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3613,7 +3613,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.EditingMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *editingmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(editingmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3629,7 +3629,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Selection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *selection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(selection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3645,7 +3645,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.EraserMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *erasermode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(erasermode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3661,7 +3661,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.EraserWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *eraserwidth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eraserwidth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3687,7 +3687,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Picture() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppicture = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppicture, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3703,7 +3703,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.SizeMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *smsizemode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(smsizemode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3719,7 +3719,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.BackColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcolor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcolor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3730,7 +3730,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Cursors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cursors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cursors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3741,7 +3741,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.MarginX() {
                 ::core::result::Result::Ok(ok__) => {
-                    *marginx = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(marginx, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3757,7 +3757,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.MarginY() {
                 ::core::result::Result::Ok(ok__) => {
-                    *marginy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(marginy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3773,7 +3773,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Tablet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *singletablet = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(singletablet, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3784,7 +3784,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.SupportHighContrastInk() {
                 ::core::result::Result::Ok(ok__) => {
-                    *support = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(support, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3800,7 +3800,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.SupportHighContrastSelectionUI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *support = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(support, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3816,7 +3816,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.HitTestSelection(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *selarea = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(selarea, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3832,7 +3832,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.GetGestureStatus(::core::mem::transmute_copy(&gesture)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *listening = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(listening, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3863,7 +3863,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventInterest(::core::mem::transmute_copy(&eventid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *listen = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(listen, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3879,7 +3879,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.InkEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collecting = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collecting, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3895,7 +3895,7 @@ impl IInkPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbool = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbool, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4001,7 +4001,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.String() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recostring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recostring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4012,7 +4012,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.Confidence() {
                 ::core::result::Result::Ok(ok__) => {
-                    *confidence = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(confidence, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4023,7 +4023,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.Baseline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *baseline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(baseline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4034,7 +4034,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.Midline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *midline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(midline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4045,7 +4045,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.Ascender() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ascender = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ascender, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4056,7 +4056,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.Descender() {
                 ::core::result::Result::Ok(ok__) => {
-                    *descender = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descender, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4067,7 +4067,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.LineNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *linenumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(linenumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4078,7 +4078,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.Strokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4089,7 +4089,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.LineAlternates() {
                 ::core::result::Result::Ok(ok__) => {
-                    *linealternates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(linealternates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4100,7 +4100,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.ConfidenceAlternates() {
                 ::core::result::Result::Ok(ok__) => {
-                    *confidencealternates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(confidencealternates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4111,7 +4111,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.GetStrokesFromStrokeRanges(::core::mem::transmute(&strokes)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *getstrokesfromstrokeranges = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(getstrokesfromstrokeranges, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4132,7 +4132,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.AlternatesWithConstantPropertyValues(::core::mem::transmute(&propertytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *alternateswithconstantpropertyvalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(alternateswithconstantpropertyvalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4143,7 +4143,7 @@ impl IInkRecognitionAlternate_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyValue(::core::mem::transmute(&propertytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4189,7 +4189,7 @@ impl IInkRecognitionAlternates_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4200,7 +4200,7 @@ impl IInkRecognitionAlternates_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4211,7 +4211,7 @@ impl IInkRecognitionAlternates_Vtbl {
             let this = (*this).get_impl();
             match this.Strokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4222,7 +4222,7 @@ impl IInkRecognitionAlternates_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *inkrecoalternate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(inkrecoalternate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4260,7 +4260,7 @@ impl IInkRecognitionResult_Vtbl {
             let this = (*this).get_impl();
             match this.TopString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *topstring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(topstring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4271,7 +4271,7 @@ impl IInkRecognitionResult_Vtbl {
             let this = (*this).get_impl();
             match this.TopAlternate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *topalternate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(topalternate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4282,7 +4282,7 @@ impl IInkRecognitionResult_Vtbl {
             let this = (*this).get_impl();
             match this.TopConfidence() {
                 ::core::result::Result::Ok(ok__) => {
-                    *topconfidence = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(topconfidence, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4293,7 +4293,7 @@ impl IInkRecognitionResult_Vtbl {
             let this = (*this).get_impl();
             match this.Strokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4304,7 +4304,7 @@ impl IInkRecognitionResult_Vtbl {
             let this = (*this).get_impl();
             match this.AlternatesFromSelection(::core::mem::transmute_copy(&selectionstart), ::core::mem::transmute_copy(&selectionlength), ::core::mem::transmute_copy(&maximumalternates)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *alternatesfromselection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(alternatesfromselection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4355,7 +4355,7 @@ impl IInkRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4366,7 +4366,7 @@ impl IInkRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.Vendor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *vendor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(vendor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4377,7 +4377,7 @@ impl IInkRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.Capabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *capabilitiesflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(capabilitiesflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4388,7 +4388,7 @@ impl IInkRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.Languages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *languages = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(languages, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4399,7 +4399,7 @@ impl IInkRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4410,7 +4410,7 @@ impl IInkRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.PreferredPacketDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *preferredpacketdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(preferredpacketdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4421,7 +4421,7 @@ impl IInkRecognizer_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRecognizerContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *context = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(context, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4457,7 +4457,7 @@ impl IInkRecognizer2_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4468,7 +4468,7 @@ impl IInkRecognizer2_Vtbl {
             let this = (*this).get_impl();
             match this.UnicodeRanges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *unicoderanges = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(unicoderanges, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4521,7 +4521,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.Strokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4537,7 +4537,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.CharacterAutoCompletionMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4553,7 +4553,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.Factoid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *factoid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(factoid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4569,7 +4569,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.Guide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recognizerguide = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recognizerguide, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4585,7 +4585,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.PrefixText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prefix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prefix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4601,7 +4601,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.SuffixText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *suffix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(suffix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4617,7 +4617,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.RecognitionFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *modes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(modes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4633,7 +4633,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.WordList() {
                 ::core::result::Result::Ok(ok__) => {
-                    *wordlist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(wordlist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4649,7 +4649,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.Recognizer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recognizer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recognizer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4685,7 +4685,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recocontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recocontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4696,7 +4696,7 @@ impl IInkRecognizerContext_Vtbl {
             let this = (*this).get_impl();
             match this.IsStringSupported(::core::mem::transmute(&string)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *supported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4749,7 +4749,7 @@ impl IInkRecognizerContext2_Vtbl {
             let this = (*this).get_impl();
             match this.EnabledUnicodeRanges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *unicoderanges = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(unicoderanges, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4795,7 +4795,7 @@ impl IInkRecognizerGuide_Vtbl {
             let this = (*this).get_impl();
             match this.WritingBox() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectangle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectangle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4811,7 +4811,7 @@ impl IInkRecognizerGuide_Vtbl {
             let this = (*this).get_impl();
             match this.DrawnBox() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectangle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectangle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4827,7 +4827,7 @@ impl IInkRecognizerGuide_Vtbl {
             let this = (*this).get_impl();
             match this.Rows() {
                 ::core::result::Result::Ok(ok__) => {
-                    *units = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(units, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4843,7 +4843,7 @@ impl IInkRecognizerGuide_Vtbl {
             let this = (*this).get_impl();
             match this.Columns() {
                 ::core::result::Result::Ok(ok__) => {
-                    *units = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(units, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4859,7 +4859,7 @@ impl IInkRecognizerGuide_Vtbl {
             let this = (*this).get_impl();
             match this.Midline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *units = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(units, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4875,7 +4875,7 @@ impl IInkRecognizerGuide_Vtbl {
             let this = (*this).get_impl();
             match this.GuideData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *precoguide = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(precoguide, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4923,7 +4923,7 @@ impl IInkRecognizers_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4934,7 +4934,7 @@ impl IInkRecognizers_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4945,7 +4945,7 @@ impl IInkRecognizers_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultRecognizer(::core::mem::transmute_copy(&lcid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *defaultrecognizer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(defaultrecognizer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4956,7 +4956,7 @@ impl IInkRecognizers_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *inkrecognizer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(inkrecognizer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4999,7 +4999,7 @@ impl IInkRectangle_Vtbl {
             let this = (*this).get_impl();
             match this.Top() {
                 ::core::result::Result::Ok(ok__) => {
-                    *units = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(units, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5015,7 +5015,7 @@ impl IInkRectangle_Vtbl {
             let this = (*this).get_impl();
             match this.Left() {
                 ::core::result::Result::Ok(ok__) => {
-                    *units = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(units, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5031,7 +5031,7 @@ impl IInkRectangle_Vtbl {
             let this = (*this).get_impl();
             match this.Bottom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *units = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(units, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5047,7 +5047,7 @@ impl IInkRectangle_Vtbl {
             let this = (*this).get_impl();
             match this.Right() {
                 ::core::result::Result::Ok(ok__) => {
-                    *units = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(units, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5063,7 +5063,7 @@ impl IInkRectangle_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5182,7 +5182,7 @@ impl IInkRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.Measure(::core::mem::transmute(&strokes)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectangle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectangle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5193,7 +5193,7 @@ impl IInkRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.MeasureStroke(::core::mem::transmute(&stroke), ::core::mem::transmute(&drawingattributes)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectangle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectangle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5283,7 +5283,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.ID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5294,7 +5294,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.BezierPoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *points = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(points, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5305,7 +5305,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.DrawingAttributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *drawattrs = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(drawattrs, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5321,7 +5321,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.Ink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5332,7 +5332,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.ExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *properties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(properties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5343,7 +5343,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.PolylineCusps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cusps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cusps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5354,7 +5354,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.BezierCusps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cusps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cusps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5365,7 +5365,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.SelfIntersections() {
                 ::core::result::Result::Ok(ok__) => {
-                    *intersections = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(intersections, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5376,7 +5376,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.PacketCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5387,7 +5387,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.PacketSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5398,7 +5398,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.PacketDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packetdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packetdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5409,7 +5409,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.Deleted() {
                 ::core::result::Result::Ok(ok__) => {
-                    *deleted = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(deleted, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5420,7 +5420,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.GetBoundingBox(::core::mem::transmute_copy(&boundingboxmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectangle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectangle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5431,7 +5431,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.FindIntersections(::core::mem::transmute(&strokes)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *intersections = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(intersections, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5442,7 +5442,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.GetRectangleIntersections(::core::mem::transmute(&rectangle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *intersections = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(intersections, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5458,7 +5458,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.HitTestCircle(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&radius)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *intersects = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(intersects, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5474,7 +5474,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.Split(::core::mem::transmute_copy(&splitat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newstroke = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newstroke, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5490,7 +5490,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.GetPoints(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *points = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(points, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5501,7 +5501,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.SetPoints(::core::mem::transmute(&points), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *numberofpointsset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(numberofpointsset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5512,7 +5512,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.GetPacketData(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *packetdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packetdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5523,7 +5523,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.GetPacketValuesByProperty(::core::mem::transmute(&propertyname), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *packetvalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packetvalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5534,7 +5534,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.SetPacketValuesByProperty(::core::mem::transmute(&bstrpropertyname), ::core::mem::transmute(&packetvalues), ::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *numberofpacketsset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(numberofpacketsset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5545,7 +5545,7 @@ impl IInkStrokeDisp_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlattenedBezierPoints(::core::mem::transmute_copy(&fittingerror)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *flattenedbezierpoints = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flattenedbezierpoints, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5655,7 +5655,7 @@ impl IInkStrokes_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5666,7 +5666,7 @@ impl IInkStrokes_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5677,7 +5677,7 @@ impl IInkStrokes_Vtbl {
             let this = (*this).get_impl();
             match this.Ink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5688,7 +5688,7 @@ impl IInkStrokes_Vtbl {
             let this = (*this).get_impl();
             match this.RecognitionResult() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recognitionresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recognitionresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5699,7 +5699,7 @@ impl IInkStrokes_Vtbl {
             let this = (*this).get_impl();
             match this.ToString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *tostring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(tostring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5710,7 +5710,7 @@ impl IInkStrokes_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *stroke = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(stroke, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5746,7 +5746,7 @@ impl IInkStrokes_Vtbl {
             let this = (*this).get_impl();
             match this.GetBoundingBox(::core::mem::transmute_copy(&boundingboxmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *boundingbox = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(boundingbox, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5839,7 +5839,7 @@ impl IInkTablet_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5850,7 +5850,7 @@ impl IInkTablet_Vtbl {
             let this = (*this).get_impl();
             match this.PlugAndPlayId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5861,7 +5861,7 @@ impl IInkTablet_Vtbl {
             let this = (*this).get_impl();
             match this.MaximumInputRectangle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectangle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectangle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5872,7 +5872,7 @@ impl IInkTablet_Vtbl {
             let this = (*this).get_impl();
             match this.HardwareCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *capabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(capabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5883,7 +5883,7 @@ impl IInkTablet_Vtbl {
             let this = (*this).get_impl();
             match this.IsPacketPropertySupported(::core::mem::transmute(&packetpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *supported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5922,7 +5922,7 @@ impl IInkTablet2_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *kind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(kind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5949,7 +5949,7 @@ impl IInkTablet3_Vtbl {
             let this = (*this).get_impl();
             match this.IsMultiTouch() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pismultitouch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pismultitouch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5960,7 +5960,7 @@ impl IInkTablet3_Vtbl {
             let this = (*this).get_impl();
             match this.MaximumCursors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmaximumcursors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmaximumcursors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5994,7 +5994,7 @@ impl IInkTablets_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6005,7 +6005,7 @@ impl IInkTablets_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *_newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(_newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6016,7 +6016,7 @@ impl IInkTablets_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultTablet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *defaulttablet = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(defaulttablet, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6027,7 +6027,7 @@ impl IInkTablets_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *tablet = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(tablet, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6038,7 +6038,7 @@ impl IInkTablets_Vtbl {
             let this = (*this).get_impl();
             match this.IsPacketPropertySupported(::core::mem::transmute(&packetpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *supported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6132,7 +6132,7 @@ impl IInkTransform_Vtbl {
             let this = (*this).get_impl();
             match this.eM11() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6148,7 +6148,7 @@ impl IInkTransform_Vtbl {
             let this = (*this).get_impl();
             match this.eM12() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6164,7 +6164,7 @@ impl IInkTransform_Vtbl {
             let this = (*this).get_impl();
             match this.eM21() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6180,7 +6180,7 @@ impl IInkTransform_Vtbl {
             let this = (*this).get_impl();
             match this.eM22() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6196,7 +6196,7 @@ impl IInkTransform_Vtbl {
             let this = (*this).get_impl();
             match this.eDx() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6212,7 +6212,7 @@ impl IInkTransform_Vtbl {
             let this = (*this).get_impl();
             match this.eDy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6228,7 +6228,7 @@ impl IInkTransform_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *xform = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(xform, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6340,7 +6340,7 @@ impl IInputPanelWindowHandle_Vtbl {
             let this = (*this).get_impl();
             match this.AttachedEditWindow32() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attachededitwindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attachededitwindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6356,7 +6356,7 @@ impl IInputPanelWindowHandle_Vtbl {
             let this = (*this).get_impl();
             match this.AttachedEditWindow64() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attachededitwindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attachededitwindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6419,7 +6419,7 @@ impl IMathInputControl_Vtbl {
             let this = (*this).get_impl();
             match this.IsVisible() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvbshown = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvbshown, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6470,7 +6470,7 @@ impl IMathInputControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreviewHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *height = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(height, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6501,7 +6501,7 @@ impl IMathInputControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetHoverIcon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hoverimage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hoverimage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6570,7 +6570,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.Busy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *busy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(busy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6581,7 +6581,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.Factoid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *factoid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(factoid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6597,7 +6597,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.AttachedEditWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attachededitwindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attachededitwindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6613,7 +6613,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentPanel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentpanel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentpanel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6629,7 +6629,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultPanel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdefaultpanel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdefaultpanel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6645,7 +6645,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.Visible() {
                 ::core::result::Result::Ok(ok__) => {
-                    *visible = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(visible, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6661,7 +6661,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.Top() {
                 ::core::result::Result::Ok(ok__) => {
-                    *top = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(top, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6672,7 +6672,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.Left() {
                 ::core::result::Result::Ok(ok__) => {
-                    *left = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(left, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6683,7 +6683,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.Width() {
                 ::core::result::Result::Ok(ok__) => {
-                    *width = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(width, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6694,7 +6694,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.Height() {
                 ::core::result::Result::Ok(ok__) => {
-                    *height = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(height, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6705,7 +6705,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.VerticalOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *verticaloffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(verticaloffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6721,7 +6721,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.HorizontalOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *horizontaloffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(horizontaloffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6737,7 +6737,7 @@ impl IPenInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.AutoShow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pautoshow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pautoshow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6845,7 +6845,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfenable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfenable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6861,7 +6861,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.HWND() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6877,7 +6877,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.WindowInputRectangle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prcwndinputrect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prcwndinputrect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6908,7 +6908,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetStylusSyncPlugin(::core::mem::transmute_copy(&iindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiplugin = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiplugin, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6919,7 +6919,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetStylusSyncPluginCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcplugins = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcplugins, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6945,7 +6945,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetStylusAsyncPlugin(::core::mem::transmute_copy(&iindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiplugin = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiplugin, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6956,7 +6956,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetStylusAsyncPluginCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcplugins = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcplugins, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6967,7 +6967,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.ChildRealTimeStylusPlugin() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppirts = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppirts, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7003,7 +7003,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetTablet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppisingletablet = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppisingletablet, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7014,7 +7014,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetTabletContextIdFromTablet(::core::mem::transmute(&pitablet)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptcid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptcid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7025,7 +7025,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetTabletFromTabletContextId(::core::mem::transmute_copy(&tcid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitablet = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitablet, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7041,7 +7041,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetStyluses() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiinkcursors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiinkcursors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7052,7 +7052,7 @@ impl IRealTimeStylus_Vtbl {
             let this = (*this).get_impl();
             match this.GetStylusForId(::core::mem::transmute_copy(&sid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiinkcursor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiinkcursor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7127,7 +7127,7 @@ impl IRealTimeStylus2_Vtbl {
             let this = (*this).get_impl();
             match this.FlicksEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfenable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfenable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7163,7 +7163,7 @@ impl IRealTimeStylus3_Vtbl {
             let this = (*this).get_impl();
             match this.MultiTouchEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfenable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfenable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7263,7 +7263,7 @@ impl IStrokeBuilder_Vtbl {
             let this = (*this).get_impl();
             match this.Ink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiinkobj = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiinkobj, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7411,7 +7411,7 @@ impl IStylusPlugin_Vtbl {
             let this = (*this).get_impl();
             match this.DataInterest() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdatainterest = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdatainterest, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7493,7 +7493,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.AttachedEditWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attachededitwindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attachededitwindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7509,7 +7509,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentInteractionMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentinteractionmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentinteractionmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7520,7 +7520,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultInPlaceState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *state = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(state, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7536,7 +7536,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentInPlaceState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *state = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(state, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7547,7 +7547,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultInputArea() {
                 ::core::result::Result::Ok(ok__) => {
-                    *area = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(area, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7563,7 +7563,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentInputArea() {
                 ::core::result::Result::Ok(ok__) => {
-                    *area = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(area, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7574,7 +7574,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCorrectionMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7585,7 +7585,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.PreferredInPlaceDirection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *direction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(direction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7601,7 +7601,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.ExpandPostInsertionCorrection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *expand = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(expand, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7617,7 +7617,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.InPlaceVisibleOnFocus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *visible = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(visible, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7633,7 +7633,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.InPlaceBoundingRectangle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *boundingrectangle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(boundingrectangle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7644,7 +7644,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.PopUpCorrectionHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *height = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(height, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7655,7 +7655,7 @@ impl ITextInputPanel_Vtbl {
             let this = (*this).get_impl();
             match this.PopDownCorrectionHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *height = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(height, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7838,7 +7838,7 @@ impl ITextInputPanelRunInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsTipRunning() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfrunning = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfrunning, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7888,7 +7888,7 @@ impl ITipAutoCompleteClient_Vtbl {
             let this = (*this).get_impl();
             match this.RequestShowUI(::core::mem::transmute_copy(&hwndlist)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfallowshowing = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfallowshowing, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

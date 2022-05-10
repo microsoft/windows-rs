@@ -11,7 +11,7 @@ impl IXamlUIPresenterHost_Vtbl {
             let this = (*this).get_impl();
             match this.ResolveFileResource(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -40,7 +40,7 @@ impl IXamlUIPresenterHost2_Vtbl {
             let this = (*this).get_impl();
             match this.GetGenericXamlFilePath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -69,7 +69,7 @@ impl IXamlUIPresenterHost3_Vtbl {
             let this = (*this).get_impl();
             match this.ResolveDictionaryResource(::core::mem::transmute(&dictionary), ::core::mem::transmute(&dictionarykey), ::core::mem::transmute(&suggestedvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

@@ -183,7 +183,7 @@ impl IBlockRange_Vtbl {
             let this = (*this).get_impl();
             match this.StartLba() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -194,7 +194,7 @@ impl IBlockRange_Vtbl {
             let this = (*this).get_impl();
             match this.EndLba() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -224,7 +224,7 @@ impl IBlockRangeList_Vtbl {
             let this = (*this).get_impl();
             match this.BlockRanges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -258,7 +258,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match this.BootImage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -269,7 +269,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match this.Manufacturer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match this.PlatformId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -301,7 +301,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match this.Emulation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl IBootOptions_Vtbl {
             let this = (*this).get_impl();
             match this.ImageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl IBurnVerification_Vtbl {
             let this = (*this).get_impl();
             match this.BurnVerificationLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -396,7 +396,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match this.IsRecorderSupported(::core::mem::transmute(&recorder)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -407,7 +407,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match this.IsCurrentMediaSupported(::core::mem::transmute(&recorder)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -418,7 +418,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match this.MediaPhysicallyBlank() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match this.MediaHeuristicallyBlank() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl IDiscFormat2_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedMediaTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -509,7 +509,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.Recorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -525,7 +525,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.BufferUnderrunFreeDisabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -541,7 +541,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.PostgapAlreadyInImage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -552,7 +552,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentMediaStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -563,7 +563,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.WriteProtectStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -574,7 +574,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.TotalSectorsOnMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -585,7 +585,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.FreeSectorsOnMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -596,7 +596,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.NextWritableAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -607,7 +607,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.StartAddressOfPreviousSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -618,7 +618,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.LastWrittenAddressOfPreviousSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -634,7 +634,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.ForceMediaToBeClosed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -650,7 +650,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.DisableConsumerDvdCompatibilityMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -661,7 +661,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentPhysicalMediaType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -677,7 +677,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.ClientName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -688,7 +688,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.RequestedWriteSpeed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -699,7 +699,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.RequestedRotationTypeIsPureCAV() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -710,7 +710,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentWriteSpeed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -721,7 +721,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentRotationTypeIsPureCAV() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -732,7 +732,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedWriteSpeeds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedspeeds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedspeeds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -743,7 +743,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedWriteSpeedDescriptors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedspeeddescriptors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedspeeddescriptors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -759,7 +759,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.ForceOverwrite() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -770,7 +770,7 @@ impl IDiscFormat2Data_Vtbl {
             let this = (*this).get_impl();
             match this.MultisessionInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -848,7 +848,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ElapsedTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -859,7 +859,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.RemainingTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -870,7 +870,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.TotalTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -881,7 +881,7 @@ impl IDiscFormat2DataEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -925,7 +925,7 @@ impl IDiscFormat2Erase_Vtbl {
             let this = (*this).get_impl();
             match this.Recorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -941,7 +941,7 @@ impl IDiscFormat2Erase_Vtbl {
             let this = (*this).get_impl();
             match this.FullErase() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -952,7 +952,7 @@ impl IDiscFormat2Erase_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentPhysicalMediaType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -968,7 +968,7 @@ impl IDiscFormat2Erase_Vtbl {
             let this = (*this).get_impl();
             match this.ClientName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1067,7 +1067,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.Recorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1083,7 +1083,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.BufferUnderrunFreeDisabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1094,7 +1094,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.StartOfNextSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1105,7 +1105,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.LastPossibleStartOfLeadout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1116,7 +1116,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentPhysicalMediaType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1127,7 +1127,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedSectorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1143,7 +1143,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.RequestedSectorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1159,7 +1159,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.ClientName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1170,7 +1170,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.RequestedWriteSpeed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1181,7 +1181,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.RequestedRotationTypeIsPureCAV() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1192,7 +1192,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentWriteSpeed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1203,7 +1203,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentRotationTypeIsPureCAV() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1214,7 +1214,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedWriteSpeeds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedspeeds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedspeeds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1225,7 +1225,7 @@ impl IDiscFormat2RawCD_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedWriteSpeedDescriptors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedspeeddescriptors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedspeeddescriptors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1279,7 +1279,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1290,7 +1290,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ElapsedTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1301,7 +1301,7 @@ impl IDiscFormat2RawCDEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.RemainingTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1386,7 +1386,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.Recorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1402,7 +1402,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.BufferUnderrunFreeDisabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1413,7 +1413,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.NumberOfExistingTracks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1424,7 +1424,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.TotalSectorsOnMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1435,7 +1435,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.FreeSectorsOnMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1446,7 +1446,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.UsedSectorsOnMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1462,7 +1462,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.DoNotFinalizeMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1473,7 +1473,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.ExpectedTableOfContents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1484,7 +1484,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentPhysicalMediaType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1500,7 +1500,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.ClientName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1511,7 +1511,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.RequestedWriteSpeed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1522,7 +1522,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.RequestedRotationTypeIsPureCAV() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1533,7 +1533,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentWriteSpeed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1544,7 +1544,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentRotationTypeIsPureCAV() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1555,7 +1555,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedWriteSpeeds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedspeeds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedspeeds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1566,7 +1566,7 @@ impl IDiscFormat2TrackAtOnce_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedWriteSpeedDescriptors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedspeeddescriptors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedspeeddescriptors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1622,7 +1622,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentTrackNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1633,7 +1633,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1644,7 +1644,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ElapsedTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IDiscFormat2TrackAtOnceEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.RemainingTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1700,7 +1700,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.EnumDiscMasterFormats() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1711,7 +1711,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveDiscMasterFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lpiid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lpiid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1727,7 +1727,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.EnumDiscRecorders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1738,7 +1738,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveDiscRecorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprecorder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprecorder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1759,7 +1759,7 @@ impl IDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.ProgressAdvise(::core::mem::transmute(&pevents)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1817,7 +1817,7 @@ impl IDiscMaster2_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1828,7 +1828,7 @@ impl IDiscMaster2_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1839,7 +1839,7 @@ impl IDiscMaster2_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1850,7 +1850,7 @@ impl IDiscMaster2_Vtbl {
             let this = (*this).get_impl();
             match this.IsSupportedEnvironment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1887,7 +1887,7 @@ impl IDiscMasterProgressEvents_Vtbl {
             let this = (*this).get_impl();
             match this.QueryCancel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbcancel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbcancel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1988,7 +1988,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecorderType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ftypecode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ftypecode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2004,7 +2004,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match this.GetBasePnPID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrbasepnpid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrbasepnpid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2015,7 +2015,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match this.GetPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2026,7 +2026,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecorderProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropstg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropstg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2042,7 +2042,7 @@ impl IDiscRecorder_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecorderState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puldevstateflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puldevstateflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2170,7 +2170,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.ActiveDiscRecorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2181,7 +2181,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.VendorId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2192,7 +2192,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.ProductId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2203,7 +2203,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.ProductRevision() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2214,7 +2214,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2225,7 +2225,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.VolumePathNames() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2236,7 +2236,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceCanLoadMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2247,7 +2247,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.LegacyDeviceNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *legacydevicenumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(legacydevicenumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2258,7 +2258,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedFeaturePages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2269,7 +2269,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFeaturePages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2280,7 +2280,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedProfiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2291,7 +2291,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentProfiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2302,7 +2302,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedModePages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2313,7 +2313,7 @@ impl IDiscRecorder2_Vtbl {
             let this = (*this).get_impl();
             match this.ExclusiveAccessOwner() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2454,7 +2454,7 @@ impl IDiscRecorder2Ex_Vtbl {
             let this = (*this).get_impl();
             match this.GetByteAlignmentMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2465,7 +2465,7 @@ impl IDiscRecorder2Ex_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaximumNonPageAlignedTransferSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2476,7 +2476,7 @@ impl IDiscRecorder2Ex_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaximumPageAlignedTransferSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2537,7 +2537,7 @@ impl IEnumDiscMasterFormats_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2584,7 +2584,7 @@ impl IEnumDiscRecorders_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2634,7 +2634,7 @@ impl IEnumFsiItems_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2684,7 +2684,7 @@ impl IEnumProgressItems_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2765,7 +2765,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.Root() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2776,7 +2776,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.SessionStartBlock() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2792,7 +2792,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.FreeMediaBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2813,7 +2813,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.UsedBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2824,7 +2824,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2840,7 +2840,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.ImportedVolumeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2851,7 +2851,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.BootImageOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2867,7 +2867,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.FileCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2878,7 +2878,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.DirectoryCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2889,7 +2889,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.WorkingDirectory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2905,7 +2905,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.ChangePoint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2916,7 +2916,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.StrictFileSystemCompliance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2932,7 +2932,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.UseRestrictedCharacterSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2948,7 +2948,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.FileSystemsToCreate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2964,7 +2964,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.FileSystemsSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2980,7 +2980,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.UDFRevision() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2991,7 +2991,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.UDFRevisionsSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3017,7 +3017,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.ISO9660InterchangeLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3028,7 +3028,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.ISO9660InterchangeLevelsSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3039,7 +3039,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.CreateResultImage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resultstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resultstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3050,7 +3050,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.Exists(::core::mem::transmute(&fullpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *itemtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(itemtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3061,7 +3061,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.CalculateDiscIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
-                    *discidentifier = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(discidentifier, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3072,7 +3072,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.IdentifyFileSystemsOnDisc(::core::mem::transmute(&discrecorder)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filesystems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filesystems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3083,7 +3083,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultFileSystemForImport(::core::mem::transmute_copy(&filesystems)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *importdefault = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(importdefault, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3094,7 +3094,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.ImportFileSystem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *importedfilesystem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(importedfilesystem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3120,7 +3120,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDirectoryItem(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3131,7 +3131,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileItem(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3142,7 +3142,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeNameUDF() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3153,7 +3153,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeNameJoliet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3164,7 +3164,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeNameISO9660() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3175,7 +3175,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.StageFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3191,7 +3191,7 @@ impl IFileSystemImage_Vtbl {
             let this = (*this).get_impl();
             match this.MultisessionInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3275,7 +3275,7 @@ impl IFileSystemImage2_Vtbl {
             let this = (*this).get_impl();
             match this.BootImageOptionsArray() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3312,7 +3312,7 @@ impl IFileSystemImage3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRedundantUdfMetadataFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3328,7 +3328,7 @@ impl IFileSystemImage3_Vtbl {
             let this = (*this).get_impl();
             match this.ProbeSpecificFileSystem(::core::mem::transmute_copy(&filesystemtoprobe)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isappendable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isappendable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3363,7 +3363,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match this.ImageStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3374,7 +3374,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match this.ProgressItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3385,7 +3385,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match this.TotalBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3396,7 +3396,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match this.BlockSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3407,7 +3407,7 @@ impl IFileSystemImageResult_Vtbl {
             let this = (*this).get_impl();
             match this.DiscId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3440,7 +3440,7 @@ impl IFileSystemImageResult2_Vtbl {
             let this = (*this).get_impl();
             match this.ModifiedBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3475,7 +3475,7 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3486,7 +3486,7 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3497,7 +3497,7 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3508,7 +3508,7 @@ impl IFsiDirectoryItem_Vtbl {
             let this = (*this).get_impl();
             match this.EnumFsiItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3600,7 +3600,7 @@ impl IFsiFileItem_Vtbl {
             let this = (*this).get_impl();
             match this.DataSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3611,7 +3611,7 @@ impl IFsiFileItem_Vtbl {
             let this = (*this).get_impl();
             match this.DataSize32BitLow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3622,7 +3622,7 @@ impl IFsiFileItem_Vtbl {
             let this = (*this).get_impl();
             match this.DataSize32BitHigh() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3633,7 +3633,7 @@ impl IFsiFileItem_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3676,7 +3676,7 @@ impl IFsiFileItem2_Vtbl {
             let this = (*this).get_impl();
             match this.FsiNamedStreams() {
                 ::core::result::Result::Ok(ok__) => {
-                    *streams = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(streams, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3687,7 +3687,7 @@ impl IFsiFileItem2_Vtbl {
             let this = (*this).get_impl();
             match this.IsNamedStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3708,7 +3708,7 @@ impl IFsiFileItem2_Vtbl {
             let this = (*this).get_impl();
             match this.IsRealTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3758,7 +3758,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3769,7 +3769,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match this.FullPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3780,7 +3780,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match this.CreationTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3796,7 +3796,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match this.LastAccessedTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3812,7 +3812,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match this.LastModifiedTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3828,7 +3828,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match this.IsHidden() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3844,7 +3844,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match this.FileSystemName(::core::mem::transmute_copy(&filesystem)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3855,7 +3855,7 @@ impl IFsiItem_Vtbl {
             let this = (*this).get_impl();
             match this.FileSystemPath(::core::mem::transmute_copy(&filesystem)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3898,7 +3898,7 @@ impl IFsiNamedStreams_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3909,7 +3909,7 @@ impl IFsiNamedStreams_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3920,7 +3920,7 @@ impl IFsiNamedStreams_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3931,7 +3931,7 @@ impl IFsiNamedStreams_Vtbl {
             let this = (*this).get_impl();
             match this.EnumNamedStreams() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3967,7 +3967,7 @@ impl IIsoImageManager_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3978,7 +3978,7 @@ impl IIsoImageManager_Vtbl {
             let this = (*this).get_impl();
             match this.Stream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *data = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(data, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4031,7 +4031,7 @@ impl IJolietDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetTotalDataBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnblocks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnblocks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4042,7 +4042,7 @@ impl IJolietDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetUsedDataBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnblocks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnblocks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4053,7 +4053,7 @@ impl IJolietDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetDataBlockSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnblockbytes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnblockbytes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4069,7 +4069,7 @@ impl IJolietDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetJolietProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropstg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropstg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4111,7 +4111,7 @@ impl IMultisession_Vtbl {
             let this = (*this).get_impl();
             match this.IsSupportedOnCurrentMediaState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4127,7 +4127,7 @@ impl IMultisession_Vtbl {
             let this = (*this).get_impl();
             match this.InUse() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4138,7 +4138,7 @@ impl IMultisession_Vtbl {
             let this = (*this).get_impl();
             match this.ImportRecorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4172,7 +4172,7 @@ impl IMultisessionRandomWrite_Vtbl {
             let this = (*this).get_impl();
             match this.WriteUnitSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4183,7 +4183,7 @@ impl IMultisessionRandomWrite_Vtbl {
             let this = (*this).get_impl();
             match this.LastWrittenAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4194,7 +4194,7 @@ impl IMultisessionRandomWrite_Vtbl {
             let this = (*this).get_impl();
             match this.TotalSectorsOnMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4229,7 +4229,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match this.IsFirstDataSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4240,7 +4240,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match this.StartAddressOfPreviousSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4251,7 +4251,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match this.LastWrittenAddressOfPreviousSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4262,7 +4262,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match this.NextWritableAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4273,7 +4273,7 @@ impl IMultisessionSequential_Vtbl {
             let this = (*this).get_impl();
             match this.FreeSectorsOnMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4306,7 +4306,7 @@ impl IMultisessionSequential2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteUnitSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4335,7 +4335,7 @@ impl IProgressItem_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *desc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(desc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4346,7 +4346,7 @@ impl IProgressItem_Vtbl {
             let this = (*this).get_impl();
             match this.FirstBlock() {
                 ::core::result::Result::Ok(ok__) => {
-                    *block = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(block, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4357,7 +4357,7 @@ impl IProgressItem_Vtbl {
             let this = (*this).get_impl();
             match this.LastBlock() {
                 ::core::result::Result::Ok(ok__) => {
-                    *block = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(block, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4368,7 +4368,7 @@ impl IProgressItem_Vtbl {
             let this = (*this).get_impl();
             match this.BlockCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *blocks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(blocks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4405,7 +4405,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4416,7 +4416,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4427,7 +4427,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4438,7 +4438,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match this.ProgressItemFromBlock(::core::mem::transmute_copy(&block)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4449,7 +4449,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match this.ProgressItemFromDescription(::core::mem::transmute(&description)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4460,7 +4460,7 @@ impl IProgressItems_Vtbl {
             let this = (*this).get_impl();
             match this.EnumProgressItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4512,7 +4512,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.CreateResultImage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resultstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resultstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4523,7 +4523,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.AddTrack(::core::mem::transmute_copy(&datatype), ::core::mem::transmute(&data)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *trackindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(trackindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4549,7 +4549,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.ResultingImageType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4560,7 +4560,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.StartOfLeadout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4576,7 +4576,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.StartOfLeadoutLimit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4592,7 +4592,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.DisableGaplessAudio() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4608,7 +4608,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.MediaCatalogNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4624,7 +4624,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.StartingTrackNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4635,7 +4635,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.get_TrackInfo(::core::mem::transmute_copy(&trackindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4646,7 +4646,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.NumberOfExistingTracks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4657,7 +4657,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.LastUsedUserSectorInImage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4668,7 +4668,7 @@ impl IRawCDImageCreator_Vtbl {
             let this = (*this).get_impl();
             match this.ExpectedTableOfContents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4727,7 +4727,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match this.StartingLba() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4738,7 +4738,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SectorCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4749,7 +4749,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match this.TrackNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4760,7 +4760,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SectorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4771,7 +4771,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ISRC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4787,7 +4787,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DigitalAudioCopySetting() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4803,7 +4803,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AudioHasPreemphasis() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4819,7 +4819,7 @@ impl IRawCDImageTrackInfo_Vtbl {
             let this = (*this).get_impl();
             match this.TrackIndexes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4874,7 +4874,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetTotalAudioTracks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pntracks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pntracks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4885,7 +4885,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetTotalAudioBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnblocks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnblocks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4896,7 +4896,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetUsedAudioBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnblocks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnblocks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4907,7 +4907,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetAvailableAudioTrackBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnblocks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnblocks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4918,7 +4918,7 @@ impl IRedbookDiscMaster_Vtbl {
             let this = (*this).get_impl();
             match this.GetAudioBlockSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnblockbytes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnblockbytes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5041,7 +5041,7 @@ impl IStreamPseudoRandomBased_Vtbl {
             let this = (*this).get_impl();
             match this.Seed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5110,7 +5110,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match this.Recorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5126,7 +5126,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match this.UseStreamingWrite12() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5142,7 +5142,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match this.StartingSectorsPerSecond() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5158,7 +5158,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match this.EndingSectorsPerSecond() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5174,7 +5174,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match this.BytesPerSector() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5185,7 +5185,7 @@ impl IWriteEngine2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteInProgress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5232,7 +5232,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.StartLba() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5243,7 +5243,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.SectorCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5254,7 +5254,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.LastReadLba() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5265,7 +5265,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.LastWrittenLba() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5276,7 +5276,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.TotalSystemBuffer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5287,7 +5287,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.UsedSystemBuffer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5298,7 +5298,7 @@ impl IWriteEngine2EventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.FreeSystemBuffer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5335,7 +5335,7 @@ impl IWriteSpeedDescriptor_Vtbl {
             let this = (*this).get_impl();
             match this.MediaType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5346,7 +5346,7 @@ impl IWriteSpeedDescriptor_Vtbl {
             let this = (*this).get_impl();
             match this.RotationTypeIsPureCAV() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5357,7 +5357,7 @@ impl IWriteSpeedDescriptor_Vtbl {
             let this = (*this).get_impl();
             match this.WriteSpeed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

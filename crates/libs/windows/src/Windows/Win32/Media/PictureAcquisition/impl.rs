@@ -14,7 +14,7 @@ impl IPhotoAcquire_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePhotoSource(::core::mem::transmute(&pszdevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppphotoacquiresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppphotoacquiresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30,7 +30,7 @@ impl IPhotoAcquire_Vtbl {
             let this = (*this).get_impl();
             match this.EnumResults() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumfilepaths = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumfilepaths, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl IPhotoAcquireItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstritemname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstritemname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -117,7 +117,7 @@ impl IPhotoAcquireItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetThumbnail(::core::mem::transmute(&sizethumbnail)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phbmpthumbnail = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phbmpthumbnail, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -128,7 +128,7 @@ impl IPhotoAcquireItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&key)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pv = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pv, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -144,7 +144,7 @@ impl IPhotoAcquireItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl IPhotoAcquireItem_Vtbl {
             let this = (*this).get_impl();
             match this.CanDelete() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcandelete = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcandelete, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -171,7 +171,7 @@ impl IPhotoAcquireItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pncount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pncount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -182,7 +182,7 @@ impl IPhotoAcquireItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubItemAt(::core::mem::transmute_copy(&nitemindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppphotoacquireitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppphotoacquireitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -228,7 +228,7 @@ impl IPhotoAcquireOptionsDialog_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute_copy(&hwndparent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwnddialog = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwnddialog, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -338,7 +338,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
             let this = (*this).get_impl();
             match this.Cancelled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcancelled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcancelled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -424,7 +424,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeleteAfterAcquire() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfdeleteafteracquire = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfdeleteafteracquire, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -435,7 +435,7 @@ impl IPhotoAcquireProgressCB_Vtbl {
             let this = (*this).get_impl();
             match this.ErrorAdvise(::core::mem::transmute_copy(&hr), ::core::mem::transmute(&pszerrormessage), ::core::mem::transmute_copy(&nmessagetype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnerroradviseresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnerroradviseresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -534,7 +534,7 @@ impl IPhotoAcquireSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwphotoacquireflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwphotoacquireflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -545,7 +545,7 @@ impl IPhotoAcquireSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputFilenameTemplate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtemplate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtemplate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -556,7 +556,7 @@ impl IPhotoAcquireSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetSequencePaddingWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwwidth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwwidth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -567,7 +567,7 @@ impl IPhotoAcquireSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetSequenceZeroPadding() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfzeropad = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfzeropad, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -578,7 +578,7 @@ impl IPhotoAcquireSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetGroupTag() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrgrouptag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrgrouptag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -589,7 +589,7 @@ impl IPhotoAcquireSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetAcquisitionTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pftacquisitiontime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pftacquisitiontime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -637,7 +637,7 @@ impl IPhotoAcquireSource_Vtbl {
             let this = (*this).get_impl();
             match this.GetFriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrfriendlyname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrfriendlyname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -658,7 +658,7 @@ impl IPhotoAcquireSource_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnitemcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnitemcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -669,7 +669,7 @@ impl IPhotoAcquireSource_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemAt(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppphotoacquireitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppphotoacquireitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -680,7 +680,7 @@ impl IPhotoAcquireSource_Vtbl {
             let this = (*this).get_impl();
             match this.GetPhotoAcquireSettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppphotoacquiresettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppphotoacquiresettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -691,7 +691,7 @@ impl IPhotoAcquireSource_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdeviceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdeviceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -774,7 +774,7 @@ impl IPhotoProgressDialog_Vtbl {
             let this = (*this).get_impl();
             match this.GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwndprogressdialog = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwndprogressdialog, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -815,7 +815,7 @@ impl IPhotoProgressDialog_Vtbl {
             let this = (*this).get_impl();
             match this.IsCheckboxChecked(::core::mem::transmute_copy(&ncheckboxid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfchecked = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfchecked, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -861,7 +861,7 @@ impl IPhotoProgressDialog_Vtbl {
             let this = (*this).get_impl();
             match this.IsCancelled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcancelled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcancelled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -921,7 +921,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubmitButtonText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrsubmitbuttontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrsubmitbuttontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -932,7 +932,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrompt() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprompttitle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprompttitle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -943,7 +943,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstringid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstringid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -954,7 +954,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnstringtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnstringtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -965,7 +965,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetTooltipText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtooltiptext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtooltiptext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -976,7 +976,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcchmaxlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcchmaxlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -987,7 +987,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefault() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdefault = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdefault, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -998,7 +998,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetMruCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnmrucount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnmrucount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1009,7 +1009,7 @@ impl IUserInputString_Vtbl {
             let this = (*this).get_impl();
             match this.GetMruEntryAt(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrmruentry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrmruentry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

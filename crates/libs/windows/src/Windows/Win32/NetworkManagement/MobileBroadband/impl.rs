@@ -31,7 +31,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectionID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *connectionid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(connectionid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match this.InterfaceID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *interfaceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(interfaceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -53,7 +53,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match this.Connect(::core::mem::transmute_copy(&connectionmode), ::core::mem::transmute(&strprofile)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -64,7 +64,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match this.Disconnect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -80,7 +80,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetVoiceCallState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *voicecallstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(voicecallstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -91,7 +91,7 @@ impl IMbnConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetActivationNetworkError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *networkerror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(networkerror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -127,7 +127,7 @@ impl IMbnConnectionContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetProvisionedContexts() {
                 ::core::result::Result::Ok(ok__) => {
-                    *provisionedcontexts = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(provisionedcontexts, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -138,7 +138,7 @@ impl IMbnConnectionContext_Vtbl {
             let this = (*this).get_impl();
             match this.SetProvisionedContext(::core::mem::transmute(&provisionedcontexts), ::core::mem::transmute(&providerid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -237,7 +237,7 @@ impl IMbnConnectionManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnection(::core::mem::transmute(&connectionid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mbnconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mbnconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -248,7 +248,7 @@ impl IMbnConnectionManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnections() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mbnconnections = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mbnconnections, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -307,7 +307,7 @@ impl IMbnConnectionProfile_Vtbl {
             let this = (*this).get_impl();
             match this.GetProfileXmlData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *profiledata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(profiledata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -367,7 +367,7 @@ impl IMbnConnectionProfileManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectionProfiles(::core::mem::transmute(&mbninterface)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *connectionprofiles = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(connectionprofiles, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -378,7 +378,7 @@ impl IMbnConnectionProfileManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectionProfile(::core::mem::transmute(&mbninterface), ::core::mem::transmute(&profilename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *connectionprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(connectionprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -452,7 +452,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.QuerySupportedCommands() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -463,7 +463,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.OpenCommandSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -474,7 +474,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.CloseCommandSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -485,7 +485,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.SetCommand(::core::mem::transmute_copy(&commandid), ::core::mem::transmute_copy(&deviceservicedata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -496,7 +496,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.QueryCommand(::core::mem::transmute_copy(&commandid), ::core::mem::transmute_copy(&deviceservicedata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -507,7 +507,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.OpenDataSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -518,7 +518,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.CloseDataSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -529,7 +529,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.WriteData(::core::mem::transmute_copy(&deviceservicedata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.InterfaceID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *interfaceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(interfaceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -551,7 +551,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceServiceID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *deviceserviceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(deviceserviceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -562,7 +562,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.IsCommandSessionOpen() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -573,7 +573,7 @@ impl IMbnDeviceService_Vtbl {
             let this = (*this).get_impl();
             match this.IsDataSessionOpen() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -636,7 +636,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateDeviceServices() {
                 ::core::result::Result::Ok(ok__) => {
-                    *deviceservices = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(deviceservices, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -647,7 +647,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceService(::core::mem::transmute(&deviceserviceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mbndeviceservice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mbndeviceservice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -658,7 +658,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             let this = (*this).get_impl();
             match this.MaxCommandSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *maxcommandsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(maxcommandsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -669,7 +669,7 @@ impl IMbnDeviceServicesContext_Vtbl {
             let this = (*this).get_impl();
             match this.MaxDataSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *maxdatasize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(maxdatasize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -794,7 +794,7 @@ impl IMbnDeviceServicesManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceServicesContext(::core::mem::transmute(&networkinterfaceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mbndevicescontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mbndevicescontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -830,7 +830,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.InterfaceID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *interfaceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(interfaceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -841,7 +841,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterfaceCapability() {
                 ::core::result::Result::Ok(ok__) => {
-                    *interfacecaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(interfacecaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -852,7 +852,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubscriberInformation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *subscriberinformation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(subscriberinformation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -863,7 +863,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetReadyState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *readystate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(readystate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -874,7 +874,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.InEmergencyMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *emergencymode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(emergencymode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -885,7 +885,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetHomeProvider() {
                 ::core::result::Result::Ok(ok__) => {
-                    *homeprovider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(homeprovider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -896,7 +896,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreferredProviders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *preferredproviders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(preferredproviders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -907,7 +907,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.SetPreferredProviders(::core::mem::transmute_copy(&preferredproviders)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -923,7 +923,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.ScanNetwork() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -934,7 +934,7 @@ impl IMbnInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mbnconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mbnconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1043,7 +1043,7 @@ impl IMbnInterfaceManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterface(::core::mem::transmute(&interfaceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mbninterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mbninterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1054,7 +1054,7 @@ impl IMbnInterfaceManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mbninterfaces = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mbninterfaces, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1116,7 +1116,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match this.SetHomeProvider(::core::mem::transmute_copy(&homeprovider)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1127,7 +1127,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreferredProviders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *preferredmulticarrierproviders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(preferredmulticarrierproviders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1143,7 +1143,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match this.GetSupportedCellularClasses() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cellularclasses = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cellularclasses, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1154,7 +1154,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentCellularClass() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentcellularclass = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentcellularclass, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1165,7 +1165,7 @@ impl IMbnMultiCarrier_Vtbl {
             let this = (*this).get_impl();
             match this.ScanNetwork() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1254,7 +1254,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.PinType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pintype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pintype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1265,7 +1265,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.PinFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1276,7 +1276,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.PinLengthMin() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinlengthmin = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinlengthmin, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1287,7 +1287,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.PinLengthMax() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinlengthmax = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinlengthmax, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1298,7 +1298,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.PinMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1309,7 +1309,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.Enable(::core::mem::transmute(&pin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1320,7 +1320,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.Disable(::core::mem::transmute(&pin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1331,7 +1331,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.Enter(::core::mem::transmute(&pin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1342,7 +1342,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.Change(::core::mem::transmute(&pin), ::core::mem::transmute(&newpin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1353,7 +1353,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.Unblock(::core::mem::transmute(&puk), ::core::mem::transmute(&newpin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1364,7 +1364,7 @@ impl IMbnPin_Vtbl {
             let this = (*this).get_impl();
             match this.GetPinManager() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinmanager = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinmanager, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1453,7 +1453,7 @@ impl IMbnPinManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetPinList() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinlist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinlist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1464,7 +1464,7 @@ impl IMbnPinManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetPin(::core::mem::transmute_copy(&pintype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pin = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pin, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1475,7 +1475,7 @@ impl IMbnPinManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetPinState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1532,7 +1532,7 @@ impl IMbnRadio_Vtbl {
             let this = (*this).get_impl();
             match this.SoftwareRadioState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *softwareradiostate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(softwareradiostate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1543,7 +1543,7 @@ impl IMbnRadio_Vtbl {
             let this = (*this).get_impl();
             match this.HardwareRadioState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hardwareradiostate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hardwareradiostate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1554,7 +1554,7 @@ impl IMbnRadio_Vtbl {
             let this = (*this).get_impl();
             match this.SetSoftwareRadioState(::core::mem::transmute_copy(&radiostate)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1621,7 +1621,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegisterState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *registerstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(registerstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1632,7 +1632,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegisterMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *registermode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(registermode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1643,7 +1643,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *providerid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(providerid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1654,7 +1654,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *providername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(providername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1665,7 +1665,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetRoamingText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *roamingtext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(roamingtext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1676,7 +1676,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetAvailableDataClasses() {
                 ::core::result::Result::Ok(ok__) => {
-                    *availabledataclasses = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(availabledataclasses, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1687,7 +1687,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentDataClass() {
                 ::core::result::Result::Ok(ok__) => {
-                    *currentdataclass = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(currentdataclass, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1698,7 +1698,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegistrationNetworkError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *registrationnetworkerror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(registrationnetworkerror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1709,7 +1709,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetPacketAttachNetworkError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packetattachnetworkerror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packetattachnetworkerror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1720,7 +1720,7 @@ impl IMbnRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.SetRegisterMode(::core::mem::transmute_copy(&registermode), ::core::mem::transmute(&providerid), ::core::mem::transmute_copy(&dataclass)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1799,7 +1799,7 @@ impl IMbnServiceActivation_Vtbl {
             let this = (*this).get_impl();
             match this.Activate(::core::mem::transmute_copy(&vendorspecificdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1843,7 +1843,7 @@ impl IMbnSignal_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignalStrength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signalstrength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signalstrength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1854,7 +1854,7 @@ impl IMbnSignal_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignalError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signalerror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signalerror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1908,7 +1908,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match this.GetSmsConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
-                    *smsconfiguration = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(smsconfiguration, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1919,7 +1919,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match this.SetSmsConfiguration(::core::mem::transmute(&smsconfiguration)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1930,7 +1930,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match this.SmsSendPdu(::core::mem::transmute(&pdudata), ::core::mem::transmute_copy(&size)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1941,7 +1941,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match this.SmsSendCdma(::core::mem::transmute(&address), ::core::mem::transmute_copy(&encoding), ::core::mem::transmute_copy(&language), ::core::mem::transmute_copy(&sizeincharacters), ::core::mem::transmute_copy(&message)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1952,7 +1952,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match this.SmsSendCdmaPdu(::core::mem::transmute_copy(&message)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1963,7 +1963,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match this.SmsRead(::core::mem::transmute_copy(&smsfilter), ::core::mem::transmute_copy(&smsformat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1974,7 +1974,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match this.SmsDelete(::core::mem::transmute_copy(&smsfilter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1985,7 +1985,7 @@ impl IMbnSms_Vtbl {
             let this = (*this).get_impl();
             match this.GetSmsStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *smsstatusinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(smsstatusinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2026,7 +2026,7 @@ impl IMbnSmsConfiguration_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceCenterAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *scaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(scaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2042,7 +2042,7 @@ impl IMbnSmsConfiguration_Vtbl {
             let this = (*this).get_impl();
             match this.MaxMessageIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2053,7 +2053,7 @@ impl IMbnSmsConfiguration_Vtbl {
             let this = (*this).get_impl();
             match this.CdmaShortMsgSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *shortmsgsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(shortmsgsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2064,7 +2064,7 @@ impl IMbnSmsConfiguration_Vtbl {
             let this = (*this).get_impl();
             match this.SmsFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *smsformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(smsformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2171,7 +2171,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             let this = (*this).get_impl();
             match this.Index() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2182,7 +2182,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             let this = (*this).get_impl();
             match this.Status() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2193,7 +2193,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             let this = (*this).get_impl();
             match this.PduData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdudata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdudata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2204,7 +2204,7 @@ impl IMbnSmsReadMsgPdu_Vtbl {
             let this = (*this).get_impl();
             match this.Message() {
                 ::core::result::Result::Ok(ok__) => {
-                    *message = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(message, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2243,7 +2243,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match this.Index() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2254,7 +2254,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match this.Status() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2265,7 +2265,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match this.Address() {
                 ::core::result::Result::Ok(ok__) => {
-                    *address = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(address, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2276,7 +2276,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match this.Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timestamp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timestamp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2287,7 +2287,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match this.EncodingID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *encodingid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(encodingid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2298,7 +2298,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match this.LanguageID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *languageid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(languageid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2309,7 +2309,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match this.SizeInCharacters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sizeincharacters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sizeincharacters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2320,7 +2320,7 @@ impl IMbnSmsReadMsgTextCdma_Vtbl {
             let this = (*this).get_impl();
             match this.Message() {
                 ::core::result::Result::Ok(ok__) => {
-                    *message = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(message, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2358,7 +2358,7 @@ impl IMbnSubscriberInformation_Vtbl {
             let this = (*this).get_impl();
             match this.SubscriberID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *subscriberid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(subscriberid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2369,7 +2369,7 @@ impl IMbnSubscriberInformation_Vtbl {
             let this = (*this).get_impl();
             match this.SimIccID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *simiccid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(simiccid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2380,7 +2380,7 @@ impl IMbnSubscriberInformation_Vtbl {
             let this = (*this).get_impl();
             match this.TelephoneNumbers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *telephonenumbers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(telephonenumbers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2441,7 +2441,7 @@ impl IMbnVendorSpecificOperation_Vtbl {
             let this = (*this).get_impl();
             match this.SetVendorSpecific(::core::mem::transmute_copy(&vendorspecificdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *requestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -29,7 +29,7 @@ impl ICameraUIControl_Vtbl {
             let this = (*this).get_impl();
             match this.Suspend() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbdeferralrequired = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbdeferralrequired, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -45,7 +45,7 @@ impl ICameraUIControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentViewType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pviewtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pviewtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -56,7 +56,7 @@ impl ICameraUIControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstractiveitempath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstractiveitempath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -67,7 +67,7 @@ impl ICameraUIControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelectedItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppselecteditempaths = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppselecteditempaths, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -173,7 +173,7 @@ impl IContainerActivationHelper_Vtbl {
             let this = (*this).get_impl();
             match this.CanActivateClientVM() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isallowed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isallowed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -284,7 +284,7 @@ impl IEditionUpgradeHelper_Vtbl {
             let this = (*this).get_impl();
             match this.CanUpgrade() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isallowed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isallowed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -305,7 +305,7 @@ impl IEditionUpgradeHelper_Vtbl {
             let this = (*this).get_impl();
             match this.GetOsProductContentId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *contentid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contentid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IEditionUpgradeHelper_Vtbl {
             let this = (*this).get_impl();
             match this.GetGenuineLocalStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isgenuine = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isgenuine, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl IWindowsLockModeHelper_Vtbl {
             let this = (*this).get_impl();
             match this.GetSMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *issmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(issmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

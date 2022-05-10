@@ -17,7 +17,7 @@ impl ISpiDeviceStatics_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceSelector() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -29,7 +29,7 @@ impl ISpiDeviceStatics_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceSelectorFromFriendlyName(::core::mem::transmute(&friendlyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -41,7 +41,7 @@ impl ISpiDeviceStatics_Vtbl {
             let this = (*this).get_impl();
             match this.GetBusInfo(::core::mem::transmute(&busid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -53,7 +53,7 @@ impl ISpiDeviceStatics_Vtbl {
             let this = (*this).get_impl();
             match this.FromIdAsync(::core::mem::transmute(&busid), ::core::mem::transmute(&settings)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

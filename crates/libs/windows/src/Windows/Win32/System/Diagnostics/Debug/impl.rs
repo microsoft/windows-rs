@@ -134,7 +134,7 @@ impl IActiveScript_Vtbl {
             let this = (*this).get_impl();
             match this.GetScriptState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pssstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pssstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -160,7 +160,7 @@ impl IActiveScript_Vtbl {
             let this = (*this).get_impl();
             match this.GetScriptDispatch(::core::mem::transmute(&pstritemname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -171,7 +171,7 @@ impl IActiveScript_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentScriptThreadID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstidthread = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstidthread, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -182,7 +182,7 @@ impl IActiveScript_Vtbl {
             let this = (*this).get_impl();
             match this.GetScriptThreadID(::core::mem::transmute_copy(&dwwin32threadid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstidthread = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstidthread, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl IActiveScript_Vtbl {
             let this = (*this).get_impl();
             match this.GetScriptThreadState(::core::mem::transmute_copy(&stidthread)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstsstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstsstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -209,7 +209,7 @@ impl IActiveScript_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscript = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscript, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -288,7 +288,7 @@ impl IActiveScriptAuthor_Vtbl {
             let this = (*this).get_impl();
             match this.GetRoot() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -299,7 +299,7 @@ impl IActiveScriptAuthor_Vtbl {
             let this = (*this).get_impl();
             match this.GetLanguageFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgrfasa = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgrfasa, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -310,7 +310,7 @@ impl IActiveScriptAuthor_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventHandler(::core::mem::transmute(&pdisp), ::core::mem::transmute(&pszitem), ::core::mem::transmute(&pszsubitem), ::core::mem::transmute(&pszevent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -336,7 +336,7 @@ impl IActiveScriptAuthor_Vtbl {
             let this = (*this).get_impl();
             match this.GetChars(::core::mem::transmute_copy(&frequestedlist)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrchars = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrchars, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl IActiveScriptAuthor_Vtbl {
             let this = (*this).get_impl();
             match this.IsCommitChar(::core::mem::transmute_copy(&ch)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcommit = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcommit, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -424,7 +424,7 @@ impl IActiveScriptDebug32_Vtbl {
             let this = (*this).get_impl();
             match this.EnumCodeContextsOfPosition(::core::mem::transmute_copy(&dwsourcecontext), ::core::mem::transmute_copy(&ucharacteroffset), ::core::mem::transmute_copy(&unumchars)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppescc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppescc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -464,7 +464,7 @@ impl IActiveScriptDebug64_Vtbl {
             let this = (*this).get_impl();
             match this.EnumCodeContextsOfPosition(::core::mem::transmute_copy(&dwsourcecontext), ::core::mem::transmute_copy(&ucharacteroffset), ::core::mem::transmute_copy(&unumchars)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppescc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppescc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -534,7 +534,7 @@ impl IActiveScriptError_Vtbl {
             let this = (*this).get_impl();
             match this.GetExceptionInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pexcepinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pexcepinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -550,7 +550,7 @@ impl IActiveScriptError_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceLineText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrsourceline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrsourceline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -602,7 +602,7 @@ impl IActiveScriptErrorDebug_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppssc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppssc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -613,7 +613,7 @@ impl IActiveScriptErrorDebug_Vtbl {
             let this = (*this).get_impl();
             match this.GetStackFrame() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdsf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdsf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -640,7 +640,7 @@ impl IActiveScriptErrorDebug110_Vtbl {
             let this = (*this).get_impl();
             match this.GetExceptionThrownKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pexceptionkind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pexceptionkind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -805,7 +805,7 @@ impl IActiveScriptParseProcedure32_Vtbl {
             let this = (*this).get_impl();
             match this.ParseProcedureText(::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstrformalparams), ::core::mem::transmute(&pstrprocedurename), ::core::mem::transmute(&pstritemname), ::core::mem::transmute(&punkcontext), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -831,7 +831,7 @@ impl IActiveScriptParseProcedure64_Vtbl {
             let this = (*this).get_impl();
             match this.ParseProcedureText(::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstrformalparams), ::core::mem::transmute(&pstrprocedurename), ::core::mem::transmute(&pstritemname), ::core::mem::transmute(&punkcontext), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -857,7 +857,7 @@ impl IActiveScriptParseProcedureOld32_Vtbl {
             let this = (*this).get_impl();
             match this.ParseProcedureText(::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstrformalparams), ::core::mem::transmute(&pstritemname), ::core::mem::transmute(&punkcontext), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -883,7 +883,7 @@ impl IActiveScriptParseProcedureOld64_Vtbl {
             let this = (*this).get_impl();
             match this.ParseProcedureText(::core::mem::transmute(&pstrcode), ::core::mem::transmute(&pstrformalparams), ::core::mem::transmute(&pstritemname), ::core::mem::transmute(&punkcontext), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwsourcecontextcookie), ::core::mem::transmute_copy(&ulstartinglinenumber), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1066,7 +1066,7 @@ impl IActiveScriptProfilerControl3_Vtbl {
             let this = (*this).get_impl();
             match this.EnumHeap() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1106,7 +1106,7 @@ impl IActiveScriptProfilerControl5_Vtbl {
             let this = (*this).get_impl();
             match this.EnumHeap2(::core::mem::transmute_copy(&enumflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1177,7 +1177,7 @@ impl IActiveScriptProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&dwproperty), ::core::mem::transmute_copy(&pvarindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1209,7 +1209,7 @@ impl IActiveScriptSIPInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSIPOID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *poid_sip = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poid_sip, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1242,7 +1242,7 @@ impl IActiveScriptSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetLCID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1258,7 +1258,7 @@ impl IActiveScriptSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocVersionString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1322,7 +1322,7 @@ impl IActiveScriptSiteDebug32_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentContextFromPosition(::core::mem::transmute_copy(&dwsourcecontext), ::core::mem::transmute_copy(&ucharacteroffset), ::core::mem::transmute_copy(&unumchars)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1333,7 +1333,7 @@ impl IActiveScriptSiteDebug32_Vtbl {
             let this = (*this).get_impl();
             match this.GetApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1344,7 +1344,7 @@ impl IActiveScriptSiteDebug32_Vtbl {
             let this = (*this).get_impl();
             match this.GetRootApplicationNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdanroot = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdanroot, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1384,7 +1384,7 @@ impl IActiveScriptSiteDebug64_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentContextFromPosition(::core::mem::transmute_copy(&dwsourcecontext), ::core::mem::transmute_copy(&ucharacteroffset), ::core::mem::transmute_copy(&unumchars)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1395,7 +1395,7 @@ impl IActiveScriptSiteDebug64_Vtbl {
             let this = (*this).get_impl();
             match this.GetApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1406,7 +1406,7 @@ impl IActiveScriptSiteDebug64_Vtbl {
             let this = (*this).get_impl();
             match this.GetRootApplicationNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdanroot = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdanroot, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1443,7 +1443,7 @@ impl IActiveScriptSiteDebugEx_Vtbl {
             let this = (*this).get_impl();
             match this.OnCanNotJITScriptErrorDebug(::core::mem::transmute(&perrordebug)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcallonscripterrorwhencontinuing = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcallonscripterrorwhencontinuing, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1503,7 +1503,7 @@ impl IActiveScriptSiteUIControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetUIBehavior(::core::mem::transmute_copy(&uicitem)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *puichandling = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puichandling, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1530,7 +1530,7 @@ impl IActiveScriptSiteWindow_Vtbl {
             let this = (*this).get_impl();
             match this.GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1599,7 +1599,7 @@ impl IActiveScriptStringCompare_Vtbl {
             let this = (*this).get_impl();
             match this.StrComp(::core::mem::transmute(&bszstr1), ::core::mem::transmute(&bszstr2)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *iret = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(iret, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1654,7 +1654,7 @@ impl IActiveScriptWinRTErrorDebug_Vtbl {
             let this = (*this).get_impl();
             match this.GetRestrictedErrorString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *errorstring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errorstring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1665,7 +1665,7 @@ impl IActiveScriptWinRTErrorDebug_Vtbl {
             let this = (*this).get_impl();
             match this.GetRestrictedErrorReference() {
                 ::core::result::Result::Ok(ok__) => {
-                    *referencestring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(referencestring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1676,7 +1676,7 @@ impl IActiveScriptWinRTErrorDebug_Vtbl {
             let this = (*this).get_impl();
             match this.GetCapabilitySid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *capabilitysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(capabilitysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1714,7 +1714,7 @@ impl IApplicationDebugger_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstanceAtDebugger(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclscontext), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1812,7 +1812,7 @@ impl ICodeAddressConcept_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainingSymbol(::core::mem::transmute(&pcontextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsymbol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsymbol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1835,7 +1835,7 @@ impl IComparableConcept_Vtbl {
             let this = (*this).get_impl();
             match this.CompareObjects(::core::mem::transmute(&contextobject), ::core::mem::transmute(&otherobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *comparisonresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(comparisonresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1867,7 +1867,7 @@ impl IDataModelConcept_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *modelname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(modelname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1921,7 +1921,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateNoValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1932,7 +1932,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateErrorObject(::core::mem::transmute_copy(&hrerror), ::core::mem::transmute(&pwszmessage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1943,7 +1943,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTypedObject(::core::mem::transmute(&context), ::core::mem::transmute(&objectlocation), ::core::mem::transmute(&objecttype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1954,7 +1954,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTypedObjectReference(::core::mem::transmute(&context), ::core::mem::transmute(&objectlocation), ::core::mem::transmute(&objecttype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1965,7 +1965,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSyntheticObject(::core::mem::transmute(&context)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1976,7 +1976,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDataModelObject(::core::mem::transmute(&datamodel)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1987,7 +1987,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateIntrinsicObject(::core::mem::transmute_copy(&objectkind), ::core::mem::transmute_copy(&intrinsicdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1998,7 +1998,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTypedIntrinsicObject(::core::mem::transmute_copy(&intrinsicdata), ::core::mem::transmute(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2009,7 +2009,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetModelForTypeSignature(::core::mem::transmute(&typesignature)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *datamodel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(datamodel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2045,7 +2045,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMetadataStore(::core::mem::transmute(&parentstore)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *metadatastore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(metadatastore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2056,7 +2056,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetRootNamespace() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rootnamespace = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rootnamespace, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2077,7 +2077,7 @@ impl IDataModelManager_Vtbl {
             let this = (*this).get_impl();
             match this.AcquireNamedModel(::core::mem::transmute(&modelname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *modelobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(modelobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2126,7 +2126,7 @@ impl IDataModelManager2_Vtbl {
             let this = (*this).get_impl();
             match this.AcquireSubNamespace(::core::mem::transmute(&modelname), ::core::mem::transmute(&subnamespacemodelname), ::core::mem::transmute(&accessname), ::core::mem::transmute(&metadata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *namespacemodelobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(namespacemodelobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2137,7 +2137,7 @@ impl IDataModelManager2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTypedIntrinsicObjectEx(::core::mem::transmute(&context), ::core::mem::transmute_copy(&intrinsicdata), ::core::mem::transmute(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2177,7 +2177,7 @@ impl IDataModelNameBinder_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateValues(::core::mem::transmute(&contextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2188,7 +2188,7 @@ impl IDataModelNameBinder_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateReferences(::core::mem::transmute(&contextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2226,7 +2226,7 @@ impl IDataModelScript_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *scriptname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(scriptname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2257,7 +2257,7 @@ impl IDataModelScript_Vtbl {
             let this = (*this).get_impl();
             match this.IsInvocable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isinvocable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isinvocable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2333,7 +2333,7 @@ impl IDataModelScriptDebug_Vtbl {
             let this = (*this).get_impl();
             match this.GetStack() {
                 ::core::result::Result::Ok(ok__) => {
-                    *stack = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(stack, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2344,7 +2344,7 @@ impl IDataModelScriptDebug_Vtbl {
             let this = (*this).get_impl();
             match this.SetBreakpoint(::core::mem::transmute_copy(&lineposition), ::core::mem::transmute_copy(&columnposition)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *breakpoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(breakpoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2355,7 +2355,7 @@ impl IDataModelScriptDebug_Vtbl {
             let this = (*this).get_impl();
             match this.FindBreakpointById(::core::mem::transmute_copy(&breakpointid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *breakpoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(breakpoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2366,7 +2366,7 @@ impl IDataModelScriptDebug_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateBreakpoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *breakpointenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(breakpointenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2377,7 +2377,7 @@ impl IDataModelScriptDebug_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventFilter(::core::mem::transmute_copy(&eventfilter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isbreakenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isbreakenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2430,7 +2430,7 @@ impl IDataModelScriptDebug2_Vtbl {
             let this = (*this).get_impl();
             match this.SetBreakpointAtFunction(::core::mem::transmute(&functionname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *breakpoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(breakpoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2517,7 +2517,7 @@ impl IDataModelScriptDebugBreakpointEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *breakpoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(breakpoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2567,7 +2567,7 @@ impl IDataModelScriptDebugStack_Vtbl {
             let this = (*this).get_impl();
             match this.GetStackFrame(::core::mem::transmute_copy(&framenumber)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *stackframe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(stackframe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2603,7 +2603,7 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2619,7 +2619,7 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.IsTransitionPoint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *istransitionpoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(istransitionpoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2635,7 +2635,7 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.Evaluate(::core::mem::transmute(&pwszexpression)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2646,7 +2646,7 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateLocals() {
                 ::core::result::Result::Ok(ok__) => {
-                    *variablesenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(variablesenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2657,7 +2657,7 @@ impl IDataModelScriptDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateArguments() {
                 ::core::result::Result::Ok(ok__) => {
-                    *variablesenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(variablesenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2725,7 +2725,7 @@ impl IDataModelScriptHostContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetNamespaceObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *namespaceobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(namespaceobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2757,7 +2757,7 @@ impl IDataModelScriptManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultNameBinder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnamebinder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnamebinder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2778,7 +2778,7 @@ impl IDataModelScriptManager_Vtbl {
             let this = (*this).get_impl();
             match this.FindProviderForScriptType(::core::mem::transmute(&scripttype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *provider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(provider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2789,7 +2789,7 @@ impl IDataModelScriptManager_Vtbl {
             let this = (*this).get_impl();
             match this.FindProviderForScriptExtension(::core::mem::transmute(&scriptextension)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *provider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(provider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2800,7 +2800,7 @@ impl IDataModelScriptManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateScriptProviders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2838,7 +2838,7 @@ impl IDataModelScriptProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2849,7 +2849,7 @@ impl IDataModelScriptProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtension() {
                 ::core::result::Result::Ok(ok__) => {
-                    *extension = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(extension, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2860,7 +2860,7 @@ impl IDataModelScriptProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CreateScript() {
                 ::core::result::Result::Ok(ok__) => {
-                    *script = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(script, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2871,7 +2871,7 @@ impl IDataModelScriptProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultTemplateContent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *templatecontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(templatecontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2882,7 +2882,7 @@ impl IDataModelScriptProvider_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateTemplates() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2918,7 +2918,7 @@ impl IDataModelScriptProviderEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *provider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(provider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2950,7 +2950,7 @@ impl IDataModelScriptTemplate_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *templatename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(templatename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2961,7 +2961,7 @@ impl IDataModelScriptTemplate_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *templatedescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(templatedescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2972,7 +2972,7 @@ impl IDataModelScriptTemplate_Vtbl {
             let this = (*this).get_impl();
             match this.GetContent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *contentstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contentstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3006,7 +3006,7 @@ impl IDataModelScriptTemplateEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *templatecontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(templatecontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3310,7 +3310,7 @@ impl IDebugApplication11032_Vtbl {
             let this = (*this).get_impl();
             match this.CallableWaitForHandles(::core::mem::transmute_copy(&handlecount), ::core::mem::transmute_copy(&phandles)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3353,7 +3353,7 @@ impl IDebugApplication11064_Vtbl {
             let this = (*this).get_impl();
             match this.CallableWaitForHandles(::core::mem::transmute_copy(&handlecount), ::core::mem::transmute_copy(&phandles)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3423,7 +3423,7 @@ impl IDebugApplication32_Vtbl {
             let this = (*this).get_impl();
             match this.HandleBreakPoint(::core::mem::transmute_copy(&br)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbra = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbra, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3444,7 +3444,7 @@ impl IDebugApplication32_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3455,7 +3455,7 @@ impl IDebugApplication32_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAsyncDebugOperation(::core::mem::transmute(&psdo)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppado = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppado, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3466,7 +3466,7 @@ impl IDebugApplication32_Vtbl {
             let this = (*this).get_impl();
             match this.AddStackFrameSniffer(::core::mem::transmute(&pdsfs)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3492,7 +3492,7 @@ impl IDebugApplication32_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplicationNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdannew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdannew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3523,7 +3523,7 @@ impl IDebugApplication32_Vtbl {
             let this = (*this).get_impl();
             match this.AddGlobalExpressionContextProvider(::core::mem::transmute(&pdsfs)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3615,7 +3615,7 @@ impl IDebugApplication64_Vtbl {
             let this = (*this).get_impl();
             match this.HandleBreakPoint(::core::mem::transmute_copy(&br)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbra = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbra, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3636,7 +3636,7 @@ impl IDebugApplication64_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3647,7 +3647,7 @@ impl IDebugApplication64_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAsyncDebugOperation(::core::mem::transmute(&psdo)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppado = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppado, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3658,7 +3658,7 @@ impl IDebugApplication64_Vtbl {
             let this = (*this).get_impl();
             match this.AddStackFrameSniffer(::core::mem::transmute(&pdsfs)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3684,7 +3684,7 @@ impl IDebugApplication64_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplicationNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdannew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdannew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3715,7 +3715,7 @@ impl IDebugApplication64_Vtbl {
             let this = (*this).get_impl();
             match this.AddGlobalExpressionContextProvider(::core::mem::transmute(&pdsfs)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3773,7 +3773,7 @@ impl IDebugApplicationNode_Vtbl {
             let this = (*this).get_impl();
             match this.EnumChildren() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperddp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperddp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3784,7 +3784,7 @@ impl IDebugApplicationNode_Vtbl {
             let this = (*this).get_impl();
             match this.GetParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprddp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprddp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3842,7 +3842,7 @@ impl IDebugApplicationNode100_Vtbl {
             let this = (*this).get_impl();
             match this.GetExcludedDocuments(::core::mem::transmute_copy(&filter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdocuments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdocuments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3973,7 +3973,7 @@ impl IDebugApplicationThread11032_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveThreadRequestCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puithreadrequests = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puithreadrequests, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3984,7 +3984,7 @@ impl IDebugApplicationThread11032_Vtbl {
             let this = (*this).get_impl();
             match this.IsSuspendedForBreakPoint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfissuspended = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfissuspended, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3995,7 +3995,7 @@ impl IDebugApplicationThread11032_Vtbl {
             let this = (*this).get_impl();
             match this.IsThreadCallable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfiscallable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfiscallable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4035,7 +4035,7 @@ impl IDebugApplicationThread11064_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveThreadRequestCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puithreadrequests = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puithreadrequests, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4046,7 +4046,7 @@ impl IDebugApplicationThread11064_Vtbl {
             let this = (*this).get_impl();
             match this.IsSuspendedForBreakPoint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfissuspended = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfissuspended, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4057,7 +4057,7 @@ impl IDebugApplicationThread11064_Vtbl {
             let this = (*this).get_impl();
             match this.IsThreadCallable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfiscallable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfiscallable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4159,7 +4159,7 @@ impl IDebugAsyncOperation_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncDebugOperation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsdo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsdo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4246,7 +4246,7 @@ impl IDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4262,7 +4262,7 @@ impl IDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetAdder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *adder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(adder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4273,7 +4273,7 @@ impl IDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4299,7 +4299,7 @@ impl IDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4325,7 +4325,7 @@ impl IDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetPassCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4341,7 +4341,7 @@ impl IDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentPassCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4352,7 +4352,7 @@ impl IDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetMatchThreadId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4388,7 +4388,7 @@ impl IDebugBreakpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *params = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(params, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4458,7 +4458,7 @@ impl IDebugBreakpoint2_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4474,7 +4474,7 @@ impl IDebugBreakpoint2_Vtbl {
             let this = (*this).get_impl();
             match this.GetAdder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *adder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(adder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4485,7 +4485,7 @@ impl IDebugBreakpoint2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4511,7 +4511,7 @@ impl IDebugBreakpoint2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4537,7 +4537,7 @@ impl IDebugBreakpoint2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPassCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4553,7 +4553,7 @@ impl IDebugBreakpoint2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentPassCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4564,7 +4564,7 @@ impl IDebugBreakpoint2_Vtbl {
             let this = (*this).get_impl();
             match this.GetMatchThreadId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4600,7 +4600,7 @@ impl IDebugBreakpoint2_Vtbl {
             let this = (*this).get_impl();
             match this.GetParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *params = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(params, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4695,7 +4695,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4711,7 +4711,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetAdder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *adder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(adder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4722,7 +4722,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4748,7 +4748,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4774,7 +4774,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetPassCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4790,7 +4790,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentPassCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4801,7 +4801,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetMatchThreadId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4837,7 +4837,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *params = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(params, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4868,7 +4868,7 @@ impl IDebugBreakpoint3_Vtbl {
             let this = (*this).get_impl();
             match this.GetGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *guid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(guid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4983,7 +4983,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServer(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5004,7 +5004,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableName(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5035,7 +5035,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5101,7 +5101,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *code = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(code, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5122,7 +5122,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClient() {
                 ::core::result::Result::Ok(ok__) => {
-                    *client = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(client, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5133,7 +5133,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5149,7 +5149,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5165,7 +5165,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5181,7 +5181,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetOtherOutputMask(::core::mem::transmute(&client)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5197,7 +5197,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *columns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(columns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5233,7 +5233,7 @@ impl IDebugClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5385,7 +5385,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServer(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5406,7 +5406,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableName(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5437,7 +5437,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5503,7 +5503,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *code = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(code, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5524,7 +5524,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClient() {
                 ::core::result::Result::Ok(ok__) => {
-                    *client = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(client, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5535,7 +5535,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5551,7 +5551,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5567,7 +5567,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5583,7 +5583,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOtherOutputMask(::core::mem::transmute(&client)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5599,7 +5599,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *columns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(columns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5635,7 +5635,7 @@ impl IDebugClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5839,7 +5839,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServer(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5860,7 +5860,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableName(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5891,7 +5891,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5957,7 +5957,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *code = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(code, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5978,7 +5978,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClient() {
                 ::core::result::Result::Ok(ok__) => {
-                    *client = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(client, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5989,7 +5989,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6005,7 +6005,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6021,7 +6021,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6037,7 +6037,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOtherOutputMask(::core::mem::transmute(&client)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6053,7 +6053,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *columns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(columns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6089,7 +6089,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6150,7 +6150,7 @@ impl IDebugClient3_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableNameWide(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6329,7 +6329,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServer(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6350,7 +6350,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableName(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6381,7 +6381,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6447,7 +6447,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *code = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(code, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6468,7 +6468,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClient() {
                 ::core::result::Result::Ok(ok__) => {
-                    *client = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(client, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6479,7 +6479,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6495,7 +6495,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6511,7 +6511,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6527,7 +6527,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOtherOutputMask(::core::mem::transmute(&client)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6543,7 +6543,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *columns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(columns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6579,7 +6579,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6640,7 +6640,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableNameWide(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6681,7 +6681,7 @@ impl IDebugClient4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberDumpFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6890,7 +6890,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServer(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6911,7 +6911,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableName(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6942,7 +6942,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7008,7 +7008,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *code = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(code, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7029,7 +7029,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClient() {
                 ::core::result::Result::Ok(ok__) => {
-                    *client = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(client, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7040,7 +7040,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7056,7 +7056,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7072,7 +7072,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7088,7 +7088,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOtherOutputMask(::core::mem::transmute(&client)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7104,7 +7104,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *columns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(columns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7140,7 +7140,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7201,7 +7201,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableNameWide(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7242,7 +7242,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberDumpFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7283,7 +7283,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServerWide(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7304,7 +7304,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacksWide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7340,7 +7340,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacksWide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7376,7 +7376,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.PushOutputLinePrefix(::core::mem::transmute(&newprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7387,7 +7387,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.PushOutputLinePrefixWide(::core::mem::transmute(&newprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7403,7 +7403,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7414,7 +7414,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7425,7 +7425,7 @@ impl IDebugClient5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEventCallbacks(::core::mem::transmute_copy(&eventflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7674,7 +7674,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServer(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7695,7 +7695,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableName(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7726,7 +7726,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7792,7 +7792,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *code = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(code, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7813,7 +7813,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClient() {
                 ::core::result::Result::Ok(ok__) => {
-                    *client = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(client, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7824,7 +7824,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7840,7 +7840,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7856,7 +7856,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7872,7 +7872,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetOtherOutputMask(::core::mem::transmute(&client)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7888,7 +7888,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *columns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(columns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7924,7 +7924,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7985,7 +7985,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableNameWide(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8026,7 +8026,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberDumpFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8067,7 +8067,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServerWide(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8088,7 +8088,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacksWide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8124,7 +8124,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacksWide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8160,7 +8160,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.PushOutputLinePrefix(::core::mem::transmute(&newprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8171,7 +8171,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.PushOutputLinePrefixWide(::core::mem::transmute(&newprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8187,7 +8187,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8198,7 +8198,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8209,7 +8209,7 @@ impl IDebugClient6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEventCallbacks(::core::mem::transmute_copy(&eventflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8465,7 +8465,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServer(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8486,7 +8486,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableName(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8517,7 +8517,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8583,7 +8583,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *code = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(code, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8604,7 +8604,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClient() {
                 ::core::result::Result::Ok(ok__) => {
-                    *client = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(client, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8615,7 +8615,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8631,7 +8631,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8647,7 +8647,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8663,7 +8663,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetOtherOutputMask(::core::mem::transmute(&client)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8679,7 +8679,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *columns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(columns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8715,7 +8715,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8776,7 +8776,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableNameWide(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8817,7 +8817,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberDumpFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8858,7 +8858,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServerWide(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8879,7 +8879,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacksWide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8915,7 +8915,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacksWide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8951,7 +8951,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.PushOutputLinePrefix(::core::mem::transmute(&newprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8962,7 +8962,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.PushOutputLinePrefixWide(::core::mem::transmute(&newprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8978,7 +8978,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8989,7 +8989,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9000,7 +9000,7 @@ impl IDebugClient7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEventCallbacks(::core::mem::transmute_copy(&eventflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9263,7 +9263,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServer(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9284,7 +9284,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableName(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9315,7 +9315,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9381,7 +9381,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *code = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(code, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9402,7 +9402,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClient() {
                 ::core::result::Result::Ok(ok__) => {
-                    *client = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(client, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9413,7 +9413,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9429,7 +9429,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9445,7 +9445,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9461,7 +9461,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetOtherOutputMask(::core::mem::transmute(&client)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9477,7 +9477,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *columns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(columns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9513,7 +9513,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9574,7 +9574,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningProcessSystemIdByExecutableNameWide(::core::mem::transmute_copy(&server), ::core::mem::transmute(&exename), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9615,7 +9615,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberDumpFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9656,7 +9656,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectProcessServerWide(::core::mem::transmute(&remoteoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9677,7 +9677,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCallbacksWide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9713,7 +9713,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCallbacksWide() {
                 ::core::result::Result::Ok(ok__) => {
-                    *callbacks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(callbacks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9749,7 +9749,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.PushOutputLinePrefix(::core::mem::transmute(&newprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9760,7 +9760,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.PushOutputLinePrefixWide(::core::mem::transmute(&newprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9776,7 +9776,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberInputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9787,7 +9787,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOutputCallbacks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9798,7 +9798,7 @@ impl IDebugClient8_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEventCallbacks(::core::mem::transmute_copy(&eventflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9954,7 +9954,7 @@ impl IDebugCodeContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10090,7 +10090,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterruptTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10121,7 +10121,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10192,7 +10192,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyEventHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10208,7 +10208,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.Assemble(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10224,7 +10224,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisassembleEffectiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10235,7 +10235,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.OutputDisassembly(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10251,7 +10251,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetNearInstruction(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&delta)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nearoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nearoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10267,7 +10267,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetReturnOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10288,7 +10288,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetActualProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10299,7 +10299,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutingProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10310,7 +10310,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberPossibleExecutingProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10326,7 +10326,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcessors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10343,7 +10343,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10364,7 +10364,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSupportedProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10385,7 +10385,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectiveProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10401,7 +10401,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10417,7 +10417,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodeLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *level = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(level, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10433,7 +10433,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetEngineOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10479,7 +10479,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetRadix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *radix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(radix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10500,7 +10500,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.CoerceValue(::core::mem::transmute_copy(&r#in), ::core::mem::transmute_copy(&outtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10526,7 +10526,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberBreakpoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10537,7 +10537,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10548,7 +10548,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10564,7 +10564,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10580,7 +10580,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtension(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10596,7 +10596,7 @@ impl IDebugControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPath(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10915,7 +10915,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterruptTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10946,7 +10946,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11017,7 +11017,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyEventHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11033,7 +11033,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.Assemble(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11049,7 +11049,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisassembleEffectiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11060,7 +11060,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.OutputDisassembly(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11076,7 +11076,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNearInstruction(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&delta)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nearoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nearoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11092,7 +11092,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetReturnOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11113,7 +11113,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetActualProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11124,7 +11124,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutingProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11135,7 +11135,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberPossibleExecutingProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11151,7 +11151,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcessors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11168,7 +11168,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11189,7 +11189,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSupportedProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11210,7 +11210,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectiveProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11226,7 +11226,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11242,7 +11242,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodeLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *level = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(level, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11258,7 +11258,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetEngineOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11304,7 +11304,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetRadix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *radix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(radix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11325,7 +11325,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.CoerceValue(::core::mem::transmute_copy(&r#in), ::core::mem::transmute_copy(&outtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11351,7 +11351,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberBreakpoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11362,7 +11362,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11373,7 +11373,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11389,7 +11389,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11405,7 +11405,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtension(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11421,7 +11421,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPath(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11522,7 +11522,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentTimeDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timedate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timedate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11533,7 +11533,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11544,7 +11544,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDumpFormatFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formatflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formatflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11555,7 +11555,7 @@ impl IDebugControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberTextReplacements() {
                 ::core::result::Result::Ok(ok__) => {
-                    *numrepl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(numrepl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11825,7 +11825,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterruptTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11856,7 +11856,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11927,7 +11927,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyEventHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11943,7 +11943,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.Assemble(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11959,7 +11959,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisassembleEffectiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11970,7 +11970,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.OutputDisassembly(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -11986,7 +11986,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNearInstruction(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&delta)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nearoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nearoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12002,7 +12002,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetReturnOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12023,7 +12023,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetActualProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12034,7 +12034,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutingProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12045,7 +12045,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberPossibleExecutingProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12061,7 +12061,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcessors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12078,7 +12078,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12099,7 +12099,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSupportedProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12120,7 +12120,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectiveProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12136,7 +12136,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12152,7 +12152,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodeLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *level = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(level, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12168,7 +12168,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetEngineOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12214,7 +12214,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetRadix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *radix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(radix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12235,7 +12235,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.CoerceValue(::core::mem::transmute_copy(&r#in), ::core::mem::transmute_copy(&outtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12261,7 +12261,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberBreakpoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12272,7 +12272,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12283,7 +12283,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12299,7 +12299,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12315,7 +12315,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtension(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12331,7 +12331,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPath(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12432,7 +12432,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentTimeDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timedate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timedate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12443,7 +12443,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12454,7 +12454,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetDumpFormatFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formatflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formatflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12465,7 +12465,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberTextReplacements() {
                 ::core::result::Result::Ok(ok__) => {
-                    *numrepl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(numrepl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12496,7 +12496,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetAssemblyOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12522,7 +12522,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetExpressionSyntax() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12543,7 +12543,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberExpressionSyntaxes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12559,7 +12559,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEvents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *events = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(events, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12570,7 +12570,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescription(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12581,7 +12581,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentEventIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12592,7 +12592,7 @@ impl IDebugControl3_Vtbl {
             let this = (*this).get_impl();
             match this.SetNextEventIndex(::core::mem::transmute_copy(&relation), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nextindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nextindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12908,7 +12908,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterruptTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -12939,7 +12939,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13010,7 +13010,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyEventHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13026,7 +13026,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.Assemble(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13042,7 +13042,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisassembleEffectiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13053,7 +13053,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.OutputDisassembly(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13069,7 +13069,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNearInstruction(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&delta)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nearoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nearoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13085,7 +13085,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetReturnOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13106,7 +13106,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetActualProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13117,7 +13117,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutingProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13128,7 +13128,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberPossibleExecutingProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13144,7 +13144,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcessors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13161,7 +13161,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13182,7 +13182,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSupportedProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13203,7 +13203,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectiveProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13219,7 +13219,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13235,7 +13235,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodeLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *level = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(level, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13251,7 +13251,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetEngineOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13297,7 +13297,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetRadix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *radix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(radix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13318,7 +13318,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.CoerceValue(::core::mem::transmute_copy(&r#in), ::core::mem::transmute_copy(&outtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13344,7 +13344,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberBreakpoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13355,7 +13355,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13366,7 +13366,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13382,7 +13382,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13398,7 +13398,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtension(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13414,7 +13414,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPath(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13515,7 +13515,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentTimeDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timedate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timedate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13526,7 +13526,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13537,7 +13537,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetDumpFormatFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formatflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formatflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13548,7 +13548,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberTextReplacements() {
                 ::core::result::Result::Ok(ok__) => {
-                    *numrepl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(numrepl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13579,7 +13579,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetAssemblyOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13605,7 +13605,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetExpressionSyntax() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13626,7 +13626,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberExpressionSyntaxes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13642,7 +13642,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEvents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *events = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(events, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13653,7 +13653,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescription(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13664,7 +13664,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentEventIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13675,7 +13675,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.SetNextEventIndex(::core::mem::transmute_copy(&relation), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nextindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nextindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13741,7 +13741,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.AssembleWide(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13787,7 +13787,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex2(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13798,7 +13798,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById2(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13809,7 +13809,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint2(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13825,7 +13825,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtensionWide(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13836,7 +13836,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPathWide(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -13917,7 +13917,7 @@ impl IDebugControl4_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescriptionWide(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14356,7 +14356,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterruptTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14387,7 +14387,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14458,7 +14458,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyEventHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14474,7 +14474,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.Assemble(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14490,7 +14490,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisassembleEffectiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14501,7 +14501,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.OutputDisassembly(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14517,7 +14517,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNearInstruction(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&delta)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nearoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nearoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14533,7 +14533,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetReturnOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14554,7 +14554,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetActualProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14565,7 +14565,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutingProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14576,7 +14576,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberPossibleExecutingProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14592,7 +14592,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcessors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14609,7 +14609,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14630,7 +14630,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSupportedProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14651,7 +14651,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectiveProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14667,7 +14667,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14683,7 +14683,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodeLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *level = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(level, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14699,7 +14699,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetEngineOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14745,7 +14745,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetRadix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *radix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(radix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14766,7 +14766,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.CoerceValue(::core::mem::transmute_copy(&r#in), ::core::mem::transmute_copy(&outtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14792,7 +14792,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberBreakpoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14803,7 +14803,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14814,7 +14814,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14830,7 +14830,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14846,7 +14846,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtension(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14862,7 +14862,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPath(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14963,7 +14963,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentTimeDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timedate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timedate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14974,7 +14974,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14985,7 +14985,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetDumpFormatFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formatflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formatflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -14996,7 +14996,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberTextReplacements() {
                 ::core::result::Result::Ok(ok__) => {
-                    *numrepl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(numrepl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15027,7 +15027,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetAssemblyOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15053,7 +15053,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetExpressionSyntax() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15074,7 +15074,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberExpressionSyntaxes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15090,7 +15090,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEvents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *events = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(events, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15101,7 +15101,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescription(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15112,7 +15112,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentEventIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15123,7 +15123,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.SetNextEventIndex(::core::mem::transmute_copy(&relation), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nextindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nextindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15189,7 +15189,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.AssembleWide(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15235,7 +15235,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex2(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15246,7 +15246,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById2(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15257,7 +15257,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint2(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15273,7 +15273,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtensionWide(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15284,7 +15284,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPathWide(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15365,7 +15365,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescriptionWide(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15461,7 +15461,7 @@ impl IDebugControl5_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByGuid(::core::mem::transmute_copy(&guid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15842,7 +15842,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterruptTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15873,7 +15873,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15944,7 +15944,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyEventHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15960,7 +15960,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.Assemble(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15976,7 +15976,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisassembleEffectiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -15987,7 +15987,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.OutputDisassembly(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16003,7 +16003,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNearInstruction(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&delta)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nearoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nearoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16019,7 +16019,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetReturnOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16040,7 +16040,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetActualProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16051,7 +16051,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutingProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16062,7 +16062,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberPossibleExecutingProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16078,7 +16078,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcessors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16095,7 +16095,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16116,7 +16116,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSupportedProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16137,7 +16137,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectiveProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16153,7 +16153,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16169,7 +16169,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodeLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *level = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(level, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16185,7 +16185,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetEngineOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16231,7 +16231,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetRadix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *radix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(radix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16252,7 +16252,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.CoerceValue(::core::mem::transmute_copy(&r#in), ::core::mem::transmute_copy(&outtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16278,7 +16278,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberBreakpoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16289,7 +16289,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16300,7 +16300,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16316,7 +16316,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16332,7 +16332,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtension(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16348,7 +16348,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPath(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16449,7 +16449,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentTimeDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timedate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timedate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16460,7 +16460,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16471,7 +16471,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetDumpFormatFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formatflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formatflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16482,7 +16482,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberTextReplacements() {
                 ::core::result::Result::Ok(ok__) => {
-                    *numrepl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(numrepl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16513,7 +16513,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetAssemblyOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16539,7 +16539,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetExpressionSyntax() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16560,7 +16560,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberExpressionSyntaxes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16576,7 +16576,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEvents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *events = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(events, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16587,7 +16587,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescription(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16598,7 +16598,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentEventIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16609,7 +16609,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.SetNextEventIndex(::core::mem::transmute_copy(&relation), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nextindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nextindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16675,7 +16675,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.AssembleWide(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16721,7 +16721,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex2(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16732,7 +16732,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById2(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16743,7 +16743,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint2(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16759,7 +16759,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtensionWide(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16770,7 +16770,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPathWide(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16851,7 +16851,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescriptionWide(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16947,7 +16947,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByGuid(::core::mem::transmute_copy(&guid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -16958,7 +16958,7 @@ impl IDebugControl6_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatusEx() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17347,7 +17347,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterruptTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17378,7 +17378,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17449,7 +17449,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyEventHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17465,7 +17465,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.Assemble(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17481,7 +17481,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisassembleEffectiveOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17492,7 +17492,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.OutputDisassembly(::core::mem::transmute_copy(&outputcontrol), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17508,7 +17508,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNearInstruction(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&delta)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nearoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nearoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17524,7 +17524,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetReturnOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17545,7 +17545,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetActualProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17556,7 +17556,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutingProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17567,7 +17567,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberPossibleExecutingProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17583,7 +17583,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcessors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17600,7 +17600,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17621,7 +17621,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSupportedProcessorTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17642,7 +17642,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectiveProcessorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17658,7 +17658,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17674,7 +17674,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodeLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *level = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(level, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17690,7 +17690,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetEngineOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17736,7 +17736,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetRadix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *radix = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(radix, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17757,7 +17757,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.CoerceValue(::core::mem::transmute_copy(&r#in), ::core::mem::transmute_copy(&outtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17783,7 +17783,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberBreakpoints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17794,7 +17794,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17805,7 +17805,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17821,7 +17821,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17837,7 +17837,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtension(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17853,7 +17853,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPath(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17954,7 +17954,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentTimeDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timedate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timedate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17965,7 +17965,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17976,7 +17976,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetDumpFormatFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *formatflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(formatflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -17987,7 +17987,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberTextReplacements() {
                 ::core::result::Result::Ok(ok__) => {
-                    *numrepl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(numrepl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18018,7 +18018,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetAssemblyOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18044,7 +18044,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetExpressionSyntax() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18065,7 +18065,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberExpressionSyntaxes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18081,7 +18081,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberEvents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *events = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(events, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18092,7 +18092,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescription(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18103,7 +18103,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentEventIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18114,7 +18114,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.SetNextEventIndex(::core::mem::transmute_copy(&relation), ::core::mem::transmute_copy(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nextindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nextindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18180,7 +18180,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.AssembleWide(::core::mem::transmute_copy(&offset), ::core::mem::transmute(&instr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *endoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(endoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18226,7 +18226,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByIndex2(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18237,7 +18237,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointById2(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18248,7 +18248,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.AddBreakpoint2(::core::mem::transmute_copy(&r#type), ::core::mem::transmute_copy(&desiredid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18264,7 +18264,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.AddExtensionWide(::core::mem::transmute(&path), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18275,7 +18275,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtensionByPathWide(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18356,7 +18356,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventIndexDescriptionWide(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&which), ::core::mem::transmute(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *descsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(descsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18452,7 +18452,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetBreakpointByGuid(::core::mem::transmute_copy(&guid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18463,7 +18463,7 @@ impl IDebugControl7_Vtbl {
             let this = (*this).get_impl();
             match this.GetExecutionStatusEx() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18713,7 +18713,7 @@ impl IDebugDataSpaces_Vtbl {
             let this = (*this).get_impl();
             match this.WriteVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18724,7 +18724,7 @@ impl IDebugDataSpaces_Vtbl {
             let this = (*this).get_impl();
             match this.SearchVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize), ::core::mem::transmute_copy(&patterngranularity)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *matchoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(matchoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18740,7 +18740,7 @@ impl IDebugDataSpaces_Vtbl {
             let this = (*this).get_impl();
             match this.WriteVirtualUncached(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18766,7 +18766,7 @@ impl IDebugDataSpaces_Vtbl {
             let this = (*this).get_impl();
             match this.WritePhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18782,7 +18782,7 @@ impl IDebugDataSpaces_Vtbl {
             let this = (*this).get_impl();
             match this.WriteControl(::core::mem::transmute_copy(&processor), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18798,7 +18798,7 @@ impl IDebugDataSpaces_Vtbl {
             let this = (*this).get_impl();
             match this.WriteIo(::core::mem::transmute_copy(&interfacetype), ::core::mem::transmute_copy(&busnumber), ::core::mem::transmute_copy(&addressspace), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18809,7 +18809,7 @@ impl IDebugDataSpaces_Vtbl {
             let this = (*this).get_impl();
             match this.ReadMsr(::core::mem::transmute_copy(&msr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18830,7 +18830,7 @@ impl IDebugDataSpaces_Vtbl {
             let this = (*this).get_impl();
             match this.WriteBusData(::core::mem::transmute_copy(&busdatatype), ::core::mem::transmute_copy(&busnumber), ::core::mem::transmute_copy(&slotnumber), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18923,7 +18923,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18934,7 +18934,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.SearchVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize), ::core::mem::transmute_copy(&patterngranularity)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *matchoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(matchoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18950,7 +18950,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteVirtualUncached(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18976,7 +18976,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.WritePhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -18992,7 +18992,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteControl(::core::mem::transmute_copy(&processor), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19008,7 +19008,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteIo(::core::mem::transmute_copy(&interfacetype), ::core::mem::transmute_copy(&busnumber), ::core::mem::transmute_copy(&addressspace), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19019,7 +19019,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.ReadMsr(::core::mem::transmute_copy(&msr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19040,7 +19040,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteBusData(::core::mem::transmute_copy(&busdatatype), ::core::mem::transmute_copy(&busnumber), ::core::mem::transmute_copy(&slotnumber), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19066,7 +19066,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.VirtualToPhysical(::core::mem::transmute_copy(&r#virtual)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *physical = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(physical, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19087,7 +19087,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.FillVirtual(::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19098,7 +19098,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.FillPhysical(::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19109,7 +19109,7 @@ impl IDebugDataSpaces2_Vtbl {
             let this = (*this).get_impl();
             match this.QueryVirtual(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19198,7 +19198,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.WriteVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19209,7 +19209,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.SearchVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize), ::core::mem::transmute_copy(&patterngranularity)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *matchoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(matchoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19225,7 +19225,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.WriteVirtualUncached(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19251,7 +19251,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.WritePhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19267,7 +19267,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.WriteControl(::core::mem::transmute_copy(&processor), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19283,7 +19283,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.WriteIo(::core::mem::transmute_copy(&interfacetype), ::core::mem::transmute_copy(&busnumber), ::core::mem::transmute_copy(&addressspace), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19294,7 +19294,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.ReadMsr(::core::mem::transmute_copy(&msr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19315,7 +19315,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.WriteBusData(::core::mem::transmute_copy(&busdatatype), ::core::mem::transmute_copy(&busnumber), ::core::mem::transmute_copy(&slotnumber), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19341,7 +19341,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.VirtualToPhysical(::core::mem::transmute_copy(&r#virtual)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *physical = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(physical, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19362,7 +19362,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.FillVirtual(::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19373,7 +19373,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.FillPhysical(::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19384,7 +19384,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.QueryVirtual(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19395,7 +19395,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.ReadImageNtHeaders(::core::mem::transmute_copy(&imagebase)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *headers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(headers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19411,7 +19411,7 @@ impl IDebugDataSpaces3_Vtbl {
             let this = (*this).get_impl();
             match this.StartEnumTagged() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19525,7 +19525,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.WriteVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19536,7 +19536,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.SearchVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize), ::core::mem::transmute_copy(&patterngranularity)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *matchoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(matchoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19552,7 +19552,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.WriteVirtualUncached(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19578,7 +19578,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.WritePhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19594,7 +19594,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.WriteControl(::core::mem::transmute_copy(&processor), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19610,7 +19610,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.WriteIo(::core::mem::transmute_copy(&interfacetype), ::core::mem::transmute_copy(&busnumber), ::core::mem::transmute_copy(&addressspace), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19621,7 +19621,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.ReadMsr(::core::mem::transmute_copy(&msr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19642,7 +19642,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.WriteBusData(::core::mem::transmute_copy(&busdatatype), ::core::mem::transmute_copy(&busnumber), ::core::mem::transmute_copy(&slotnumber), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19668,7 +19668,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.VirtualToPhysical(::core::mem::transmute_copy(&r#virtual)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *physical = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(physical, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19689,7 +19689,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.FillVirtual(::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19700,7 +19700,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.FillPhysical(::core::mem::transmute_copy(&start), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19711,7 +19711,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.QueryVirtual(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19722,7 +19722,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.ReadImageNtHeaders(::core::mem::transmute_copy(&imagebase)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *headers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(headers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19738,7 +19738,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.StartEnumTagged() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19764,7 +19764,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNextDifferentlyValidOffsetVirtual(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nextoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nextoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19780,7 +19780,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.SearchVirtual2(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&pattern), ::core::mem::transmute_copy(&patternsize), ::core::mem::transmute_copy(&patterngranularity)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *matchoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(matchoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19816,7 +19816,7 @@ impl IDebugDataSpaces4_Vtbl {
             let this = (*this).get_impl();
             match this.WritePhysical2(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19896,7 +19896,7 @@ impl IDebugDocumentContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19907,7 +19907,7 @@ impl IDebugDocumentContext_Vtbl {
             let this = (*this).get_impl();
             match this.EnumCodeContexts() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppescc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppescc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -19989,7 +19989,7 @@ impl IDebugDocumentHelper32_Vtbl {
             let this = (*this).get_impl();
             match this.DefineScriptBlock(::core::mem::transmute_copy(&ulcharoffset), ::core::mem::transmute_copy(&cchars), ::core::mem::transmute(&pas), ::core::mem::transmute_copy(&fscriptlet)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwsourcecontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwsourcecontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20025,7 +20025,7 @@ impl IDebugDocumentHelper32_Vtbl {
             let this = (*this).get_impl();
             match this.GetDebugApplicationNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdan = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdan, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20041,7 +20041,7 @@ impl IDebugDocumentHelper32_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDebugDocumentContext(::core::mem::transmute_copy(&icharpos), ::core::mem::transmute_copy(&cchars)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppddc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppddc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20149,7 +20149,7 @@ impl IDebugDocumentHelper64_Vtbl {
             let this = (*this).get_impl();
             match this.DefineScriptBlock(::core::mem::transmute_copy(&ulcharoffset), ::core::mem::transmute_copy(&cchars), ::core::mem::transmute(&pas), ::core::mem::transmute_copy(&fscriptlet)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwsourcecontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwsourcecontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20185,7 +20185,7 @@ impl IDebugDocumentHelper64_Vtbl {
             let this = (*this).get_impl();
             match this.GetDebugApplicationNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdan = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdan, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20201,7 +20201,7 @@ impl IDebugDocumentHelper64_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDebugDocumentContext(::core::mem::transmute_copy(&icharpos), ::core::mem::transmute_copy(&cchars)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppddc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppddc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20272,7 +20272,7 @@ impl IDebugDocumentHost_Vtbl {
             let this = (*this).get_impl();
             match this.OnCreateDocumentContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkouter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkouter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20288,7 +20288,7 @@ impl IDebugDocumentHost_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrshortname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrshortname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20328,7 +20328,7 @@ impl IDebugDocumentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetName(::core::mem::transmute_copy(&dnt)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20339,7 +20339,7 @@ impl IDebugDocumentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentClassId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclsiddocument = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclsiddocument, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20369,7 +20369,7 @@ impl IDebugDocumentProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppssd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppssd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20401,7 +20401,7 @@ impl IDebugDocumentText_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentAttributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptextdocattr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptextdocattr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20417,7 +20417,7 @@ impl IDebugDocumentText_Vtbl {
             let this = (*this).get_impl();
             match this.GetPositionOfLine(::core::mem::transmute_copy(&clinenumber)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccharacterposition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccharacterposition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20443,7 +20443,7 @@ impl IDebugDocumentText_Vtbl {
             let this = (*this).get_impl();
             match this.GetContextOfPosition(::core::mem::transmute_copy(&ccharacterposition), ::core::mem::transmute_copy(&cnumchars)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20577,7 +20577,7 @@ impl IDebugDocumentTextExternalAuthor_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrshortname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrshortname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20626,7 +20626,7 @@ impl IDebugEventCallbacks_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterestMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20747,7 +20747,7 @@ impl IDebugEventCallbacksWide_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterestMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -20868,7 +20868,7 @@ impl IDebugEventContextCallbacks_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterestMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21059,7 +21059,7 @@ impl IDebugExpressionContext_Vtbl {
             let this = (*this).get_impl();
             match this.ParseLanguageText(::core::mem::transmute(&pstrcode), ::core::mem::transmute_copy(&nradix), ::core::mem::transmute(&pstrdelimiter), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21095,7 +21095,7 @@ impl IDebugExtendedProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtendedPropertyInfo(::core::mem::transmute_copy(&dwfieldspec), ::core::mem::transmute_copy(&nradix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pextendedpropertyinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pextendedpropertyinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21106,7 +21106,7 @@ impl IDebugExtendedProperty_Vtbl {
             let this = (*this).get_impl();
             match this.EnumExtendedMembers(::core::mem::transmute_copy(&dwfieldspec), ::core::mem::transmute_copy(&nradix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppeepi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppeepi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21138,7 +21138,7 @@ impl IDebugFormatter_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringForVariant(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&nradix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21149,7 +21149,7 @@ impl IDebugFormatter_Vtbl {
             let this = (*this).get_impl();
             match this.GetVariantForString(::core::mem::transmute(&pwstrvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21160,7 +21160,7 @@ impl IDebugFormatter_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringForVarType(::core::mem::transmute_copy(&vt), ::core::mem::transmute_copy(&ptdescarraytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21193,7 +21193,7 @@ impl IDebugHelper_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePropertyBrowser(::core::mem::transmute_copy(&pvar), ::core::mem::transmute(&bstrname), ::core::mem::transmute(&pdat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21204,7 +21204,7 @@ impl IDebugHelper_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePropertyBrowserEx(::core::mem::transmute_copy(&pvar), ::core::mem::transmute(&bstrname), ::core::mem::transmute(&pdat), ::core::mem::transmute(&pdf)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21215,7 +21215,7 @@ impl IDebugHelper_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSimpleConnectionPoint(::core::mem::transmute(&pdisp)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21245,7 +21245,7 @@ impl IDebugHost_Vtbl {
             let this = (*this).get_impl();
             match this.GetHostDefinedInterface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hostunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hostunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21256,7 +21256,7 @@ impl IDebugHost_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *context = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(context, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21267,7 +21267,7 @@ impl IDebugHost_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *defaultmetadatastore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(defaultmetadatastore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21298,7 +21298,7 @@ impl IDebugHostBaseClass_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21324,7 +21324,7 @@ impl IDebugHostConstant_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21347,7 +21347,7 @@ impl IDebugHostContext_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqualTo(::core::mem::transmute(&pcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisequal = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisequal, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21375,7 +21375,7 @@ impl IDebugHostData_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocationKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *locationkind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(locationkind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21386,7 +21386,7 @@ impl IDebugHostData_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *location = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(location, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21397,7 +21397,7 @@ impl IDebugHostData_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21519,7 +21519,7 @@ impl IDebugHostField_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocationKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *locationkind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(locationkind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21530,7 +21530,7 @@ impl IDebugHostField_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21541,7 +21541,7 @@ impl IDebugHostField_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *location = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(location, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21552,7 +21552,7 @@ impl IDebugHostField_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21593,7 +21593,7 @@ impl IDebugHostMemory_Vtbl {
             let this = (*this).get_impl();
             match this.WriteBytes(::core::mem::transmute(&context), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21614,7 +21614,7 @@ impl IDebugHostMemory_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisplayStringForLocation(::core::mem::transmute(&context), ::core::mem::transmute(&location), ::core::mem::transmute_copy(&verbose)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *locationname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(locationname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21647,7 +21647,7 @@ impl IDebugHostMemory2_Vtbl {
             let this = (*this).get_impl();
             match this.LinearizeLocation(::core::mem::transmute(&context), ::core::mem::transmute(&location)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plinearizedlocation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plinearizedlocation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21678,7 +21678,7 @@ impl IDebugHostModule_Vtbl {
             let this = (*this).get_impl();
             match this.GetImageName(::core::mem::transmute_copy(&allowpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *imagename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(imagename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21689,7 +21689,7 @@ impl IDebugHostModule_Vtbl {
             let this = (*this).get_impl();
             match this.GetBaseLocation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *modulebaselocation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(modulebaselocation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21705,7 +21705,7 @@ impl IDebugHostModule_Vtbl {
             let this = (*this).get_impl();
             match this.FindTypeByName(::core::mem::transmute(&typename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21716,7 +21716,7 @@ impl IDebugHostModule_Vtbl {
             let this = (*this).get_impl();
             match this.FindSymbolByRVA(::core::mem::transmute_copy(&rva)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21727,7 +21727,7 @@ impl IDebugHostModule_Vtbl {
             let this = (*this).get_impl();
             match this.FindSymbolByName(::core::mem::transmute(&symbolname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21778,7 +21778,7 @@ impl IDebugHostModuleSignature_Vtbl {
             let this = (*this).get_impl();
             match this.IsMatch(::core::mem::transmute(&pmodule)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ismatch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ismatch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21805,7 +21805,7 @@ impl IDebugHostPublic_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocationKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *locationkind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(locationkind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21816,7 +21816,7 @@ impl IDebugHostPublic_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *location = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(location, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21843,7 +21843,7 @@ impl IDebugHostScriptHost_Vtbl {
             let this = (*this).get_impl();
             match this.CreateContext(::core::mem::transmute(&script)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *scriptcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(scriptcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21866,7 +21866,7 @@ impl IDebugHostStatus_Vtbl {
             let this = (*this).get_impl();
             match this.PollUserInterrupt() {
                 ::core::result::Result::Ok(ok__) => {
-                    *interruptrequested = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(interruptrequested, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21898,7 +21898,7 @@ impl IDebugHostSymbol_Vtbl {
             let this = (*this).get_impl();
             match this.GetContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *context = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(context, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21909,7 +21909,7 @@ impl IDebugHostSymbol_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateChildren(::core::mem::transmute_copy(&kind), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21920,7 +21920,7 @@ impl IDebugHostSymbol_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *kind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(kind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21931,7 +21931,7 @@ impl IDebugHostSymbol_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbolname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbolname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21942,7 +21942,7 @@ impl IDebugHostSymbol_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21953,7 +21953,7 @@ impl IDebugHostSymbol_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainingModule() {
                 ::core::result::Result::Ok(ok__) => {
-                    *containingmodule = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(containingmodule, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21964,7 +21964,7 @@ impl IDebugHostSymbol_Vtbl {
             let this = (*this).get_impl();
             match this.CompareAgainst(::core::mem::transmute(&pcomparisonsymbol), ::core::mem::transmute_copy(&comparisonflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmatches = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmatches, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -21999,7 +21999,7 @@ impl IDebugHostSymbol2_Vtbl {
             let this = (*this).get_impl();
             match this.GetLanguage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pkind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pkind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22028,7 +22028,7 @@ impl IDebugHostSymbolEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22061,7 +22061,7 @@ impl IDebugHostSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.CreateModuleSignature(::core::mem::transmute(&pwszmodulename), ::core::mem::transmute(&pwszminversion), ::core::mem::transmute(&pwszmaxversion)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmodulesignature = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmodulesignature, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22072,7 +22072,7 @@ impl IDebugHostSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTypeSignature(::core::mem::transmute(&signaturespecification), ::core::mem::transmute(&module)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typesignature = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typesignature, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22083,7 +22083,7 @@ impl IDebugHostSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTypeSignatureForModuleRange(::core::mem::transmute(&signaturespecification), ::core::mem::transmute(&modulename), ::core::mem::transmute(&minversion), ::core::mem::transmute(&maxversion)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typesignature = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typesignature, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22094,7 +22094,7 @@ impl IDebugHostSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateModules(::core::mem::transmute(&context)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *moduleenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moduleenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22105,7 +22105,7 @@ impl IDebugHostSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.FindModuleByName(::core::mem::transmute(&context), ::core::mem::transmute(&modulename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *module = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(module, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22116,7 +22116,7 @@ impl IDebugHostSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.FindModuleByLocation(::core::mem::transmute(&context), ::core::mem::transmute(&modulelocation)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *module = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(module, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22174,7 +22174,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *kind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(kind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22185,7 +22185,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22196,7 +22196,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetBaseType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *basetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(basetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22207,7 +22207,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetHashCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hashcode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hashcode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22228,7 +22228,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetPointerKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pointerkind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pointerkind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22239,7 +22239,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetMemberType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *membertype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(membertype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22250,7 +22250,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePointerTo(::core::mem::transmute_copy(&kind)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22261,7 +22261,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetArrayDimensionality() {
                 ::core::result::Result::Ok(ok__) => {
-                    *arraydimensionality = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(arraydimensionality, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22277,7 +22277,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.CreateArrayOf(::core::mem::transmute_copy(&dimensions), ::core::mem::transmute_copy(&pdimensions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22288,7 +22288,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetFunctionCallingConvention() {
                 ::core::result::Result::Ok(ok__) => {
-                    *conventionkind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(conventionkind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22299,7 +22299,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetFunctionReturnType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *returntype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(returntype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22310,7 +22310,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetFunctionParameterTypeCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22321,7 +22321,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetFunctionParameterTypeAt(::core::mem::transmute_copy(&i)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *parametertype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parametertype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22332,7 +22332,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.IsGeneric() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isgeneric = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isgeneric, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22343,7 +22343,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetGenericArgumentCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *argcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(argcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22354,7 +22354,7 @@ impl IDebugHostType_Vtbl {
             let this = (*this).get_impl();
             match this.GetGenericArgumentAt(::core::mem::transmute_copy(&i)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *argument = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(argument, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22405,7 +22405,7 @@ impl IDebugHostType2_Vtbl {
             let this = (*this).get_impl();
             match this.IsTypedef() {
                 ::core::result::Result::Ok(ok__) => {
-                    *istypedef = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(istypedef, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22416,7 +22416,7 @@ impl IDebugHostType2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypedefBaseType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *basetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(basetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22427,7 +22427,7 @@ impl IDebugHostType2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypedefFinalBaseType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *finalbasetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(finalbasetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22438,7 +22438,7 @@ impl IDebugHostType2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFunctionVarArgsKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *varargskind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(varargskind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22449,7 +22449,7 @@ impl IDebugHostType2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFunctionInstancePointerType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *instancepointertype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(instancepointertype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22481,7 +22481,7 @@ impl IDebugHostTypeSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetHashCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hashcode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hashcode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22497,7 +22497,7 @@ impl IDebugHostTypeSignature_Vtbl {
             let this = (*this).get_impl();
             match this.CompareAgainst(::core::mem::transmute(&typesignature)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22576,7 +22576,7 @@ impl IDebugOutputCallbacks2_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterestMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22787,7 +22787,7 @@ impl IDebugProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyInfo(::core::mem::transmute_copy(&dwfieldspec), ::core::mem::transmute_copy(&nradix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropertyinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropertyinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22808,7 +22808,7 @@ impl IDebugProperty_Vtbl {
             let this = (*this).get_impl();
             match this.EnumMembers(::core::mem::transmute_copy(&dwfieldspec), ::core::mem::transmute_copy(&nradix), ::core::mem::transmute_copy(&refiid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppepi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppepi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22819,7 +22819,7 @@ impl IDebugProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdebugprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdebugprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22852,7 +22852,7 @@ impl IDebugPropertyEnumType_All_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *__midl__idebugpropertyenumtype_all0000 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(__midl__idebugpropertyenumtype_all0000, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22940,7 +22940,7 @@ impl IDebugRegisters_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberRegisters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22956,7 +22956,7 @@ impl IDebugRegisters_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndexByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22967,7 +22967,7 @@ impl IDebugRegisters_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&register)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -22998,7 +22998,7 @@ impl IDebugRegisters_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstructionOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23009,7 +23009,7 @@ impl IDebugRegisters_Vtbl {
             let this = (*this).get_impl();
             match this.GetStackOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23020,7 +23020,7 @@ impl IDebugRegisters_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrameOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23084,7 +23084,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberRegisters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23100,7 +23100,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndexByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23111,7 +23111,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&register)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23142,7 +23142,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstructionOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23153,7 +23153,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStackOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23164,7 +23164,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrameOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23180,7 +23180,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndexByNameWide(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23191,7 +23191,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberPseudoRegisters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23212,7 +23212,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPseudoIndexByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23223,7 +23223,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPseudoIndexByNameWide(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23259,7 +23259,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstructionOffset2(::core::mem::transmute_copy(&source)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23270,7 +23270,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStackOffset2(::core::mem::transmute_copy(&source)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23281,7 +23281,7 @@ impl IDebugRegisters2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrameOffset2(::core::mem::transmute_copy(&source)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23356,7 +23356,7 @@ impl IDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodeContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23367,7 +23367,7 @@ impl IDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescriptionString(::core::mem::transmute_copy(&flong)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23378,7 +23378,7 @@ impl IDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetLanguageString(::core::mem::transmute_copy(&flong)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrlanguage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrlanguage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23389,7 +23389,7 @@ impl IDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23400,7 +23400,7 @@ impl IDebugStackFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetDebugProperty() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdebugprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdebugprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23434,7 +23434,7 @@ impl IDebugStackFrame110_Vtbl {
             let this = (*this).get_impl();
             match this.GetStackFrameType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstackframekind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstackframekind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23445,7 +23445,7 @@ impl IDebugStackFrame110_Vtbl {
             let this = (*this).get_impl();
             match this.GetScriptInvocationContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinvocationcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinvocationcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23472,7 +23472,7 @@ impl IDebugStackFrameSniffer_Vtbl {
             let this = (*this).get_impl();
             match this.EnumStackFrames() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppedsf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppedsf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23495,7 +23495,7 @@ impl IDebugStackFrameSnifferEx32_Vtbl {
             let this = (*this).get_impl();
             match this.EnumStackFramesEx32(::core::mem::transmute_copy(&dwspmin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppedsf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppedsf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23518,7 +23518,7 @@ impl IDebugStackFrameSnifferEx64_Vtbl {
             let this = (*this).get_impl();
             match this.EnumStackFramesEx64(::core::mem::transmute_copy(&dwspmin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppedsf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppedsf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23553,7 +23553,7 @@ impl IDebugSymbolGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSymbols() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23658,7 +23658,7 @@ impl IDebugSymbolGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSymbols() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23749,7 +23749,7 @@ impl IDebugSymbolGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolSize(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23760,7 +23760,7 @@ impl IDebugSymbolGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolOffset(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23771,7 +23771,7 @@ impl IDebugSymbolGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolRegister(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *register = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(register, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23792,7 +23792,7 @@ impl IDebugSymbolGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryInformation(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *entry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(entry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23891,7 +23891,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23922,7 +23922,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByName(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23943,7 +23943,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByLine(::core::mem::transmute_copy(&line), ::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -23959,7 +23959,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetModuleByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24003,7 +24003,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolModule(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24019,7 +24019,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeId(::core::mem::transmute_copy(&module), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24030,7 +24030,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeSize(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24041,7 +24041,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldOffset(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24067,7 +24067,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24088,7 +24088,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataPhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24119,7 +24119,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeSymbolGroup(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&update)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbols = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbols, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24130,7 +24130,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSymbolGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *group = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(group, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24141,7 +24141,7 @@ impl IDebugSymbols_Vtbl {
             let this = (*this).get_impl();
             match this.StartSymbolMatch(::core::mem::transmute(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24349,7 +24349,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24380,7 +24380,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByName(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24401,7 +24401,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByLine(::core::mem::transmute_copy(&line), ::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24417,7 +24417,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetModuleByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24461,7 +24461,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolModule(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24477,7 +24477,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeId(::core::mem::transmute_copy(&module), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24488,7 +24488,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeSize(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24499,7 +24499,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldOffset(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24525,7 +24525,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24546,7 +24546,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataPhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24577,7 +24577,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeSymbolGroup(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&update)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbols = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbols, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24588,7 +24588,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSymbolGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *group = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(group, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24599,7 +24599,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.StartSymbolMatch(::core::mem::transmute(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24705,7 +24705,7 @@ impl IDebugSymbols2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24927,7 +24927,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24958,7 +24958,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByName(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24979,7 +24979,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByLine(::core::mem::transmute_copy(&line), ::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24995,7 +24995,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetModuleByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25039,7 +25039,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolModule(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25055,7 +25055,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeId(::core::mem::transmute_copy(&module), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25066,7 +25066,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeSize(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25077,7 +25077,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldOffset(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25103,7 +25103,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25124,7 +25124,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataPhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25155,7 +25155,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeSymbolGroup(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&update)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbols = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbols, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25166,7 +25166,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSymbolGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *group = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(group, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25177,7 +25177,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.StartSymbolMatch(::core::mem::transmute(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25283,7 +25283,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25314,7 +25314,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByNameWide(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25335,7 +25335,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByLineWide(::core::mem::transmute_copy(&line), ::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25351,7 +25351,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolModuleWide(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25367,7 +25367,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeIdWide(::core::mem::transmute_copy(&module), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25378,7 +25378,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldOffsetWide(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25394,7 +25394,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeSymbolGroup2(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&update)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbols = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbols, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25405,7 +25405,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSymbolGroup2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *group = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(group, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25416,7 +25416,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.StartSymbolMatchWide(::core::mem::transmute(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25552,7 +25552,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentScopeFrameIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25598,7 +25598,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.AddSyntheticSymbol(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&size), ::core::mem::transmute(&name), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25609,7 +25609,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.AddSyntheticSymbolWide(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&size), ::core::mem::transmute(&name), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25640,7 +25640,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryByToken(::core::mem::transmute_copy(&modulebase), ::core::mem::transmute_copy(&token)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25651,7 +25651,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryInformation(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25677,7 +25677,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryBySymbolEntry(::core::mem::transmute_copy(&fromid), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *toid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(toid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25718,7 +25718,7 @@ impl IDebugSymbols3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceEntryBySourceEntry(::core::mem::transmute_copy(&fromentry), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *toentry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(toentry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -25998,7 +25998,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26029,7 +26029,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByName(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26050,7 +26050,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByLine(::core::mem::transmute_copy(&line), ::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26066,7 +26066,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetModuleByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26110,7 +26110,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolModule(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26126,7 +26126,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeId(::core::mem::transmute_copy(&module), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26137,7 +26137,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeSize(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26148,7 +26148,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldOffset(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26174,7 +26174,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26195,7 +26195,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataPhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26226,7 +26226,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeSymbolGroup(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&update)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbols = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbols, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26237,7 +26237,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSymbolGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *group = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(group, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26248,7 +26248,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.StartSymbolMatch(::core::mem::transmute(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26354,7 +26354,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26385,7 +26385,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByNameWide(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26406,7 +26406,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByLineWide(::core::mem::transmute_copy(&line), ::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26422,7 +26422,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolModuleWide(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26438,7 +26438,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeIdWide(::core::mem::transmute_copy(&module), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26449,7 +26449,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldOffsetWide(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26465,7 +26465,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeSymbolGroup2(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&update)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbols = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbols, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26476,7 +26476,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSymbolGroup2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *group = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(group, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26487,7 +26487,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.StartSymbolMatchWide(::core::mem::transmute(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26623,7 +26623,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentScopeFrameIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26669,7 +26669,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.AddSyntheticSymbol(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&size), ::core::mem::transmute(&name), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26680,7 +26680,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.AddSyntheticSymbolWide(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&size), ::core::mem::transmute(&name), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26711,7 +26711,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryByToken(::core::mem::transmute_copy(&modulebase), ::core::mem::transmute_copy(&token)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26722,7 +26722,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryInformation(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26748,7 +26748,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryBySymbolEntry(::core::mem::transmute_copy(&fromid), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *toid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(toid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26789,7 +26789,7 @@ impl IDebugSymbols4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceEntryBySourceEntry(::core::mem::transmute_copy(&fromentry), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *toentry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(toentry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27113,7 +27113,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27144,7 +27144,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByName(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27165,7 +27165,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByLine(::core::mem::transmute_copy(&line), ::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27181,7 +27181,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetModuleByIndex(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27225,7 +27225,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolModule(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27241,7 +27241,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeId(::core::mem::transmute_copy(&module), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27252,7 +27252,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeSize(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27263,7 +27263,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldOffset(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27289,7 +27289,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataVirtual(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27310,7 +27310,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.WriteTypedDataPhysical(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute_copy(&buffer), ::core::mem::transmute_copy(&buffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *byteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(byteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27341,7 +27341,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeSymbolGroup(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&update)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbols = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbols, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27352,7 +27352,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSymbolGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *group = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(group, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27363,7 +27363,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.StartSymbolMatch(::core::mem::transmute(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27469,7 +27469,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *options = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(options, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27500,7 +27500,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByNameWide(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27521,7 +27521,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffsetByLineWide(::core::mem::transmute_copy(&line), ::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27537,7 +27537,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolModuleWide(::core::mem::transmute(&symbol)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *base = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(base, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27553,7 +27553,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeIdWide(::core::mem::transmute_copy(&module), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *typeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(typeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27564,7 +27564,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetFieldOffsetWide(::core::mem::transmute_copy(&module), ::core::mem::transmute_copy(&typeid), ::core::mem::transmute(&field)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27580,7 +27580,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeSymbolGroup2(::core::mem::transmute_copy(&flags), ::core::mem::transmute(&update)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *symbols = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(symbols, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27591,7 +27591,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSymbolGroup2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *group = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(group, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27602,7 +27602,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.StartSymbolMatchWide(::core::mem::transmute(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27738,7 +27738,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentScopeFrameIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27784,7 +27784,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.AddSyntheticSymbol(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&size), ::core::mem::transmute(&name), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27795,7 +27795,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.AddSyntheticSymbolWide(::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&size), ::core::mem::transmute(&name), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27826,7 +27826,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryByToken(::core::mem::transmute_copy(&modulebase), ::core::mem::transmute_copy(&token)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27837,7 +27837,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryInformation(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27863,7 +27863,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetSymbolEntryBySymbolEntry(::core::mem::transmute_copy(&fromid), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *toid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(toid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27904,7 +27904,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceEntryBySourceEntry(::core::mem::transmute_copy(&fromentry), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *toentry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(toentry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -27950,7 +27950,7 @@ impl IDebugSymbols5_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentScopeFrameIndexEx(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *index = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(index, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28114,7 +28114,7 @@ impl IDebugSyncOperation_Vtbl {
             let this = (*this).get_impl();
             match this.GetTargetThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppattarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppattarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28125,7 +28125,7 @@ impl IDebugSyncOperation_Vtbl {
             let this = (*this).get_impl();
             match this.Execute() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28186,7 +28186,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28197,7 +28197,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventProcess() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28208,7 +28208,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28224,7 +28224,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28240,7 +28240,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberThreads() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28261,7 +28261,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByProcessor(::core::mem::transmute_copy(&processor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28272,7 +28272,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28283,7 +28283,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByDataOffset(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28294,7 +28294,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadTeb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28305,7 +28305,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByTeb(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28316,7 +28316,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28327,7 +28327,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdBySystemId(::core::mem::transmute_copy(&sysid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28338,7 +28338,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28349,7 +28349,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByHandle(::core::mem::transmute_copy(&handle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28360,7 +28360,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcesses() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28376,7 +28376,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28387,7 +28387,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByDataOffset(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28398,7 +28398,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessPeb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28409,7 +28409,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByPeb(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28420,7 +28420,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28431,7 +28431,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdBySystemId(::core::mem::transmute_copy(&sysid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28442,7 +28442,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28453,7 +28453,7 @@ impl IDebugSystemObjects_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByHandle(::core::mem::transmute_copy(&handle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28545,7 +28545,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28556,7 +28556,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventProcess() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28567,7 +28567,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28583,7 +28583,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28599,7 +28599,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberThreads() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28620,7 +28620,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByProcessor(::core::mem::transmute_copy(&processor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28631,7 +28631,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28642,7 +28642,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByDataOffset(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28653,7 +28653,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadTeb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28664,7 +28664,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByTeb(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28675,7 +28675,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28686,7 +28686,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdBySystemId(::core::mem::transmute_copy(&sysid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28697,7 +28697,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28708,7 +28708,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByHandle(::core::mem::transmute_copy(&handle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28719,7 +28719,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcesses() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28735,7 +28735,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28746,7 +28746,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByDataOffset(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28757,7 +28757,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessPeb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28768,7 +28768,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByPeb(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28779,7 +28779,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28790,7 +28790,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdBySystemId(::core::mem::transmute_copy(&sysid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28801,7 +28801,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28812,7 +28812,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByHandle(::core::mem::transmute_copy(&handle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28828,7 +28828,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28839,7 +28839,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetImplicitThreadDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28855,7 +28855,7 @@ impl IDebugSystemObjects2_Vtbl {
             let this = (*this).get_impl();
             match this.GetImplicitProcessDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28961,7 +28961,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28972,7 +28972,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventProcess() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28983,7 +28983,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28999,7 +28999,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29015,7 +29015,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberThreads() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29036,7 +29036,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByProcessor(::core::mem::transmute_copy(&processor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29047,7 +29047,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29058,7 +29058,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByDataOffset(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29069,7 +29069,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadTeb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29080,7 +29080,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByTeb(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29091,7 +29091,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29102,7 +29102,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdBySystemId(::core::mem::transmute_copy(&sysid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29113,7 +29113,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29124,7 +29124,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByHandle(::core::mem::transmute_copy(&handle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29135,7 +29135,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcesses() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29151,7 +29151,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29162,7 +29162,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByDataOffset(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29173,7 +29173,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessPeb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29184,7 +29184,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByPeb(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29195,7 +29195,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29206,7 +29206,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdBySystemId(::core::mem::transmute_copy(&sysid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29217,7 +29217,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29228,7 +29228,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByHandle(::core::mem::transmute_copy(&handle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29244,7 +29244,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29255,7 +29255,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetImplicitThreadDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29271,7 +29271,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetImplicitProcessDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29287,7 +29287,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventSystem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29298,7 +29298,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29314,7 +29314,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSystems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29335,7 +29335,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemServer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29346,7 +29346,7 @@ impl IDebugSystemObjects3_Vtbl {
             let this = (*this).get_impl();
             match this.GetSystemByServer(::core::mem::transmute_copy(&server)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29463,7 +29463,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29474,7 +29474,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventProcess() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29485,7 +29485,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29501,7 +29501,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29517,7 +29517,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberThreads() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29538,7 +29538,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByProcessor(::core::mem::transmute_copy(&processor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29549,7 +29549,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29560,7 +29560,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByDataOffset(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29571,7 +29571,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadTeb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29582,7 +29582,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByTeb(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29593,7 +29593,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29604,7 +29604,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdBySystemId(::core::mem::transmute_copy(&sysid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29615,7 +29615,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentThreadHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29626,7 +29626,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetThreadIdByHandle(::core::mem::transmute_copy(&handle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29637,7 +29637,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberProcesses() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29653,7 +29653,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29664,7 +29664,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByDataOffset(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29675,7 +29675,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessPeb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29686,7 +29686,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByPeb(::core::mem::transmute_copy(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29697,7 +29697,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sysid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sysid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29708,7 +29708,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdBySystemId(::core::mem::transmute_copy(&sysid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29719,7 +29719,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29730,7 +29730,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessIdByHandle(::core::mem::transmute_copy(&handle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29746,7 +29746,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentProcessUpTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29757,7 +29757,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetImplicitThreadDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29773,7 +29773,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetImplicitProcessDataOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29789,7 +29789,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventSystem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29800,7 +29800,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29816,7 +29816,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberSystems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *number = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(number, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29837,7 +29837,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSystemServer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *server = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(server, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29848,7 +29848,7 @@ impl IDebugSystemObjects4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSystemByServer(::core::mem::transmute_copy(&server)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30027,7 +30027,7 @@ impl IDynamicKeyProviderConcept_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateKeys(::core::mem::transmute(&contextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30073,7 +30073,7 @@ impl IEnumDebugApplicationNodes_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperddp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperddp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30120,7 +30120,7 @@ impl IEnumDebugCodeContexts_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppescc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppescc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30167,7 +30167,7 @@ impl IEnumDebugExpressionContexts_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppedec = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppedec, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30218,7 +30218,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pedpe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pedpe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30229,7 +30229,7 @@ impl IEnumDebugExtendedPropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcelt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcelt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30281,7 +30281,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppepi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppepi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30292,7 +30292,7 @@ impl IEnumDebugPropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcelt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcelt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30343,7 +30343,7 @@ impl IEnumDebugStackFrames_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppedsf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppedsf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30433,7 +30433,7 @@ impl IEnumRemoteDebugApplicationThreads_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperdat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperdat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30480,7 +30480,7 @@ impl IEnumRemoteDebugApplications_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppessd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppessd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30509,7 +30509,7 @@ impl IEquatableConcept_Vtbl {
             let this = (*this).get_impl();
             match this.AreObjectsEqual(::core::mem::transmute(&contextobject), ::core::mem::transmute(&otherobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isequal = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isequal, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30551,7 +30551,7 @@ impl IIndexableConcept_Vtbl {
             let this = (*this).get_impl();
             match this.GetDimensionality(::core::mem::transmute(&contextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *dimensionality = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dimensionality, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30590,7 +30590,7 @@ impl IIterableConcept_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultIndexDimensionality(::core::mem::transmute(&contextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *dimensionality = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dimensionality, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30601,7 +30601,7 @@ impl IIterableConcept_Vtbl {
             let this = (*this).get_impl();
             match this.GetIterator(::core::mem::transmute(&contextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *iterator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(iterator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30628,7 +30628,7 @@ impl IJsDebug_Vtbl {
             let this = (*this).get_impl();
             match this.OpenVirtualProcess(::core::mem::transmute_copy(&processid), ::core::mem::transmute_copy(&runtimejsbaseaddress), ::core::mem::transmute(&pdatatarget)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprocess = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprocess, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30658,7 +30658,7 @@ impl IJsDebugBreakPoint_Vtbl {
             let this = (*this).get_impl();
             match this.IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30729,7 +30729,7 @@ impl IJsDebugDataTarget_Vtbl {
             let this = (*this).get_impl();
             match this.AllocateVirtualMemory(::core::mem::transmute_copy(&address), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&allocationtype), ::core::mem::transmute_copy(&pageprotection)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pallocatedaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pallocatedaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30745,7 +30745,7 @@ impl IJsDebugDataTarget_Vtbl {
             let this = (*this).get_impl();
             match this.GetTlsValue(::core::mem::transmute_copy(&threadid), ::core::mem::transmute_copy(&tlsindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30756,7 +30756,7 @@ impl IJsDebugDataTarget_Vtbl {
             let this = (*this).get_impl();
             match this.ReadBSTR(::core::mem::transmute_copy(&address)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30767,7 +30767,7 @@ impl IJsDebugDataTarget_Vtbl {
             let this = (*this).get_impl();
             match this.ReadNullTerminatedString(::core::mem::transmute_copy(&address), ::core::mem::transmute_copy(&charactersize), ::core::mem::transmute_copy(&maxcharacters)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30778,7 +30778,7 @@ impl IJsDebugDataTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStackFrameEnumerator(::core::mem::transmute_copy(&threadid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30831,7 +30831,7 @@ impl IJsDebugFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30852,7 +30852,7 @@ impl IJsDebugFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetDebugProperty() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdebugproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdebugproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30863,7 +30863,7 @@ impl IJsDebugFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetReturnAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *preturnaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(preturnaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30906,7 +30906,7 @@ impl IJsDebugProcess_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStackWalker(::core::mem::transmute_copy(&threadid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstackwalker = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstackwalker, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30917,7 +30917,7 @@ impl IJsDebugProcess_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBreakPoint(::core::mem::transmute_copy(&documentid), ::core::mem::transmute_copy(&characteroffset), ::core::mem::transmute_copy(&charactercount), ::core::mem::transmute_copy(&isenabled)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdebugbreakpoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdebugbreakpoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30933,7 +30933,7 @@ impl IJsDebugProcess_Vtbl {
             let this = (*this).get_impl();
             match this.GetExternalStepAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcodeaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcodeaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30966,7 +30966,7 @@ impl IJsDebugProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyInfo(::core::mem::transmute_copy(&nradix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropertyinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropertyinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -30977,7 +30977,7 @@ impl IJsDebugProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetMembers(::core::mem::transmute_copy(&members)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31004,7 +31004,7 @@ impl IJsDebugStackWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppframe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppframe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31033,7 +31033,7 @@ impl IJsEnumDebugProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31140,7 +31140,7 @@ impl IMachineDebugManager_Vtbl {
             let this = (*this).get_impl();
             match this.AddApplication(::core::mem::transmute(&pda)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwappcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwappcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31156,7 +31156,7 @@ impl IMachineDebugManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumApplications() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppeda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppeda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31186,7 +31186,7 @@ impl IMachineDebugManagerCookie_Vtbl {
             let this = (*this).get_impl();
             match this.AddApplication(::core::mem::transmute(&pda), ::core::mem::transmute_copy(&dwdebugappcookie)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwappcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwappcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31202,7 +31202,7 @@ impl IMachineDebugManagerCookie_Vtbl {
             let this = (*this).get_impl();
             match this.EnumApplications() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppeda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppeda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31293,7 +31293,7 @@ impl IModelKeyReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetKeyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *keyname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(keyname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31304,7 +31304,7 @@ impl IModelKeyReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetOriginalObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *originalobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(originalobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31315,7 +31315,7 @@ impl IModelKeyReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetContextObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *containingobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(containingobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31439,7 +31439,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *context = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(context, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31450,7 +31450,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *kind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(kind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31461,7 +31461,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetIntrinsicValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *intrinsicdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(intrinsicdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31472,7 +31472,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetIntrinsicValueAs(::core::mem::transmute_copy(&vt)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *intrinsicdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(intrinsicdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31493,7 +31493,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateKeyValues() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31504,7 +31504,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetRawValue(::core::mem::transmute_copy(&kind), ::core::mem::transmute(&name), ::core::mem::transmute_copy(&searchflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31515,7 +31515,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateRawValues(::core::mem::transmute_copy(&kind), ::core::mem::transmute_copy(&searchflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31526,7 +31526,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.Dereference() {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31537,7 +31537,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.TryCastToRuntimeType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *runtimetypedobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(runtimetypedobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31553,7 +31553,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *location = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(location, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31564,7 +31564,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31580,7 +31580,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOfParentModels() {
                 ::core::result::Result::Ok(ok__) => {
-                    *nummodels = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nummodels, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31626,7 +31626,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateKeys() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31637,7 +31637,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateKeyReferences() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31658,7 +31658,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetRawReference(::core::mem::transmute_copy(&kind), ::core::mem::transmute(&name), ::core::mem::transmute_copy(&searchflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31669,7 +31669,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateRawReferences(::core::mem::transmute_copy(&kind), ::core::mem::transmute_copy(&searchflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31685,7 +31685,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetContextForDataModel(::core::mem::transmute(&datamodelobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *context = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(context, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31696,7 +31696,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.Compare(::core::mem::transmute(&other)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31707,7 +31707,7 @@ impl IModelObject_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqualTo(::core::mem::transmute(&other)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *equal = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(equal, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31766,7 +31766,7 @@ impl IModelPropertyAccessor_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute(&key), ::core::mem::transmute(&contextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31831,7 +31831,7 @@ impl IPerPropertyBrowsing2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisplayString(::core::mem::transmute_copy(&dispid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31842,7 +31842,7 @@ impl IPerPropertyBrowsing2_Vtbl {
             let this = (*this).get_impl();
             match this.MapPropertyToPage(::core::mem::transmute_copy(&dispid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclsidproppage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclsidproppage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31881,7 +31881,7 @@ impl IPreferredRuntimeTypeConcept_Vtbl {
             let this = (*this).get_impl();
             match this.CastToPreferredRuntimeType(::core::mem::transmute(&contextobject)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *object = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(object, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31911,7 +31911,7 @@ impl IProcessDebugManager32_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31922,7 +31922,7 @@ impl IProcessDebugManager32_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31933,7 +31933,7 @@ impl IProcessDebugManager32_Vtbl {
             let this = (*this).get_impl();
             match this.AddApplication(::core::mem::transmute(&pda)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwappcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwappcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31949,7 +31949,7 @@ impl IProcessDebugManager32_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDebugDocumentHelper(::core::mem::transmute(&punkouter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pddh = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pddh, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31983,7 +31983,7 @@ impl IProcessDebugManager64_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31994,7 +31994,7 @@ impl IProcessDebugManager64_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32005,7 +32005,7 @@ impl IProcessDebugManager64_Vtbl {
             let this = (*this).get_impl();
             match this.AddApplication(::core::mem::transmute(&pda)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwappcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwappcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32021,7 +32021,7 @@ impl IProcessDebugManager64_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDebugDocumentHelper(::core::mem::transmute(&punkouter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pddh = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pddh, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32051,7 +32051,7 @@ impl IProvideExpressionContexts_Vtbl {
             let this = (*this).get_impl();
             match this.EnumExpressionContexts() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppedec = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppedec, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32137,7 +32137,7 @@ impl IRemoteDebugApplication_Vtbl {
             let this = (*this).get_impl();
             match this.GetDebugger() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pad = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pad, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32148,7 +32148,7 @@ impl IRemoteDebugApplication_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstanceAtApplication(::core::mem::transmute_copy(&rclsid), ::core::mem::transmute(&punkouter), ::core::mem::transmute_copy(&dwclscontext), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32164,7 +32164,7 @@ impl IRemoteDebugApplication_Vtbl {
             let this = (*this).get_impl();
             match this.EnumThreads() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperdat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperdat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32175,7 +32175,7 @@ impl IRemoteDebugApplication_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32186,7 +32186,7 @@ impl IRemoteDebugApplication_Vtbl {
             let this = (*this).get_impl();
             match this.GetRootNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdanroot = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdanroot, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32197,7 +32197,7 @@ impl IRemoteDebugApplication_Vtbl {
             let this = (*this).get_impl();
             match this.EnumGlobalExpressionContexts() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppedec = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppedec, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32240,7 +32240,7 @@ impl IRemoteDebugApplication110_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentDebuggerOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcurrentoptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcurrentoptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32251,7 +32251,7 @@ impl IRemoteDebugApplication110_Vtbl {
             let this = (*this).get_impl();
             match this.GetMainThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppthread = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppthread, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32373,7 +32373,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
             let this = (*this).get_impl();
             match this.GetSystemThreadId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwthreadid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwthreadid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32384,7 +32384,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
             let this = (*this).get_impl();
             match this.GetApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprda = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprda, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32395,7 +32395,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
             let this = (*this).get_impl();
             match this.EnumStackFrames() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppedsf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppedsf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32416,7 +32416,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
             let this = (*this).get_impl();
             match this.GetState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32427,7 +32427,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
             let this = (*this).get_impl();
             match this.Suspend() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32438,7 +32438,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
             let this = (*this).get_impl();
             match this.Resume() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32449,7 +32449,7 @@ impl IRemoteDebugApplicationThread_Vtbl {
             let this = (*this).get_impl();
             match this.GetSuspendCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32536,7 +32536,7 @@ impl IScriptEntry_Vtbl {
             let this = (*this).get_impl();
             match this.GetText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32552,7 +32552,7 @@ impl IScriptEntry_Vtbl {
             let this = (*this).get_impl();
             match this.GetBody() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32568,7 +32568,7 @@ impl IScriptEntry_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32584,7 +32584,7 @@ impl IScriptEntry_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32645,7 +32645,7 @@ impl IScriptInvocationContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetContextType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinvocationcontexttype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinvocationcontexttype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32656,7 +32656,7 @@ impl IScriptInvocationContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetContextDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32667,7 +32667,7 @@ impl IScriptInvocationContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetContextObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontextobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontextobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32717,7 +32717,7 @@ impl IScriptNode_Vtbl {
             let this = (*this).get_impl();
             match this.GetParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsnparent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsnparent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32728,7 +32728,7 @@ impl IScriptNode_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndexInParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisn = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisn, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32739,7 +32739,7 @@ impl IScriptNode_Vtbl {
             let this = (*this).get_impl();
             match this.GetCookie() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32750,7 +32750,7 @@ impl IScriptNode_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOfChildren() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcsn = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcsn, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32761,7 +32761,7 @@ impl IScriptNode_Vtbl {
             let this = (*this).get_impl();
             match this.GetChild(::core::mem::transmute_copy(&isn)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsn = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsn, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32772,7 +32772,7 @@ impl IScriptNode_Vtbl {
             let this = (*this).get_impl();
             match this.GetLanguage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32783,7 +32783,7 @@ impl IScriptNode_Vtbl {
             let this = (*this).get_impl();
             match this.CreateChildEntry(::core::mem::transmute_copy(&isn), ::core::mem::transmute_copy(&dwcookie), ::core::mem::transmute(&pszdelimiter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32794,7 +32794,7 @@ impl IScriptNode_Vtbl {
             let this = (*this).get_impl();
             match this.CreateChildHandler(::core::mem::transmute(&pszdefaultname), ::core::mem::transmute_copy(&prgpsznames), ::core::mem::transmute_copy(&cpsznames), ::core::mem::transmute(&pszevent), ::core::mem::transmute(&pszdelimiter), ::core::mem::transmute(&ptisignature), ::core::mem::transmute_copy(&imethodsignature), ::core::mem::transmute_copy(&isn), ::core::mem::transmute_copy(&dwcookie)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32837,7 +32837,7 @@ impl IScriptScriptlet_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubItemName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32853,7 +32853,7 @@ impl IScriptScriptlet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32869,7 +32869,7 @@ impl IScriptScriptlet_Vtbl {
             let this = (*this).get_impl();
             match this.GetSimpleEventName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32911,7 +32911,7 @@ impl ISimpleConnectionPoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pulcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pulcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32927,7 +32927,7 @@ impl ISimpleConnectionPoint_Vtbl {
             let this = (*this).get_impl();
             match this.Advise(::core::mem::transmute(&pdisp)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32964,7 +32964,7 @@ impl IStringDisplayableConcept_Vtbl {
             let this = (*this).get_impl();
             match this.ToDisplayString(::core::mem::transmute(&contextobject), ::core::mem::transmute(&metadata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *displaystring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(displaystring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -33028,7 +33028,7 @@ impl IWebAppDiagnosticsSetup_Vtbl {
             let this = (*this).get_impl();
             match this.DiagnosticsSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

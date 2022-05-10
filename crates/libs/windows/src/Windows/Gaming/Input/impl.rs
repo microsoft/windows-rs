@@ -22,7 +22,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match this.HeadsetConnected(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -39,7 +39,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match this.HeadsetDisconnected(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -56,7 +56,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match this.UserChanged(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -73,7 +73,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match this.Headset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -85,7 +85,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match this.IsWireless() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -97,7 +97,7 @@ impl IGameController_Vtbl {
             let this = (*this).get_impl();
             match this.User() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -137,7 +137,7 @@ impl IGameControllerBatteryInfo_Vtbl {
             let this = (*this).get_impl();
             match this.TryGetBatteryReport() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

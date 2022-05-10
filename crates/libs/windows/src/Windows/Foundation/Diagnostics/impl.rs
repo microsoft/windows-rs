@@ -17,7 +17,7 @@ impl IErrorReportingSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -56,7 +56,7 @@ impl IFileLoggingSession_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -83,7 +83,7 @@ impl IFileLoggingSession_Vtbl {
             let this = (*this).get_impl();
             match this.CloseAndSaveToFileAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -95,7 +95,7 @@ impl IFileLoggingSession_Vtbl {
             let this = (*this).get_impl();
             match this.LogFileGenerated(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -143,7 +143,7 @@ impl ILoggingChannel_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -155,7 +155,7 @@ impl ILoggingChannel_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -167,7 +167,7 @@ impl ILoggingChannel_Vtbl {
             let this = (*this).get_impl();
             match this.Level() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -199,7 +199,7 @@ impl ILoggingChannel_Vtbl {
             let this = (*this).get_impl();
             match this.LoggingEnabled(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -248,7 +248,7 @@ impl ILoggingSession_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -260,7 +260,7 @@ impl ILoggingSession_Vtbl {
             let this = (*this).get_impl();
             match this.SaveToFileAsync(::core::mem::transmute(&folder), ::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -318,7 +318,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match this.IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -330,7 +330,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match this.IsEnabledWithLevel(level) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -342,7 +342,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match this.IsEnabledWithLevelAndKeywords(level, keywords) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -374,7 +374,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match this.StartActivity(::core::mem::transmute(&starteventname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -386,7 +386,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match this.StartActivityWithFields(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -398,7 +398,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match this.StartActivityWithFieldsAndLevel(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields), level) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -410,7 +410,7 @@ impl ILoggingTarget_Vtbl {
             let this = (*this).get_impl();
             match this.StartActivityWithFieldsAndOptions(::core::mem::transmute(&starteventname), ::core::mem::transmute(&fields), level, ::core::mem::transmute(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

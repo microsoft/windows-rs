@@ -12,7 +12,7 @@ impl IWaaSAssessor_Vtbl {
             let this = (*this).get_impl();
             match this.GetOSUpdateAssessment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

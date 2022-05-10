@@ -31,7 +31,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.CAErrorId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.CAErrorString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetCASetupProperty(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.IsPropertyEditable(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbeditable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbeditable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -85,7 +85,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetSupportedCATypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcatypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcatypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -96,7 +96,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderNameList() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -107,7 +107,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetKeyLengthList(::core::mem::transmute(&bstrprovidername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -118,7 +118,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetHashAlgorithmList(::core::mem::transmute(&bstrprovidername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -129,7 +129,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrivateKeyContainerList(::core::mem::transmute(&bstrprovidername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -140,7 +140,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetExistingCACertificates() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -151,7 +151,7 @@ impl ICertSrvSetup_Vtbl {
             let this = (*this).get_impl();
             match this.CAImportPFX(::core::mem::transmute(&bstrfilename), ::core::mem::transmute(&bstrpasswd), ::core::mem::transmute_copy(&boverwriteexistingkey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match this.ProviderName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -277,7 +277,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match this.Existing() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -293,7 +293,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match this.ContainerName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -309,7 +309,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match this.HashAlgorithm() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl ICertSrvSetupKeyInformation_Vtbl {
             let this = (*this).get_impl();
             match this.ExistingCACertificate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -373,7 +373,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -384,7 +384,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -395,7 +395,7 @@ impl ICertSrvSetupKeyInformationCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -437,7 +437,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
             let this = (*this).get_impl();
             match this.ErrorString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -453,7 +453,7 @@ impl ICertificateEnrollmentPolicyServerSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -508,7 +508,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
             let this = (*this).get_impl();
             match this.ErrorString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl ICertificateEnrollmentServerSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -590,7 +590,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match this.MSCEPErrorId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -601,7 +601,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match this.MSCEPErrorString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -617,7 +617,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetMSCEPSetupProperty(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -638,7 +638,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match this.IsMSCEPStoreEmpty() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbempty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbempty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -649,7 +649,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderNameList(::core::mem::transmute_copy(&bexchange)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -660,7 +660,7 @@ impl IMSCEPSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetKeyLengthList(::core::mem::transmute_copy(&bexchange), ::core::mem::transmute(&bstrprovidername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

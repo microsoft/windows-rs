@@ -27,7 +27,7 @@ impl IEnumNetCfgBindingInterface_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl IEnumNetCfgBindingPath_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl IEnumNetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -176,7 +176,7 @@ impl INetCfg_Vtbl {
             let this = (*this).get_impl();
             match this.EnumComponents(::core::mem::transmute_copy(&pguidclass)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumcomponent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumcomponent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -187,7 +187,7 @@ impl INetCfg_Vtbl {
             let this = (*this).get_impl();
             match this.FindComponent(::core::mem::transmute(&pszwinfid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcomponent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcomponent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -226,7 +226,7 @@ impl INetCfgBindingInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwinterfacename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwinterfacename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -237,7 +237,7 @@ impl INetCfgBindingInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetUpperComponent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnccitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnccitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -248,7 +248,7 @@ impl INetCfgBindingInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetLowerComponent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnccitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnccitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -306,7 +306,7 @@ impl INetCfgBindingPath_Vtbl {
             let this = (*this).get_impl();
             match this.GetPathToken() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwpathtoken = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwpathtoken, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl INetCfgBindingPath_Vtbl {
             let this = (*this).get_impl();
             match this.GetOwner() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcomponent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcomponent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -328,7 +328,7 @@ impl INetCfgBindingPath_Vtbl {
             let this = (*this).get_impl();
             match this.GetDepth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcinterfaces = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcinterfaces, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -339,7 +339,7 @@ impl INetCfgBindingPath_Vtbl {
             let this = (*this).get_impl();
             match this.EnumBindingInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenuminterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenuminterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -373,7 +373,7 @@ impl INetCfgClass_Vtbl {
             let this = (*this).get_impl();
             match this.FindComponent(::core::mem::transmute(&pszwinfid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnccitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnccitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -384,7 +384,7 @@ impl INetCfgClass_Vtbl {
             let this = (*this).get_impl();
             match this.EnumComponents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumcomponent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumcomponent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -416,7 +416,7 @@ impl INetCfgClassSetup_Vtbl {
             let this = (*this).get_impl();
             match this.SelectAndInstall(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute_copy(&pobotoken)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnccitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnccitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -427,7 +427,7 @@ impl INetCfgClassSetup_Vtbl {
             let this = (*this).get_impl();
             match this.Install(::core::mem::transmute(&pszwinfid), ::core::mem::transmute_copy(&pobotoken), ::core::mem::transmute_copy(&dwsetupflags), ::core::mem::transmute_copy(&dwupgradefrombuildno), ::core::mem::transmute(&pszwanswerfile), ::core::mem::transmute(&pszwanswersections)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnccitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnccitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -497,7 +497,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwdisplayname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwdisplayname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -513,7 +513,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetHelpText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszwhelptext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszwhelptext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -535,7 +535,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetCharacteristics() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcharacteristics = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcharacteristics, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -546,7 +546,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstanceGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -557,7 +557,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetPnpDevNodeId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwdevnodeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwdevnodeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -568,7 +568,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetClassGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -579,7 +579,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetBindName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwbindname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwbindname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -590,7 +590,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pulstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pulstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -601,7 +601,7 @@ impl INetCfgComponent_Vtbl {
             let this = (*this).get_impl();
             match this.OpenParamKey() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phkey = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phkey, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -675,7 +675,7 @@ impl INetCfgComponentBindings_Vtbl {
             let this = (*this).get_impl();
             match this.EnumBindingPaths(::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -792,7 +792,7 @@ impl INetCfgComponentNotifyGlobal_Vtbl {
             let this = (*this).get_impl();
             match this.GetSupportedNotifications() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwnotifications = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwnotifications, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -964,7 +964,7 @@ impl INetCfgLock_Vtbl {
             let this = (*this).get_impl();
             match this.AcquireWriteLock(::core::mem::transmute_copy(&cmstimeout), ::core::mem::transmute(&pszwclientdescription)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwclientdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwclientdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -980,7 +980,7 @@ impl INetCfgLock_Vtbl {
             let this = (*this).get_impl();
             match this.IsWriteLocked() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwclientdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwclientdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1069,7 +1069,7 @@ impl INetLanConnectionUiInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1095,7 +1095,7 @@ impl INetRasConnectionIpUiInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetUiInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1127,7 +1127,7 @@ impl IProvisioningDomain_Vtbl {
             let this = (*this).get_impl();
             match this.Query(::core::mem::transmute(&pszwdomain), ::core::mem::transmute(&pszwlanguage), ::core::mem::transmute(&pszwxpathquery)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nodes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nodes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1153,7 +1153,7 @@ impl IProvisioningProfileWireless_Vtbl {
             let this = (*this).get_impl();
             match this.CreateProfile(::core::mem::transmute(&bstrxmlwirelessconfigprofile), ::core::mem::transmute(&bstrxmlconnectionconfigprofile), ::core::mem::transmute_copy(&padapterinstanceguid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pulstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pulstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

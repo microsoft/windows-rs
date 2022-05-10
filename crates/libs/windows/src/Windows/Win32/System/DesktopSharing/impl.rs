@@ -17,7 +17,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Windows() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwindowlist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwindowlist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28,7 +28,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -39,7 +39,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Shared() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -55,7 +55,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -66,7 +66,7 @@ impl IRDPSRAPIApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Flags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -103,7 +103,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
             let this = (*this).get_impl();
             match this.Applications() {
                 ::core::result::Result::Ok(ok__) => {
-                    *papplications = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(papplications, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -114,7 +114,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
             let this = (*this).get_impl();
             match this.Windows() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwindows = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwindows, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -125,7 +125,7 @@ impl IRDPSRAPIApplicationFilter_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -163,7 +163,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -174,7 +174,7 @@ impl IRDPSRAPIApplicationList_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *papplication = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(papplication, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -211,7 +211,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -222,7 +222,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match this.RemoteName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -233,7 +233,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match this.ControlLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match this.Invitation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match this.Flags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -276,7 +276,7 @@ impl IRDPSRAPIAttendee_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectivityInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -314,7 +314,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Attendee() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Reason() {
                 ::core::result::Result::Ok(ok__) => {
-                    *preason = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(preason, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -336,7 +336,7 @@ impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Code() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -368,7 +368,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -379,7 +379,7 @@ impl IRDPSRAPIAttendeeManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -410,7 +410,7 @@ impl IRDPSRAPIAudioStream_Vtbl {
             let this = (*this).get_impl();
             match this.Initialize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnperiodinhundrednsintervals = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnperiodinhundrednsintervals, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -463,7 +463,7 @@ impl IRDPSRAPIClipboardUseEvents_Vtbl {
             let this = (*this).get_impl();
             match this.OnPasteFromClipboard(::core::mem::transmute_copy(&clipboardformat), ::core::mem::transmute(&pattendee)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -495,7 +495,7 @@ impl IRDPSRAPIDebug_Vtbl {
             let this = (*this).get_impl();
             match this.CLXCmdLine() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclxcmdline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclxcmdline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -528,7 +528,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.Width() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plwidth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plwidth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -539,7 +539,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.Height() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plheight = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plheight, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -550,7 +550,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.Bpp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plbpp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plbpp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -561,7 +561,7 @@ impl IRDPSRAPIFrameBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrameBufferBits(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&heigth)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbits = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbits, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -599,7 +599,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectionString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -610,7 +610,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match this.GroupName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -621,7 +621,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match this.Password() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -632,7 +632,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match this.AttendeeLimit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl IRDPSRAPIInvitation_Vtbl {
             let this = (*this).get_impl();
             match this.Revoked() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -691,7 +691,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -702,7 +702,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinvitation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinvitation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -713,7 +713,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -724,7 +724,7 @@ impl IRDPSRAPIInvitationManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInvitation(::core::mem::transmute(&bstrauthstring), ::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&bstrpassword), ::core::mem::transmute_copy(&attendeelimit)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinvitation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinvitation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -773,7 +773,7 @@ impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateLogger(::core::mem::transmute(&bstrcountername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplogger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplogger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -800,7 +800,7 @@ impl IRDPSRAPISessionProperties_Vtbl {
             let this = (*this).get_impl();
             match this.get_Property(::core::mem::transmute(&propertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -863,7 +863,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match this.ColorDepth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcolordepth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcolordepth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -874,7 +874,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match this.Properties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -885,7 +885,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match this.Attendees() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -896,7 +896,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match this.Invitations() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -907,7 +907,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationFilter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -918,7 +918,7 @@ impl IRDPSRAPISharingSession_Vtbl {
             let this = (*this).get_impl();
             match this.VirtualChannelManager() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -992,7 +992,7 @@ impl IRDPSRAPISharingSession2_Vtbl {
             let this = (*this).get_impl();
             match this.FrameBuffer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1032,7 +1032,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Protocol() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plprotocol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plprotocol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1043,7 +1043,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.LocalPort() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1054,7 +1054,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.LocalIP() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsrlocalip = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsrlocalip, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1065,7 +1065,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.PeerPort() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1076,7 +1076,7 @@ impl IRDPSRAPITcpConnectionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.PeerIP() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrip = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrip, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1111,7 +1111,7 @@ impl IRDPSRAPITransportStream_Vtbl {
             let this = (*this).get_impl();
             match this.AllocBuffer(::core::mem::transmute_copy(&maxpayload)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1176,7 +1176,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.Storage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1187,7 +1187,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.StorageSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmaxstore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmaxstore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1198,7 +1198,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.PayloadSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1214,7 +1214,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.PayloadOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1230,7 +1230,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.Flags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1246,7 +1246,7 @@ impl IRDPSRAPITransportStreamBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.Context() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1346,7 +1346,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match this.Attendees() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1357,7 +1357,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match this.Invitations() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1368,7 +1368,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationFilter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1379,7 +1379,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match this.VirtualChannelManager() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1395,7 +1395,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match this.SmartSizing() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvbsmartsizing = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvbsmartsizing, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1416,7 +1416,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match this.DisconnectedText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdisconnectedtext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdisconnectedtext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1432,7 +1432,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match this.Properties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1443,7 +1443,7 @@ impl IRDPSRAPIViewer_Vtbl {
             let this = (*this).get_impl();
             match this.StartReverseConnectListener(::core::mem::transmute(&bstrconnectionstring), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrpassword)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrreverseconnectstring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrreverseconnectstring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1499,7 +1499,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1510,7 +1510,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
             let this = (*this).get_impl();
             match this.Flags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1521,7 +1521,7 @@ impl IRDPSRAPIVirtualChannel_Vtbl {
             let this = (*this).get_impl();
             match this.Priority() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppriority = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppriority, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1556,7 +1556,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1567,7 +1567,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pchannel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pchannel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1578,7 +1578,7 @@ impl IRDPSRAPIVirtualChannelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVirtualChannel(::core::mem::transmute(&bstrchannelname), ::core::mem::transmute_copy(&priority), ::core::mem::transmute_copy(&channelflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchannel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchannel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1615,7 +1615,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1626,7 +1626,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match this.Application() {
                 ::core::result::Result::Ok(ok__) => {
-                    *papplication = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(papplication, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1637,7 +1637,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match this.Shared() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1653,7 +1653,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1669,7 +1669,7 @@ impl IRDPSRAPIWindow_Vtbl {
             let this = (*this).get_impl();
             match this.Flags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1705,7 +1705,7 @@ impl IRDPSRAPIWindowList_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1716,7 +1716,7 @@ impl IRDPSRAPIWindowList_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -15,7 +15,7 @@ impl ISysStorageProviderEventSource_Vtbl {
             let this = (*this).get_impl();
             match this.EventReceived(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -51,7 +51,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
             let this = (*this).get_impl();
             match this.GetHttpRequestProvider(::core::mem::transmute(&syncrootid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl ISysStorageProviderHandlerFactory_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventSource(::core::mem::transmute(&syncrootid), ::core::mem::transmute(&eventname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -96,7 +96,7 @@ impl ISysStorageProviderHttpRequestProvider_Vtbl {
             let this = (*this).get_impl();
             match this.SendRequestAsync(::core::mem::transmute(&request)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

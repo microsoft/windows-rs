@@ -18,7 +18,7 @@ impl IXmlCharacterData_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -35,7 +35,7 @@ impl IXmlCharacterData_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -47,7 +47,7 @@ impl IXmlCharacterData_Vtbl {
             let this = (*this).get_impl();
             match this.SubstringData(offset, count) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -125,7 +125,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.NodeValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -142,7 +142,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.NodeType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -154,7 +154,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.NodeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -166,7 +166,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.ParentNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -178,7 +178,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.ChildNodes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -190,7 +190,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.FirstChild() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -202,7 +202,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.LastChild() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -214,7 +214,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.PreviousSibling() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -226,7 +226,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.NextSibling() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -238,7 +238,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.Attributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -250,7 +250,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.HasChildNodes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -262,7 +262,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.OwnerDocument() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -274,7 +274,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.InsertBefore(::core::mem::transmute(&newchild), ::core::mem::transmute(&referencechild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -286,7 +286,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.ReplaceChild(::core::mem::transmute(&newchild), ::core::mem::transmute(&referencechild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -298,7 +298,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.RemoveChild(::core::mem::transmute(&childnode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -310,7 +310,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.AppendChild(::core::mem::transmute(&newchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -322,7 +322,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.CloneNode(deep) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -334,7 +334,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.NamespaceUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -346,7 +346,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.LocalName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -358,7 +358,7 @@ impl IXmlNode_Vtbl {
             let this = (*this).get_impl();
             match this.Prefix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -422,7 +422,7 @@ impl IXmlNodeSelector_Vtbl {
             let this = (*this).get_impl();
             match this.SelectSingleNode(::core::mem::transmute(&xpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -434,7 +434,7 @@ impl IXmlNodeSelector_Vtbl {
             let this = (*this).get_impl();
             match this.SelectNodes(::core::mem::transmute(&xpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -446,7 +446,7 @@ impl IXmlNodeSelector_Vtbl {
             let this = (*this).get_impl();
             match this.SelectSingleNodeNS(::core::mem::transmute(&xpath), ::core::mem::transmute(&namespaces)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -458,7 +458,7 @@ impl IXmlNodeSelector_Vtbl {
             let this = (*this).get_impl();
             match this.SelectNodesNS(::core::mem::transmute(&xpath), ::core::mem::transmute(&namespaces)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -492,7 +492,7 @@ impl IXmlNodeSerializer_Vtbl {
             let this = (*this).get_impl();
             match this.GetXml() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -504,7 +504,7 @@ impl IXmlNodeSerializer_Vtbl {
             let this = (*this).get_impl();
             match this.InnerText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -540,7 +540,7 @@ impl IXmlText_Vtbl {
             let this = (*this).get_impl();
             match this.SplitText(offset) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

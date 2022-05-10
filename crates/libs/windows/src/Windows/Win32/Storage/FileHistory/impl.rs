@@ -45,7 +45,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match this.GetIncludeExcludeRules(::core::mem::transmute_copy(&include), ::core::mem::transmute_copy(&category)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *iterator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(iterator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -56,7 +56,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalPolicy(::core::mem::transmute_copy(&localpolicytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *policyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(policyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -72,7 +72,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackupStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *backupstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(backupstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultTarget() {
                 ::core::result::Result::Ok(ok__) => {
-                    *defaulttarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(defaulttarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IFhConfigMgr_Vtbl {
             let this = (*this).get_impl();
             match this.ValidateTarget(::core::mem::transmute(&targeturl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *validationresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(validationresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -160,7 +160,7 @@ impl IFhReassociation_Vtbl {
             let this = (*this).get_impl();
             match this.ValidateTarget(::core::mem::transmute(&targeturl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *validationresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(validationresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -219,7 +219,7 @@ impl IFhScopeIterator_Vtbl {
             let this = (*this).get_impl();
             match this.GetItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -250,7 +250,7 @@ impl IFhTarget_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringProperty(::core::mem::transmute_copy(&propertytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl IFhTarget_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumericalProperty(::core::mem::transmute_copy(&propertytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -41,7 +41,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.TerminalServicesProfilePath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -57,7 +57,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.TerminalServicesHomeDirectory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -73,7 +73,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.TerminalServicesHomeDrive() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -89,7 +89,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.AllowLogon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -105,7 +105,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.EnableRemoteControl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.MaxDisconnectionTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -137,7 +137,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.MaxConnectionTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.MaxIdleTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -169,7 +169,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.ReconnectionAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnewval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnewval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -185,7 +185,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.BrokenConnectionAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnewval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnewval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectClientDrivesAtLogon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnewval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnewval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -217,7 +217,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectClientPrintersAtLogon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -233,7 +233,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultToMainPrinter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.TerminalServicesWorkDirectory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl IADsTSUserEx_Vtbl {
             let this = (*this).get_impl();
             match this.TerminalServicesInitialProgram() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -336,7 +336,7 @@ impl IAudioDeviceEndpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetRTCaps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisrtcapable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisrtcapable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -347,7 +347,7 @@ impl IAudioDeviceEndpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventDrivenCapable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbiseventcapable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbiseventcapable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -388,7 +388,7 @@ impl IAudioEndpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrameFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -399,7 +399,7 @@ impl IAudioEndpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetFramesPerPacket() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pframesperpacket = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pframesperpacket, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -410,7 +410,7 @@ impl IAudioEndpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetLatency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *platency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(platency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -626,7 +626,7 @@ impl IRemoteDesktopClient_Vtbl {
             let this = (*this).get_impl();
             match this.Settings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *settings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(settings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -637,7 +637,7 @@ impl IRemoteDesktopClient_Vtbl {
             let this = (*this).get_impl();
             match this.Actions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *actions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(actions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl IRemoteDesktopClient_Vtbl {
             let this = (*this).get_impl();
             match this.TouchPointer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *touchpointer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(touchpointer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -724,7 +724,7 @@ impl IRemoteDesktopClientActions_Vtbl {
             let this = (*this).get_impl();
             match this.GetSnapshot(::core::mem::transmute_copy(&snapshotencoding), ::core::mem::transmute_copy(&snapshotformat), ::core::mem::transmute_copy(&snapshotwidth), ::core::mem::transmute_copy(&snapshotheight)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *snapshotdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(snapshotdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -764,7 +764,7 @@ impl IRemoteDesktopClientSettings_Vtbl {
             let this = (*this).get_impl();
             match this.RetrieveSettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rdpfilecontents = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rdpfilecontents, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -775,7 +775,7 @@ impl IRemoteDesktopClientSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetRdpProperty(::core::mem::transmute(&propertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -822,7 +822,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -838,7 +838,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
             let this = (*this).get_impl();
             match this.EventsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *eventsenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eventsenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -854,7 +854,7 @@ impl IRemoteDesktopClientTouchPointer_Vtbl {
             let this = (*this).get_impl();
             match this.PointerSpeed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pointerspeed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pointerspeed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1065,7 +1065,7 @@ impl ITSGPolicyEngine_Vtbl {
             let this = (*this).get_impl();
             match this.IsQuarantineEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *quarantineenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(quarantineenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1138,7 +1138,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.UserName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1149,7 +1149,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.Domain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1160,7 +1160,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.InitialProgram() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1171,7 +1171,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.LoadBalanceResult() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1182,7 +1182,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.FarmName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1193,7 +1193,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.PutContext(::core::mem::transmute(&contextid), ::core::mem::transmute(&context)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *existingcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(existingcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1204,7 +1204,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetContext(::core::mem::transmute(&contextid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *context = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(context, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1215,7 +1215,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.Environment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenvironment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenvironment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1231,7 +1231,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.SamUserAccount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1242,7 +1242,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.ClientConnectionPropertySet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1253,7 +1253,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.IsFirstAssignment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1264,7 +1264,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.RdFarmType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prdfarmtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prdfarmtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1275,7 +1275,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.UserSidString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszusersidstring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszusersidstring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1286,7 +1286,7 @@ impl ITsSbClientConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisconnectedSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1345,7 +1345,7 @@ impl ITsSbEnvironment_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1356,7 +1356,7 @@ impl ITsSbEnvironment_Vtbl {
             let this = (*this).get_impl();
             match this.ServerWeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1367,7 +1367,7 @@ impl ITsSbEnvironment_Vtbl {
             let this = (*this).get_impl();
             match this.EnvironmentPropertySet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1424,7 +1424,7 @@ impl ITsSbFilterPluginStore_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1466,7 +1466,7 @@ impl ITsSbGenericNotifySink_Vtbl {
             let this = (*this).get_impl();
             match this.GetWaitTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfttimeout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfttimeout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1502,7 +1502,7 @@ impl ITsSbGlobalStore_Vtbl {
             let this = (*this).get_impl();
             match this.QueryTarget(::core::mem::transmute(&providername), ::core::mem::transmute(&targetname), ::core::mem::transmute(&farmname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1513,7 +1513,7 @@ impl ITsSbGlobalStore_Vtbl {
             let this = (*this).get_impl();
             match this.QuerySessionBySessionId(::core::mem::transmute(&providername), ::core::mem::transmute_copy(&dwsessionid), ::core::mem::transmute(&targetname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1573,7 +1573,7 @@ impl ITsSbLoadBalanceResult_Vtbl {
             let this = (*this).get_impl();
             match this.TargetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1810,7 +1810,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTargetObject(::core::mem::transmute(&targetname), ::core::mem::transmute(&environmentname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1821,7 +1821,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CreateLoadBalanceResultObject(::core::mem::transmute(&targetname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplbresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplbresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1832,7 +1832,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSessionObject(::core::mem::transmute(&targetname), ::core::mem::transmute(&username), ::core::mem::transmute(&domain), ::core::mem::transmute_copy(&sessionid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1843,7 +1843,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePluginPropertySet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1854,7 +1854,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTargetPropertySetObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1865,7 +1865,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEnvironmentObject(::core::mem::transmute(&name), ::core::mem::transmute_copy(&serverweight)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenvironment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenvironment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1876,7 +1876,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourcePluginStore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1887,7 +1887,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilterPluginStore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1908,7 +1908,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstanceOfGlobalStore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppglobalstore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppglobalstore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1919,7 +1919,7 @@ impl ITsSbProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEnvironmentPropertySetObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2172,7 +2172,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this = (*this).get_impl();
             match this.QueryTarget(::core::mem::transmute(&targetname), ::core::mem::transmute(&farmname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2183,7 +2183,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this = (*this).get_impl();
             match this.QuerySessionBySessionId(::core::mem::transmute_copy(&dwsessionid), ::core::mem::transmute(&targetname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2219,7 +2219,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this = (*this).get_impl();
             match this.QueryEnvironment(::core::mem::transmute(&environmentname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenvironment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenvironment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2260,7 +2260,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this = (*this).get_impl();
             match this.SetTargetState(::core::mem::transmute(&targetname), ::core::mem::transmute_copy(&newstate)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *poldstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poldstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2306,7 +2306,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this = (*this).get_impl();
             match this.AcquireTargetLock(::core::mem::transmute(&targetname), ::core::mem::transmute_copy(&dwtimeout)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2322,7 +2322,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this = (*this).get_impl();
             match this.TestAndSetServerState(::core::mem::transmute(&poolname), ::core::mem::transmute(&serverfqdn), ::core::mem::transmute_copy(&newstate), ::core::mem::transmute_copy(&teststate)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinitstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinitstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2338,7 +2338,7 @@ impl ITsSbResourcePluginStore_Vtbl {
             let this = (*this).get_impl();
             match this.GetServerState(::core::mem::transmute(&poolname), ::core::mem::transmute(&serverfqdn)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2442,7 +2442,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.SessionId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2453,7 +2453,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.TargetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *targetname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(targetname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2469,7 +2469,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.Username() {
                 ::core::result::Result::Ok(ok__) => {
-                    *username = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(username, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2480,7 +2480,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.Domain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *domain = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(domain, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2491,7 +2491,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2507,7 +2507,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2523,7 +2523,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.DisconnectTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2539,7 +2539,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.InitialProgram() {
                 ::core::result::Result::Ok(ok__) => {
-                    *app = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(app, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2555,7 +2555,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.ClientDisplay() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclientdisplay = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclientdisplay, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2571,7 +2571,7 @@ impl ITsSbSession_Vtbl {
             let this = (*this).get_impl();
             match this.ProtocolType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2639,7 +2639,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.TargetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2655,7 +2655,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.FarmName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2671,7 +2671,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.TargetFQDN() {
                 ::core::result::Result::Ok(ok__) => {
-                    *targetfqdnname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(targetfqdnname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2687,7 +2687,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.TargetNetbios() {
                 ::core::result::Result::Ok(ok__) => {
-                    *targetnetbiosname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(targetnetbiosname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2713,7 +2713,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.TargetState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2729,7 +2729,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.TargetPropertySet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2745,7 +2745,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.EnvironmentName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2761,7 +2761,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.NumSessions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumsessions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumsessions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2772,7 +2772,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.NumPendingConnections() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumpendingconnections = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumpendingconnections, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2783,7 +2783,7 @@ impl ITsSbTarget_Vtbl {
             let this = (*this).get_impl();
             match this.TargetLoad() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptargetload = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptargetload, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2851,7 +2851,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.TargetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2862,7 +2862,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.StartTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstarttime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstarttime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2873,7 +2873,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.EndTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pendtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pendtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2884,7 +2884,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Deadline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdeadline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdeadline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2895,7 +2895,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Identifier() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pidentifier = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pidentifier, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2906,7 +2906,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Label() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plabel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plabel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2917,7 +2917,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Context() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2928,7 +2928,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Plugin() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplugin = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplugin, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2939,7 +2939,7 @@ impl ITsSbTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Status() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3047,7 +3047,7 @@ impl IWRdsEnhancedFastReconnectArbitrator_Vtbl {
             let this = (*this).get_impl();
             match this.GetSessionForEnhancedFastReconnect(::core::mem::transmute_copy(&psessionidarray), ::core::mem::transmute_copy(&dwsessioncount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presultsessionid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presultsessionid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3158,7 +3158,7 @@ impl IWRdsGraphicsChannelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateChannel(::core::mem::transmute_copy(&pszchannelname), ::core::mem::transmute_copy(&channeltype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvirtualchannel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvirtualchannel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3207,7 +3207,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogonErrorRedirector() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplogonerrorredir = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplogonerrorredir, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3223,7 +3223,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetClientData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclientdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclientdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3239,7 +3239,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserCredentials() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pusercreds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pusercreds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3250,7 +3250,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetLicenseConnection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplicenseconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplicenseconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3261,7 +3261,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.AuthenticateClientToSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sessionid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sessionid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3282,7 +3282,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvideohandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvideohandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3328,7 +3328,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetProtocolStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprotocolstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprotocolstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3339,7 +3339,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastInputTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plastinputtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plastinputtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3355,7 +3355,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVirtualChannel(::core::mem::transmute(&szendpointname), ::core::mem::transmute_copy(&bstatic), ::core::mem::transmute_copy(&requestedpriority)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phchannel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phchannel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3371,7 +3371,7 @@ impl IWRdsProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetShadowConnection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppshadowconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppshadowconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3449,7 +3449,7 @@ impl IWRdsProtocolConnectionCallback_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectionId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pconnectionid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pconnectionid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3485,7 +3485,7 @@ impl IWRdsProtocolConnectionSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectionSetting(::core::mem::transmute(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropertyentriesout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropertyentriesout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3558,7 +3558,7 @@ impl IWRdsProtocolListener_Vtbl {
             let this = (*this).get_impl();
             match this.GetSettings(::core::mem::transmute_copy(&wrdslistenersettinglevel)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwrdslistenersettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwrdslistenersettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3599,7 +3599,7 @@ impl IWRdsProtocolListenerCallback_Vtbl {
             let this = (*this).get_impl();
             match this.OnConnected(::core::mem::transmute(&pconnection), ::core::mem::transmute_copy(&pwrdsconnectionsettings)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcallback = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcallback, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3630,7 +3630,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
             let this = (*this).get_impl();
             match this.RedirectStatus(::core::mem::transmute(&pszmessage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presponse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presponse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3641,7 +3641,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
             let this = (*this).get_impl();
             match this.RedirectMessage(::core::mem::transmute(&pszcaption), ::core::mem::transmute(&pszmessage), ::core::mem::transmute_copy(&utype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presponse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presponse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3652,7 +3652,7 @@ impl IWRdsProtocolLogonErrorRedirector_Vtbl {
             let this = (*this).get_impl();
             match this.RedirectLogonError(::core::mem::transmute_copy(&ntsstatus), ::core::mem::transmute_copy(&ntssubstatus), ::core::mem::transmute(&pszcaption), ::core::mem::transmute(&pszmessage), ::core::mem::transmute_copy(&utype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presponse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presponse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3696,7 +3696,7 @@ impl IWRdsProtocolManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateListener(::core::mem::transmute(&wszlistenername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprotocollistener = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprotocollistener, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3763,7 +3763,7 @@ impl IWRdsProtocolSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetSettings(::core::mem::transmute_copy(&wrdssettingtype), ::core::mem::transmute_copy(&wrdssettinglevel)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwrdssettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwrdssettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3901,7 +3901,7 @@ impl IWTSBitmapRenderService_Vtbl {
             let this = (*this).get_impl();
             match this.GetMappedRenderer(::core::mem::transmute_copy(&mappingid), ::core::mem::transmute(&pmappedrenderercallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmappedrenderer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmappedrenderer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3931,7 +3931,7 @@ impl IWTSBitmapRenderer_Vtbl {
             let this = (*this).get_impl();
             match this.GetRendererStatistics() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstatistics = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstatistics, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3987,7 +3987,7 @@ impl IWTSListener_Vtbl {
             let this = (*this).get_impl();
             match this.GetConfiguration() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertybag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertybag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4071,7 +4071,7 @@ impl IWTSPluginServiceProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetService(::core::mem::transmute(&serviceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4119,7 +4119,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetLogonErrorRedirector() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplogonerrorredir = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplogonerrorredir, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4140,7 +4140,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetClientData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclientdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclientdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4151,7 +4151,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserCredentials() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pusercreds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pusercreds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4162,7 +4162,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetLicenseConnection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplicenseconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplicenseconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4173,7 +4173,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.AuthenticateClientToSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sessionid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sessionid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4229,7 +4229,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetProtocolStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprotocolstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprotocolstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4240,7 +4240,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastInputTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plastinputtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plastinputtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4261,7 +4261,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVirtualChannel(::core::mem::transmute(&szendpointname), ::core::mem::transmute_copy(&bstatic), ::core::mem::transmute_copy(&requestedpriority)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phchannel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phchannel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4277,7 +4277,7 @@ impl IWTSProtocolConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetShadowConnection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppshadowconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppshadowconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4444,7 +4444,7 @@ impl IWTSProtocolListenerCallback_Vtbl {
             let this = (*this).get_impl();
             match this.OnConnected(::core::mem::transmute(&pconnection)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcallback = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcallback, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4475,7 +4475,7 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
             let this = (*this).get_impl();
             match this.RedirectStatus(::core::mem::transmute(&pszmessage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presponse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presponse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4486,7 +4486,7 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
             let this = (*this).get_impl();
             match this.RedirectMessage(::core::mem::transmute(&pszcaption), ::core::mem::transmute(&pszmessage), ::core::mem::transmute_copy(&utype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presponse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presponse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4497,7 +4497,7 @@ impl IWTSProtocolLogonErrorRedirector_Vtbl {
             let this = (*this).get_impl();
             match this.RedirectLogonError(::core::mem::transmute_copy(&ntsstatus), ::core::mem::transmute_copy(&ntssubstatus), ::core::mem::transmute(&pszcaption), ::core::mem::transmute(&pszmessage), ::core::mem::transmute_copy(&utype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presponse = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presponse, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4530,7 +4530,7 @@ impl IWTSProtocolManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateListener(::core::mem::transmute(&wszlistenername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprotocollistener = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprotocollistener, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4650,7 +4650,7 @@ impl IWTSSBPlugin_Vtbl {
             let this = (*this).get_impl();
             match this.Initialize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plugincapabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plugincapabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4756,7 +4756,7 @@ impl IWTSVirtualChannelManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateListener(::core::mem::transmute_copy(&pszchannelname), ::core::mem::transmute_copy(&uflags), ::core::mem::transmute(&plistenercallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplistener = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplistener, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4784,7 +4784,7 @@ impl IWorkspace_Vtbl {
             let this = (*this).get_impl();
             match this.GetWorkspaceNames() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psawkspnames = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psawkspnames, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4800,7 +4800,7 @@ impl IWorkspace_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pulprocessid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pulprocessid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4852,7 +4852,7 @@ impl IWorkspace3_Vtbl {
             let this = (*this).get_impl();
             match this.GetClaimsToken2(::core::mem::transmute(&bstrclaimshint), ::core::mem::transmute(&bstruserhint), ::core::mem::transmute_copy(&claimcookie), ::core::mem::transmute_copy(&hwndcreduiparent), ::core::mem::transmute(&rectcreduiparent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstraccesstoken = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstraccesstoken, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4889,7 +4889,7 @@ impl IWorkspaceClientExt_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrworkspaceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrworkspaceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4900,7 +4900,7 @@ impl IWorkspaceClientExt_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrworkspacedisplayname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrworkspacedisplayname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4934,7 +4934,7 @@ impl IWorkspaceRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.AddResource(::core::mem::transmute(&punk)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5006,7 +5006,7 @@ impl IWorkspaceReportMessage_Vtbl {
             let this = (*this).get_impl();
             match this.IsErrorMessageRegistered(::core::mem::transmute(&bstrwkspid), ::core::mem::transmute_copy(&dwerrortype), ::core::mem::transmute(&bstrerrormessagetype), ::core::mem::transmute_copy(&dwerrorcode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pferrorexist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pferrorexist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5056,7 +5056,7 @@ impl IWorkspaceResTypeRegistry_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegisteredFileExtensions(::core::mem::transmute_copy(&fmachinewide)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psafileextensions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psafileextensions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5067,7 +5067,7 @@ impl IWorkspaceResTypeRegistry_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceTypeInfo(::core::mem::transmute_copy(&fmachinewide), ::core::mem::transmute(&bstrfileextension)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrlauncher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrlauncher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5121,7 +5121,7 @@ impl IWorkspaceScriptable_Vtbl {
             let this = (*this).get_impl();
             match this.IsWorkspaceCredentialSpecified(::core::mem::transmute(&bstrworkspaceid), ::core::mem::transmute_copy(&bcountunauthenticatedcredentials)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbcredexist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbcredexist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5132,7 +5132,7 @@ impl IWorkspaceScriptable_Vtbl {
             let this = (*this).get_impl();
             match this.IsWorkspaceSSOEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbssoenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbssoenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5256,7 +5256,7 @@ impl ItsPubPlugin_Vtbl {
             let this = (*this).get_impl();
             match this.GetResource(::core::mem::transmute(&alias), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5267,7 +5267,7 @@ impl ItsPubPlugin_Vtbl {
             let this = (*this).get_impl();
             match this.GetCacheLastUpdateTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastupdatetime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastupdatetime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5278,7 +5278,7 @@ impl ItsPubPlugin_Vtbl {
             let this = (*this).get_impl();
             match this.pluginName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5289,7 +5289,7 @@ impl ItsPubPlugin_Vtbl {
             let this = (*this).get_impl();
             match this.pluginVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5336,7 +5336,7 @@ impl ItsPubPlugin2_Vtbl {
             let this = (*this).get_impl();
             match this.GetResource2(::core::mem::transmute(&alias), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -22,7 +22,7 @@ impl IVssAdmin_Vtbl {
             let this = (*this).get_impl();
             match this.QueryProviders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl IVssAdminEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderCapability(::core::mem::transmute(&pproviderid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plloriginalcapabilitymask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plloriginalcapabilitymask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -69,7 +69,7 @@ impl IVssAdminEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderContext(::core::mem::transmute(&providerid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetAlternateLocationMapping(::core::mem::transmute_copy(&imapping)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfiledesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfiledesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -252,7 +252,7 @@ impl IVssComponent_Vtbl {
             let this = (*this).get_impl();
             match this.GetNewTarget(::core::mem::transmute_copy(&inewtarget)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfiledesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfiledesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IVssComponentEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrepareForBackupFailureMsg() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrfailuremsg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrfailuremsg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -460,7 +460,7 @@ impl IVssComponentEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetPostSnapshotFailureMsg() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrfailuremsg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrfailuremsg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -471,7 +471,7 @@ impl IVssComponentEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetAuthoritativeRestore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbauth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbauth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -487,7 +487,7 @@ impl IVssComponentEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetRestoreName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -589,7 +589,7 @@ impl IVssCreateExpressWriterMetadata_Vtbl {
             let this = (*this).get_impl();
             match this.SaveAsXML() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrxml = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrxml, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -686,7 +686,7 @@ impl IVssCreateWriterMetadata_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdoc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdoc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -742,7 +742,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
             let this = (*this).get_impl();
             match this.QueryVolumesSupportedForDiffAreas(::core::mem::transmute_copy(&pwszoriginalvolumename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -753,7 +753,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
             let this = (*this).get_impl();
             match this.QueryDiffAreasForVolume(::core::mem::transmute_copy(&pwszvolumename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -764,7 +764,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
             let this = (*this).get_impl();
             match this.QueryDiffAreasOnVolume(::core::mem::transmute_copy(&pwszvolumename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -775,7 +775,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt_Vtbl {
             let this = (*this).get_impl();
             match this.QueryDiffAreasForSnapshot(::core::mem::transmute(&snapshotid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -822,7 +822,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt2_Vtbl {
             let this = (*this).get_impl();
             match this.QueryMigrationStatus(::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute_copy(&pwszdiffareavolumename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppasync = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppasync, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -868,7 +868,7 @@ impl IVssDifferentialSoftwareSnapshotMgmt3_Vtbl {
             let this = (*this).get_impl();
             match this.GetVolumeProtectLevel(::core::mem::transmute_copy(&pwszvolumename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *protectionlevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(protectionlevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -998,7 +998,7 @@ impl IVssExpressWriter_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMetadata(::core::mem::transmute(&writerid), ::core::mem::transmute(&writername), ::core::mem::transmute_copy(&usagetype), ::core::mem::transmute_copy(&versionmajor), ::core::mem::transmute_copy(&versionminor), ::core::mem::transmute_copy(&reserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1057,7 +1057,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetSnapshotProperties(::core::mem::transmute(&snapshotid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1068,7 +1068,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Query(::core::mem::transmute(&queriedobjectid), ::core::mem::transmute_copy(&equeriedobjecttype), ::core::mem::transmute_copy(&ereturnedobjectstype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1089,7 +1089,7 @@ impl IVssFileShareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsPathSupported(::core::mem::transmute_copy(&pwszsharepath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsupportedbythisprovider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsupportedbythisprovider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1196,7 +1196,7 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plloriginalcapabilitymask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plloriginalcapabilitymask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1212,7 +1212,7 @@ impl IVssHardwareSnapshotProviderEx_Vtbl {
             let this = (*this).get_impl();
             match this.ResyncLuns(::core::mem::transmute_copy(&psourceluns), ::core::mem::transmute_copy(&ptargetluns), ::core::mem::transmute_copy(&dwcount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppasync = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppasync, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1340,7 +1340,7 @@ impl IVssSnapshotMgmt_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderMgmtInterface(::core::mem::transmute(&providerid), ::core::mem::transmute_copy(&interfaceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1351,7 +1351,7 @@ impl IVssSnapshotMgmt_Vtbl {
             let this = (*this).get_impl();
             match this.QueryVolumesSupportedForSnapshots(::core::mem::transmute(&providerid), ::core::mem::transmute_copy(&lcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1362,7 +1362,7 @@ impl IVssSnapshotMgmt_Vtbl {
             let this = (*this).get_impl();
             match this.QuerySnapshotsByVolume(::core::mem::transmute_copy(&pwszvolumename), ::core::mem::transmute(&providerid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1390,7 +1390,7 @@ impl IVssSnapshotMgmt2_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinDiffAreaSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pllmindiffareasize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pllmindiffareasize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1430,7 +1430,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetSnapshotProperties(::core::mem::transmute(&snapshotid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1441,7 +1441,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Query(::core::mem::transmute(&queriedobjectid), ::core::mem::transmute_copy(&equeriedobjecttype), ::core::mem::transmute_copy(&ereturnedobjectstype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1462,7 +1462,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsVolumeSupported(::core::mem::transmute_copy(&pwszvolumename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsupportedbythisprovider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsupportedbythisprovider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1488,7 +1488,7 @@ impl IVssSoftwareSnapshotProvider_Vtbl {
             let this = (*this).get_impl();
             match this.QueryRevertStatus(::core::mem::transmute_copy(&pwszvolume)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppasync = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppasync, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1567,7 +1567,7 @@ impl IVssWMFiledesc_Vtbl {
             let this = (*this).get_impl();
             match this.GetPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1578,7 +1578,7 @@ impl IVssWMFiledesc_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilespec() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrfilespec = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrfilespec, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1589,7 +1589,7 @@ impl IVssWMFiledesc_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecursive() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbrecursive = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbrecursive, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1600,7 +1600,7 @@ impl IVssWMFiledesc_Vtbl {
             let this = (*this).get_impl();
             match this.GetAlternateLocation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstralternatelocation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstralternatelocation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1611,7 +1611,7 @@ impl IVssWMFiledesc_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackupTypeMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwtypemask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwtypemask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1653,7 +1653,7 @@ impl IVssWriterComponents_Vtbl {
             let this = (*this).get_impl();
             match this.GetComponent(::core::mem::transmute_copy(&icomponent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcomponent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcomponent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1731,7 +1731,7 @@ impl IVssWriterImpl_Vtbl {
             let this = (*this).get_impl();
             match this.GetSnapshotDeviceName(::core::mem::transmute(&wszoriginalvolume)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszsnapshotdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszsnapshotdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1807,7 +1807,7 @@ impl IVssWriterImpl_Vtbl {
             let this = (*this).get_impl();
             match this.GetSessionId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *idsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(idsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

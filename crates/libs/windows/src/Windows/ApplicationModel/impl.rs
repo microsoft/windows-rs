@@ -14,7 +14,7 @@ impl IEnteredBackgroundEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -46,7 +46,7 @@ impl ILeavingBackgroundEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -94,7 +94,7 @@ impl ISuspendingEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.SuspendingOperation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -127,7 +127,7 @@ impl ISuspendingOperation_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeferral() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -139,7 +139,7 @@ impl ISuspendingOperation_Vtbl {
             let this = (*this).get_impl();
             match this.Deadline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

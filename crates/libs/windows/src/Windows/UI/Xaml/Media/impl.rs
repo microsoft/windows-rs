@@ -43,7 +43,7 @@ impl IGeneralTransformOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.InverseCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -55,7 +55,7 @@ impl IGeneralTransformOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.TryTransformCore(::core::mem::transmute(&inpoint), ::core::mem::transmute_copy(&outpoint)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -67,7 +67,7 @@ impl IGeneralTransformOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.TransformBoundsCore(::core::mem::transmute(&rect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -137,7 +137,7 @@ impl IXamlLightOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

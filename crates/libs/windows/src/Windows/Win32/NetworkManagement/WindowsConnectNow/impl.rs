@@ -61,7 +61,7 @@ impl IWCNDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetIntegerAttribute(::core::mem::transmute_copy(&attributetype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *puinteger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puinteger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -11,7 +11,7 @@ impl ISpiControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceProvider(::core::mem::transmute(&settings)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -48,7 +48,7 @@ impl ISpiDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -60,7 +60,7 @@ impl ISpiDeviceProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectionSettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -117,7 +117,7 @@ impl ISpiProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetControllersAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

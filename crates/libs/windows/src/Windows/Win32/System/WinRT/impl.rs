@@ -46,7 +46,7 @@ impl IActivationFactory_Vtbl {
             let this = (*this).get_impl();
             match this.ActivateInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *instance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(instance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -126,7 +126,7 @@ impl IBufferByteAccess_Vtbl {
             let this = (*this).get_impl();
             match this.Buffer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -168,7 +168,7 @@ impl ICastingController_Vtbl {
             let this = (*this).get_impl();
             match this.Advise(::core::mem::transmute(&eventhandler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *cookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl ICastingSourceInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetController() {
                 ::core::result::Result::Ok(ok__) => {
-                    *controller = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(controller, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl ICastingSourceInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *props = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(props, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -306,7 +306,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             let this = (*this).get_impl();
             match this.AppActivationClientAdapter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationViewClientAdapter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -328,7 +328,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             let this = (*this).get_impl();
             match this.CoreApplicationViewClientAdapter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -339,7 +339,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             let this = (*this).get_impl();
             match this.HoloViewClientAdapter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -350,7 +350,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             let this = (*this).get_impl();
             match this.PositionerClientAdapter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -361,7 +361,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             let this = (*this).get_impl();
             match this.SystemNavigationClientAdapter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -372,7 +372,7 @@ impl ICoreWindowAdapterInterop_Vtbl {
             let this = (*this).get_impl();
             match this.TitleBarClientAdapter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -419,7 +419,7 @@ impl ICoreWindowComponentInterop_Vtbl {
             let this = (*this).get_impl();
             match this.GetViewInstanceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *componentviewinstanceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(componentviewinstanceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -450,7 +450,7 @@ impl ICoreWindowInterop_Vtbl {
             let this = (*this).get_impl();
             match this.WindowHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -484,7 +484,7 @@ impl ICorrelationVectorInformation_Vtbl {
             let this = (*this).get_impl();
             match this.LastCorrelationVectorForThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cv = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cv, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -495,7 +495,7 @@ impl ICorrelationVectorInformation_Vtbl {
             let this = (*this).get_impl();
             match this.NextCorrelationVectorForThread() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cv = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cv, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -528,7 +528,7 @@ impl ICorrelationVectorSource_Vtbl {
             let this = (*this).get_impl();
             match this.CorrelationVector() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cv = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cv, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -617,7 +617,7 @@ impl ILanguageExceptionErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetLanguageException() {
                 ::core::result::Result::Ok(ok__) => {
-                    *languageexception = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(languageexception, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -642,7 +642,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreviousLanguageExceptionErrorInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *previouslanguageexceptionerrorinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(previouslanguageexceptionerrorinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -658,7 +658,7 @@ impl ILanguageExceptionErrorInfo2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropagationContextHead() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propagatedlanguageexceptionerrorinfohead = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propagatedlanguageexceptionerrorinfohead, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -703,7 +703,7 @@ impl ILanguageExceptionTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetTransformedRestrictedErrorInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *restrictederrorinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(restrictederrorinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -802,7 +802,7 @@ impl IRestrictedErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetReference() {
                 ::core::result::Result::Ok(ok__) => {
-                    *reference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -931,7 +931,7 @@ impl IShareWindowCommandEventArgsInterop_Vtbl {
             let this = (*this).get_impl();
             match this.GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1149,7 +1149,7 @@ impl IWeakReferenceSource_Vtbl {
             let this = (*this).get_impl();
             match this.GetWeakReference() {
                 ::core::result::Result::Ok(ok__) => {
-                    *weakreference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(weakreference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

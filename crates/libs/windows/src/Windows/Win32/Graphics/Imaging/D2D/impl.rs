@@ -49,7 +49,7 @@ impl IWICImagingFactory2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateImageEncoder(::core::mem::transmute(&pd2ddevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwicimageencoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwicimageencoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

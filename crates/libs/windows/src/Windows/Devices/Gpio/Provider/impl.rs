@@ -12,7 +12,7 @@ impl IGpioControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.PinCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -24,7 +24,7 @@ impl IGpioControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.OpenPinProvider(pin, sharingmode) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -67,7 +67,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ValueChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -84,7 +84,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DebounceTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -101,7 +101,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match this.PinNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -113,7 +113,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match this.SharingMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -125,7 +125,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsDriveModeSupported(drivemode) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -137,7 +137,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetDriveMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -159,7 +159,7 @@ impl IGpioPinProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Read() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -201,7 +201,7 @@ impl IGpioProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetControllers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

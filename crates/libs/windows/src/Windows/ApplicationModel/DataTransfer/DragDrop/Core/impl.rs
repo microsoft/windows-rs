@@ -17,7 +17,7 @@ impl ICoreDropOperationTarget_Vtbl {
             let this = (*this).get_impl();
             match this.EnterAsync(::core::mem::transmute(&draginfo), ::core::mem::transmute(&draguioverride)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -29,7 +29,7 @@ impl ICoreDropOperationTarget_Vtbl {
             let this = (*this).get_impl();
             match this.OverAsync(::core::mem::transmute(&draginfo), ::core::mem::transmute(&draguioverride)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -41,7 +41,7 @@ impl ICoreDropOperationTarget_Vtbl {
             let this = (*this).get_impl();
             match this.LeaveAsync(::core::mem::transmute(&draginfo)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -53,7 +53,7 @@ impl ICoreDropOperationTarget_Vtbl {
             let this = (*this).get_impl();
             match this.DropAsync(::core::mem::transmute(&draginfo)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

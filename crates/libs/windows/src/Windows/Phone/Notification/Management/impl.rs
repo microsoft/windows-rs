@@ -19,7 +19,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match this.TimeCreated() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -31,7 +31,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match this.AppDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -43,7 +43,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match this.AppId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -55,7 +55,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match this.AccessoryNotificationType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -67,7 +67,7 @@ impl IAccessoryNotificationTriggerDetails_Vtbl {
             let this = (*this).get_impl();
             match this.StartedProcessing() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

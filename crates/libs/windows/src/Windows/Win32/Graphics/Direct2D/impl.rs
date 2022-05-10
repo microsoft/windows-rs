@@ -108,7 +108,7 @@ impl ID2D1Bitmap1_Vtbl {
             let this = (*this).get_impl();
             match this.GetSurface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dxgisurface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dxgisurface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -119,7 +119,7 @@ impl ID2D1Bitmap1_Vtbl {
             let this = (*this).get_impl();
             match this.Map(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mappedrect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mappedrect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -259,7 +259,7 @@ impl ID2D1BitmapRenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.GetBitmap() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -479,7 +479,7 @@ impl ID2D1ColorContext1_Vtbl {
             let this = (*this).get_impl();
             match this.GetSimpleColorProfile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *simpleprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(simpleprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -962,7 +962,7 @@ impl ID2D1Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeviceContext(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -973,7 +973,7 @@ impl ID2D1Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePrintControl(::core::mem::transmute(&wicfactory), ::core::mem::transmute(&documenttarget), ::core::mem::transmute_copy(&printcontrolproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *printcontrol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(printcontrol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1033,7 +1033,7 @@ impl ID2D1Device1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeviceContext2(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecontext1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecontext1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1066,7 +1066,7 @@ impl ID2D1Device2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeviceContext3(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecontext2 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecontext2, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1082,7 +1082,7 @@ impl ID2D1Device2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDxgiDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dxgidevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dxgidevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1113,7 +1113,7 @@ impl ID2D1Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeviceContext4(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecontext3 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecontext3, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1141,7 +1141,7 @@ impl ID2D1Device4_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeviceContext5(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecontext4 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecontext4, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1182,7 +1182,7 @@ impl ID2D1Device5_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeviceContext6(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecontext5 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecontext5, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1208,7 +1208,7 @@ impl ID2D1Device6_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeviceContext7(::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecontext6 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecontext6, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1268,7 +1268,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmap2(::core::mem::transmute(&size), ::core::mem::transmute_copy(&sourcedata), ::core::mem::transmute_copy(&pitch), ::core::mem::transmute_copy(&bitmapproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1279,7 +1279,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFromWicBitmap2(::core::mem::transmute(&wicbitmapsource), ::core::mem::transmute_copy(&bitmapproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1290,7 +1290,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContext(::core::mem::transmute_copy(&space), ::core::mem::transmute_copy(&profile), ::core::mem::transmute_copy(&profilesize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1301,7 +1301,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContextFromFilename(::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1312,7 +1312,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContextFromWicColorContext(::core::mem::transmute(&wiccolorcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1323,7 +1323,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFromDxgiSurface(::core::mem::transmute(&surface), ::core::mem::transmute_copy(&bitmapproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1334,7 +1334,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEffect(::core::mem::transmute_copy(&effectid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *effect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(effect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1345,7 +1345,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGradientStopCollection2(::core::mem::transmute_copy(&straightalphagradientstops), ::core::mem::transmute_copy(&straightalphagradientstopscount), ::core::mem::transmute_copy(&preinterpolationspace), ::core::mem::transmute_copy(&postinterpolationspace), ::core::mem::transmute_copy(&bufferprecision), ::core::mem::transmute_copy(&extendmode), ::core::mem::transmute_copy(&colorinterpolationmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *gradientstopcollection1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(gradientstopcollection1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1356,7 +1356,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateImageBrush(::core::mem::transmute(&image), ::core::mem::transmute_copy(&imagebrushproperties), ::core::mem::transmute_copy(&brushproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *imagebrush = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(imagebrush, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1367,7 +1367,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapBrush2(::core::mem::transmute(&bitmap), ::core::mem::transmute_copy(&bitmapbrushproperties), ::core::mem::transmute_copy(&brushproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmapbrush = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmapbrush, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1378,7 +1378,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateCommandList() {
                 ::core::result::Result::Ok(ok__) => {
-                    *commandlist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(commandlist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1399,7 +1399,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetImageLocalBounds(::core::mem::transmute(&image)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *localbounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(localbounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1410,7 +1410,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetImageWorldBounds(::core::mem::transmute(&image)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *worldbounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(worldbounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1421,7 +1421,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetGlyphRunWorldBounds(::core::mem::transmute(&baselineorigin), ::core::mem::transmute_copy(&glyphrun), ::core::mem::transmute_copy(&measuringmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1507,7 +1507,7 @@ impl ID2D1DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectInvalidRectangleCount(::core::mem::transmute(&effect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectanglecount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectanglecount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1587,7 +1587,7 @@ impl ID2D1DeviceContext1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFilledGeometryRealization(::core::mem::transmute(&geometry), ::core::mem::transmute_copy(&flatteningtolerance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *geometryrealization = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(geometryrealization, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1598,7 +1598,7 @@ impl ID2D1DeviceContext1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStrokedGeometryRealization(::core::mem::transmute(&geometry), ::core::mem::transmute_copy(&flatteningtolerance), ::core::mem::transmute_copy(&strokewidth), ::core::mem::transmute(&strokestyle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *geometryrealization = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(geometryrealization, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1644,7 +1644,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInk(::core::mem::transmute_copy(&startpoint)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInkStyle(::core::mem::transmute_copy(&inkstyleproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *inkstyle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(inkstyle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1666,7 +1666,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGradientMesh(::core::mem::transmute_copy(&patches), ::core::mem::transmute_copy(&patchescount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *gradientmesh = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(gradientmesh, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1677,7 +1677,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateImageSourceFromWic(::core::mem::transmute(&wicbitmapsource), ::core::mem::transmute_copy(&loadingoptions), ::core::mem::transmute_copy(&alphamode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *imagesource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(imagesource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1688,7 +1688,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateLookupTable3D(::core::mem::transmute_copy(&precision), ::core::mem::transmute_copy(&extents), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datacount), ::core::mem::transmute_copy(&strides)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *lookuptable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lookuptable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1699,7 +1699,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateImageSourceFromDxgi(::core::mem::transmute_copy(&surfaces), ::core::mem::transmute_copy(&surfacecount), ::core::mem::transmute_copy(&colorspace), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *imagesource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(imagesource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1710,7 +1710,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match this.GetGradientMeshWorldBounds(::core::mem::transmute(&gradientmesh)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1736,7 +1736,7 @@ impl ID2D1DeviceContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTransformedImageSource(::core::mem::transmute(&imagesource), ::core::mem::transmute_copy(&properties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *transformedimagesource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transformedimagesource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1776,7 +1776,7 @@ impl ID2D1DeviceContext3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSpriteBatch() {
                 ::core::result::Result::Ok(ok__) => {
-                    *spritebatch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(spritebatch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1817,7 +1817,7 @@ impl ID2D1DeviceContext4_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSvgGlyphStyle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *svgglyphstyle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(svgglyphstyle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1887,7 +1887,7 @@ impl ID2D1DeviceContext5_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSvgDocument(::core::mem::transmute(&inputxmlstream), ::core::mem::transmute(&viewportsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *svgdocument = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(svgdocument, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1903,7 +1903,7 @@ impl ID2D1DeviceContext5_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContextFromDxgiColorSpace(::core::mem::transmute_copy(&colorspace)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1914,7 +1914,7 @@ impl ID2D1DeviceContext5_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContextFromSimpleColorProfile(::core::mem::transmute_copy(&simpleprofile)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2187,7 +2187,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEffect(::core::mem::transmute_copy(&effectid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *effect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(effect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2198,7 +2198,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaximumSupportedFeatureLevel(::core::mem::transmute_copy(&featurelevels), ::core::mem::transmute_copy(&featurelevelscount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *maximumsupportedfeaturelevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(maximumsupportedfeaturelevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2209,7 +2209,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTransformNodeFromEffect(::core::mem::transmute(&effect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *transformnode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transformnode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2220,7 +2220,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlendTransform(::core::mem::transmute_copy(&numinputs), ::core::mem::transmute_copy(&blenddescription)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *transform = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transform, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2231,7 +2231,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBorderTransform(::core::mem::transmute_copy(&extendmodex), ::core::mem::transmute_copy(&extendmodey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *transform = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transform, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2242,7 +2242,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateOffsetTransform(::core::mem::transmute(&offset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *transform = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transform, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2253,7 +2253,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBoundsAdjustmentTransform(::core::mem::transmute_copy(&outputrectangle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *transform = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transform, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2284,7 +2284,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateResourceTexture(::core::mem::transmute_copy(&resourceid), ::core::mem::transmute_copy(&resourcetextureproperties), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&strides), ::core::mem::transmute_copy(&datasize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resourcetexture = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resourcetexture, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2295,7 +2295,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.FindResourceTexture(::core::mem::transmute_copy(&resourceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resourcetexture = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resourcetexture, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2306,7 +2306,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVertexBuffer(::core::mem::transmute_copy(&vertexbufferproperties), ::core::mem::transmute_copy(&resourceid), ::core::mem::transmute_copy(&customvertexbufferproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *buffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(buffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2317,7 +2317,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.FindVertexBuffer(::core::mem::transmute_copy(&resourceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *buffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(buffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2328,7 +2328,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContext(::core::mem::transmute_copy(&space), ::core::mem::transmute_copy(&profile), ::core::mem::transmute_copy(&profilesize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2339,7 +2339,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContextFromFilename(::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2350,7 +2350,7 @@ impl ID2D1EffectContext_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContextFromWicColorContext(::core::mem::transmute(&wiccolorcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2409,7 +2409,7 @@ impl ID2D1EffectContext1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateLookupTable3D(::core::mem::transmute_copy(&precision), ::core::mem::transmute_copy(&extents), ::core::mem::transmute_copy(&data), ::core::mem::transmute_copy(&datacount), ::core::mem::transmute_copy(&strides)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *lookuptable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lookuptable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2436,7 +2436,7 @@ impl ID2D1EffectContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContextFromDxgiColorSpace(::core::mem::transmute_copy(&colorspace)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2447,7 +2447,7 @@ impl ID2D1EffectContext2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContextFromSimpleColorProfile(::core::mem::transmute_copy(&simpleprofile)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *colorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(colorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2554,7 +2554,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRectangleGeometry(::core::mem::transmute_copy(&rectangle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rectanglegeometry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rectanglegeometry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2565,7 +2565,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRoundedRectangleGeometry(::core::mem::transmute_copy(&roundedrectangle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *roundedrectanglegeometry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(roundedrectanglegeometry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2576,7 +2576,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEllipseGeometry(::core::mem::transmute_copy(&ellipse)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ellipsegeometry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ellipsegeometry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2587,7 +2587,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGeometryGroup(::core::mem::transmute_copy(&fillmode), ::core::mem::transmute_copy(&geometries), ::core::mem::transmute_copy(&geometriescount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *geometrygroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(geometrygroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2598,7 +2598,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTransformedGeometry(::core::mem::transmute(&sourcegeometry), ::core::mem::transmute_copy(&transform)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *transformedgeometry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transformedgeometry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2609,7 +2609,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePathGeometry() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pathgeometry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pathgeometry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2620,7 +2620,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStrokeStyle(::core::mem::transmute_copy(&strokestyleproperties), ::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokestyle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokestyle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2631,7 +2631,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDrawingStateBlock(::core::mem::transmute_copy(&drawingstatedescription), ::core::mem::transmute(&textrenderingparams)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *drawingstateblock = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(drawingstateblock, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2642,7 +2642,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateWicBitmapRenderTarget(::core::mem::transmute(&target), ::core::mem::transmute_copy(&rendertargetproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rendertarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rendertarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2653,7 +2653,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateHwndRenderTarget(::core::mem::transmute_copy(&rendertargetproperties), ::core::mem::transmute_copy(&hwndrendertargetproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *hwndrendertarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hwndrendertarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2664,7 +2664,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDxgiSurfaceRenderTarget(::core::mem::transmute(&dxgisurface), ::core::mem::transmute_copy(&rendertargetproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rendertarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rendertarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2675,7 +2675,7 @@ impl ID2D1Factory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDCRenderTarget(::core::mem::transmute_copy(&rendertargetproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *dcrendertarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dcrendertarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2726,7 +2726,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDevice(::core::mem::transmute(&dxgidevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *d2ddevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(d2ddevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2737,7 +2737,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStrokeStyle2(::core::mem::transmute_copy(&strokestyleproperties), ::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokestyle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokestyle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2748,7 +2748,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePathGeometry2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pathgeometry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pathgeometry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2759,7 +2759,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDrawingStateBlock2(::core::mem::transmute_copy(&drawingstatedescription), ::core::mem::transmute(&textrenderingparams)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *drawingstateblock = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(drawingstateblock, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2770,7 +2770,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGdiMetafile(::core::mem::transmute(&metafilestream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *metafile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(metafile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2801,7 +2801,7 @@ impl ID2D1Factory1_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectProperties(::core::mem::transmute_copy(&effectid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *properties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(properties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2839,7 +2839,7 @@ impl ID2D1Factory2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDevice2(::core::mem::transmute(&dxgidevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *d2ddevice1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(d2ddevice1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2865,7 +2865,7 @@ impl ID2D1Factory3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDevice3(::core::mem::transmute(&dxgidevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *d2ddevice2 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(d2ddevice2, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2891,7 +2891,7 @@ impl ID2D1Factory4_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDevice4(::core::mem::transmute(&dxgidevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *d2ddevice3 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(d2ddevice3, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2917,7 +2917,7 @@ impl ID2D1Factory5_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDevice5(::core::mem::transmute(&dxgidevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *d2ddevice4 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(d2ddevice4, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2943,7 +2943,7 @@ impl ID2D1Factory6_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDevice6(::core::mem::transmute(&dxgidevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *d2ddevice5 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(d2ddevice5, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2969,7 +2969,7 @@ impl ID2D1Factory7_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDevice7(::core::mem::transmute(&dxgidevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *d2ddevice6 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(d2ddevice6, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2996,7 +2996,7 @@ impl ID2D1GdiInteropRenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.GetDC(::core::mem::transmute_copy(&mode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *hdc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hdc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3037,7 +3037,7 @@ impl ID2D1GdiMetafile_Vtbl {
             let this = (*this).get_impl();
             match this.GetBounds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3073,7 +3073,7 @@ impl ID2D1GdiMetafile1_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceBounds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3149,7 +3149,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match this.GetBounds(::core::mem::transmute_copy(&worldtransform)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3160,7 +3160,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match this.GetWidenedBounds(::core::mem::transmute_copy(&strokewidth), ::core::mem::transmute(&strokestyle), ::core::mem::transmute_copy(&worldtransform), ::core::mem::transmute_copy(&flatteningtolerance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3171,7 +3171,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match this.StrokeContainsPoint(::core::mem::transmute(&point), ::core::mem::transmute_copy(&strokewidth), ::core::mem::transmute(&strokestyle), ::core::mem::transmute_copy(&worldtransform), ::core::mem::transmute_copy(&flatteningtolerance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *contains = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contains, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3182,7 +3182,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match this.FillContainsPoint(::core::mem::transmute(&point), ::core::mem::transmute_copy(&worldtransform), ::core::mem::transmute_copy(&flatteningtolerance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *contains = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contains, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3193,7 +3193,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match this.CompareWithGeometry(::core::mem::transmute(&inputgeometry), ::core::mem::transmute_copy(&inputgeometrytransform), ::core::mem::transmute_copy(&flatteningtolerance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *relation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3224,7 +3224,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match this.ComputeArea(::core::mem::transmute_copy(&worldtransform), ::core::mem::transmute_copy(&flatteningtolerance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *area = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(area, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3235,7 +3235,7 @@ impl ID2D1Geometry_Vtbl {
             let this = (*this).get_impl();
             match this.ComputeLength(::core::mem::transmute_copy(&worldtransform), ::core::mem::transmute_copy(&flatteningtolerance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *length = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(length, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3648,7 +3648,7 @@ impl ID2D1ImageSource_Vtbl {
             let this = (*this).get_impl();
             match this.TryReclaimResources() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resourcesdiscarded = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resourcesdiscarded, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3769,7 +3769,7 @@ impl ID2D1Ink_Vtbl {
             let this = (*this).get_impl();
             match this.GetBounds(::core::mem::transmute(&inkstyle), ::core::mem::transmute_copy(&worldtransform)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3929,7 +3929,7 @@ impl ID2D1Mesh_Vtbl {
             let this = (*this).get_impl();
             match this.Open() {
                 ::core::result::Result::Ok(ok__) => {
-                    *tessellationsink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(tessellationsink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4025,7 +4025,7 @@ impl ID2D1PathGeometry_Vtbl {
             let this = (*this).get_impl();
             match this.Open() {
                 ::core::result::Result::Ok(ok__) => {
-                    *geometrysink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(geometrysink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4041,7 +4041,7 @@ impl ID2D1PathGeometry_Vtbl {
             let this = (*this).get_impl();
             match this.GetSegmentCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4052,7 +4052,7 @@ impl ID2D1PathGeometry_Vtbl {
             let this = (*this).get_impl();
             match this.GetFigureCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4084,7 +4084,7 @@ impl ID2D1PathGeometry1_Vtbl {
             let this = (*this).get_impl();
             match this.ComputePointAndSegmentAtLength(::core::mem::transmute_copy(&length), ::core::mem::transmute_copy(&startsegment), ::core::mem::transmute_copy(&worldtransform), ::core::mem::transmute_copy(&flatteningtolerance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pointdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pointdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4200,7 +4200,7 @@ impl ID2D1Properties_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubProperties(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *subproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(subproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4434,7 +4434,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmap(::core::mem::transmute(&size), ::core::mem::transmute_copy(&srcdata), ::core::mem::transmute_copy(&pitch), ::core::mem::transmute_copy(&bitmapproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4445,7 +4445,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFromWicBitmap(::core::mem::transmute(&wicbitmapsource), ::core::mem::transmute_copy(&bitmapproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4461,7 +4461,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapBrush(::core::mem::transmute(&bitmap), ::core::mem::transmute_copy(&bitmapbrushproperties), ::core::mem::transmute_copy(&brushproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmapbrush = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmapbrush, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4472,7 +4472,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSolidColorBrush(::core::mem::transmute_copy(&color), ::core::mem::transmute_copy(&brushproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *solidcolorbrush = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(solidcolorbrush, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4483,7 +4483,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGradientStopCollection(::core::mem::transmute_copy(&gradientstops), ::core::mem::transmute_copy(&gradientstopscount), ::core::mem::transmute_copy(&colorinterpolationgamma), ::core::mem::transmute_copy(&extendmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *gradientstopcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(gradientstopcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4494,7 +4494,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateLinearGradientBrush(::core::mem::transmute_copy(&lineargradientbrushproperties), ::core::mem::transmute_copy(&brushproperties), ::core::mem::transmute(&gradientstopcollection)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *lineargradientbrush = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lineargradientbrush, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4505,7 +4505,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRadialGradientBrush(::core::mem::transmute_copy(&radialgradientbrushproperties), ::core::mem::transmute_copy(&brushproperties), ::core::mem::transmute(&gradientstopcollection)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *radialgradientbrush = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(radialgradientbrush, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4516,7 +4516,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateCompatibleRenderTarget(::core::mem::transmute_copy(&desiredsize), ::core::mem::transmute_copy(&desiredpixelsize), ::core::mem::transmute_copy(&desiredformat), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmaprendertarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmaprendertarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4527,7 +4527,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateLayer(::core::mem::transmute_copy(&size)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *layer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(layer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4538,7 +4538,7 @@ impl ID2D1RenderTarget_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMesh() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mesh = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mesh, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5091,7 +5091,7 @@ impl ID2D1SvgAttribute_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *attribute = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attribute, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5151,7 +5151,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match this.FindElementById(::core::mem::transmute(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *svgelement = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(svgelement, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5167,7 +5167,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match this.Deserialize(::core::mem::transmute(&inputxmlstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *subtree = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(subtree, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5178,7 +5178,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePaint(::core::mem::transmute_copy(&painttype), ::core::mem::transmute_copy(&color), ::core::mem::transmute(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *paint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(paint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5189,7 +5189,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStrokeDashArray(::core::mem::transmute_copy(&dashes), ::core::mem::transmute_copy(&dashescount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *strokedasharray = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(strokedasharray, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5200,7 +5200,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePointCollection(::core::mem::transmute_copy(&points), ::core::mem::transmute_copy(&pointscount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pointcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pointcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5211,7 +5211,7 @@ impl ID2D1SvgDocument_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePathData(::core::mem::transmute_copy(&segmentdata), ::core::mem::transmute_copy(&segmentdatacount), ::core::mem::transmute_copy(&commands), ::core::mem::transmute_copy(&commandscount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pathdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pathdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5319,7 +5319,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreviousChild(::core::mem::transmute(&referencechild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *previouschild = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(previouschild, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5330,7 +5330,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetNextChild(::core::mem::transmute(&referencechild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *nextchild = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nextchild, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5361,7 +5361,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl();
             match this.CreateChild(::core::mem::transmute(&tagname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newchild = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newchild, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5442,7 +5442,7 @@ impl ID2D1SvgElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetAttributeValueLength(::core::mem::transmute(&name), ::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *valuelength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(valuelength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5661,7 +5661,7 @@ impl ID2D1SvgPathData_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePathGeometry(::core::mem::transmute_copy(&fillmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pathgeometry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pathgeometry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5839,7 +5839,7 @@ impl ID2D1Transform_Vtbl {
             let this = (*this).get_impl();
             match this.MapInvalidRect(::core::mem::transmute_copy(&inputindex), ::core::mem::transmute(&invalidinputrect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *invalidoutputrect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(invalidoutputrect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

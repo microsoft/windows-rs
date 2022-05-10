@@ -24,7 +24,7 @@ impl IDirectSound_Vtbl {
             let this = (*this).get_impl();
             match this.GetCaps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdscaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdscaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -35,7 +35,7 @@ impl IDirectSound_Vtbl {
             let this = (*this).get_impl();
             match this.DuplicateSoundBuffer(::core::mem::transmute(&pdsbufferoriginal)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdsbufferduplicate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdsbufferduplicate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -56,7 +56,7 @@ impl IDirectSound_Vtbl {
             let this = (*this).get_impl();
             match this.GetSpeakerConfig() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwspeakerconfig = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwspeakerconfig, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -119,7 +119,7 @@ impl IDirectSound3DBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pds3dbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pds3dbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -135,7 +135,7 @@ impl IDirectSound3DBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetConeOrientation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvorientation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvorientation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -146,7 +146,7 @@ impl IDirectSound3DBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetConeOutsideVolume() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plconeoutsidevolume = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plconeoutsidevolume, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -157,7 +157,7 @@ impl IDirectSound3DBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxDistance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflmaxdistance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflmaxdistance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -168,7 +168,7 @@ impl IDirectSound3DBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinDistance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflmindistance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflmindistance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -179,7 +179,7 @@ impl IDirectSound3DBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl IDirectSound3DBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvposition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvposition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IDirectSound3DBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetVelocity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvvelocity = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvvelocity, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -306,7 +306,7 @@ impl IDirectSound3DListener_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plistener = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plistener, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl IDirectSound3DListener_Vtbl {
             let this = (*this).get_impl();
             match this.GetDistanceFactor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfldistancefactor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfldistancefactor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -328,7 +328,7 @@ impl IDirectSound3DListener_Vtbl {
             let this = (*this).get_impl();
             match this.GetDopplerFactor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfldopplerfactor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfldopplerfactor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -344,7 +344,7 @@ impl IDirectSound3DListener_Vtbl {
             let this = (*this).get_impl();
             match this.GetPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvposition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvposition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -355,7 +355,7 @@ impl IDirectSound3DListener_Vtbl {
             let this = (*this).get_impl();
             match this.GetRolloffFactor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflrollofffactor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflrollofffactor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -366,7 +366,7 @@ impl IDirectSound3DListener_Vtbl {
             let this = (*this).get_impl();
             match this.GetVelocity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvvelocity = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvvelocity, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -449,7 +449,7 @@ impl IDirectSound8_Vtbl {
             let this = (*this).get_impl();
             match this.VerifyCertification() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcertified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcertified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -489,7 +489,7 @@ impl IDirectSoundBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetCaps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsbuffercaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsbuffercaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -510,7 +510,7 @@ impl IDirectSoundBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetVolume() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plvolume = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plvolume, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -521,7 +521,7 @@ impl IDirectSoundBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetPan() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plpan = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plpan, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -532,7 +532,7 @@ impl IDirectSoundBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrequency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwfrequency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwfrequency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -543,7 +543,7 @@ impl IDirectSoundBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -682,7 +682,7 @@ impl IDirectSoundCapture_Vtbl {
             let this = (*this).get_impl();
             match this.GetCaps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsccaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsccaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -723,7 +723,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetCaps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdscbcaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdscbcaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -744,7 +744,7 @@ impl IDirectSoundCaptureBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -841,7 +841,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdscfxaec = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdscfxaec, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -852,7 +852,7 @@ impl IDirectSoundCaptureFXAec_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -896,7 +896,7 @@ impl IDirectSoundCaptureFXNoiseSuppress_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdscfxnoisesuppress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdscfxnoisesuppress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -935,7 +935,7 @@ impl IDirectSoundFXChorus_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxchorus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxchorus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -968,7 +968,7 @@ impl IDirectSoundFXCompressor_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxcompressor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxcompressor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1001,7 +1001,7 @@ impl IDirectSoundFXDistortion_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxdistortion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxdistortion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1034,7 +1034,7 @@ impl IDirectSoundFXEcho_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxecho = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxecho, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1067,7 +1067,7 @@ impl IDirectSoundFXFlanger_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxflanger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxflanger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1100,7 +1100,7 @@ impl IDirectSoundFXGargle_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxgargle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxgargle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1137,7 +1137,7 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxi3dl2reverb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxi3dl2reverb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1153,7 +1153,7 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwpreset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwpreset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1169,7 +1169,7 @@ impl IDirectSoundFXI3DL2Reverb_Vtbl {
             let this = (*this).get_impl();
             match this.GetQuality() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plquality = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plquality, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1206,7 +1206,7 @@ impl IDirectSoundFXParamEq_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxparameq = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxparameq, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1239,7 +1239,7 @@ impl IDirectSoundFXWavesReverb_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdsfxwavesreverb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdsfxwavesreverb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

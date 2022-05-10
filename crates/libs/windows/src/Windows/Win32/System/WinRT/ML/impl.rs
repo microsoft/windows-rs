@@ -12,7 +12,7 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFromD3D12CommandQueue(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -41,7 +41,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegistry() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppoperatorregistry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppoperatorregistry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -93,7 +93,7 @@ impl ITensorNative_Vtbl {
             let this = (*this).get_impl();
             match this.GetD3D12Resource() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

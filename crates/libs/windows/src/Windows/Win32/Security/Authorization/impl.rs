@@ -72,7 +72,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -104,7 +104,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrapplicationdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrapplicationdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -120,7 +120,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.AuthzInterfaceClsid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -136,7 +136,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Version() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -152,7 +152,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateAudits() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -168,7 +168,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.ApplyStoreSacl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -184,7 +184,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -195,7 +195,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -211,7 +211,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyAdministrators() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvaradmins = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvaradmins, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -222,7 +222,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyReaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarreaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarreaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -253,7 +253,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Scopes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscopecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscopecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -264,7 +264,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.OpenScope(::core::mem::transmute(&bstrscopename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscope = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscope, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -275,7 +275,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.CreateScope(::core::mem::transmute(&bstrscopename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscope = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscope, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -291,7 +291,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Operations() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppoperationcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppoperationcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -302,7 +302,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.OpenOperation(::core::mem::transmute(&bstroperationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppoperation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppoperation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.CreateOperation(::core::mem::transmute(&bstroperationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppoperation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppoperation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -329,7 +329,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Tasks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptaskcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptaskcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -340,7 +340,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.OpenTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -351,7 +351,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -367,7 +367,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroupcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroupcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -378,7 +378,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.OpenApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -389,7 +389,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -405,7 +405,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.Roles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprolecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprolecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -416,7 +416,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.OpenRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -427,7 +427,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -443,7 +443,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.InitializeClientContextFromToken(::core::mem::transmute_copy(&ulltokenhandle), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclientcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclientcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -469,7 +469,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.InitializeClientContextFromName(::core::mem::transmute(&clientname), ::core::mem::transmute(&domainname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclientcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclientcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -480,7 +480,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.DelegatedPolicyUsers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvardelegatedpolicyusers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvardelegatedpolicyusers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -501,7 +501,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.InitializeClientContextFromStringSid(::core::mem::transmute(&sidstring), ::core::mem::transmute_copy(&loptions), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclientcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclientcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -512,7 +512,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyAdministratorsName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvaradmins = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvaradmins, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -523,7 +523,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyReadersName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarreaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarreaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -554,7 +554,7 @@ impl IAzApplication_Vtbl {
             let this = (*this).get_impl();
             match this.DelegatedPolicyUsersName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvardelegatedpolicyusers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvardelegatedpolicyusers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -654,7 +654,7 @@ impl IAzApplication2_Vtbl {
             let this = (*this).get_impl();
             match this.InitializeClientContextFromToken2(::core::mem::transmute_copy(&ultokenhandlelowpart), ::core::mem::transmute_copy(&ultokenhandlehighpart), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclientcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclientcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -665,7 +665,7 @@ impl IAzApplication2_Vtbl {
             let this = (*this).get_impl();
             match this.InitializeClientContext2(::core::mem::transmute(&identifyingstring), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclientcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclientcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -708,7 +708,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.ScopeExists(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbexist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbexist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -719,7 +719,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.OpenScope2(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscope2 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscope2, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -730,7 +730,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateScope2(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscope2 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscope2, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -746,7 +746,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.RoleDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -757,7 +757,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -768,7 +768,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.OpenRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -784,7 +784,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.RoleAssignments() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -795,7 +795,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -806,7 +806,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.OpenRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -822,7 +822,7 @@ impl IAzApplication3_Vtbl {
             let this = (*this).get_impl();
             match this.BizRulesEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -900,7 +900,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -916,7 +916,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -932,7 +932,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.LdapQuery() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -948,7 +948,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.AppMembers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -959,7 +959,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.AppNonMembers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -970,7 +970,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Members() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.NonMembers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -992,7 +992,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1048,7 +1048,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1059,7 +1059,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1110,7 +1110,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.MembersName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1121,7 +1121,7 @@ impl IAzApplicationGroup_Vtbl {
             let this = (*this).get_impl();
             match this.NonMembersName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1187,7 +1187,7 @@ impl IAzApplicationGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.BizRule() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1203,7 +1203,7 @@ impl IAzApplicationGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.BizRuleLanguage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1219,7 +1219,7 @@ impl IAzApplicationGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.BizRuleImportedPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1235,7 +1235,7 @@ impl IAzApplicationGroup2_Vtbl {
             let this = (*this).get_impl();
             match this.RoleAssignments(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&brecursive)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1272,7 +1272,7 @@ impl IAzApplicationGroups_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarobtptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarobtptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1283,7 +1283,7 @@ impl IAzApplicationGroups_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1294,7 +1294,7 @@ impl IAzApplicationGroups_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1327,7 +1327,7 @@ impl IAzApplications_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarobtptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarobtptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1338,7 +1338,7 @@ impl IAzApplications_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1349,7 +1349,7 @@ impl IAzApplications_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1430,7 +1430,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1446,7 +1446,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrapplicationdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrapplicationdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1462,7 +1462,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.DomainTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1478,7 +1478,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.ScriptEngineTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1494,7 +1494,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.MaxScriptEngines() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1510,7 +1510,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateAudits() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1526,7 +1526,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1537,7 +1537,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1563,7 +1563,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyAdministrators() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvaradmins = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvaradmins, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1574,7 +1574,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyReaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarreaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarreaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1620,7 +1620,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.Applications() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppappcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppappcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.OpenApplication(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppapplication = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppapplication, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1642,7 +1642,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplication(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppapplication = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppapplication, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1658,7 +1658,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroupcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroupcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1669,7 +1669,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1680,7 +1680,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.OpenApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1701,7 +1701,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.DelegatedPolicyUsers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvardelegatedpolicyusers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvardelegatedpolicyusers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1722,7 +1722,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.TargetMachine() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtargetmachine = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtargetmachine, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1733,7 +1733,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.ApplyStoreSacl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbapplystoresacl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbapplystoresacl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1749,7 +1749,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyAdministratorsName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvaradmins = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvaradmins, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1760,7 +1760,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyReadersName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarreaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarreaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1791,7 +1791,7 @@ impl IAzAuthorizationStore_Vtbl {
             let this = (*this).get_impl();
             match this.DelegatedPolicyUsersName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvardelegatedpolicyusers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvardelegatedpolicyusers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1886,7 +1886,7 @@ impl IAzAuthorizationStore2_Vtbl {
             let this = (*this).get_impl();
             match this.OpenApplication2(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppapplication = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppapplication, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1897,7 +1897,7 @@ impl IAzAuthorizationStore2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplication2(::core::mem::transmute(&bstrapplicationname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppapplication = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppapplication, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1931,7 +1931,7 @@ impl IAzAuthorizationStore3_Vtbl {
             let this = (*this).get_impl();
             match this.IsUpdateNeeded() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisupdateneeded = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisupdateneeded, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1942,7 +1942,7 @@ impl IAzAuthorizationStore3_Vtbl {
             let this = (*this).get_impl();
             match this.BizruleGroupSupported() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1958,7 +1958,7 @@ impl IAzAuthorizationStore3_Vtbl {
             let this = (*this).get_impl();
             match this.IsFunctionalLevelUpgradeSupported(::core::mem::transmute_copy(&lfunctionallevel)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2009,7 +2009,7 @@ impl IAzBizRuleContext_Vtbl {
             let this = (*this).get_impl();
             match this.BusinessRuleString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrbusinessrulestring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrbusinessrulestring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2020,7 +2020,7 @@ impl IAzBizRuleContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetParameter(::core::mem::transmute(&bstrparametername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarparametervalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarparametervalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2082,7 +2082,7 @@ impl IAzBizRuleInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2131,7 +2131,7 @@ impl IAzBizRuleParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetParameterValue(::core::mem::transmute(&bstrparametername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarparametervalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarparametervalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2152,7 +2152,7 @@ impl IAzBizRuleParameters_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2209,7 +2209,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.AccessCheck(::core::mem::transmute(&bstrobjectname), ::core::mem::transmute(&varscopenames), ::core::mem::transmute(&varoperations), ::core::mem::transmute(&varparameternames), ::core::mem::transmute(&varparametervalues), ::core::mem::transmute(&varinterfacenames), ::core::mem::transmute(&varinterfaceflags), ::core::mem::transmute(&varinterfaces)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarresults = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarresults, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2220,7 +2220,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetBusinessRuleString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrbusinessrulestring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrbusinessrulestring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2231,7 +2231,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.UserDn() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2242,7 +2242,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.UserSamCompat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2253,7 +2253,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.UserDisplay() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2264,7 +2264,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.UserGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2275,7 +2275,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.UserCanonical() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2286,7 +2286,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.UserUpn() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2297,7 +2297,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.UserDnsSamCompat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2308,7 +2308,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2319,7 +2319,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetRoles(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarrolenames = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarrolenames, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2330,7 +2330,7 @@ impl IAzClientContext_Vtbl {
             let this = (*this).get_impl();
             match this.RoleForAccessCheck() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2406,7 +2406,7 @@ impl IAzClientContext2_Vtbl {
             let this = (*this).get_impl();
             match this.LDAPQueryDN() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrldapquerydn = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrldapquerydn, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2447,7 +2447,7 @@ impl IAzClientContext3_Vtbl {
             let this = (*this).get_impl();
             match this.AccessCheck2(::core::mem::transmute(&bstrobjectname), ::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&loperation)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2458,7 +2458,7 @@ impl IAzClientContext3_Vtbl {
             let this = (*this).get_impl();
             match this.IsInRoleAssignment(::core::mem::transmute(&bstrscopename), ::core::mem::transmute(&bstrrolename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisinrole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisinrole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2469,7 +2469,7 @@ impl IAzClientContext3_Vtbl {
             let this = (*this).get_impl();
             match this.GetOperations(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppoperationcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppoperationcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2480,7 +2480,7 @@ impl IAzClientContext3_Vtbl {
             let this = (*this).get_impl();
             match this.GetTasks(::core::mem::transmute(&bstrscopename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptaskcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptaskcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2491,7 +2491,7 @@ impl IAzClientContext3_Vtbl {
             let this = (*this).get_impl();
             match this.BizRuleParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbizruleparam = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbizruleparam, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2502,7 +2502,7 @@ impl IAzClientContext3_Vtbl {
             let this = (*this).get_impl();
             match this.BizRuleInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbizruleinterfaces = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbizruleinterfaces, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2513,7 +2513,7 @@ impl IAzClientContext3_Vtbl {
             let this = (*this).get_impl();
             match this.GetGroups(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&uloptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgrouparray = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgrouparray, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2524,7 +2524,7 @@ impl IAzClientContext3_Vtbl {
             let this = (*this).get_impl();
             match this.Sids() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstringsidarray = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstringsidarray, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2596,7 +2596,7 @@ impl IAzObjectPicker_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2637,7 +2637,7 @@ impl IAzOperation_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2653,7 +2653,7 @@ impl IAzOperation_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2669,7 +2669,7 @@ impl IAzOperation_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrapplicationdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrapplicationdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2685,7 +2685,7 @@ impl IAzOperation_Vtbl {
             let this = (*this).get_impl();
             match this.OperationID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2701,7 +2701,7 @@ impl IAzOperation_Vtbl {
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2712,7 +2712,7 @@ impl IAzOperation_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2762,7 +2762,7 @@ impl IAzOperation2_Vtbl {
             let this = (*this).get_impl();
             match this.RoleAssignments(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&brecursive)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2790,7 +2790,7 @@ impl IAzOperations_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarobtptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarobtptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2801,7 +2801,7 @@ impl IAzOperations_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2812,7 +2812,7 @@ impl IAzOperations_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2844,7 +2844,7 @@ impl IAzPrincipalLocator_Vtbl {
             let this = (*this).get_impl();
             match this.NameResolver() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnameresolver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnameresolver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2855,7 +2855,7 @@ impl IAzPrincipalLocator_Vtbl {
             let this = (*this).get_impl();
             match this.ObjectPicker() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppobjectpicker = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppobjectpicker, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2911,7 +2911,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2927,7 +2927,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2943,7 +2943,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrapplicationdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrapplicationdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2999,7 +2999,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3010,7 +3010,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3026,7 +3026,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.AppMembers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3037,7 +3037,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.Members() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3048,7 +3048,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.Operations() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3059,7 +3059,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.Tasks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3095,7 +3095,7 @@ impl IAzRole_Vtbl {
             let this = (*this).get_impl();
             match this.MembersName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3163,7 +3163,7 @@ impl IAzRoleAssignment_Vtbl {
             let this = (*this).get_impl();
             match this.RoleDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3174,7 +3174,7 @@ impl IAzRoleAssignment_Vtbl {
             let this = (*this).get_impl();
             match this.Scope() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscope = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscope, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3208,7 +3208,7 @@ impl IAzRoleAssignments_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarobtptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarobtptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3219,7 +3219,7 @@ impl IAzRoleAssignments_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3230,7 +3230,7 @@ impl IAzRoleAssignments_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3264,7 +3264,7 @@ impl IAzRoleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.RoleAssignments(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&brecursive)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3285,7 +3285,7 @@ impl IAzRoleDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.RoleDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3319,7 +3319,7 @@ impl IAzRoleDefinitions_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarobtptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarobtptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3330,7 +3330,7 @@ impl IAzRoleDefinitions_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3341,7 +3341,7 @@ impl IAzRoleDefinitions_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3374,7 +3374,7 @@ impl IAzRoles_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarobtptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarobtptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3385,7 +3385,7 @@ impl IAzRoles_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3396,7 +3396,7 @@ impl IAzRoles_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3464,7 +3464,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3480,7 +3480,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3496,7 +3496,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrapplicationdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrapplicationdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3512,7 +3512,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3523,7 +3523,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3549,7 +3549,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyAdministrators() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvaradmins = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvaradmins, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3560,7 +3560,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyReaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarreaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarreaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3591,7 +3591,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroupcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroupcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3602,7 +3602,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.OpenApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3613,7 +3613,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.CreateApplicationGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3629,7 +3629,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.Roles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprolecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprolecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3640,7 +3640,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.OpenRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3651,7 +3651,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRole(::core::mem::transmute(&bstrrolename), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3667,7 +3667,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.Tasks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptaskcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptaskcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3678,7 +3678,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.OpenTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3689,7 +3689,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTask(::core::mem::transmute(&bstrtaskname), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3710,7 +3710,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.CanBeDelegated() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3721,7 +3721,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.BizrulesWritable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3732,7 +3732,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyAdministratorsName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvaradmins = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvaradmins, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3743,7 +3743,7 @@ impl IAzScope_Vtbl {
             let this = (*this).get_impl();
             match this.PolicyReadersName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarreaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarreaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3836,7 +3836,7 @@ impl IAzScope2_Vtbl {
             let this = (*this).get_impl();
             match this.RoleDefinitions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3847,7 +3847,7 @@ impl IAzScope2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3858,7 +3858,7 @@ impl IAzScope2_Vtbl {
             let this = (*this).get_impl();
             match this.OpenRoleDefinition(::core::mem::transmute(&bstrroledefinitionname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproledefinitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproledefinitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3874,7 +3874,7 @@ impl IAzScope2_Vtbl {
             let this = (*this).get_impl();
             match this.RoleAssignments() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3885,7 +3885,7 @@ impl IAzScope2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3896,7 +3896,7 @@ impl IAzScope2_Vtbl {
             let this = (*this).get_impl();
             match this.OpenRoleAssignment(::core::mem::transmute(&bstrroleassignmentname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3939,7 +3939,7 @@ impl IAzScopes_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarobtptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarobtptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3950,7 +3950,7 @@ impl IAzScopes_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3961,7 +3961,7 @@ impl IAzScopes_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4017,7 +4017,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4033,7 +4033,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4049,7 +4049,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrapplicationdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrapplicationdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4065,7 +4065,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.BizRule() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4081,7 +4081,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.BizRuleLanguage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4097,7 +4097,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.BizRuleImportedPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4113,7 +4113,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.IsRoleDefinition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4129,7 +4129,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.Operations() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4140,7 +4140,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.Tasks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4171,7 +4171,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.Writable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4182,7 +4182,7 @@ impl IAzTask_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&lpropid), ::core::mem::transmute(&varreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4256,7 +4256,7 @@ impl IAzTask2_Vtbl {
             let this = (*this).get_impl();
             match this.RoleAssignments(::core::mem::transmute(&bstrscopename), ::core::mem::transmute_copy(&brecursive)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproleassignments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproleassignments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4284,7 +4284,7 @@ impl IAzTasks_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarobtptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarobtptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4295,7 +4295,7 @@ impl IAzTasks_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4306,7 +4306,7 @@ impl IAzTasks_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumptr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumptr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

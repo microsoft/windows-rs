@@ -155,7 +155,7 @@ impl IPresentationBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetAvailableEvent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *availableeventhandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(availableeventhandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -166,7 +166,7 @@ impl IPresentationBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.IsAvailable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isavailable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isavailable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -222,7 +222,7 @@ impl IPresentationFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePresentationManager() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppresentationmanager = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppresentationmanager, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match this.AddBufferFromResource(::core::mem::transmute(&resource)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presentationbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presentationbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -276,7 +276,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePresentationSurface(::core::mem::transmute_copy(&compositionsurfacehandle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presentationsurface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presentationsurface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -312,7 +312,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetPresentRetiringFence(::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *fence = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(fence, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -328,7 +328,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetLostEvent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *losteventhandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(losteventhandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -339,7 +339,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetPresentStatisticsAvailableEvent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *presentstatisticsavailableeventhandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presentstatisticsavailableeventhandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -355,7 +355,7 @@ impl IPresentationManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetNextPresentStatistics() {
                 ::core::result::Result::Ok(ok__) => {
-                    *nextpresentstatistics = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(nextpresentstatistics, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

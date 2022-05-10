@@ -96,7 +96,7 @@ impl ID3D12CommandQueue_Vtbl {
             let this = (*this).get_impl();
             match this.GetTimestampFrequency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfrequency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfrequency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -715,7 +715,7 @@ impl ID3D12Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSharedHandle(::core::mem::transmute(&pobject), ::core::mem::transmute_copy(&pattributes), ::core::mem::transmute_copy(&access), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -731,7 +731,7 @@ impl ID3D12Device_Vtbl {
             let this = (*this).get_impl();
             match this.OpenSharedHandleByName(::core::mem::transmute(&name), ::core::mem::transmute_copy(&access)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnthandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnthandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1070,7 +1070,7 @@ impl ID3D12Device6_Vtbl {
             let this = (*this).get_impl();
             match this.SetBackgroundProcessingMode(::core::mem::transmute_copy(&mode), ::core::mem::transmute_copy(&measurementsaction), ::core::mem::transmute_copy(&heventtosignaluponcompletion)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbfurthermeasurementsdesired = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbfurthermeasurementsdesired, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1229,7 +1229,7 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutoBreadcrumbsOutput() {
                 ::core::result::Result::Ok(ok__) => {
-                    *poutput = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poutput, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1240,7 +1240,7 @@ impl ID3D12DeviceRemovedExtendedData_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageFaultAllocationOutput() {
                 ::core::result::Result::Ok(ok__) => {
-                    *poutput = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poutput, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1268,7 +1268,7 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutoBreadcrumbsOutput1() {
                 ::core::result::Result::Ok(ok__) => {
-                    *poutput = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poutput, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1279,7 +1279,7 @@ impl ID3D12DeviceRemovedExtendedData1_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageFaultAllocationOutput1() {
                 ::core::result::Result::Ok(ok__) => {
-                    *poutput = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poutput, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1307,7 +1307,7 @@ impl ID3D12DeviceRemovedExtendedData2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageFaultAllocationOutput2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *poutput = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poutput, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1453,7 +1453,7 @@ impl ID3D12FunctionParameterReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1485,7 +1485,7 @@ impl ID3D12FunctionReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1506,7 +1506,7 @@ impl ID3D12FunctionReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceBindingDesc(::core::mem::transmute_copy(&resourceindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1522,7 +1522,7 @@ impl ID3D12FunctionReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceBindingDescByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2487,7 +2487,7 @@ impl ID3D12LibraryReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2698,7 +2698,7 @@ impl ID3D12PipelineState_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedBlob() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppblob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppblob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3003,7 +3003,7 @@ impl ID3D12ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3024,7 +3024,7 @@ impl ID3D12ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceBindingDesc(::core::mem::transmute_copy(&resourceindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3035,7 +3035,7 @@ impl ID3D12ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputParameterDesc(::core::mem::transmute_copy(&parameterindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3046,7 +3046,7 @@ impl ID3D12ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputParameterDesc(::core::mem::transmute_copy(&parameterindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3057,7 +3057,7 @@ impl ID3D12ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetPatchConstantParameterDesc(::core::mem::transmute_copy(&parameterindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3073,7 +3073,7 @@ impl ID3D12ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceBindingDescByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3119,7 +3119,7 @@ impl ID3D12ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinFeatureLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3222,7 +3222,7 @@ impl ID3D12ShaderReflectionType_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3310,7 +3310,7 @@ impl ID3D12ShaderReflectionVariable_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3523,7 +3523,7 @@ impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
             let this = (*this).get_impl();
             match this.GetRootSignatureDescAtVersion(::core::mem::transmute_copy(&converttoversion)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

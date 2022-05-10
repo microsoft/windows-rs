@@ -17,7 +17,7 @@ impl IFunctionDiscovery_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstanceCollection(::core::mem::transmute(&pszcategory), ::core::mem::transmute(&pszsubcategory), ::core::mem::transmute_copy(&fincludeallsubcategories)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstancecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstancecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -28,7 +28,7 @@ impl IFunctionDiscovery_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstance(::core::mem::transmute(&pszfunctioninstanceidentity)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -49,7 +49,7 @@ impl IFunctionDiscovery_Vtbl {
             let this = (*this).get_impl();
             match this.AddInstance(::core::mem::transmute_copy(&enumsystemvisibility), ::core::mem::transmute(&pszcategory), ::core::mem::transmute(&pszsubcategory), ::core::mem::transmute(&pszcategoryidentity)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -132,7 +132,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Initialize(::core::mem::transmute(&pifunctiondiscoveryproviderfactory), ::core::mem::transmute(&pifunctiondiscoverynotification), ::core::mem::transmute_copy(&lciduserdefault)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstgaccesscapabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstgaccesscapabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -143,7 +143,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Query(::core::mem::transmute(&pifunctiondiscoveryproviderquery)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstancecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstancecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -164,7 +164,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match this.InstancePropertyStoreOpen(::core::mem::transmute(&pifunctioninstance), ::core::mem::transmute_copy(&iproviderinstancecontext), ::core::mem::transmute_copy(&dwstgaccess)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppipropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppipropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -180,7 +180,7 @@ impl IFunctionDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match this.InstanceQueryService(::core::mem::transmute(&pifunctioninstance), ::core::mem::transmute_copy(&iproviderinstancecontext), ::core::mem::transmute_copy(&guidservice), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiunknown = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiunknown, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -223,7 +223,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePropertyStore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppipropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppipropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance(::core::mem::transmute(&pszsubcategory), ::core::mem::transmute(&pszproviderinstanceidentity), ::core::mem::transmute_copy(&iproviderinstancecontext), ::core::mem::transmute(&pipropertystore), ::core::mem::transmute(&pifunctiondiscoveryprovider)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl IFunctionDiscoveryProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFunctionInstanceCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstancecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstancecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl IFunctionDiscoveryProviderQuery_Vtbl {
             let this = (*this).get_impl();
             match this.GetQueryConstraints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiproviderqueryconstraints = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiproviderqueryconstraints, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -300,7 +300,7 @@ impl IFunctionDiscoveryProviderQuery_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyConstraints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiproviderpropertyconstraints = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiproviderpropertyconstraints, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -355,7 +355,7 @@ impl IFunctionInstance_Vtbl {
             let this = (*this).get_impl();
             match this.GetID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszcomemidentity = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszcomemidentity, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -366,7 +366,7 @@ impl IFunctionInstance_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderInstanceID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszcomemproviderinstanceidentity = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszcomemproviderinstanceidentity, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -377,7 +377,7 @@ impl IFunctionInstance_Vtbl {
             let this = (*this).get_impl();
             match this.OpenPropertyStore(::core::mem::transmute_copy(&dwstgaccess)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppipropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppipropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -420,7 +420,7 @@ impl IFunctionInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -436,7 +436,7 @@ impl IFunctionInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -452,7 +452,7 @@ impl IFunctionInstanceCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Remove(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -509,7 +509,7 @@ impl IFunctionInstanceCollectionQuery_Vtbl {
             let this = (*this).get_impl();
             match this.Execute() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstancecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstancecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IFunctionInstanceQuery_Vtbl {
             let this = (*this).get_impl();
             match this.Execute() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -640,7 +640,7 @@ impl IPropertyStoreCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -656,7 +656,7 @@ impl IPropertyStoreCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppipropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppipropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -672,7 +672,7 @@ impl IPropertyStoreCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Remove(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pipropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pipropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -720,7 +720,7 @@ impl IProviderProperties_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount(::core::mem::transmute(&pifunctioninstance), ::core::mem::transmute_copy(&iproviderinstancecontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -731,7 +731,7 @@ impl IProviderProperties_Vtbl {
             let this = (*this).get_impl();
             match this.GetAt(::core::mem::transmute(&pifunctioninstance), ::core::mem::transmute_copy(&iproviderinstancecontext), ::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pkey = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pkey, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -742,7 +742,7 @@ impl IProviderProperties_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute(&pifunctioninstance), ::core::mem::transmute_copy(&iproviderinstancecontext), ::core::mem::transmute_copy(&key)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropvar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropvar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -784,7 +784,7 @@ impl IProviderPropertyConstraintCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -844,7 +844,7 @@ impl IProviderPublishing_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance(::core::mem::transmute_copy(&enumvisibilityflags), ::core::mem::transmute(&pszsubcategory), ::core::mem::transmute(&pszproviderinstanceidentity)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifunctioninstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifunctioninstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -881,7 +881,7 @@ impl IProviderQueryConstraintCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -892,7 +892,7 @@ impl IProviderQueryConstraintCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Get(::core::mem::transmute(&pszconstraintname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszconstraintvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszconstraintvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

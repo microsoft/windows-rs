@@ -27,7 +27,7 @@ impl IRichEditOle_Vtbl {
             let this = (*this).get_impl();
             match this.GetClientSite() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lplpolesite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lplpolesite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl IRichEditOleCallback_Vtbl {
             let this = (*this).get_impl();
             match this.GetNewStorage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lplpstg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lplpstg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -300,7 +300,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -311,7 +311,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.GetStoryCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -322,7 +322,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.GetStoryRanges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstories = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstories, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -333,7 +333,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.GetSaved() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultTabStop() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -380,7 +380,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.Freeze() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -391,7 +391,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.Unfreeze() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -412,7 +412,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.Undo(::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -423,7 +423,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.Redo(::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -434,7 +434,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.Range(::core::mem::transmute_copy(&cpactive), ::core::mem::transmute_copy(&cpanchor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -445,7 +445,7 @@ impl ITextDocument_Vtbl {
             let this = (*this).get_impl();
             match this.RangeFromPoint(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -535,7 +535,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCaretType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -551,7 +551,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisplays() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisplays = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisplays, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -562,7 +562,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentFont() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -578,7 +578,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentPara() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppara = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppara, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -594,7 +594,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetEastAsianFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -605,7 +605,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetGenerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -621,7 +621,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotificationMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -637,7 +637,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStoryRanges2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstories = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstories, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -659,7 +659,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypographyOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *poptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -670,7 +670,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -681,7 +681,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -702,7 +702,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCallManager() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvoid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvoid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -718,7 +718,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectColor(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -729,7 +729,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetImmContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -745,7 +745,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -756,7 +756,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStrings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstrs = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstrs, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -772,7 +772,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.Range2(::core::mem::transmute_copy(&cpactive), ::core::mem::transmute_copy(&cpanchor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -783,7 +783,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.RangeFromPoint2(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -834,7 +834,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetMathProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *poptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -850,7 +850,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveStory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -866,7 +866,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetMainStory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -877,7 +877,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNewStory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -888,7 +888,7 @@ impl ITextDocument2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStory(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -993,7 +993,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectColor(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1004,7 +1004,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetCaretType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcarettype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcarettype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1020,7 +1020,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetImmContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1041,7 +1041,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotificationMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1062,7 +1062,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1073,7 +1073,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1084,7 +1084,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetFEFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1125,7 +1125,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentFont() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitextfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitextfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1136,7 +1136,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentPara() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitextpara = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitextpara, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1147,7 +1147,7 @@ impl ITextDocument2Old_Vtbl {
             let this = (*this).get_impl();
             match this.GetCallManager() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvoid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvoid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1258,7 +1258,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetDuplicate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1274,7 +1274,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.CanChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1285,7 +1285,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqual(::core::mem::transmute(&pfont)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1301,7 +1301,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetStyle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1317,7 +1317,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllCaps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1333,7 +1333,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetAnimation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1349,7 +1349,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1365,7 +1365,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetBold() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1381,7 +1381,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetEmboss() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1397,7 +1397,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetForeColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1413,7 +1413,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetHidden() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1429,7 +1429,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetEngrave() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1445,7 +1445,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetItalic() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1461,7 +1461,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetKerning() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1477,7 +1477,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetLanguageID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1493,7 +1493,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1509,7 +1509,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1525,7 +1525,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1541,7 +1541,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetProtected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1557,7 +1557,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetShadow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1573,7 +1573,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1589,7 +1589,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetSmallCaps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1605,7 +1605,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetSpacing() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1621,7 +1621,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetStrikeThrough() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1637,7 +1637,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubscript() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1653,7 +1653,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetSuperscript() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1669,7 +1669,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetUnderline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1685,7 +1685,7 @@ impl ITextFont_Vtbl {
             let this = (*this).get_impl();
             match this.GetWeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1818,7 +1818,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1829,7 +1829,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutoLigatures() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1845,7 +1845,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutospaceAlpha() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1861,7 +1861,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutospaceNumeric() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1877,7 +1877,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutospaceParens() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1893,7 +1893,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCharRep() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1909,7 +1909,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCompressionMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1925,7 +1925,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCookie() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1941,7 +1941,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDoubleStrike() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1957,7 +1957,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDuplicate2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1973,7 +1973,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetLinkType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1984,7 +1984,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetMathZone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2000,7 +2000,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetModWidthPairs() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2016,7 +2016,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetModWidthSpace() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2032,7 +2032,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOldNumbers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2048,7 +2048,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOverlapping() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2064,7 +2064,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPositionSubSuper() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2080,7 +2080,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetScaling() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2096,7 +2096,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSpaceExtension() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2112,7 +2112,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetUnderlinePositionMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2138,7 +2138,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2154,7 +2154,7 @@ impl ITextFont2_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqual2(::core::mem::transmute(&pfont)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2426,7 +2426,7 @@ impl ITextHost_Vtbl {
             let this = (*this).get_impl();
             match this.TxGetPasswordChar() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2685,7 +2685,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetDuplicate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppara = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppara, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2701,7 +2701,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.CanChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2712,7 +2712,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqual(::core::mem::transmute(&ppara)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2728,7 +2728,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetStyle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2744,7 +2744,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetAlignment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2760,7 +2760,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetHyphenation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2776,7 +2776,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetFirstLineIndent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2787,7 +2787,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetKeepTogether() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2803,7 +2803,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetKeepWithNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2819,7 +2819,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetLeftIndent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2830,7 +2830,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetLineSpacing() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2841,7 +2841,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetLineSpacingRule() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2852,7 +2852,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetListAlignment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2868,7 +2868,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetListLevelIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2884,7 +2884,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetListStart() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2900,7 +2900,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetListTab() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2916,7 +2916,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetListType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2932,7 +2932,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetNoLineNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2948,7 +2948,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageBreakBefore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2964,7 +2964,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetRightIndent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2990,7 +2990,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetSpaceAfter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3006,7 +3006,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetSpaceBefore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3022,7 +3022,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetWidowControl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3038,7 +3038,7 @@ impl ITextPara_Vtbl {
             let this = (*this).get_impl();
             match this.GetTabCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3149,7 +3149,7 @@ impl ITextPara2_Vtbl {
             let this = (*this).get_impl();
             match this.GetBorders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppborders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppborders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3160,7 +3160,7 @@ impl ITextPara2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDuplicate2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppara = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppara, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3176,7 +3176,7 @@ impl ITextPara2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFontAlignment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3192,7 +3192,7 @@ impl ITextPara2_Vtbl {
             let this = (*this).get_impl();
             match this.GetHangingPunctuation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3208,7 +3208,7 @@ impl ITextPara2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSnapToGrid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3224,7 +3224,7 @@ impl ITextPara2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTrimPunctuationAtStart() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3245,7 +3245,7 @@ impl ITextPara2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3256,7 +3256,7 @@ impl ITextPara2_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqual2(::core::mem::transmute(&ppara)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3360,7 +3360,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3376,7 +3376,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetChar() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pchar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pchar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3392,7 +3392,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetDuplicate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3403,7 +3403,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetFormattedText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3419,7 +3419,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetStart() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcpfirst = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcpfirst, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3435,7 +3435,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnd() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcplim = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcplim, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3451,7 +3451,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetFont() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3467,7 +3467,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetPara() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppara = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppara, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3483,7 +3483,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetStoryLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3494,7 +3494,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetStoryType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3510,7 +3510,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.Expand(::core::mem::transmute_copy(&unit)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3521,7 +3521,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndex(::core::mem::transmute_copy(&unit)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3542,7 +3542,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.InRange(::core::mem::transmute(&prange)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3553,7 +3553,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.InStory(::core::mem::transmute(&prange)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3564,7 +3564,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqual(::core::mem::transmute(&prange)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3580,7 +3580,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.StartOf(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&extend)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3591,7 +3591,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.EndOf(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&extend)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3602,7 +3602,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.Move(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3613,7 +3613,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveStart(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3624,7 +3624,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveEnd(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3635,7 +3635,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveWhile(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3646,7 +3646,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveStartWhile(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3657,7 +3657,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveEndWhile(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3668,7 +3668,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveUntil(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3679,7 +3679,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveStartUntil(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3690,7 +3690,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveEndUntil(::core::mem::transmute_copy(&cset), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3701,7 +3701,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.FindText(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3712,7 +3712,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.FindTextStart(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3723,7 +3723,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.FindTextEnd(::core::mem::transmute(&bstr), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3734,7 +3734,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.Delete(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3745,7 +3745,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.Cut() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3756,7 +3756,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.Copy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3772,7 +3772,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.CanPaste(::core::mem::transmute_copy(&pvar), ::core::mem::transmute_copy(&format)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3783,7 +3783,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.CanEdit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3814,7 +3814,7 @@ impl ITextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetEmbeddedObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3932,7 +3932,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCch() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3943,7 +3943,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCells() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcells = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcells, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3954,7 +3954,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetColumn() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcolumn = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcolumn, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3965,7 +3965,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3976,7 +3976,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDuplicate2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3987,7 +3987,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFont2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4003,7 +4003,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFormattedText2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4019,7 +4019,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetGravity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4035,7 +4035,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPara2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppara = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppara, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4051,7 +4051,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetRow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4062,7 +4062,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStartPara() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4073,7 +4073,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4084,7 +4084,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetURL() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4115,7 +4115,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.Find(::core::mem::transmute(&prange), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4141,7 +4141,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4162,7 +4162,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetText2(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4218,7 +4218,7 @@ impl ITextRange2_Vtbl {
             let this = (*this).get_impl();
             match this.GetMathFunctionType(::core::mem::transmute(&bstr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4336,7 +4336,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetAlignment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4352,7 +4352,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4368,7 +4368,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellCountCache() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4384,7 +4384,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4400,7 +4400,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellMargin() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4416,7 +4416,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4432,7 +4432,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4448,7 +4448,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetKeepTogether() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4464,7 +4464,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetKeepWithNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4480,7 +4480,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetNestLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4491,7 +4491,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetRTL() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4507,7 +4507,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellAlignment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4523,7 +4523,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellColorBack() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4539,7 +4539,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellColorFore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4555,7 +4555,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellMergeFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4571,7 +4571,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellShading() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4587,7 +4587,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellVerticalText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4603,7 +4603,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetCellWidth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4644,7 +4644,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.CanChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4655,7 +4655,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4671,7 +4671,7 @@ impl ITextRow_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqual(::core::mem::transmute(&prow)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4764,7 +4764,7 @@ impl ITextSelection_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4780,7 +4780,7 @@ impl ITextSelection_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4791,7 +4791,7 @@ impl ITextSelection_Vtbl {
             let this = (*this).get_impl();
             match this.MoveLeft(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&extend)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4802,7 +4802,7 @@ impl ITextSelection_Vtbl {
             let this = (*this).get_impl();
             match this.MoveRight(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&extend)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4813,7 +4813,7 @@ impl ITextSelection_Vtbl {
             let this = (*this).get_impl();
             match this.MoveUp(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&extend)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4824,7 +4824,7 @@ impl ITextSelection_Vtbl {
             let this = (*this).get_impl();
             match this.MoveDown(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&extend)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4835,7 +4835,7 @@ impl ITextSelection_Vtbl {
             let this = (*this).get_impl();
             match this.HomeKey(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&extend)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4846,7 +4846,7 @@ impl ITextSelection_Vtbl {
             let this = (*this).get_impl();
             match this.EndKey(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&extend)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdelta = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdelta, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5008,7 +5008,7 @@ impl ITextServices_Vtbl {
             let this = (*this).get_impl();
             match this.TxGetDropTarget() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdroptarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdroptarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5105,7 +5105,7 @@ impl ITextStory_Vtbl {
             let this = (*this).get_impl();
             match this.GetActive() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5121,7 +5121,7 @@ impl ITextStory_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisplay() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisplay = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisplay, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5132,7 +5132,7 @@ impl ITextStory_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5143,7 +5143,7 @@ impl ITextStory_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5159,7 +5159,7 @@ impl ITextStory_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5170,7 +5170,7 @@ impl ITextStory_Vtbl {
             let this = (*this).get_impl();
             match this.GetRange(::core::mem::transmute_copy(&cpactive), ::core::mem::transmute_copy(&cpanchor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5181,7 +5181,7 @@ impl ITextStory_Vtbl {
             let this = (*this).get_impl();
             match this.GetText(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5238,7 +5238,7 @@ impl ITextStoryRanges_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5249,7 +5249,7 @@ impl ITextStoryRanges_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5260,7 +5260,7 @@ impl ITextStoryRanges_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5291,7 +5291,7 @@ impl ITextStoryRanges2_Vtbl {
             let this = (*this).get_impl();
             match this.Item2(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5333,7 +5333,7 @@ impl ITextStrings_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5344,7 +5344,7 @@ impl ITextStrings_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5385,7 +5385,7 @@ impl ITextStrings_Vtbl {
             let this = (*this).get_impl();
             match this.GetCch(::core::mem::transmute_copy(&istring)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

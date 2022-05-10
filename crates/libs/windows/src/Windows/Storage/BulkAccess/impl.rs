@@ -23,7 +23,7 @@ impl IStorageItemInformation_Vtbl {
             let this = (*this).get_impl();
             match this.MusicProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -35,7 +35,7 @@ impl IStorageItemInformation_Vtbl {
             let this = (*this).get_impl();
             match this.VideoProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -47,7 +47,7 @@ impl IStorageItemInformation_Vtbl {
             let this = (*this).get_impl();
             match this.ImageProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -59,7 +59,7 @@ impl IStorageItemInformation_Vtbl {
             let this = (*this).get_impl();
             match this.DocumentProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -71,7 +71,7 @@ impl IStorageItemInformation_Vtbl {
             let this = (*this).get_impl();
             match this.BasicProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -83,7 +83,7 @@ impl IStorageItemInformation_Vtbl {
             let this = (*this).get_impl();
             match this.Thumbnail() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -95,7 +95,7 @@ impl IStorageItemInformation_Vtbl {
             let this = (*this).get_impl();
             match this.ThumbnailUpdated(::core::mem::transmute(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -112,7 +112,7 @@ impl IStorageItemInformation_Vtbl {
             let this = (*this).get_impl();
             match this.PropertiesUpdated(::core::mem::transmute(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

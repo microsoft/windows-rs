@@ -30,7 +30,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -42,7 +42,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -54,7 +54,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.IsCurrentAfterLast() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -66,7 +66,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.IsCurrentBeforeFirst() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -78,7 +78,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.CollectionGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -90,7 +90,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.HasMoreItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -102,7 +102,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -119,7 +119,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentChanging(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -136,7 +136,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.MoveCurrentTo(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -148,7 +148,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.MoveCurrentToPosition(index) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -160,7 +160,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.MoveCurrentToFirst() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -172,7 +172,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.MoveCurrentToLast() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -184,7 +184,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.MoveCurrentToNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -196,7 +196,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.MoveCurrentToPrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -208,7 +208,7 @@ impl ICollectionView_Vtbl {
             let this = (*this).get_impl();
             match this.LoadMoreItemsAsync(count) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -253,7 +253,7 @@ impl ICollectionViewFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateView() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -283,7 +283,7 @@ impl ICollectionViewGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Group() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -295,7 +295,7 @@ impl ICollectionViewGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GroupItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -335,7 +335,7 @@ impl ICustomProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -347,7 +347,7 @@ impl ICustomProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -359,7 +359,7 @@ impl ICustomProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute(&target)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -376,7 +376,7 @@ impl ICustomProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndexedValue(::core::mem::transmute(&target), ::core::mem::transmute(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -393,7 +393,7 @@ impl ICustomProperty_Vtbl {
             let this = (*this).get_impl();
             match this.CanWrite() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -405,7 +405,7 @@ impl ICustomProperty_Vtbl {
             let this = (*this).get_impl();
             match this.CanRead() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -447,7 +447,7 @@ impl ICustomPropertyProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetCustomProperty(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -459,7 +459,7 @@ impl ICustomPropertyProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndexedProperty(::core::mem::transmute(&name), ::core::mem::transmute(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -471,7 +471,7 @@ impl ICustomPropertyProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringRepresentation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -483,7 +483,7 @@ impl ICustomPropertyProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -541,7 +541,7 @@ impl INotifyPropertyChanged_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -592,7 +592,7 @@ impl ISelectionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsSelected(index) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -604,7 +604,7 @@ impl ISelectionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelectedRanges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -640,7 +640,7 @@ impl ISupportIncrementalLoading_Vtbl {
             let this = (*this).get_impl();
             match this.LoadMoreItemsAsync(count) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -652,7 +652,7 @@ impl ISupportIncrementalLoading_Vtbl {
             let this = (*this).get_impl();
             match this.HasMoreItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -686,7 +686,7 @@ impl IValueConverter_Vtbl {
             let this = (*this).get_impl();
             match this.Convert(::core::mem::transmute(&value), ::core::mem::transmute(&targettype), ::core::mem::transmute(&parameter), ::core::mem::transmute(&language)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -698,7 +698,7 @@ impl IValueConverter_Vtbl {
             let this = (*this).get_impl();
             match this.ConvertBack(::core::mem::transmute(&value), ::core::mem::transmute(&targettype), ::core::mem::transmute(&parameter), ::core::mem::transmute(&language)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

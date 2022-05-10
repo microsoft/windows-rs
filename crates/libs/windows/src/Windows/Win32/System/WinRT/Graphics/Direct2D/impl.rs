@@ -13,7 +13,7 @@ impl IGeometrySource2DInterop_Vtbl {
             let this = (*this).get_impl();
             match this.GetGeometry() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24,7 +24,7 @@ impl IGeometrySource2DInterop_Vtbl {
             let this = (*this).get_impl();
             match this.TryGetGeometryUsingFactory(::core::mem::transmute(&factory)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -59,7 +59,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match this.GetEffectId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *id = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(id, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -75,7 +75,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -86,7 +86,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -97,7 +97,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match this.GetSource(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *source = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(source, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -108,7 +108,7 @@ impl IGraphicsEffectD2D1Interop_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

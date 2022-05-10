@@ -15,7 +15,7 @@ impl ICoreApplicationUnhandledError_Vtbl {
             let this = (*this).get_impl();
             match this.UnhandledErrorDetected(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -103,7 +103,7 @@ impl IFrameworkViewSource_Vtbl {
             let this = (*this).get_impl();
             match this.CreateView() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

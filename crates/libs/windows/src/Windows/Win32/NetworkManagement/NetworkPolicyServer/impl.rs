@@ -18,7 +18,7 @@ impl ISdo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyInfo(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -29,7 +29,7 @@ impl ISdo_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -60,7 +60,7 @@ impl ISdo_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumvariant = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumvariant, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -102,7 +102,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             match this.IsNameUnique(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbool = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbool, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -144,7 +144,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl ISdoCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumvariant = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumvariant, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -200,7 +200,7 @@ impl ISdoDictionaryOld_Vtbl {
             let this = (*this).get_impl();
             match this.GetAttributeInfo(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&pinfoids)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinfovalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinfovalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -216,7 +216,7 @@ impl ISdoDictionaryOld_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAttribute(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppattributeobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppattributeobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -227,7 +227,7 @@ impl ISdoDictionaryOld_Vtbl {
             let this = (*this).get_impl();
             match this.GetAttributeID(::core::mem::transmute(&bstrattributename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -273,7 +273,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match this.GetDictionarySDO() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdictionarysdo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdictionarysdo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -284,7 +284,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match this.GetServiceSDO(::core::mem::transmute_copy(&edatastore), ::core::mem::transmute(&bstrservicename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppservicesdo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppservicesdo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -295,7 +295,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserSDO(::core::mem::transmute_copy(&edatastore), ::core::mem::transmute(&bstrusername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppusersdo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppusersdo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -306,7 +306,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match this.GetOSType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *eostype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eostype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match this.GetDomainType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *edomaintype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(edomaintype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -328,7 +328,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match this.IsDirectoryAvailable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *booldirectoryavailable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(booldirectoryavailable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -339,7 +339,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match this.GetAttachedComputer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrcomputername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrcomputername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -350,7 +350,7 @@ impl ISdoMachine_Vtbl {
             let this = (*this).get_impl();
             match this.GetSDOSchema() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsdoschema = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsdoschema, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -391,7 +391,7 @@ impl ISdoMachine2_Vtbl {
             let this = (*this).get_impl();
             match this.GetTemplatesSDO(::core::mem::transmute(&bstrservicename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptemplatessdo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptemplatessdo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -457,7 +457,7 @@ impl ISdoServiceControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetServiceStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
