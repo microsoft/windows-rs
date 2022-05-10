@@ -12,7 +12,7 @@ impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
     fn Current(&self) -> Result<T> {
         unsafe {
             let this = self.0.get();
-            let owner = Iterable::to_impl(&(*this).0);
+            let owner = (*this).0.as_impl();
 
             if owner.0.len() > (*this).1 {
                 Ok(owner.0[(*this).1].clone())
@@ -25,7 +25,7 @@ impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
     fn HasCurrent(&self) -> Result<bool> {
         unsafe {
             let this = self.0.get();
-            let owner = Iterable::to_impl(&(*this).0);
+            let owner = (*this).0.as_impl();
             Ok(owner.0.len() > (*this).1)
         }
     }
@@ -33,7 +33,7 @@ impl<T: RuntimeType + 'static> IIterator_Impl<T> for Iterator<T> {
     fn MoveNext(&self) -> Result<bool> {
         unsafe {
             let this = self.0.get();
-            let owner = Iterable::to_impl(&(*this).0);
+            let owner = (*this).0.as_impl();
             (*this).1 += 1;
             Ok(owner.0.len() > (*this).1)
         }
