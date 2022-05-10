@@ -141,7 +141,7 @@ impl IEmptyVolumeCache_Vtbl {
             let this = (*this).get_impl();
             match this.Deactivate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -227,7 +227,7 @@ impl IReconcilableObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetProgressFeedbackMaxEstimate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pulprogressmax = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pulprogressmax, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

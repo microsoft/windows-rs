@@ -59,7 +59,7 @@ impl IClassFactory2_Vtbl {
             let this = (*this).get_impl();
             match this.RequestLicKey(::core::mem::transmute_copy(&dwreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrkey = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrkey, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -494,7 +494,7 @@ impl ICreateTypeLib_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTypeInfo(::core::mem::transmute(&szname), ::core::mem::transmute_copy(&tkind)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppctinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppctinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -626,7 +626,7 @@ impl IDispError_Vtbl {
             let this = (*this).get_impl();
             match this.QueryErrorInfo(::core::mem::transmute(&guiderrortype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppde = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppde, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -637,7 +637,7 @@ impl IDispError_Vtbl {
             let this = (*this).get_impl();
             match this.GetNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppde = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppde, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl IDispError_Vtbl {
             let this = (*this).get_impl();
             match this.GetHresult() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -659,7 +659,7 @@ impl IDispError_Vtbl {
             let this = (*this).get_impl();
             match this.GetSource() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrsource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrsource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -675,7 +675,7 @@ impl IDispError_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -716,7 +716,7 @@ impl IDispatchEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetDispID(::core::mem::transmute(&bstrname), ::core::mem::transmute_copy(&grfdex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -742,7 +742,7 @@ impl IDispatchEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetMemberProperties(::core::mem::transmute_copy(&id), ::core::mem::transmute_copy(&grfdexfetch)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgrfdex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgrfdex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -753,7 +753,7 @@ impl IDispatchEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetMemberName(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -764,7 +764,7 @@ impl IDispatchEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetNextDispID(::core::mem::transmute_copy(&grfdex), ::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -775,7 +775,7 @@ impl IDispatchEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetNameSpaceParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -921,7 +921,7 @@ impl IEnterpriseDropTarget_Vtbl {
             let this = (*this).get_impl();
             match this.IsEvaluatingEdpPolicy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -966,7 +966,7 @@ impl IEnumOLEVERB_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1013,7 +1013,7 @@ impl IEnumOleDocumentViews_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1060,7 +1060,7 @@ impl IEnumOleUndoUnits_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1110,7 +1110,7 @@ impl IEnumVARIANT_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1165,7 +1165,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1181,7 +1181,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Size() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1197,7 +1197,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Bold() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbold = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbold, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1213,7 +1213,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Italic() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pitalic = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pitalic, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1229,7 +1229,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Underline() {
                 ::core::result::Result::Ok(ok__) => {
-                    *punderline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(punderline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1245,7 +1245,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Strikethrough() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstrikethrough = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstrikethrough, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1261,7 +1261,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Weight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pweight = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pweight, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1277,7 +1277,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Charset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcharset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcharset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1293,7 +1293,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.hFont() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1304,7 +1304,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1325,7 +1325,7 @@ impl IFont_Vtbl {
             let this = (*this).get_impl();
             match this.QueryTextMetrics() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptm = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptm, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1501,7 +1501,7 @@ impl IOleAdviseHolder_Vtbl {
             let this = (*this).get_impl();
             match this.Advise(::core::mem::transmute(&padvise)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1517,7 +1517,7 @@ impl IOleAdviseHolder_Vtbl {
             let this = (*this).get_impl();
             match this.EnumAdvise() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumadvise = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumadvise, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1570,7 +1570,7 @@ impl IOleCache_Vtbl {
             let this = (*this).get_impl();
             match this.Cache(::core::mem::transmute_copy(&pformatetc), ::core::mem::transmute_copy(&advf)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1586,7 +1586,7 @@ impl IOleCache_Vtbl {
             let this = (*this).get_impl();
             match this.EnumCache() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumstatdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumstatdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1699,7 +1699,7 @@ impl IOleClientSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetMoniker(::core::mem::transmute_copy(&dwassign), ::core::mem::transmute_copy(&dwwhichmoniker)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1710,7 +1710,7 @@ impl IOleClientSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontainer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontainer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1790,7 +1790,7 @@ impl IOleContainer_Vtbl {
             let this = (*this).get_impl();
             match this.EnumObjects(::core::mem::transmute_copy(&grfflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1885,7 +1885,7 @@ impl IOleControlSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtendedControl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1942,7 +1942,7 @@ impl IOleDocument_Vtbl {
             let this = (*this).get_impl();
             match this.CreateView(::core::mem::transmute(&pipsite), ::core::mem::transmute(&pstm), ::core::mem::transmute_copy(&dwreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1953,7 +1953,7 @@ impl IOleDocument_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocMiscStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2023,7 +2023,7 @@ impl IOleDocumentView_Vtbl {
             let this = (*this).get_impl();
             match this.GetInPlaceSite() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppipsite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppipsite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2034,7 +2034,7 @@ impl IOleDocumentView_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2050,7 +2050,7 @@ impl IOleDocumentView_Vtbl {
             let this = (*this).get_impl();
             match this.GetRect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prcview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prcview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2096,7 +2096,7 @@ impl IOleDocumentView_Vtbl {
             let this = (*this).get_impl();
             match this.Clone(::core::mem::transmute(&pipsitenew)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppviewnew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppviewnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2291,7 +2291,7 @@ impl IOleInPlaceObjectWindowless_Vtbl {
             let this = (*this).get_impl();
             match this.OnWindowMessage(::core::mem::transmute_copy(&msg), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2302,7 +2302,7 @@ impl IOleInPlaceObjectWindowless_Vtbl {
             let this = (*this).get_impl();
             match this.GetDropTarget() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdroptarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdroptarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2491,7 +2491,7 @@ impl IOleInPlaceSiteWindowless_Vtbl {
             let this = (*this).get_impl();
             match this.GetDC(::core::mem::transmute_copy(&prect), ::core::mem::transmute_copy(&grfflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phdc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phdc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2527,7 +2527,7 @@ impl IOleInPlaceSiteWindowless_Vtbl {
             let this = (*this).get_impl();
             match this.OnDefWindowMessage(::core::mem::transmute_copy(&msg), ::core::mem::transmute_copy(&wparam), ::core::mem::transmute_copy(&lparam)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2570,7 +2570,7 @@ impl IOleInPlaceUIWindow_Vtbl {
             let this = (*this).get_impl();
             match this.GetBorder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lprectborder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lprectborder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2669,7 +2669,7 @@ impl IOleLink_Vtbl {
             let this = (*this).get_impl();
             match this.GetUpdateOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwupdateopt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwupdateopt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2685,7 +2685,7 @@ impl IOleLink_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceMoniker() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2701,7 +2701,7 @@ impl IOleLink_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszdisplayname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszdisplayname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2722,7 +2722,7 @@ impl IOleLink_Vtbl {
             let this = (*this).get_impl();
             match this.GetBoundSource() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2796,7 +2796,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetClientSite() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclientsite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclientsite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2822,7 +2822,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetMoniker(::core::mem::transmute_copy(&dwassign), ::core::mem::transmute_copy(&dwwhichmoniker)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2838,7 +2838,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetClipboardData(::core::mem::transmute_copy(&dwreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdataobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdataobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2854,7 +2854,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.EnumVerbs() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumoleverb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumoleverb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2875,7 +2875,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserClassID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclsid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclsid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2886,7 +2886,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserType(::core::mem::transmute_copy(&dwformoftype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszusertype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszusertype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2902,7 +2902,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtent(::core::mem::transmute_copy(&dwdrawaspect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psizel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psizel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2913,7 +2913,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.Advise(::core::mem::transmute(&padvsink)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2929,7 +2929,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.EnumAdvise() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumadvise = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumadvise, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2940,7 +2940,7 @@ impl IOleObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetMiscStatus(::core::mem::transmute_copy(&dwaspect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3018,7 +3018,7 @@ impl IOleParentUndoUnit_Vtbl {
             let this = (*this).get_impl();
             match this.GetParentState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3068,7 +3068,7 @@ impl IOleUILinkContainerA_Vtbl {
             let this = (*this).get_impl();
             match this.GetLinkUpdateOptions(::core::mem::transmute_copy(&dwlink)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *lpdwupdateopt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lpdwupdateopt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3146,7 +3146,7 @@ impl IOleUILinkContainerW_Vtbl {
             let this = (*this).get_impl();
             match this.GetLinkUpdateOptions(::core::mem::transmute_copy(&dwlink)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *lpdwupdateopt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lpdwupdateopt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3207,7 +3207,7 @@ impl IOleUILinkInfoA_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastUpdate(::core::mem::transmute_copy(&dwlink)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *lplastupdate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lplastupdate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3233,7 +3233,7 @@ impl IOleUILinkInfoW_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastUpdate(::core::mem::transmute_copy(&dwlink)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *lplastupdate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lplastupdate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3387,7 +3387,7 @@ impl IOleUndoManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetOpenParentState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3413,7 +3413,7 @@ impl IOleUndoManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumUndoable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3424,7 +3424,7 @@ impl IOleUndoManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumRedoable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3435,7 +3435,7 @@ impl IOleUndoManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastUndoDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3446,7 +3446,7 @@ impl IOleUndoManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastRedoDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3499,7 +3499,7 @@ impl IOleUndoUnit_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3542,7 +3542,7 @@ impl IOleWindow_Vtbl {
             let this = (*this).get_impl();
             match this.GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3600,7 +3600,7 @@ impl IPerPropertyBrowsing_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisplayString(::core::mem::transmute_copy(&dispid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3611,7 +3611,7 @@ impl IPerPropertyBrowsing_Vtbl {
             let this = (*this).get_impl();
             match this.MapPropertyToPage(::core::mem::transmute_copy(&dispid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclsid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclsid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3627,7 +3627,7 @@ impl IPerPropertyBrowsing_Vtbl {
             let this = (*this).get_impl();
             match this.GetPredefinedValue(::core::mem::transmute_copy(&dispid), ::core::mem::transmute_copy(&dwcookie)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3753,7 +3753,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3764,7 +3764,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.hPal() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phpal = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phpal, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3775,7 +3775,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3786,7 +3786,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Width() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwidth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwidth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3797,7 +3797,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Height() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pheight = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pheight, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3818,7 +3818,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.CurDC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phdc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phdc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3834,7 +3834,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.KeepOriginalFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pkeep = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pkeep, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3855,7 +3855,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.SaveAsFile(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&fsavememcopy)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3866,7 +3866,7 @@ impl IPicture_Vtbl {
             let this = (*this).get_impl();
             match this.Attributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwattr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwattr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3921,7 +3921,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3932,7 +3932,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.hPal() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phpal = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phpal, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3943,7 +3943,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3954,7 +3954,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.Width() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwidth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwidth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3965,7 +3965,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.Height() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pheight = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pheight, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3986,7 +3986,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.CurDC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phdc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phdc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4002,7 +4002,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.KeepOriginalFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pkeep = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pkeep, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4023,7 +4023,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.SaveAsFile(::core::mem::transmute(&pstream), ::core::mem::transmute_copy(&fsavememcopy)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4034,7 +4034,7 @@ impl IPicture2_Vtbl {
             let this = (*this).get_impl();
             match this.Attributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwattr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwattr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4091,7 +4091,7 @@ impl IPointerInactive_Vtbl {
             let this = (*this).get_impl();
             match this.GetActivationPolicy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwpolicy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwpolicy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4221,7 +4221,7 @@ impl IPropertyPage_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppageinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppageinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4323,7 +4323,7 @@ impl IPropertyPageSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocaleID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plocaleid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plocaleid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4334,7 +4334,7 @@ impl IPropertyPageSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetPageContainer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4371,7 +4371,7 @@ impl IProtectFocus_Vtbl {
             let this = (*this).get_impl();
             match this.AllowFocusChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfallow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfallow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4399,7 +4399,7 @@ impl IProtectedModeMenuServices_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMenu() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phmenu = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phmenu, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4410,7 +4410,7 @@ impl IProtectedModeMenuServices_Vtbl {
             let this = (*this).get_impl();
             match this.LoadMenu(::core::mem::transmute(&pszmodulename), ::core::mem::transmute(&pszmenuname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phmenu = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phmenu, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4421,7 +4421,7 @@ impl IProtectedModeMenuServices_Vtbl {
             let this = (*this).get_impl();
             match this.LoadMenuID(::core::mem::transmute(&pszmodulename), ::core::mem::transmute_copy(&wresourceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phmenu = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phmenu, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4452,7 +4452,7 @@ impl IProvideClassInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetClassInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppti = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppti, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4478,7 +4478,7 @@ impl IProvideClassInfo2_Vtbl {
             let this = (*this).get_impl();
             match this.GetGUID(::core::mem::transmute_copy(&dwguidkind)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4505,7 +4505,7 @@ impl IProvideMultipleClassInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetMultiTypeInfoCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcti = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcti, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4569,7 +4569,7 @@ impl IQuickActivate_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentExtent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psizel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psizel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4630,7 +4630,7 @@ impl IRecordInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4641,7 +4641,7 @@ impl IRecordInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4652,7 +4652,7 @@ impl IRecordInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4663,7 +4663,7 @@ impl IRecordInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypeInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptypeinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptypeinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4674,7 +4674,7 @@ impl IRecordInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetField(::core::mem::transmute_copy(&pvdata), ::core::mem::transmute(&szfieldname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarfield = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarfield, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4785,7 +4785,7 @@ impl ISpecifyPropertyPages_Vtbl {
             let this = (*this).get_impl();
             match this.GetPages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppages = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppages, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4812,7 +4812,7 @@ impl ITypeChangeEvents_Vtbl {
             let this = (*this).get_impl();
             match this.RequestTypeChange(::core::mem::transmute_copy(&changekind), ::core::mem::transmute(&ptinfobefore), ::core::mem::transmute(&pstrname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcancel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcancel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4847,7 +4847,7 @@ impl ITypeFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFromTypeInfo(::core::mem::transmute(&ptypeinfo), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppv = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppv, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4873,7 +4873,7 @@ impl ITypeMarshal_Vtbl {
             let this = (*this).get_impl();
             match this.Size(::core::mem::transmute_copy(&pvtype), ::core::mem::transmute_copy(&dwdestcontext), ::core::mem::transmute_copy(&pvdestcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4940,7 +4940,7 @@ impl IVBGetControl_Vtbl {
             let this = (*this).get_impl();
             match this.EnumControls(::core::mem::transmute_copy(&dwolecontf), ::core::mem::transmute_copy(&dwwhich)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5044,7 +5044,7 @@ impl IViewObject2_Vtbl {
             let this = (*this).get_impl();
             match this.GetExtent(::core::mem::transmute_copy(&dwdrawaspect), ::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&ptd)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *lpsizel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lpsizel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5074,7 +5074,7 @@ impl IViewObjectEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetRect(::core::mem::transmute_copy(&dwaspect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5085,7 +5085,7 @@ impl IViewObjectEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetViewStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5096,7 +5096,7 @@ impl IViewObjectEx_Vtbl {
             let this = (*this).get_impl();
             match this.QueryHitPoint(::core::mem::transmute_copy(&dwaspect), ::core::mem::transmute_copy(&prectbounds), ::core::mem::transmute(&ptlloc), ::core::mem::transmute_copy(&lclosehint)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phitresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phitresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5107,7 +5107,7 @@ impl IViewObjectEx_Vtbl {
             let this = (*this).get_impl();
             match this.QueryHitRect(::core::mem::transmute_copy(&dwaspect), ::core::mem::transmute_copy(&prectbounds), ::core::mem::transmute_copy(&prectloc), ::core::mem::transmute_copy(&lclosehint)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phitresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phitresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5118,7 +5118,7 @@ impl IViewObjectEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetNaturalExtent(::core::mem::transmute_copy(&dwaspect), ::core::mem::transmute_copy(&lindex), ::core::mem::transmute_copy(&ptd), ::core::mem::transmute_copy(&hictargetdev), ::core::mem::transmute_copy(&pextentinfo)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psizel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psizel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

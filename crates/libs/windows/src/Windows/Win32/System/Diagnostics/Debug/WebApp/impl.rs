@@ -29,7 +29,7 @@ impl IWebApplicationAuthoringMode_Vtbl {
             let this = (*this).get_impl();
             match this.AuthoringClientBinary() {
                 ::core::result::Result::Ok(ok__) => {
-                    *designmodedllpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(designmodedllpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -67,7 +67,7 @@ impl IWebApplicationHost_Vtbl {
             let this = (*this).get_impl();
             match this.Document() {
                 ::core::result::Result::Ok(ok__) => {
-                    *htmldocument = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(htmldocument, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

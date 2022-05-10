@@ -54,7 +54,7 @@ impl INetDiagHelper_Vtbl {
             let this = (*this).get_impl();
             match this.GetDiagnosticsInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -115,7 +115,7 @@ impl INetDiagHelper_Vtbl {
             let this = (*this).get_impl();
             match this.GetLifeTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plifetime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plifetime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -131,7 +131,7 @@ impl INetDiagHelper_Vtbl {
             let this = (*this).get_impl();
             match this.GetCacheTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcachetime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcachetime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

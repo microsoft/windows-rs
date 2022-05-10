@@ -2352,7 +2352,7 @@ impl<F: FnMut() -> ::windows::core::Result<::windows::core::IInspectable> + ::co
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         match ((*this).invoke)() {
             ::core::result::Result::Ok(ok__) => {
-                *result__ = ::core::mem::transmute_copy(&ok__);
+                ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                 ::core::mem::forget(ok__);
                 ::windows::core::HRESULT(0)
             }

@@ -190,7 +190,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.accParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdispparent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdispparent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.accChildCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcountchildren = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcountchildren, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accChild(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdispchild = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdispchild, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -223,7 +223,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accName(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accValue(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accDescription(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -256,7 +256,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accRole(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarrole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarrole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -267,7 +267,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accState(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -278,7 +278,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accHelp(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszhelp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszhelp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -294,7 +294,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accKeyboardShortcut(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszkeyboardshortcut = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszkeyboardshortcut, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -305,7 +305,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.accFocus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarchild = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarchild, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.accSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarchildren = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarchildren, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -327,7 +327,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.get_accDefaultAction(::core::mem::transmute(&varchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdefaultaction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdefaultaction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -348,7 +348,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.accNavigate(::core::mem::transmute_copy(&navdir), ::core::mem::transmute(&varstart)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarendupat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarendupat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -359,7 +359,7 @@ impl IAccessible_Vtbl {
             let this = (*this).get_impl();
             match this.accHitTest(::core::mem::transmute_copy(&xleft), ::core::mem::transmute_copy(&ytop)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarchild = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarchild, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -426,7 +426,7 @@ impl IAccessibleEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetObjectForChild(::core::mem::transmute_copy(&idchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -442,7 +442,7 @@ impl IAccessibleEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetRuntimeId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -453,7 +453,7 @@ impl IAccessibleEx_Vtbl {
             let this = (*this).get_impl();
             match this.ConvertReturnedElement(::core::mem::transmute(&pin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppretvalout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppretvalout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -485,7 +485,7 @@ impl IAccessibleHandler_Vtbl {
             let this = (*this).get_impl();
             match this.AccessibleObjectFromID(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&lobjectid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *piaccessible = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(piaccessible, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -512,7 +512,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
             let this = (*this).get_impl();
             match this.GetEmbeddedFragmentRoots() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -523,7 +523,7 @@ impl IAccessibleHostingElementProviders_Vtbl {
             let this = (*this).get_impl();
             match this.GetObjectIdForProvider(::core::mem::transmute(&pprovider)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pidobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pidobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -556,7 +556,7 @@ impl IAccessibleWindowlessSite_Vtbl {
             let this = (*this).get_impl();
             match this.AcquireObjectIdRange(::core::mem::transmute_copy(&rangesize), ::core::mem::transmute(&prangeowner)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prangebase = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prangebase, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -572,7 +572,7 @@ impl IAccessibleWindowlessSite_Vtbl {
             let this = (*this).get_impl();
             match this.QueryObjectIdRanges(::core::mem::transmute(&prangesowner)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psaranges = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psaranges, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -583,7 +583,7 @@ impl IAccessibleWindowlessSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetParentAccessible() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl IAnnotationProvider_Vtbl {
             let this = (*this).get_impl();
             match this.AnnotationTypeId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -630,7 +630,7 @@ impl IAnnotationProvider_Vtbl {
             let this = (*this).get_impl();
             match this.AnnotationTypeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -641,7 +641,7 @@ impl IAnnotationProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Author() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -652,7 +652,7 @@ impl IAnnotationProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DateTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -663,7 +663,7 @@ impl IAnnotationProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Target() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -693,7 +693,7 @@ impl ICustomNavigationProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Navigate(::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -722,7 +722,7 @@ impl IDockProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DockPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -755,7 +755,7 @@ impl IDragProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsGrabbed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -766,7 +766,7 @@ impl IDragProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DropEffect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -777,7 +777,7 @@ impl IDragProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DropEffects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -788,7 +788,7 @@ impl IDragProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetGrabbedItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -821,7 +821,7 @@ impl IDropTargetProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DropTargetEffect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -832,7 +832,7 @@ impl IDropTargetProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DropTargetEffects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -871,7 +871,7 @@ impl IExpandCollapseProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ExpandCollapseState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -903,7 +903,7 @@ impl IGridItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Row() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -914,7 +914,7 @@ impl IGridItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Column() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -925,7 +925,7 @@ impl IGridItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.RowSpan() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -936,7 +936,7 @@ impl IGridItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ColumnSpan() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -947,7 +947,7 @@ impl IGridItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ContainingGrid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -979,7 +979,7 @@ impl IGridProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetItem(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -990,7 +990,7 @@ impl IGridProvider_Vtbl {
             let this = (*this).get_impl();
             match this.RowCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1001,7 +1001,7 @@ impl IGridProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ColumnCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1049,7 +1049,7 @@ impl IItemContainerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.FindItemByProperty(::core::mem::transmute(&pstartafter), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfound = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfound, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1103,7 +1103,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetIAccessible() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppaccessible = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppaccessible, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1114,7 +1114,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ChildId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1125,7 +1125,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1136,7 +1136,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1147,7 +1147,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1158,7 +1158,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Role() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwrole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwrole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1169,7 +1169,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1180,7 +1180,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Help() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszhelp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszhelp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1191,7 +1191,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.KeyboardShortcut() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszkeyboardshortcut = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszkeyboardshortcut, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1202,7 +1202,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselectedchildren = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselectedchildren, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1213,7 +1213,7 @@ impl ILegacyIAccessibleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdefaultaction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdefaultaction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1258,7 +1258,7 @@ impl IMultipleViewProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetViewName(::core::mem::transmute_copy(&viewid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1274,7 +1274,7 @@ impl IMultipleViewProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentView() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1285,7 +1285,7 @@ impl IMultipleViewProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetSupportedViews() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1314,7 +1314,7 @@ impl IObjectModelProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetUnderlyingObjectModel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunknown = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunknown, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1408,7 +1408,7 @@ impl IRangeValueProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1419,7 +1419,7 @@ impl IRangeValueProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1430,7 +1430,7 @@ impl IRangeValueProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Maximum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1441,7 +1441,7 @@ impl IRangeValueProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Minimum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1452,7 +1452,7 @@ impl IRangeValueProvider_Vtbl {
             let this = (*this).get_impl();
             match this.LargeChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1463,7 +1463,7 @@ impl IRangeValueProvider_Vtbl {
             let this = (*this).get_impl();
             match this.SmallChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1533,7 +1533,7 @@ impl IRawElementProviderFragment_Vtbl {
             let this = (*this).get_impl();
             match this.Navigate(::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1544,7 +1544,7 @@ impl IRawElementProviderFragment_Vtbl {
             let this = (*this).get_impl();
             match this.GetRuntimeId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1555,7 +1555,7 @@ impl IRawElementProviderFragment_Vtbl {
             let this = (*this).get_impl();
             match this.BoundingRectangle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1566,7 +1566,7 @@ impl IRawElementProviderFragment_Vtbl {
             let this = (*this).get_impl();
             match this.GetEmbeddedFragmentRoots() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1582,7 +1582,7 @@ impl IRawElementProviderFragment_Vtbl {
             let this = (*this).get_impl();
             match this.FragmentRoot() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1614,7 +1614,7 @@ impl IRawElementProviderFragmentRoot_Vtbl {
             let this = (*this).get_impl();
             match this.ElementProviderFromPoint(::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1625,7 +1625,7 @@ impl IRawElementProviderFragmentRoot_Vtbl {
             let this = (*this).get_impl();
             match this.GetFocus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IRawElementProviderHostingAccessibles_Vtbl {
             let this = (*this).get_impl();
             match this.GetEmbeddedAccessibles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1681,7 +1681,7 @@ impl IRawElementProviderHwndOverride_Vtbl {
             let this = (*this).get_impl();
             match this.GetOverrideProviderForHwnd(::core::mem::transmute_copy(&hwnd)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1713,7 +1713,7 @@ impl IRawElementProviderSimple_Vtbl {
             let this = (*this).get_impl();
             match this.ProviderOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1724,7 +1724,7 @@ impl IRawElementProviderSimple_Vtbl {
             let this = (*this).get_impl();
             match this.GetPatternProvider(::core::mem::transmute_copy(&patternid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1735,7 +1735,7 @@ impl IRawElementProviderSimple_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyValue(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1746,7 +1746,7 @@ impl IRawElementProviderSimple_Vtbl {
             let this = (*this).get_impl();
             match this.HostRawElementProvider() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1798,7 +1798,7 @@ impl IRawElementProviderSimple3_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataValue(::core::mem::transmute_copy(&targetid), ::core::mem::transmute_copy(&metadataid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *returnval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(returnval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1825,7 +1825,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetAdjacentFragment(::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1836,7 +1836,7 @@ impl IRawElementProviderWindowlessSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetRuntimeIdPrefix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1890,7 +1890,7 @@ impl IRicheditWindowlessAccessibility_Vtbl {
             let this = (*this).get_impl();
             match this.CreateProvider(::core::mem::transmute(&psite)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprovider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprovider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1950,7 +1950,7 @@ impl IScrollProvider_Vtbl {
             let this = (*this).get_impl();
             match this.HorizontalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1961,7 +1961,7 @@ impl IScrollProvider_Vtbl {
             let this = (*this).get_impl();
             match this.VerticalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1972,7 +1972,7 @@ impl IScrollProvider_Vtbl {
             let this = (*this).get_impl();
             match this.HorizontalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1983,7 +1983,7 @@ impl IScrollProvider_Vtbl {
             let this = (*this).get_impl();
             match this.VerticalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1994,7 +1994,7 @@ impl IScrollProvider_Vtbl {
             let this = (*this).get_impl();
             match this.HorizontallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2005,7 +2005,7 @@ impl IScrollProvider_Vtbl {
             let this = (*this).get_impl();
             match this.VerticallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2060,7 +2060,7 @@ impl ISelectionItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsSelected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2071,7 +2071,7 @@ impl ISelectionItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.SelectionContainer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2106,7 +2106,7 @@ impl ISelectionProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2117,7 +2117,7 @@ impl ISelectionProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CanSelectMultiple() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2128,7 +2128,7 @@ impl ISelectionProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsSelectionRequired() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2162,7 +2162,7 @@ impl ISelectionProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.FirstSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2173,7 +2173,7 @@ impl ISelectionProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.LastSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2184,7 +2184,7 @@ impl ISelectionProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2195,7 +2195,7 @@ impl ISelectionProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.ItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2229,7 +2229,7 @@ impl ISpreadsheetItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Formula() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2240,7 +2240,7 @@ impl ISpreadsheetItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2251,7 +2251,7 @@ impl ISpreadsheetItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2279,7 +2279,7 @@ impl ISpreadsheetProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2311,7 +2311,7 @@ impl IStylesProvider_Vtbl {
             let this = (*this).get_impl();
             match this.StyleId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2322,7 +2322,7 @@ impl IStylesProvider_Vtbl {
             let this = (*this).get_impl();
             match this.StyleName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2333,7 +2333,7 @@ impl IStylesProvider_Vtbl {
             let this = (*this).get_impl();
             match this.FillColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2344,7 +2344,7 @@ impl IStylesProvider_Vtbl {
             let this = (*this).get_impl();
             match this.FillPatternStyle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2355,7 +2355,7 @@ impl IStylesProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Shape() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2366,7 +2366,7 @@ impl IStylesProvider_Vtbl {
             let this = (*this).get_impl();
             match this.FillPatternColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2377,7 +2377,7 @@ impl IStylesProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2440,7 +2440,7 @@ impl ITableItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetRowHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2451,7 +2451,7 @@ impl ITableItemProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetColumnHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2483,7 +2483,7 @@ impl ITableProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetRowHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2494,7 +2494,7 @@ impl ITableProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetColumnHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2505,7 +2505,7 @@ impl ITableProvider_Vtbl {
             let this = (*this).get_impl();
             match this.RowOrColumnMajor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2534,7 +2534,7 @@ impl ITextChildProvider_Vtbl {
             let this = (*this).get_impl();
             match this.TextContainer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2545,7 +2545,7 @@ impl ITextChildProvider_Vtbl {
             let this = (*this).get_impl();
             match this.TextRange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2576,7 +2576,7 @@ impl ITextEditProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveComposition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2587,7 +2587,7 @@ impl ITextEditProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetConversionTarget() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2622,7 +2622,7 @@ impl ITextProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2633,7 +2633,7 @@ impl ITextProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetVisibleRanges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2644,7 +2644,7 @@ impl ITextProvider_Vtbl {
             let this = (*this).get_impl();
             match this.RangeFromChild(::core::mem::transmute(&childelement)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2655,7 +2655,7 @@ impl ITextProvider_Vtbl {
             let this = (*this).get_impl();
             match this.RangeFromPoint(::core::mem::transmute(&point)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2666,7 +2666,7 @@ impl ITextProvider_Vtbl {
             let this = (*this).get_impl();
             match this.DocumentRange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2677,7 +2677,7 @@ impl ITextProvider_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedTextSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2712,7 +2712,7 @@ impl ITextProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.RangeFromAnnotation(::core::mem::transmute(&annotationelement)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2764,7 +2764,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2775,7 +2775,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Compare(::core::mem::transmute(&range)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2786,7 +2786,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CompareEndpoints(::core::mem::transmute_copy(&endpoint), ::core::mem::transmute(&targetrange), ::core::mem::transmute_copy(&targetendpoint)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2802,7 +2802,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.FindAttribute(::core::mem::transmute_copy(&attributeid), ::core::mem::transmute(&val), ::core::mem::transmute_copy(&backward)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2813,7 +2813,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.FindText(::core::mem::transmute(&text), ::core::mem::transmute_copy(&backward), ::core::mem::transmute_copy(&ignorecase)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2824,7 +2824,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetAttributeValue(::core::mem::transmute_copy(&attributeid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2835,7 +2835,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetBoundingRectangles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2846,7 +2846,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnclosingElement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2857,7 +2857,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetText(::core::mem::transmute_copy(&maxlength)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2868,7 +2868,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Move(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2879,7 +2879,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.MoveEndpointByUnit(::core::mem::transmute_copy(&endpoint), ::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2915,7 +2915,7 @@ impl ITextRangeProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2984,7 +2984,7 @@ impl IToggleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ToggleState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3034,7 +3034,7 @@ impl ITransformProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CanMove() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3045,7 +3045,7 @@ impl ITransformProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CanResize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3056,7 +3056,7 @@ impl ITransformProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CanRotate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3100,7 +3100,7 @@ impl ITransformProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.CanZoom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3111,7 +3111,7 @@ impl ITransformProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.ZoomLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3122,7 +3122,7 @@ impl ITransformProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.ZoomMinimum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3133,7 +3133,7 @@ impl ITransformProvider2_Vtbl {
             let this = (*this).get_impl();
             match this.ZoomMaximum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3226,7 +3226,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CompareElements(::core::mem::transmute(&el1), ::core::mem::transmute(&el2)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *aresame = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(aresame, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3237,7 +3237,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CompareRuntimeIds(::core::mem::transmute_copy(&runtimeid1), ::core::mem::transmute_copy(&runtimeid2)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *aresame = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(aresame, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3248,7 +3248,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.GetRootElement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *root = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(root, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3259,7 +3259,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ElementFromHandle(::core::mem::transmute_copy(&hwnd)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3270,7 +3270,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ElementFromPoint(::core::mem::transmute(&pt)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3281,7 +3281,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.GetFocusedElement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3292,7 +3292,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.GetRootElementBuildCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *root = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(root, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3303,7 +3303,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ElementFromHandleBuildCache(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3314,7 +3314,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ElementFromPointBuildCache(::core::mem::transmute(&pt), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3325,7 +3325,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.GetFocusedElementBuildCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3336,7 +3336,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTreeWalker(::core::mem::transmute(&pcondition)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *walker = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(walker, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3347,7 +3347,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ControlViewWalker() {
                 ::core::result::Result::Ok(ok__) => {
-                    *walker = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(walker, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3358,7 +3358,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ContentViewWalker() {
                 ::core::result::Result::Ok(ok__) => {
-                    *walker = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(walker, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3369,7 +3369,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.RawViewWalker() {
                 ::core::result::Result::Ok(ok__) => {
-                    *walker = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(walker, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3380,7 +3380,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.RawViewCondition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *condition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(condition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3391,7 +3391,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ControlViewCondition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *condition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(condition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3402,7 +3402,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ContentViewCondition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *condition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(condition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3413,7 +3413,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateCacheRequest() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cacherequest = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cacherequest, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3424,7 +3424,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTrueCondition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3435,7 +3435,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFalseCondition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3446,7 +3446,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePropertyCondition(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3457,7 +3457,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePropertyConditionEx(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute(&value), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3468,7 +3468,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAndCondition(::core::mem::transmute(&condition1), ::core::mem::transmute(&condition2)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3479,7 +3479,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAndConditionFromArray(::core::mem::transmute_copy(&conditions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3490,7 +3490,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAndConditionFromNativeArray(::core::mem::transmute_copy(&conditions), ::core::mem::transmute_copy(&conditioncount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3501,7 +3501,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateOrCondition(::core::mem::transmute(&condition1), ::core::mem::transmute(&condition2)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3512,7 +3512,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateOrConditionFromArray(::core::mem::transmute_copy(&conditions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3523,7 +3523,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateOrConditionFromNativeArray(::core::mem::transmute_copy(&conditions), ::core::mem::transmute_copy(&conditioncount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3534,7 +3534,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateNotCondition(::core::mem::transmute(&condition)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newcondition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newcondition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3595,7 +3595,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.IntNativeArrayToSafeArray(::core::mem::transmute_copy(&array), ::core::mem::transmute_copy(&arraycount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *safearray = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(safearray, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3611,7 +3611,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.RectToVariant(::core::mem::transmute(&rc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *var = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(var, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3622,7 +3622,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.VariantToRect(::core::mem::transmute(&var)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *rc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3638,7 +3638,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CreateProxyFactoryEntry(::core::mem::transmute(&factory)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *factoryentry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(factoryentry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3649,7 +3649,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyFactoryMapping() {
                 ::core::result::Result::Ok(ok__) => {
-                    *factorymapping = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(factorymapping, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3660,7 +3660,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyProgrammaticName(::core::mem::transmute_copy(&property)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3671,7 +3671,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.GetPatternProgrammaticName(::core::mem::transmute_copy(&pattern)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3692,7 +3692,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.CheckNotSupported(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnotsupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnotsupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3703,7 +3703,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ReservedNotSupportedValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *notsupportedvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(notsupportedvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3714,7 +3714,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ReservedMixedAttributeValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mixedattributevalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mixedattributevalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3725,7 +3725,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ElementFromIAccessible(::core::mem::transmute(&accessible), ::core::mem::transmute_copy(&childid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3736,7 +3736,7 @@ impl IUIAutomation_Vtbl {
             let this = (*this).get_impl();
             match this.ElementFromIAccessibleBuildCache(::core::mem::transmute(&accessible), ::core::mem::transmute_copy(&childid), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3824,7 +3824,7 @@ impl IUIAutomation2_Vtbl {
             let this = (*this).get_impl();
             match this.AutoSetFocus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *autosetfocus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(autosetfocus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3840,7 +3840,7 @@ impl IUIAutomation2_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectionTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timeout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timeout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3856,7 +3856,7 @@ impl IUIAutomation2_Vtbl {
             let this = (*this).get_impl();
             match this.TransactionTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timeout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timeout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3993,7 +3993,7 @@ impl IUIAutomation6_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEventHandlerGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *handlergroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(handlergroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4014,7 +4014,7 @@ impl IUIAutomation6_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectionRecoveryBehavior() {
                 ::core::result::Result::Ok(ok__) => {
-                    *connectionrecoverybehavioroptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(connectionrecoverybehavioroptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4030,7 +4030,7 @@ impl IUIAutomation6_Vtbl {
             let this = (*this).get_impl();
             match this.CoalesceEvents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *coalesceeventsoptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(coalesceeventsoptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4104,7 +4104,7 @@ impl IUIAutomationAndCondition_Vtbl {
             let this = (*this).get_impl();
             match this.ChildCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *childcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(childcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4120,7 +4120,7 @@ impl IUIAutomationAndCondition_Vtbl {
             let this = (*this).get_impl();
             match this.GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
-                    *childarray = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(childarray, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4160,7 +4160,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAnnotationTypeId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4171,7 +4171,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAnnotationTypeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4182,7 +4182,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAuthor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4193,7 +4193,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDateTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4204,7 +4204,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentTarget() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4215,7 +4215,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAnnotationTypeId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4226,7 +4226,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAnnotationTypeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4237,7 +4237,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAuthor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4248,7 +4248,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDateTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4259,7 +4259,7 @@ impl IUIAutomationAnnotationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedTarget() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4297,7 +4297,7 @@ impl IUIAutomationBoolCondition_Vtbl {
             let this = (*this).get_impl();
             match this.BooleanValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *boolval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(boolval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4338,7 +4338,7 @@ impl IUIAutomationCacheRequest_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *clonedrequest = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(clonedrequest, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4349,7 +4349,7 @@ impl IUIAutomationCacheRequest_Vtbl {
             let this = (*this).get_impl();
             match this.TreeScope() {
                 ::core::result::Result::Ok(ok__) => {
-                    *scope = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(scope, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4365,7 +4365,7 @@ impl IUIAutomationCacheRequest_Vtbl {
             let this = (*this).get_impl();
             match this.TreeFilter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4381,7 +4381,7 @@ impl IUIAutomationCacheRequest_Vtbl {
             let this = (*this).get_impl();
             match this.AutomationElementMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4450,7 +4450,7 @@ impl IUIAutomationCustomNavigationPattern_Vtbl {
             let this = (*this).get_impl();
             match this.Navigate(::core::mem::transmute_copy(&direction)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4480,7 +4480,7 @@ impl IUIAutomationDockPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDockPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4491,7 +4491,7 @@ impl IUIAutomationDockPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDockPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4529,7 +4529,7 @@ impl IUIAutomationDragPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsGrabbed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4540,7 +4540,7 @@ impl IUIAutomationDragPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsGrabbed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4551,7 +4551,7 @@ impl IUIAutomationDragPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDropEffect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4562,7 +4562,7 @@ impl IUIAutomationDragPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDropEffect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4573,7 +4573,7 @@ impl IUIAutomationDragPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDropEffects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4584,7 +4584,7 @@ impl IUIAutomationDragPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDropEffects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4595,7 +4595,7 @@ impl IUIAutomationDragPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentGrabbedItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4606,7 +4606,7 @@ impl IUIAutomationDragPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedGrabbedItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4645,7 +4645,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDropTargetEffect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4656,7 +4656,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDropTargetEffect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4667,7 +4667,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDropTargetEffects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4678,7 +4678,7 @@ impl IUIAutomationDropTargetPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDropTargetEffects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4796,7 +4796,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetRuntimeId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *runtimeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(runtimeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4807,7 +4807,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.FindFirst(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4818,7 +4818,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.FindAll(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4829,7 +4829,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.FindFirstBuildCache(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4840,7 +4840,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.FindAllBuildCache(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4851,7 +4851,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.BuildUpdatedCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *updatedelement = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(updatedelement, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4862,7 +4862,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentPropertyValue(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4873,7 +4873,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentPropertyValueEx(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&ignoredefaultvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4884,7 +4884,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedPropertyValue(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4895,7 +4895,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedPropertyValueEx(::core::mem::transmute_copy(&propertyid), ::core::mem::transmute_copy(&ignoredefaultvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4916,7 +4916,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentPattern(::core::mem::transmute_copy(&patternid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *patternobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(patternobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4927,7 +4927,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedPattern(::core::mem::transmute_copy(&patternid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *patternobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(patternobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4938,7 +4938,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *parent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4949,7 +4949,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedChildren() {
                 ::core::result::Result::Ok(ok__) => {
-                    *children = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(children, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4960,7 +4960,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentProcessId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4971,7 +4971,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentControlType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4982,7 +4982,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentLocalizedControlType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4993,7 +4993,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5004,7 +5004,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAcceleratorKey() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5015,7 +5015,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAccessKey() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5026,7 +5026,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentHasKeyboardFocus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5037,7 +5037,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsKeyboardFocusable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5048,7 +5048,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5059,7 +5059,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAutomationId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5070,7 +5070,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentClassName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5081,7 +5081,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentHelpText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5092,7 +5092,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCulture() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5103,7 +5103,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsControlElement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5114,7 +5114,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsContentElement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5125,7 +5125,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsPassword() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5136,7 +5136,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentNativeWindowHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5147,7 +5147,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentItemType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5158,7 +5158,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsOffscreen() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5169,7 +5169,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentOrientation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5180,7 +5180,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFrameworkId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5191,7 +5191,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsRequiredForForm() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5202,7 +5202,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentItemStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5213,7 +5213,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentBoundingRectangle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5224,7 +5224,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentLabeledBy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5235,7 +5235,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAriaRole() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5246,7 +5246,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAriaProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5257,7 +5257,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsDataValidForForm() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5268,7 +5268,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentControllerFor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5279,7 +5279,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDescribedBy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5290,7 +5290,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFlowsTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5301,7 +5301,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentProviderDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5312,7 +5312,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedProcessId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5323,7 +5323,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedControlType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5334,7 +5334,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedLocalizedControlType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5345,7 +5345,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5356,7 +5356,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAcceleratorKey() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5367,7 +5367,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAccessKey() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5378,7 +5378,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedHasKeyboardFocus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5389,7 +5389,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsKeyboardFocusable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5400,7 +5400,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5411,7 +5411,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAutomationId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5422,7 +5422,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedClassName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5433,7 +5433,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedHelpText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5444,7 +5444,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCulture() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5455,7 +5455,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsControlElement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5466,7 +5466,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsContentElement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5477,7 +5477,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsPassword() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5488,7 +5488,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedNativeWindowHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5499,7 +5499,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedItemType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5510,7 +5510,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsOffscreen() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5521,7 +5521,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedOrientation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5532,7 +5532,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFrameworkId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5543,7 +5543,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsRequiredForForm() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5554,7 +5554,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedItemStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5565,7 +5565,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedBoundingRectangle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5576,7 +5576,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedLabeledBy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5587,7 +5587,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAriaRole() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5598,7 +5598,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAriaProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5609,7 +5609,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsDataValidForForm() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5620,7 +5620,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedControllerFor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5631,7 +5631,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDescribedBy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5642,7 +5642,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFlowsTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5653,7 +5653,7 @@ impl IUIAutomationElement_Vtbl {
             let this = (*this).get_impl();
             match this.CachedProviderDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5773,7 +5773,7 @@ impl IUIAutomationElement2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentOptimizeForVisualContent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5784,7 +5784,7 @@ impl IUIAutomationElement2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedOptimizeForVisualContent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5795,7 +5795,7 @@ impl IUIAutomationElement2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentLiveSetting() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5806,7 +5806,7 @@ impl IUIAutomationElement2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedLiveSetting() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5817,7 +5817,7 @@ impl IUIAutomationElement2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFlowsFrom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5828,7 +5828,7 @@ impl IUIAutomationElement2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFlowsFrom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5869,7 +5869,7 @@ impl IUIAutomationElement3_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsPeripheral() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5880,7 +5880,7 @@ impl IUIAutomationElement3_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsPeripheral() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5920,7 +5920,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentPositionInSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5931,7 +5931,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentSizeOfSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5942,7 +5942,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5953,7 +5953,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5964,7 +5964,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5975,7 +5975,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CachedPositionInSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5986,7 +5986,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CachedSizeOfSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5997,7 +5997,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CachedLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6008,7 +6008,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6019,7 +6019,7 @@ impl IUIAutomationElement4_Vtbl {
             let this = (*this).get_impl();
             match this.CachedAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6060,7 +6060,7 @@ impl IUIAutomationElement5_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentLandmarkType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6071,7 +6071,7 @@ impl IUIAutomationElement5_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentLocalizedLandmarkType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6082,7 +6082,7 @@ impl IUIAutomationElement5_Vtbl {
             let this = (*this).get_impl();
             match this.CachedLandmarkType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6093,7 +6093,7 @@ impl IUIAutomationElement5_Vtbl {
             let this = (*this).get_impl();
             match this.CachedLocalizedLandmarkType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6126,7 +6126,7 @@ impl IUIAutomationElement6_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFullDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6137,7 +6137,7 @@ impl IUIAutomationElement6_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFullDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6171,7 +6171,7 @@ impl IUIAutomationElement7_Vtbl {
             let this = (*this).get_impl();
             match this.FindFirstWithOptions(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute_copy(&traversaloptions), ::core::mem::transmute(&root)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6182,7 +6182,7 @@ impl IUIAutomationElement7_Vtbl {
             let this = (*this).get_impl();
             match this.FindAllWithOptions(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute_copy(&traversaloptions), ::core::mem::transmute(&root)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6193,7 +6193,7 @@ impl IUIAutomationElement7_Vtbl {
             let this = (*this).get_impl();
             match this.FindFirstWithOptionsBuildCache(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute(&cacherequest), ::core::mem::transmute_copy(&traversaloptions), ::core::mem::transmute(&root)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6204,7 +6204,7 @@ impl IUIAutomationElement7_Vtbl {
             let this = (*this).get_impl();
             match this.FindAllWithOptionsBuildCache(::core::mem::transmute_copy(&scope), ::core::mem::transmute(&condition), ::core::mem::transmute(&cacherequest), ::core::mem::transmute_copy(&traversaloptions), ::core::mem::transmute(&root)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6215,7 +6215,7 @@ impl IUIAutomationElement7_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentMetadataValue(::core::mem::transmute_copy(&targetid), ::core::mem::transmute_copy(&metadataid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *returnval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(returnval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6249,7 +6249,7 @@ impl IUIAutomationElement8_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentHeadingLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6260,7 +6260,7 @@ impl IUIAutomationElement8_Vtbl {
             let this = (*this).get_impl();
             match this.CachedHeadingLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6291,7 +6291,7 @@ impl IUIAutomationElement9_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsDialog() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6302,7 +6302,7 @@ impl IUIAutomationElement9_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsDialog() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6330,7 +6330,7 @@ impl IUIAutomationElementArray_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *length = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(length, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6341,7 +6341,7 @@ impl IUIAutomationElementArray_Vtbl {
             let this = (*this).get_impl();
             match this.GetElement(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6460,7 +6460,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentExpandCollapseState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6471,7 +6471,7 @@ impl IUIAutomationExpandCollapsePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedExpandCollapseState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6526,7 +6526,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentContainingGrid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6537,7 +6537,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentRow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6548,7 +6548,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentColumn() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6559,7 +6559,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentRowSpan() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6570,7 +6570,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentColumnSpan() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6581,7 +6581,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedContainingGrid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6592,7 +6592,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedRow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6603,7 +6603,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedColumn() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6614,7 +6614,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedRowSpan() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6625,7 +6625,7 @@ impl IUIAutomationGridItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedColumnSpan() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6664,7 +6664,7 @@ impl IUIAutomationGridPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetItem(::core::mem::transmute_copy(&row), ::core::mem::transmute_copy(&column)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6675,7 +6675,7 @@ impl IUIAutomationGridPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentRowCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6686,7 +6686,7 @@ impl IUIAutomationGridPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentColumnCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6697,7 +6697,7 @@ impl IUIAutomationGridPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedRowCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6708,7 +6708,7 @@ impl IUIAutomationGridPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedColumnCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6758,7 +6758,7 @@ impl IUIAutomationItemContainerPattern_Vtbl {
             let this = (*this).get_impl();
             match this.FindItemByProperty(::core::mem::transmute(&pstartafter), ::core::mem::transmute_copy(&propertyid), ::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfound = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfound, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6822,7 +6822,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentChildId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6833,7 +6833,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6844,7 +6844,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6855,7 +6855,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6866,7 +6866,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentRole() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwrole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwrole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6877,7 +6877,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6888,7 +6888,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentHelp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszhelp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszhelp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6899,7 +6899,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentKeyboardShortcut() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszkeyboardshortcut = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszkeyboardshortcut, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6910,7 +6910,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselectedchildren = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselectedchildren, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6921,7 +6921,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentDefaultAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdefaultaction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdefaultaction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6932,7 +6932,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedChildId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6943,7 +6943,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6954,7 +6954,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6965,7 +6965,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6976,7 +6976,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedRole() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwrole = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwrole, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6987,7 +6987,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6998,7 +6998,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedHelp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszhelp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszhelp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7009,7 +7009,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedKeyboardShortcut() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszkeyboardshortcut = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszkeyboardshortcut, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7020,7 +7020,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarselectedchildren = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarselectedchildren, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7031,7 +7031,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedDefaultAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdefaultaction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdefaultaction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7042,7 +7042,7 @@ impl IUIAutomationLegacyIAccessiblePattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetIAccessible() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppaccessible = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppaccessible, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7099,7 +7099,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetViewName(::core::mem::transmute_copy(&view)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7115,7 +7115,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7126,7 +7126,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSupportedViews() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7137,7 +7137,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCurrentView() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7148,7 +7148,7 @@ impl IUIAutomationMultipleViewPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedSupportedViews() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7179,7 +7179,7 @@ impl IUIAutomationNotCondition_Vtbl {
             let this = (*this).get_impl();
             match this.GetChild() {
                 ::core::result::Result::Ok(ok__) => {
-                    *condition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(condition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7222,7 +7222,7 @@ impl IUIAutomationObjectModelPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetUnderlyingObjectModel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7250,7 +7250,7 @@ impl IUIAutomationOrCondition_Vtbl {
             let this = (*this).get_impl();
             match this.ChildCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *childcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(childcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7266,7 +7266,7 @@ impl IUIAutomationOrCondition_Vtbl {
             let this = (*this).get_impl();
             match this.GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
-                    *childarray = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(childarray, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7295,7 +7295,7 @@ impl IUIAutomationPatternHandler_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClientWrapper(::core::mem::transmute(&ppatterninstance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclientwrapper = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclientwrapper, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7385,7 +7385,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7396,7 +7396,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7407,7 +7407,7 @@ impl IUIAutomationPropertyCondition_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyConditionFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7439,7 +7439,7 @@ impl IUIAutomationProxyFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateProvider(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute_copy(&idobject), ::core::mem::transmute_copy(&idchild)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *provider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(provider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7450,7 +7450,7 @@ impl IUIAutomationProxyFactory_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyFactoryId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *factoryid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(factoryid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7492,7 +7492,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyFactory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *factory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(factory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7503,7 +7503,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             let this = (*this).get_impl();
             match this.ClassName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *classname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(classname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7514,7 +7514,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             let this = (*this).get_impl();
             match this.ImageName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *imagename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(imagename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7525,7 +7525,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             let this = (*this).get_impl();
             match this.AllowSubstringMatch() {
                 ::core::result::Result::Ok(ok__) => {
-                    *allowsubstringmatch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(allowsubstringmatch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7536,7 +7536,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             let this = (*this).get_impl();
             match this.CanCheckBaseClass() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cancheckbaseclass = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cancheckbaseclass, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7547,7 +7547,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             let this = (*this).get_impl();
             match this.NeedsAdviseEvents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *adviseevents = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(adviseevents, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7588,7 +7588,7 @@ impl IUIAutomationProxyFactoryEntry_Vtbl {
             let this = (*this).get_impl();
             match this.GetWinEventsForAutomationEvent(::core::mem::transmute_copy(&eventid), ::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *winevents = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(winevents, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7637,7 +7637,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7648,7 +7648,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             let this = (*this).get_impl();
             match this.GetTable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *table = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(table, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7659,7 +7659,7 @@ impl IUIAutomationProxyFactoryMapping_Vtbl {
             let this = (*this).get_impl();
             match this.GetEntry(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *entry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(entry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7743,7 +7743,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7754,7 +7754,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7765,7 +7765,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentMaximum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7776,7 +7776,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentMinimum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7787,7 +7787,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentLargeChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7798,7 +7798,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentSmallChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7809,7 +7809,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7820,7 +7820,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7831,7 +7831,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedMaximum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7842,7 +7842,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedMinimum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7853,7 +7853,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedLargeChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7864,7 +7864,7 @@ impl IUIAutomationRangeValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedSmallChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7907,7 +7907,7 @@ impl IUIAutomationRegistrar_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterProperty(::core::mem::transmute_copy(&property)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7918,7 +7918,7 @@ impl IUIAutomationRegistrar_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterEvent(::core::mem::transmute_copy(&event)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *eventid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eventid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7994,7 +7994,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentHorizontalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8005,7 +8005,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentVerticalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8016,7 +8016,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentHorizontalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8027,7 +8027,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentVerticalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8038,7 +8038,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentHorizontallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8049,7 +8049,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentVerticallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8060,7 +8060,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedHorizontalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8071,7 +8071,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedVerticalScrollPercent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8082,7 +8082,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedHorizontalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8093,7 +8093,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedVerticalViewSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8104,7 +8104,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedHorizontallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8115,7 +8115,7 @@ impl IUIAutomationScrollPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedVerticallyScrollable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8178,7 +8178,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsSelected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8189,7 +8189,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentSelectionContainer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8200,7 +8200,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsSelected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8211,7 +8211,7 @@ impl IUIAutomationSelectionItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedSelectionContainer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8251,7 +8251,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8262,7 +8262,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCanSelectMultiple() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8273,7 +8273,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsSelectionRequired() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8284,7 +8284,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8295,7 +8295,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCanSelectMultiple() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8306,7 +8306,7 @@ impl IUIAutomationSelectionPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsSelectionRequired() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8347,7 +8347,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFirstSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8358,7 +8358,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentLastSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8369,7 +8369,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCurrentSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8380,7 +8380,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8391,7 +8391,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFirstSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8402,7 +8402,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedLastSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8413,7 +8413,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCurrentSelectedItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8424,7 +8424,7 @@ impl IUIAutomationSelectionPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8465,7 +8465,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFormula() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8476,7 +8476,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8487,7 +8487,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8498,7 +8498,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFormula() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8509,7 +8509,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedAnnotationObjects() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8520,7 +8520,7 @@ impl IUIAutomationSpreadsheetItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedAnnotationTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8554,7 +8554,7 @@ impl IUIAutomationSpreadsheetPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8618,7 +8618,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentStyleId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8629,7 +8629,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentStyleName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8640,7 +8640,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFillColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8651,7 +8651,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFillPatternStyle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8662,7 +8662,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentShape() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8673,7 +8673,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentFillPatternColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8684,7 +8684,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8700,7 +8700,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedStyleId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8711,7 +8711,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedStyleName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8722,7 +8722,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFillColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8733,7 +8733,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFillPatternStyle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8744,7 +8744,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedShape() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8755,7 +8755,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFillPatternColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8766,7 +8766,7 @@ impl IUIAutomationStylesPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedExtendedProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8842,7 +8842,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentRowHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8853,7 +8853,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentColumnHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8864,7 +8864,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedRowHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8875,7 +8875,7 @@ impl IUIAutomationTableItemPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedColumnHeaderItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8909,7 +8909,7 @@ impl IUIAutomationTablePattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentRowHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8920,7 +8920,7 @@ impl IUIAutomationTablePattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentColumnHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8931,7 +8931,7 @@ impl IUIAutomationTablePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentRowOrColumnMajor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8942,7 +8942,7 @@ impl IUIAutomationTablePattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedRowHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8953,7 +8953,7 @@ impl IUIAutomationTablePattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetCachedColumnHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8964,7 +8964,7 @@ impl IUIAutomationTablePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedRowOrColumnMajor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8996,7 +8996,7 @@ impl IUIAutomationTextChildPattern_Vtbl {
             let this = (*this).get_impl();
             match this.TextContainer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *container = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(container, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9007,7 +9007,7 @@ impl IUIAutomationTextChildPattern_Vtbl {
             let this = (*this).get_impl();
             match this.TextRange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *range = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(range, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9038,7 +9038,7 @@ impl IUIAutomationTextEditPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveComposition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *range = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(range, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9049,7 +9049,7 @@ impl IUIAutomationTextEditPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetConversionTarget() {
                 ::core::result::Result::Ok(ok__) => {
-                    *range = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(range, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9107,7 +9107,7 @@ impl IUIAutomationTextPattern_Vtbl {
             let this = (*this).get_impl();
             match this.RangeFromPoint(::core::mem::transmute(&pt)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *range = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(range, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9118,7 +9118,7 @@ impl IUIAutomationTextPattern_Vtbl {
             let this = (*this).get_impl();
             match this.RangeFromChild(::core::mem::transmute(&child)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *range = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(range, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9129,7 +9129,7 @@ impl IUIAutomationTextPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ranges = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ranges, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9140,7 +9140,7 @@ impl IUIAutomationTextPattern_Vtbl {
             let this = (*this).get_impl();
             match this.GetVisibleRanges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ranges = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ranges, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9151,7 +9151,7 @@ impl IUIAutomationTextPattern_Vtbl {
             let this = (*this).get_impl();
             match this.DocumentRange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *range = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(range, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9162,7 +9162,7 @@ impl IUIAutomationTextPattern_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedTextSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *supportedtextselection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(supportedtextselection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9197,7 +9197,7 @@ impl IUIAutomationTextPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.RangeFromAnnotation(::core::mem::transmute(&annotation)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *range = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(range, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9249,7 +9249,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *clonedrange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(clonedrange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9260,7 +9260,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.Compare(::core::mem::transmute(&range)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *aresame = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(aresame, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9271,7 +9271,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.CompareEndpoints(::core::mem::transmute_copy(&srcendpoint), ::core::mem::transmute(&range), ::core::mem::transmute_copy(&targetendpoint)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *compvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(compvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9287,7 +9287,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.FindAttribute(::core::mem::transmute_copy(&attr), ::core::mem::transmute(&val), ::core::mem::transmute_copy(&backward)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9298,7 +9298,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.FindText(::core::mem::transmute(&text), ::core::mem::transmute_copy(&backward), ::core::mem::transmute_copy(&ignorecase)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *found = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(found, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9309,7 +9309,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetAttributeValue(::core::mem::transmute_copy(&attr)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9320,7 +9320,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetBoundingRectangles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *boundingrects = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(boundingrects, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9331,7 +9331,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnclosingElement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enclosingelement = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enclosingelement, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9342,7 +9342,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetText(::core::mem::transmute_copy(&maxlength)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *text = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(text, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9353,7 +9353,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.Move(::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *moved = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moved, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9364,7 +9364,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.MoveEndpointByUnit(::core::mem::transmute_copy(&endpoint), ::core::mem::transmute_copy(&unit), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *moved = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(moved, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9400,7 +9400,7 @@ impl IUIAutomationTextRange_Vtbl {
             let this = (*this).get_impl();
             match this.GetChildren() {
                 ::core::result::Result::Ok(ok__) => {
-                    *children = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(children, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9468,7 +9468,7 @@ impl IUIAutomationTextRange3_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnclosingElementBuildCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *enclosingelement = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enclosingelement, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9479,7 +9479,7 @@ impl IUIAutomationTextRange3_Vtbl {
             let this = (*this).get_impl();
             match this.GetChildrenBuildCache(::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *children = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(children, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9490,7 +9490,7 @@ impl IUIAutomationTextRange3_Vtbl {
             let this = (*this).get_impl();
             match this.GetAttributeValues(::core::mem::transmute_copy(&attributeids), ::core::mem::transmute_copy(&attributeidcount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *attributevalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(attributevalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9519,7 +9519,7 @@ impl IUIAutomationTextRangeArray_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *length = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(length, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9530,7 +9530,7 @@ impl IUIAutomationTextRangeArray_Vtbl {
             let this = (*this).get_impl();
             match this.GetElement(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *element = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(element, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9564,7 +9564,7 @@ impl IUIAutomationTogglePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentToggleState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9575,7 +9575,7 @@ impl IUIAutomationTogglePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedToggleState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9629,7 +9629,7 @@ impl IUIAutomationTransformPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCanMove() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9640,7 +9640,7 @@ impl IUIAutomationTransformPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCanResize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9651,7 +9651,7 @@ impl IUIAutomationTransformPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCanRotate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9662,7 +9662,7 @@ impl IUIAutomationTransformPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCanMove() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9673,7 +9673,7 @@ impl IUIAutomationTransformPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCanResize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9684,7 +9684,7 @@ impl IUIAutomationTransformPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCanRotate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9740,7 +9740,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCanZoom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9751,7 +9751,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCanZoom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9762,7 +9762,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentZoomLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9773,7 +9773,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedZoomLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9784,7 +9784,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentZoomMinimum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9795,7 +9795,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedZoomMinimum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9806,7 +9806,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentZoomMaximum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9817,7 +9817,7 @@ impl IUIAutomationTransformPattern2_Vtbl {
             let this = (*this).get_impl();
             match this.CachedZoomMaximum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9864,7 +9864,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetParentElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *parent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9875,7 +9875,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetFirstChildElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *first = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(first, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9886,7 +9886,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastChildElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *last = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(last, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9897,7 +9897,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetNextSiblingElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *next = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(next, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9908,7 +9908,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreviousSiblingElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *previous = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(previous, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9919,7 +9919,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.NormalizeElement(::core::mem::transmute(&element)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *normalized = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(normalized, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9930,7 +9930,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetParentElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *parent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9941,7 +9941,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetFirstChildElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *first = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(first, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9952,7 +9952,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastChildElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *last = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(last, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9963,7 +9963,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetNextSiblingElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *next = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(next, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9974,7 +9974,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreviousSiblingElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *previous = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(previous, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9985,7 +9985,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.NormalizeElementBuildCache(::core::mem::transmute(&element), ::core::mem::transmute(&cacherequest)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *normalized = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(normalized, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -9996,7 +9996,7 @@ impl IUIAutomationTreeWalker_Vtbl {
             let this = (*this).get_impl();
             match this.Condition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *condition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(condition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10046,7 +10046,7 @@ impl IUIAutomationValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10057,7 +10057,7 @@ impl IUIAutomationValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10068,7 +10068,7 @@ impl IUIAutomationValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedValue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10079,7 +10079,7 @@ impl IUIAutomationValuePattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10148,7 +10148,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.WaitForInputIdle(::core::mem::transmute_copy(&milliseconds)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *success = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(success, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10164,7 +10164,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCanMaximize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10175,7 +10175,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentCanMinimize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10186,7 +10186,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsModal() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10197,7 +10197,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentIsTopmost() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10208,7 +10208,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentWindowVisualState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10219,7 +10219,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentWindowInteractionState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10230,7 +10230,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCanMaximize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10241,7 +10241,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedCanMinimize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10252,7 +10252,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsModal() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10263,7 +10263,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedIsTopmost() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10274,7 +10274,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedWindowVisualState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10285,7 +10285,7 @@ impl IUIAutomationWindowPattern_Vtbl {
             let this = (*this).get_impl();
             match this.CachedWindowInteractionState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10335,7 +10335,7 @@ impl IValueProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10346,7 +10346,7 @@ impl IValueProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10412,7 +10412,7 @@ impl IWindowProvider_Vtbl {
             let this = (*this).get_impl();
             match this.WaitForInputIdle(::core::mem::transmute_copy(&milliseconds)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10423,7 +10423,7 @@ impl IWindowProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CanMaximize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10434,7 +10434,7 @@ impl IWindowProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CanMinimize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10445,7 +10445,7 @@ impl IWindowProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsModal() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10456,7 +10456,7 @@ impl IWindowProvider_Vtbl {
             let this = (*this).get_impl();
             match this.WindowVisualState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10467,7 +10467,7 @@ impl IWindowProvider_Vtbl {
             let this = (*this).get_impl();
             match this.WindowInteractionState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -10478,7 +10478,7 @@ impl IWindowProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsTopmost() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

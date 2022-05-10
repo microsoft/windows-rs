@@ -10,7 +10,7 @@ impl IFindSimilarResults_Vtbl {
             let this = (*this).get_impl();
             match this.GetSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -67,7 +67,7 @@ impl IRdcFileReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filesize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filesize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -83,7 +83,7 @@ impl IRdcFileReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilePosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offsetfromstart = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offsetfromstart, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -116,7 +116,7 @@ impl IRdcFileWriter_Vtbl {
             let this = (*this).get_impl();
             match this.Write(::core::mem::transmute_copy(&offsetfilestart), ::core::mem::transmute_copy(&bytestowrite)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *buffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(buffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -158,7 +158,7 @@ impl IRdcGenerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetGeneratorParameters(::core::mem::transmute_copy(&level)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *igeneratorparameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(igeneratorparameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetHorizonSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *horizonsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(horizonsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -209,7 +209,7 @@ impl IRdcGeneratorFilterMaxParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetHashWindowSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hashwindowsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hashwindowsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -246,7 +246,7 @@ impl IRdcGeneratorParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetGeneratorParametersType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *parameterstype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parameterstype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -262,7 +262,7 @@ impl IRdcGeneratorParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetSerializeSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -302,7 +302,7 @@ impl IRdcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.ComputeDefaultRecursionDepth(::core::mem::transmute_copy(&filesize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *depth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(depth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IRdcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGeneratorParameters(::core::mem::transmute_copy(&parameterstype), ::core::mem::transmute_copy(&level)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *igeneratorparameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(igeneratorparameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -324,7 +324,7 @@ impl IRdcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.OpenGeneratorParameters(::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&parametersblob)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *igeneratorparameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(igeneratorparameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl IRdcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGenerator(::core::mem::transmute_copy(&depth), ::core::mem::transmute_copy(&igeneratorparametersarray)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *igenerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(igenerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl IRdcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateComparator(::core::mem::transmute(&iseedsignaturesfile), ::core::mem::transmute_copy(&comparatorbuffersize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *icomparator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(icomparator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -357,7 +357,7 @@ impl IRdcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSignatureReader(::core::mem::transmute(&ifilereader)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isignaturereader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isignaturereader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -398,7 +398,7 @@ impl IRdcSignatureReader_Vtbl {
             let this = (*this).get_impl();
             match this.ReadHeader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rdc_errorcode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rdc_errorcode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -436,7 +436,7 @@ impl IRdcSimilarityGenerator_Vtbl {
             let this = (*this).get_impl();
             match this.Results() {
                 ::core::result::Result::Ok(ok__) => {
-                    *similaritydata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(similaritydata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -472,7 +472,7 @@ impl ISimilarity_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTable(::core::mem::transmute(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor), ::core::mem::transmute_copy(&recordsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -483,7 +483,7 @@ impl ISimilarity_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTableIndirect(::core::mem::transmute(&mapping), ::core::mem::transmute(&fileidfile), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&recordsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -504,7 +504,7 @@ impl ISimilarity_Vtbl {
             let this = (*this).get_impl();
             match this.FindSimilarFileId(::core::mem::transmute_copy(&similaritydata), ::core::mem::transmute_copy(&numberofmatchesrequired), ::core::mem::transmute_copy(&resultssize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *findsimilarresults = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(findsimilarresults, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -520,7 +520,7 @@ impl ISimilarity_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecordCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recordcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recordcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -561,7 +561,7 @@ impl ISimilarityFileIdTable_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTable(::core::mem::transmute(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor), ::core::mem::transmute_copy(&recordsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -572,7 +572,7 @@ impl ISimilarityFileIdTable_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTableIndirect(::core::mem::transmute(&fileidfile), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&recordsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -588,7 +588,7 @@ impl ISimilarityFileIdTable_Vtbl {
             let this = (*this).get_impl();
             match this.Append(::core::mem::transmute_copy(&similarityfileid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *similarityfileindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(similarityfileindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -599,7 +599,7 @@ impl ISimilarityFileIdTable_Vtbl {
             let this = (*this).get_impl();
             match this.Lookup(::core::mem::transmute_copy(&similarityfileindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *similarityfileid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(similarityfileid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -615,7 +615,7 @@ impl ISimilarityFileIdTable_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecordCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *recordcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(recordcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl ISimilarityTraitsMappedView_Vtbl {
             let this = (*this).get_impl();
             match this.Get(::core::mem::transmute_copy(&index), ::core::mem::transmute_copy(&dirty), ::core::mem::transmute_copy(&numelements)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *viewinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(viewinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -750,7 +750,7 @@ impl ISimilarityTraitsMapping_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filesize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filesize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -761,7 +761,7 @@ impl ISimilarityTraitsMapping_Vtbl {
             let this = (*this).get_impl();
             match this.OpenMapping(::core::mem::transmute_copy(&accessmode), ::core::mem::transmute_copy(&begin), ::core::mem::transmute_copy(&end)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *actualend = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(actualend, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -772,7 +772,7 @@ impl ISimilarityTraitsMapping_Vtbl {
             let this = (*this).get_impl();
             match this.ResizeMapping(::core::mem::transmute_copy(&accessmode), ::core::mem::transmute_copy(&begin), ::core::mem::transmute_copy(&end)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *actualend = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(actualend, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -788,7 +788,7 @@ impl ISimilarityTraitsMapping_Vtbl {
             let this = (*this).get_impl();
             match this.CreateView(::core::mem::transmute_copy(&minimummappedpages), ::core::mem::transmute_copy(&accessmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *mappedview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mappedview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -829,7 +829,7 @@ impl ISimilarityTraitsTable_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTable(::core::mem::transmute(&path), ::core::mem::transmute_copy(&truncate), ::core::mem::transmute_copy(&securitydescriptor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -840,7 +840,7 @@ impl ISimilarityTraitsTable_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTableIndirect(::core::mem::transmute(&mapping), ::core::mem::transmute_copy(&truncate)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnew = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnew, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -866,7 +866,7 @@ impl ISimilarityTraitsTable_Vtbl {
             let this = (*this).get_impl();
             match this.BeginDump() {
                 ::core::result::Result::Ok(ok__) => {
-                    *similaritytabledumpstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(similaritytabledumpstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -877,7 +877,7 @@ impl ISimilarityTraitsTable_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *fileindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(fileindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -30,7 +30,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -71,7 +71,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetParamInfo(::core::mem::transmute_copy(&iparam)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -87,7 +87,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetParam(::core::mem::transmute_copy(&iparam)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -98,7 +98,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match this.Copy(::core::mem::transmute_copy(&copycontrol), ::core::mem::transmute(&pwalker)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppframe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppframe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match this.GetMarshalSizeMax(::core::mem::transmute_copy(&pmshlcontext), ::core::mem::transmute_copy(&mshlflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbbufferneeded = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbbufferneeded, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -140,7 +140,7 @@ impl ICallFrame_Vtbl {
             let this = (*this).get_impl();
             match this.Unmarshal(::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&cbbuffer), ::core::mem::transmute_copy(&datarep), ::core::mem::transmute_copy(&pcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbunmarshalled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbunmarshalled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -247,7 +247,7 @@ impl ICallIndirect_Vtbl {
             let this = (*this).get_impl();
             match this.GetStackSize(::core::mem::transmute_copy(&imethod)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *cbargs = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cbargs, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -290,7 +290,7 @@ impl ICallInterceptor_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegisteredSink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl IInterfaceRelated_Vtbl {
             let this = (*this).get_impl();
             match this.GetIID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *piid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(piid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

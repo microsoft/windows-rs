@@ -13,7 +13,7 @@ impl INumberFormatter_Vtbl {
             let this = (*this).get_impl();
             match this.FormatInt(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -25,7 +25,7 @@ impl INumberFormatter_Vtbl {
             let this = (*this).get_impl();
             match this.FormatUInt(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl INumberFormatter_Vtbl {
             let this = (*this).get_impl();
             match this.FormatDouble(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -70,7 +70,7 @@ impl INumberFormatter2_Vtbl {
             let this = (*this).get_impl();
             match this.FormatInt(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -82,7 +82,7 @@ impl INumberFormatter2_Vtbl {
             let this = (*this).get_impl();
             match this.FormatUInt(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -94,7 +94,7 @@ impl INumberFormatter2_Vtbl {
             let this = (*this).get_impl();
             match this.FormatDouble(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -141,7 +141,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.Languages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -153,7 +153,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GeographicRegion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -165,7 +165,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.IntegerDigits() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -182,7 +182,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.FractionDigits() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -199,7 +199,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.IsGrouped() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -216,7 +216,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.IsDecimalPointAlwaysDisplayed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -233,7 +233,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.NumeralSystem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -250,7 +250,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.ResolvedLanguage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -262,7 +262,7 @@ impl INumberFormatterOptions_Vtbl {
             let this = (*this).get_impl();
             match this.ResolvedGeographicRegion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -309,7 +309,7 @@ impl INumberParser_Vtbl {
             let this = (*this).get_impl();
             match this.ParseInt(::core::mem::transmute(&text)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -321,7 +321,7 @@ impl INumberParser_Vtbl {
             let this = (*this).get_impl();
             match this.ParseUInt(::core::mem::transmute(&text)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -333,7 +333,7 @@ impl INumberParser_Vtbl {
             let this = (*this).get_impl();
             match this.ParseDouble(::core::mem::transmute(&text)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -369,7 +369,7 @@ impl INumberRounder_Vtbl {
             let this = (*this).get_impl();
             match this.RoundInt32(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -381,7 +381,7 @@ impl INumberRounder_Vtbl {
             let this = (*this).get_impl();
             match this.RoundUInt32(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -393,7 +393,7 @@ impl INumberRounder_Vtbl {
             let this = (*this).get_impl();
             match this.RoundInt64(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -405,7 +405,7 @@ impl INumberRounder_Vtbl {
             let this = (*this).get_impl();
             match this.RoundUInt64(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -417,7 +417,7 @@ impl INumberRounder_Vtbl {
             let this = (*this).get_impl();
             match this.RoundSingle(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -429,7 +429,7 @@ impl INumberRounder_Vtbl {
             let this = (*this).get_impl();
             match this.RoundDouble(value) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -464,7 +464,7 @@ impl INumberRounderOption_Vtbl {
             let this = (*this).get_impl();
             match this.NumberRounder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -500,7 +500,7 @@ impl ISignedZeroOption_Vtbl {
             let this = (*this).get_impl();
             match this.IsZeroSigned() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -536,7 +536,7 @@ impl ISignificantDigitsOption_Vtbl {
             let this = (*this).get_impl();
             match this.SignificantDigits() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

@@ -30,7 +30,7 @@ impl IOpcCertificateEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl IOpcCertificateSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *certificateenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(certificateenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignatureId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signatureid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signatureid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -135,7 +135,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignaturePartName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signaturepartname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signaturepartname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -146,7 +146,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignatureMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signaturemethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signaturemethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -167,7 +167,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignaturePartReferenceEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *partreferenceenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partreferenceenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -178,7 +178,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignatureRelationshipReferenceEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipreferenceenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipreferenceenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -189,7 +189,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetSigningTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signingtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signingtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -205,7 +205,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageObjectReference() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageobjectreference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageobjectreference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -216,7 +216,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetCertificateEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *certificateenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(certificateenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -227,7 +227,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetCustomReferenceEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *customreferenceenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(customreferenceenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -238,7 +238,7 @@ impl IOpcDigitalSignature_Vtbl {
             let this = (*this).get_impl();
             match this.GetCustomObjectEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *customobjectenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(customobjectenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -300,7 +300,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasprevious = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -311,7 +311,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *digitalsignature = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(digitalsignature, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -322,7 +322,7 @@ impl IOpcDigitalSignatureEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -361,7 +361,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignatureOriginPartName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signatureoriginpartname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signatureoriginpartname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -377,7 +377,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignatureEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signatureenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signatureenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -393,7 +393,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSigningOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signingoptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signingoptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -409,7 +409,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match this.Sign(::core::mem::transmute_copy(&certificate), ::core::mem::transmute(&signingoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *digitalsignature = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(digitalsignature, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -420,7 +420,7 @@ impl IOpcDigitalSignatureManager_Vtbl {
             let this = (*this).get_impl();
             match this.ReplaceSignatureXml(::core::mem::transmute(&signaturepartname), ::core::mem::transmute_copy(&newsignaturexml), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *digitalsignature = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(digitalsignature, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -462,7 +462,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePackageRootUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *rooturi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(rooturi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -473,7 +473,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePartUri(::core::mem::transmute(&pwzuri)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *parturi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(parturi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -484,7 +484,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStreamOnFile(::core::mem::transmute(&filename), ::core::mem::transmute_copy(&iomode), ::core::mem::transmute_copy(&securityattributes), ::core::mem::transmute_copy(&dwflagsandattributes)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *stream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(stream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -495,7 +495,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePackage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *package = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(package, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -506,7 +506,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match this.ReadPackageFromStream(::core::mem::transmute(&stream), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *package = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(package, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -522,7 +522,7 @@ impl IOpcFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDigitalSignatureManager(::core::mem::transmute(&package)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *signaturemanager = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signaturemanager, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl IOpcPackage_Vtbl {
             let this = (*this).get_impl();
             match this.GetPartSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *partset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -566,7 +566,7 @@ impl IOpcPackage_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelationshipSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -600,7 +600,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelationshipSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -611,7 +611,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *stream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(stream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -622,7 +622,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -633,7 +633,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *contenttype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contenttype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -644,7 +644,7 @@ impl IOpcPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetCompressionOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *compressionoptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(compressionoptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -680,7 +680,7 @@ impl IOpcPartEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -691,7 +691,7 @@ impl IOpcPartEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasprevious = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -702,7 +702,7 @@ impl IOpcPartEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *part = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(part, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -713,7 +713,7 @@ impl IOpcPartEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -749,7 +749,7 @@ impl IOpcPartSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetPart(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *part = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(part, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -760,7 +760,7 @@ impl IOpcPartSet_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePart(::core::mem::transmute(&name), ::core::mem::transmute(&contenttype), ::core::mem::transmute_copy(&compressionoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *part = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(part, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -776,7 +776,7 @@ impl IOpcPartSet_Vtbl {
             let this = (*this).get_impl();
             match this.PartExists(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *partexists = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partexists, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -787,7 +787,7 @@ impl IOpcPartSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *partenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -822,7 +822,7 @@ impl IOpcPartUri_Vtbl {
             let this = (*this).get_impl();
             match this.ComparePartUri(::core::mem::transmute(&parturi)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *comparisonresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(comparisonresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -833,7 +833,7 @@ impl IOpcPartUri_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sourceuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sourceuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -844,7 +844,7 @@ impl IOpcPartUri_Vtbl {
             let this = (*this).get_impl();
             match this.IsRelationshipsPartUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isrelationshipuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isrelationshipuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -879,7 +879,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipidentifier = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipidentifier, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -890,7 +890,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelationshipType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshiptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshiptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -901,7 +901,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sourceuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sourceuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -912,7 +912,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match this.GetTargetUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *targeturi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(targeturi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -923,7 +923,7 @@ impl IOpcRelationship_Vtbl {
             let this = (*this).get_impl();
             match this.GetTargetMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *targetmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(targetmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -959,7 +959,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -970,7 +970,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasprevious = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationship = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationship, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -992,7 +992,7 @@ impl IOpcRelationshipEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1022,7 +1022,7 @@ impl IOpcRelationshipSelector_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelectorType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *selector = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(selector, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1033,7 +1033,7 @@ impl IOpcRelationshipSelector_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelectionCriterion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *selectioncriterion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(selectioncriterion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1066,7 +1066,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1077,7 +1077,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasprevious = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1088,7 +1088,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipselector = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipselector, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1099,7 +1099,7 @@ impl IOpcRelationshipSelectorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1130,7 +1130,7 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute_copy(&selector), ::core::mem::transmute(&selectioncriterion)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipselector = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipselector, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1146,7 +1146,7 @@ impl IOpcRelationshipSelectorSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipselectorenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipselectorenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1183,7 +1183,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelationship(::core::mem::transmute(&relationshipidentifier)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationship = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationship, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1194,7 +1194,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRelationship(::core::mem::transmute(&relationshipidentifier), ::core::mem::transmute(&relationshiptype), ::core::mem::transmute(&targeturi), ::core::mem::transmute_copy(&targetmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationship = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationship, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1210,7 +1210,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match this.RelationshipExists(::core::mem::transmute(&relationshipidentifier)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipexists = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipexists, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1221,7 +1221,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1232,7 +1232,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumeratorForType(::core::mem::transmute(&relationshiptype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1243,7 +1243,7 @@ impl IOpcRelationshipSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelationshipsContentStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *contents = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contents, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1298,7 +1298,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1309,7 +1309,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasprevious = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1320,7 +1320,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *customobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(customobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1331,7 +1331,7 @@ impl IOpcSignatureCustomObjectEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1362,7 +1362,7 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute_copy(&xmlmarkup), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *customobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(customobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1378,7 +1378,7 @@ impl IOpcSignatureCustomObjectSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *customobjectenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(customobjectenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1413,7 +1413,7 @@ impl IOpcSignaturePartReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetPartName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *partname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1424,7 +1424,7 @@ impl IOpcSignaturePartReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *contenttype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contenttype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1435,7 +1435,7 @@ impl IOpcSignaturePartReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetDigestMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *digestmethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(digestmethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1451,7 +1451,7 @@ impl IOpcSignaturePartReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetTransformMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *transformmethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transformmethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1487,7 +1487,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1498,7 +1498,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasprevious = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1509,7 +1509,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *partreference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partreference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1520,7 +1520,7 @@ impl IOpcSignaturePartReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1554,7 +1554,7 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&parturi), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&transformmethod)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *partreference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partreference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1570,7 +1570,7 @@ impl IOpcSignaturePartReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *partreferenceenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partreferenceenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1606,7 +1606,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *referenceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(referenceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1617,7 +1617,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *referenceuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(referenceuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1628,7 +1628,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#type = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#type, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1639,7 +1639,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetTransformMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *transformmethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transformmethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1650,7 +1650,7 @@ impl IOpcSignatureReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetDigestMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *digestmethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(digestmethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1692,7 +1692,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1703,7 +1703,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasprevious = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1714,7 +1714,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *reference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1725,7 +1725,7 @@ impl IOpcSignatureReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1759,7 +1759,7 @@ impl IOpcSignatureReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&referenceuri), ::core::mem::transmute(&referenceid), ::core::mem::transmute(&r#type), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&transformmethod)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *reference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1775,7 +1775,7 @@ impl IOpcSignatureReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *referenceenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(referenceenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1811,7 +1811,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sourceuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sourceuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1822,7 +1822,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetDigestMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *digestmethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(digestmethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1838,7 +1838,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetTransformMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *transformmethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(transformmethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1849,7 +1849,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelationshipSigningOption() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipsigningoption = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipsigningoption, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1860,7 +1860,7 @@ impl IOpcSignatureRelationshipReference_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelationshipSelectorEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *selectorenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(selectorenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1897,7 +1897,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1908,7 +1908,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MovePrevious() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasprevious = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasprevious, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1919,7 +1919,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipreference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipreference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1930,7 +1930,7 @@ impl IOpcSignatureRelationshipReferenceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1965,7 +1965,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&sourceuri), ::core::mem::transmute(&digestmethod), ::core::mem::transmute_copy(&relationshipsigningoption), ::core::mem::transmute(&selectorset), ::core::mem::transmute_copy(&transformmethod)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipreference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipreference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1976,7 +1976,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRelationshipSelectorSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *selectorset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(selectorset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1992,7 +1992,7 @@ impl IOpcSignatureRelationshipReferenceSet_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipreferenceenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipreferenceenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2040,7 +2040,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignatureId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signatureid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signatureid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2056,7 +2056,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignatureMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signaturemethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signaturemethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2072,7 +2072,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultDigestMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *digestmethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(digestmethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2088,7 +2088,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetCertificateEmbeddingOption() {
                 ::core::result::Result::Ok(ok__) => {
-                    *embeddingoption = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(embeddingoption, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2104,7 +2104,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetTimeFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *timeformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(timeformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2120,7 +2120,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignaturePartReferenceSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *partreferenceset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(partreferenceset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2131,7 +2131,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignatureRelationshipReferenceSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipreferenceset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipreferenceset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2142,7 +2142,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetCustomObjectSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *customobjectset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(customobjectset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2153,7 +2153,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetCustomReferenceSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *customreferenceset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(customreferenceset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2164,7 +2164,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetCertificateSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *certificateset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(certificateset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2175,7 +2175,7 @@ impl IOpcSigningOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignaturePartName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signaturepartname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signaturepartname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2227,7 +2227,7 @@ impl IOpcUri_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelationshipsPartUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *relationshipparturi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relationshipparturi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2238,7 +2238,7 @@ impl IOpcUri_Vtbl {
             let this = (*this).get_impl();
             match this.GetRelativeUri(::core::mem::transmute(&targetparturi)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *relativeuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(relativeuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2249,7 +2249,7 @@ impl IOpcUri_Vtbl {
             let this = (*this).get_impl();
             match this.CombinePartUri(::core::mem::transmute(&relativeuri)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *combineduri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(combineduri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

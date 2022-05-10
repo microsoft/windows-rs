@@ -80,7 +80,7 @@ impl IBITSExtensionSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetCleanupTaskName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptaskname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptaskname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -91,7 +91,7 @@ impl IBITSExtensionSetup_Vtbl {
             let this = (*this).get_impl();
             match this.GetCleanupTask(::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -123,7 +123,7 @@ impl IBITSExtensionSetupFactory_Vtbl {
             let this = (*this).get_impl();
             match this.GetObject(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppextensionsetup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppextensionsetup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -257,7 +257,7 @@ impl IBackgroundCopyError_Vtbl {
             let this = (*this).get_impl();
             match this.GetFile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -268,7 +268,7 @@ impl IBackgroundCopyError_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorDescription(::core::mem::transmute_copy(&languageid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *perrordescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(perrordescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -279,7 +279,7 @@ impl IBackgroundCopyError_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorContextDescription(::core::mem::transmute_copy(&languageid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontextdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontextdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -290,7 +290,7 @@ impl IBackgroundCopyError_Vtbl {
             let this = (*this).get_impl();
             match this.GetProtocol() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprotocol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprotocol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -325,7 +325,7 @@ impl IBackgroundCopyFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetRemoteName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -336,7 +336,7 @@ impl IBackgroundCopyFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -347,7 +347,7 @@ impl IBackgroundCopyFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetProgress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -411,7 +411,7 @@ impl IBackgroundCopyFile3_Vtbl {
             let this = (*this).get_impl();
             match this.GetTemporaryName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfilename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfilename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -427,7 +427,7 @@ impl IBackgroundCopyFile3_Vtbl {
             let this = (*this).get_impl();
             match this.GetValidationState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -438,7 +438,7 @@ impl IBackgroundCopyFile3_Vtbl {
             let this = (*this).get_impl();
             match this.IsDownloadedFromPeer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -496,7 +496,7 @@ impl IBackgroundCopyFile5_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -577,7 +577,7 @@ impl IBackgroundCopyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GetProp(::core::mem::transmute_copy(&propid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -593,7 +593,7 @@ impl IBackgroundCopyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GetProgress(::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwprogress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwprogress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -609,7 +609,7 @@ impl IBackgroundCopyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GetJob(::core::mem::transmute(&jobid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppjob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppjob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -635,7 +635,7 @@ impl IBackgroundCopyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Size() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -646,7 +646,7 @@ impl IBackgroundCopyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GroupID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidgroupid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidgroupid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -657,7 +657,7 @@ impl IBackgroundCopyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.CreateJob(::core::mem::transmute(&guidjobid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppjob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppjob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -668,7 +668,7 @@ impl IBackgroundCopyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.EnumJobs(::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumjobs = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumjobs, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl IBackgroundCopyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.QueryNewJobInterface(::core::mem::transmute_copy(&iid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *punk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(punk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -773,7 +773,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.EnumFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -804,7 +804,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -815,7 +815,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -826,7 +826,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetProgress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -837,7 +837,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetTimes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -848,7 +848,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -859,7 +859,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -870,7 +870,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetOwner() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -886,7 +886,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -902,7 +902,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -918,7 +918,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetPriority() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -934,7 +934,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -950,7 +950,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetNotifyInterface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -966,7 +966,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinimumRetryDelay() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -982,7 +982,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetNoProgressTimeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *seconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(seconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -993,7 +993,7 @@ impl IBackgroundCopyJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *errors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1080,7 +1080,7 @@ impl IBackgroundCopyJob1_Vtbl {
             let this = (*this).get_impl();
             match this.GetProgress(::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwprogress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwprogress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1101,7 +1101,7 @@ impl IBackgroundCopyJob1_Vtbl {
             let this = (*this).get_impl();
             match this.GetFile(::core::mem::transmute_copy(&cfileindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfileinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfileinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1112,7 +1112,7 @@ impl IBackgroundCopyJob1_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwfilecount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwfilecount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1128,7 +1128,7 @@ impl IBackgroundCopyJob1_Vtbl {
             let this = (*this).get_impl();
             match this.JobID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidjobid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidjobid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1196,7 +1196,7 @@ impl IBackgroundCopyJob2_Vtbl {
             let this = (*this).get_impl();
             match this.GetReplyFileName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *preplyfilename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(preplyfilename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1260,7 +1260,7 @@ impl IBackgroundCopyJob3_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileACLFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1302,7 +1302,7 @@ impl IBackgroundCopyJob4_Vtbl {
             let this = (*this).get_impl();
             match this.GetPeerCachingFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1313,7 +1313,7 @@ impl IBackgroundCopyJob4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOwnerIntegrityLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1324,7 +1324,7 @@ impl IBackgroundCopyJob4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOwnerElevationState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pelevated = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pelevated, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1340,7 +1340,7 @@ impl IBackgroundCopyJob4_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaximumDownloadTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptimeout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptimeout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1380,7 +1380,7 @@ impl IBackgroundCopyJob5_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&propertyid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1439,7 +1439,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetCustomHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prequestheaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prequestheaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1455,7 +1455,7 @@ impl IBackgroundCopyJobHttpOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecurityFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1494,7 +1494,7 @@ impl IBackgroundCopyJobHttpOptions2_Vtbl {
             let this = (*this).get_impl();
             match this.GetHttpMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *method = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(method, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1556,7 +1556,7 @@ impl IBackgroundCopyManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetJob(::core::mem::transmute_copy(&jobid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppjob = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppjob, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1567,7 +1567,7 @@ impl IBackgroundCopyManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumJobs(::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1578,7 +1578,7 @@ impl IBackgroundCopyManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorDescription(::core::mem::transmute_copy(&hresult), ::core::mem::transmute_copy(&languageid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *perrordescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(perrordescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1609,7 +1609,7 @@ impl IBackgroundCopyQMgr_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGroup(::core::mem::transmute(&guidgroupid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1620,7 +1620,7 @@ impl IBackgroundCopyQMgr_Vtbl {
             let this = (*this).get_impl();
             match this.GetGroup(::core::mem::transmute(&groupid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl IBackgroundCopyQMgr_Vtbl {
             let this = (*this).get_impl();
             match this.EnumGroups(::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumgroups = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumgroups, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1681,7 +1681,7 @@ impl IBitsPeer_Vtbl {
             let this = (*this).get_impl();
             match this.GetPeerName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1692,7 +1692,7 @@ impl IBitsPeer_Vtbl {
             let this = (*this).get_impl();
             match this.IsAuthenticated() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pauth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pauth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1703,7 +1703,7 @@ impl IBitsPeer_Vtbl {
             let this = (*this).get_impl();
             match this.IsAvailable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ponline = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ponline, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1744,7 +1744,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaximumCacheSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbytes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbytes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1760,7 +1760,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaximumContentAge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pseconds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pseconds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1776,7 +1776,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
             let this = (*this).get_impl();
             match this.GetConfigurationFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1792,7 +1792,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
             let this = (*this).get_impl();
             match this.EnumRecords() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1803,7 +1803,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecord(::core::mem::transmute_copy(&id)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprecord = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprecord, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1829,7 +1829,7 @@ impl IBitsPeerCacheAdministration_Vtbl {
             let this = (*this).get_impl();
             match this.EnumPeers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1887,7 +1887,7 @@ impl IBitsPeerCacheRecord_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1898,7 +1898,7 @@ impl IBitsPeerCacheRecord_Vtbl {
             let this = (*this).get_impl();
             match this.GetOriginUrl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1909,7 +1909,7 @@ impl IBitsPeerCacheRecord_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1920,7 +1920,7 @@ impl IBitsPeerCacheRecord_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileModificationTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1931,7 +1931,7 @@ impl IBitsPeerCacheRecord_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastAccessTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1982,7 +1982,7 @@ impl IBitsTokenOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetHelperTokenFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2003,7 +2003,7 @@ impl IBitsTokenOptions_Vtbl {
             let this = (*this).get_impl();
             match this.GetHelperTokenSid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2052,7 +2052,7 @@ impl IEnumBackgroundCopyFiles_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2063,7 +2063,7 @@ impl IEnumBackgroundCopyFiles_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pucount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pucount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2112,7 +2112,7 @@ impl IEnumBackgroundCopyGroups_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2123,7 +2123,7 @@ impl IEnumBackgroundCopyGroups_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pucount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pucount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2172,7 +2172,7 @@ impl IEnumBackgroundCopyJobs_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2183,7 +2183,7 @@ impl IEnumBackgroundCopyJobs_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pucount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pucount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2232,7 +2232,7 @@ impl IEnumBackgroundCopyJobs1_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2243,7 +2243,7 @@ impl IEnumBackgroundCopyJobs1_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pucount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pucount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2292,7 +2292,7 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2303,7 +2303,7 @@ impl IEnumBitsPeerCacheRecords_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pucount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pucount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2352,7 +2352,7 @@ impl IEnumBitsPeers_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2363,7 +2363,7 @@ impl IEnumBitsPeers_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pucount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pucount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

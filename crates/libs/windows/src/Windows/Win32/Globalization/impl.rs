@@ -9,7 +9,7 @@ impl IComprehensiveSpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ComprehensiveCheck(::core::mem::transmute(&text)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -35,7 +35,7 @@ impl IEnumCodePage_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IEnumRfc1766_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -129,7 +129,7 @@ impl IEnumScript_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -173,7 +173,7 @@ impl IEnumSpellingError_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -199,7 +199,7 @@ impl IMLangCodePages_Vtbl {
             let this = (*this).get_impl();
             match this.GetCharCodePages(::core::mem::transmute_copy(&chsrc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcodepages = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcodepages, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -215,7 +215,7 @@ impl IMLangCodePages_Vtbl {
             let this = (*this).get_impl();
             match this.CodePageToCodePages(::core::mem::transmute_copy(&ucodepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcodepages = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcodepages, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -226,7 +226,7 @@ impl IMLangCodePages_Vtbl {
             let this = (*this).get_impl();
             match this.CodePagesToCodePage(::core::mem::transmute_copy(&dwcodepages), ::core::mem::transmute_copy(&udefaultcodepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pucodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pucodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -266,7 +266,7 @@ impl IMLangConvertCharset_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceCodePage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puisrccodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puisrccodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -277,7 +277,7 @@ impl IMLangConvertCharset_Vtbl {
             let this = (*this).get_impl();
             match this.GetDestinationCodePage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puidstcodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puidstcodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -288,7 +288,7 @@ impl IMLangConvertCharset_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -341,7 +341,7 @@ impl IMLangFontLink_Vtbl {
             let this = (*this).get_impl();
             match this.GetFontCodePages(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&hfont)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcodepages = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcodepages, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -352,7 +352,7 @@ impl IMLangFontLink_Vtbl {
             let this = (*this).get_impl();
             match this.MapFont(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&dwcodepages), ::core::mem::transmute_copy(&hsrcfont)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phdestfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phdestfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -400,7 +400,7 @@ impl IMLangFontLink2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFontCodePages(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&hfont)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcodepages = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcodepages, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -421,7 +421,7 @@ impl IMLangFontLink2_Vtbl {
             let this = (*this).get_impl();
             match this.MapFont(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&dwcodepages), ::core::mem::transmute_copy(&chsrc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfont = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfont, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -432,7 +432,7 @@ impl IMLangFontLink2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFontUnicodeRanges(::core::mem::transmute_copy(&hdc), ::core::mem::transmute_copy(&puiranges)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *puranges = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puranges, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -448,7 +448,7 @@ impl IMLangFontLink2_Vtbl {
             let this = (*this).get_impl();
             match this.CodePageToScriptID(::core::mem::transmute_copy(&uicodepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -525,7 +525,7 @@ impl IMLangString_Vtbl {
             let this = (*this).get_impl();
             match this.GetLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pllen = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pllen, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -658,7 +658,7 @@ impl IMLangStringBufA_Vtbl {
             let this = (*this).get_impl();
             match this.Insert(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchmaxinsert)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcchactual = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcchactual, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -712,7 +712,7 @@ impl IMLangStringBufW_Vtbl {
             let this = (*this).get_impl();
             match this.Insert(::core::mem::transmute_copy(&cchoffset), ::core::mem::transmute_copy(&cchmaxinsert)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcchactual = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcchactual, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -836,7 +836,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOfCodePageInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -847,7 +847,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodePageInfo(::core::mem::transmute_copy(&uicodepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcodepageinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcodepageinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -858,7 +858,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.GetFamilyCodePage(::core::mem::transmute_copy(&uicodepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *puifamilycodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puifamilycodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -869,7 +869,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.EnumCodePages(::core::mem::transmute_copy(&grfflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumcodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumcodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -880,7 +880,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.GetCharsetInfo(::core::mem::transmute(&charset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcharsetinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcharsetinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -916,7 +916,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.GetRfc1766FromLcid(::core::mem::transmute_copy(&locale)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrrfc1766 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrrfc1766, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -932,7 +932,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.EnumRfc1766() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumrfc1766 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumrfc1766, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -943,7 +943,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.GetRfc1766Info(::core::mem::transmute_copy(&locale)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prfc1766info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prfc1766info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -954,7 +954,7 @@ impl IMultiLanguage_Vtbl {
             let this = (*this).get_impl();
             match this.CreateConvertCharset(::core::mem::transmute_copy(&uisrccodepage), ::core::mem::transmute_copy(&uidstcodepage), ::core::mem::transmute_copy(&dwproperty)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmlangconvertcharset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmlangconvertcharset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1023,7 +1023,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOfCodePageInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1034,7 +1034,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCodePageInfo(::core::mem::transmute_copy(&uicodepage), ::core::mem::transmute_copy(&langid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcodepageinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcodepageinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1045,7 +1045,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetFamilyCodePage(::core::mem::transmute_copy(&uicodepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *puifamilycodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puifamilycodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1056,7 +1056,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.EnumCodePages(::core::mem::transmute_copy(&grfflags), ::core::mem::transmute_copy(&langid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumcodepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumcodepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1067,7 +1067,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetCharsetInfo(::core::mem::transmute(&charset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcharsetinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcharsetinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1103,7 +1103,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetRfc1766FromLcid(::core::mem::transmute_copy(&locale)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrrfc1766 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrrfc1766, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1119,7 +1119,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.EnumRfc1766(::core::mem::transmute_copy(&langid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumrfc1766 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumrfc1766, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1130,7 +1130,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetRfc1766Info(::core::mem::transmute_copy(&locale), ::core::mem::transmute_copy(&langid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prfc1766info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prfc1766info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1141,7 +1141,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateConvertCharset(::core::mem::transmute_copy(&uisrccodepage), ::core::mem::transmute_copy(&uidstcodepage), ::core::mem::transmute_copy(&dwproperty)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmlangconvertcharset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmlangconvertcharset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1197,7 +1197,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumberOfScripts() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnscripts = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnscripts, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1208,7 +1208,7 @@ impl IMultiLanguage2_Vtbl {
             let this = (*this).get_impl();
             match this.EnumScripts(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&langid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumscript = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumscript, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1301,7 +1301,7 @@ impl IOptionDescription_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1312,7 +1312,7 @@ impl IOptionDescription_Vtbl {
             let this = (*this).get_impl();
             match this.Heading() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1323,7 +1323,7 @@ impl IOptionDescription_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1334,7 +1334,7 @@ impl IOptionDescription_Vtbl {
             let this = (*this).get_impl();
             match this.Labels() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1375,7 +1375,7 @@ impl ISpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.LanguageTag() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1386,7 +1386,7 @@ impl ISpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Check(::core::mem::transmute(&text)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1397,7 +1397,7 @@ impl ISpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Suggest(::core::mem::transmute(&word)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1408,7 +1408,7 @@ impl ISpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionValue(::core::mem::transmute(&optionid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1424,7 +1424,7 @@ impl ISpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.OptionIds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1435,7 +1435,7 @@ impl ISpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1446,7 +1446,7 @@ impl ISpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.LocalizedName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1457,7 +1457,7 @@ impl ISpellCheckProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionDescription(::core::mem::transmute(&optionid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1502,7 +1502,7 @@ impl ISpellCheckProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedLanguages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1513,7 +1513,7 @@ impl ISpellCheckProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match this.IsSupported(::core::mem::transmute(&languagetag)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1524,7 +1524,7 @@ impl ISpellCheckProviderFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSpellCheckProvider(::core::mem::transmute(&languagetag)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1568,7 +1568,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.LanguageTag() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1579,7 +1579,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.Check(::core::mem::transmute(&text)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1590,7 +1590,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.Suggest(::core::mem::transmute(&word)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1616,7 +1616,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionValue(::core::mem::transmute(&optionid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1627,7 +1627,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.OptionIds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1638,7 +1638,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1649,7 +1649,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.LocalizedName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1660,7 +1660,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.add_SpellCheckerChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *eventcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eventcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1676,7 +1676,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionDescription(::core::mem::transmute(&optionid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1687,7 +1687,7 @@ impl ISpellChecker_Vtbl {
             let this = (*this).get_impl();
             match this.ComprehensiveCheck(::core::mem::transmute(&text)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1768,7 +1768,7 @@ impl ISpellCheckerFactory_Vtbl {
             let this = (*this).get_impl();
             match this.SupportedLanguages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1779,7 +1779,7 @@ impl ISpellCheckerFactory_Vtbl {
             let this = (*this).get_impl();
             match this.IsSupported(::core::mem::transmute(&languagetag)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1790,7 +1790,7 @@ impl ISpellCheckerFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSpellChecker(::core::mem::transmute(&languagetag)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1821,7 +1821,7 @@ impl ISpellingError_Vtbl {
             let this = (*this).get_impl();
             match this.StartIndex() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1832,7 +1832,7 @@ impl ISpellingError_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1843,7 +1843,7 @@ impl ISpellingError_Vtbl {
             let this = (*this).get_impl();
             match this.CorrectiveAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1854,7 +1854,7 @@ impl ISpellingError_Vtbl {
             let this = (*this).get_impl();
             match this.Replacement() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

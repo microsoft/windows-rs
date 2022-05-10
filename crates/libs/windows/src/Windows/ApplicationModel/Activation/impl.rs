@@ -13,7 +13,7 @@ impl IActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Kind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -25,7 +25,7 @@ impl IActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.PreviousExecutionState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl IActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.SplashScreen() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -71,7 +71,7 @@ impl IActivatedEventArgsWithUser_Vtbl {
             let this = (*this).get_impl();
             match this.User() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -97,7 +97,7 @@ impl IApplicationViewActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentlyShownApplicationViewId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -126,7 +126,7 @@ impl IAppointmentsProviderActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Verb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -158,7 +158,7 @@ impl IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.AddAppointmentOperation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -190,7 +190,7 @@ impl IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.RemoveAppointmentOperation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -222,7 +222,7 @@ impl IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ReplaceAppointmentOperation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -256,7 +256,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.InstanceStartDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -268,7 +268,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.LocalId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -280,7 +280,7 @@ impl IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.RoamingId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -315,7 +315,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.TimeToShow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -327,7 +327,7 @@ impl IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Duration() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -360,7 +360,7 @@ impl IBackgroundActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.TaskInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -389,7 +389,7 @@ impl IBarcodeScannerPreviewActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectionId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -421,7 +421,7 @@ impl ICachedFileUpdaterActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.CachedFileUpdaterUI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -451,7 +451,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.VideoDeviceController() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -463,7 +463,7 @@ impl ICameraSettingsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.VideoDeviceExtension() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -493,7 +493,7 @@ impl ICommandLineActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Operation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -522,7 +522,7 @@ impl IContactActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Verb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -553,7 +553,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -565,7 +565,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceUserId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -577,7 +577,7 @@ impl IContactCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Contact() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -612,7 +612,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Address() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -624,7 +624,7 @@ impl IContactMapActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Contact() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -659,7 +659,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -671,7 +671,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceUserId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -683,7 +683,7 @@ impl IContactMessageActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Contact() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -718,7 +718,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ContactPanel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -730,7 +730,7 @@ impl IContactPanelActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Contact() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -763,7 +763,7 @@ impl IContactPickerActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ContactPickerUI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -797,7 +797,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -809,7 +809,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceUserId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -821,7 +821,7 @@ impl IContactPostActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Contact() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -857,7 +857,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -869,7 +869,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceUserId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -881,7 +881,7 @@ impl IContactVideoCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Contact() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -912,7 +912,7 @@ impl IContactsProviderActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Verb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -941,7 +941,7 @@ impl IContinuationActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ContinuationData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -971,7 +971,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceInformationId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -983,7 +983,7 @@ impl IDeviceActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Verb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1016,7 +1016,7 @@ impl IDevicePairingActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceInformation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1045,7 +1045,7 @@ impl IDialReceiverActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.AppName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1078,7 +1078,7 @@ impl IFileActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Files() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1090,7 +1090,7 @@ impl IFileActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Verb() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1120,7 +1120,7 @@ impl IFileActivatedEventArgsWithCallerPackageFamilyName_Vtbl {
             let this = (*this).get_impl();
             match this.CallerPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1152,7 +1152,7 @@ impl IFileActivatedEventArgsWithNeighboringFiles_Vtbl {
             let this = (*this).get_impl();
             match this.NeighboringFilesQuery() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1184,7 +1184,7 @@ impl IFileOpenPickerActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.FileOpenPickerUI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1213,7 +1213,7 @@ impl IFileOpenPickerActivatedEventArgs2_Vtbl {
             let this = (*this).get_impl();
             match this.CallerPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1245,7 +1245,7 @@ impl IFileOpenPickerContinuationEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Files() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1277,7 +1277,7 @@ impl IFileSavePickerActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.FileSavePickerUI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1307,7 +1307,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
             let this = (*this).get_impl();
             match this.CallerPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1319,7 +1319,7 @@ impl IFileSavePickerActivatedEventArgs2_Vtbl {
             let this = (*this).get_impl();
             match this.EnterpriseId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1352,7 +1352,7 @@ impl IFileSavePickerContinuationEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.File() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1381,7 +1381,7 @@ impl IFolderPickerContinuationEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Folder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1411,7 +1411,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Arguments() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1423,7 +1423,7 @@ impl ILaunchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.TileId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1453,7 +1453,7 @@ impl ILaunchActivatedEventArgs2_Vtbl {
             let this = (*this).get_impl();
             match this.TileActivatedInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1482,7 +1482,7 @@ impl ILockScreenActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Info() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1511,7 +1511,7 @@ impl ILockScreenCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.CallUI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1540,7 +1540,7 @@ impl IPhoneCallActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.LineId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1566,7 +1566,7 @@ impl IPickerReturnedActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.PickerOperationId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1595,7 +1595,7 @@ impl IPrelaunchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.PrelaunchActivated() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1627,7 +1627,7 @@ impl IPrint3DWorkflowActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Workflow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1659,7 +1659,7 @@ impl IPrintTaskSettingsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Configuration() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1691,7 +1691,7 @@ impl IProtocolActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Uri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1721,7 +1721,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
             let this = (*this).get_impl();
             match this.CallerPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1733,7 +1733,7 @@ impl IProtocolActivatedEventArgsWithCallerPackageFamilyNameAndData_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1766,7 +1766,7 @@ impl IProtocolForResultsActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ProtocolForResultsOperation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1795,7 +1795,7 @@ impl IRestrictedLaunchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.SharedContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1825,7 +1825,7 @@ impl ISearchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.QueryText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1837,7 +1837,7 @@ impl ISearchActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Language() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1870,7 +1870,7 @@ impl ISearchActivatedEventArgsWithLinguisticDetails_Vtbl {
             let this = (*this).get_impl();
             match this.LinguisticDetails() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1902,7 +1902,7 @@ impl IShareTargetActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ShareOperation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1931,7 +1931,7 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.TaskId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1961,7 +1961,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Argument() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1973,7 +1973,7 @@ impl IToastNotificationActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.UserInput() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -2006,7 +2006,7 @@ impl IUserDataAccountProviderActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Operation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -2038,7 +2038,7 @@ impl IViewSwitcherProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ViewSwitcher() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -2070,7 +2070,7 @@ impl IVoiceCommandActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Result() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -2101,7 +2101,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ItemId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -2113,7 +2113,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ActionKind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -2125,7 +2125,7 @@ impl IWalletActionActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.ActionId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -2159,7 +2159,7 @@ impl IWebAccountProviderActivatedEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.Operation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -2191,7 +2191,7 @@ impl IWebAuthenticationBrokerContinuationEventArgs_Vtbl {
             let this = (*this).get_impl();
             match this.WebAuthenticationResult() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

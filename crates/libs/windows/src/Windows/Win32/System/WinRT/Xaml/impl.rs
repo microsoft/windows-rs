@@ -18,7 +18,7 @@ impl IDesktopWindowXamlSourceNative_Vtbl {
             let this = (*this).get_impl();
             match this.WindowHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -103,7 +103,7 @@ impl IReferenceTracker_Vtbl {
             let this = (*this).get_impl();
             match this.GetReferenceTrackerManager() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -180,7 +180,7 @@ impl IReferenceTrackerHost_Vtbl {
             let this = (*this).get_impl();
             match this.GetTrackerTarget(::core::mem::transmute(&unknown)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newreference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newreference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -474,7 +474,7 @@ impl ITrackerOwner_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTrackerHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *returnvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(returnvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -531,7 +531,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
             let this = (*this).get_impl();
             match this.GetUpdateRectCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -547,7 +547,7 @@ impl IVirtualSurfaceImageSourceNative_Vtbl {
             let this = (*this).get_impl();
             match this.GetVisibleBounds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bounds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bounds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

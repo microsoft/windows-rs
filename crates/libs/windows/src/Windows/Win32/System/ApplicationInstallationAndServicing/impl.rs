@@ -28,7 +28,7 @@ impl IAssemblyCache_Vtbl {
             let this = (*this).get_impl();
             match this.Reserved() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -148,7 +148,7 @@ impl IAssemblyName_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -203,7 +203,7 @@ impl IEnumMsmDependency_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pemsmdependencies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pemsmdependencies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -253,7 +253,7 @@ impl IEnumMsmError_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pemsmerrors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pemsmerrors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -303,7 +303,7 @@ impl IEnumMsmString_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pemsmstrings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pemsmstrings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -337,7 +337,7 @@ impl IMsmDependencies_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#return = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#return, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl IMsmDependencies_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -447,7 +447,7 @@ impl IMsmError_Vtbl {
             let this = (*this).get_impl();
             match this.DatabaseKeys() {
                 ::core::result::Result::Ok(ok__) => {
-                    *errorkeys = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errorkeys, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -463,7 +463,7 @@ impl IMsmError_Vtbl {
             let this = (*this).get_impl();
             match this.ModuleKeys() {
                 ::core::result::Result::Ok(ok__) => {
-                    *errorkeys = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errorkeys, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -500,7 +500,7 @@ impl IMsmErrors_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *r#return = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(r#return, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -516,7 +516,7 @@ impl IMsmErrors_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -547,7 +547,7 @@ impl IMsmGetFiles_Vtbl {
             let this = (*this).get_impl();
             match this.ModuleFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *files = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(files, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -620,7 +620,7 @@ impl IMsmMerge_Vtbl {
             let this = (*this).get_impl();
             match this.Errors() {
                 ::core::result::Result::Ok(ok__) => {
-                    *errors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -631,7 +631,7 @@ impl IMsmMerge_Vtbl {
             let this = (*this).get_impl();
             match this.Dependencies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dependencies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dependencies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -704,7 +704,7 @@ impl IMsmStrings_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -789,7 +789,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ProductID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproductid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproductid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -800,7 +800,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.InstanceID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinstanceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinstanceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -811,7 +811,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.OfferID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pofferid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pofferid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -837,7 +837,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.NotificationState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisnotified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisnotified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -848,7 +848,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AppInstallType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pappinstalltype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pappinstalltype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -859,7 +859,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -870,7 +870,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsRevoked() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisrevoked = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisrevoked, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -881,7 +881,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.UpdateAvailable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisupdateavailable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisupdateavailable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -892,7 +892,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.InstallDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinstalldate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinstalldate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -903,7 +903,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsUninstallable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisuninstallable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisuninstallable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -914,7 +914,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsThemable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisthemable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisthemable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -925,7 +925,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsTrial() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pistrial = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pistrial, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -946,7 +946,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Genre() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgenre = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgenre, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -982,7 +982,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AppPlatMajorVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmajorver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmajorver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -993,7 +993,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AppPlatMinorVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pminorver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pminorver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1004,7 +1004,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.PublisherID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppublisherid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppublisherid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1015,7 +1015,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsMultiCore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pismulticore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pismulticore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1031,7 +1031,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AppPlatMajorVersionLightUp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmajorver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmajorver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1042,7 +1042,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AppPlatMinorVersionLightUp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pminorver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pminorver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1073,7 +1073,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsPinableOnKidZone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pispinable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pispinable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1084,7 +1084,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsOriginallyPreInstalled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pispreinstalled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pispreinstalled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1095,7 +1095,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsInstallOnSD() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisinstallonsd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisinstallonsd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1106,7 +1106,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsOptoutOnSD() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisoptoutonsd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisoptoutonsd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1117,7 +1117,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsOptoutBackupRestore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisoptoutbackuprestore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisoptoutbackuprestore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1138,7 +1138,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.EnterpriseDisabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isdisabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isdisabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1149,7 +1149,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.EnterpriseUninstallable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isuninstallable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isuninstallable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1160,7 +1160,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsVisibleOnAppList() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisvisible = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisvisible, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1171,7 +1171,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsInboxApp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisinboxapp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisinboxapp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1182,7 +1182,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.StorageID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstorageid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstorageid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1198,7 +1198,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsMovable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pismovable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pismovable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1209,7 +1209,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DeploymentAppEnumerationHubFilter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hubtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hubtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1220,7 +1220,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ModifiedDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmodifieddate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmodifieddate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1231,7 +1231,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsOriginallyRestored() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisrestored = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisrestored, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1242,7 +1242,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ShouldDeferMdilBind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfdefermdilbind = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfdefermdilbind, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1253,7 +1253,7 @@ impl IPMApplicationInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsFullyPreInstall() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfisfullypreinstall = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfisfullypreinstall, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1343,7 +1343,7 @@ impl IPMApplicationInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppappinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppappinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1382,7 +1382,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ProductID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproductid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproductid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1398,7 +1398,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.BSAID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsaid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsaid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1429,7 +1429,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsPeriodic() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisperiodic = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisperiodic, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1440,7 +1440,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsScheduled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisscheduled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisscheduled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1451,7 +1451,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsScheduleAllowed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisscheduleallowed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisscheduleallowed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1467,7 +1467,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsLaunchOnBoot() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plaunchonboot = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plaunchonboot, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1516,7 +1516,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbsainfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbsainfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1547,7 +1547,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ProductID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproductid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproductid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1568,7 +1568,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.MaxStartupLatency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmaxstartuplatency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmaxstartuplatency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1579,7 +1579,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ExpectedRuntime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pexpectedruntime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pexpectedruntime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1590,7 +1590,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsBootWorker() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisbootworker = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisbootworker, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1621,7 +1621,7 @@ impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbwinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbwinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1793,7 +1793,7 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl();
             match this.SetApplicationsNeedMaintenance(::core::mem::transmute_copy(&requiredmaintenanceoperations)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcapplications = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcapplications, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1809,7 +1809,7 @@ impl IPMDeploymentManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnterprisePolicyIsApplicationAllowed(::core::mem::transmute(&productid), ::core::mem::transmute(&publishername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisallowed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisallowed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1969,7 +1969,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_ApplicationInfo(::core::mem::transmute(&productid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppappinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppappinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1980,7 +1980,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_TileInfo(::core::mem::transmute(&productid), ::core::mem::transmute(&tileid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptileinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptileinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1991,7 +1991,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_TaskInfo(::core::mem::transmute(&productid), ::core::mem::transmute(&taskid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptaskinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptaskinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2002,7 +2002,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_TaskInfoEx(::core::mem::transmute(&productid), ::core::mem::transmute(&taskid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptaskinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptaskinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2013,7 +2013,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_BackgroundServiceAgentInfo(::core::mem::transmute_copy(&bsaid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptaskinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptaskinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2024,7 +2024,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.AllLiveTileJobs() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplivetilejobenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplivetilejobenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2035,7 +2035,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_LiveTileJob(::core::mem::transmute(&productid), ::core::mem::transmute(&tileid), ::core::mem::transmute_copy(&recurrencetype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplivetilejobinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplivetilejobinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2046,7 +2046,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_ApplicationInfoExternal(::core::mem::transmute(&productid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppappinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppappinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2062,7 +2062,7 @@ impl IPMEnumerationManager_Vtbl {
             let this = (*this).get_impl();
             match this.get_ApplicationInfoFromAccessClaims(::core::mem::transmute(&sysappid0), ::core::mem::transmute(&sysappid1)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppappinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppappinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2118,7 +2118,7 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SupportsUpdates() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psupportsupdates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psupportsupdates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2235,7 +2235,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SupportsAllFileTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psupportsalltypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psupportsalltypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2271,7 +2271,7 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SupportsAllFileTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psupportsalltypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psupportsalltypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2306,7 +2306,7 @@ impl IPMExtensionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SupplierPID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psupplierpid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psupplierpid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2362,7 +2362,7 @@ impl IPMExtensionInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppextensioninfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppextensioninfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2430,7 +2430,7 @@ impl IPMExtensionShareTargetInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SupportsAllFileTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psupportsalltypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psupportsalltypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2484,7 +2484,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ProductID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproductid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproductid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2500,7 +2500,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.NextSchedule() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnextschedule = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnextschedule, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2516,7 +2516,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.StartSchedule() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstartschedule = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstartschedule, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2532,7 +2532,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IntervalDuration() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pintervalduration = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pintervalduration, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2548,7 +2548,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.RunForever() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isrunforever = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isrunforever, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2564,7 +2564,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.MaxRunCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmaxruncount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmaxruncount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2580,7 +2580,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.RunCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pruncount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pruncount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2596,7 +2596,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.RecurrenceType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *precurrencetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(precurrencetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2632,7 +2632,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AttemptCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pattemptcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pattemptcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2648,7 +2648,7 @@ impl IPMLiveTileJobInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdownloadstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdownloadstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2702,7 +2702,7 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplivetilejobinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplivetilejobinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2748,7 +2748,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ProductID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproductid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproductid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2769,7 +2769,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.TaskTransition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptasktransition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptasktransition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2780,7 +2780,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.RuntimeType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pruntimetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pruntimetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2791,7 +2791,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ActivationPolicy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pactivationpolicy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pactivationpolicy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2802,7 +2802,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.TaskType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptasktype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptasktype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2838,7 +2838,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsSingleInstanceHost() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pissingleinstancehost = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pissingleinstancehost, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2849,7 +2849,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsInteropEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisinteropenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisinteropenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2860,7 +2860,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ApplicationState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *papplicationstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(papplicationstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2871,7 +2871,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.InstallType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinstalltype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinstalltype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2887,7 +2887,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.BitsPerPixel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbitsperpixel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbitsperpixel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2898,7 +2898,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SuppressesDehydration() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psuppressesdehydration = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psuppressesdehydration, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2914,7 +2914,7 @@ impl IPMTaskInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsOptedForExtendedMem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisoptedin = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisoptedin, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2960,7 +2960,7 @@ impl IPMTaskInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptaskinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptaskinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3009,7 +3009,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.ProductID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproductid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproductid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3025,7 +3025,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.TemplateType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptemplatetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptemplatetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3036,7 +3036,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.get_HubPinnedState(::core::mem::transmute_copy(&hubtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinned = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinned, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3047,7 +3047,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.get_HubPosition(::core::mem::transmute_copy(&hubtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pposition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pposition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3058,7 +3058,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsNotified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisnotified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisnotified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3069,7 +3069,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsDefault() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisdefault = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisdefault, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3085,7 +3085,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.TileType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstarttiletype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstarttiletype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3096,7 +3096,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsThemable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisthemable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisthemable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3107,7 +3107,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.get_PropertyById(::core::mem::transmute_copy(&propid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3123,7 +3123,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptilepropenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptilepropenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3134,7 +3134,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.get_HubTileSize(::core::mem::transmute_copy(&hubtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3175,7 +3175,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsRestoring() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisrestoring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisrestoring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3186,7 +3186,7 @@ impl IPMTileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.IsAutoRestoreDisabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisautorestoredisabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisautorestoredisabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3245,7 +3245,7 @@ impl IPMTileInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptileinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptileinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3268,7 +3268,7 @@ impl IPMTilePropertyEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Next() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3296,7 +3296,7 @@ impl IPMTilePropertyInfo_Vtbl {
             let this = (*this).get_impl();
             match this.PropertyID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

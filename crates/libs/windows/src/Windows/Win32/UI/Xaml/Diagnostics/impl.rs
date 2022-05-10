@@ -20,7 +20,7 @@ impl IBitmapData_Vtbl {
             let this = (*this).get_impl();
             match this.GetStride() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstride = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstride, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31,7 +31,7 @@ impl IBitmapData_Vtbl {
             let this = (*this).get_impl();
             match this.GetBitmapDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbitmapdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbitmapdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl IBitmapData_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceBitmapDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbitmapdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbitmapdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -100,7 +100,7 @@ impl IVisualTreeService_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance(::core::mem::transmute(&typename), ::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinstancehandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinstancehandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -126,7 +126,7 @@ impl IVisualTreeService_Vtbl {
             let this = (*this).get_impl();
             match this.GetCollectionCount(::core::mem::transmute_copy(&instancehandle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcollectionsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcollectionsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -189,7 +189,7 @@ impl IVisualTreeService2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPropertyIndex(::core::mem::transmute_copy(&object), ::core::mem::transmute(&propertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppropertyindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppropertyindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -200,7 +200,7 @@ impl IVisualTreeService2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&object), ::core::mem::transmute_copy(&propertyindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -216,7 +216,7 @@ impl IVisualTreeService2_Vtbl {
             let this = (*this).get_impl();
             match this.RenderTargetBitmap(::core::mem::transmute_copy(&handle), ::core::mem::transmute_copy(&options), ::core::mem::transmute_copy(&maxpixelwidth), ::core::mem::transmute_copy(&maxpixelheight)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbitmapdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbitmapdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -256,7 +256,7 @@ impl IVisualTreeService3_Vtbl {
             let this = (*this).get_impl();
             match this.GetDictionaryItem(::core::mem::transmute_copy(&dictionaryhandle), ::core::mem::transmute(&resourcename), ::core::mem::transmute_copy(&resourceisimplicitstyle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resourcehandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resourcehandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -345,7 +345,7 @@ impl IXamlDiagnostics_Vtbl {
             let this = (*this).get_impl();
             match this.GetDispatcher() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdispatcher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdispatcher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -356,7 +356,7 @@ impl IXamlDiagnostics_Vtbl {
             let this = (*this).get_impl();
             match this.GetUiLayer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplayer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplayer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -367,7 +367,7 @@ impl IXamlDiagnostics_Vtbl {
             let this = (*this).get_impl();
             match this.GetApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppapplication = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppapplication, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -378,7 +378,7 @@ impl IXamlDiagnostics_Vtbl {
             let this = (*this).get_impl();
             match this.GetIInspectableFromHandle(::core::mem::transmute_copy(&instancehandle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -389,7 +389,7 @@ impl IXamlDiagnostics_Vtbl {
             let this = (*this).get_impl();
             match this.GetHandleFromIInspectable(::core::mem::transmute(&pinstance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -405,7 +405,7 @@ impl IXamlDiagnostics_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterInstance(::core::mem::transmute(&pinstance)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinstancehandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinstancehandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -416,7 +416,7 @@ impl IXamlDiagnostics_Vtbl {
             let this = (*this).get_impl();
             match this.GetInitializationData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinitializationdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinitializationdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -40,7 +40,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute_copy(&hbmimage), ::core::mem::transmute_copy(&hbmmask)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -51,7 +51,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.ReplaceIcon(::core::mem::transmute_copy(&i), ::core::mem::transmute_copy(&hicon)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -72,7 +72,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.AddMasked(::core::mem::transmute_copy(&hbmimage), ::core::mem::transmute_copy(&crmask)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -93,7 +93,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.GetIcon(::core::mem::transmute_copy(&i), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *picon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(picon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -104,7 +104,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.GetImageInfo(::core::mem::transmute_copy(&i)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pimageinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pimageinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -130,7 +130,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.GetImageRect(::core::mem::transmute_copy(&i)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -151,7 +151,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.GetImageCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pi = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pi, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -167,7 +167,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.SetBkColor(::core::mem::transmute_copy(&clrbk)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -178,7 +178,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.GetBkColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -229,7 +229,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemFlags(::core::mem::transmute_copy(&i)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -240,7 +240,7 @@ impl IImageList_Vtbl {
             let this = (*this).get_impl();
             match this.GetOverlayImage(::core::mem::transmute_copy(&ioverlay)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *piindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(piindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

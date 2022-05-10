@@ -231,7 +231,7 @@ impl<F: FnMut(&[u8]) -> ::windows::core::Result<bool> + ::core::marker::Send + '
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         match ((*this).invoke)(::core::slice::from_raw_parts(::core::mem::transmute_copy(&pdudata), pduData_array_size as _)) {
             ::core::result::Result::Ok(ok__) => {
-                *result__ = ::core::mem::transmute_copy(&ok__);
+                ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                 ::core::mem::forget(ok__);
                 ::windows::core::HRESULT(0)
             }

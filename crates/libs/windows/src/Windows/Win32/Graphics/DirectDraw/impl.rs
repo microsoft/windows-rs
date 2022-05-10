@@ -95,7 +95,7 @@ impl IDirectDraw_Vtbl {
             let this = (*this).get_impl();
             match this.DuplicateSurface(::core::mem::transmute(&param0)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *param1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -136,7 +136,7 @@ impl IDirectDraw_Vtbl {
             let this = (*this).get_impl();
             match this.GetGDISurface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -264,7 +264,7 @@ impl IDirectDraw2_Vtbl {
             let this = (*this).get_impl();
             match this.DuplicateSurface(::core::mem::transmute(&param0)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *param1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -305,7 +305,7 @@ impl IDirectDraw2_Vtbl {
             let this = (*this).get_impl();
             match this.GetGDISurface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -443,7 +443,7 @@ impl IDirectDraw4_Vtbl {
             let this = (*this).get_impl();
             match this.DuplicateSurface(::core::mem::transmute(&param0)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *param1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -484,7 +484,7 @@ impl IDirectDraw4_Vtbl {
             let this = (*this).get_impl();
             match this.GetGDISurface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -540,7 +540,7 @@ impl IDirectDraw4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSurfaceFromDC(::core::mem::transmute_copy(&param0)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *param1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -654,7 +654,7 @@ impl IDirectDraw7_Vtbl {
             let this = (*this).get_impl();
             match this.DuplicateSurface(::core::mem::transmute(&param0)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *param1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -695,7 +695,7 @@ impl IDirectDraw7_Vtbl {
             let this = (*this).get_impl();
             match this.GetGDISurface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -751,7 +751,7 @@ impl IDirectDraw7_Vtbl {
             let this = (*this).get_impl();
             match this.GetSurfaceFromDC(::core::mem::transmute_copy(&param0)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *param1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1113,7 +1113,7 @@ impl IDirectDrawSurface_Vtbl {
             let this = (*this).get_impl();
             match this.GetClipper() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1144,7 +1144,7 @@ impl IDirectDrawSurface_Vtbl {
             let this = (*this).get_impl();
             match this.GetPalette() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1375,7 +1375,7 @@ impl IDirectDrawSurface2_Vtbl {
             let this = (*this).get_impl();
             match this.GetClipper() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1406,7 +1406,7 @@ impl IDirectDrawSurface2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPalette() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1656,7 +1656,7 @@ impl IDirectDrawSurface3_Vtbl {
             let this = (*this).get_impl();
             match this.GetClipper() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1687,7 +1687,7 @@ impl IDirectDrawSurface3_Vtbl {
             let this = (*this).get_impl();
             match this.GetPalette() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1948,7 +1948,7 @@ impl IDirectDrawSurface4_Vtbl {
             let this = (*this).get_impl();
             match this.GetClipper() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1979,7 +1979,7 @@ impl IDirectDrawSurface4_Vtbl {
             let this = (*this).get_impl();
             match this.GetPalette() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2274,7 +2274,7 @@ impl IDirectDrawSurface7_Vtbl {
             let this = (*this).get_impl();
             match this.GetClipper() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2305,7 +2305,7 @@ impl IDirectDrawSurface7_Vtbl {
             let this = (*this).get_impl();
             match this.GetPalette() {
                 ::core::result::Result::Ok(ok__) => {
-                    *param0 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(param0, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -15,7 +15,7 @@ impl IAppxBlockMapBlock_Vtbl {
             let this = (*this).get_impl();
             match this.GetCompressedSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -47,7 +47,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *block = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(block, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -69,7 +69,7 @@ impl IAppxBlockMapBlocksEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -104,7 +104,7 @@ impl IAppxBlockMapFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetBlocks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *blocks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(blocks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -115,7 +115,7 @@ impl IAppxBlockMapFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalFileHeaderSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lfhsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lfhsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -126,7 +126,7 @@ impl IAppxBlockMapFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -137,7 +137,7 @@ impl IAppxBlockMapFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetUncompressedSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -148,7 +148,7 @@ impl IAppxBlockMapFile_Vtbl {
             let this = (*this).get_impl();
             match this.ValidateFileHash(::core::mem::transmute(&filestream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isvalid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isvalid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -183,7 +183,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *file = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(file, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -194,7 +194,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -205,7 +205,7 @@ impl IAppxBlockMapFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -239,7 +239,7 @@ impl IAppxBlockMapReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetFile(::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *file = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(file, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -250,7 +250,7 @@ impl IAppxBlockMapReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl IAppxBlockMapReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetHashMethod() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hashmethod = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hashmethod, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -272,7 +272,7 @@ impl IAppxBlockMapReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *blockmapstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(blockmapstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -306,7 +306,7 @@ impl IAppxBundleFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBundleWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&bundleversion)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bundlewriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bundlewriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl IAppxBundleFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBundleReader(::core::mem::transmute(&inputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bundlereader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bundlereader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -328,7 +328,7 @@ impl IAppxBundleFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBundleManifestReader(::core::mem::transmute(&inputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *manifestreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(manifestreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -358,7 +358,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -369,7 +369,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -380,7 +380,7 @@ impl IAppxBundleManifestOptionalBundleInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageInfoItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageinfoitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageinfoitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -413,7 +413,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *optionalbundle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(optionalbundle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -424,7 +424,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -435,7 +435,7 @@ impl IAppxBundleManifestOptionalBundleInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -468,7 +468,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -479,7 +479,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -490,7 +490,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -501,7 +501,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *offset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(offset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -512,7 +512,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -523,7 +523,7 @@ impl IAppxBundleManifestPackageInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetResources() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resources = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resources, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -559,7 +559,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
             let this = (*this).get_impl();
             match this.GetIsPackageReference() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ispackagereference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ispackagereference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -570,7 +570,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
             let this = (*this).get_impl();
             match this.GetIsNonQualifiedResourcePackage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnonqualifiedresourcepackage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnonqualifiedresourcepackage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -581,7 +581,7 @@ impl IAppxBundleManifestPackageInfo2_Vtbl {
             let this = (*this).get_impl();
             match this.GetIsDefaultApplicablePackage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isdefaultapplicablepackage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isdefaultapplicablepackage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -609,7 +609,7 @@ impl IAppxBundleManifestPackageInfo3_Vtbl {
             let this = (*this).get_impl();
             match this.GetTargetDeviceFamilies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *targetdevicefamilies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(targetdevicefamilies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -635,7 +635,7 @@ impl IAppxBundleManifestPackageInfo4_Vtbl {
             let this = (*this).get_impl();
             match this.GetIsStub() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isstub = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isstub, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -663,7 +663,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -674,7 +674,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -685,7 +685,7 @@ impl IAppxBundleManifestPackageInfoEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -718,7 +718,7 @@ impl IAppxBundleManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -729,7 +729,7 @@ impl IAppxBundleManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageInfoItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageinfoitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageinfoitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -740,7 +740,7 @@ impl IAppxBundleManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *manifeststream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(manifeststream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -768,7 +768,7 @@ impl IAppxBundleManifestReader2_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionalBundles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *optionalbundles = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(optionalbundles, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -795,7 +795,7 @@ impl IAppxBundleReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetFootprintFile(::core::mem::transmute_copy(&filetype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *footprintfile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(footprintfile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -806,7 +806,7 @@ impl IAppxBundleReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetBlockMap() {
                 ::core::result::Result::Ok(ok__) => {
-                    *blockmapreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(blockmapreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -817,7 +817,7 @@ impl IAppxBundleReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetManifest() {
                 ::core::result::Result::Ok(ok__) => {
-                    *manifestreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(manifestreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -828,7 +828,7 @@ impl IAppxBundleReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPayloadPackages() {
                 ::core::result::Result::Ok(ok__) => {
-                    *payloadpackages = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(payloadpackages, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -839,7 +839,7 @@ impl IAppxBundleReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPayloadPackage(::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *payloadpackage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(payloadpackage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -990,7 +990,7 @@ impl IAppxContentGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *groupname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(groupname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1001,7 +1001,7 @@ impl IAppxContentGroup_Vtbl {
             let this = (*this).get_impl();
             match this.GetFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1033,7 +1033,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *file = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(file, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1044,7 +1044,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1055,7 +1055,7 @@ impl IAppxContentGroupFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1084,7 +1084,7 @@ impl IAppxContentGroupMapReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetRequiredGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requiredgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requiredgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1095,7 +1095,7 @@ impl IAppxContentGroupMapReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutomaticGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *automaticgroupsenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(automaticgroupsenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1161,7 +1161,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *stream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(stream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1172,7 +1172,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1183,7 +1183,7 @@ impl IAppxContentGroupsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1364,7 +1364,7 @@ impl IAppxEncryptionFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncryptedPackageWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute(&manifeststream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagewriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagewriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1375,7 +1375,7 @@ impl IAppxEncryptionFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncryptedPackageReader(::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&keyinfo)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagereader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagereader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1396,7 +1396,7 @@ impl IAppxEncryptionFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncryptedBundleWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&bundleversion), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bundlewriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bundlewriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1407,7 +1407,7 @@ impl IAppxEncryptionFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncryptedBundleReader(::core::mem::transmute(&inputstream), ::core::mem::transmute_copy(&keyinfo)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bundlereader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bundlereader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1443,7 +1443,7 @@ impl IAppxEncryptionFactory2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncryptedPackageWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute(&manifeststream), ::core::mem::transmute(&contentgroupmapstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagewriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagewriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1480,7 +1480,7 @@ impl IAppxEncryptionFactory3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncryptedPackageWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute(&manifeststream), ::core::mem::transmute(&contentgroupmapstream), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagewriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagewriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1496,7 +1496,7 @@ impl IAppxEncryptionFactory3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncryptedBundleWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&bundleversion), ::core::mem::transmute_copy(&settings), ::core::mem::transmute_copy(&keyinfo), ::core::mem::transmute_copy(&exemptedfiles)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bundlewriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bundlewriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1552,7 +1552,7 @@ impl IAppxFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePackageWriter(::core::mem::transmute(&outputstream), ::core::mem::transmute_copy(&settings)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagewriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagewriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1563,7 +1563,7 @@ impl IAppxFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePackageReader(::core::mem::transmute(&inputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagereader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagereader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1574,7 +1574,7 @@ impl IAppxFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateManifestReader(::core::mem::transmute(&inputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *manifestreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(manifestreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1585,7 +1585,7 @@ impl IAppxFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlockMapReader(::core::mem::transmute(&inputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *blockmapreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(blockmapreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1596,7 +1596,7 @@ impl IAppxFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateValidatedBlockMapReader(::core::mem::transmute(&blockmapstream), ::core::mem::transmute(&signaturefilename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *blockmapreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(blockmapreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1631,7 +1631,7 @@ impl IAppxFactory2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateContentGroupMapReader(::core::mem::transmute(&inputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *contentgroupmapreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contentgroupmapreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1642,7 +1642,7 @@ impl IAppxFactory2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSourceContentGroupMapReader(::core::mem::transmute(&inputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *reader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(reader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1653,7 +1653,7 @@ impl IAppxFactory2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateContentGroupMapWriter(::core::mem::transmute(&stream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *contentgroupmapwriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contentgroupmapwriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1688,7 +1688,7 @@ impl IAppxFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetCompressionOption() {
                 ::core::result::Result::Ok(ok__) => {
-                    *compressionoption = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(compressionoption, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1699,7 +1699,7 @@ impl IAppxFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *contenttype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(contenttype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1710,7 +1710,7 @@ impl IAppxFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1721,7 +1721,7 @@ impl IAppxFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *size = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(size, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1732,7 +1732,7 @@ impl IAppxFile_Vtbl {
             let this = (*this).get_impl();
             match this.GetStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *stream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(stream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1767,7 +1767,7 @@ impl IAppxFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *file = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(file, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1778,7 +1778,7 @@ impl IAppxFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1789,7 +1789,7 @@ impl IAppxFilesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1818,7 +1818,7 @@ impl IAppxManifestApplication_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringValue(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1829,7 +1829,7 @@ impl IAppxManifestApplication_Vtbl {
             let this = (*this).get_impl();
             match this.GetAppUserModelId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *appusermodelid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(appusermodelid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1861,7 +1861,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *application = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(application, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1872,7 +1872,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1883,7 +1883,7 @@ impl IAppxManifestApplicationsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1916,7 +1916,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *capability = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(capability, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1927,7 +1927,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1938,7 +1938,7 @@ impl IAppxManifestCapabilitiesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1971,7 +1971,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecapability = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecapability, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1982,7 +1982,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1993,7 +1993,7 @@ impl IAppxManifestDeviceCapabilitiesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2023,7 +2023,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2034,7 +2034,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *minversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(minversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2045,7 +2045,7 @@ impl IAppxManifestDriverConstraint_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mindate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mindate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2078,7 +2078,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *driverconstraint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(driverconstraint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2089,7 +2089,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2100,7 +2100,7 @@ impl IAppxManifestDriverConstraintsEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2133,7 +2133,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *driverdependency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(driverdependency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2144,7 +2144,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2155,7 +2155,7 @@ impl IAppxManifestDriverDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2183,7 +2183,7 @@ impl IAppxManifestDriverDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetDriverConstraints() {
                 ::core::result::Result::Ok(ok__) => {
-                    *driverconstraints = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(driverconstraints, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2211,7 +2211,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hostruntimedependency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hostruntimedependency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2222,7 +2222,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2233,7 +2233,7 @@ impl IAppxManifestHostRuntimeDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2263,7 +2263,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2274,7 +2274,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetPublisher() {
                 ::core::result::Result::Ok(ok__) => {
-                    *publisher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(publisher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2285,7 +2285,7 @@ impl IAppxManifestHostRuntimeDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *minversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(minversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2313,7 +2313,7 @@ impl IAppxManifestHostRuntimeDependency2_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagefamilyname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagefamilyname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2341,7 +2341,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mainpackagedependency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mainpackagedependency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2352,7 +2352,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2363,7 +2363,7 @@ impl IAppxManifestMainPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2393,7 +2393,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2404,7 +2404,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetPublisher() {
                 ::core::result::Result::Ok(ok__) => {
-                    *publisher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(publisher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2415,7 +2415,7 @@ impl IAppxManifestMainPackageDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagefamilyname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagefamilyname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2448,7 +2448,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ospackagedependency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ospackagedependency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2459,7 +2459,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2470,7 +2470,7 @@ impl IAppxManifestOSPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2499,7 +2499,7 @@ impl IAppxManifestOSPackageDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2510,7 +2510,7 @@ impl IAppxManifestOSPackageDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *version = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(version, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2541,7 +2541,7 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetIsOptionalPackage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isoptionalpackage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isoptionalpackage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2552,7 +2552,7 @@ impl IAppxManifestOptionalPackageInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetMainPackageName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mainpackagename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mainpackagename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2584,7 +2584,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dependency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dependency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2595,7 +2595,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2606,7 +2606,7 @@ impl IAppxManifestPackageDependenciesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2636,7 +2636,7 @@ impl IAppxManifestPackageDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2647,7 +2647,7 @@ impl IAppxManifestPackageDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetPublisher() {
                 ::core::result::Result::Ok(ok__) => {
-                    *publisher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(publisher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2658,7 +2658,7 @@ impl IAppxManifestPackageDependency_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *minversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(minversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2686,7 +2686,7 @@ impl IAppxManifestPackageDependency2_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxMajorVersionTested() {
                 ::core::result::Result::Ok(ok__) => {
-                    *maxmajorversiontested = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(maxmajorversiontested, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2715,7 +2715,7 @@ impl IAppxManifestPackageDependency3_Vtbl {
             let this = (*this).get_impl();
             match this.GetIsOptional() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isoptional = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isoptional, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2748,7 +2748,7 @@ impl IAppxManifestPackageId_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2759,7 +2759,7 @@ impl IAppxManifestPackageId_Vtbl {
             let this = (*this).get_impl();
             match this.GetArchitecture() {
                 ::core::result::Result::Ok(ok__) => {
-                    *architecture = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(architecture, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2770,7 +2770,7 @@ impl IAppxManifestPackageId_Vtbl {
             let this = (*this).get_impl();
             match this.GetPublisher() {
                 ::core::result::Result::Ok(ok__) => {
-                    *publisher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(publisher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2781,7 +2781,7 @@ impl IAppxManifestPackageId_Vtbl {
             let this = (*this).get_impl();
             match this.GetVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2792,7 +2792,7 @@ impl IAppxManifestPackageId_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resourceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resourceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2803,7 +2803,7 @@ impl IAppxManifestPackageId_Vtbl {
             let this = (*this).get_impl();
             match this.ComparePublisher(::core::mem::transmute(&other)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *issame = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(issame, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2814,7 +2814,7 @@ impl IAppxManifestPackageId_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageFullName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagefullname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagefullname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2825,7 +2825,7 @@ impl IAppxManifestPackageId_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagefamilyname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagefamilyname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2861,7 +2861,7 @@ impl IAppxManifestPackageId2_Vtbl {
             let this = (*this).get_impl();
             match this.GetArchitecture2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *architecture = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(architecture, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2888,7 +2888,7 @@ impl IAppxManifestProperties_Vtbl {
             let this = (*this).get_impl();
             match this.GetBoolValue(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2899,7 +2899,7 @@ impl IAppxManifestProperties_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringValue(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2928,7 +2928,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
             let this = (*this).get_impl();
             match this.GetLanguage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *language = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(language, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2939,7 +2939,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
             let this = (*this).get_impl();
             match this.GetScale() {
                 ::core::result::Result::Ok(ok__) => {
-                    *scale = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(scale, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2950,7 +2950,7 @@ impl IAppxManifestQualifiedResource_Vtbl {
             let this = (*this).get_impl();
             match this.GetDXFeatureLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dxfeaturelevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dxfeaturelevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2983,7 +2983,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2994,7 +2994,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3005,7 +3005,7 @@ impl IAppxManifestQualifiedResourcesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3044,7 +3044,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3055,7 +3055,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packageproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packageproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3066,7 +3066,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPackageDependencies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dependencies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dependencies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3077,7 +3077,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *capabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(capabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3088,7 +3088,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetResources() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resources = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resources, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3099,7 +3099,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *devicecapabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(devicecapabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3110,7 +3110,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrerequisite(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3121,7 +3121,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetApplications() {
                 ::core::result::Result::Ok(ok__) => {
-                    *applications = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(applications, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3132,7 +3132,7 @@ impl IAppxManifestReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *manifeststream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(manifeststream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3169,7 +3169,7 @@ impl IAppxManifestReader2_Vtbl {
             let this = (*this).get_impl();
             match this.GetQualifiedResources() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resources = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resources, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3196,7 +3196,7 @@ impl IAppxManifestReader3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCapabilitiesByCapabilityClass(::core::mem::transmute_copy(&capabilityclass)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *capabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(capabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3207,7 +3207,7 @@ impl IAppxManifestReader3_Vtbl {
             let this = (*this).get_impl();
             match this.GetTargetDeviceFamilies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *targetdevicefamilies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(targetdevicefamilies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3237,7 +3237,7 @@ impl IAppxManifestReader4_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionalPackageInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *optionalpackageinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(optionalpackageinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3260,7 +3260,7 @@ impl IAppxManifestReader5_Vtbl {
             let this = (*this).get_impl();
             match this.GetMainPackageDependencies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mainpackagedependencies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mainpackagedependencies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3289,7 +3289,7 @@ impl IAppxManifestReader6_Vtbl {
             let this = (*this).get_impl();
             match this.GetIsNonQualifiedResourcePackage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isnonqualifiedresourcepackage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isnonqualifiedresourcepackage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3317,7 +3317,7 @@ impl IAppxManifestReader7_Vtbl {
             let this = (*this).get_impl();
             match this.GetDriverDependencies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *driverdependencies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(driverdependencies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3328,7 +3328,7 @@ impl IAppxManifestReader7_Vtbl {
             let this = (*this).get_impl();
             match this.GetOSPackageDependencies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ospackagedependencies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ospackagedependencies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3339,7 +3339,7 @@ impl IAppxManifestReader7_Vtbl {
             let this = (*this).get_impl();
             match this.GetHostRuntimeDependencies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hostruntimedependencies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hostruntimedependencies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3372,7 +3372,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3383,7 +3383,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3394,7 +3394,7 @@ impl IAppxManifestResourcesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3427,7 +3427,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *targetdevicefamily = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(targetdevicefamily, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3438,7 +3438,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetHasCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hascurrent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hascurrent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3449,7 +3449,7 @@ impl IAppxManifestTargetDeviceFamiliesEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.MoveNext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hasnext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hasnext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3479,7 +3479,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3490,7 +3490,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *minversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(minversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3501,7 +3501,7 @@ impl IAppxManifestTargetDeviceFamily_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxVersionTested() {
                 ::core::result::Result::Ok(ok__) => {
-                    *maxversiontested = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(maxversiontested, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3591,7 +3591,7 @@ impl IAppxPackageReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetBlockMap() {
                 ::core::result::Result::Ok(ok__) => {
-                    *blockmapreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(blockmapreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3602,7 +3602,7 @@ impl IAppxPackageReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetFootprintFile(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *file = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(file, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3613,7 +3613,7 @@ impl IAppxPackageReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPayloadFile(::core::mem::transmute(&filename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *file = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(file, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3624,7 +3624,7 @@ impl IAppxPackageReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetPayloadFiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filesenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filesenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3635,7 +3635,7 @@ impl IAppxPackageReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetManifest() {
                 ::core::result::Result::Ok(ok__) => {
-                    *manifestreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(manifestreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3780,7 +3780,7 @@ impl IAppxSourceContentGroupMapReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetRequiredGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *requiredgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(requiredgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3791,7 +3791,7 @@ impl IAppxSourceContentGroupMapReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetAutomaticGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *automaticgroupsenumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(automaticgroupsenumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

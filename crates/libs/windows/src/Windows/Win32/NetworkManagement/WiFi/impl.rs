@@ -22,7 +22,7 @@ impl IDot11AdHocInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetFriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -48,7 +48,7 @@ impl IDot11AdHocInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetActiveNetwork() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnetwork = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnetwork, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -59,7 +59,7 @@ impl IDot11AdHocInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetIEnumSecuritySettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -70,7 +70,7 @@ impl IDot11AdHocInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetIEnumDot11AdHocNetworks(::core::mem::transmute_copy(&pfilterguid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IDot11AdHocManager_Vtbl {
             let this = (*this).get_impl();
             match this.CreateNetwork(::core::mem::transmute(&name), ::core::mem::transmute(&password), ::core::mem::transmute_copy(&geographicalid), ::core::mem::transmute(&pinterface), ::core::mem::transmute(&psecurity), ::core::mem::transmute_copy(&pcontextguid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *piadhoc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(piadhoc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl IDot11AdHocManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetIEnumDot11AdHocNetworks(::core::mem::transmute_copy(&pcontextguid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -160,7 +160,7 @@ impl IDot11AdHocManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetIEnumDot11AdHocInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -171,7 +171,7 @@ impl IDot11AdHocManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetNetwork(::core::mem::transmute_copy(&networksignature)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnetwork = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnetwork, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -261,7 +261,7 @@ impl IDot11AdHocNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetSSID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwssid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwssid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -277,7 +277,7 @@ impl IDot11AdHocNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetProfileName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszwprofilename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszwprofilename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -298,7 +298,7 @@ impl IDot11AdHocNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecuritySetting() {
                 ::core::result::Result::Ok(ok__) => {
-                    *padhocsecuritysetting = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(padhocsecuritysetting, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -319,7 +319,7 @@ impl IDot11AdHocNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetInterface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *padhocinterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(padhocinterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -438,7 +438,7 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -485,7 +485,7 @@ impl IEnumDot11AdHocNetworks_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -532,7 +532,7 @@ impl IEnumDot11AdHocSecuritySettings_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

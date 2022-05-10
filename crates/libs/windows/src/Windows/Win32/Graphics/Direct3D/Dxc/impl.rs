@@ -9,7 +9,7 @@ impl IDxcAssembler_Vtbl {
             let this = (*this).get_impl();
             match this.AssembleToContainer(::core::mem::transmute(&pshader)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -141,7 +141,7 @@ impl IDxcCompiler_Vtbl {
             let this = (*this).get_impl();
             match this.Compile(::core::mem::transmute(&psource), ::core::mem::transmute(&psourcename), ::core::mem::transmute(&pentrypoint), ::core::mem::transmute(&ptargetprofile), ::core::mem::transmute_copy(&parguments), ::core::mem::transmute_copy(&argcount), ::core::mem::transmute_copy(&pdefines), ::core::mem::transmute_copy(&definecount), ::core::mem::transmute(&pincludehandler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -152,7 +152,7 @@ impl IDxcCompiler_Vtbl {
             let this = (*this).get_impl();
             match this.Preprocess(::core::mem::transmute(&psource), ::core::mem::transmute(&psourcename), ::core::mem::transmute_copy(&parguments), ::core::mem::transmute_copy(&argcount), ::core::mem::transmute_copy(&pdefines), ::core::mem::transmute_copy(&definecount), ::core::mem::transmute(&pincludehandler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -163,7 +163,7 @@ impl IDxcCompiler_Vtbl {
             let this = (*this).get_impl();
             match this.Disassemble(::core::mem::transmute(&psource)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisassembly = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisassembly, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -315,7 +315,7 @@ impl IDxcContainerBuilder_Vtbl {
             let this = (*this).get_impl();
             match this.SerializeContainer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -354,7 +354,7 @@ impl IDxcContainerReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetPartCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -365,7 +365,7 @@ impl IDxcContainerReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetPartKind(::core::mem::transmute_copy(&idx)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -376,7 +376,7 @@ impl IDxcContainerReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetPartContent(::core::mem::transmute_copy(&idx)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -387,7 +387,7 @@ impl IDxcContainerReflection_Vtbl {
             let this = (*this).get_impl();
             match this.FindFirstPartKind(::core::mem::transmute_copy(&kind)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -450,7 +450,7 @@ impl IDxcIncludeHandler_Vtbl {
             let this = (*this).get_impl();
             match this.LoadSource(::core::mem::transmute(&pfilename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppincludesource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppincludesource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -490,7 +490,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlobFromBlob(::core::mem::transmute(&pblob), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&length)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -501,7 +501,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlobFromFile(::core::mem::transmute(&pfilename), ::core::mem::transmute_copy(&codepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -512,7 +512,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlobWithEncodingFromPinned(::core::mem::transmute_copy(&ptext), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&codepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -523,7 +523,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlobWithEncodingOnHeapCopy(::core::mem::transmute_copy(&ptext), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&codepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -534,7 +534,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlobWithEncodingOnMalloc(::core::mem::transmute_copy(&ptext), ::core::mem::transmute(&pimalloc), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&codepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -545,7 +545,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateIncludeHandler() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -556,7 +556,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStreamFromBlobReadOnly(::core::mem::transmute(&pblob)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -567,7 +567,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.GetBlobAsUtf8(::core::mem::transmute(&pblob)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -578,7 +578,7 @@ impl IDxcLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.GetBlobAsUtf16(::core::mem::transmute(&pblob)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl IDxcLinker_Vtbl {
             let this = (*this).get_impl();
             match this.Link(::core::mem::transmute(&pentryname), ::core::mem::transmute(&ptargetprofile), ::core::mem::transmute_copy(&plibnames), ::core::mem::transmute_copy(&libcount), ::core::mem::transmute_copy(&parguments), ::core::mem::transmute_copy(&argcount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl IDxcOperationResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -659,7 +659,7 @@ impl IDxcOperationResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetResult() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -670,7 +670,7 @@ impl IDxcOperationResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorBuffer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperrors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperrors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl IDxcOptimizer_Vtbl {
             let this = (*this).get_impl();
             match this.GetAvailablePassCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -711,7 +711,7 @@ impl IDxcOptimizer_Vtbl {
             let this = (*this).get_impl();
             match this.GetAvailablePass(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -748,7 +748,7 @@ impl IDxcOptimizerPass_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -759,7 +759,7 @@ impl IDxcOptimizerPass_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -770,7 +770,7 @@ impl IDxcOptimizerPass_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionArgCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -781,7 +781,7 @@ impl IDxcOptimizerPass_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionArgName(::core::mem::transmute_copy(&argindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -792,7 +792,7 @@ impl IDxcOptimizerPass_Vtbl {
             let this = (*this).get_impl();
             match this.GetOptionArgDescription(::core::mem::transmute_copy(&argindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -853,7 +853,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -864,7 +864,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetSource(::core::mem::transmute_copy(&uindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -875,7 +875,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceName(::core::mem::transmute_copy(&uindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -886,7 +886,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlagCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -897,7 +897,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlag(::core::mem::transmute_copy(&uindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -908,7 +908,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetArgCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -919,7 +919,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetArg(::core::mem::transmute_copy(&uindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -930,7 +930,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetArgPairCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -946,7 +946,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefineCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -957,7 +957,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefine(::core::mem::transmute_copy(&uindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -968,7 +968,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetTargetProfile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -979,7 +979,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetEntryPoint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -990,7 +990,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetMainFileName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1001,7 +1001,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetHash() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1012,7 +1012,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1028,7 +1028,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetFullPDB() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfullpdb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfullpdb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1039,7 +1039,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetVersionInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppversioninfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppversioninfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1055,7 +1055,7 @@ impl IDxcPdbUtils_Vtbl {
             let this = (*this).get_impl();
             match this.CompileForFullPDB() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1180,7 +1180,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlobFromBlob(::core::mem::transmute(&pblob), ::core::mem::transmute_copy(&offset), ::core::mem::transmute_copy(&length)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1191,7 +1191,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlobFromPinned(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&codepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1202,7 +1202,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.MoveToBlob(::core::mem::transmute_copy(&pdata), ::core::mem::transmute(&pimalloc), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&codepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1213,7 +1213,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlob(::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&size), ::core::mem::transmute_copy(&codepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1224,7 +1224,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.LoadFile(::core::mem::transmute(&pfilename), ::core::mem::transmute_copy(&pcodepage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1235,7 +1235,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.CreateReadOnlyStreamFromBlob(::core::mem::transmute(&pblob)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1246,7 +1246,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDefaultIncludeHandler() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1257,7 +1257,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetBlobAsUtf8(::core::mem::transmute(&pblob)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1268,7 +1268,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.GetBlobAsUtf16(::core::mem::transmute(&pblob)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pblobencoding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pblobencoding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1289,7 +1289,7 @@ impl IDxcUtils_Vtbl {
             let this = (*this).get_impl();
             match this.BuildArguments(::core::mem::transmute(&psourcename), ::core::mem::transmute(&pentrypoint), ::core::mem::transmute(&ptargetprofile), ::core::mem::transmute_copy(&parguments), ::core::mem::transmute_copy(&argcount), ::core::mem::transmute_copy(&pdefines), ::core::mem::transmute_copy(&definecount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppargs = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppargs, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1332,7 +1332,7 @@ impl IDxcValidator_Vtbl {
             let this = (*this).get_impl();
             match this.Validate(::core::mem::transmute(&pshader), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1355,7 +1355,7 @@ impl IDxcValidator2_Vtbl {
             let this = (*this).get_impl();
             match this.ValidateWithDebug(::core::mem::transmute(&pshader), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&poptdebugbitcode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1384,7 +1384,7 @@ impl IDxcVersionInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1428,7 +1428,7 @@ impl IDxcVersionInfo3_Vtbl {
             let this = (*this).get_impl();
             match this.GetCustomVersionString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pversionstring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pversionstring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -56,7 +56,7 @@ impl IMDSPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -67,7 +67,7 @@ impl IMDSPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -88,7 +88,7 @@ impl IMDSPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -99,7 +99,7 @@ impl IMDSPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceIcon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hicon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hicon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -110,7 +110,7 @@ impl IMDSPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.EnumStorage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -162,7 +162,7 @@ impl IMDSPDevice2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStorage(::core::mem::transmute(&pszstoragename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -213,7 +213,7 @@ impl IMDSPDevice3_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute(&pwszpropname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -229,7 +229,7 @@ impl IMDSPDevice3_Vtbl {
             let this = (*this).get_impl();
             match this.GetFormatCapability(::core::mem::transmute_copy(&format)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pformatsupport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pformatsupport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl IMDSPDevice3_Vtbl {
             let this = (*this).get_impl();
             match this.FindStorage(::core::mem::transmute_copy(&findscope), ::core::mem::transmute(&pwszuniqueid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -282,7 +282,7 @@ impl IMDSPDeviceControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetDCStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -293,7 +293,7 @@ impl IMDSPDeviceControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcapabilitiesmask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcapabilitiesmask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -356,7 +356,7 @@ impl IMDSPDirectTransfer_Vtbl {
             let this = (*this).get_impl();
             match this.TransferToDevice(::core::mem::transmute(&pwszsourcefilepath), ::core::mem::transmute(&psourceoperation), ::core::mem::transmute_copy(&fuflags), ::core::mem::transmute(&pwszdestinationname), ::core::mem::transmute(&psourcemetadata), ::core::mem::transmute(&ptransferprogress)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -387,7 +387,7 @@ impl IMDSPEnumDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Skip(::core::mem::transmute_copy(&celt)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pceltfetched = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pceltfetched, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -403,7 +403,7 @@ impl IMDSPEnumDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl IMDSPEnumStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Skip(::core::mem::transmute_copy(&celt)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pceltfetched = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pceltfetched, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -456,7 +456,7 @@ impl IMDSPEnumStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -587,7 +587,7 @@ impl IMDSPObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPlayLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -603,7 +603,7 @@ impl IMDSPObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPlayOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl IMDSPObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetTotalLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -630,7 +630,7 @@ impl IMDSPObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastPlayPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwlastpos = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwlastpos, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -641,7 +641,7 @@ impl IMDSPObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetLongestPlayPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwlongestpos = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwlongestpos, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -704,7 +704,7 @@ impl IMDSPStorage_Vtbl {
             let this = (*this).get_impl();
             match this.GetStorageGlobals() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorageglobals = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorageglobals, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -725,7 +725,7 @@ impl IMDSPStorage_Vtbl {
             let this = (*this).get_impl();
             match this.GetDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdatetimeutc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdatetimeutc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -746,7 +746,7 @@ impl IMDSPStorage_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStorage(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&pformat), ::core::mem::transmute(&pwszname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -757,7 +757,7 @@ impl IMDSPStorage_Vtbl {
             let this = (*this).get_impl();
             match this.EnumStorage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -803,7 +803,7 @@ impl IMDSPStorage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStorage(::core::mem::transmute(&pszstoragename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -814,7 +814,7 @@ impl IMDSPStorage2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStorage2(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute_copy(&dwattributesex), ::core::mem::transmute_copy(&paudioformat), ::core::mem::transmute_copy(&pvideoformat), ::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&qwfilesize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -901,7 +901,7 @@ impl IMDSPStorage4_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStorageWithMetadata(::core::mem::transmute_copy(&dwattributes), ::core::mem::transmute(&pwszname), ::core::mem::transmute(&pmetadata), ::core::mem::transmute_copy(&qwfilesize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -917,7 +917,7 @@ impl IMDSPStorage4_Vtbl {
             let this = (*this).get_impl();
             match this.FindStorage(::core::mem::transmute_copy(&findscope), ::core::mem::transmute(&pwszuniqueid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -928,7 +928,7 @@ impl IMDSPStorage4_Vtbl {
             let this = (*this).get_impl();
             match this.GetParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -967,7 +967,7 @@ impl IMDSPStorageGlobals_Vtbl {
             let this = (*this).get_impl();
             match this.GetCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcapabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcapabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -998,7 +998,7 @@ impl IMDSPStorageGlobals_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1014,7 +1014,7 @@ impl IMDSPStorageGlobals_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1025,7 +1025,7 @@ impl IMDSPStorageGlobals_Vtbl {
             let this = (*this).get_impl();
             match this.GetRootStorage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproot = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproot, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1060,7 +1060,7 @@ impl IMDServiceProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1071,7 +1071,7 @@ impl IMDServiceProvider_Vtbl {
             let this = (*this).get_impl();
             match this.EnumDevices() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1132,7 +1132,7 @@ impl ISCPSecureAuthenticate_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecureQuery() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsecurequery = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsecurequery, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1155,7 +1155,7 @@ impl ISCPSecureAuthenticate2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSCPSession() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscpsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscpsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1231,7 +1231,7 @@ impl ISCPSecureExchange3_Vtbl {
             let this = (*this).get_impl();
             match this.TransferContainerDataOnClearChannel(::core::mem::transmute(&pdevice), ::core::mem::transmute_copy(&pdata), ::core::mem::transmute_copy(&dwsize), ::core::mem::transmute(&pprogresscallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfureadyflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfureadyflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1406,7 +1406,7 @@ impl ISCPSession_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecureQuery() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsecurequery = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsecurequery, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1454,7 +1454,7 @@ impl IWMDMDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1465,7 +1465,7 @@ impl IWMDMDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1486,7 +1486,7 @@ impl IWMDMDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1497,7 +1497,7 @@ impl IWMDMDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceIcon() {
                 ::core::result::Result::Ok(ok__) => {
-                    *hicon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hicon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1508,7 +1508,7 @@ impl IWMDMDevice_Vtbl {
             let this = (*this).get_impl();
             match this.EnumStorage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1560,7 +1560,7 @@ impl IWMDMDevice2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStorage(::core::mem::transmute(&pszstoragename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1611,7 +1611,7 @@ impl IWMDMDevice3_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute(&pwszpropname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1627,7 +1627,7 @@ impl IWMDMDevice3_Vtbl {
             let this = (*this).get_impl();
             match this.GetFormatCapability(::core::mem::transmute_copy(&format)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pformatsupport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pformatsupport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1643,7 +1643,7 @@ impl IWMDMDevice3_Vtbl {
             let this = (*this).get_impl();
             match this.FindStorage(::core::mem::transmute_copy(&findscope), ::core::mem::transmute(&pwszuniqueid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1680,7 +1680,7 @@ impl IWMDMDeviceControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1691,7 +1691,7 @@ impl IWMDMDeviceControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcapabilitiesmask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcapabilitiesmask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1789,7 +1789,7 @@ impl IWMDMEnumDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Skip(::core::mem::transmute_copy(&celt)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pceltfetched = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pceltfetched, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1805,7 +1805,7 @@ impl IWMDMEnumDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1842,7 +1842,7 @@ impl IWMDMEnumStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Skip(::core::mem::transmute_copy(&celt)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pceltfetched = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pceltfetched, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1858,7 +1858,7 @@ impl IWMDMEnumStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1898,7 +1898,7 @@ impl IWMDMLogger_Vtbl {
             let this = (*this).get_impl();
             match this.IsEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1990,7 +1990,7 @@ impl IWMDMMetaData_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *icount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(icount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2042,7 +2042,7 @@ impl IWMDMObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPlayLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2058,7 +2058,7 @@ impl IWMDMObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPlayOffset() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwoffset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwoffset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2074,7 +2074,7 @@ impl IWMDMObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetTotalLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2085,7 +2085,7 @@ impl IWMDMObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastPlayPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwlastpos = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwlastpos, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2096,7 +2096,7 @@ impl IWMDMObjectInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetLongestPlayPosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwlongestpos = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwlongestpos, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2376,7 +2376,7 @@ impl IWMDMStorage_Vtbl {
             let this = (*this).get_impl();
             match this.GetStorageGlobals() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorageglobals = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorageglobals, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2397,7 +2397,7 @@ impl IWMDMStorage_Vtbl {
             let this = (*this).get_impl();
             match this.GetDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdatetimeutc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdatetimeutc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2418,7 +2418,7 @@ impl IWMDMStorage_Vtbl {
             let this = (*this).get_impl();
             match this.EnumStorage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penumstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penumstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2462,7 +2462,7 @@ impl IWMDMStorage2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStorage(::core::mem::transmute(&pszstoragename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2506,7 +2506,7 @@ impl IWMDMStorage3_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2522,7 +2522,7 @@ impl IWMDMStorage3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEmptyMetadataObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2579,7 +2579,7 @@ impl IWMDMStorage4_Vtbl {
             let this = (*this).get_impl();
             match this.GetSpecifiedMetadata(::core::mem::transmute_copy(&cproperties), ::core::mem::transmute_copy(&ppwszpropnames)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2590,7 +2590,7 @@ impl IWMDMStorage4_Vtbl {
             let this = (*this).get_impl();
             match this.FindStorage(::core::mem::transmute_copy(&findscope), ::core::mem::transmute(&pwszuniqueid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2601,7 +2601,7 @@ impl IWMDMStorage4_Vtbl {
             let this = (*this).get_impl();
             match this.GetParent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstorage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstorage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2636,7 +2636,7 @@ impl IWMDMStorageControl_Vtbl {
             let this = (*this).get_impl();
             match this.Insert(::core::mem::transmute_copy(&fumode), ::core::mem::transmute(&pwszfile), ::core::mem::transmute(&poperation), ::core::mem::transmute(&pprogress)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2726,7 +2726,7 @@ impl IWMDMStorageGlobals_Vtbl {
             let this = (*this).get_impl();
             match this.GetCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcapabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcapabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2757,7 +2757,7 @@ impl IWMDMStorageGlobals_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2796,7 +2796,7 @@ impl IWMDeviceManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetRevision() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwrevision = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwrevision, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2807,7 +2807,7 @@ impl IWMDeviceManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2818,7 +2818,7 @@ impl IWMDeviceManager_Vtbl {
             let this = (*this).get_impl();
             match this.EnumDevices() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2848,7 +2848,7 @@ impl IWMDeviceManager2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceFromCanonicalName(::core::mem::transmute(&pwszcanonicalname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2859,7 +2859,7 @@ impl IWMDeviceManager2_Vtbl {
             let this = (*this).get_impl();
             match this.EnumDevices2() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

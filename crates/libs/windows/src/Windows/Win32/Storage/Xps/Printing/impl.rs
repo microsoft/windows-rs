@@ -69,7 +69,7 @@ impl IPrintDocumentPackageTargetFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDocumentPackageTargetForPrintJob(::core::mem::transmute(&printername), ::core::mem::transmute(&jobname), ::core::mem::transmute(&joboutputstream), ::core::mem::transmute(&jobprintticketstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *docpackagetarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(docpackagetarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -101,7 +101,7 @@ impl IXpsPrintJob_Vtbl {
             let this = (*this).get_impl();
             match this.GetJobStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *jobstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(jobstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

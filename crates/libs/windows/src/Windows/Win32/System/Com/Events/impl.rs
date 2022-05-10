@@ -22,7 +22,7 @@ impl IEnumEventObject_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IEventClass_Vtbl {
             let this = (*this).get_impl();
             match this.EventClassID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstreventclassid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstreventclassid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -98,7 +98,7 @@ impl IEventClass_Vtbl {
             let this = (*this).get_impl();
             match this.EventClassName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstreventclassname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstreventclassname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -114,7 +114,7 @@ impl IEventClass_Vtbl {
             let this = (*this).get_impl();
             match this.OwnerSID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrownersid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrownersid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -130,7 +130,7 @@ impl IEventClass_Vtbl {
             let this = (*this).get_impl();
             match this.FiringInterfaceID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrfiringinterfaceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrfiringinterfaceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -146,7 +146,7 @@ impl IEventClass_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -162,7 +162,7 @@ impl IEventClass_Vtbl {
             let this = (*this).get_impl();
             match this.CustomConfigCLSID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrcustomconfigclsid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrcustomconfigclsid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -178,7 +178,7 @@ impl IEventClass_Vtbl {
             let this = (*this).get_impl();
             match this.TypeLib() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtypelib = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtypelib, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -232,7 +232,7 @@ impl IEventClass2_Vtbl {
             let this = (*this).get_impl();
             match this.PublisherID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpublisherid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpublisherid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -248,7 +248,7 @@ impl IEventClass2_Vtbl {
             let this = (*this).get_impl();
             match this.MultiInterfacePublisherFilterCLSID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpubfilclsid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpubfilclsid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -264,7 +264,7 @@ impl IEventClass2_Vtbl {
             let this = (*this).get_impl();
             match this.AllowInprocActivation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfallowinprocactivation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfallowinprocactivation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -280,7 +280,7 @@ impl IEventClass2_Vtbl {
             let this = (*this).get_impl();
             match this.FireInParallel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pffireinparallel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pffireinparallel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl IEventControl_Vtbl {
             let this = (*this).get_impl();
             match this.AllowInprocActivation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfallowinprocactivation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfallowinprocactivation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl IEventControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubscriptions(::core::mem::transmute(&methodname), ::core::mem::transmute(&optionalcriteria), ::core::mem::transmute_copy(&optionalerrorindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -357,7 +357,7 @@ impl IEventControl_Vtbl {
             let this = (*this).get_impl();
             match this.SetDefaultQuery(::core::mem::transmute(&methodname), ::core::mem::transmute(&criteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *errorindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errorindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -462,7 +462,7 @@ impl IEventObjectCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -473,7 +473,7 @@ impl IEventObjectCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&objectid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -484,7 +484,7 @@ impl IEventObjectCollection_Vtbl {
             let this = (*this).get_impl();
             match this.NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -495,7 +495,7 @@ impl IEventObjectCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -542,7 +542,7 @@ impl IEventProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -558,7 +558,7 @@ impl IEventProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -608,7 +608,7 @@ impl IEventPublisher_Vtbl {
             let this = (*this).get_impl();
             match this.PublisherID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpublisherid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpublisherid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -624,7 +624,7 @@ impl IEventPublisher_Vtbl {
             let this = (*this).get_impl();
             match this.PublisherName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpublishername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpublishername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -640,7 +640,7 @@ impl IEventPublisher_Vtbl {
             let this = (*this).get_impl();
             match this.PublisherType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpublishertype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpublishertype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -656,7 +656,7 @@ impl IEventPublisher_Vtbl {
             let this = (*this).get_impl();
             match this.OwnerSID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrownersid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrownersid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -672,7 +672,7 @@ impl IEventPublisher_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -688,7 +688,7 @@ impl IEventPublisher_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultProperty(::core::mem::transmute(&bstrpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -709,7 +709,7 @@ impl IEventPublisher_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultPropertyCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -784,7 +784,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.SubscriptionID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrsubscriptionid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrsubscriptionid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -800,7 +800,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.SubscriptionName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrsubscriptionname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrsubscriptionname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -816,7 +816,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.PublisherID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpublisherid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpublisherid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -832,7 +832,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.EventClassID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstreventclassid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstreventclassid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -848,7 +848,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.MethodName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrmethodname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrmethodname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -864,7 +864,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.SubscriberCLSID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrsubscriberclsid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrsubscriberclsid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -880,7 +880,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.SubscriberInterface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsubscriberinterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsubscriberinterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -896,7 +896,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.PerUser() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfperuser = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfperuser, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -912,7 +912,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.OwnerSID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrownersid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrownersid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -928,7 +928,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -944,7 +944,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -960,7 +960,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.MachineName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrmachinename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrmachinename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -976,7 +976,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.GetPublisherProperty(::core::mem::transmute(&bstrpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -997,7 +997,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.GetPublisherPropertyCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1008,7 +1008,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubscriberProperty(::core::mem::transmute(&bstrpropertyname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1029,7 +1029,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubscriberPropertyCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *collection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(collection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1040,7 +1040,7 @@ impl IEventSubscription_Vtbl {
             let this = (*this).get_impl();
             match this.InterfaceID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrinterfaceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrinterfaceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1122,7 +1122,7 @@ impl IEventSystem_Vtbl {
             let this = (*this).get_impl();
             match this.Remove(::core::mem::transmute(&progid), ::core::mem::transmute(&querycriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *errorindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errorindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1133,7 +1133,7 @@ impl IEventSystem_Vtbl {
             let this = (*this).get_impl();
             match this.EventObjectChangeEventClassID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstreventclassid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstreventclassid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1144,7 +1144,7 @@ impl IEventSystem_Vtbl {
             let this = (*this).get_impl();
             match this.QueryS(::core::mem::transmute(&progid), ::core::mem::transmute(&querycriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1214,7 +1214,7 @@ impl IMultiInterfaceEventControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubscriptions(::core::mem::transmute_copy(&eventiid), ::core::mem::transmute(&bstrmethodname), ::core::mem::transmute(&optionalcriteria), ::core::mem::transmute_copy(&optionalerrorindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1225,7 +1225,7 @@ impl IMultiInterfaceEventControl_Vtbl {
             let this = (*this).get_impl();
             match this.SetDefaultQuery(::core::mem::transmute_copy(&eventiid), ::core::mem::transmute(&bstrmethodname), ::core::mem::transmute(&bstrcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *errorindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errorindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1236,7 +1236,7 @@ impl IMultiInterfaceEventControl_Vtbl {
             let this = (*this).get_impl();
             match this.AllowInprocActivation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfallowinprocactivation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfallowinprocactivation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1252,7 +1252,7 @@ impl IMultiInterfaceEventControl_Vtbl {
             let this = (*this).get_impl();
             match this.FireInParallel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pffireinparallel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pffireinparallel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

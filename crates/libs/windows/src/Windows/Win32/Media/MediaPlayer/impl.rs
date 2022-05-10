@@ -55,7 +55,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Xml(::core::mem::transmute_copy(&count), ::core::mem::transmute_copy(&sortproperty), ::core::mem::transmute_copy(&sortorder), ::core::mem::transmute_copy(&filterflags), ::core::mem::transmute_copy(&includeflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *xml = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(xml, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -66,7 +66,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Url() {
                 ::core::result::Result::Ok(ok__) => {
-                    *feedurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(feedurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -98,7 +98,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LocalId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *feedguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(feedguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -109,7 +109,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -125,7 +125,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Parent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -136,7 +136,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LastWriteTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastwrite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastwrite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -167,7 +167,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.SyncSetting() {
                 ::core::result::Result::Ok(ok__) => {
-                    *syncsetting = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(syncsetting, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -183,7 +183,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Interval() {
                 ::core::result::Result::Ok(ok__) => {
-                    *minutes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(minutes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -199,7 +199,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LastDownloadTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastdownload = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastdownload, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -210,7 +210,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LocalEnclosurePath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *path = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(path, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -221,7 +221,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Items() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -232,7 +232,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.GetItem(::core::mem::transmute_copy(&itemid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -243,7 +243,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Title() {
                 ::core::result::Result::Ok(ok__) => {
-                    *title = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(title, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -254,7 +254,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *description = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(description, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Link() {
                 ::core::result::Result::Ok(ok__) => {
-                    *homepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(homepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -276,7 +276,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Image() {
                 ::core::result::Result::Ok(ok__) => {
-                    *imageurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(imageurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -287,7 +287,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LastBuildDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastbuilddate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastbuilddate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -298,7 +298,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.PubDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastpopulatedate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastpopulatedate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -309,7 +309,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Ttl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ttl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ttl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -320,7 +320,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Language() {
                 ::core::result::Result::Ok(ok__) => {
-                    *language = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(language, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -331,7 +331,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Copyright() {
                 ::core::result::Result::Ok(ok__) => {
-                    *copyright = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(copyright, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -342,7 +342,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.MaxItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -358,7 +358,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadEnclosuresAutomatically() {
                 ::core::result::Result::Ok(ok__) => {
-                    *downloadenclosuresautomatically = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(downloadenclosuresautomatically, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -374,7 +374,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -385,7 +385,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LastDownloadError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *error = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(error, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -401,7 +401,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadUrl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *feedurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(feedurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -412,7 +412,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.IsList() {
                 ::core::result::Result::Ok(ok__) => {
-                    *islist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(islist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -428,7 +428,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.GetWatcher(::core::mem::transmute_copy(&scope), ::core::mem::transmute_copy(&mask)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -439,7 +439,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.UnreadItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -450,7 +450,7 @@ impl IFeed_Vtbl {
             let this = (*this).get_impl();
             match this.ItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -527,7 +527,7 @@ impl IFeed2_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemByEffectiveId(::core::mem::transmute_copy(&itemeffectiveid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -538,7 +538,7 @@ impl IFeed2_Vtbl {
             let this = (*this).get_impl();
             match this.LastItemDownloadTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastitemdownloadtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastitemdownloadtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -549,7 +549,7 @@ impl IFeed2_Vtbl {
             let this = (*this).get_impl();
             match this.Username() {
                 ::core::result::Result::Ok(ok__) => {
-                    *username = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(username, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -560,7 +560,7 @@ impl IFeed2_Vtbl {
             let this = (*this).get_impl();
             match this.Password() {
                 ::core::result::Result::Ok(ok__) => {
-                    *password = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(password, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -616,7 +616,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.Url() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enclosureurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enclosureurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -627,7 +627,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mimetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mimetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -638,7 +638,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *length = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(length, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -659,7 +659,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -670,7 +670,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.LastDownloadError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *error = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(error, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -681,7 +681,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.LocalPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *localpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(localpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -692,7 +692,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.Parent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -703,7 +703,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadUrl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enclosureurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enclosureurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -714,7 +714,7 @@ impl IFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadMimeType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mimetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mimetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -854,7 +854,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Feeds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -865,7 +865,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Subfolders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -876,7 +876,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFeed(::core::mem::transmute(&feedname), ::core::mem::transmute(&feedurl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -887,7 +887,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSubfolder(::core::mem::transmute(&foldername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -898,7 +898,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.ExistsFeed(::core::mem::transmute(&feedname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *exists = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(exists, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -909,7 +909,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFeed(::core::mem::transmute(&feedname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -920,7 +920,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.ExistsSubfolder(::core::mem::transmute(&foldername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *exists = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(exists, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -931,7 +931,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubfolder(::core::mem::transmute(&foldername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -947,7 +947,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *foldername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(foldername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -963,7 +963,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *folderpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(folderpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -979,7 +979,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Parent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -990,7 +990,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.IsRoot() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isroot = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isroot, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1001,7 +1001,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.TotalUnreadItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1012,7 +1012,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.TotalItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1023,7 +1023,7 @@ impl IFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetWatcher(::core::mem::transmute_copy(&scope), ::core::mem::transmute_copy(&mask)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1213,7 +1213,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Xml(::core::mem::transmute_copy(&includeflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *xml = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(xml, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1224,7 +1224,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Title() {
                 ::core::result::Result::Ok(ok__) => {
-                    *title = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(title, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1235,7 +1235,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Link() {
                 ::core::result::Result::Ok(ok__) => {
-                    *linkurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(linkurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1246,7 +1246,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Guid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *itemguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(itemguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1257,7 +1257,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *description = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(description, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1268,7 +1268,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.PubDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pubdate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pubdate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1279,7 +1279,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Comments() {
                 ::core::result::Result::Ok(ok__) => {
-                    *comments = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(comments, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1290,7 +1290,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Author() {
                 ::core::result::Result::Ok(ok__) => {
-                    *author = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(author, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1301,7 +1301,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Enclosure() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1312,7 +1312,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.IsRead() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isread = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isread, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1328,7 +1328,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.LocalId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *itemid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(itemid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1339,7 +1339,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Parent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1355,7 +1355,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadUrl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *itemurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(itemurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1366,7 +1366,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.LastDownloadTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lastdownload = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lastdownload, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1377,7 +1377,7 @@ impl IFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Modified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *modified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(modified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1422,7 +1422,7 @@ impl IFeedItem2_Vtbl {
             let this = (*this).get_impl();
             match this.EffectiveId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *effectiveid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(effectiveid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1450,7 +1450,7 @@ impl IFeedsEnum_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1461,7 +1461,7 @@ impl IFeedsEnum_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1472,7 +1472,7 @@ impl IFeedsEnum_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumvar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumvar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1518,7 +1518,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.RootFolder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1529,7 +1529,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.IsSubscribed(::core::mem::transmute(&feedurl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *subscribed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(subscribed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1540,7 +1540,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.ExistsFeed(::core::mem::transmute(&feedpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *exists = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(exists, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1551,7 +1551,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetFeed(::core::mem::transmute(&feedpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1562,7 +1562,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetFeedByUrl(::core::mem::transmute(&feedurl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1573,7 +1573,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.ExistsFolder(::core::mem::transmute(&folderpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *exists = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(exists, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1584,7 +1584,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetFolder(::core::mem::transmute(&folderpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *disp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(disp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1610,7 +1610,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.BackgroundSyncStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1621,7 +1621,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultInterval() {
                 ::core::result::Result::Ok(ok__) => {
-                    *minutes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(minutes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1642,7 +1642,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.Normalize(::core::mem::transmute(&feedxmlin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *feedxmlout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(feedxmlout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1653,7 +1653,7 @@ impl IFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.ItemCountLimit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *itemcountlimit = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(itemcountlimit, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1734,7 +1734,7 @@ impl IWMPCdrom_Vtbl {
             let this = (*this).get_impl();
             match this.playlist() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppplaylist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppplaylist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1813,7 +1813,7 @@ impl IWMPCdromBurn_Vtbl {
             let this = (*this).get_impl();
             match this.burnPlaylist() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppplaylist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppplaylist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1897,7 +1897,7 @@ impl IWMPCdromCollection_Vtbl {
             let this = (*this).get_impl();
             match this.item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1908,7 +1908,7 @@ impl IWMPCdromCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getByDriveSpecifier(::core::mem::transmute(&bstrdrivespecifier)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcdrom = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcdrom, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2108,7 +2108,7 @@ impl IWMPContentContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontentid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontentid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2119,7 +2119,7 @@ impl IWMPContentContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2130,7 +2130,7 @@ impl IWMPContentContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2141,7 +2141,7 @@ impl IWMPContentContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2152,7 +2152,7 @@ impl IWMPContentContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentPrice(::core::mem::transmute_copy(&idxcontent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrprice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrprice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2163,7 +2163,7 @@ impl IWMPContentContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentID(::core::mem::transmute_copy(&idxcontent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontentid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontentid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2196,7 +2196,7 @@ impl IWMPContentContainerList_Vtbl {
             let this = (*this).get_impl();
             match this.GetTransactionType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwmptt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwmptt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2207,7 +2207,7 @@ impl IWMPContentContainerList_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainerCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccontainer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccontainer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2218,7 +2218,7 @@ impl IWMPContentContainerList_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainer(::core::mem::transmute_copy(&idxcontainer)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2281,7 +2281,7 @@ impl IWMPContentPartner_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemInfo(::core::mem::transmute(&bstrinfoname), ::core::mem::transmute_copy(&pcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2292,7 +2292,7 @@ impl IWMPContentPartner_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentPartnerInfo(::core::mem::transmute(&bstrinfoname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2323,7 +2323,7 @@ impl IWMPContentPartner_Vtbl {
             let this = (*this).get_impl();
             match this.GetStreamingURL(::core::mem::transmute_copy(&st), ::core::mem::transmute_copy(&pstreamcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2394,7 +2394,7 @@ impl IWMPContentPartner_Vtbl {
             let this = (*this).get_impl();
             match this.CompareContainerListPrices(::core::mem::transmute(&plistbase), ::core::mem::transmute(&plistcompare)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2627,7 +2627,7 @@ impl IWMPControls_Vtbl {
             let this = (*this).get_impl();
             match this.currentItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwmpmedia = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwmpmedia, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2872,7 +2872,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.controls() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontrol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontrol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2883,7 +2883,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.settings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2894,7 +2894,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.currentMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmedia = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmedia, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2910,7 +2910,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.mediaCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediacollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediacollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2921,7 +2921,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.playlistCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppplaylistcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppplaylistcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2942,7 +2942,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.network() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppqni = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppqni, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2953,7 +2953,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.currentPlaylist() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2969,7 +2969,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.cdromCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcdromcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcdromcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2980,7 +2980,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.closedCaption() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclosedcaption = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclosedcaption, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2996,7 +2996,7 @@ impl IWMPCore_Vtbl {
             let this = (*this).get_impl();
             match this.error() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3050,7 +3050,7 @@ impl IWMPCore2_Vtbl {
             let this = (*this).get_impl();
             match this.dvd() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdvd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdvd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3077,7 +3077,7 @@ impl IWMPCore3_Vtbl {
             let this = (*this).get_impl();
             match this.newPlaylist(::core::mem::transmute(&bstrname), ::core::mem::transmute(&bstrurl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppplaylist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppplaylist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3088,7 +3088,7 @@ impl IWMPCore3_Vtbl {
             let this = (*this).get_impl();
             match this.newMedia(::core::mem::transmute(&bstrurl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmedia = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmedia, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3191,7 +3191,7 @@ impl IWMPDownloadCollection_Vtbl {
             let this = (*this).get_impl();
             match this.item(::core::mem::transmute_copy(&litem)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdownload = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdownload, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3202,7 +3202,7 @@ impl IWMPDownloadCollection_Vtbl {
             let this = (*this).get_impl();
             match this.startDownload(::core::mem::transmute(&bstrsourceurl), ::core::mem::transmute(&bstrtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdownload = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdownload, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3339,7 +3339,7 @@ impl IWMPDownloadManager_Vtbl {
             let this = (*this).get_impl();
             match this.getDownloadCollection(::core::mem::transmute_copy(&lcollectionid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3350,7 +3350,7 @@ impl IWMPDownloadManager_Vtbl {
             let this = (*this).get_impl();
             match this.createDownloadCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3544,7 +3544,7 @@ impl IWMPError_Vtbl {
             let this = (*this).get_impl();
             match this.get_item(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperroritem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperroritem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4294,7 +4294,7 @@ impl IWMPLibrary_Vtbl {
             let this = (*this).get_impl();
             match this.mediaCollection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwmpmediacollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwmpmediacollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4354,7 +4354,7 @@ impl IWMPLibraryServices_Vtbl {
             let this = (*this).get_impl();
             match this.getLibraryByType(::core::mem::transmute_copy(&wmplt), ::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwmplibrary = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwmplibrary, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4560,7 +4560,7 @@ impl IWMPMedia2_Vtbl {
             let this = (*this).get_impl();
             match this.error() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwmperroritem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwmperroritem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4627,7 +4627,7 @@ impl IWMPMediaCollection_Vtbl {
             let this = (*this).get_impl();
             match this.add(::core::mem::transmute(&bstrurl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4638,7 +4638,7 @@ impl IWMPMediaCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getAll() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediaitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediaitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4649,7 +4649,7 @@ impl IWMPMediaCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getByName(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediaitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediaitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4660,7 +4660,7 @@ impl IWMPMediaCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getByGenre(::core::mem::transmute(&bstrgenre)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediaitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediaitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4671,7 +4671,7 @@ impl IWMPMediaCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getByAuthor(::core::mem::transmute(&bstrauthor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediaitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediaitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4682,7 +4682,7 @@ impl IWMPMediaCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getByAlbum(::core::mem::transmute(&bstralbum)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediaitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediaitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4693,7 +4693,7 @@ impl IWMPMediaCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getByAttribute(::core::mem::transmute(&bstrattribute), ::core::mem::transmute(&bstrvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediaitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediaitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4709,7 +4709,7 @@ impl IWMPMediaCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getAttributeStringCollection(::core::mem::transmute(&bstrattribute), ::core::mem::transmute(&bstrmediatype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstringcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstringcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4767,7 +4767,7 @@ impl IWMPMediaCollection2_Vtbl {
             let this = (*this).get_impl();
             match this.createQuery() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppquery = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppquery, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4778,7 +4778,7 @@ impl IWMPMediaCollection2_Vtbl {
             let this = (*this).get_impl();
             match this.getPlaylistByQuery(::core::mem::transmute(&pquery), ::core::mem::transmute(&bstrmediatype), ::core::mem::transmute(&bstrsortattribute), ::core::mem::transmute_copy(&fsortascending)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppplaylist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppplaylist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4789,7 +4789,7 @@ impl IWMPMediaCollection2_Vtbl {
             let this = (*this).get_impl();
             match this.getStringCollectionByQuery(::core::mem::transmute(&bstrattribute), ::core::mem::transmute(&pquery), ::core::mem::transmute(&bstrmediatype), ::core::mem::transmute(&bstrsortattribute), ::core::mem::transmute_copy(&fsortascending)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstringcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstringcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4800,7 +4800,7 @@ impl IWMPMediaCollection2_Vtbl {
             let this = (*this).get_impl();
             match this.getByAttributeAndMediaType(::core::mem::transmute(&bstrattribute), ::core::mem::transmute(&bstrvalue), ::core::mem::transmute(&bstrmediatype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediaitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediaitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5681,7 +5681,7 @@ impl IWMPPlayer4_Vtbl {
             let this = (*this).get_impl();
             match this.playerApplication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwmpplayerapplication = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwmpplayerapplication, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5871,7 +5871,7 @@ impl IWMPPlaylist_Vtbl {
             let this = (*this).get_impl();
             match this.get_item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwmpmedia = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwmpmedia, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5959,7 +5959,7 @@ impl IWMPPlaylistArray_Vtbl {
             let this = (*this).get_impl();
             match this.item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5995,7 +5995,7 @@ impl IWMPPlaylistCollection_Vtbl {
             let this = (*this).get_impl();
             match this.newPlaylist(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6006,7 +6006,7 @@ impl IWMPPlaylistCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getAll() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppplaylistarray = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppplaylistarray, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6017,7 +6017,7 @@ impl IWMPPlaylistCollection_Vtbl {
             let this = (*this).get_impl();
             match this.getByName(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppplaylistarray = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppplaylistarray, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6043,7 +6043,7 @@ impl IWMPPlaylistCollection_Vtbl {
             let this = (*this).get_impl();
             match this.importPlaylist(::core::mem::transmute(&pitem)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimporteditem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimporteditem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -6953,7 +6953,7 @@ impl IWMPSyncServices_Vtbl {
             let this = (*this).get_impl();
             match this.getDevice(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7100,7 +7100,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Xml(::core::mem::transmute_copy(&uiitemcount), ::core::mem::transmute_copy(&sortproperty), ::core::mem::transmute_copy(&sortorder), ::core::mem::transmute_copy(&filterflags), ::core::mem::transmute_copy(&includeflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7111,7 +7111,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7127,7 +7127,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Url() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7143,7 +7143,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LocalId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7154,7 +7154,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7175,7 +7175,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LastWriteTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstlastwritetime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstlastwritetime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7206,7 +7206,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.SyncSetting() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfss = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfss, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7222,7 +7222,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Interval() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puiinterval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puiinterval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7238,7 +7238,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LastDownloadTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstlastdownloadtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstlastdownloadtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7249,7 +7249,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LocalEnclosurePath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7260,7 +7260,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Items() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7281,7 +7281,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.MaxItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puimaxitemcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puimaxitemcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7297,7 +7297,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadEnclosuresAutomatically() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbdownloadenclosuresautomatically = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbdownloadenclosuresautomatically, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7313,7 +7313,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7324,7 +7324,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LastDownloadError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfde = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfde, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7340,7 +7340,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadUrl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7351,7 +7351,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Title() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsztitle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsztitle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7362,7 +7362,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7373,7 +7373,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Link() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszhomepage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszhomepage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7384,7 +7384,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Image() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszimageurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszimageurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7395,7 +7395,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.LastBuildDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstlastbuilddate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstlastbuilddate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7406,7 +7406,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.PubDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstpubdate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstpubdate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7417,7 +7417,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Ttl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puittl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puittl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7428,7 +7428,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Language() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszlanguage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszlanguage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7439,7 +7439,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.Copyright() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszcopyright = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszcopyright, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7450,7 +7450,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.IsList() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbislist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbislist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7466,7 +7466,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.UnreadItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puiunreaditemcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puiunreaditemcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7477,7 +7477,7 @@ impl IXFeed_Vtbl {
             let this = (*this).get_impl();
             match this.ItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puiitemcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puiitemcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7559,7 +7559,7 @@ impl IXFeed2_Vtbl {
             let this = (*this).get_impl();
             match this.LastItemDownloadTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstlastitemdownloadtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstlastitemdownloadtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7570,7 +7570,7 @@ impl IXFeed2_Vtbl {
             let this = (*this).get_impl();
             match this.Username() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszusername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszusername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7581,7 +7581,7 @@ impl IXFeed2_Vtbl {
             let this = (*this).get_impl();
             match this.Password() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszpassword = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszpassword, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7634,7 +7634,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.Url() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7645,7 +7645,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszmimetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszmimetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7656,7 +7656,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puilength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puilength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7677,7 +7677,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfds = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfds, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7688,7 +7688,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.LastDownloadError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfde = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfde, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7699,7 +7699,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.LocalPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7715,7 +7715,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadUrl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7726,7 +7726,7 @@ impl IXFeedEnclosure_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadMimeType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszmimetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszmimetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7863,7 +7863,7 @@ impl IXFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Feeds() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7874,7 +7874,7 @@ impl IXFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Subfolders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7920,7 +7920,7 @@ impl IXFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7936,7 +7936,7 @@ impl IXFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7957,7 +7957,7 @@ impl IXFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.IsRoot() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisrootfeedfolder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisrootfeedfolder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7973,7 +7973,7 @@ impl IXFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.TotalUnreadItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puitotalunreaditemcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puitotalunreaditemcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -7984,7 +7984,7 @@ impl IXFeedFolder_Vtbl {
             let this = (*this).get_impl();
             match this.TotalItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puitotalitemcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puitotalitemcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8171,7 +8171,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Xml(::core::mem::transmute_copy(&fxif)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8182,7 +8182,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Title() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsztitle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsztitle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8193,7 +8193,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Link() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8204,7 +8204,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Guid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8215,7 +8215,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8226,7 +8226,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.PubDate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstpubdate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstpubdate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8237,7 +8237,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Comments() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8248,7 +8248,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Author() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszauthor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszauthor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8264,7 +8264,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.IsRead() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisread = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisread, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8280,7 +8280,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.LocalId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puiid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puiid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8301,7 +8301,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.DownloadUrl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8312,7 +8312,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.LastDownloadTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstlastdownloadtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstlastdownloadtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8323,7 +8323,7 @@ impl IXFeedItem_Vtbl {
             let this = (*this).get_impl();
             match this.Modified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstmodifiedtime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstmodifiedtime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8368,7 +8368,7 @@ impl IXFeedItem2_Vtbl {
             let this = (*this).get_impl();
             match this.EffectiveId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puieffectiveid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puieffectiveid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8392,7 +8392,7 @@ impl IXFeedsEnum_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puicount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puicount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8443,7 +8443,7 @@ impl IXFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.IsSubscribed(::core::mem::transmute(&pszurl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsubscribed = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsubscribed, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8454,7 +8454,7 @@ impl IXFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.ExistsFeed(::core::mem::transmute(&pszpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbfeedexists = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbfeedexists, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8475,7 +8475,7 @@ impl IXFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.ExistsFolder(::core::mem::transmute(&pszpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbfolderexists = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbfolderexists, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8506,7 +8506,7 @@ impl IXFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.BackgroundSyncStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfbss = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfbss, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8517,7 +8517,7 @@ impl IXFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.DefaultInterval() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puiinterval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puiinterval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8538,7 +8538,7 @@ impl IXFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.Normalize(::core::mem::transmute(&pstreamin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstreamout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstreamout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -8549,7 +8549,7 @@ impl IXFeedsManager_Vtbl {
             let this = (*this).get_impl();
             match this.ItemCountLimit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puiitemcountlimit = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puiitemcountlimit, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

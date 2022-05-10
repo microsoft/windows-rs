@@ -15,7 +15,7 @@ impl IReferenceClock_Vtbl {
             let this = (*this).get_impl();
             match this.GetTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26,7 +26,7 @@ impl IReferenceClock_Vtbl {
             let this = (*this).get_impl();
             match this.AdviseTime(::core::mem::transmute_copy(&basetime), ::core::mem::transmute_copy(&streamtime), ::core::mem::transmute_copy(&hevent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwadvisecookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwadvisecookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -37,7 +37,7 @@ impl IReferenceClock_Vtbl {
             let this = (*this).get_impl();
             match this.AdvisePeriodic(::core::mem::transmute_copy(&starttime), ::core::mem::transmute_copy(&periodtime), ::core::mem::transmute_copy(&hsemaphore)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwadvisecookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwadvisecookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -90,7 +90,7 @@ impl IReferenceClockTimerControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultTimerResolution() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptimerresolution = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptimerresolution, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -241,7 +241,7 @@ impl IDirect3DCubeTexture9_Vtbl {
             let this = (*this).get_impl();
             match this.GetCubeMapSurface(::core::mem::transmute_copy(&facetype), ::core::mem::transmute_copy(&level)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcubemapsurface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcubemapsurface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -419,7 +419,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDirect3D() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppd3d9 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppd3d9, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -465,7 +465,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetSwapChain(::core::mem::transmute_copy(&iswapchain)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pswapchain = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pswapchain, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -491,7 +491,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackBuffer(::core::mem::transmute_copy(&iswapchain), ::core::mem::transmute_copy(&ibackbuffer), ::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbackbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbackbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -597,7 +597,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetRenderTarget(::core::mem::transmute_copy(&rendertargetindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprendertarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprendertarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -613,7 +613,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDepthStencilSurface() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppzstencilsurface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppzstencilsurface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -714,7 +714,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStateBlock(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -730,7 +730,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.EndStateBlock() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -751,7 +751,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetTexture(::core::mem::transmute_copy(&stage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptexture = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptexture, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -867,7 +867,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVertexDeclaration(::core::mem::transmute_copy(&pvertexelements)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdecl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdecl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -883,7 +883,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetVertexDeclaration() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdecl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdecl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -904,7 +904,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVertexShader(::core::mem::transmute_copy(&pfunction)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -920,7 +920,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetVertexShader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -986,7 +986,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndices() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppindexdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppindexdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -997,7 +997,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePixelShader(::core::mem::transmute_copy(&pfunction)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1013,7 +1013,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.GetPixelShader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1069,7 +1069,7 @@ impl IDirect3DDevice9_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQuery(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppquery = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppquery, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1366,7 +1366,7 @@ impl IDirect3DPixelShader9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1402,7 +1402,7 @@ impl IDirect3DQuery9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1459,7 +1459,7 @@ impl IDirect3DResource9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1529,7 +1529,7 @@ impl IDirect3DStateBlock9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1644,7 +1644,7 @@ impl IDirect3DSwapChain9_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackBuffer(::core::mem::transmute_copy(&ibackbuffer), ::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbackbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbackbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1665,7 +1665,7 @@ impl IDirect3DSwapChain9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1751,7 +1751,7 @@ impl IDirect3DTexture9_Vtbl {
             let this = (*this).get_impl();
             match this.GetSurfaceLevel(::core::mem::transmute_copy(&level)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsurfacelevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsurfacelevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1831,7 +1831,7 @@ impl IDirect3DVertexDeclaration9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1864,7 +1864,7 @@ impl IDirect3DVertexShader9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1903,7 +1903,7 @@ impl IDirect3DVolume9_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1980,7 +1980,7 @@ impl IDirect3DVolumeTexture9_Vtbl {
             let this = (*this).get_impl();
             match this.GetVolumeLevel(::core::mem::transmute_copy(&level)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvolumelevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvolumelevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

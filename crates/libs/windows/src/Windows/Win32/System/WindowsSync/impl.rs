@@ -60,7 +60,7 @@ impl IChangeConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetDestinationProviderConflictingChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconflictingchange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconflictingchange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -71,7 +71,7 @@ impl IChangeConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceProviderConflictingChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconflictingchange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconflictingchange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IChangeConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetDestinationProviderConflictingData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconflictingdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconflictingdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -93,7 +93,7 @@ impl IChangeConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceProviderConflictingData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconflictingdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconflictingdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -275,7 +275,7 @@ impl ICombinedFilterInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilterInfo(::core::mem::transmute_copy(&dwfilterindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifilterinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifilterinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -319,7 +319,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetDestinationProviderConflictingChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconflictingchange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconflictingchange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceProviderConflictingChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconflictingchange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconflictingchange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -341,7 +341,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetDestinationProviderOriginalChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pporiginalchange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pporiginalchange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -352,7 +352,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetDestinationProviderConflictingData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconflictingdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconflictingdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -363,7 +363,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceProviderConflictingData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconflictingdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconflictingdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -374,7 +374,7 @@ impl IConstraintConflict_Vtbl {
             let this = (*this).get_impl();
             match this.GetDestinationProviderOriginalData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pporiginaldata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pporiginaldata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -533,7 +533,7 @@ impl ICustomFilterInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncFilter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisyncfilter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisyncfilter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -601,7 +601,7 @@ impl IEnumChangeUnitExceptions_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl IEnumClockVector_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -695,7 +695,7 @@ impl IEnumFeedClockVector_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -759,7 +759,7 @@ impl IEnumRangeExceptions_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -806,7 +806,7 @@ impl IEnumSingleItemExceptions_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -853,7 +853,7 @@ impl IEnumSyncChangeUnits_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -900,7 +900,7 @@ impl IEnumSyncChanges_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -950,7 +950,7 @@ impl IEnumSyncProviderConfigUIInfos_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1000,7 +1000,7 @@ impl IEnumSyncProviderInfos_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1099,7 +1099,7 @@ impl IFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilter(::core::mem::transmute_copy(&dwfilterkey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppisyncfilter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppisyncfilter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1311,7 +1311,7 @@ impl ILoadChangeContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsyncchange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsyncchange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1414,7 +1414,7 @@ impl IRecoverableError_Vtbl {
             let this = (*this).get_impl();
             match this.GetChangeWithRecoverableError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchangewithrecoverableerror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchangewithrecoverableerror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1498,7 +1498,7 @@ impl IRegisteredSyncProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstanceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidinstanceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidinstanceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1767,7 +1767,7 @@ impl ISyncChange_Vtbl {
             let this = (*this).get_impl();
             match this.GetChangeUnits() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1778,7 +1778,7 @@ impl ISyncChange_Vtbl {
             let this = (*this).get_impl();
             match this.GetMadeWithKnowledge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmadewithknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmadewithknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1789,7 +1789,7 @@ impl ISyncChange_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedKnowledge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1844,7 +1844,7 @@ impl ISyncChangeBatch_Vtbl {
             let this = (*this).get_impl();
             match this.AddLoggedConflict(::core::mem::transmute_copy(&pbownerreplicaid), ::core::mem::transmute_copy(&pbitemid), ::core::mem::transmute_copy(&pchangeversion), ::core::mem::transmute_copy(&pcreationversion), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&dwworkforchange), ::core::mem::transmute(&pconflictknowledge)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchangebuilder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchangebuilder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1876,7 +1876,7 @@ impl ISyncChangeBatch2_Vtbl {
             let this = (*this).get_impl();
             match this.AddMergeTombstoneMetadataToGroup(::core::mem::transmute_copy(&pbownerreplicaid), ::core::mem::transmute_copy(&pbwinneritemid), ::core::mem::transmute_copy(&pbitemid), ::core::mem::transmute_copy(&pchangeversion), ::core::mem::transmute_copy(&pcreationversion), ::core::mem::transmute_copy(&dwworkforchange)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchangebuilder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchangebuilder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1887,7 +1887,7 @@ impl ISyncChangeBatch2_Vtbl {
             let this = (*this).get_impl();
             match this.AddMergeTombstoneLoggedConflict(::core::mem::transmute_copy(&pbownerreplicaid), ::core::mem::transmute_copy(&pbwinneritemid), ::core::mem::transmute_copy(&pbitemid), ::core::mem::transmute_copy(&pchangeversion), ::core::mem::transmute_copy(&pcreationversion), ::core::mem::transmute_copy(&dwworkforchange), ::core::mem::transmute(&pconflictknowledge)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchangebuilder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchangebuilder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1920,7 +1920,7 @@ impl ISyncChangeBatchAdvanced_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilterInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfilterinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfilterinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1931,7 +1931,7 @@ impl ISyncChangeBatchAdvanced_Vtbl {
             let this = (*this).get_impl();
             match this.ConvertFullEnumerationChangeBatchToRegularChangeBatch() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchangebatch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchangebatch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1986,7 +1986,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match this.GetChangeEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2022,7 +2022,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match this.AddItemMetadataToGroup(::core::mem::transmute_copy(&pbownerreplicaid), ::core::mem::transmute_copy(&pbitemid), ::core::mem::transmute_copy(&pchangeversion), ::core::mem::transmute_copy(&pcreationversion), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&dwworkforchange)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchangebuilder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchangebuilder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2033,7 +2033,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedKnowledge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2044,7 +2044,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrerequisiteKnowledge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprerequisteknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprerequisteknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2055,7 +2055,7 @@ impl ISyncChangeBatchBase_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceForgottenKnowledge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsourceforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsourceforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2141,7 +2141,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilterKeyMap() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifilterkeymap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifilterkeymap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2162,7 +2162,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilteredReplicaLearnedKnowledge(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2173,7 +2173,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedFilterForgottenKnowledge(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins), ::core::mem::transmute_copy(&dwfilterkey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedfilterforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedfilterforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2184,7 +2184,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilteredReplicaLearnedForgottenKnowledge(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2195,7 +2195,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2206,7 +2206,7 @@ impl ISyncChangeBatchWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins), ::core::mem::transmute_copy(&dwfilterkey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedfilterforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedfilterforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2249,7 +2249,7 @@ impl ISyncChangeBatchWithPrerequisite_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedKnowledgeWithPrerequisite(::core::mem::transmute(&pdestinationknowledge)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedwithprerequisiteknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedwithprerequisiteknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2260,7 +2260,7 @@ impl ISyncChangeBatchWithPrerequisite_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedForgottenKnowledge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2307,7 +2307,7 @@ impl ISyncChangeUnit_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemChange() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsyncchange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsyncchange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2371,7 +2371,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilterForgottenKnowledge(::core::mem::transmute_copy(&dwfilterkey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifilterforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifilterforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2382,7 +2382,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilteredReplicaLearnedKnowledge(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2393,7 +2393,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedFilterForgottenKnowledge(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins), ::core::mem::transmute_copy(&dwfilterkey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedfilterforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedfilterforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2404,7 +2404,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilteredReplicaLearnedForgottenKnowledge(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2415,7 +2415,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilteredReplicaLearnedForgottenKnowledgeAfterRecoveryComplete(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2426,7 +2426,7 @@ impl ISyncChangeWithFilterKeyMap_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedFilterForgottenKnowledgeAfterRecoveryComplete(::core::mem::transmute(&pdestinationknowledge), ::core::mem::transmute(&pnewmoveins), ::core::mem::transmute_copy(&dwfilterkey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedfilterforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedfilterforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2461,7 +2461,7 @@ impl ISyncChangeWithPrerequisite_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrerequisiteKnowledge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprerequisiteknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprerequisiteknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2472,7 +2472,7 @@ impl ISyncChangeWithPrerequisite_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedKnowledgeWithPrerequisite(::core::mem::transmute(&pdestinationknowledge)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedknowledgewithprerequisite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedknowledgewithprerequisite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2519,7 +2519,7 @@ impl ISyncDataConverter_Vtbl {
             let this = (*this).get_impl();
             match this.ConvertDataRetrieverFromProviderFormat(::core::mem::transmute(&punkdataretrieverin), ::core::mem::transmute(&penumsyncchanges)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkdataout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkdataout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2530,7 +2530,7 @@ impl ISyncDataConverter_Vtbl {
             let this = (*this).get_impl();
             match this.ConvertDataRetrieverToProviderFormat(::core::mem::transmute(&punkdataretrieverin), ::core::mem::transmute(&penumsyncchanges)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkdataout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkdataout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2541,7 +2541,7 @@ impl ISyncDataConverter_Vtbl {
             let this = (*this).get_impl();
             match this.ConvertDataFromProviderFormat(::core::mem::transmute(&pdatacontext), ::core::mem::transmute(&punkdatain)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkdataout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkdataout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2552,7 +2552,7 @@ impl ISyncDataConverter_Vtbl {
             let this = (*this).get_impl();
             match this.ConvertDataToProviderFormat(::core::mem::transmute(&pdatacontext), ::core::mem::transmute(&punkdataout)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkdataout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkdataout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2608,7 +2608,7 @@ impl ISyncFilterDeserializer_Vtbl {
             let this = (*this).get_impl();
             match this.DeserializeSyncFilter(::core::mem::transmute_copy(&pbsyncfilter), ::core::mem::transmute_copy(&dwcbsyncfilter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppisyncfilter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppisyncfilter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2666,7 +2666,7 @@ impl ISyncFullEnumerationChange_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedKnowledgeAfterRecoveryComplete() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2677,7 +2677,7 @@ impl ISyncFullEnumerationChange_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedForgottenKnowledge() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedforgottenknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedforgottenknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2709,7 +2709,7 @@ impl ISyncFullEnumerationChangeBatch_Vtbl {
             let this = (*this).get_impl();
             match this.GetLearnedKnowledgeAfterRecoveryComplete() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplearnedknowledgeafterrecoverycomplete = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplearnedknowledgeafterrecoverycomplete, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2750,7 +2750,7 @@ impl ISyncFullEnumerationChangeBatch2_Vtbl {
             let this = (*this).get_impl();
             match this.AddMergeTombstoneMetadataToGroup(::core::mem::transmute_copy(&pbownerreplicaid), ::core::mem::transmute_copy(&pbwinneritemid), ::core::mem::transmute_copy(&pbitemid), ::core::mem::transmute_copy(&pchangeversion), ::core::mem::transmute_copy(&pcreationversion), ::core::mem::transmute_copy(&dwworkforchange)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchangebuilder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchangebuilder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2832,7 +2832,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match this.GetReplicaKeyMap() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppreplicakeymap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppreplicakeymap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2843,7 +2843,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclonedknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclonedknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2859,7 +2859,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match this.MapRemoteToLocal(::core::mem::transmute(&premoteknowledge)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmappedknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmappedknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2875,7 +2875,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match this.ProjectOntoItem(::core::mem::transmute_copy(&pbitemid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppknowledgeout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppknowledgeout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2886,7 +2886,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match this.ProjectOntoChangeUnit(::core::mem::transmute_copy(&pbitemid), ::core::mem::transmute_copy(&pbchangeunitid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppknowledgeout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppknowledgeout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2897,7 +2897,7 @@ impl ISyncKnowledge_Vtbl {
             let this = (*this).get_impl();
             match this.ProjectOntoRange(::core::mem::transmute_copy(&psrngsyncrange)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppknowledgeout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppknowledgeout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3017,7 +3017,7 @@ impl ISyncKnowledge2_Vtbl {
             let this = (*this).get_impl();
             match this.ProjectOntoColumnSet(::core::mem::transmute_copy(&ppcolumns), ::core::mem::transmute_copy(&count)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiknowledgeout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiknowledgeout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3063,7 +3063,7 @@ impl ISyncKnowledge2_Vtbl {
             let this = (*this).get_impl();
             match this.ProjectOntoKnowledgeWithPrerequisite(::core::mem::transmute(&pprerequisiteknowledge), ::core::mem::transmute(&ptemplateknowledge)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprojectedknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprojectedknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3074,7 +3074,7 @@ impl ISyncKnowledge2_Vtbl {
             let this = (*this).get_impl();
             match this.Complement(::core::mem::transmute(&psyncknowledge)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcomplementedknowledge = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcomplementedknowledge, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3090,7 +3090,7 @@ impl ISyncKnowledge2_Vtbl {
             let this = (*this).get_impl();
             match this.GetKnowledgeCookie() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppknowledgecookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppknowledgecookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3182,7 +3182,7 @@ impl ISyncProviderConfigUI_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegisteredProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconfiguiproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconfiguiproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3193,7 +3193,7 @@ impl ISyncProviderConfigUI_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAndRegisterNewSyncProvider(::core::mem::transmute_copy(&hwndparent), ::core::mem::transmute(&punkcontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproviderinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproviderinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3230,7 +3230,7 @@ impl ISyncProviderConfigUIInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProviderConfigUI(::core::mem::transmute_copy(&dwclscontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsyncproviderconfigui = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsyncproviderconfigui, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3259,7 +3259,7 @@ impl ISyncProviderInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProvider(::core::mem::transmute_copy(&dwclscontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsyncprovider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsyncprovider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3303,7 +3303,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSyncProviderConfigUIRegistrationInstance(::core::mem::transmute_copy(&pconfiguiconfig)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconfiguiinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconfiguiinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3319,7 +3319,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateSyncProviderConfigUIs(::core::mem::transmute_copy(&pguidcontenttype), ::core::mem::transmute_copy(&dwsupportedarchitecture)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumsyncproviderconfiguiinfos = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumsyncproviderconfiguiinfos, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3330,7 +3330,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSyncProviderRegistrationInstance(::core::mem::transmute_copy(&pproviderconfiguration)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproviderinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproviderinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3346,7 +3346,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProviderConfigUIInfoforProvider(::core::mem::transmute_copy(&pguidproviderinstanceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproviderconfiguiinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproviderconfiguiinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3357,7 +3357,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateSyncProviders(::core::mem::transmute_copy(&pguidcontenttype), ::core::mem::transmute_copy(&dwstateflagstofiltermask), ::core::mem::transmute_copy(&dwstateflagstofilter), ::core::mem::transmute_copy(&refproviderclsid), ::core::mem::transmute_copy(&dwsupportedarchitecture)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumsyncproviderinfos = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumsyncproviderinfos, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3368,7 +3368,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProviderInfo(::core::mem::transmute_copy(&pguidinstanceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproviderinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproviderinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3379,7 +3379,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProviderFromInstanceId(::core::mem::transmute_copy(&pguidinstanceid), ::core::mem::transmute_copy(&dwclscontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsyncprovider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsyncprovider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3390,7 +3390,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProviderConfigUIInfo(::core::mem::transmute_copy(&pguidinstanceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconfiguiinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconfiguiinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3401,7 +3401,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProviderConfigUIFromInstanceId(::core::mem::transmute_copy(&pguidinstanceid), ::core::mem::transmute_copy(&dwclscontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconfigui = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconfigui, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3412,7 +3412,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProviderState(::core::mem::transmute_copy(&pguidinstanceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstateflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstateflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3438,7 +3438,7 @@ impl ISyncProviderRegistration_Vtbl {
             let this = (*this).get_impl();
             match this.GetChange(::core::mem::transmute_copy(&hevent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppchange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppchange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3480,7 +3480,7 @@ impl ISyncRegistrationChange_Vtbl {
             let this = (*this).get_impl();
             match this.GetEvent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psreevent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psreevent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3491,7 +3491,7 @@ impl ISyncRegistrationChange_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstanceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidinstanceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidinstanceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3518,7 +3518,7 @@ impl ISyncSessionExtendedErrorInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSyncProviderWithError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproviderwitherror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproviderwitherror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3645,7 +3645,7 @@ impl ISynchronousDataRetriever_Vtbl {
             let this = (*this).get_impl();
             match this.LoadChangeData(::core::mem::transmute(&ploadchangecontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunkdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunkdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

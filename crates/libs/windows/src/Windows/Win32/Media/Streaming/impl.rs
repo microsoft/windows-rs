@@ -36,7 +36,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputAvailableType(::core::mem::transmute_copy(&dwinputstreamid), ::core::mem::transmute_copy(&dwtypeindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmediatype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmediatype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -47,7 +47,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCurrentType(::core::mem::transmute_copy(&dwinputstreamid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmediatype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmediatype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -58,7 +58,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputStreamAttributes(::core::mem::transmute_copy(&dwinputstreamid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppattributes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppattributes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -69,7 +69,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputAvailableType(::core::mem::transmute_copy(&dwoutputstreamid), ::core::mem::transmute_copy(&dwtypeindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmediatype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmediatype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -80,7 +80,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCurrentType(::core::mem::transmute_copy(&dwoutputstreamid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmediatype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmediatype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -91,7 +91,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputStreamAttributes(::core::mem::transmute_copy(&dwoutputstreamid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppattributes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppattributes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -137,7 +137,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputStreamState(::core::mem::transmute_copy(&dwstreamid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl IMFDeviceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputStreamState(::core::mem::transmute_copy(&dwstreamid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

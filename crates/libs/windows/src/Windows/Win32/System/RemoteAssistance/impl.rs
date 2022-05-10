@@ -46,7 +46,7 @@ impl IRendezvousSession_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psessionstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psessionstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -57,7 +57,7 @@ impl IRendezvousSession_Vtbl {
             let this = (*this).get_impl();
             match this.RemoteUser() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrusername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrusername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -68,7 +68,7 @@ impl IRendezvousSession_Vtbl {
             let this = (*this).get_impl();
             match this.Flags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -14,7 +14,7 @@ impl IInkPointFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInkPoint(::core::mem::transmute(&position), pressure) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -40,7 +40,7 @@ impl IInkPresenterRulerFactory_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&inkpresenter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -77,7 +77,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match this.Kind() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -89,7 +89,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match this.IsVisible() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -106,7 +106,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match this.BackgroundColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -123,7 +123,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match this.ForegroundColor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -140,7 +140,7 @@ impl IInkPresenterStencil_Vtbl {
             let this = (*this).get_impl();
             match this.Transform() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -192,7 +192,7 @@ impl IInkRecognizerContainer_Vtbl {
             let this = (*this).get_impl();
             match this.RecognizeAsync(::core::mem::transmute(&strokecollection), recognitiontarget) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -204,7 +204,7 @@ impl IInkRecognizerContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecognizers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -251,7 +251,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.BoundingRect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -268,7 +268,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.DeleteSelected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -280,7 +280,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.MoveSelected(::core::mem::transmute(&translation)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -292,7 +292,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.SelectWithPolyLine(::core::mem::transmute(&polyline)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -304,7 +304,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.SelectWithLine(::core::mem::transmute(&from), ::core::mem::transmute(&to)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -321,7 +321,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.PasteFromClipboard(::core::mem::transmute(&position)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -333,7 +333,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.CanPasteFromClipboard() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -345,7 +345,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.LoadAsync(::core::mem::transmute(&inputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -357,7 +357,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.SaveAsync(::core::mem::transmute(&outputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -374,7 +374,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetStrokes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -386,7 +386,7 @@ impl IInkStrokeContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetRecognitionResults() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

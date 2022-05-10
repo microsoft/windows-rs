@@ -22,7 +22,7 @@ impl AsyncIAssociatedIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_AssociateIdentity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -110,7 +110,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *connected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(connected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -136,7 +136,7 @@ impl AsyncIConnectedIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_GetAccountState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -265,7 +265,7 @@ impl AsyncIIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_GetIdentityEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidentityenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidentityenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -281,7 +281,7 @@ impl AsyncIIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_Create() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl AsyncIIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_FindByUniqueID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -333,7 +333,7 @@ impl AsyncIIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_GetProviderPropertyStore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl AsyncIIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_Advise() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -419,7 +419,7 @@ impl AsyncIIdentityStore_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwproviders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwproviders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -465,7 +465,7 @@ impl AsyncIIdentityStore_Vtbl {
             let this = (*this).get_impl();
             match this.Finish_EnumerateIdentities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidentityenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidentityenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -558,7 +558,7 @@ impl IAssociatedIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.AssociateIdentity(::core::mem::transmute_copy(&hwndparent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -613,7 +613,7 @@ impl IConnectedIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *connected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(connected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -629,7 +629,7 @@ impl IConnectedIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetAccountState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -716,7 +716,7 @@ impl IIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetIdentityEnum(::core::mem::transmute_copy(&eidentitytype), ::core::mem::transmute_copy(&pfilterkey), ::core::mem::transmute_copy(&pfilterpropvarvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidentityenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidentityenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -742,7 +742,7 @@ impl IIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.FindByUniqueID(::core::mem::transmute(&lpszuniqueid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -753,7 +753,7 @@ impl IIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetProviderPropertyStore() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertystore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertystore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -764,7 +764,7 @@ impl IIdentityProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Advise(::core::mem::transmute(&pidentityadvise), ::core::mem::transmute_copy(&dwidentityupdateevents)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -810,7 +810,7 @@ impl IIdentityStore_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwproviders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwproviders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -836,7 +836,7 @@ impl IIdentityStore_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateIdentities(::core::mem::transmute_copy(&eidentitytype), ::core::mem::transmute_copy(&pfilterkey), ::core::mem::transmute_copy(&pfilterpropvarvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidentityenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidentityenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

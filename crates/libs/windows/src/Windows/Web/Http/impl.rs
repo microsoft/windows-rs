@@ -20,7 +20,7 @@ impl IHttpContent_Vtbl {
             let this = (*this).get_impl();
             match this.Headers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -32,7 +32,7 @@ impl IHttpContent_Vtbl {
             let this = (*this).get_impl();
             match this.BufferAllAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -44,7 +44,7 @@ impl IHttpContent_Vtbl {
             let this = (*this).get_impl();
             match this.ReadAsBufferAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -56,7 +56,7 @@ impl IHttpContent_Vtbl {
             let this = (*this).get_impl();
             match this.ReadAsInputStreamAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -68,7 +68,7 @@ impl IHttpContent_Vtbl {
             let this = (*this).get_impl();
             match this.ReadAsStringAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -80,7 +80,7 @@ impl IHttpContent_Vtbl {
             let this = (*this).get_impl();
             match this.TryComputeLength(::core::mem::transmute_copy(&length)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -92,7 +92,7 @@ impl IHttpContent_Vtbl {
             let this = (*this).get_impl();
             match this.WriteToStreamAsync(::core::mem::transmute(&outputstream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

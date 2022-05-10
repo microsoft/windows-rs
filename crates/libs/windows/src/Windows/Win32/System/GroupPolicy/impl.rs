@@ -102,7 +102,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.GetDomain(::core::mem::transmute(&bstrdomain), ::core::mem::transmute(&bstrdomaincontroller), ::core::mem::transmute_copy(&ldcflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pigpmdomain = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pigpmdomain, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -113,7 +113,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackupDir(::core::mem::transmute(&bstrbackupdir)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pigpmbackupdir = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pigpmbackupdir, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.GetSitesContainer(::core::mem::transmute(&bstrforest), ::core::mem::transmute(&bstrdomain), ::core::mem::transmute(&bstrdomaincontroller), ::core::mem::transmute_copy(&ldcflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmsitescontainer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmsitescontainer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -135,7 +135,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.GetRSOP(::core::mem::transmute_copy(&gpmrsopmode), ::core::mem::transmute(&bstrnamespace), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmrsop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmrsop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -146,7 +146,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePermission(::core::mem::transmute(&bstrtrustee), ::core::mem::transmute_copy(&perm), ::core::mem::transmute_copy(&binheritable)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppperm = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppperm, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -157,7 +157,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSearchCriteria() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmsearchcriteria = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmsearchcriteria, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -168,7 +168,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTrustee(::core::mem::transmute(&bstrtrustee)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmtrustee = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmtrustee, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -179,7 +179,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.GetClientSideExtensions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmcsecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmcsecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.GetConstants() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmconstants = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmconstants, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.GetMigrationTable(::core::mem::transmute(&bstrmigrationtablepath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmigrationtable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmigrationtable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl IGPM_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMigrationTable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmigrationtable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmigrationtable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -258,7 +258,7 @@ impl IGPM2_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackupDirEx(::core::mem::transmute(&bstrbackupdir), ::core::mem::transmute_copy(&backupdirtype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmbackupdirex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmbackupdirex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -342,7 +342,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             match this.ID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -353,7 +353,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             match this.GPOID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -364,7 +364,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             match this.GPODomain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -375,7 +375,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             match this.GPODisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -386,7 +386,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             match this.Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -397,7 +397,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             match this.Comment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -408,7 +408,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             match this.BackupDir() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IGPMBackup_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -469,7 +469,7 @@ impl IGPMBackupCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -480,7 +480,7 @@ impl IGPMBackupCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -491,7 +491,7 @@ impl IGPMBackupCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmbackup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmbackup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -524,7 +524,7 @@ impl IGPMBackupDir_Vtbl {
             let this = (*this).get_impl();
             match this.BackupDirectory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -535,7 +535,7 @@ impl IGPMBackupDir_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackup(::core::mem::transmute(&bstrid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbackup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbackup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -546,7 +546,7 @@ impl IGPMBackupDir_Vtbl {
             let this = (*this).get_impl();
             match this.SearchBackups(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmbackupcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmbackupcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -580,7 +580,7 @@ impl IGPMBackupDirEx_Vtbl {
             let this = (*this).get_impl();
             match this.BackupDir() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrbackupdir = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrbackupdir, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -591,7 +591,7 @@ impl IGPMBackupDirEx_Vtbl {
             let this = (*this).get_impl();
             match this.BackupType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgpmbackuptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgpmbackuptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -602,7 +602,7 @@ impl IGPMBackupDirEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetBackup(::core::mem::transmute(&bstrid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarbackup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarbackup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -613,7 +613,7 @@ impl IGPMBackupDirEx_Vtbl {
             let this = (*this).get_impl();
             match this.SearchBackups(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarbackupcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarbackupcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -647,7 +647,7 @@ impl IGPMCSECollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -658,7 +658,7 @@ impl IGPMCSECollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -669,7 +669,7 @@ impl IGPMCSECollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmcses = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmcses, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -703,7 +703,7 @@ impl IGPMClientSideExtension_Vtbl {
             let this = (*this).get_impl();
             match this.ID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -714,7 +714,7 @@ impl IGPMClientSideExtension_Vtbl {
             let this = (*this).get_impl();
             match this.DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -725,7 +725,7 @@ impl IGPMClientSideExtension_Vtbl {
             let this = (*this).get_impl();
             match this.IsUserEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvbenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvbenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -736,7 +736,7 @@ impl IGPMClientSideExtension_Vtbl {
             let this = (*this).get_impl();
             match this.IsComputerEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvbenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvbenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -827,7 +827,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermGPOApply() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -838,7 +838,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermGPORead() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -849,7 +849,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermGPOEdit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -860,7 +860,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermGPOEditSecurityAndDelete() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -871,7 +871,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermGPOCustom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -882,7 +882,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermWMIFilterEdit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -893,7 +893,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermWMIFilterFullControl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -904,7 +904,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermWMIFilterCustom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -915,7 +915,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermSOMLink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -926,7 +926,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermSOMLogging() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -937,7 +937,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermSOMPlanning() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -948,7 +948,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermSOMGPOCreate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -959,7 +959,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermSOMWMICreate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -970,7 +970,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.PermSOMWMIFullControl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyGPOPermissions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -992,7 +992,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyGPOEffectivePermissions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1003,7 +1003,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyGPODisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1014,7 +1014,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyGPOWMIFilter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1025,7 +1025,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyGPOID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1036,7 +1036,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyGPOComputerExtensions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1047,7 +1047,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyGPOUserExtensions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1058,7 +1058,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertySOMLinks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1069,7 +1069,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyGPODomain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1080,7 +1080,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyBackupMostRecent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1091,7 +1091,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchOpEquals() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1102,7 +1102,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchOpContains() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1113,7 +1113,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchOpNotContains() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1124,7 +1124,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SearchOpNotEquals() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1135,7 +1135,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.UsePDC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1146,7 +1146,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.UseAnyDC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1157,7 +1157,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.DoNotUseW2KDC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1168,7 +1168,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SOMSite() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1179,7 +1179,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SOMDomain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1190,7 +1190,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.SOMOU() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1201,7 +1201,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.get_SecurityFlags(::core::mem::transmute_copy(&vbowner), ::core::mem::transmute_copy(&vbgroup), ::core::mem::transmute_copy(&vbdacl), ::core::mem::transmute_copy(&vbsacl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1212,7 +1212,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.DoNotValidateDC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1223,7 +1223,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.ReportHTML() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1234,7 +1234,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.ReportXML() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1245,7 +1245,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.RSOPModeUnknown() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1256,7 +1256,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.RSOPModePlanning() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1267,7 +1267,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.RSOPModeLogging() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1278,7 +1278,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.EntryTypeUser() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1289,7 +1289,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.EntryTypeComputer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1300,7 +1300,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.EntryTypeLocalGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1311,7 +1311,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.EntryTypeGlobalGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1322,7 +1322,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.EntryTypeUniversalGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1333,7 +1333,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.EntryTypeUNCPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1344,7 +1344,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.EntryTypeUnknown() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1355,7 +1355,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.DestinationOptionSameAsSource() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1366,7 +1366,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.DestinationOptionNone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1377,7 +1377,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.DestinationOptionByRelativeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1388,7 +1388,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.DestinationOptionSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1399,7 +1399,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.MigrationTableOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1410,7 +1410,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.ProcessSecurity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1421,7 +1421,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.RsopLoggingNoComputer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1432,7 +1432,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.RsopLoggingNoUser() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1443,7 +1443,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.RsopPlanningAssumeSlowLink() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1454,7 +1454,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.get_RsopPlanningLoopbackOption(::core::mem::transmute_copy(&vbmerge)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1465,7 +1465,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.RsopPlanningAssumeUserWQLFilterTrue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1476,7 +1476,7 @@ impl IGPMConstants_Vtbl {
             let this = (*this).get_impl();
             match this.RsopPlanningAssumeCompWQLFilterTrue() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1578,7 +1578,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.BackupTypeGPO() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1589,7 +1589,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.BackupTypeStarterGPO() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1600,7 +1600,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.StarterGPOTypeSystem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1611,7 +1611,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.StarterGPOTypeCustom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1622,7 +1622,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyStarterGPOPermissions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1633,7 +1633,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyStarterGPOEffectivePermissions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1644,7 +1644,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyStarterGPODisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyStarterGPOID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1666,7 +1666,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.SearchPropertyStarterGPODomain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1677,7 +1677,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.PermStarterGPORead() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1688,7 +1688,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.PermStarterGPOEdit() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1699,7 +1699,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.PermStarterGPOFullControl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1710,7 +1710,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.PermStarterGPOCustom() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1721,7 +1721,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.ReportLegacy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1732,7 +1732,7 @@ impl IGPMConstants2_Vtbl {
             let this = (*this).get_impl();
             match this.ReportComments() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1784,7 +1784,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.DomainController() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1795,7 +1795,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.Domain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1806,7 +1806,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGPO() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewgpo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewgpo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1817,7 +1817,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.GetGPO(::core::mem::transmute(&bstrguid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgpo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgpo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1828,7 +1828,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.SearchGPOs(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmgpocollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmgpocollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1844,7 +1844,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.GetSOM(::core::mem::transmute(&bstrpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsom = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsom, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1855,7 +1855,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.SearchSOMs(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmsomcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmsomcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1866,7 +1866,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.GetWMIFilter(::core::mem::transmute(&bstrpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwmifilter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwmifilter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1877,7 +1877,7 @@ impl IGPMDomain_Vtbl {
             let this = (*this).get_impl();
             match this.SearchWMIFilters(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmwmifiltercollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmwmifiltercollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1920,7 +1920,7 @@ impl IGPMDomain2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStarterGPO() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewtemplate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewtemplate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1931,7 +1931,7 @@ impl IGPMDomain2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGPOFromStarterGPO(::core::mem::transmute(&pgpotemplate)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewgpo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewgpo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1942,7 +1942,7 @@ impl IGPMDomain2_Vtbl {
             let this = (*this).get_impl();
             match this.GetStarterGPO(::core::mem::transmute(&bstrguid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptemplate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptemplate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1953,7 +1953,7 @@ impl IGPMDomain2_Vtbl {
             let this = (*this).get_impl();
             match this.SearchStarterGPOs(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmtemplatecollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmtemplatecollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2005,7 +2005,7 @@ impl IGPMDomain3_Vtbl {
             let this = (*this).get_impl();
             match this.InfrastructureDC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2075,7 +2075,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2091,7 +2091,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2102,7 +2102,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.ID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2113,7 +2113,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.DomainName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2124,7 +2124,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.CreationTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2135,7 +2135,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.ModificationTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2146,7 +2146,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.UserDSVersionNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2157,7 +2157,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.ComputerDSVersionNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2168,7 +2168,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.UserSysvolVersionNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2179,7 +2179,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.ComputerSysvolVersionNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2190,7 +2190,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.GetWMIFilter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmwmifilter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmwmifilter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2216,7 +2216,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.IsUserEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvbenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvbenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2227,7 +2227,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.IsComputerEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvbenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvbenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2238,7 +2238,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecurityInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsecurityinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsecurityinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2274,7 +2274,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2295,7 +2295,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecurityDescriptor(::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2306,7 +2306,7 @@ impl IGPMGPO_Vtbl {
             let this = (*this).get_impl();
             match this.IsACLConsistent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvbconsistent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvbconsistent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2369,7 +2369,7 @@ impl IGPMGPO2_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2406,7 +2406,7 @@ impl IGPMGPO3_Vtbl {
             let this = (*this).get_impl();
             match this.InfrastructureDC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2449,7 +2449,7 @@ impl IGPMGPOCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2460,7 +2460,7 @@ impl IGPMGPOCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2471,7 +2471,7 @@ impl IGPMGPOCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmgpos = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmgpos, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2510,7 +2510,7 @@ impl IGPMGPOLink_Vtbl {
             let this = (*this).get_impl();
             match this.GPOID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2521,7 +2521,7 @@ impl IGPMGPOLink_Vtbl {
             let this = (*this).get_impl();
             match this.GPODomain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2532,7 +2532,7 @@ impl IGPMGPOLink_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2548,7 +2548,7 @@ impl IGPMGPOLink_Vtbl {
             let this = (*this).get_impl();
             match this.Enforced() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2564,7 +2564,7 @@ impl IGPMGPOLink_Vtbl {
             let this = (*this).get_impl();
             match this.SOMLinkOrder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2575,7 +2575,7 @@ impl IGPMGPOLink_Vtbl {
             let this = (*this).get_impl();
             match this.SOM() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmsom = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmsom, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2619,7 +2619,7 @@ impl IGPMGPOLinksCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2630,7 +2630,7 @@ impl IGPMGPOLinksCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2641,7 +2641,7 @@ impl IGPMGPOLinksCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmlinks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmlinks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2675,7 +2675,7 @@ impl IGPMMapEntry_Vtbl {
             let this = (*this).get_impl();
             match this.Source() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrsource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrsource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2686,7 +2686,7 @@ impl IGPMMapEntry_Vtbl {
             let this = (*this).get_impl();
             match this.Destination() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdestination = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdestination, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2697,7 +2697,7 @@ impl IGPMMapEntry_Vtbl {
             let this = (*this).get_impl();
             match this.DestinationOption() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgpmdestoption = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgpmdestoption, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2708,7 +2708,7 @@ impl IGPMMapEntry_Vtbl {
             let this = (*this).get_impl();
             match this.EntryType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgpmentrytype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgpmentrytype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2742,7 +2742,7 @@ impl IGPMMapEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2753,7 +2753,7 @@ impl IGPMMapEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2764,7 +2764,7 @@ impl IGPMMapEntryCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2812,7 +2812,7 @@ impl IGPMMigrationTable_Vtbl {
             let this = (*this).get_impl();
             match this.AddEntry(::core::mem::transmute(&bstrsource), ::core::mem::transmute_copy(&gpmentrytype), ::core::mem::transmute_copy(&pvardestination)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppentry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppentry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2823,7 +2823,7 @@ impl IGPMMigrationTable_Vtbl {
             let this = (*this).get_impl();
             match this.GetEntry(::core::mem::transmute(&bstrsource)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppentry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppentry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2839,7 +2839,7 @@ impl IGPMMigrationTable_Vtbl {
             let this = (*this).get_impl();
             match this.UpdateDestination(::core::mem::transmute(&bstrsource), ::core::mem::transmute_copy(&pvardestination)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppentry = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppentry, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2850,7 +2850,7 @@ impl IGPMMigrationTable_Vtbl {
             let this = (*this).get_impl();
             match this.Validate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2861,7 +2861,7 @@ impl IGPMMigrationTable_Vtbl {
             let this = (*this).get_impl();
             match this.GetEntries() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppentries = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppentries, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2901,7 +2901,7 @@ impl IGPMPermission_Vtbl {
             let this = (*this).get_impl();
             match this.Inherited() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2912,7 +2912,7 @@ impl IGPMPermission_Vtbl {
             let this = (*this).get_impl();
             match this.Inheritable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2923,7 +2923,7 @@ impl IGPMPermission_Vtbl {
             let this = (*this).get_impl();
             match this.Denied() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2934,7 +2934,7 @@ impl IGPMPermission_Vtbl {
             let this = (*this).get_impl();
             match this.Permission() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2945,7 +2945,7 @@ impl IGPMPermission_Vtbl {
             let this = (*this).get_impl();
             match this.Trustee() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmtrustee = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmtrustee, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3012,7 +3012,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.Mode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3023,7 +3023,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.Namespace() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3039,7 +3039,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.LoggingComputer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3055,7 +3055,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.LoggingUser() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3071,7 +3071,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.LoggingFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3087,7 +3087,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3103,7 +3103,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningDomainController() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3119,7 +3119,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningSiteName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3135,7 +3135,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningUser() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3151,7 +3151,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningUserSOM() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3167,7 +3167,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningUserWMIFilters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *varval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(varval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3183,7 +3183,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningUserSecurityGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *varval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(varval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3199,7 +3199,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningComputer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3215,7 +3215,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningComputerSOM() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3231,7 +3231,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningComputerWMIFilters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *varval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(varval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3247,7 +3247,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.PlanningComputerSecurityGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *varval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(varval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3258,7 +3258,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.LoggingEnumerateUsers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *varval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(varval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3284,7 +3284,7 @@ impl IGPMRSOP_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3349,7 +3349,7 @@ impl IGPMResult_Vtbl {
             let this = (*this).get_impl();
             match this.Status() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmstatusmsgcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmstatusmsgcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3360,7 +3360,7 @@ impl IGPMResult_Vtbl {
             let this = (*this).get_impl();
             match this.Result() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3405,7 +3405,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             match this.GPOInheritanceBlocked() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3421,7 +3421,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3432,7 +3432,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3443,7 +3443,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGPOLink(::core::mem::transmute_copy(&llinkpos), ::core::mem::transmute(&pgpo)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewgpolink = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewgpolink, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3454,7 +3454,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3465,7 +3465,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             match this.GetGPOLinks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgpolinks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgpolinks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3476,7 +3476,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             match this.GetInheritedGPOLinks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgpolinks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgpolinks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3487,7 +3487,7 @@ impl IGPMSOM_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecurityInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsecurityinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsecurityinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3532,7 +3532,7 @@ impl IGPMSOMCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3543,7 +3543,7 @@ impl IGPMSOMCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3554,7 +3554,7 @@ impl IGPMSOMCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmsom = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmsom, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3610,7 +3610,7 @@ impl IGPMSecurityInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3621,7 +3621,7 @@ impl IGPMSecurityInfo_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3632,7 +3632,7 @@ impl IGPMSecurityInfo_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3685,7 +3685,7 @@ impl IGPMSitesContainer_Vtbl {
             let this = (*this).get_impl();
             match this.DomainController() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3696,7 +3696,7 @@ impl IGPMSitesContainer_Vtbl {
             let this = (*this).get_impl();
             match this.Domain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3707,7 +3707,7 @@ impl IGPMSitesContainer_Vtbl {
             let this = (*this).get_impl();
             match this.Forest() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3718,7 +3718,7 @@ impl IGPMSitesContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetSite(::core::mem::transmute(&bstrsitename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsom = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsom, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3729,7 +3729,7 @@ impl IGPMSitesContainer_Vtbl {
             let this = (*this).get_impl();
             match this.SearchSites(::core::mem::transmute(&pigpmsearchcriteria)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmsomcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmsomcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3782,7 +3782,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3798,7 +3798,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3814,7 +3814,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.Author() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3825,7 +3825,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.Product() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3836,7 +3836,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.CreationTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3847,7 +3847,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.ID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3858,7 +3858,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.ModifiedTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3869,7 +3869,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3880,7 +3880,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.ComputerVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3891,7 +3891,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.UserVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3902,7 +3902,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.StarterGPOVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3929,7 +3929,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.CopyTo(::core::mem::transmute_copy(&pvarnewdisplayname), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3940,7 +3940,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateReport(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute_copy(&pvargpmprogress), ::core::mem::transmute_copy(&pvargpmcancel)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3951,7 +3951,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3962,7 +3962,7 @@ impl IGPMStarterGPO_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecurityInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsecurityinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsecurityinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4026,7 +4026,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.BackupDir() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrbackupdir = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrbackupdir, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4037,7 +4037,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.Comment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrcomment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrcomment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4048,7 +4048,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdisplayname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdisplayname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4059,7 +4059,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.Domain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtemplatedomain = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtemplatedomain, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4070,7 +4070,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.StarterGPOID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtemplateid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtemplateid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4081,7 +4081,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.ID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4092,7 +4092,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.Timestamp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptimestamp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptimestamp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4103,7 +4103,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4124,7 +4124,7 @@ impl IGPMStarterGPOBackup_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateReportToFile(::core::mem::transmute_copy(&gpmreporttype), ::core::mem::transmute(&bstrtargetfilepath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4165,7 +4165,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4176,7 +4176,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4187,7 +4187,7 @@ impl IGPMStarterGPOBackupCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmtmplbackup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmtmplbackup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4220,7 +4220,7 @@ impl IGPMStarterGPOCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4231,7 +4231,7 @@ impl IGPMStarterGPOCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4242,7 +4242,7 @@ impl IGPMStarterGPOCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppigpmtemplates = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppigpmtemplates, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4278,7 +4278,7 @@ impl IGPMStatusMessage_Vtbl {
             let this = (*this).get_impl();
             match this.ObjectPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4294,7 +4294,7 @@ impl IGPMStatusMessage_Vtbl {
             let this = (*this).get_impl();
             match this.ExtensionName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4305,7 +4305,7 @@ impl IGPMStatusMessage_Vtbl {
             let this = (*this).get_impl();
             match this.SettingsName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4321,7 +4321,7 @@ impl IGPMStatusMessage_Vtbl {
             let this = (*this).get_impl();
             match this.Message() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4357,7 +4357,7 @@ impl IGPMStatusMsgCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4368,7 +4368,7 @@ impl IGPMStatusMsgCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4379,7 +4379,7 @@ impl IGPMStatusMsgCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4414,7 +4414,7 @@ impl IGPMTrustee_Vtbl {
             let this = (*this).get_impl();
             match this.TrusteeSid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4425,7 +4425,7 @@ impl IGPMTrustee_Vtbl {
             let this = (*this).get_impl();
             match this.TrusteeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4436,7 +4436,7 @@ impl IGPMTrustee_Vtbl {
             let this = (*this).get_impl();
             match this.TrusteeDomain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4447,7 +4447,7 @@ impl IGPMTrustee_Vtbl {
             let this = (*this).get_impl();
             match this.TrusteeDSPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4458,7 +4458,7 @@ impl IGPMTrustee_Vtbl {
             let this = (*this).get_impl();
             match this.TrusteeType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4498,7 +4498,7 @@ impl IGPMWMIFilter_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4514,7 +4514,7 @@ impl IGPMWMIFilter_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4530,7 +4530,7 @@ impl IGPMWMIFilter_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4541,7 +4541,7 @@ impl IGPMWMIFilter_Vtbl {
             let this = (*this).get_impl();
             match this.GetQueryList() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pqrylist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pqrylist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4552,7 +4552,7 @@ impl IGPMWMIFilter_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecurityInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsecurityinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsecurityinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4595,7 +4595,7 @@ impl IGPMWMIFilterCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4606,7 +4606,7 @@ impl IGPMWMIFilterCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&lindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4617,7 +4617,7 @@ impl IGPMWMIFilterCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4799,7 +4799,7 @@ impl IRSOPInformation_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventLogEntryText(::core::mem::transmute(&pszeventsource), ::core::mem::transmute(&pszeventlogname), ::core::mem::transmute(&pszeventtime), ::core::mem::transmute_copy(&dweventid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsztext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsztext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

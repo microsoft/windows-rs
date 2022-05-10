@@ -31,7 +31,7 @@ impl ID3D11AuthenticatedChannel_Vtbl {
             let this = (*this).get_impl();
             match this.GetCertificateSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcertificatesize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcertificatesize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl ID3D11AuthenticatedChannel_Vtbl {
             let this = (*this).get_impl();
             match this.GetCertificate(::core::mem::transmute_copy(&certificatesize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcertificate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcertificate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -177,7 +177,7 @@ impl ID3D11ClassLinkage_Vtbl {
             let this = (*this).get_impl();
             match this.GetClassInstance(::core::mem::transmute(&pclassinstancename), ::core::mem::transmute_copy(&instanceindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -188,7 +188,7 @@ impl ID3D11ClassLinkage_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClassInstance(::core::mem::transmute(&pclasstypename), ::core::mem::transmute_copy(&constantbufferoffset), ::core::mem::transmute_copy(&constantvectoroffset), ::core::mem::transmute_copy(&textureoffset), ::core::mem::transmute_copy(&sampleroffset)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -276,7 +276,7 @@ impl ID3D11CryptoSession_Vtbl {
             let this = (*this).get_impl();
             match this.GetCertificateSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcertificatesize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcertificatesize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -287,7 +287,7 @@ impl ID3D11CryptoSession_Vtbl {
             let this = (*this).get_impl();
             match this.GetCertificate(::core::mem::transmute_copy(&certificatesize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcertificate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcertificate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -358,7 +358,7 @@ impl ID3D11Debug_Vtbl {
             let this = (*this).get_impl();
             match this.GetSwapChain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppswapchain = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppswapchain, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -489,7 +489,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBuffer(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -500,7 +500,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTexture1D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptexture1d = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptexture1d, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -511,7 +511,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTexture2D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptexture2d = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptexture2d, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -522,7 +522,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTexture3D(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&pinitialdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptexture3d = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptexture3d, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -533,7 +533,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateShaderResourceView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsrview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsrview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -544,7 +544,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateUnorderedAccessView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppuaview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppuaview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRenderTargetView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprtview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprtview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -566,7 +566,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDepthStencilView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdepthstencilview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdepthstencilview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -577,7 +577,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInputLayout(::core::mem::transmute_copy(&pinputelementdescs), ::core::mem::transmute_copy(&numelements), ::core::mem::transmute_copy(&pshaderbytecodewithinputsignature), ::core::mem::transmute_copy(&bytecodelength)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinputlayout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinputlayout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -588,7 +588,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVertexShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvertexshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvertexshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -599,7 +599,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGeometryShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgeometryshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgeometryshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -610,7 +610,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGeometryShaderWithStreamOutput(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute_copy(&psodeclaration), ::core::mem::transmute_copy(&numentries), ::core::mem::transmute_copy(&pbufferstrides), ::core::mem::transmute_copy(&numstrides), ::core::mem::transmute_copy(&rasterizedstream), ::core::mem::transmute(&pclasslinkage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgeometryshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgeometryshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -621,7 +621,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePixelShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppixelshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppixelshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -632,7 +632,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateHullShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pphullshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pphullshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -643,7 +643,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDomainShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdomainshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdomainshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -654,7 +654,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateComputeShader(::core::mem::transmute_copy(&pshaderbytecode), ::core::mem::transmute_copy(&bytecodelength), ::core::mem::transmute(&pclasslinkage)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcomputeshader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcomputeshader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -665,7 +665,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateClassLinkage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pplinkage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pplinkage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -676,7 +676,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlendState(::core::mem::transmute_copy(&pblendstatedesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppblendstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppblendstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -687,7 +687,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDepthStencilState(::core::mem::transmute_copy(&pdepthstencildesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdepthstencilstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdepthstencilstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -698,7 +698,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRasterizerState(::core::mem::transmute_copy(&prasterizerdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprasterizerstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprasterizerstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -709,7 +709,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSamplerState(::core::mem::transmute_copy(&psamplerdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsamplerstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsamplerstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -720,7 +720,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQuery(::core::mem::transmute_copy(&pquerydesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppquery = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppquery, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -731,7 +731,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePredicate(::core::mem::transmute_copy(&ppredicatedesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppredicate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppredicate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -742,7 +742,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateCounter(::core::mem::transmute_copy(&pcounterdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcounter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcounter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -753,7 +753,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeferredContext(::core::mem::transmute_copy(&contextflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdeferredcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdeferredcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -769,7 +769,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CheckFormatSupport(::core::mem::transmute_copy(&format)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pformatsupport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pformatsupport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -780,7 +780,7 @@ impl ID3D11Device_Vtbl {
             let this = (*this).get_impl();
             match this.CheckMultisampleQualityLevels(::core::mem::transmute_copy(&format), ::core::mem::transmute_copy(&samplecount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumqualitylevels = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumqualitylevels, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -919,7 +919,7 @@ impl ID3D11Device1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeferredContext1(::core::mem::transmute_copy(&contextflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdeferredcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdeferredcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -930,7 +930,7 @@ impl ID3D11Device1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBlendState1(::core::mem::transmute_copy(&pblendstatedesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppblendstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppblendstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -941,7 +941,7 @@ impl ID3D11Device1_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRasterizerState1(::core::mem::transmute_copy(&prasterizerdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprasterizerstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprasterizerstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -999,7 +999,7 @@ impl ID3D11Device2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeferredContext2(::core::mem::transmute_copy(&contextflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdeferredcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdeferredcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1015,7 +1015,7 @@ impl ID3D11Device2_Vtbl {
             let this = (*this).get_impl();
             match this.CheckMultisampleQualityLevels1(::core::mem::transmute_copy(&format), ::core::mem::transmute_copy(&samplecount), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumqualitylevels = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumqualitylevels, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1057,7 +1057,7 @@ impl ID3D11Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTexture2D1(::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&pinitialdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptexture2d = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptexture2d, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1068,7 +1068,7 @@ impl ID3D11Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateTexture3D1(::core::mem::transmute_copy(&pdesc1), ::core::mem::transmute_copy(&pinitialdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptexture3d = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptexture3d, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1079,7 +1079,7 @@ impl ID3D11Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRasterizerState2(::core::mem::transmute_copy(&prasterizerdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprasterizerstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprasterizerstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1090,7 +1090,7 @@ impl ID3D11Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateShaderResourceView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsrview1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsrview1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1101,7 +1101,7 @@ impl ID3D11Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateUnorderedAccessView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppuaview1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppuaview1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1112,7 +1112,7 @@ impl ID3D11Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateRenderTargetView1(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc1)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprtview1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprtview1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1123,7 +1123,7 @@ impl ID3D11Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQuery1(::core::mem::transmute_copy(&pquerydesc1)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppquery1 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppquery1, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1139,7 +1139,7 @@ impl ID3D11Device3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDeferredContext3(::core::mem::transmute_copy(&contextflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdeferredcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdeferredcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1189,7 +1189,7 @@ impl ID3D11Device4_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterDeviceRemovedEvent(::core::mem::transmute_copy(&hevent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1437,7 +1437,7 @@ impl ID3D11DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.Map(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&subresource), ::core::mem::transmute_copy(&maptype), ::core::mem::transmute_copy(&mapflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmappedresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmappedresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1943,7 +1943,7 @@ impl ID3D11DeviceContext_Vtbl {
             let this = (*this).get_impl();
             match this.FinishCommandList(::core::mem::transmute_copy(&restoredeferredcontextstate)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcommandlist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcommandlist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2394,7 +2394,7 @@ impl ID3D11Fence_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSharedHandle(::core::mem::transmute_copy(&pattributes), ::core::mem::transmute_copy(&dwaccess), ::core::mem::transmute(&lpname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2447,7 +2447,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
             let this = (*this).get_impl();
             match this.SetInputSignature(::core::mem::transmute_copy(&pinputparameters), ::core::mem::transmute_copy(&cinputparameters)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinputnode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinputnode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2458,7 +2458,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
             let this = (*this).get_impl();
             match this.SetOutputSignature(::core::mem::transmute_copy(&poutputparameters), ::core::mem::transmute_copy(&coutputparameters)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppoutputnode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppoutputnode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2469,7 +2469,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
             let this = (*this).get_impl();
             match this.CallFunction(::core::mem::transmute(&pmoduleinstancenamespace), ::core::mem::transmute(&pmodulewithfunctionprototype), ::core::mem::transmute(&pfunctionname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcallnode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcallnode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2490,7 +2490,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastError() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pperrorbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pperrorbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2501,7 +2501,7 @@ impl ID3D11FunctionLinkingGraph_Vtbl {
             let this = (*this).get_impl();
             match this.GenerateHlsl(::core::mem::transmute_copy(&uflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2537,7 +2537,7 @@ impl ID3D11FunctionParameterReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2569,7 +2569,7 @@ impl ID3D11FunctionReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2590,7 +2590,7 @@ impl ID3D11FunctionReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceBindingDesc(::core::mem::transmute_copy(&resourceindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2606,7 +2606,7 @@ impl ID3D11FunctionReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceBindingDescByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2934,7 +2934,7 @@ impl ID3D11LibraryReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3013,7 +3013,7 @@ impl ID3D11Module_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance(::core::mem::transmute(&pnamespace)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmoduleinstance = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmoduleinstance, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3423,7 +3423,7 @@ impl ID3D11ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3444,7 +3444,7 @@ impl ID3D11ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceBindingDesc(::core::mem::transmute_copy(&resourceindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3455,7 +3455,7 @@ impl ID3D11ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputParameterDesc(::core::mem::transmute_copy(&parameterindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3466,7 +3466,7 @@ impl ID3D11ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputParameterDesc(::core::mem::transmute_copy(&parameterindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3477,7 +3477,7 @@ impl ID3D11ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetPatchConstantParameterDesc(::core::mem::transmute_copy(&parameterindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3493,7 +3493,7 @@ impl ID3D11ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetResourceBindingDescByName(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3539,7 +3539,7 @@ impl ID3D11ShaderReflection_Vtbl {
             let this = (*this).get_impl();
             match this.GetMinFeatureLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3642,7 +3642,7 @@ impl ID3D11ShaderReflectionType_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3730,7 +3730,7 @@ impl ID3D11ShaderReflectionVariable_Vtbl {
             let this = (*this).get_impl();
             match this.GetDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3823,7 +3823,7 @@ impl ID3D11ShaderTrace_Vtbl {
             let this = (*this).get_impl();
             match this.TraceReady() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptestcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptestcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3839,7 +3839,7 @@ impl ID3D11ShaderTrace_Vtbl {
             let this = (*this).get_impl();
             match this.GetTraceStats() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptracestats = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptracestats, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3855,7 +3855,7 @@ impl ID3D11ShaderTrace_Vtbl {
             let this = (*this).get_impl();
             match this.GetInitialRegisterContents(::core::mem::transmute_copy(&pregister)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3866,7 +3866,7 @@ impl ID3D11ShaderTrace_Vtbl {
             let this = (*this).get_impl();
             match this.GetStep(::core::mem::transmute_copy(&stepindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptracestep = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptracestep, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3909,7 +3909,7 @@ impl ID3D11ShaderTraceFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateShaderTrace(::core::mem::transmute(&pshader), ::core::mem::transmute_copy(&ptracedesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppshadertrace = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppshadertrace, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4474,7 +4474,7 @@ impl ID3D11VideoContext_Vtbl {
             let this = (*this).get_impl();
             match this.ConfigureAuthenticatedChannel(::core::mem::transmute(&pchannel), ::core::mem::transmute_copy(&inputsize), ::core::mem::transmute_copy(&pinput)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *poutput = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(poutput, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4588,7 +4588,7 @@ impl ID3D11VideoContext1_Vtbl {
             let this = (*this).get_impl();
             match this.GetDataForNewHardwareKey(::core::mem::transmute(&pcryptosession), ::core::mem::transmute_copy(&privateinputsize), ::core::mem::transmute_copy(&pprivatinputdata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprivateoutputdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprivateoutputdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4599,7 +4599,7 @@ impl ID3D11VideoContext1_Vtbl {
             let this = (*this).get_impl();
             match this.CheckCryptoSessionStatus(::core::mem::transmute(&pcryptosession)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4660,7 +4660,7 @@ impl ID3D11VideoContext1_Vtbl {
             let this = (*this).get_impl();
             match this.VideoProcessorGetBehaviorHints(::core::mem::transmute(&pvideoprocessor), ::core::mem::transmute_copy(&outputwidth), ::core::mem::transmute_copy(&outputheight), ::core::mem::transmute_copy(&outputformat), ::core::mem::transmute_copy(&streamcount), ::core::mem::transmute_copy(&pstreams)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbehaviorhints = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbehaviorhints, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4782,7 +4782,7 @@ impl ID3D11VideoDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetDriverHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdriverhandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdriverhandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4845,7 +4845,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVideoDecoder(::core::mem::transmute_copy(&pvideodesc), ::core::mem::transmute_copy(&pconfig)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdecoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdecoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4856,7 +4856,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVideoProcessor(::core::mem::transmute(&penum), ::core::mem::transmute_copy(&rateconversionindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvideoprocessor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvideoprocessor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4867,7 +4867,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAuthenticatedChannel(::core::mem::transmute_copy(&channeltype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppauthenticatedchannel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppauthenticatedchannel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4878,7 +4878,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CreateCryptoSession(::core::mem::transmute_copy(&pcryptotype), ::core::mem::transmute_copy(&pdecoderprofile), ::core::mem::transmute_copy(&pkeyexchangetype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcryptosession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcryptosession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4889,7 +4889,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVideoDecoderOutputView(::core::mem::transmute(&presource), ::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvdovview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvdovview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4900,7 +4900,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVideoProcessorInputView(::core::mem::transmute(&presource), ::core::mem::transmute(&penum), ::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvpiview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvpiview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4911,7 +4911,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVideoProcessorOutputView(::core::mem::transmute(&presource), ::core::mem::transmute(&penum), ::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvpoview = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvpoview, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4922,7 +4922,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CreateVideoProcessorEnumerator(::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4938,7 +4938,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoDecoderProfile(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdecoderprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdecoderprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4949,7 +4949,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CheckVideoDecoderFormat(::core::mem::transmute_copy(&pdecoderprofile), ::core::mem::transmute_copy(&format)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4960,7 +4960,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoDecoderConfigCount(::core::mem::transmute_copy(&pdesc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4971,7 +4971,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoDecoderConfig(::core::mem::transmute_copy(&pdesc), ::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pconfig = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pconfig, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4982,7 +4982,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetContentProtectionCaps(::core::mem::transmute_copy(&pcryptotype), ::core::mem::transmute_copy(&pdecoderprofile)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4993,7 +4993,7 @@ impl ID3D11VideoDevice_Vtbl {
             let this = (*this).get_impl();
             match this.CheckCryptoKeyExchange(::core::mem::transmute_copy(&pcryptotype), ::core::mem::transmute_copy(&pdecoderprofile), ::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pkeyexchangetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pkeyexchangetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5056,7 +5056,7 @@ impl ID3D11VideoDevice1_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoDecoderCaps(::core::mem::transmute_copy(&pdecoderprofile), ::core::mem::transmute_copy(&samplewidth), ::core::mem::transmute_copy(&sampleheight), ::core::mem::transmute_copy(&pframerate), ::core::mem::transmute_copy(&bitrate), ::core::mem::transmute_copy(&pcryptotype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdecodercaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdecodercaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5072,7 +5072,7 @@ impl ID3D11VideoDevice1_Vtbl {
             let this = (*this).get_impl();
             match this.RecommendVideoDecoderDownsampleParameters(::core::mem::transmute_copy(&pinputdesc), ::core::mem::transmute_copy(&inputcolorspace), ::core::mem::transmute_copy(&pinputconfig), ::core::mem::transmute_copy(&pframerate)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *precommendedoutputdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(precommendedoutputdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5169,7 +5169,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoProcessorContentDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontentdesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontentdesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5180,7 +5180,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.CheckVideoProcessorFormat(::core::mem::transmute_copy(&format)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5191,7 +5191,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoProcessorCaps() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5202,7 +5202,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoProcessorRateConversionCaps(::core::mem::transmute_copy(&typeindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcaps = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcaps, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5213,7 +5213,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoProcessorCustomRate(::core::mem::transmute_copy(&typeindex), ::core::mem::transmute_copy(&customrateindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5224,7 +5224,7 @@ impl ID3D11VideoProcessorEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetVideoProcessorFilterRange(::core::mem::transmute_copy(&filter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prange = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prange, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -5258,7 +5258,7 @@ impl ID3D11VideoProcessorEnumerator1_Vtbl {
             let this = (*this).get_impl();
             match this.CheckVideoProcessorFormatConversion(::core::mem::transmute_copy(&inputformat), ::core::mem::transmute_copy(&inputcolorspace), ::core::mem::transmute_copy(&outputformat), ::core::mem::transmute_copy(&outputcolorspace)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

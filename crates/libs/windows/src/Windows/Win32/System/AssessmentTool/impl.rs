@@ -74,7 +74,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Score() {
                 ::core::result::Result::Ok(ok__) => {
-                    *score = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(score, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -85,7 +85,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Title() {
                 ::core::result::Result::Ok(ok__) => {
-                    *title = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(title, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -96,7 +96,7 @@ impl IProvideWinSATAssessmentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *description = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(description, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -131,7 +131,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetAssessmentInfo(::core::mem::transmute_copy(&assessment)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -142,7 +142,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AssessmentState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *state = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(state, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.AssessmentDateTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *filetime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filetime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -164,7 +164,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.SystemRating() {
                 ::core::result::Result::Ok(ok__) => {
-                    *level = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(level, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -175,7 +175,7 @@ impl IProvideWinSATResultsInfo_Vtbl {
             let this = (*this).get_impl();
             match this.RatingStateDesc() {
                 ::core::result::Result::Ok(ok__) => {
-                    *description = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(description, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -208,7 +208,7 @@ impl IProvideWinSATVisuals_Vtbl {
             let this = (*this).get_impl();
             match this.get_Bitmap(::core::mem::transmute_copy(&bitmapsize), ::core::mem::transmute_copy(&state), ::core::mem::transmute_copy(&rating)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IQueryAllWinSATAssessments_Vtbl {
             let this = (*this).get_impl();
             match this.get_AllXML(::core::mem::transmute(&xpath), ::core::mem::transmute(&namespaces)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdomnodelist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdomnodelist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -257,7 +257,7 @@ impl IQueryOEMWinSATCustomization_Vtbl {
             let this = (*this).get_impl();
             match this.GetOEMPrePopulationInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *state = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(state, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -284,7 +284,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
             let this = (*this).get_impl();
             match this.get_XML(::core::mem::transmute(&xpath), ::core::mem::transmute(&namespaces)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdomnodelist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdomnodelist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -295,7 +295,7 @@ impl IQueryRecentWinSATAssessment_Vtbl {
             let this = (*this).get_impl();
             match this.Info() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwinsatassessmentinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwinsatassessmentinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

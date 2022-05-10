@@ -25,7 +25,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.FileType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.ContentType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -49,7 +49,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.OpenAsync(accessmode) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -61,7 +61,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.OpenTransactedWriteAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -73,7 +73,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.CopyOverloadDefaultNameAndOptions(::core::mem::transmute(&destinationfolder)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -85,7 +85,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.CopyOverloadDefaultOptions(::core::mem::transmute(&destinationfolder), ::core::mem::transmute(&desirednewname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -97,7 +97,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.CopyOverload(::core::mem::transmute(&destinationfolder), ::core::mem::transmute(&desirednewname), option) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -109,7 +109,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.CopyAndReplaceAsync(::core::mem::transmute(&filetoreplace)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -121,7 +121,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.MoveOverloadDefaultNameAndOptions(::core::mem::transmute(&destinationfolder)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -133,7 +133,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.MoveOverloadDefaultOptions(::core::mem::transmute(&destinationfolder), ::core::mem::transmute(&desirednewname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -145,7 +145,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.MoveOverload(::core::mem::transmute(&destinationfolder), ::core::mem::transmute(&desirednewname), option) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -157,7 +157,7 @@ impl IStorageFile_Vtbl {
             let this = (*this).get_impl();
             match this.MoveAndReplaceAsync(::core::mem::transmute(&filetoreplace)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -201,7 +201,7 @@ impl IStorageFile2_Vtbl {
             let this = (*this).get_impl();
             match this.OpenWithOptionsAsync(accessmode, options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -213,7 +213,7 @@ impl IStorageFile2_Vtbl {
             let this = (*this).get_impl();
             match this.OpenTransactedWriteWithOptionsAsync(options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -243,7 +243,7 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
             let this = (*this).get_impl();
             match this.IsAvailable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -284,7 +284,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileAsyncOverloadDefaultOptions(::core::mem::transmute(&desiredname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -296,7 +296,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileAsync(::core::mem::transmute(&desiredname), options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -308,7 +308,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFolderAsyncOverloadDefaultOptions(::core::mem::transmute(&desiredname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -320,7 +320,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFolderAsync(::core::mem::transmute(&desiredname), options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -332,7 +332,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileAsync(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -344,7 +344,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFolderAsync(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -356,7 +356,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemAsync(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -368,7 +368,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilesAsyncOverloadDefaultOptionsStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -380,7 +380,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFoldersAsyncOverloadDefaultOptionsStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -392,7 +392,7 @@ impl IStorageFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemsAsyncOverloadDefaultStartAndCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -433,7 +433,7 @@ impl IStorageFolder2_Vtbl {
             let this = (*this).get_impl();
             match this.TryGetItemAsync(::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -474,7 +474,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.RenameAsyncOverloadDefaultOptions(::core::mem::transmute(&desiredname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -486,7 +486,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.RenameAsync(::core::mem::transmute(&desiredname), option) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -498,7 +498,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.DeleteAsyncOverloadDefaultOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -510,7 +510,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.DeleteAsync(option) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -522,7 +522,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetBasicPropertiesAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -534,7 +534,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -546,7 +546,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -558,7 +558,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.Attributes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -570,7 +570,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.DateCreated() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -582,7 +582,7 @@ impl IStorageItem_Vtbl {
             let this = (*this).get_impl();
             match this.IsOfType(r#type) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -624,7 +624,7 @@ impl IStorageItem2_Vtbl {
             let this = (*this).get_impl();
             match this.GetParentAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -636,7 +636,7 @@ impl IStorageItem2_Vtbl {
             let this = (*this).get_impl();
             match this.IsEqual(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -675,7 +675,7 @@ impl IStorageItemProperties_Vtbl {
             let this = (*this).get_impl();
             match this.GetThumbnailAsyncOverloadDefaultSizeDefaultOptions(mode) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -687,7 +687,7 @@ impl IStorageItemProperties_Vtbl {
             let this = (*this).get_impl();
             match this.GetThumbnailAsyncOverloadDefaultOptions(mode, requestedsize) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -699,7 +699,7 @@ impl IStorageItemProperties_Vtbl {
             let this = (*this).get_impl();
             match this.GetThumbnailAsync(mode, requestedsize, options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -711,7 +711,7 @@ impl IStorageItemProperties_Vtbl {
             let this = (*this).get_impl();
             match this.DisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -723,7 +723,7 @@ impl IStorageItemProperties_Vtbl {
             let this = (*this).get_impl();
             match this.DisplayType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -735,7 +735,7 @@ impl IStorageItemProperties_Vtbl {
             let this = (*this).get_impl();
             match this.FolderRelativeId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -747,7 +747,7 @@ impl IStorageItemProperties_Vtbl {
             let this = (*this).get_impl();
             match this.Properties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -787,7 +787,7 @@ impl IStorageItemProperties2_Vtbl {
             let this = (*this).get_impl();
             match this.GetScaledImageAsThumbnailAsyncOverloadDefaultSizeDefaultOptions(mode) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -799,7 +799,7 @@ impl IStorageItemProperties2_Vtbl {
             let this = (*this).get_impl();
             match this.GetScaledImageAsThumbnailAsyncOverloadDefaultOptions(mode, requestedsize) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -811,7 +811,7 @@ impl IStorageItemProperties2_Vtbl {
             let this = (*this).get_impl();
             match this.GetScaledImageAsThumbnailAsync(mode, requestedsize, options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -845,7 +845,7 @@ impl IStorageItemPropertiesWithProvider_Vtbl {
             let this = (*this).get_impl();
             match this.Provider() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

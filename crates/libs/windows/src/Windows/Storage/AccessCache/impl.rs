@@ -29,7 +29,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.AddOverloadDefaultMetadata(::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -41,7 +41,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.Add(::core::mem::transmute(&file), ::core::mem::transmute(&metadata)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -63,7 +63,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemAsync(::core::mem::transmute(&token)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -75,7 +75,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileAsync(::core::mem::transmute(&token)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -87,7 +87,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.GetFolderAsync(::core::mem::transmute(&token)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -99,7 +99,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemWithOptionsAsync(::core::mem::transmute(&token), options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -111,7 +111,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.GetFileWithOptionsAsync(::core::mem::transmute(&token), options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -123,7 +123,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.GetFolderWithOptionsAsync(::core::mem::transmute(&token), options) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -140,7 +140,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.ContainsItem(::core::mem::transmute(&token)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -157,7 +157,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.CheckAccess(::core::mem::transmute(&file)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -169,7 +169,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.Entries() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -181,7 +181,7 @@ impl IStorageItemAccessList_Vtbl {
             let this = (*this).get_impl();
             match this.MaximumItemsAllowed() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

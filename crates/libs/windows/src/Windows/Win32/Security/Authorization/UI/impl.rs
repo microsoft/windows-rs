@@ -199,7 +199,7 @@ impl ISecurityInformation3_Vtbl {
             let this = (*this).get_impl();
             match this.GetFullResourceName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszresourcename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszresourcename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

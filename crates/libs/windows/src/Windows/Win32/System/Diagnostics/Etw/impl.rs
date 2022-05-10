@@ -20,7 +20,7 @@ impl ITraceEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *newevent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newevent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -31,7 +31,7 @@ impl ITraceEvent_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *usercontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(usercontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl ITraceEvent_Vtbl {
             let this = (*this).get_impl();
             match this.GetEventRecord() {
                 ::core::result::Result::Ok(ok__) => {
-                    *eventrecord = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eventrecord, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -169,7 +169,7 @@ impl ITraceRelogger_Vtbl {
             let this = (*this).get_impl();
             match this.AddLogfileTraceStream(::core::mem::transmute(&logfilename), ::core::mem::transmute_copy(&usercontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *tracehandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(tracehandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -180,7 +180,7 @@ impl ITraceRelogger_Vtbl {
             let this = (*this).get_impl();
             match this.AddRealtimeTraceStream(::core::mem::transmute(&loggername), ::core::mem::transmute_copy(&usercontext)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *tracehandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(tracehandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl ITraceRelogger_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEventInstance(::core::mem::transmute_copy(&tracehandle), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *event = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(event, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

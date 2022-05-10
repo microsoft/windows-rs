@@ -24,7 +24,7 @@ impl IEnhancedStorageACT_Vtbl {
             let this = (*this).get_impl();
             match this.GetAuthorizationState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -35,7 +35,7 @@ impl IEnhancedStorageACT_Vtbl {
             let this = (*this).get_impl();
             match this.GetMatchingVolume() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszvolume = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszvolume, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -46,7 +46,7 @@ impl IEnhancedStorageACT_Vtbl {
             let this = (*this).get_impl();
             match this.GetUniqueIdentity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszidentity = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszidentity, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -86,7 +86,7 @@ impl IEnhancedStorageACT2_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszdevicename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszdevicename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -97,7 +97,7 @@ impl IEnhancedStorageACT2_Vtbl {
             let this = (*this).get_impl();
             match this.IsDeviceRemovable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisdeviceremovable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisdeviceremovable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -134,7 +134,7 @@ impl IEnhancedStorageACT3_Vtbl {
             let this = (*this).get_impl();
             match this.IsQueueFrozen() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pisqueuefrozen = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pisqueuefrozen, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -145,7 +145,7 @@ impl IEnhancedStorageACT3_Vtbl {
             let this = (*this).get_impl();
             match this.GetShellExtSupport() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pshellextsupport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pshellextsupport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -180,7 +180,7 @@ impl IEnhancedStorageSilo_Vtbl {
             let this = (*this).get_impl();
             match this.GetInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psiloinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psiloinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl IEnhancedStorageSilo_Vtbl {
             let this = (*this).get_impl();
             match this.GetPortableDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiportabledevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiportabledevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl IEnhancedStorageSilo_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevicePath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszsilodevicepath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszsilodevicepath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -244,7 +244,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszactionname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszactionname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -255,7 +255,7 @@ impl IEnhancedStorageSiloAction_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszactiondescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszactiondescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -294,7 +294,7 @@ impl IEnumEnhancedStorageACT_Vtbl {
             let this = (*this).get_impl();
             match this.GetMatchingACT(::core::mem::transmute(&szvolume)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienhancedstorageact = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienhancedstorageact, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

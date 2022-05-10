@@ -21,7 +21,7 @@ impl IXAPO_Vtbl {
             let this = (*this).get_impl();
             match this.GetRegistrationProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppregistrationproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppregistrationproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32,7 +32,7 @@ impl IXAPO_Vtbl {
             let this = (*this).get_impl();
             match this.IsInputFormatSupported(::core::mem::transmute_copy(&poutputformat), ::core::mem::transmute_copy(&prequestedinputformat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsupportedinputformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsupportedinputformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -43,7 +43,7 @@ impl IXAPO_Vtbl {
             let this = (*this).get_impl();
             match this.IsOutputFormatSupported(::core::mem::transmute_copy(&pinputformat), ::core::mem::transmute_copy(&prequestedoutputformat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsupportedoutputformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsupportedoutputformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -330,7 +330,7 @@ impl IXAudio2MasteringVoice_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pchannelmask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pchannelmask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

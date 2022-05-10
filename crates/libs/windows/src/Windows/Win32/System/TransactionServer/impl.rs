@@ -15,7 +15,7 @@ impl ICatalog_Vtbl {
             let this = (*this).get_impl();
             match this.GetCollection(::core::mem::transmute(&bstrcollname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcatalogcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26,7 +26,7 @@ impl ICatalog_Vtbl {
             let this = (*this).get_impl();
             match this.Connect(::core::mem::transmute(&bstrconnectstring)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcatalogcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcatalogcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

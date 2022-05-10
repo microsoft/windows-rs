@@ -11,7 +11,7 @@ impl IWICBitmap_Vtbl {
             let this = (*this).get_impl();
             match this.Lock(::core::mem::transmute_copy(&prclock), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppilock = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppilock, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -80,7 +80,7 @@ impl IWICBitmapCodecInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainerFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidcontainerformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidcontainerformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -121,7 +121,7 @@ impl IWICBitmapCodecInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DoesSupportAnimation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfsupportanimation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfsupportanimation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -132,7 +132,7 @@ impl IWICBitmapCodecInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DoesSupportChromakey() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfsupportchromakey = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfsupportchromakey, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -143,7 +143,7 @@ impl IWICBitmapCodecInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DoesSupportLossless() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfsupportlossless = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfsupportlossless, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -154,7 +154,7 @@ impl IWICBitmapCodecInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DoesSupportMultiframe() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfsupportmultiframe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfsupportmultiframe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -165,7 +165,7 @@ impl IWICBitmapCodecInfo_Vtbl {
             let this = (*this).get_impl();
             match this.MatchesMimeType(::core::mem::transmute(&wzmimetype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfmatches = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfmatches, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -235,7 +235,7 @@ impl IWICBitmapDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.QueryCapability(::core::mem::transmute(&pistream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcapability = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcapability, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -251,7 +251,7 @@ impl IWICBitmapDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainerFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidcontainerformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidcontainerformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -262,7 +262,7 @@ impl IWICBitmapDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetDecoderInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidecoderinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidecoderinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -278,7 +278,7 @@ impl IWICBitmapDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataQueryReader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimetadataqueryreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimetadataqueryreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -289,7 +289,7 @@ impl IWICBitmapDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreview() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmapsource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmapsource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -305,7 +305,7 @@ impl IWICBitmapDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetThumbnail() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppithumbnail = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppithumbnail, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IWICBitmapDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrameCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -327,7 +327,7 @@ impl IWICBitmapDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrame(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmapframe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmapframe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -373,7 +373,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
             let this = (*this).get_impl();
             match this.MatchesPattern(::core::mem::transmute(&pistream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfmatches = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfmatches, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -384,7 +384,7 @@ impl IWICBitmapDecoderInfo_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmapdecoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmapdecoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IWICBitmapEncoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainerFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidcontainerformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidcontainerformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl IWICBitmapEncoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetEncoderInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiencoderinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiencoderinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -481,7 +481,7 @@ impl IWICBitmapEncoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataQueryWriter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimetadataquerywriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimetadataquerywriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -519,7 +519,7 @@ impl IWICBitmapEncoderInfo_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmapencoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmapencoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -561,7 +561,7 @@ impl IWICBitmapFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataQueryReader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimetadataqueryreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimetadataqueryreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -577,7 +577,7 @@ impl IWICBitmapFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.GetThumbnail() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppithumbnail = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppithumbnail, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -668,7 +668,7 @@ impl IWICBitmapFrameEncode_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataQueryWriter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimetadataquerywriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimetadataquerywriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -712,7 +712,7 @@ impl IWICBitmapLock_Vtbl {
             let this = (*this).get_impl();
             match this.GetStride() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbstride = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbstride, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -728,7 +728,7 @@ impl IWICBitmapLock_Vtbl {
             let this = (*this).get_impl();
             match this.GetPixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppixelformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppixelformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -783,7 +783,7 @@ impl IWICBitmapSource_Vtbl {
             let this = (*this).get_impl();
             match this.GetPixelFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppixelformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppixelformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -849,7 +849,7 @@ impl IWICBitmapSourceTransform_Vtbl {
             let this = (*this).get_impl();
             match this.DoesSupportTransform(::core::mem::transmute_copy(&dsttransform)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfissupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfissupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -898,7 +898,7 @@ impl IWICColorContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -914,7 +914,7 @@ impl IWICColorContext_Vtbl {
             let this = (*this).get_impl();
             match this.GetExifColorSpace() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -971,7 +971,7 @@ impl IWICComponentFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMetadataReader(::core::mem::transmute_copy(&guidmetadataformat), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&dwoptions), ::core::mem::transmute(&pistream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppireader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppireader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -982,7 +982,7 @@ impl IWICComponentFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMetadataReaderFromContainer(::core::mem::transmute_copy(&guidcontainerformat), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&dwoptions), ::core::mem::transmute(&pistream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppireader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppireader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -993,7 +993,7 @@ impl IWICComponentFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMetadataWriter(::core::mem::transmute_copy(&guidmetadataformat), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&dwmetadataoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1004,7 +1004,7 @@ impl IWICComponentFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMetadataWriterFromReader(::core::mem::transmute(&pireader), ::core::mem::transmute_copy(&pguidvendor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1015,7 +1015,7 @@ impl IWICComponentFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQueryReaderFromBlockReader(::core::mem::transmute(&piblockreader)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiqueryreader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiqueryreader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1026,7 +1026,7 @@ impl IWICComponentFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQueryWriterFromBlockWriter(::core::mem::transmute(&piblockwriter)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiquerywriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiquerywriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1037,7 +1037,7 @@ impl IWICComponentFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncoderPropertyBag(::core::mem::transmute_copy(&ppropoptions), ::core::mem::transmute_copy(&ccount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppipropertybag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppipropertybag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1076,7 +1076,7 @@ impl IWICComponentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetComponentType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1087,7 +1087,7 @@ impl IWICComponentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetCLSID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclsid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclsid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1098,7 +1098,7 @@ impl IWICComponentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetSigningStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1114,7 +1114,7 @@ impl IWICComponentInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetVendorGUID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidvendor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidvendor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1166,7 +1166,7 @@ impl IWICDdsDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pparameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pparameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1177,7 +1177,7 @@ impl IWICDdsDecoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrame(::core::mem::transmute_copy(&arrayindex), ::core::mem::transmute_copy(&miplevel), ::core::mem::transmute_copy(&sliceindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmapframe = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmapframe, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1214,7 +1214,7 @@ impl IWICDdsEncoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pparameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pparameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1257,7 +1257,7 @@ impl IWICDdsFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.GetFormatInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pformatinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pformatinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1334,7 +1334,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentParameterSet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcurrentparameterset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcurrentparameterset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1350,7 +1350,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetExposureCompensation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pev = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pev, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1376,7 +1376,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetNamedWhitePoint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwhitepoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwhitepoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1392,7 +1392,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetWhitePointKelvin() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwhitepointkelvin = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwhitepointkelvin, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1413,7 +1413,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetContrast() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontrast = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontrast, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1429,7 +1429,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetGamma() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgamma = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgamma, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1445,7 +1445,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetSharpness() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psharpness = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psharpness, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1461,7 +1461,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetSaturation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psaturation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psaturation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1477,7 +1477,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetTint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1493,7 +1493,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetNoiseReduction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnoisereduction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnoisereduction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1524,7 +1524,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetRotation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *protation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(protation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1540,7 +1540,7 @@ impl IWICDevelopRaw_Vtbl {
             let this = (*this).get_impl();
             match this.GetRenderMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prendermode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prendermode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1640,7 +1640,7 @@ impl IWICEnumMetadataItem_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienummetadataitem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienummetadataitem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1675,7 +1675,7 @@ impl IWICFastMetadataEncoder_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataQueryWriter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimetadataquerywriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimetadataquerywriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1711,7 +1711,7 @@ impl IWICFormatConverter_Vtbl {
             let this = (*this).get_impl();
             match this.CanConvert(::core::mem::transmute_copy(&srcpixelformat), ::core::mem::transmute_copy(&dstpixelformat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcanconvert = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcanconvert, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1744,7 +1744,7 @@ impl IWICFormatConverterInfo_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiconverter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiconverter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1798,7 +1798,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDecoderFromFilename(::core::mem::transmute(&wzfilename), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&dwdesiredaccess), ::core::mem::transmute_copy(&metadataoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidecoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidecoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1809,7 +1809,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDecoderFromStream(::core::mem::transmute(&pistream), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&metadataoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidecoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidecoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1820,7 +1820,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDecoderFromFileHandle(::core::mem::transmute_copy(&hfile), ::core::mem::transmute_copy(&pguidvendor), ::core::mem::transmute_copy(&metadataoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidecoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidecoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1831,7 +1831,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateComponentInfo(::core::mem::transmute_copy(&clsidcomponent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1842,7 +1842,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDecoder(::core::mem::transmute_copy(&guidcontainerformat), ::core::mem::transmute_copy(&pguidvendor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidecoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidecoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1853,7 +1853,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateEncoder(::core::mem::transmute_copy(&guidcontainerformat), ::core::mem::transmute_copy(&pguidvendor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiencoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiencoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1864,7 +1864,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreatePalette() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppipalette = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppipalette, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1875,7 +1875,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFormatConverter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiformatconverter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiformatconverter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1886,7 +1886,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapScaler() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmapscaler = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmapscaler, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1897,7 +1897,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapClipper() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmapclipper = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmapclipper, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1908,7 +1908,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFlipRotator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmapfliprotator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmapfliprotator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1919,7 +1919,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwicstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwicstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1930,7 +1930,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwiccolorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwiccolorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1941,7 +1941,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateColorTransformer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwiccolortransform = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwiccolortransform, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1952,7 +1952,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmap(::core::mem::transmute_copy(&uiwidth), ::core::mem::transmute_copy(&uiheight), ::core::mem::transmute_copy(&pixelformat), ::core::mem::transmute_copy(&option)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1963,7 +1963,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFromSource(::core::mem::transmute(&pibitmapsource), ::core::mem::transmute_copy(&option)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1974,7 +1974,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFromSourceRect(::core::mem::transmute(&pibitmapsource), ::core::mem::transmute_copy(&x), ::core::mem::transmute_copy(&y), ::core::mem::transmute_copy(&width), ::core::mem::transmute_copy(&height)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1985,7 +1985,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFromMemory(::core::mem::transmute_copy(&uiwidth), ::core::mem::transmute_copy(&uiheight), ::core::mem::transmute_copy(&pixelformat), ::core::mem::transmute_copy(&cbstride), ::core::mem::transmute_copy(&cbbuffersize), ::core::mem::transmute_copy(&pbbuffer)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1996,7 +1996,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFromHBITMAP(::core::mem::transmute_copy(&hbitmap), ::core::mem::transmute_copy(&hpalette), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2007,7 +2007,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBitmapFromHICON(::core::mem::transmute_copy(&hicon)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppibitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppibitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2018,7 +2018,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateComponentEnumerator(::core::mem::transmute_copy(&componenttypes), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienumunknown = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienumunknown, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2029,7 +2029,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFastMetadataEncoderFromDecoder(::core::mem::transmute(&pidecoder)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifastencoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifastencoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2040,7 +2040,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFastMetadataEncoderFromFrameDecode(::core::mem::transmute(&piframedecoder)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppifastencoder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppifastencoder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2051,7 +2051,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQueryWriter(::core::mem::transmute_copy(&guidmetadataformat), ::core::mem::transmute_copy(&pguidvendor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiquerywriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiquerywriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2062,7 +2062,7 @@ impl IWICImagingFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQueryWriterFromReader(::core::mem::transmute(&piqueryreader), ::core::mem::transmute_copy(&pguidvendor)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiquerywriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiquerywriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2124,7 +2124,7 @@ impl IWICJpegFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.DoesSupportIndexing() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfindexingsupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfindexingsupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2145,7 +2145,7 @@ impl IWICJpegFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.GetAcHuffmanTable(::core::mem::transmute_copy(&scanindex), ::core::mem::transmute_copy(&tableindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pachuffmantable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pachuffmantable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2156,7 +2156,7 @@ impl IWICJpegFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.GetDcHuffmanTable(::core::mem::transmute_copy(&scanindex), ::core::mem::transmute_copy(&tableindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdchuffmantable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdchuffmantable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2167,7 +2167,7 @@ impl IWICJpegFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.GetQuantizationTable(::core::mem::transmute_copy(&scanindex), ::core::mem::transmute_copy(&tableindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pquantizationtable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pquantizationtable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2178,7 +2178,7 @@ impl IWICJpegFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrameHeader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pframeheader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pframeheader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2189,7 +2189,7 @@ impl IWICJpegFrameDecode_Vtbl {
             let this = (*this).get_impl();
             match this.GetScanHeader(::core::mem::transmute_copy(&scanindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pscanheader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pscanheader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2240,7 +2240,7 @@ impl IWICJpegFrameEncode_Vtbl {
             let this = (*this).get_impl();
             match this.GetAcHuffmanTable(::core::mem::transmute_copy(&scanindex), ::core::mem::transmute_copy(&tableindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pachuffmantable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pachuffmantable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2251,7 +2251,7 @@ impl IWICJpegFrameEncode_Vtbl {
             let this = (*this).get_impl();
             match this.GetDcHuffmanTable(::core::mem::transmute_copy(&scanindex), ::core::mem::transmute_copy(&tableindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdchuffmantable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdchuffmantable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2262,7 +2262,7 @@ impl IWICJpegFrameEncode_Vtbl {
             let this = (*this).get_impl();
             match this.GetQuantizationTable(::core::mem::transmute_copy(&scanindex), ::core::mem::transmute_copy(&tableindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pquantizationtable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pquantizationtable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2302,7 +2302,7 @@ impl IWICMetadataBlockReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainerFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidcontainerformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidcontainerformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2313,7 +2313,7 @@ impl IWICMetadataBlockReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2324,7 +2324,7 @@ impl IWICMetadataBlockReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetReaderByIndex(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimetadatareader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimetadatareader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2335,7 +2335,7 @@ impl IWICMetadataBlockReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienummetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienummetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2376,7 +2376,7 @@ impl IWICMetadataBlockWriter_Vtbl {
             let this = (*this).get_impl();
             match this.GetWriterByIndex(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimetadatawriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimetadatawriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2430,7 +2430,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidmetadataformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidmetadataformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2456,7 +2456,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DoesRequireFullStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfrequiresfullstream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfrequiresfullstream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2467,7 +2467,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DoesSupportPadding() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfsupportspadding = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfsupportspadding, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2478,7 +2478,7 @@ impl IWICMetadataHandlerInfo_Vtbl {
             let this = (*this).get_impl();
             match this.DoesRequireFixedSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pffixedsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pffixedsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2516,7 +2516,7 @@ impl IWICMetadataQueryReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainerFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidcontainerformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidcontainerformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2537,7 +2537,7 @@ impl IWICMetadataQueryReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienumstring = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienumstring, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2604,7 +2604,7 @@ impl IWICMetadataReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidmetadataformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidmetadataformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2615,7 +2615,7 @@ impl IWICMetadataReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataHandlerInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppihandler = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppihandler, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2626,7 +2626,7 @@ impl IWICMetadataReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2647,7 +2647,7 @@ impl IWICMetadataReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppienummetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppienummetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2688,7 +2688,7 @@ impl IWICMetadataReaderInfo_Vtbl {
             let this = (*this).get_impl();
             match this.MatchesPattern(::core::mem::transmute_copy(&guidcontainerformat), ::core::mem::transmute(&pistream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfmatches = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfmatches, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2699,7 +2699,7 @@ impl IWICMetadataReaderInfo_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppireader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppireader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2780,7 +2780,7 @@ impl IWICMetadataWriterInfo_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiwriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiwriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2839,7 +2839,7 @@ impl IWICPalette_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pepalettetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pepalettetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2850,7 +2850,7 @@ impl IWICPalette_Vtbl {
             let this = (*this).get_impl();
             match this.GetColorCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2866,7 +2866,7 @@ impl IWICPalette_Vtbl {
             let this = (*this).get_impl();
             match this.IsBlackWhite() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfisblackwhite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfisblackwhite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2877,7 +2877,7 @@ impl IWICPalette_Vtbl {
             let this = (*this).get_impl();
             match this.IsGrayscale() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfisgrayscale = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfisgrayscale, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2888,7 +2888,7 @@ impl IWICPalette_Vtbl {
             let this = (*this).get_impl();
             match this.HasAlpha() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfhasalpha = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfhasalpha, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2957,7 +2957,7 @@ impl IWICPixelFormatInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetFormatGUID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2968,7 +2968,7 @@ impl IWICPixelFormatInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetColorContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppicolorcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppicolorcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2979,7 +2979,7 @@ impl IWICPixelFormatInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetBitsPerPixel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puibitsperpixel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puibitsperpixel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2990,7 +2990,7 @@ impl IWICPixelFormatInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puichannelcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puichannelcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3029,7 +3029,7 @@ impl IWICPixelFormatInfo2_Vtbl {
             let this = (*this).get_impl();
             match this.SupportsTransparency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfsupportstransparency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfsupportstransparency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3040,7 +3040,7 @@ impl IWICPixelFormatInfo2_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumericRepresentation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumericrepresentation = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumericrepresentation, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3133,7 +3133,7 @@ impl IWICPlanarFormatConverter_Vtbl {
             let this = (*this).get_impl();
             match this.CanConvert(::core::mem::transmute_copy(&psrcpixelformats), ::core::mem::transmute_copy(&csrcplanes), ::core::mem::transmute_copy(&dstpixelformat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcanconvert = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcanconvert, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3179,7 +3179,7 @@ impl IWICProgressiveLevelControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetLevelCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclevels = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclevels, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3190,7 +3190,7 @@ impl IWICProgressiveLevelControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentLevel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnlevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnlevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3273,7 +3273,7 @@ impl IWICStreamProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppistream = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppistream, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3284,7 +3284,7 @@ impl IWICStreamProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetPersistOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwpersistoptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwpersistoptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3295,7 +3295,7 @@ impl IWICStreamProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetPreferredVendorGUID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidpreferredvendor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidpreferredvendor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
