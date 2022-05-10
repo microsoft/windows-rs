@@ -94,19 +94,23 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
 
     // TODO: replace with Vec once parity is achieved - BTreeMap just used to make diffing simpler.
     let mut types= BTreeMap::<&str, TokenStream>::new();
+
+    fn combine<'a>(types: &mut BTreeMap::<&'a str, TokenStream>, name: &'a str, tokens: TokenStream) {
+        types.entry(name).or_default().combine(&tokens);
+    }
     
     if let Some(namespace_types) = gen.reader.namespace_types(tree.namespace) {
     for def in namespace_types {
         if let Some(tokens) = gen.define(def) {
-            types.insert(gen.reader.type_def_name(def), tokens);
+            combine(&mut types, gen.reader.type_def_name(def), tokens);
         } else {
             if !gen.sys {
                 for method in gen.reader.type_def_methods(def) {
-                    types.insert(gen.reader.method_def_name(method), functions::gen(gen, method));
+                    combine(&mut types, gen.reader.method_def_name(method), functions::gen(gen, method));
                 }
             }
             for field in gen.reader.type_def_fields(def) {
-                types.insert(gen.reader.field_name(field), constants::gen(gen, field));
+                combine(&mut types, gen.reader.field_name(field), constants::gen(gen, field));
             }
         }
     }
