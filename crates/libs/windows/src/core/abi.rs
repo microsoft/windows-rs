@@ -59,6 +59,8 @@ unsafe impl<T: Interface> Abi for T {
         if abi.is_null() {
             Err(Error::OK)
         } else {
+            // there's no need to call `AddRef` after converting since `abi` is required to
+            // be an "owning" pointer and already have an incremented ref count
             Ok(core::mem::transmute_copy(&abi))
         }
     }
