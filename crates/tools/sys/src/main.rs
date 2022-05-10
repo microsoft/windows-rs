@@ -1,8 +1,6 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
-const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
-
 fn main() {
     let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
     let _ = std::fs::remove_dir_all(&output);
@@ -99,7 +97,6 @@ deprecated = []
 
 fn gen_tree(reader: &metadata::reader2::Reader, output: &std::path::Path, tree: &metadata::reader2::Tree) {
     let mut path = std::path::PathBuf::from(output);
-
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
     path.push("mod.rs");
@@ -110,7 +107,7 @@ fn gen_tree(reader: &metadata::reader2::Reader, output: &std::path::Path, tree: 
     gen.cfg = true;
     gen.doc = true;
     let mut tokens = bindgen::bindgen2::namespace(&gen, tree);
-
+    
     let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");
     stdin.write_all(tokens.as_bytes()).unwrap();

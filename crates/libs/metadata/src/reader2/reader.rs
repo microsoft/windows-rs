@@ -429,6 +429,7 @@ impl<'a> Reader<'a> {
     pub fn method_def_cfg(&self, row: MethodDef) -> Cfg {
         let mut cfg = Cfg::default();
         self.method_def_cfg_combine(row, &mut cfg);
+        self.cfg_add_attributes(&mut cfg, self.method_def_attributes(row));
         cfg
     }
     // TODO: maybe inline this at the callsite to avoid recalculating the method signature
@@ -1416,4 +1417,5 @@ pub fn type_deref(ty: &Type) -> Type {
 
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
 
-const WELL_KNOWN_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];
+// TODO: rename core types
+pub const WELL_KNOWN_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];

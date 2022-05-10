@@ -51,11 +51,6 @@ pub fn define(gen: &Gen, name: &str) -> String {
 
 pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     let namespaces = tree.nested.iter().map(move |(name, tree)| {
-        // TODO: make use of EXCLUDE_NAMESPACES somehow
-        if tree.namespace == "Windows.Win32.Interop" {
-            return quote! {};
-        }
-
         let name = to_ident(name);
         let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
         if gen.cfg {
@@ -73,19 +68,18 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
 
     if gen.sys {
         if let Some(apis) = gen.reader.get(TypeName::new(tree.namespace, "Apis")).next() {
+            // TODO: replace with Vec once parity is achieved - BTreeMap just used to make diffing simpler.
             let mut methods = BTreeMap::new();
             for method in gen.reader.type_def_methods(apis) {
-                methods.insert(gen.reader.method_def_name(method), method);
+                combine(&mut methods, gen.reader.method_def_name(method), functions::gen(gen, method));
             }
-            for method in methods.values() {
-                functions.push(functions::gen(gen, *method));
-            }
-
-            if !functions.is_empty() {
+            // TODO: instead of Vec just check whether class has `Apis` methods and then pass an iterator?
+            if !methods.is_empty() {
+                let methods = methods.values();
                 functions = vec![quote! {
                     #[link(name = "windows")]
                     extern "system" {
-                        #(#functions)*
+                        #(#methods)*
                     }
                 }];
             }
@@ -94,15 +88,11 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
 
     // TODO: replace with Vec once parity is achieved - BTreeMap just used to make diffing simpler.
     let mut types= BTreeMap::<&str, TokenStream>::new();
-
-    fn combine<'a>(types: &mut BTreeMap::<&'a str, TokenStream>, name: &'a str, tokens: TokenStream) {
-        types.entry(name).or_default().combine(&tokens);
-    }
     
     if let Some(namespace_types) = gen.reader.namespace_types(tree.namespace) {
     for def in namespace_types {
         if let Some(tokens) = gen.define(def) {
-            combine(&mut types, gen.reader.type_def_name(def), tokens);
+            combine_type(&mut types, gen.reader.type_def_type_name(def), tokens);
         } else {
             if !gen.sys {
                 for method in gen.reader.type_def_methods(def) {
@@ -129,4 +119,14 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
 
 pub fn namespace_impl(_gen: &Gen) -> String {
     String::new()
+}
+
+fn combine<'a>(types: &mut BTreeMap::<&'a str, TokenStream>, name: &'a str, tokens: TokenStream) {
+    types.entry(name).or_default().combine(&tokens);
+}
+
+fn combine_type<'a>(types: &mut BTreeMap::<&'a str, TokenStream>, type_name: TypeName<'a>, tokens: TokenStream) {
+    if !WELL_KNOWN_TYPES.iter().any(|(x, _)| x == &type_name) {
+        types.entry(type_name.name).or_default().combine(&tokens);
+    }
 }
