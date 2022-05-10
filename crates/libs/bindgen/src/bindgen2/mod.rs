@@ -12,6 +12,7 @@ mod method_names;
 mod replacements;
 mod structs;
 mod winrt_methods;
+mod implements;
 pub use gen::*;
 use metadata::reader2::*;
 use method_names::*;
@@ -117,8 +118,22 @@ pub fn namespace(gen: &Gen, tree: &Tree) -> String {
     tokens.into_string()
 }
 
-pub fn namespace_impl(_gen: &Gen) -> String {
-    String::new()
+pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
+    let mut types= BTreeMap::<&str, TokenStream>::new();
+
+    if let Some(namespace_types) = gen.reader.namespace_types(tree.namespace) {
+        for def in namespace_types {
+            combine_type(&mut types, gen.reader.type_def_type_name(def), implements::gen(gen, def));
+        }
+    }
+
+    let types = types.values();
+
+    let tokens = quote! {
+        #(#types)*
+    };
+
+    tokens.into_string()
 }
 
 fn combine<'a>(types: &mut BTreeMap::<&'a str, TokenStream>, name: &'a str, tokens: TokenStream) {
