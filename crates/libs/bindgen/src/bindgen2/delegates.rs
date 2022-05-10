@@ -31,6 +31,9 @@ fn gen_callback(gen: &Gen, def: TypeDef) -> TokenStream {
     }
 }
 
-fn gen_delegate(_gen: &Gen, _def: TypeDef) -> TokenStream {
-    " ".into()
+fn gen_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
+    let name = to_ident(gen.reader.type_def_name(def));
+    quote! {
+        pub type #name = *mut ::core::ffi::c_void;
+    }
 }

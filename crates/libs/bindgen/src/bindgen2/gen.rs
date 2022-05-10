@@ -748,7 +748,8 @@ impl<'a> Gen<'a> {
         quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
     }
     pub fn param_name(&self, param: Param) -> TokenStream {
-        self.reader.param_name(param).to_lowercase().into()
+        // TODO: why do we need to_lowercase
+        to_ident(&self.reader.param_name(param).to_lowercase())
     }
     pub fn return_sig(&self, signature: &Signature) -> TokenStream {
         if let Some(return_type) = &signature.return_type {

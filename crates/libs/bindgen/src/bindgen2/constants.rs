@@ -39,10 +39,10 @@ pub fn gen(gen: &Gen, def: Field) -> TokenStream {
                 }
             }
         }
-    // } else if let Some(guid) = gen.reader.field_guid(def) {
-    //     let value = gen_guid(&guid, gen);
-    //     let guid = gen_element_name(&Type::GUID, gen);
-    //     quote! { pub const #name: #guid = #value; }
+    } else if let Some(guid) = gen.reader.field_guid(def) {
+        let value = gen.guid(&guid);
+        let guid = gen.type_name(&Type::GUID);
+        quote! { pub const #name: #guid = #value; }
     } else if let Some((guid, id)) = get_property_key(gen, def) {
         let kind = gen.type_default_name(&ty);
         let guid = gen.guid(&guid);

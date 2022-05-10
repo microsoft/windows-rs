@@ -233,6 +233,14 @@ impl<'a> Reader<'a> {
     pub fn field_is_blittable(&self, row: Field, enclosing: TypeDef) -> bool {
         self.type_is_blittable(&self.field_type(row, Some(enclosing)))
     }
+    pub fn field_guid(&self, row: Field) -> Option<GUID> {
+        for attribute in self.field_attributes(row) {
+            if self.attribute_name(attribute) == "GuidAttribute" {
+                return Some(GUID::from_args(&self.attribute_args(attribute)));
+            }
+        }
+        None
+    }
     pub fn field_cfg(&self, row: Field) -> Cfg {
         let mut cfg = Cfg::default();
         self.field_cfg_combine(row, None, &mut cfg);
