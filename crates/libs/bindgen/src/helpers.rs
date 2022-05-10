@@ -329,7 +329,8 @@ pub fn gen_win32_upcall(sig: &Signature, inner: TokenStream) -> TokenStream {
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::core::result::Result::Ok(ok__) => {
-                        *#result = ::core::mem::transmute(ok__);
+                        // use `core::ptr::write` since the result could be uninitialized
+                        ::core::ptr::write(#result, ::core::mem::transmute(ok__));
                         ::windows::core::HRESULT(0)
                     }
                     ::core::result::Result::Err(err) => err.into()
@@ -369,8 +370,9 @@ pub fn gen_winrt_upcall(sig: &Signature, inner: TokenStream) -> TokenStream {
                 match #inner(#(#invoke_args,)*) {
                     ::core::result::Result::Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
-                        *result__ = ok_data__;
-                        *result_size__ = ok_data_len__;
+                        // use `core::ptr::write` since `result` could be uninitialized
+                        ::core::ptr::write(result__, ok_data__);
+                        ::core::ptr::write(result_size__, ok_data_len__);
                         ::windows::core::HRESULT(0)
                     }
                     ::core::result::Result::Err(err) => err.into()
@@ -381,7 +383,8 @@ pub fn gen_winrt_upcall(sig: &Signature, inner: TokenStream) -> TokenStream {
             quote! {
                 match #inner(#(#invoke_args,)*) {
                     ::core::result::Result::Ok(ok__) => {
-                        *result__ = ::core::mem::transmute_copy(&ok__);
+                        // use `core::ptr::write` since `result` could be uninitialized
+                        ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                         ::core::mem::forget(ok__);
                         ::windows::core::HRESULT(0)
                     }
