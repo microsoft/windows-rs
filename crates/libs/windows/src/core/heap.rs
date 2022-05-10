@@ -19,7 +19,7 @@ pub fn heap_alloc(bytes: usize) -> Result<RawPtr> {
         // debug allocator does for the same reason.
         #[cfg(debug_assertions)]
         unsafe {
-            std::ptr::write_bytes(ptr, b'?', bytes);
+            std::ptr::write_bytes(ptr, 0xCC, bytes);
         }
         Ok(ptr)
     }
