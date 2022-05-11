@@ -5,7 +5,7 @@ use windows::UI::Xaml::*;
 // TODO: This is a compile-only test for now until #81 is further along and can provide composable test classes.
 
 #[implement(IApplicationOverrides)]
-struct App();
+struct App;
 
 #[allow(non_snake_case)]
 impl IApplicationOverrides_Impl for App {

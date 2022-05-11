@@ -8,7 +8,6 @@ use tokens::*;
 pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
     let generics = attributes.generics();
-    let interfaces_len = Literal::usize_unsuffixed(attributes.implement.len());
 
     let constraints = quote! {
         #(#generics: ::windows::core::RuntimeType + 'static,)*
@@ -145,10 +144,11 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
         impl <#constraints> #original_ident::<#(#generics,)*> {
-            fn cast<ResultType: ::windows::core::Interface>(&self) -> ::windows::core::Result<ResultType> {
+            fn alloc<ResultType: ::windows::core::Interface>(self) -> ::windows::core::Result<ResultType> {
+                let this = #impl_ident::<#(#generics,)*>::new(self);
+                let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+                let mut result = None;
                 unsafe {
-                    let boxed = (self as *const #original_ident::<#(#generics,)*> as *mut #original_ident::<#(#generics,)*> as *mut ::windows::core::RawPtr).sub(2 + #interfaces_len) as *mut #impl_ident::<#(#generics,)*>;
-                    let mut result = None;
                     <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &ResultType::IID, &mut result as *mut _ as _).and_some(result)
                 }
             }
