@@ -36,6 +36,11 @@ impl GUID {
         Self { data1: (uuid >> 96) as u32, data2: (uuid >> 80 & 0xffff) as u16, data3: (uuid >> 64 & 0xffff) as u16, data4: (uuid as u64).to_be_bytes() }
     }
 
+    /// Converts a `GUID` to a `u128` value.
+    pub const fn to_u128(&self) -> u128 {
+        ((self.data1 as u128) << 96) + ((self.data2 as u128) << 80) + ((self.data3 as u128) << 64) + u64::from_be_bytes(self.data4) as u128
+    }
+
     /// Creates a `GUID` for a "generic" WinRT type.
     pub const fn from_signature(signature: ConstBuffer) -> Self {
         let data = ConstBuffer::from_slice(&[0x11, 0xf4, 0x7a, 0xd5, 0x7b, 0x73, 0x42, 0xc0, 0xab, 0xae, 0x87, 0x8b, 0x1e, 0x16, 0xad, 0xee]);
