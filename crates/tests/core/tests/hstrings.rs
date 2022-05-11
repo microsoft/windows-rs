@@ -7,7 +7,7 @@ fn hstring_works() {
     assert!(empty.is_empty());
     assert!(empty.is_empty());
 
-    let mut hello = HSTRING::from("Hello");
+    let hello = HSTRING::from("Hello");
     assert!(!hello.is_empty());
     assert!(hello.len() == 5);
 
@@ -16,10 +16,6 @@ fn hstring_works() {
     assert!(rust.len() == 5);
 
     let hello2 = hello.clone();
-    hello.clear();
-    assert!(hello.is_empty());
-    hello.clear();
-    assert!(hello.is_empty());
     assert!(!hello2.is_empty());
     assert!(hello2.len() == 5);
 
