@@ -10,7 +10,7 @@ struct App;
 #[allow(non_snake_case)]
 impl IApplicationOverrides_Impl for App {
     fn OnLaunched(&self, _: &Option<LaunchActivatedEventArgs>) -> Result<()> {
-        let app: Application = self.cast()?;
+        let app: Application = unsafe { self.cast()? };
         assert!(app.FocusVisualKind()? == FocusVisualKind::DottedLine);
         Ok(())
     }

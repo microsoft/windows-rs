@@ -54,7 +54,7 @@ where
 #[allow(non_snake_case)]
 impl<T: RuntimeType + 'static> IIterable_Impl<T> for Iterable<T> {
     fn First(&self) -> Result<IIterator<T>> {
-        Ok(Iterator::<T>((self.cast()?, 0).into()).into())
+        Ok(Iterator::<T>((unsafe { self.cast()? }, 0).into()).into())
     }
 }
 

@@ -8,6 +8,7 @@ use tokens::*;
 pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro::TokenStream) -> proc_macro::TokenStream {
     let attributes = syn::parse_macro_input!(attributes as ImplementAttributes);
     let generics = attributes.generics();
+    let interfaces_len = Literal::usize_unsuffixed(attributes.implement.len());
 
     let constraints = quote! {
         #(#generics: ::windows::core::RuntimeType + 'static,)*
@@ -144,6 +145,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
         impl <#constraints> #original_ident::<#(#generics,)*> {
+            /// Box and pin `self` and then try to cast it as the supplied interface
             fn alloc<I: ::windows::core::Interface>(self) -> ::windows::core::Result<I> {
                 let this = #impl_ident::<#(#generics,)*>::new(self);
                 let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
@@ -156,6 +158,18 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     let _ = ::core::mem::ManuallyDrop::into_inner(boxed);
                 }
                 result
+            }
+
+            /// Try casting as the provided interface
+            ///
+            /// # Safety
+            ///
+            /// This function can only be safely called if `self` has been heap allocated and pinned using
+            /// the mechanisms provided by `implement` macro.
+            unsafe fn cast<I: ::windows::core::Interface>(&self) -> ::windows::core::Result<I> {
+                let boxed = (self as *const _ as *const ::windows::core::RawPtr).sub(2 + #interfaces_len) as *mut #impl_ident::<#(#generics,)*>;
+                let mut result = None;
+                <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
             }
         }
         impl <#constraints> ::windows::core::Compose for #original_ident::<#(#generics,)*> {
