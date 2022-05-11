@@ -48,9 +48,5 @@ fn mix() -> Result<()> {
     unsafe { assert!(e.GetSourceId()? == 123) };
     unsafe { assert!(e.CreateSourcePresentationHandle()? == HANDLE::default()) };
 
-    // `alloc` allows querying for arbitrary interfaces
-    let f: IStringable = Mix.alloc()?;
-    assert!(f.ToString()? == "Mix");
-
     Ok(())
 }
