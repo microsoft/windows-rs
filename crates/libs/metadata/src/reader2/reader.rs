@@ -1052,6 +1052,8 @@ impl<'a> Reader<'a> {
         }
     }
     pub fn type_interfaces(&self, ty: &Type) -> Vec<Interface> {
+        // TODO: collect into btree map and then return collected vec
+        // This will both sort the results and should make finding dupes faster
         fn walk(reader: &Reader, result: &mut Vec<Interface>, parent: &Type, is_base: bool) {
             if let Type::TypeDef((row, generics)) = parent {
                 for mut child in reader.type_def_interfaces(*row, generics) {
@@ -1118,6 +1120,8 @@ impl<'a> Reader<'a> {
                 }
             }
         }
+        // TODO: do we need this sorted (beyond parity)?
+        result.sort_by(|a, b| self.type_def_ a.0.name().cmp(b.0.name()));
         result
     }
     fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
