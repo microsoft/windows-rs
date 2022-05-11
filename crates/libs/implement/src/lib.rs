@@ -54,10 +54,10 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for #interface_ident {
                 fn from(this: #original_ident::<#(#generics,)*>) -> Self {
                     let this = #impl_ident::<#(#generics,)*>::new(this);
-                    let mut this = ::std::boxed::Box::new(this);
-                    let vtable_ptr = &mut this.vtables.#offset as *mut *const <#interface_ident as ::windows::core::Interface>::Vtable;
-                    let _ = ::std::boxed::Box::leak(this);
-                    unsafe { ::core::mem::transmute_copy(&vtable_ptr) }
+                    let mut this = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
+                    let vtable_ptr = &this.vtables.#offset;
+                    // SAFETY: interfaces are in-memory equivalent to pointers to their vtables.
+                    unsafe { ::core::mem::transmute(vtable_ptr) }
                 }
             }
             impl <#constraints> ::windows::core::AsImpl<#original_ident::<#(#generics,)*>> for #interface_ident {
@@ -145,12 +145,16 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
         impl <#constraints> #original_ident::<#(#generics,)*> {
-            fn cast<ResultType: ::windows::core::Interface>(&self) -> ::windows::core::Result<ResultType> {
-                unsafe {
-                    let boxed = (self as *const #original_ident::<#(#generics,)*> as *mut #original_ident::<#(#generics,)*> as *mut ::windows::core::RawPtr).sub(2 + #interfaces_len) as *mut #impl_ident::<#(#generics,)*>;
-                    let mut result = None;
-                    <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &ResultType::IID, &mut result as *mut _ as _).and_some(result)
-                }
+            /// Try casting as the provided interface
+            ///
+            /// # Safety
+            ///
+            /// This function can only be safely called if `self` has been heap allocated and pinned using
+            /// the mechanisms provided by `implement` macro.
+            unsafe fn cast<I: ::windows::core::Interface>(&self) -> ::windows::core::Result<I> {
+                let boxed = (self as *const _ as *const ::windows::core::RawPtr).sub(2 + #interfaces_len) as *mut #impl_ident::<#(#generics,)*>;
+                let mut result = None;
+                <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
             }
         }
         impl <#constraints> ::windows::core::Compose for #original_ident::<#(#generics,)*> {
@@ -163,23 +167,19 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         }
         impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IUnknown {
             fn from(this: #original_ident::<#(#generics,)*>) -> Self {
+                let this = #impl_ident::<#(#generics,)*>::new(this);
+                let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
                 unsafe {
-                    let this = #impl_ident::<#(#generics,)*>::new(this);
-                    let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
-                    ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
-                        &mut (*ptr).identity as *mut _ as _
-                    ))
+                    ::core::mem::transmute(&boxed.identity)
                 }
             }
         }
         impl <#constraints> ::core::convert::From<#original_ident::<#(#generics,)*>> for ::windows::core::IInspectable {
             fn from(this: #original_ident::<#(#generics,)*>) -> Self {
+                let this = #impl_ident::<#(#generics,)*>::new(this);
+                let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
                 unsafe {
-                    let this = #impl_ident::<#(#generics,)*>::new(this);
-                    let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
-                    ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
-                        &mut (*ptr).identity as *mut _ as _
-                    ))
+                    ::core::mem::transmute(&boxed.identity)
                 }
             }
         }
