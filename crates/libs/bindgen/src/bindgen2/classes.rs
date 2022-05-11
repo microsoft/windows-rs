@@ -112,7 +112,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
         // tokens.combine(&gen_async(def, &cfg, gen));
         // tokens.combine(&gen_iterator(def, &cfg, gen));
-        // tokens.combine(&gen_conversions(def, &cfg, gen));
+        tokens.combine(&gen_conversions(gen, def, &name, &interfaces, &cfg));
         // tokens.combine(&gen_agile(def, &cfg, gen));
         tokens
     } else {
@@ -148,119 +148,118 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 //     }
 // }
 
-// fn gen_conversions(gen: &Gen, def: TypeDef, cfg: &Cfg) -> TokenStream {
-//     let name = gen_type_ident(def, gen);
-//     let mut tokens = quote! {};
+fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces : &[Interface], cfg: &Cfg) -> TokenStream {
+    let mut tokens = quote! {};
 
-//     for def in &[Type::IUnknown, Type::IInspectable] {
-//         let into = gen_element_name(def, gen);
-//         let cfg = gen.cfg(cfg);
-//         tokens.combine(&quote! {
-//             #cfg
-//             impl ::core::convert::From<#name> for #into {
-//                 fn from(value: #name) -> Self {
-//                     unsafe { ::core::mem::transmute(value) }
-//                 }
-//             }
-//             #cfg
-//             impl ::core::convert::From<&#name> for #into {
-//                 fn from(value: &#name) -> Self {
-//                     ::core::convert::From::from(::core::clone::Clone::clone(value))
-//                 }
-//             }
-//             #cfg
-//             impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-//                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                     ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-//                 }
-//             }
-//             #cfg
-//             impl<'a> ::windows::core::IntoParam<'a, #into> for &'a #name {
-//                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                     ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-//                 }
-//             }
-//         });
-//     }
+    for def in &[Type::IUnknown, Type::IInspectable] {
+        let into = gen.type_name(def);
+        let features = gen.cfg_features(cfg);
+        tokens.combine(&quote! {
+            #features
+            impl ::core::convert::From<#name> for #into {
+                fn from(value: #name) -> Self {
+                    unsafe { ::core::mem::transmute(value) }
+                }
+            }
+            #features
+            impl ::core::convert::From<&#name> for #into {
+                fn from(value: &#name) -> Self {
+                    ::core::convert::From::from(::core::clone::Clone::clone(value))
+                }
+            }
+            #features
+            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+                }
+            }
+            #features
+            impl<'a> ::windows::core::IntoParam<'a, #into> for &'a #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+                }
+            }
+        });
+    }
 
-//     for (def, kind) in def.class_interfaces() {
-//         if def.is_exclusive() {
-//             continue;
-//         }
+    for interface in interfaces {
+        if gen.reader.type_is_exclusive(&interface.ty) {
+            continue;
+        }
 
-//         if kind != InterfaceKind::Default && kind != InterfaceKind::NonDefault && kind != InterfaceKind::Base {
-//             continue;
-//         }
+        if interface.kind != InterfaceKind::Default && interface.kind != InterfaceKind::None && interface.kind != InterfaceKind::Base {
+            continue;
+        }
 
-//         let into = gen_type_name(&def, gen);
-//         // TODO: simplify - maybe provide + operator?
-//         let cfg = gen.cfg(&cfg.union(&def.cfg()));
+        let into = gen.type_name(&interface.ty);
+        // TODO: simplify - maybe provide + operator?
+        let features = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
 
-//         tokens.combine(&quote! {
-//             #cfg
-//             impl ::core::convert::TryFrom<#name> for #into {
-//                 type Error = ::windows::core::Error;
-//                 fn try_from(value: #name) -> ::windows::core::Result<Self> {
-//                     ::core::convert::TryFrom::try_from(&value)
-//                 }
-//             }
-//             #cfg
-//             impl ::core::convert::TryFrom<&#name> for #into {
-//                 type Error = ::windows::core::Error;
-//                 fn try_from(value: &#name) -> ::windows::core::Result<Self> {
-//                     ::windows::core::Interface::cast(value)
-//                 }
-//             }
-//             #cfg
-//             impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-//                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                     ::windows::core::IntoParam::into_param(&self)
-//                 }
-//             }
-//             #cfg
-//             impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
-//                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                     ::core::convert::TryInto::<#into>::try_into(self)
-//                         .map(::windows::core::Param::Owned)
-//                         .unwrap_or(::windows::core::Param::None)
-//                 }
-//             }
-//         });
-//     }
+        tokens.combine(&quote! {
+            #features
+            impl ::core::convert::TryFrom<#name> for #into {
+                type Error = ::windows::core::Error;
+                fn try_from(value: #name) -> ::windows::core::Result<Self> {
+                    ::core::convert::TryFrom::try_from(&value)
+                }
+            }
+            #features
+            impl ::core::convert::TryFrom<&#name> for #into {
+                type Error = ::windows::core::Error;
+                fn try_from(value: &#name) -> ::windows::core::Result<Self> {
+                    ::windows::core::Interface::cast(value)
+                }
+            }
+            #features
+            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::IntoParam::into_param(&self)
+                }
+            }
+            #features
+            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::core::convert::TryInto::<#into>::try_into(self)
+                        .map(::windows::core::Param::Owned)
+                        .unwrap_or(::windows::core::Param::None)
+                }
+            }
+        });
+    }
 
-//     for def in def.bases() {
-//         let into = gen_type_name(&def, gen);
-//         let cfg = gen.cfg(&cfg.union(&def.cfg()));
+    for def in gen.reader.type_def_bases(def) {
+        let into = gen.type_def_name(def, &[]);
+        let features = gen.cfg_features(&cfg.union(&gen.reader.type_def_cfg(def, &[])));
 
-//         tokens.combine(&quote! {
-//             #cfg
-//             impl ::core::convert::From<#name> for #into {
-//                 fn from(value: #name) -> Self {
-//                     ::core::convert::From::from(&value)
-//                 }
-//             }
-//             #cfg
-//             impl ::core::convert::From<&#name> for #into {
-//                 fn from(value: &#name) -> Self {
-//                     // This unwrap is legitimate because conversion to base can never fail because
-//                     // the base can never change across versions.
-//                     ::windows::core::Interface::cast(value).unwrap()
-//                 }
-//             }
-//             #cfg
-//             impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-//                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                     ::windows::core::IntoParam::into_param(&self)
-//                 }
-//             }
-//             #cfg
-//             impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
-//                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
-//                     ::windows::core::Param::Owned(::core::convert::Into::<#into>::into(self))
-//                 }
-//             }
-//         });
-//     }
+        tokens.combine(&quote! {
+            #features
+            impl ::core::convert::From<#name> for #into {
+                fn from(value: #name) -> Self {
+                    ::core::convert::From::from(&value)
+                }
+            }
+            #features
+            impl ::core::convert::From<&#name> for #into {
+                fn from(value: &#name) -> Self {
+                    // This unwrap is legitimate because conversion to base can never fail because
+                    // the base can never change across versions.
+                    ::windows::core::Interface::cast(value).unwrap()
+                }
+            }
+            #features
+            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::IntoParam::into_param(&self)
+                }
+            }
+            #features
+            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
+                fn into_param(self) -> ::windows::core::Param<'a, #into> {
+                    ::windows::core::Param::Owned(::core::convert::Into::<#into>::into(self))
+                }
+            }
+        });
+    }
 
-//     tokens
-// }
+    tokens
+}

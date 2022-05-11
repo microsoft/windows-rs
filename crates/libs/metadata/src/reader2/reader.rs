@@ -770,8 +770,8 @@ impl<'a> Reader<'a> {
         match self.type_def_kind(row) {
             TypeKind::Interface => self.type_def_interface_signature(row, generics),
             TypeKind::Class => {
-                if let Type::TypeDef((row, generics)) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).expect("Default interface not found").ty {
-                    format!("rc({};{})", self.type_def_type_name(row), self.type_def_interface_signature(row, &generics))
+                if let Type::TypeDef((default, generics)) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).expect("Default interface not found").ty {
+                    format!("rc({};{})", self.type_def_type_name(row), self.type_def_interface_signature(default, &generics))
                 } else {
                     unimplemented!();
                 }
@@ -796,7 +796,7 @@ impl<'a> Reader<'a> {
         }
     }
     fn type_def_interface_signature(&self, row: TypeDef, generics: &[Type]) -> String {
-        let guid = self.type_def_guid(row);
+        let guid = self.type_def_guid(row).unwrap();
         if generics.is_empty() {
             format!("{{{:#?}}}", guid)
         } else {
@@ -1121,7 +1121,7 @@ impl<'a> Reader<'a> {
             }
         }
         // TODO: do we need this sorted (beyond parity)?
-        //result.sort_by(|a, b| self.type_def_ a.0.name().cmp(b.0.name()));
+        result.sort_by(|a, b| self.type_name(&a.ty).cmp(self.type_name(&b.ty)));
         result
     }
     fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {
@@ -1139,6 +1139,12 @@ impl<'a> Reader<'a> {
             Type::GUID => 16,
             Type::TypeDef((row, _)) => self.type_def_stdcall(*row),
             _ => 4,
+        }
+    }
+    pub fn type_is_exclusive(&self, ty: &Type) -> bool {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_is_exclusive(*row),
+            _ => false,
         }
     }
     pub fn type_is_blittable(&self, ty: &Type) -> bool {
@@ -1254,6 +1260,12 @@ impl<'a> Reader<'a> {
 
                 Type::TypeDef((def, args))
             }
+            _ => unimplemented!(),
+        }
+    }
+    pub fn type_name(&self, ty: &Type) -> &str {
+        match ty {
+            Type::TypeDef((row, _)) => self.type_def_name(*row),
             _ => unimplemented!(),
         }
     }
