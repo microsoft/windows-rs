@@ -1121,7 +1121,7 @@ impl<'a> Reader<'a> {
             }
         }
         // TODO: do we need this sorted (beyond parity)?
-        result.sort_by(|a, b| self.type_def_ a.0.name().cmp(b.0.name()));
+        //result.sort_by(|a, b| self.type_def_ a.0.name().cmp(b.0.name()));
         result
     }
     fn type_def_or_ref(&self, code: TypeDefOrRef) -> TypeName {

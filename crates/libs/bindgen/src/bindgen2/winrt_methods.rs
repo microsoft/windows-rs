@@ -36,9 +36,9 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     let return_arg = if let Some(return_type) = &signature.return_type {
         if gen.reader.type_is_winrt_array(return_type) {
             let return_type = gen.type_name(return_type);
-            quote! { ::windows::core::Array::<#return_type>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
+            quote! { ::windows::core::Array::<#return_type>::set_abi_len(result__.as_mut_ptr()), result__.as_mut_ptr() as *mut _ as _ }
         } else {
-            quote! { &mut result__ }
+            quote! { result__.as_mut_ptr() }
         }
     } else {
         quote! {}
@@ -55,7 +55,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
         if gen.reader.type_is_winrt_array(return_type) {
             (
                 quote! {
-                    let mut result__: #return_type_tokens = ::core::mem::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::<#return_type_tokens>::zeroed();
                     (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
                         .and_then(|| result__ )
                 },
@@ -66,12 +66,12 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
 
             (
                 quote! {
-                    let mut result__: #abi_type_name = ::core::mem::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::<#abi_type_name>::zeroed();
                         (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 },
                 quote! {
-                    let mut result__: #abi_type_name = ::core::mem::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::<#abi_type_name>::zeroed();
                         (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
                             .from_abi::<#return_type_tokens>(result__ )
                 },

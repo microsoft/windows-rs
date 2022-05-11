@@ -60,8 +60,8 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #doc
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
-                    let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args ::core::mem::transmute(&mut result__))
+                    let mut result__ = ::core::mem::MaybeUninit::<#abi_return_type_tokens>::zeroed();
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args ::core::mem::transmute(result__.as_mut_ptr()))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }
@@ -89,7 +89,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
                     let mut result__: #return_type = :: core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), &mut result__, #args);
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), result__.as_mut_ptr(), #args);
                     result__
                 }
             }

@@ -83,7 +83,7 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
                         let mut result__ = ::core::option::Option::None;
-                        #name(#args &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
+                        #name(#args &<T as ::windows::core::Interface>::IID, result__.as_mut_ptr() as *mut _ as *mut _).and_some(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
@@ -132,8 +132,8 @@ fn gen_win_function(gen: &Gen, def: MethodDef) -> TokenStream {
                         extern "system" {
                             fn #name(#(#abi_params),*) #abi_return_type;
                         }
-                        let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
-                        #name(#args ::core::mem::transmute(&mut result__)).from_abi::<#return_type_tokens>(result__)
+                        let mut result__ = ::core::mem::MaybeUninit::<#abi_return_type_tokens>::zeroed();
+                        #name(#args ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<#return_type_tokens>(result__)
                     }
                     #[cfg(not(windows))]
                     unimplemented!("Unsupported target OS");
