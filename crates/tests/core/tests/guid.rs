@@ -19,8 +19,9 @@ fn from_u128() {
 
 #[test]
 fn to_u128() {
-    let a: GUID = "1FD63FEF-C0D2-42FE-823A-53A4052B8C8F".into();
-    let b: u128 = 0x1fd63fef_c0d2_42fe_823a_53a4052b8c8f;
+    let num: u128 = 0x1fd63fef_c0d2_42fe_823a_53a4052b8c8f;
+    let guid: GUID = "1FD63FEF-C0D2-42FE-823A-53A4052B8C8F".into();
 
-    assert_eq!(u128::from(a), b);
+    assert_eq!(u128::from(guid), num); // From<GUID>
+    assert_eq!(u128::from(&guid), num); // From<&GUID>
 }
