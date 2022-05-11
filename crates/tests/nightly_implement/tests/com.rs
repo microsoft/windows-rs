@@ -52,6 +52,5 @@ fn mix() -> Result<()> {
     let f: IStringable = Mix.alloc()?;
     assert!(f.ToString()? == "Mix");
 
-
     Ok(())
 }

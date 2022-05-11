@@ -144,13 +144,18 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             }
         }
         impl <#constraints> #original_ident::<#(#generics,)*> {
-            fn alloc<ResultType: ::windows::core::Interface>(self) -> ::windows::core::Result<ResultType> {
+            fn alloc<I: ::windows::core::Interface>(self) -> ::windows::core::Result<I> {
                 let this = #impl_ident::<#(#generics,)*>::new(self);
                 let boxed = ::core::mem::ManuallyDrop::new(::std::boxed::Box::new(this));
                 let mut result = None;
-                unsafe {
-                    <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &ResultType::IID, &mut result as *mut _ as _).and_some(result)
+                let result = unsafe {
+                    <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
+                };
+                // If querying for the supplied interface fails, we must free the underlying implementation, otherwise that memory will be leaked
+                if result.is_err() {
+                    let _ = ::core::mem::ManuallyDrop::into_inner(boxed);
                 }
+                result
             }
         }
         impl <#constraints> ::windows::core::Compose for #original_ident::<#(#generics,)*> {
