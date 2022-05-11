@@ -9559,8 +9559,8 @@ pub unsafe fn MrmGetPriFileContentChecksum<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn MrmGetPriFileContentChecksum(prifile: ::windows::core::PCWSTR, checksum: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        MrmGetPriFileContentChecksum(prifile.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        MrmGetPriFileContentChecksum(prifile.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

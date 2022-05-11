@@ -5,8 +5,8 @@ impl IWaaSAssessor {
     #[doc = "*Required features: `\"Win32_System_UpdateAssessment\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
-        let mut result__: OSUpdateAssessment = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetOSUpdateAssessment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<OSUpdateAssessment>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<OSUpdateAssessment>::zeroed();
+        (::windows::core::Interface::vtable(self).GetOSUpdateAssessment)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<OSUpdateAssessment>(result__)
     }
 }
 impl ::core::convert::From<IWaaSAssessor> for ::windows::core::IUnknown {

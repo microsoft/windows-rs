@@ -1518,8 +1518,8 @@ pub unsafe fn WerGetFlags<'a, Param0: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn WerGetFlags(hprocess: super::super::Foundation::HANDLE, pdwflags: *mut WER_FAULT_REPORTING) -> ::windows::core::HRESULT;
         }
-        let mut result__: WER_FAULT_REPORTING = ::core::mem::zeroed();
-        WerGetFlags(hprocess.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<WER_FAULT_REPORTING>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<WER_FAULT_REPORTING>::zeroed();
+        WerGetFlags(hprocess.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_FAULT_REPORTING>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1690,8 +1690,8 @@ pub unsafe fn WerReportCreate<'a, Param0: ::windows::core::IntoParam<'a, ::windo
         extern "system" {
             fn WerReportCreate(pwzeventtype: ::windows::core::PCWSTR, reptype: WER_REPORT_TYPE, preportinformation: *const WER_REPORT_INFORMATION, phreporthandle: *mut HREPORT) -> ::windows::core::HRESULT;
         }
-        let mut result__: HREPORT = ::core::mem::zeroed();
-        WerReportCreate(pwzeventtype.into_param().abi(), ::core::mem::transmute(reptype), ::core::mem::transmute(preportinformation), ::core::mem::transmute(&mut result__)).from_abi::<HREPORT>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<HREPORT>::zeroed();
+        WerReportCreate(pwzeventtype.into_param().abi(), ::core::mem::transmute(reptype), ::core::mem::transmute(preportinformation), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HREPORT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1748,8 +1748,8 @@ pub unsafe fn WerReportSubmit<'a, Param0: ::windows::core::IntoParam<'a, HREPORT
         extern "system" {
             fn WerReportSubmit(hreporthandle: HREPORT, consent: WER_CONSENT, dwflags: WER_SUBMIT_FLAGS, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
         }
-        let mut result__: WER_SUBMIT_RESULT = ::core::mem::zeroed();
-        WerReportSubmit(hreporthandle.into_param().abi(), ::core::mem::transmute(consent), ::core::mem::transmute(dwflags), ::core::mem::transmute(&mut result__)).from_abi::<WER_SUBMIT_RESULT>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<WER_SUBMIT_RESULT>::zeroed();
+        WerReportSubmit(hreporthandle.into_param().abi(), ::core::mem::transmute(consent), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_SUBMIT_RESULT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1791,8 +1791,8 @@ pub unsafe fn WerStoreGetFirstReportKey<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn WerStoreGetFirstReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        WerStoreGetFirstReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        WerStoreGetFirstReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1806,8 +1806,8 @@ pub unsafe fn WerStoreGetNextReportKey<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn WerStoreGetNextReportKey(hreportstore: HREPORTSTORE, ppszreportkey: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        WerStoreGetNextReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        WerStoreGetNextReportKey(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1821,8 +1821,8 @@ pub unsafe fn WerStoreGetReportCount<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn WerStoreGetReportCount(hreportstore: HREPORTSTORE, pdwreportcount: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        WerStoreGetReportCount(hreportstore.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        WerStoreGetReportCount(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1836,8 +1836,8 @@ pub unsafe fn WerStoreGetSizeOnDisk<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn WerStoreGetSizeOnDisk(hreportstore: HREPORTSTORE, pqwsizeinbytes: *mut u64) -> ::windows::core::HRESULT;
         }
-        let mut result__: u64 = ::core::mem::zeroed();
-        WerStoreGetSizeOnDisk(hreportstore.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u64>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+        WerStoreGetSizeOnDisk(hreportstore.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u64>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1851,8 +1851,8 @@ pub unsafe fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES) -> ::windows::core:
         extern "system" {
             fn WerStoreOpen(repstoretype: REPORT_STORE_TYPES, phreportstore: *mut HREPORTSTORE) -> ::windows::core::HRESULT;
         }
-        let mut result__: HREPORTSTORE = ::core::mem::zeroed();
-        WerStoreOpen(::core::mem::transmute(repstoretype), ::core::mem::transmute(&mut result__)).from_abi::<HREPORTSTORE>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<HREPORTSTORE>::zeroed();
+        WerStoreOpen(::core::mem::transmute(repstoretype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HREPORTSTORE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1881,8 +1881,8 @@ pub unsafe fn WerStoreQueryReportMetadataV1<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn WerStoreQueryReportMetadataV1(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V1) -> ::windows::core::HRESULT;
         }
-        let mut result__: WER_REPORT_METADATA_V1 = ::core::mem::zeroed();
-        WerStoreQueryReportMetadataV1(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<WER_REPORT_METADATA_V1>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V1>::zeroed();
+        WerStoreQueryReportMetadataV1(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V1>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1897,8 +1897,8 @@ pub unsafe fn WerStoreQueryReportMetadataV2<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn WerStoreQueryReportMetadataV2(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V2) -> ::windows::core::HRESULT;
         }
-        let mut result__: WER_REPORT_METADATA_V2 = ::core::mem::zeroed();
-        WerStoreQueryReportMetadataV2(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<WER_REPORT_METADATA_V2>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V2>::zeroed();
+        WerStoreQueryReportMetadataV2(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V2>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1913,8 +1913,8 @@ pub unsafe fn WerStoreQueryReportMetadataV3<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn WerStoreQueryReportMetadataV3(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, preportmetadata: *mut WER_REPORT_METADATA_V3) -> ::windows::core::HRESULT;
         }
-        let mut result__: WER_REPORT_METADATA_V3 = ::core::mem::zeroed();
-        WerStoreQueryReportMetadataV3(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<WER_REPORT_METADATA_V3>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<WER_REPORT_METADATA_V3>::zeroed();
+        WerStoreQueryReportMetadataV3(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_REPORT_METADATA_V3>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1928,8 +1928,8 @@ pub unsafe fn WerStoreUploadReport<'a, Param0: ::windows::core::IntoParam<'a, HR
         extern "system" {
             fn WerStoreUploadReport(hreportstore: HREPORTSTORE, pszreportkey: ::windows::core::PCWSTR, dwflags: u32, psubmitresult: *mut WER_SUBMIT_RESULT) -> ::windows::core::HRESULT;
         }
-        let mut result__: WER_SUBMIT_RESULT = ::core::mem::zeroed();
-        WerStoreUploadReport(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(&mut result__)).from_abi::<WER_SUBMIT_RESULT>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<WER_SUBMIT_RESULT>::zeroed();
+        WerStoreUploadReport(hreportstore.into_param().abi(), pszreportkey.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<WER_SUBMIT_RESULT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

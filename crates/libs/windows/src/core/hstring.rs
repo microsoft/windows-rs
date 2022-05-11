@@ -79,6 +79,10 @@ impl HSTRING {
 
 unsafe impl Abi for HSTRING {
     type Abi = core::mem::ManuallyDrop<Self>;
+
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+        Ok(core::mem::ManuallyDrop::into_inner(abi))
+    }
 }
 
 unsafe impl RuntimeType for HSTRING {

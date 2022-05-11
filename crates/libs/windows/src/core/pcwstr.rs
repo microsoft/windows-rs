@@ -33,6 +33,10 @@ impl ::core::fmt::Debug for PCWSTR {
 unsafe impl Abi for PCWSTR {
     type Abi = Self;
 
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+        Ok(abi)
+    }
+
     #[cfg(feature = "alloc")]
     unsafe fn drop_param(param: &mut Param<'_, Self>) {
         if let Param::Boxed(value) = param {

@@ -163,8 +163,8 @@ pub unsafe fn CreateInteractionContext() -> ::windows::core::Result<HINTERACTION
         extern "system" {
             fn CreateInteractionContext(interactioncontext: *mut HINTERACTIONCONTEXT) -> ::windows::core::HRESULT;
         }
-        let mut result__: HINTERACTIONCONTEXT = ::core::mem::zeroed();
-        CreateInteractionContext(::core::mem::transmute(&mut result__)).from_abi::<HINTERACTIONCONTEXT>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<HINTERACTIONCONTEXT>::zeroed();
+        CreateInteractionContext(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HINTERACTIONCONTEXT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -192,8 +192,8 @@ pub unsafe fn GetCrossSlideParameterInteractionContext<'a, Param0: ::windows::co
         extern "system" {
             fn GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD, distance: *mut f32) -> ::windows::core::HRESULT;
         }
-        let mut result__: f32 = ::core::mem::zeroed();
-        GetCrossSlideParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(threshold), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+        GetCrossSlideParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(threshold), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -207,8 +207,8 @@ pub unsafe fn GetHoldParameterInteractionContext<'a, Param0: ::windows::core::In
         extern "system" {
             fn GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
-        let mut result__: f32 = ::core::mem::zeroed();
-        GetHoldParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+        GetHoldParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -222,8 +222,8 @@ pub unsafe fn GetInertiaParameterInteractionContext<'a, Param0: ::windows::core:
         extern "system" {
             fn GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
-        let mut result__: f32 = ::core::mem::zeroed();
-        GetInertiaParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(inertiaparameter), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+        GetInertiaParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(inertiaparameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -251,8 +251,8 @@ pub unsafe fn GetMouseWheelParameterInteractionContext<'a, Param0: ::windows::co
         extern "system" {
             fn GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
-        let mut result__: f32 = ::core::mem::zeroed();
-        GetMouseWheelParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+        GetMouseWheelParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -266,8 +266,8 @@ pub unsafe fn GetPropertyInteractionContext<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        GetPropertyInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(contextproperty), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        GetPropertyInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(contextproperty), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -282,8 +282,8 @@ pub unsafe fn GetStateInteractionContext<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: *const super::Input::Pointer::POINTER_INFO, state: *mut INTERACTION_STATE) -> ::windows::core::HRESULT;
         }
-        let mut result__: INTERACTION_STATE = ::core::mem::zeroed();
-        GetStateInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(pointerinfo), ::core::mem::transmute(&mut result__)).from_abi::<INTERACTION_STATE>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<INTERACTION_STATE>::zeroed();
+        GetStateInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(pointerinfo), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<INTERACTION_STATE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -297,8 +297,8 @@ pub unsafe fn GetTapParameterInteractionContext<'a, Param0: ::windows::core::Int
         extern "system" {
             fn GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
-        let mut result__: f32 = ::core::mem::zeroed();
-        GetTapParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+        GetTapParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -312,8 +312,8 @@ pub unsafe fn GetTranslationParameterInteractionContext<'a, Param0: ::windows::c
         extern "system" {
             fn GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: *mut f32) -> ::windows::core::HRESULT;
         }
-        let mut result__: f32 = ::core::mem::zeroed();
-        GetTranslationParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(&mut result__)).from_abi::<f32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+        GetTranslationParameterInteractionContext(interactioncontext.into_param().abi(), ::core::mem::transmute(parameter), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<f32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

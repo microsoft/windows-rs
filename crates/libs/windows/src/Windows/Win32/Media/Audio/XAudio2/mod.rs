@@ -9,8 +9,8 @@ pub unsafe fn CreateAudioReverb() -> ::windows::core::Result<::windows::core::IU
         extern "system" {
             fn CreateAudioReverb(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        CreateAudioReverb(::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        CreateAudioReverb(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -24,8 +24,8 @@ pub unsafe fn CreateAudioVolumeMeter() -> ::windows::core::Result<::windows::cor
         extern "system" {
             fn CreateAudioVolumeMeter(ppapo: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
-        let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-        CreateAudioVolumeMeter(::core::mem::transmute(&mut result__)).from_abi::<::windows::core::IUnknown>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+        CreateAudioVolumeMeter(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::IUnknown>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -53,8 +53,8 @@ pub unsafe fn CreateHrtfApo(init: *const HrtfApoInit) -> ::windows::core::Result
         extern "system" {
             fn CreateHrtfApo(init: *const HrtfApoInit, xapo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        CreateHrtfApo(::core::mem::transmute(init), ::core::mem::transmute(&mut result__)).from_abi::<IXAPO>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        CreateHrtfApo(::core::mem::transmute(init), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IXAPO>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -603,18 +603,18 @@ pub struct IXAPO(::windows::core::IUnknown);
 impl IXAPO {
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
     pub unsafe fn GetRegistrationProperties(&self) -> ::windows::core::Result<*mut XAPO_REGISTRATION_PROPERTIES> {
-        let mut result__: *mut XAPO_REGISTRATION_PROPERTIES = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetRegistrationProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut XAPO_REGISTRATION_PROPERTIES>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<*mut XAPO_REGISTRATION_PROPERTIES>::zeroed();
+        (::windows::core::Interface::vtable(self).GetRegistrationProperties)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut XAPO_REGISTRATION_PROPERTIES>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
     pub unsafe fn IsInputFormatSupported(&self, poutputformat: *const super::WAVEFORMATEX, prequestedinputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX> {
-        let mut result__: *mut super::WAVEFORMATEX = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsInputFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poutputformat), ::core::mem::transmute(prequestedinputformat), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::WAVEFORMATEX>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<*mut super::WAVEFORMATEX>::zeroed();
+        (::windows::core::Interface::vtable(self).IsInputFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(poutputformat), ::core::mem::transmute(prequestedinputformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::WAVEFORMATEX>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
     pub unsafe fn IsOutputFormatSupported(&self, pinputformat: *const super::WAVEFORMATEX, prequestedoutputformat: *const super::WAVEFORMATEX) -> ::windows::core::Result<*mut super::WAVEFORMATEX> {
-        let mut result__: *mut super::WAVEFORMATEX = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).IsOutputFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinputformat), ::core::mem::transmute(prequestedoutputformat), ::core::mem::transmute(&mut result__)).from_abi::<*mut super::WAVEFORMATEX>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<*mut super::WAVEFORMATEX>::zeroed();
+        (::windows::core::Interface::vtable(self).IsOutputFormatSupported)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pinputformat), ::core::mem::transmute(prequestedoutputformat), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::WAVEFORMATEX>(result__)
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
     pub unsafe fn Initialize(&self, pdata: *const ::core::ffi::c_void, databytesize: u32) -> ::windows::core::Result<()> {
@@ -1138,8 +1138,8 @@ impl IXAudio2MasteringVoice {
     }
     #[doc = "*Required features: `\"Win32_Media_Audio_XAudio2\"`*"]
     pub unsafe fn GetChannelMask(&self) -> ::windows::core::Result<u32> {
-        let mut result__: u32 = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetChannelMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        (::windows::core::Interface::vtable(self).GetChannelMask)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
 }
 impl ::core::convert::From<IXAudio2MasteringVoice> for IXAudio2Voice {

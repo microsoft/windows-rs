@@ -121,8 +121,8 @@ pub unsafe fn PdfCreateRenderer<'a, Param0: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn PdfCreateRenderer(pdevice: ::windows::core::RawPtr, pprenderer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        PdfCreateRenderer(pdevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPdfRendererNative>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        PdfCreateRenderer(pdevice.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPdfRendererNative>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

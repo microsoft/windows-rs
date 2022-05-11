@@ -46,8 +46,8 @@ impl AudioRoutingManager {
     pub fn GetAudioEndpoint(&self) -> ::windows::core::Result<AudioRoutingEndpoint> {
         let this = self;
         unsafe {
-            let mut result__: AudioRoutingEndpoint = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAudioEndpoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AudioRoutingEndpoint>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<AudioRoutingEndpoint>::zeroed();
+            (::windows::core::Interface::vtable(this).GetAudioEndpoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioRoutingEndpoint>(result__)
         }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
@@ -60,8 +60,8 @@ impl AudioRoutingManager {
     pub fn AudioEndpointChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AudioRoutingManager, ::windows::core::IInspectable>>>(&self, endpointchangehandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: super::super::super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AudioEndpointChanged)(::windows::core::Interface::as_raw(this), endpointchangehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::super::Foundation::EventRegistrationToken>::zeroed();
+            (::windows::core::Interface::vtable(this).AudioEndpointChanged)(::windows::core::Interface::as_raw(this), endpointchangehandler.into_param().abi(), result__.as_mut_ptr()).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`, `\"Foundation\"`*"]
@@ -74,15 +74,15 @@ impl AudioRoutingManager {
     pub fn AvailableAudioEndpoints(&self) -> ::windows::core::Result<AvailableAudioRoutingEndpoints> {
         let this = self;
         unsafe {
-            let mut result__: AvailableAudioRoutingEndpoints = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AvailableAudioEndpoints)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AvailableAudioRoutingEndpoints>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<AvailableAudioRoutingEndpoints>::zeroed();
+            (::windows::core::Interface::vtable(this).AvailableAudioEndpoints)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AvailableAudioRoutingEndpoints>(result__)
         }
     }
     #[doc = "*Required features: `\"Phone_Media_Devices\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<AudioRoutingManager> {
         Self::IAudioRoutingManagerStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AudioRoutingManager>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AudioRoutingManager>(result__)
         })
     }
     #[doc(hidden)]
