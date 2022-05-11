@@ -103,6 +103,24 @@ impl core::convert::From<&str> for GUID {
     }
 }
 
+impl core::convert::From<u128> for GUID {
+    fn from(value: u128) -> Self {
+        Self::from_u128(value)
+    }
+}
+
+impl core::convert::From<GUID> for u128 {
+    fn from(value: GUID) -> Self {
+        value.to_u128()
+    }
+}
+
+impl core::convert::From<&GUID> for u128 {
+    fn from(value: &GUID) -> Self {
+        value.to_u128()
+    }
+}
+
 trait HexReader {
     fn next_u8(&mut self) -> u8;
     fn next_u16(&mut self) -> u16;
