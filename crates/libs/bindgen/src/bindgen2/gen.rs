@@ -37,11 +37,13 @@ impl<'a> Gen<'a> {
 
     pub(crate) fn define(&self, def: TypeDef) -> Option<TokenStream> {
         match self.reader.type_def_kind(def) {
-            TypeKind::Class => if self.reader.type_def_flags(def).winrt() {
-                Some(classes::gen(self, def))
-            } else {
-                None
-            },
+            TypeKind::Class => {
+                if self.reader.type_def_flags(def).winrt() {
+                    Some(classes::gen(self, def))
+                } else {
+                    None
+                }
+            }
             TypeKind::Interface => Some(interfaces::gen(self, def)),
             TypeKind::Enum => Some(enums::gen(self, def)),
             TypeKind::Struct => Some(structs::gen(self, def)),
@@ -85,11 +87,7 @@ impl<'a> Gen<'a> {
         }
     }
     pub fn type_def_agile(&self, def: TypeDef, ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
-        if self.reader.type_def_is_agile(def) || matches!(self.reader.type_def_type_name(def), TypeName::IAsyncAction |
-            TypeName::IAsyncActionWithProgress |
-            TypeName::IAsyncOperation |
-            TypeName::IAsyncOperationWithProgress |
-            TypeName::IRestrictedErrorInfo) {
+        if self.reader.type_def_is_agile(def) || matches!(self.reader.type_def_type_name(def), TypeName::IAsyncAction | TypeName::IAsyncActionWithProgress | TypeName::IAsyncOperation | TypeName::IAsyncOperationWithProgress | TypeName::IRestrictedErrorInfo) {
             quote! {
                 #features
                 unsafe impl<#constraints> ::core::marker::Send for #ident {}
