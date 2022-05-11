@@ -666,8 +666,8 @@ impl Deferral {
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, DeferralCompletedHandler>>(handler: Param0) -> ::windows::core::Result<Deferral> {
         Self::IDeferralFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<Deferral>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<Deferral>(result__)
         })
     }
     #[doc(hidden)]
@@ -993,22 +993,22 @@ impl GuidHelper {
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateNewGuid() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGuidHelperStatics(|this| unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateNewGuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateNewGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Empty() -> ::windows::core::Result<::windows::core::GUID> {
         Self::IGuidHelperStatics(|this| unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Empty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            (::windows::core::Interface::vtable(this).Empty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Equals<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(target: Param0, value: Param1) -> ::windows::core::Result<bool> {
         Self::IGuidHelperStatics(|this| unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Equals)(::windows::core::Interface::as_raw(this), &target.into_param().abi(), &value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).Equals)(::windows::core::Interface::as_raw(this), &target.into_param().abi(), &value.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]
@@ -1033,8 +1033,8 @@ impl IAsyncAction {
     pub fn Completed(&self) -> ::windows::core::Result<AsyncActionCompletedHandler> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncActionCompletedHandler>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncActionCompletedHandler>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1046,24 +1046,24 @@ impl IAsyncAction {
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: AsyncStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncStatus>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<AsyncStatus>::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1220,8 +1220,8 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
     pub fn Progress(&self) -> ::windows::core::Result<AsyncActionProgressHandler<TProgress>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncActionProgressHandler<TProgress>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncActionProgressHandler<TProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1233,8 +1233,8 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
     pub fn Completed(&self) -> ::windows::core::Result<AsyncActionWithProgressCompletedHandler<TProgress>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncActionWithProgressCompletedHandler<TProgress>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncActionWithProgressCompletedHandler<TProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1246,24 +1246,24 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> IAsyncActionWithProgress
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: AsyncStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncStatus>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<AsyncStatus>::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1419,24 +1419,24 @@ impl IAsyncInfo {
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = self;
         unsafe {
-            let mut result__: AsyncStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncStatus>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<AsyncStatus>::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1542,40 +1542,40 @@ impl<TResult: ::windows::core::RuntimeType + 'static> IAsyncOperation<TResult> {
     pub fn Completed(&self) -> ::windows::core::Result<AsyncOperationCompletedHandler<TResult>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncOperationCompletedHandler<TResult>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncOperationCompletedHandler<TResult>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetResults(&self) -> ::windows::core::Result<TResult> {
         let this = self;
         unsafe {
-            let mut result__: <TResult as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TResult>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<<TResult as ::windows::core::Abi>::Abi>::zeroed();
+            (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: AsyncStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncStatus>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<AsyncStatus>::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1737,8 +1737,8 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     pub fn Progress(&self) -> ::windows::core::Result<AsyncOperationProgressHandler<TResult, TProgress>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncOperationProgressHandler<TResult, TProgress>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).Progress)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncOperationProgressHandler<TResult, TProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -1750,40 +1750,40 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     pub fn Completed(&self) -> ::windows::core::Result<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).Completed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetResults(&self) -> ::windows::core::Result<TResult> {
         let this = self;
         unsafe {
-            let mut result__: <TResult as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TResult>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<<TResult as ::windows::core::Abi>::Abi>::zeroed();
+            (::windows::core::Interface::vtable(this).GetResults)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TResult>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).Id)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Status(&self) -> ::windows::core::Result<AsyncStatus> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: AsyncStatus = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<AsyncStatus>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<AsyncStatus>::zeroed();
+            (::windows::core::Interface::vtable(this).Status)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<AsyncStatus>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = &::windows::core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
-            let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::HRESULT>::zeroed();
+            (::windows::core::Interface::vtable(this).ErrorCode)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2050,8 +2050,8 @@ impl IGetActivationFactory {
     pub fn GetActivationFactory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, activatableclassid: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetActivationFactory)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).GetActivationFactory)(::windows::core::Interface::as_raw(this), activatableclassid.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
 }
@@ -2151,8 +2151,8 @@ impl IMemoryBuffer {
     pub fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateReference)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IMemoryBufferReference>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMemoryBufferReference>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2277,16 +2277,16 @@ impl IMemoryBufferReference {
     pub fn Capacity(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Capacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).Capacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, TypedEventHandler<IMemoryBufferReference, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<EventRegistrationToken> {
         let this = self;
         unsafe {
-            let mut result__: EventRegistrationToken = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), &mut result__).from_abi::<EventRegistrationToken>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<EventRegistrationToken>::zeroed();
+            (::windows::core::Interface::vtable(this).Closed)(::windows::core::Interface::as_raw(this), handler.into_param().abi(), result__.as_mut_ptr()).from_abi::<EventRegistrationToken>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2405,160 +2405,160 @@ impl IPropertyValue {
     pub fn Type(&self) -> ::windows::core::Result<PropertyType> {
         let this = self;
         unsafe {
-            let mut result__: PropertyType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PropertyType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<PropertyType>::zeroed();
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PropertyType>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn IsNumericScalar(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
-            let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16(&self) -> ::windows::core::Result<i16> {
         let this = self;
         unsafe {
-            let mut result__: i16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64(&self) -> ::windows::core::Result<i64> {
         let this = self;
         unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
-            let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingle(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
-            let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDouble(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBoolean(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTime(&self) -> ::windows::core::Result<DateTime> {
         let this = self;
         unsafe {
-            let mut result__: DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DateTime>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<DateTime>::zeroed();
+            (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpan(&self) -> ::windows::core::Result<TimeSpan> {
         let this = self;
         unsafe {
-            let mut result__: TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TimeSpan>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<TimeSpan>::zeroed();
+            (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPoint(&self) -> ::windows::core::Result<Point> {
         let this = self;
         unsafe {
-            let mut result__: Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Point>::zeroed();
+            (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Point>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSize(&self) -> ::windows::core::Result<Size> {
         let this = self;
         unsafe {
-            let mut result__: Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Size>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Size>::zeroed();
+            (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Size>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRect(&self) -> ::windows::core::Result<Rect> {
         let this = self;
         unsafe {
-            let mut result__: Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Rect>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Rect>::zeroed();
+            (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -2829,168 +2829,168 @@ impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
     pub fn Value(&self) -> ::windows::core::Result<T> {
         let this = self;
         unsafe {
-            let mut result__: <T as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<T>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<<T as ::windows::core::Abi>::Abi>::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<T>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyType> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: PropertyType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PropertyType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<PropertyType>::zeroed();
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PropertyType>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn IsNumericScalar(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8(&self) -> ::windows::core::Result<u8> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16(&self) -> ::windows::core::Result<i16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: i16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64(&self) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingle(&self) -> ::windows::core::Result<f32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDouble(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBoolean(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTime(&self) -> ::windows::core::Result<DateTime> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DateTime>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<DateTime>::zeroed();
+            (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpan(&self) -> ::windows::core::Result<TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TimeSpan>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<TimeSpan>::zeroed();
+            (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPoint(&self) -> ::windows::core::Result<Point> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Point>::zeroed();
+            (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Point>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSize(&self) -> ::windows::core::Result<Size> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Size>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Size>::zeroed();
+            (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Size>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRect(&self) -> ::windows::core::Result<Rect> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Rect>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Rect>::zeroed();
+            (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3198,168 +3198,168 @@ impl<T: ::windows::core::RuntimeType + 'static> IReferenceArray<T> {
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::Array<T>> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::Array<T> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<T>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::Array<T>>::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), ::windows::core::Array::<T>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _).and_then(|| result__.assume_init())
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Type(&self) -> ::windows::core::Result<PropertyType> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: PropertyType = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<PropertyType>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<PropertyType>::zeroed();
+            (::windows::core::Interface::vtable(this).Type)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<PropertyType>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn IsNumericScalar(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).IsNumericScalar)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt8(&self) -> ::windows::core::Result<u8> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u8 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u8>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u8>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt8)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u8>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt16(&self) -> ::windows::core::Result<i16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: i16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt16(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt32(&self) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt32(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt32)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetInt64(&self) -> ::windows::core::Result<i64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: i64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetUInt64(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetUInt64)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSingle(&self) -> ::windows::core::Result<f32> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: f32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetSingle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDouble(&self) -> ::windows::core::Result<f64> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            (::windows::core::Interface::vtable(this).GetDouble)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetChar16(&self) -> ::windows::core::Result<u16> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: u16 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u16>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u16>::zeroed();
+            (::windows::core::Interface::vtable(this).GetChar16)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u16>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetBoolean(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).GetBoolean)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).GetString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetGuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+            (::windows::core::Interface::vtable(this).GetGuid)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::GUID>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetDateTime(&self) -> ::windows::core::Result<DateTime> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: DateTime = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<DateTime>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<DateTime>::zeroed();
+            (::windows::core::Interface::vtable(this).GetDateTime)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<DateTime>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetTimeSpan(&self) -> ::windows::core::Result<TimeSpan> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: TimeSpan = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<TimeSpan>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<TimeSpan>::zeroed();
+            (::windows::core::Interface::vtable(this).GetTimeSpan)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<TimeSpan>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetPoint(&self) -> ::windows::core::Result<Point> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: Point = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Point>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Point>::zeroed();
+            (::windows::core::Interface::vtable(this).GetPoint)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Point>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetSize(&self) -> ::windows::core::Result<Size> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: Size = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Size>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Size>::zeroed();
+            (::windows::core::Interface::vtable(this).GetSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Size>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetRect(&self) -> ::windows::core::Result<Rect> {
         let this = &::windows::core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
-            let mut result__: Rect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Rect>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Rect>::zeroed();
+            (::windows::core::Interface::vtable(this).GetRect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Rect>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
@@ -3565,8 +3565,8 @@ impl IStringable {
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -3722,16 +3722,16 @@ impl IWwwFormUrlDecoderEntry {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }
@@ -3848,15 +3848,15 @@ impl MemoryBuffer {
     pub fn CreateReference(&self) -> ::windows::core::Result<IMemoryBufferReference> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateReference)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<IMemoryBufferReference>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateReference)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<IMemoryBufferReference>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Create(capacity: u32) -> ::windows::core::Result<MemoryBuffer> {
         Self::IMemoryBufferFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), capacity, &mut result__).from_abi::<MemoryBuffer>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).Create)(::windows::core::Interface::as_raw(this), capacity, result__.as_mut_ptr()).from_abi::<MemoryBuffer>(result__)
         })
     }
     #[doc(hidden)]
@@ -4098,274 +4098,274 @@ impl PropertyValue {
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateEmpty() -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateEmpty)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateEmpty)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt8(value: u8) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt8)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUInt8)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt16(value: i16) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt16)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInt16)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt16(value: u16) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt16)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUInt16)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt32(value: i32) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt32)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInt32)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt32(value: u32) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt32)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUInt32)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt64(value: i64) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt64)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInt64)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt64(value: u64) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt64)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUInt64)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateSingle(value: f32) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSingle)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateSingle)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateDouble(value: f64) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDouble)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateDouble)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateChar16(value: u16) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateChar16)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateChar16)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateBoolean(value: bool) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBoolean)(::windows::core::Interface::as_raw(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBoolean)(::windows::core::Interface::as_raw(this), value, result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateString)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateString)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInspectable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInspectable)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInspectable)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateGuid)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateGuid)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateDateTime<'a, Param0: ::windows::core::IntoParam<'a, DateTime>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTime)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateDateTime)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateTimeSpan<'a, Param0: ::windows::core::IntoParam<'a, TimeSpan>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTimeSpan)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateTimeSpan)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreatePoint<'a, Param0: ::windows::core::IntoParam<'a, Point>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePoint)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreatePoint)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateSize<'a, Param0: ::windows::core::IntoParam<'a, Size>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSize)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateSize)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateRect<'a, Param0: ::windows::core::IntoParam<'a, Rect>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRect)(::windows::core::Interface::as_raw(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateRect)(::windows::core::Interface::as_raw(this), value.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt8Array(value: &[u8]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt8Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUInt8Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt16Array(value: &[i16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt16Array(value: &[u16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUInt16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt32Array(value: &[i32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt32Array(value: &[u32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUInt32Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInt64Array(value: &[i64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUInt64Array(value: &[u64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUInt64Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateSingleArray(value: &[f32]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSingleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateSingleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateDoubleArray(value: &[f64]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDoubleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateDoubleArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateChar16Array(value: &[u16]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateChar16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateChar16Array)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateBooleanArray(value: &[bool]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateBooleanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateBooleanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateStringArray(value: &[::windows::core::HSTRING]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateStringArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateStringArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateInspectableArray(value: &[::core::option::Option<::windows::core::IInspectable>]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInspectableArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInspectableArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateGuidArray(value: &[::windows::core::GUID]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateGuidArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateGuidArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateDateTimeArray(value: &[DateTime]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateDateTimeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateDateTimeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateTimeSpanArray(value: &[TimeSpan]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateTimeSpanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateTimeSpanArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreatePointArray(value: &[Point]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreatePointArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreatePointArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateSizeArray(value: &[Size]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateSizeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateSizeArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateRectArray(value: &[Rect]) -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateRectArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<*mut ::core::ffi::c_void>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateRectArray)(::windows::core::Interface::as_raw(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), result__.as_mut_ptr()).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
     #[doc(hidden)]
@@ -4615,188 +4615,188 @@ impl Uri {
     pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IStringable>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).ToString)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn UnescapeComponent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(tounescape: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUriEscapeStatics(|this| unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UnescapeComponent)(::windows::core::Interface::as_raw(this), tounescape.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).UnescapeComponent)(::windows::core::Interface::as_raw(this), tounescape.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn EscapeComponent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(toescape: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IUriEscapeStatics(|this| unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).EscapeComponent)(::windows::core::Interface::as_raw(this), toescape.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).EscapeComponent)(::windows::core::Interface::as_raw(this), toescape.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn AbsoluteUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AbsoluteUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).AbsoluteUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn DisplayUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).DisplayUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Domain(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Domain)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Domain)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Extension(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Extension)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Extension)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Fragment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Fragment)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Fragment)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Host(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Host)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Host)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Password(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Password)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Password)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Path)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Query(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Query)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Query)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn QueryParsed(&self) -> ::windows::core::Result<WwwFormUrlDecoder> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).QueryParsed)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<WwwFormUrlDecoder>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).QueryParsed)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<WwwFormUrlDecoder>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn RawUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RawUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).RawUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn SchemeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).SchemeName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).SchemeName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn UserName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).UserName)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).UserName)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Port(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
-            let mut result__: i32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Port)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<i32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<i32>::zeroed();
+            (::windows::core::Interface::vtable(this).Port)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<i32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Suspicious(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Suspicious)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).Suspicious)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Equals<'a, Param0: ::windows::core::IntoParam<'a, Uri>>(&self, puri: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Equals)(::windows::core::Interface::as_raw(this), puri.into_param().abi(), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).Equals)(::windows::core::Interface::as_raw(this), puri.into_param().abi(), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CombineUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, relativeuri: Param0) -> ::windows::core::Result<Uri> {
         let this = self;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CombineUri)(::windows::core::Interface::as_raw(this), relativeuri.into_param().abi(), &mut result__).from_abi::<Uri>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).CombineUri)(::windows::core::Interface::as_raw(this), relativeuri.into_param().abi(), result__.as_mut_ptr()).from_abi::<Uri>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uri: Param0) -> ::windows::core::Result<Uri> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateUri)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), &mut result__).from_abi::<Uri>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateUri)(::windows::core::Interface::as_raw(this), uri.into_param().abi(), result__.as_mut_ptr()).from_abi::<Uri>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateWithRelativeUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(baseuri: Param0, relativeuri: Param1) -> ::windows::core::Result<Uri> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithRelativeUri)(::windows::core::Interface::as_raw(this), baseuri.into_param().abi(), relativeuri.into_param().abi(), &mut result__).from_abi::<Uri>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateWithRelativeUri)(::windows::core::Interface::as_raw(this), baseuri.into_param().abi(), relativeuri.into_param().abi(), result__.as_mut_ptr()).from_abi::<Uri>(result__)
         })
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn AbsoluteCanonicalUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).AbsoluteCanonicalUri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).AbsoluteCanonicalUri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn DisplayIri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DisplayIri)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).DisplayIri)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc(hidden)]
@@ -4913,8 +4913,8 @@ impl WwwFormUrlDecoder {
     pub fn First(&self) -> ::windows::core::Result<Collections::IIterator<IWwwFormUrlDecoderEntry>> {
         let this = &::windows::core::Interface::cast::<Collections::IIterable<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Collections::IIterator<IWwwFormUrlDecoderEntry>>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).First)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Collections::IIterator<IWwwFormUrlDecoderEntry>>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
@@ -4922,8 +4922,8 @@ impl WwwFormUrlDecoder {
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<IWwwFormUrlDecoderEntry> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, &mut result__).from_abi::<IWwwFormUrlDecoderEntry>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).GetAt)(::windows::core::Interface::as_raw(this), index, result__.as_mut_ptr()).from_abi::<IWwwFormUrlDecoderEntry>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
@@ -4931,8 +4931,8 @@ impl WwwFormUrlDecoder {
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).Size)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
@@ -4940,8 +4940,8 @@ impl WwwFormUrlDecoder {
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, IWwwFormUrlDecoderEntry>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).IndexOf)(::windows::core::Interface::as_raw(this), value.into_param().abi(), index, result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`, `\"Foundation_Collections\"`*"]
@@ -4949,23 +4949,23 @@ impl WwwFormUrlDecoder {
     pub fn GetMany(&self, startindex: u32, items: &mut [::core::option::Option<IWwwFormUrlDecoderEntry>]) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<Collections::IVectorView<IWwwFormUrlDecoderEntry>>(self)?;
         unsafe {
-            let mut result__: u32 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), &mut result__).from_abi::<u32>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+            (::windows::core::Interface::vtable(this).GetMany)(::windows::core::Interface::as_raw(this), startindex, items.len() as u32, ::core::mem::transmute_copy(&items), result__.as_mut_ptr()).from_abi::<u32>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn GetFirstValueByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetFirstValueByName)(::windows::core::Interface::as_raw(this), name.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).GetFirstValueByName)(::windows::core::Interface::as_raw(this), name.into_param().abi(), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateWwwFormUrlDecoder<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(query: Param0) -> ::windows::core::Result<WwwFormUrlDecoder> {
         Self::IWwwFormUrlDecoderRuntimeClassFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWwwFormUrlDecoder)(::windows::core::Interface::as_raw(this), query.into_param().abi(), &mut result__).from_abi::<WwwFormUrlDecoder>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateWwwFormUrlDecoder)(::windows::core::Interface::as_raw(this), query.into_param().abi(), result__.as_mut_ptr()).from_abi::<WwwFormUrlDecoder>(result__)
         })
     }
     #[doc(hidden)]
@@ -5122,16 +5122,16 @@ impl WwwFormUrlDecoderEntry {
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Name)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::core::mem::ManuallyDrop<::windows::core::HSTRING>>::zeroed();
+            (::windows::core::Interface::vtable(this).Value)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
 }

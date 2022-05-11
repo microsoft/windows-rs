@@ -19,8 +19,8 @@ impl InteractiveSession {
     #[doc = "*Required features: `\"System_RemoteDesktop\"`*"]
     pub fn IsRemote() -> ::windows::core::Result<bool> {
         Self::IInteractiveSessionStatics(|this| unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsRemote)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).IsRemote)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         })
     }
     #[doc(hidden)]

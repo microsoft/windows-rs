@@ -120,88 +120,88 @@ impl ClosedCaptionProperties {
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn FontColor() -> ::windows::core::Result<ClosedCaptionColor> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionColor = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FontColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionColor>::zeroed();
+            (::windows::core::Interface::vtable(this).FontColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionColor>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn ComputedFontColor() -> ::windows::core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ComputedFontColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::UI::Color>::zeroed();
+            (::windows::core::Interface::vtable(this).ComputedFontColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn FontOpacity() -> ::windows::core::Result<ClosedCaptionOpacity> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionOpacity = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FontOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionOpacity>::zeroed();
+            (::windows::core::Interface::vtable(this).FontOpacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionOpacity>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn FontSize() -> ::windows::core::Result<ClosedCaptionSize> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionSize = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FontSize)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionSize>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionSize>::zeroed();
+            (::windows::core::Interface::vtable(this).FontSize)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionSize>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn FontStyle() -> ::windows::core::Result<ClosedCaptionStyle> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionStyle = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FontStyle)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionStyle>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionStyle>::zeroed();
+            (::windows::core::Interface::vtable(this).FontStyle)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionStyle>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn FontEffect() -> ::windows::core::Result<ClosedCaptionEdgeEffect> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionEdgeEffect = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).FontEffect)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionEdgeEffect>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionEdgeEffect>::zeroed();
+            (::windows::core::Interface::vtable(this).FontEffect)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionEdgeEffect>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn BackgroundColor() -> ::windows::core::Result<ClosedCaptionColor> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionColor = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionColor>::zeroed();
+            (::windows::core::Interface::vtable(this).BackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionColor>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn ComputedBackgroundColor() -> ::windows::core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ComputedBackgroundColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::UI::Color>::zeroed();
+            (::windows::core::Interface::vtable(this).ComputedBackgroundColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn BackgroundOpacity() -> ::windows::core::Result<ClosedCaptionOpacity> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionOpacity = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).BackgroundOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionOpacity>::zeroed();
+            (::windows::core::Interface::vtable(this).BackgroundOpacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionOpacity>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn RegionColor() -> ::windows::core::Result<ClosedCaptionColor> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionColor = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegionColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionColor>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionColor>::zeroed();
+            (::windows::core::Interface::vtable(this).RegionColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionColor>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`, `\"UI\"`*"]
     #[cfg(feature = "UI")]
     pub fn ComputedRegionColor() -> ::windows::core::Result<super::super::UI::Color> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: super::super::UI::Color = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ComputedRegionColor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<super::super::UI::Color>::zeroed();
+            (::windows::core::Interface::vtable(this).ComputedRegionColor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<super::super::UI::Color>(result__)
         })
     }
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn RegionOpacity() -> ::windows::core::Result<ClosedCaptionOpacity> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
-            let mut result__: ClosedCaptionOpacity = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).RegionOpacity)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<ClosedCaptionOpacity>::zeroed();
+            (::windows::core::Interface::vtable(this).RegionOpacity)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<ClosedCaptionOpacity>(result__)
         })
     }
     #[doc(hidden)]

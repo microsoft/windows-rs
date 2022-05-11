@@ -20,7 +20,7 @@ impl IPwmControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.PinCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -32,7 +32,7 @@ impl IPwmControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.ActualFrequency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -44,7 +44,7 @@ impl IPwmControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.SetDesiredFrequency(frequency) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -56,7 +56,7 @@ impl IPwmControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.MaxFrequency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -68,7 +68,7 @@ impl IPwmControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.MinFrequency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -134,7 +134,7 @@ impl IPwmProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetControllers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

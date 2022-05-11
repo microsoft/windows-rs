@@ -12,7 +12,7 @@ impl IIsolatedEnvironmentInterop_Vtbl {
             let this = (*this).get_impl();
             match this.GetHostHwndInterop(::core::mem::transmute_copy(&containerhwnd)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *hosthwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(hosthwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

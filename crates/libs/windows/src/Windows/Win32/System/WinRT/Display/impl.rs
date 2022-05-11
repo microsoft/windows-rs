@@ -13,7 +13,7 @@ impl IDisplayDeviceInterop_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSharedHandle(::core::mem::transmute(&pobject), ::core::mem::transmute_copy(&psecurityattributes), ::core::mem::transmute_copy(&access), ::core::mem::transmute(&name)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -24,7 +24,7 @@ impl IDisplayDeviceInterop_Vtbl {
             let this = (*this).get_impl();
             match this.OpenSharedHandle(::core::mem::transmute_copy(&nthandle), ::core::mem::transmute(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvobj = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvobj, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -55,7 +55,7 @@ impl IDisplayPathInterop_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSourcePresentationHandle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -66,7 +66,7 @@ impl IDisplayPathInterop_Vtbl {
             let this = (*this).get_impl();
             match this.GetSourceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psourceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psourceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

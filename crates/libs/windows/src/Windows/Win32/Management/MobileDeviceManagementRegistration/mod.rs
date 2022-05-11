@@ -7,8 +7,8 @@ pub unsafe fn ApplyLocalManagementSyncML<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn ApplyLocalManagementSyncML(syncmlrequest: ::windows::core::PCWSTR, syncmlresult: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        ApplyLocalManagementSyncML(syncmlrequest.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        ApplyLocalManagementSyncML(syncmlrequest.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -32,8 +32,8 @@ pub unsafe fn DiscoverManagementService<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn DiscoverManagementService(pszupn: ::windows::core::PCWSTR, ppmgmtinfo: *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: *mut MANAGEMENT_SERVICE_INFO = ::core::mem::zeroed();
-        DiscoverManagementService(pszupn.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut MANAGEMENT_SERVICE_INFO>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<*mut MANAGEMENT_SERVICE_INFO>::zeroed();
+        DiscoverManagementService(pszupn.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut MANAGEMENT_SERVICE_INFO>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -47,8 +47,8 @@ pub unsafe fn DiscoverManagementServiceEx<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn DiscoverManagementServiceEx(pszupn: ::windows::core::PCWSTR, pszdiscoveryservicecandidate: ::windows::core::PCWSTR, ppmgmtinfo: *mut *mut MANAGEMENT_SERVICE_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: *mut MANAGEMENT_SERVICE_INFO = ::core::mem::zeroed();
-        DiscoverManagementServiceEx(pszupn.into_param().abi(), pszdiscoveryservicecandidate.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<*mut MANAGEMENT_SERVICE_INFO>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<*mut MANAGEMENT_SERVICE_INFO>::zeroed();
+        DiscoverManagementServiceEx(pszupn.into_param().abi(), pszdiscoveryservicecandidate.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut MANAGEMENT_SERVICE_INFO>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -120,8 +120,8 @@ pub unsafe fn IsManagementRegistrationAllowed() -> ::windows::core::Result<super
         extern "system" {
             fn IsManagementRegistrationAllowed(pfismanagementregistrationallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        IsManagementRegistrationAllowed(::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        IsManagementRegistrationAllowed(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -136,8 +136,8 @@ pub unsafe fn IsMdmUxWithoutAadAllowed() -> ::windows::core::Result<super::super
         extern "system" {
             fn IsMdmUxWithoutAadAllowed(isenrollmentallowed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        IsMdmUxWithoutAadAllowed(::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        IsMdmUxWithoutAadAllowed(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -373,8 +373,8 @@ pub unsafe fn RegisterDeviceWithLocalManagement() -> ::windows::core::Result<sup
         extern "system" {
             fn RegisterDeviceWithLocalManagement(alreadyregistered: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        RegisterDeviceWithLocalManagement(::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        RegisterDeviceWithLocalManagement(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

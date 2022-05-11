@@ -80,7 +80,7 @@ impl IWSDAsyncResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetAsyncState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppasyncstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppasyncstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -96,7 +96,7 @@ impl IWSDAsyncResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetEvent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pevent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pevent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -107,7 +107,7 @@ impl IWSDAsyncResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetEndpointProxy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppendpoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppendpoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -249,7 +249,7 @@ impl IWSDDeviceHostNotify_Vtbl {
             let this = (*this).get_impl();
             match this.GetService(::core::mem::transmute(&pszserviceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppservice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppservice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -286,7 +286,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.BeginGetMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -302,7 +302,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetHostMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pphostmetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pphostmetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -313,7 +313,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetThisModelMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmanufacturermetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmanufacturermetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -324,7 +324,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetThisDeviceMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppthisdevicemetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppthisdevicemetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -335,7 +335,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetAllMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -346,7 +346,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetServiceProxyById(::core::mem::transmute(&pszserviceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppserviceproxy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppserviceproxy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -357,7 +357,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetServiceProxyByType(::core::mem::transmute_copy(&ptype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppserviceproxy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppserviceproxy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -368,7 +368,7 @@ impl IWSDDeviceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetEndpointProxy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproxy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproxy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -422,7 +422,7 @@ impl IWSDEndpointProxy_Vtbl {
             let this = (*this).get_impl();
             match this.SendTwoWayRequestAsync(::core::mem::transmute_copy(&pbody), ::core::mem::transmute_copy(&poperation), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pcallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *presult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(presult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -443,7 +443,7 @@ impl IWSDEndpointProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszerrorinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszerrorinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -454,7 +454,7 @@ impl IWSDEndpointProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetFaultInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfault = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfault, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -536,7 +536,7 @@ impl IWSDHttpAddress_Vtbl {
             let this = (*this).get_impl();
             match this.GetPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszpath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszpath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -574,7 +574,7 @@ impl IWSDHttpAuthParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetClientAccessToken() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phtoken = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phtoken, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -585,7 +585,7 @@ impl IWSDHttpAuthParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetAuthType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pauthtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pauthtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -625,7 +625,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetInboundHttpHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszheaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszheaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -641,7 +641,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutboundHttpHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszheaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszheaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -657,7 +657,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -673,7 +673,7 @@ impl IWSDHttpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -739,7 +739,7 @@ impl IWSDMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -755,7 +755,7 @@ impl IWSDMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetRemoteAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -771,7 +771,7 @@ impl IWSDMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetLowerParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptxparams = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptxparams, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -801,7 +801,7 @@ impl IWSDMetadataExchange_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *metadataout = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(metadataout, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -826,7 +826,7 @@ impl IWSDOutboundAttachment_Vtbl {
             let this = (*this).get_impl();
             match this.Write(::core::mem::transmute_copy(&pbuffer), ::core::mem::transmute_copy(&dwbytestowrite)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwnumberofbyteswritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwnumberofbyteswritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -868,7 +868,7 @@ impl IWSDSSLClientCertificate_Vtbl {
             let this = (*this).get_impl();
             match this.GetClientCertificate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcertcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcertcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -879,7 +879,7 @@ impl IWSDSSLClientCertificate_Vtbl {
             let this = (*this).get_impl();
             match this.GetMappedAccessToken() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phtoken = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phtoken, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -910,7 +910,7 @@ impl IWSDScopeMatchingRule_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopeRule() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszscopematchingrule = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszscopematchingrule, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -921,7 +921,7 @@ impl IWSDScopeMatchingRule_Vtbl {
             let this = (*this).get_impl();
             match this.MatchScopes(::core::mem::transmute(&pszscope1), ::core::mem::transmute(&pszscope2)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfmatch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfmatch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -981,7 +981,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.BeginGetMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -992,7 +992,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.EndGetMetadata(::core::mem::transmute(&presult)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1003,7 +1003,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetServiceMetadata() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppservicemetadata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppservicemetadata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1014,7 +1014,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.SubscribeToOperation(::core::mem::transmute_copy(&poperation), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&pany)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppany = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppany, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1035,7 +1035,7 @@ impl IWSDServiceProxy_Vtbl {
             let this = (*this).get_impl();
             match this.GetEndpointProxy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproxy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproxy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1086,7 +1086,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             let this = (*this).get_impl();
             match this.BeginSubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute(&punknown), ::core::mem::transmute_copy(&pexpires), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pasynccallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1107,7 +1107,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             let this = (*this).get_impl();
             match this.BeginUnsubscribeToMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pasynccallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1128,7 +1128,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             let this = (*this).get_impl();
             match this.BeginRenewMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pexpires), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pasynccallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1149,7 +1149,7 @@ impl IWSDServiceProxyEventing_Vtbl {
             let this = (*this).get_impl();
             match this.BeginGetStatusForMultipleOperations(::core::mem::transmute_copy(&poperations), ::core::mem::transmute_copy(&dwoperationcount), ::core::mem::transmute_copy(&pany), ::core::mem::transmute(&pasyncstate), ::core::mem::transmute(&pasynccallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1198,7 +1198,7 @@ impl IWSDSignatureProperty_Vtbl {
             let this = (*this).get_impl();
             match this.IsMessageSigned() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsigned = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsigned, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1209,7 +1209,7 @@ impl IWSDSignatureProperty_Vtbl {
             let this = (*this).get_impl();
             match this.IsMessageSignatureTrusted() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbsignaturetrusted = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbsignaturetrusted, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1261,7 +1261,7 @@ impl IWSDTransportAddress_Vtbl {
             let this = (*this).get_impl();
             match this.GetPort() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1277,7 +1277,7 @@ impl IWSDTransportAddress_Vtbl {
             let this = (*this).get_impl();
             match this.GetTransportAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1288,7 +1288,7 @@ impl IWSDTransportAddress_Vtbl {
             let this = (*this).get_impl();
             match this.GetTransportAddressEx(::core::mem::transmute_copy(&fsafe)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1340,7 +1340,7 @@ impl IWSDUdpAddress_Vtbl {
             let this = (*this).get_impl();
             match this.GetSockaddr() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psockaddr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psockaddr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1366,7 +1366,7 @@ impl IWSDUdpAddress_Vtbl {
             let this = (*this).get_impl();
             match this.GetMessageType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmessagetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmessagetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1382,7 +1382,7 @@ impl IWSDUdpAddress_Vtbl {
             let this = (*this).get_impl();
             match this.GetTTL() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwttl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwttl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1398,7 +1398,7 @@ impl IWSDUdpAddress_Vtbl {
             let this = (*this).get_impl();
             match this.GetAlias() {
                 ::core::result::Result::Ok(ok__) => {
-                    *palias = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(palias, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1439,7 +1439,7 @@ impl IWSDUdpMessageParameters_Vtbl {
             let this = (*this).get_impl();
             match this.GetRetransmitParams() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pparams = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pparams, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1469,7 +1469,7 @@ impl IWSDXMLContext_Vtbl {
             let this = (*this).get_impl();
             match this.AddNamespace(::core::mem::transmute(&pszuri), ::core::mem::transmute(&pszsuggestedprefix)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnamespace = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnamespace, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1480,7 +1480,7 @@ impl IWSDXMLContext_Vtbl {
             let this = (*this).get_impl();
             match this.AddNameToNamespace(::core::mem::transmute(&pszuri), ::core::mem::transmute(&pszname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1529,7 +1529,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetEndpointReference() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppendpointreference = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppendpointreference, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1540,7 +1540,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptypeslist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptypeslist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1551,7 +1551,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetScopes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscopeslist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscopeslist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1562,7 +1562,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetXAddrs() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppxaddrslist = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppxaddrslist, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1573,7 +1573,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetMetadataVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pullmetadataversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pullmetadataversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1589,7 +1589,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetProbeResolveTag() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsztag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsztag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1600,7 +1600,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetRemoteTransportAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszremotetransportaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszremotetransportaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1611,7 +1611,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalTransportAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszlocaltransportaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszlocaltransportaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1622,7 +1622,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalInterfaceGUID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1633,7 +1633,7 @@ impl IWSDiscoveredService_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstanceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pullinstanceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pullinstanceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1705,7 +1705,7 @@ impl IWSDiscoveryProvider_Vtbl {
             let this = (*this).get_impl();
             match this.GetXMLContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1899,7 +1899,7 @@ impl IWSDiscoveryPublisher_Vtbl {
             let this = (*this).get_impl();
             match this.GetXMLContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

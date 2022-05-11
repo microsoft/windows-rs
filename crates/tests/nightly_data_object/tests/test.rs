@@ -96,7 +96,7 @@ fn test() -> Result<()> {
         let _ = d.EnumFormatEtc(0);
         d.DAdvise(core::ptr::null_mut(), 0, None)?;
 
-        let i = Test::to_impl(&d).0.get();
+        let i = d.as_impl().0.get();
         assert!((*i).GetData);
         assert!((*i).GetDataHere);
         assert!((*i).QueryGetData);

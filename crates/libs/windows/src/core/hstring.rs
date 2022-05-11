@@ -1,6 +1,6 @@
 use super::*;
 
-/// A WinRT string ([HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring)),
+/// A WinRT string ([HSTRING](https://docs.microsoft.com/en-us/windows/win32/winrt/hstring))
 /// is reference-counted and immutable.
 #[repr(transparent)]
 pub struct HSTRING(*mut Header);
@@ -53,27 +53,6 @@ impl HSTRING {
         std::os::windows::ffi::OsStringExt::from_wide(self.as_wide())
     }
 
-    /// Clear the contents of the string and free the memory if `self` holds the
-    /// last reference to the string data.
-    pub fn clear(&mut self) {
-        if self.is_empty() {
-            return;
-        }
-
-        unsafe {
-            // This flag indicates a "fast pass" string created by some languages where the
-            // header is allocated on the stack. Such strings must never be freed.
-            let header = self.0;
-            debug_assert!((*header).flags & REFERENCE_FLAG == 0);
-
-            if (*header).count.release() == 0 {
-                heap_free(self.0 as RawPtr);
-            }
-        }
-
-        self.0 = core::ptr::null_mut();
-    }
-
     /// # Safety
     /// len must not be less than the number of items in the iterator.
     unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: u32) -> Self {
@@ -100,6 +79,10 @@ impl HSTRING {
 
 unsafe impl Abi for HSTRING {
     type Abi = core::mem::ManuallyDrop<Self>;
+
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+        Ok(core::mem::ManuallyDrop::into_inner(abi))
+    }
 }
 
 unsafe impl RuntimeType for HSTRING {
@@ -128,7 +111,23 @@ impl Clone for HSTRING {
 
 impl Drop for HSTRING {
     fn drop(&mut self) {
-        self.clear();
+        if self.is_empty() {
+            return;
+        }
+
+        unsafe {
+            let header = std::mem::replace(&mut self.0, core::ptr::null_mut());
+            // This flag indicates a "fast pass" string created by some languages where the
+            // header is allocated on the stack. "Fast pass" strings can only ever be used
+            // as non-owned input params and as such `drop` will never be called. This check
+            // just ensures the Rust translation never accidentally modeled "fast pass" input
+            // params as owned `HSTRING` types which would be a bug in the translation.
+            debug_assert!((*header).flags & REFERENCE_FLAG == 0);
+
+            if (*header).count.release() == 0 {
+                heap_free(header as RawPtr);
+            }
+        }
     }
 }
 

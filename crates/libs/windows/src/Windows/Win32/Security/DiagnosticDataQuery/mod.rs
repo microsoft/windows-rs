@@ -532,8 +532,8 @@ pub unsafe fn DdqCreateSession(accesslevel: DdqAccessLevel) -> ::windows::core::
         extern "system" {
             fn DdqCreateSession(accesslevel: DdqAccessLevel, hsession: *mut super::HDIAGNOSTIC_DATA_QUERY_SESSION) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::HDIAGNOSTIC_DATA_QUERY_SESSION = ::core::mem::zeroed();
-        DdqCreateSession(::core::mem::transmute(accesslevel), ::core::mem::transmute(&mut result__)).from_abi::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>::zeroed();
+        DdqCreateSession(::core::mem::transmute(accesslevel), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_DATA_QUERY_SESSION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -631,8 +631,8 @@ pub unsafe fn DdqGetDiagnosticDataAccessLevelAllowed() -> ::windows::core::Resul
         extern "system" {
             fn DdqGetDiagnosticDataAccessLevelAllowed(accesslevel: *mut DdqAccessLevel) -> ::windows::core::HRESULT;
         }
-        let mut result__: DdqAccessLevel = ::core::mem::zeroed();
-        DdqGetDiagnosticDataAccessLevelAllowed(::core::mem::transmute(&mut result__)).from_abi::<DdqAccessLevel>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DdqAccessLevel>::zeroed();
+        DdqGetDiagnosticDataAccessLevelAllowed(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DdqAccessLevel>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -647,8 +647,8 @@ pub unsafe fn DdqGetDiagnosticRecordAtIndex<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DdqGetDiagnosticRecordAtIndex(hrecord: super::HDIAGNOSTIC_RECORD, index: u32, record: *mut DIAGNOSTIC_DATA_RECORD) -> ::windows::core::HRESULT;
         }
-        let mut result__: DIAGNOSTIC_DATA_RECORD = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordAtIndex(hrecord.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_DATA_RECORD>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DIAGNOSTIC_DATA_RECORD>::zeroed();
+        DdqGetDiagnosticRecordAtIndex(hrecord.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_RECORD>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -676,8 +676,8 @@ pub unsafe fn DdqGetDiagnosticRecordCategoryAtIndex<'a, Param0: ::windows::core:
         extern "system" {
             fn DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, index: u32, categorydescription: *mut DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION) -> ::windows::core::HRESULT;
         }
-        let mut result__: DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>::zeroed();
+        DdqGetDiagnosticRecordCategoryAtIndex(hcategorydescription.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_CATEGORY_DESCRIPTION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -691,8 +691,8 @@ pub unsafe fn DdqGetDiagnosticRecordCategoryCount<'a, Param0: ::windows::core::I
         extern "system" {
             fn DdqGetDiagnosticRecordCategoryCount(hcategorydescription: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION, categorydescriptioncount: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordCategoryCount(hcategorydescription.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        DdqGetDiagnosticRecordCategoryCount(hcategorydescription.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -706,8 +706,8 @@ pub unsafe fn DdqGetDiagnosticRecordCount<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn DdqGetDiagnosticRecordCount(hrecord: super::HDIAGNOSTIC_RECORD, recordcount: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordCount(hrecord.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        DdqGetDiagnosticRecordCount(hrecord.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -721,8 +721,8 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagAtIndex<'a, Param0: ::windows::core
         extern "system" {
             fn DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, index: u32, tagdescription: *mut DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION) -> ::windows::core::HRESULT;
         }
-        let mut result__: DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>::zeroed();
+        DdqGetDiagnosticRecordLocaleTagAtIndex(htagdescription.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_TAG_DESCRIPTION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -736,8 +736,8 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTagCount<'a, Param0: ::windows::core::
         extern "system" {
             fn DdqGetDiagnosticRecordLocaleTagCount(htagdescription: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION, tagdescriptioncount: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordLocaleTagCount(htagdescription.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        DdqGetDiagnosticRecordLocaleTagCount(htagdescription.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -751,8 +751,8 @@ pub unsafe fn DdqGetDiagnosticRecordLocaleTags<'a, Param0: ::windows::core::Into
         extern "system" {
             fn DdqGetDiagnosticRecordLocaleTags(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, locale: ::windows::core::PCWSTR, htagdescription: *mut super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordLocaleTags(hsession.into_param().abi(), locale.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>::zeroed();
+        DdqGetDiagnosticRecordLocaleTags(hsession.into_param().abi(), locale.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_TAG_DESCRIPTION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -767,8 +767,8 @@ pub unsafe fn DdqGetDiagnosticRecordPage<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn DdqGetDiagnosticRecordPage(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, searchcriteria: *const DIAGNOSTIC_DATA_SEARCH_CRITERIA, offset: u32, pagerecordcount: u32, baserowid: i64, hrecord: *mut super::HDIAGNOSTIC_RECORD) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::HDIAGNOSTIC_RECORD = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordPage(hsession.into_param().abi(), ::core::mem::transmute(searchcriteria), ::core::mem::transmute(offset), ::core::mem::transmute(pagerecordcount), ::core::mem::transmute(baserowid), ::core::mem::transmute(&mut result__)).from_abi::<super::HDIAGNOSTIC_RECORD>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::HDIAGNOSTIC_RECORD>::zeroed();
+        DdqGetDiagnosticRecordPage(hsession.into_param().abi(), ::core::mem::transmute(searchcriteria), ::core::mem::transmute(offset), ::core::mem::transmute(pagerecordcount), ::core::mem::transmute(baserowid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_RECORD>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -782,8 +782,8 @@ pub unsafe fn DdqGetDiagnosticRecordPayload<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DdqGetDiagnosticRecordPayload(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, rowid: i64, payload: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordPayload(hsession.into_param().abi(), ::core::mem::transmute(rowid), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        DdqGetDiagnosticRecordPayload(hsession.into_param().abi(), ::core::mem::transmute(rowid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -797,8 +797,8 @@ pub unsafe fn DdqGetDiagnosticRecordProducerAtIndex<'a, Param0: ::windows::core:
         extern "system" {
             fn DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, index: u32, producerdescription: *mut DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION) -> ::windows::core::HRESULT;
         }
-        let mut result__: DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>::zeroed();
+        DdqGetDiagnosticRecordProducerAtIndex(hproducerdescription.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_PRODUCER_DESCRIPTION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -812,8 +812,8 @@ pub unsafe fn DdqGetDiagnosticRecordProducerCategories<'a, Param0: ::windows::co
         extern "system" {
             fn DdqGetDiagnosticRecordProducerCategories(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producername: ::windows::core::PCWSTR, hcategorydescription: *mut super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordProducerCategories(hsession.into_param().abi(), producername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>::zeroed();
+        DdqGetDiagnosticRecordProducerCategories(hsession.into_param().abi(), producername.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_CATEGORY_DESCRIPTION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -827,8 +827,8 @@ pub unsafe fn DdqGetDiagnosticRecordProducerCount<'a, Param0: ::windows::core::I
         extern "system" {
             fn DdqGetDiagnosticRecordProducerCount(hproducerdescription: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION, producerdescriptioncount: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordProducerCount(hproducerdescription.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        DdqGetDiagnosticRecordProducerCount(hproducerdescription.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -842,8 +842,8 @@ pub unsafe fn DdqGetDiagnosticRecordProducers<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn DdqGetDiagnosticRecordProducers(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, hproducerdescription: *mut super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordProducers(hsession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>::zeroed();
+        DdqGetDiagnosticRecordProducers(hsession.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -872,8 +872,8 @@ pub unsafe fn DdqGetDiagnosticRecordSummary<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DdqGetDiagnosticRecordSummary(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, producernames: *const ::windows::core::PWSTR, producernamecount: u32, generalstats: *mut DIAGNOSTIC_DATA_GENERAL_STATS) -> ::windows::core::HRESULT;
         }
-        let mut result__: DIAGNOSTIC_DATA_GENERAL_STATS = ::core::mem::zeroed();
-        DdqGetDiagnosticRecordSummary(hsession.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(producernames)), producernames.len() as _, ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_DATA_GENERAL_STATS>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DIAGNOSTIC_DATA_GENERAL_STATS>::zeroed();
+        DdqGetDiagnosticRecordSummary(hsession.into_param().abi(), ::core::mem::transmute(::windows::core::as_ptr_or_null(producernames)), producernames.len() as _, ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_GENERAL_STATS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -901,8 +901,8 @@ pub unsafe fn DdqGetDiagnosticReport<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn DdqGetDiagnosticReport(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, hreport: *mut super::HDIAGNOSTIC_REPORT) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::HDIAGNOSTIC_REPORT = ::core::mem::zeroed();
-        DdqGetDiagnosticReport(hsession.into_param().abi(), ::core::mem::transmute(reportstoretype), ::core::mem::transmute(&mut result__)).from_abi::<super::HDIAGNOSTIC_REPORT>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::HDIAGNOSTIC_REPORT>::zeroed();
+        DdqGetDiagnosticReport(hsession.into_param().abi(), ::core::mem::transmute(reportstoretype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::HDIAGNOSTIC_REPORT>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -917,8 +917,8 @@ pub unsafe fn DdqGetDiagnosticReportAtIndex<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DdqGetDiagnosticReportAtIndex(hreport: super::HDIAGNOSTIC_REPORT, index: u32, report: *mut DIAGNOSTIC_REPORT_DATA) -> ::windows::core::HRESULT;
         }
-        let mut result__: DIAGNOSTIC_REPORT_DATA = ::core::mem::zeroed();
-        DdqGetDiagnosticReportAtIndex(hreport.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_REPORT_DATA>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DIAGNOSTIC_REPORT_DATA>::zeroed();
+        DdqGetDiagnosticReportAtIndex(hreport.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_REPORT_DATA>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -932,8 +932,8 @@ pub unsafe fn DdqGetDiagnosticReportCount<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn DdqGetDiagnosticReportCount(hreport: super::HDIAGNOSTIC_REPORT, reportcount: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        DdqGetDiagnosticReportCount(hreport.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        DdqGetDiagnosticReportCount(hreport.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -947,8 +947,8 @@ pub unsafe fn DdqGetDiagnosticReportStoreReportCount<'a, Param0: ::windows::core
         extern "system" {
             fn DdqGetDiagnosticReportStoreReportCount(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, reportstoretype: u32, reportcount: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: u32 = ::core::mem::zeroed();
-        DdqGetDiagnosticReportStoreReportCount(hsession.into_param().abi(), ::core::mem::transmute(reportstoretype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<u32>::zeroed();
+        DdqGetDiagnosticReportStoreReportCount(hsession.into_param().abi(), ::core::mem::transmute(reportstoretype), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -962,8 +962,8 @@ pub unsafe fn DdqGetSessionAccessLevel<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn DdqGetSessionAccessLevel(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, accesslevel: *mut DdqAccessLevel) -> ::windows::core::HRESULT;
         }
-        let mut result__: DdqAccessLevel = ::core::mem::zeroed();
-        DdqGetSessionAccessLevel(hsession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DdqAccessLevel>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DdqAccessLevel>::zeroed();
+        DdqGetSessionAccessLevel(hsession.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DdqAccessLevel>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -977,8 +977,8 @@ pub unsafe fn DdqGetTranscriptConfiguration<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DdqGetTranscriptConfiguration(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, currentconfig: *mut DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION) -> ::windows::core::HRESULT;
         }
-        let mut result__: DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION = ::core::mem::zeroed();
-        DdqGetTranscriptConfiguration(hsession.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>::zeroed();
+        DdqGetTranscriptConfiguration(hsession.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DIAGNOSTIC_DATA_EVENT_TRANSCRIPT_CONFIGURATION>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -993,8 +993,8 @@ pub unsafe fn DdqIsDiagnosticRecordSampledIn<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn DdqIsDiagnosticRecordSampledIn(hsession: super::HDIAGNOSTIC_DATA_QUERY_SESSION, providergroup: *const ::windows::core::GUID, providerid: *const ::windows::core::GUID, providername: ::windows::core::PCWSTR, eventid: *const u32, eventname: ::windows::core::PCWSTR, eventversion: *const u32, eventkeywords: *const u64, issampledin: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        DdqIsDiagnosticRecordSampledIn(hsession.into_param().abi(), ::core::mem::transmute(providergroup), ::core::mem::transmute(providerid), providername.into_param().abi(), ::core::mem::transmute(eventid), eventname.into_param().abi(), ::core::mem::transmute(eventversion), ::core::mem::transmute(eventkeywords), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        DdqIsDiagnosticRecordSampledIn(hsession.into_param().abi(), ::core::mem::transmute(providergroup), ::core::mem::transmute(providerid), providername.into_param().abi(), ::core::mem::transmute(eventid), eventname.into_param().abi(), ::core::mem::transmute(eventversion), ::core::mem::transmute(eventkeywords), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

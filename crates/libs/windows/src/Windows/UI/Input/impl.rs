@@ -16,7 +16,7 @@ impl IPointerPointTransform_Vtbl {
             let this = (*this).get_impl();
             match this.Inverse() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -28,7 +28,7 @@ impl IPointerPointTransform_Vtbl {
             let this = (*this).get_impl();
             match this.TryTransform(::core::mem::transmute(&inpoint), ::core::mem::transmute_copy(&outpoint)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -40,7 +40,7 @@ impl IPointerPointTransform_Vtbl {
             let this = (*this).get_impl();
             match this.TransformBounds(::core::mem::transmute(&rect)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

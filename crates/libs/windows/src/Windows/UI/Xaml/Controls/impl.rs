@@ -111,7 +111,7 @@ impl ICommandBarElement_Vtbl {
             let this = (*this).get_impl();
             match this.IsCompact() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -148,7 +148,7 @@ impl ICommandBarElement2_Vtbl {
             let this = (*this).get_impl();
             match this.IsInOverflow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -160,7 +160,7 @@ impl ICommandBarElement2_Vtbl {
             let this = (*this).get_impl();
             match this.DynamicOverflowOrder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -559,7 +559,7 @@ impl IDataTemplateSelectorOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.SelectTemplateCore(::core::mem::transmute(&item), ::core::mem::transmute(&container)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -588,7 +588,7 @@ impl IDataTemplateSelectorOverrides2_Vtbl {
             let this = (*this).get_impl();
             match this.SelectTemplateForItemCore(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -617,7 +617,7 @@ impl IGroupStyleSelectorOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.SelectGroupStyleCore(::core::mem::transmute(&group), level) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -649,7 +649,7 @@ impl IInkToolbarCustomPenOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInkDrawingAttributesCore(::core::mem::transmute(&brush), strokewidth) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -706,7 +706,7 @@ impl IItemContainerMapping_Vtbl {
             let this = (*this).get_impl();
             match this.ItemFromContainer(::core::mem::transmute(&container)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -718,7 +718,7 @@ impl IItemContainerMapping_Vtbl {
             let this = (*this).get_impl();
             match this.ContainerFromItem(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -730,7 +730,7 @@ impl IItemContainerMapping_Vtbl {
             let this = (*this).get_impl();
             match this.IndexFromContainer(::core::mem::transmute(&container)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -742,7 +742,7 @@ impl IItemContainerMapping_Vtbl {
             let this = (*this).get_impl();
             match this.ContainerFromIndex(index) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -799,7 +799,7 @@ impl IItemsControlOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.IsItemItsOwnContainerOverride(::core::mem::transmute(&item)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -811,7 +811,7 @@ impl IItemsControlOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.GetContainerForItemOverride() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -892,7 +892,7 @@ impl INavigate_Vtbl {
             let this = (*this).get_impl();
             match this.Navigate(::core::mem::transmute(&sourcepagetype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -965,7 +965,7 @@ impl IScrollAnchorProvider_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAnchor() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1018,7 +1018,7 @@ impl ISemanticZoomInformation_Vtbl {
             let this = (*this).get_impl();
             match this.SemanticZoomOwner() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1035,7 +1035,7 @@ impl ISemanticZoomInformation_Vtbl {
             let this = (*this).get_impl();
             match this.IsActiveView() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1052,7 +1052,7 @@ impl ISemanticZoomInformation_Vtbl {
             let this = (*this).get_impl();
             match this.IsZoomedInView() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -1133,7 +1133,7 @@ impl IStyleSelectorOverrides_Vtbl {
             let this = (*this).get_impl();
             match this.SelectStyleCore(::core::mem::transmute(&item), ::core::mem::transmute(&container)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

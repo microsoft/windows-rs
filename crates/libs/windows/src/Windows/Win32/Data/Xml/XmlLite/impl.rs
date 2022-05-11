@@ -39,7 +39,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&nproperty)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -60,7 +60,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetNodeType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnodetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnodetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -136,7 +136,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetLineNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnlinenumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnlinenumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -147,7 +147,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetLinePosition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnlineposition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnlineposition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -158,7 +158,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetAttributeCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnattributecount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnattributecount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -169,7 +169,7 @@ impl IXmlReader_Vtbl {
             let this = (*this).get_impl();
             match this.GetDepth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pndepth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pndepth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -222,7 +222,7 @@ impl IXmlResolver_Vtbl {
             let this = (*this).get_impl();
             match this.ResolveUri(::core::mem::transmute(&pwszbaseuri), ::core::mem::transmute(&pwszpublicidentifier), ::core::mem::transmute(&pwszsystemidentifier)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresolvedinput = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresolvedinput, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -281,7 +281,7 @@ impl IXmlWriter_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&nproperty)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -505,7 +505,7 @@ impl IXmlWriterLite_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&nproperty)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

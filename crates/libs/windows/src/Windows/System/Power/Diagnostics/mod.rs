@@ -7,16 +7,16 @@ impl BackgroundEnergyDiagnostics {
     #[cfg(feature = "deprecated")]
     pub fn DeviceSpecificConversionFactor() -> ::windows::core::Result<f64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceSpecificConversionFactor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceSpecificConversionFactor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ComputeTotalEnergyUsage() -> ::windows::core::Result<u64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
-            let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ComputeTotalEnergyUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+            (::windows::core::Interface::vtable(this).ComputeTotalEnergyUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
@@ -44,16 +44,16 @@ impl ForegroundEnergyDiagnostics {
     #[cfg(feature = "deprecated")]
     pub fn DeviceSpecificConversionFactor() -> ::windows::core::Result<f64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
-            let mut result__: f64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).DeviceSpecificConversionFactor)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<f64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<f64>::zeroed();
+            (::windows::core::Interface::vtable(this).DeviceSpecificConversionFactor)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<f64>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
     #[cfg(feature = "deprecated")]
     pub fn ComputeTotalEnergyUsage() -> ::windows::core::Result<u64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
-            let mut result__: u64 = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).ComputeTotalEnergyUsage)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<u64>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<u64>::zeroed();
+            (::windows::core::Interface::vtable(this).ComputeTotalEnergyUsage)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<u64>(result__)
         })
     }
     #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]

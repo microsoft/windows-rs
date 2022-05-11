@@ -63,7 +63,7 @@ impl IActionCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppaction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppaction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl IActionCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl IActionCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppaction = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppaction, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -356,7 +356,7 @@ impl IEmailAction_Vtbl {
             let this = (*this).get_impl();
             match this.HeaderFields() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppheaderfields = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppheaderfields, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -444,7 +444,7 @@ impl IEnumWorkItems_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumworkitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumworkitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -501,7 +501,7 @@ impl IEventTrigger_Vtbl {
             let this = (*this).get_impl();
             match this.ValueQueries() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnamedxpaths = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnamedxpaths, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1168,7 +1168,7 @@ impl IProvideTaskPage_Vtbl {
             let this = (*this).get_impl();
             match this.GetPage(::core::mem::transmute_copy(&tptype), ::core::mem::transmute_copy(&fpersistchanges)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phpage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phpage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1211,7 +1211,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1222,7 +1222,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1233,7 +1233,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1244,7 +1244,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.Enabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1260,7 +1260,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.Run(::core::mem::transmute(&params)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprunningtask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprunningtask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1271,7 +1271,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.RunEx(::core::mem::transmute(&params), ::core::mem::transmute_copy(&flags), ::core::mem::transmute_copy(&sessionid), ::core::mem::transmute(&user)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprunningtask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprunningtask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1282,7 +1282,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstances(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprunningtasks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprunningtasks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1293,7 +1293,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.LastRunTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plastruntime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plastruntime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1304,7 +1304,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.LastTaskResult() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plasttaskresult = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plasttaskresult, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1315,7 +1315,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.NumberOfMissedRuns() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumberofmissedruns = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumberofmissedruns, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1326,7 +1326,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.NextRunTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnextruntime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnextruntime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1337,7 +1337,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.Definition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdefinition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdefinition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1348,7 +1348,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.Xml() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pxml = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pxml, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1359,7 +1359,7 @@ impl IRegisteredTask_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecurityDescriptor(::core::mem::transmute_copy(&securityinformation)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psddl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psddl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1422,7 +1422,7 @@ impl IRegisteredTaskCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1433,7 +1433,7 @@ impl IRegisteredTaskCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppregisteredtask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppregisteredtask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1444,7 +1444,7 @@ impl IRegisteredTaskCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1708,7 +1708,7 @@ impl IRunningTask_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1719,7 +1719,7 @@ impl IRunningTask_Vtbl {
             let this = (*this).get_impl();
             match this.InstanceGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1730,7 +1730,7 @@ impl IRunningTask_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1741,7 +1741,7 @@ impl IRunningTask_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1752,7 +1752,7 @@ impl IRunningTask_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentAction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1773,7 +1773,7 @@ impl IRunningTask_Vtbl {
             let this = (*this).get_impl();
             match this.EnginePID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1811,7 +1811,7 @@ impl IRunningTaskCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1822,7 +1822,7 @@ impl IRunningTaskCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprunningtask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprunningtask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1833,7 +1833,7 @@ impl IRunningTaskCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1902,7 +1902,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetTriggerCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1913,7 +1913,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetTrigger(::core::mem::transmute_copy(&itrigger)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptrigger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptrigger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1924,7 +1924,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetTriggerString(::core::mem::transmute_copy(&itrigger)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwsztrigger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwsztrigger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1970,7 +1970,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetMostRecentRunTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstlastrun = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstlastrun, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1981,7 +1981,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phrstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phrstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1992,7 +1992,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetExitCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwexitcode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwexitcode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2008,7 +2008,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetComment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszcomment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszcomment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2024,7 +2024,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetCreator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszcreator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszcreator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2050,7 +2050,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorRetryCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwretrycount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwretrycount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2066,7 +2066,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorRetryInterval() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pwretryinterval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pwretryinterval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2082,7 +2082,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2098,7 +2098,7 @@ impl IScheduledWorkItem_Vtbl {
             let this = (*this).get_impl();
             match this.GetAccountInformation() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszaccountname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszaccountname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2273,7 +2273,7 @@ impl ITask_Vtbl {
             let this = (*this).get_impl();
             match this.GetApplicationName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszapplicationname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszapplicationname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2289,7 +2289,7 @@ impl ITask_Vtbl {
             let this = (*this).get_impl();
             match this.GetParameters() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszparameters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszparameters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2305,7 +2305,7 @@ impl ITask_Vtbl {
             let this = (*this).get_impl();
             match this.GetWorkingDirectory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszworkingdirectory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszworkingdirectory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2321,7 +2321,7 @@ impl ITask_Vtbl {
             let this = (*this).get_impl();
             match this.GetPriority() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwpriority = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwpriority, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2337,7 +2337,7 @@ impl ITask_Vtbl {
             let this = (*this).get_impl();
             match this.GetTaskFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2353,7 +2353,7 @@ impl ITask_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxRunTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwmaxruntimems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwmaxruntimems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2406,7 +2406,7 @@ impl ITaskDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.RegistrationInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppregistrationinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppregistrationinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2422,7 +2422,7 @@ impl ITaskDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Triggers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptriggers = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptriggers, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2438,7 +2438,7 @@ impl ITaskDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Settings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2464,7 +2464,7 @@ impl ITaskDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Principal() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprincipal = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprincipal, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2480,7 +2480,7 @@ impl ITaskDefinition_Vtbl {
             let this = (*this).get_impl();
             match this.Actions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppactions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppactions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2549,7 +2549,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2560,7 +2560,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.Path() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2571,7 +2571,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFolder(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfolder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfolder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2582,7 +2582,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetFolders(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfolders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfolders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2593,7 +2593,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFolder(::core::mem::transmute(&subfoldername), ::core::mem::transmute(&sddl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfolder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfolder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2609,7 +2609,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetTask(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2620,7 +2620,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetTasks(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptasks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptasks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2636,7 +2636,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterTask(::core::mem::transmute(&path), ::core::mem::transmute(&xmltext), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&userid), ::core::mem::transmute(&password), ::core::mem::transmute_copy(&logontype), ::core::mem::transmute(&sddl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2647,7 +2647,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterTaskDefinition(::core::mem::transmute(&path), ::core::mem::transmute(&pdefinition), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&userid), ::core::mem::transmute(&password), ::core::mem::transmute_copy(&logontype), ::core::mem::transmute(&sddl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2658,7 +2658,7 @@ impl ITaskFolder_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecurityDescriptor(::core::mem::transmute_copy(&securityinformation)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *psddl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psddl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2706,7 +2706,7 @@ impl ITaskFolderCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2717,7 +2717,7 @@ impl ITaskFolderCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfolder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfolder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2728,7 +2728,7 @@ impl ITaskFolderCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2767,7 +2767,7 @@ impl ITaskHandler_Vtbl {
             let this = (*this).get_impl();
             match this.Stop() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretcode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretcode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2849,7 +2849,7 @@ impl ITaskNamedValueCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppair = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppair, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2860,7 +2860,7 @@ impl ITaskNamedValueCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2871,7 +2871,7 @@ impl ITaskNamedValueCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&name), ::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppair = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppair, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2968,7 +2968,7 @@ impl ITaskScheduler_Vtbl {
             let this = (*this).get_impl();
             match this.GetTargetComputer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwszcomputer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwszcomputer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2979,7 +2979,7 @@ impl ITaskScheduler_Vtbl {
             let this = (*this).get_impl();
             match this.Enum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumworkitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumworkitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2990,7 +2990,7 @@ impl ITaskScheduler_Vtbl {
             let this = (*this).get_impl();
             match this.Activate(::core::mem::transmute(&pwszname), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3006,7 +3006,7 @@ impl ITaskScheduler_Vtbl {
             let this = (*this).get_impl();
             match this.NewWorkItem(::core::mem::transmute(&pwsztaskname), ::core::mem::transmute_copy(&rclsid), ::core::mem::transmute_copy(&riid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3060,7 +3060,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             match this.GetFolder(::core::mem::transmute(&path)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppfolder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppfolder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3071,7 +3071,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             match this.GetRunningTasks(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprunningtasks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprunningtasks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3082,7 +3082,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             match this.NewTask(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdefinition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdefinition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3098,7 +3098,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             match this.Connected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pconnected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pconnected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3109,7 +3109,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             match this.TargetServer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pserver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pserver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3120,7 +3120,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectedUser() {
                 ::core::result::Result::Ok(ok__) => {
-                    *puser = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(puser, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3131,7 +3131,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             match this.ConnectedDomain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdomain = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdomain, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3142,7 +3142,7 @@ impl ITaskService_Vtbl {
             let this = (*this).get_impl();
             match this.HighestVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3378,7 +3378,7 @@ impl ITaskSettings_Vtbl {
             let this = (*this).get_impl();
             match this.IdleSettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidlesettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidlesettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3414,7 +3414,7 @@ impl ITaskSettings_Vtbl {
             let this = (*this).get_impl();
             match this.NetworkSettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnetworksettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnetworksettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3559,7 +3559,7 @@ impl ITaskSettings3_Vtbl {
             let this = (*this).get_impl();
             match this.MaintenanceSettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmaintenancesettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmaintenancesettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3575,7 +3575,7 @@ impl ITaskSettings3_Vtbl {
             let this = (*this).get_impl();
             match this.CreateMaintenanceSettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmaintenancesettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmaintenancesettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3626,7 +3626,7 @@ impl ITaskTrigger_Vtbl {
             let this = (*this).get_impl();
             match this.GetTrigger() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptrigger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptrigger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3637,7 +3637,7 @@ impl ITaskTrigger_Vtbl {
             let this = (*this).get_impl();
             match this.GetTriggerString() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwsztrigger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwsztrigger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3670,7 +3670,7 @@ impl ITaskVariables_Vtbl {
             let this = (*this).get_impl();
             match this.GetInput() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pinput = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pinput, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3686,7 +3686,7 @@ impl ITaskVariables_Vtbl {
             let this = (*this).get_impl();
             match this.GetContext() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcontext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcontext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3774,7 +3774,7 @@ impl ITrigger_Vtbl {
             let this = (*this).get_impl();
             match this.Repetition() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprepeat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprepeat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3870,7 +3870,7 @@ impl ITriggerCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptrigger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptrigger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3881,7 +3881,7 @@ impl ITriggerCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3892,7 +3892,7 @@ impl ITriggerCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptrigger = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptrigger, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

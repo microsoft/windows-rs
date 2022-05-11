@@ -20,7 +20,7 @@ impl IIndexableContent_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -37,7 +37,7 @@ impl IIndexableContent_Vtbl {
             let this = (*this).get_impl();
             match this.Properties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -49,7 +49,7 @@ impl IIndexableContent_Vtbl {
             let this = (*this).get_impl();
             match this.Stream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -66,7 +66,7 @@ impl IIndexableContent_Vtbl {
             let this = (*this).get_impl();
             match this.StreamContentType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -125,7 +125,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.GetIndexedStateAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -137,7 +137,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileQueryOverloadDefault() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -149,7 +149,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileQuery(query) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -161,7 +161,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFileQueryWithOptions(::core::mem::transmute(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -173,7 +173,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFolderQueryOverloadDefault() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -185,7 +185,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFolderQuery(query) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -197,7 +197,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.CreateFolderQueryWithOptions(::core::mem::transmute(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -209,7 +209,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItemQuery() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -221,7 +221,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItemQueryWithOptions(::core::mem::transmute(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -233,7 +233,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilesAsync(query, startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -245,7 +245,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.GetFilesAsyncOverloadDefaultStartAndCount(query) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -257,7 +257,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.GetFoldersAsync(query, startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -269,7 +269,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.GetFoldersAsyncOverloadDefaultStartAndCount(query) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -281,7 +281,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemsAsync(startindex, maxitemstoretrieve) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -293,7 +293,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.AreQueryOptionsSupported(::core::mem::transmute(&queryoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -305,7 +305,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.IsCommonFolderQuerySupported(query) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -317,7 +317,7 @@ impl IStorageFolderQueryOperations_Vtbl {
             let this = (*this).get_impl();
             match this.IsCommonFileQuerySupported(query) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -373,7 +373,7 @@ impl IStorageQueryResultBase_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemCountAsync() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -385,7 +385,7 @@ impl IStorageQueryResultBase_Vtbl {
             let this = (*this).get_impl();
             match this.Folder() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -397,7 +397,7 @@ impl IStorageQueryResultBase_Vtbl {
             let this = (*this).get_impl();
             match this.ContentsChanged(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -414,7 +414,7 @@ impl IStorageQueryResultBase_Vtbl {
             let this = (*this).get_impl();
             match this.OptionsChanged(::core::mem::transmute(&changedhandler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -431,7 +431,7 @@ impl IStorageQueryResultBase_Vtbl {
             let this = (*this).get_impl();
             match this.FindStartIndexAsync(::core::mem::transmute(&value)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -443,7 +443,7 @@ impl IStorageQueryResultBase_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentQueryOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

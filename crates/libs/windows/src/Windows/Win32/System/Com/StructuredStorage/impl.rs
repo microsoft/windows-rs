@@ -64,7 +64,7 @@ impl IEnumSTATPROPSETSTG_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -111,7 +111,7 @@ impl IEnumSTATPROPSTG_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -161,7 +161,7 @@ impl IEnumSTATSTG_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -196,7 +196,7 @@ impl IFillLockBytes_Vtbl {
             let this = (*this).get_impl();
             match this.FillAppend(::core::mem::transmute_copy(&pv), ::core::mem::transmute_copy(&cb)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbwritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbwritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -207,7 +207,7 @@ impl IFillLockBytes_Vtbl {
             let this = (*this).get_impl();
             match this.FillAt(::core::mem::transmute_copy(&uloffset), ::core::mem::transmute_copy(&pv), ::core::mem::transmute_copy(&cb)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbwritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbwritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -308,7 +308,7 @@ impl ILockBytes_Vtbl {
             let this = (*this).get_impl();
             match this.WriteAt(::core::mem::transmute_copy(&uloffset), ::core::mem::transmute_copy(&pv), ::core::mem::transmute_copy(&cb)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbwritten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbwritten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -466,7 +466,7 @@ impl IPropertyBag2_Vtbl {
             let this = (*this).get_impl();
             match this.CountProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -509,7 +509,7 @@ impl IPropertySetStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute_copy(&rfmtid), ::core::mem::transmute_copy(&pclsid), ::core::mem::transmute_copy(&grfflags), ::core::mem::transmute_copy(&grfmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprstg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprstg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -520,7 +520,7 @@ impl IPropertySetStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Open(::core::mem::transmute_copy(&rfmtid), ::core::mem::transmute_copy(&grfmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprstg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprstg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -536,7 +536,7 @@ impl IPropertySetStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Enum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -619,7 +619,7 @@ impl IPropertyStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Enum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -640,7 +640,7 @@ impl IPropertyStorage_Vtbl {
             let this = (*this).get_impl();
             match this.Stat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstatpsstg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstatpsstg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -711,7 +711,7 @@ impl IStorage_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStream(::core::mem::transmute(&pwcsname), ::core::mem::transmute_copy(&grfmode), ::core::mem::transmute_copy(&reserved1), ::core::mem::transmute_copy(&reserved2)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstm = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstm, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -727,7 +727,7 @@ impl IStorage_Vtbl {
             let this = (*this).get_impl();
             match this.CreateStorage(::core::mem::transmute(&pwcsname), ::core::mem::transmute_copy(&grfmode), ::core::mem::transmute_copy(&reserved1), ::core::mem::transmute_copy(&reserved2)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -738,7 +738,7 @@ impl IStorage_Vtbl {
             let this = (*this).get_impl();
             match this.OpenStorage(::core::mem::transmute(&pwcsname), ::core::mem::transmute(&pstgpriority), ::core::mem::transmute_copy(&grfmode), ::core::mem::transmute_copy(&snbexclude), ::core::mem::transmute_copy(&reserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstg = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstg, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

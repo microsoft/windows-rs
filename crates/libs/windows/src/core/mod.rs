@@ -1,6 +1,7 @@
 mod abi;
 mod agile_reference;
 mod array;
+mod as_impl;
 pub(crate) mod bindings;
 mod compose;
 mod delay_load;
@@ -24,7 +25,6 @@ mod ref_count;
 mod runtime_name;
 mod runtime_type;
 mod sha1;
-mod to_impl;
 mod unknown;
 mod waiter;
 mod weak;
@@ -34,6 +34,8 @@ mod weak_ref_count;
 pub use abi::*;
 pub use agile_reference::*;
 pub use array::*;
+#[doc(hidden)]
+pub use as_impl::*;
 #[doc(hidden)]
 pub use compose::*;
 pub(crate) use delay_load::*;
@@ -65,8 +67,6 @@ pub use runtime_name::*;
 pub use runtime_type::*;
 #[doc(hidden)]
 pub use sha1::*;
-#[doc(hidden)]
-pub use to_impl::*;
 pub use unknown::*;
 #[doc(hidden)]
 pub use waiter::*;

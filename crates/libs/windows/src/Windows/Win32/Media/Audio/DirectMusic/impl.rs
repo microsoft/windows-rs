@@ -213,7 +213,7 @@ impl IDirectMusicCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetInstrument(::core::mem::transmute_copy(&dwpatch)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinstrument = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinstrument, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -343,7 +343,7 @@ impl IDirectMusicPort_Vtbl {
             let this = (*this).get_impl();
             match this.GetLatencyClock() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclock = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclock, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -445,7 +445,7 @@ impl IDirectMusicPortDownload_Vtbl {
             let this = (*this).get_impl();
             match this.GetBuffer(::core::mem::transmute_copy(&dwdlid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidmdownload = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidmdownload, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -456,7 +456,7 @@ impl IDirectMusicPortDownload_Vtbl {
             let this = (*this).get_impl();
             match this.AllocateBuffer(::core::mem::transmute_copy(&dwsize)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppidmdownload = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppidmdownload, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -571,7 +571,7 @@ impl IDirectMusicSynth_Vtbl {
             let this = (*this).get_impl();
             match this.GetLatencyClock() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclock = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclock, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -719,7 +719,7 @@ impl IDirectMusicSynthSink_Vtbl {
             let this = (*this).get_impl();
             match this.GetLatencyClock() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclock = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclock, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

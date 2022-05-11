@@ -12,7 +12,7 @@ impl ICompositionCapabilitiesInteropFactory_Vtbl {
             let this = (*this).get_impl();
             match this.GetForWindow(::core::mem::transmute_copy(&hwnd)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -117,7 +117,7 @@ impl ICompositionGraphicsDeviceInterop_Vtbl {
             let this = (*this).get_impl();
             match this.GetRenderingDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl ICompositorDesktopInterop_Vtbl {
             let this = (*this).get_impl();
             match this.CreateDesktopWindowTarget(::core::mem::transmute_copy(&hwndtarget), ::core::mem::transmute_copy(&istopmost)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -190,7 +190,7 @@ impl ICompositorInterop_Vtbl {
             let this = (*this).get_impl();
             match this.CreateCompositionSurfaceForHandle(::core::mem::transmute_copy(&swapchain)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -201,7 +201,7 @@ impl ICompositorInterop_Vtbl {
             let this = (*this).get_impl();
             match this.CreateCompositionSurfaceForSwapChain(::core::mem::transmute(&swapchain)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -212,7 +212,7 @@ impl ICompositorInterop_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGraphicsDevice(::core::mem::transmute(&renderingdevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -243,7 +243,7 @@ impl IDesktopWindowTargetInterop_Vtbl {
             let this = (*this).get_impl();
             match this.Hwnd() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

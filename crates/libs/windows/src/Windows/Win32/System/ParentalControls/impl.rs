@@ -12,7 +12,7 @@ impl IWPCGamesSettings_Vtbl {
             let this = (*this).get_impl();
             match this.IsBlocked(::core::mem::transmute(&guidappid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwreasons = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwreasons, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -40,7 +40,7 @@ impl IWPCProviderConfig_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserSummary(::core::mem::transmute(&bstrsid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrusersummary = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrusersummary, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -105,7 +105,7 @@ impl IWPCProviderSupport_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidprovider = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidprovider, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -133,7 +133,7 @@ impl IWPCSettings_Vtbl {
             let this = (*this).get_impl();
             match this.IsLoggingRequired() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfrequired = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfrequired, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -144,7 +144,7 @@ impl IWPCSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastSettingsChangeTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -155,7 +155,7 @@ impl IWPCSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetRestrictions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwrestrictions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwrestrictions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -187,7 +187,7 @@ impl IWPCWebSettings_Vtbl {
             let this = (*this).get_impl();
             match this.GetSettings() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwsettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwsettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -198,7 +198,7 @@ impl IWPCWebSettings_Vtbl {
             let this = (*this).get_impl();
             match this.RequestURLOverride(::core::mem::transmute_copy(&hwnd), ::core::mem::transmute(&pcszurl), ::core::mem::transmute_copy(&curls), ::core::mem::transmute_copy(&ppcszsuburls)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfchanged = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfchanged, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -225,7 +225,7 @@ impl IWindowsParentalControls_Vtbl {
             let this = (*this).get_impl();
             match this.GetGamesSettings(::core::mem::transmute(&pcszsid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -251,7 +251,7 @@ impl IWindowsParentalControlsCore_Vtbl {
             let this = (*this).get_impl();
             match this.GetVisibility() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pevisibility = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pevisibility, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -262,7 +262,7 @@ impl IWindowsParentalControlsCore_Vtbl {
             let this = (*this).get_impl();
             match this.GetUserSettings(::core::mem::transmute(&pcszsid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -273,7 +273,7 @@ impl IWindowsParentalControlsCore_Vtbl {
             let this = (*this).get_impl();
             match this.GetWebSettings(::core::mem::transmute(&pcszsid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsettings = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsettings, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -230,7 +230,7 @@ impl ISClusApplication_Vtbl {
             let this = (*this).get_impl();
             match this.DomainNames() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdomains = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdomains, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -241,7 +241,7 @@ impl ISClusApplication_Vtbl {
             let this = (*this).get_impl();
             match this.get_ClusterNames(::core::mem::transmute(&bstrdomainname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusters = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusters, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -252,7 +252,7 @@ impl ISClusApplication_Vtbl {
             let this = (*this).get_impl();
             match this.OpenCluster(::core::mem::transmute(&bstrclustername)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcluster = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcluster, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -288,7 +288,7 @@ impl ISClusCryptoKeys_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -299,7 +299,7 @@ impl ISClusCryptoKeys_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -315,7 +315,7 @@ impl ISClusCryptoKeys_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrcyrptokey = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrcyrptokey, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl ISClusDisk_Vtbl {
             let this = (*this).get_impl();
             match this.Signature() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plsignature = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plsignature, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -373,7 +373,7 @@ impl ISClusDisk_Vtbl {
             let this = (*this).get_impl();
             match this.ScsiAddress() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppscsiaddress = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppscsiaddress, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -384,7 +384,7 @@ impl ISClusDisk_Vtbl {
             let this = (*this).get_impl();
             match this.DiskNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pldisknumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pldisknumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -395,7 +395,7 @@ impl ISClusDisk_Vtbl {
             let this = (*this).get_impl();
             match this.Partitions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppartitions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppartitions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl ISClusDisks_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl ISClusDisks_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -451,7 +451,7 @@ impl ISClusDisks_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -489,7 +489,7 @@ impl ISClusNetInterface_Vtbl {
             let this = (*this).get_impl();
             match this.CommonProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -500,7 +500,7 @@ impl ISClusNetInterface_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -511,7 +511,7 @@ impl ISClusNetInterface_Vtbl {
             let this = (*this).get_impl();
             match this.CommonROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -522,7 +522,7 @@ impl ISClusNetInterface_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -533,7 +533,7 @@ impl ISClusNetInterface_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -544,7 +544,7 @@ impl ISClusNetInterface_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -555,7 +555,7 @@ impl ISClusNetInterface_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -566,7 +566,7 @@ impl ISClusNetInterface_Vtbl {
             let this = (*this).get_impl();
             match this.Cluster() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcluster = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcluster, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -605,7 +605,7 @@ impl ISClusNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -616,7 +616,7 @@ impl ISClusNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -632,7 +632,7 @@ impl ISClusNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusnetinterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusnetinterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -674,7 +674,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.CommonProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -685,7 +685,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -696,7 +696,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.CommonROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -707,7 +707,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -718,7 +718,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -729,7 +729,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -745,7 +745,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.NetworkID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrnetworkid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrnetworkid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -756,7 +756,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -767,7 +767,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.NetInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusnetinterfaces = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusnetinterfaces, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -778,7 +778,7 @@ impl ISClusNetwork_Vtbl {
             let this = (*this).get_impl();
             match this.Cluster() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcluster = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcluster, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -820,7 +820,7 @@ impl ISClusNetworkNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -831,7 +831,7 @@ impl ISClusNetworkNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -847,7 +847,7 @@ impl ISClusNetworkNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusnetinterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusnetinterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -882,7 +882,7 @@ impl ISClusNetworks_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -893,7 +893,7 @@ impl ISClusNetworks_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -909,7 +909,7 @@ impl ISClusNetworks_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusnetwork = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusnetwork, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -954,7 +954,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.CommonProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -965,7 +965,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -976,7 +976,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.CommonROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -987,7 +987,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -998,7 +998,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1009,7 +1009,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1020,7 +1020,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.NodeID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrnodeid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrnodeid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1031,7 +1031,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1057,7 +1057,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.ResourceGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresourcegroups = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresourcegroups, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1068,7 +1068,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.Cluster() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcluster = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcluster, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1079,7 +1079,7 @@ impl ISClusNode_Vtbl {
             let this = (*this).get_impl();
             match this.NetInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusnetinterfaces = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusnetinterfaces, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1124,7 +1124,7 @@ impl ISClusNodeNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1135,7 +1135,7 @@ impl ISClusNodeNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1151,7 +1151,7 @@ impl ISClusNodeNetInterfaces_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusnetinterface = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusnetinterface, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1186,7 +1186,7 @@ impl ISClusNodes_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1197,7 +1197,7 @@ impl ISClusNodes_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1213,7 +1213,7 @@ impl ISClusNodes_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1251,7 +1251,7 @@ impl ISClusPartition_Vtbl {
             let this = (*this).get_impl();
             match this.Flags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1262,7 +1262,7 @@ impl ISClusPartition_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdevicename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdevicename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1273,7 +1273,7 @@ impl ISClusPartition_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeLabel() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrvolumelabel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrvolumelabel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1284,7 +1284,7 @@ impl ISClusPartition_Vtbl {
             let this = (*this).get_impl();
             match this.SerialNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plserialnumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plserialnumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1295,7 +1295,7 @@ impl ISClusPartition_Vtbl {
             let this = (*this).get_impl();
             match this.MaximumComponentLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmaximumcomponentlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmaximumcomponentlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1306,7 +1306,7 @@ impl ISClusPartition_Vtbl {
             let this = (*this).get_impl();
             match this.FileSystemFlags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plfilesystemflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plfilesystemflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1317,7 +1317,7 @@ impl ISClusPartition_Vtbl {
             let this = (*this).get_impl();
             match this.FileSystem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrfilesystem = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrfilesystem, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1356,7 +1356,7 @@ impl ISClusPartitionEx_Vtbl {
             let this = (*this).get_impl();
             match this.TotalSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pltotalsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pltotalsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1367,7 +1367,7 @@ impl ISClusPartitionEx_Vtbl {
             let this = (*this).get_impl();
             match this.FreeSpace() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plfreespace = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plfreespace, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1378,7 +1378,7 @@ impl ISClusPartitionEx_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pldevicenumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pldevicenumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1389,7 +1389,7 @@ impl ISClusPartitionEx_Vtbl {
             let this = (*this).get_impl();
             match this.PartitionNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plpartitionnumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plpartitionnumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1400,7 +1400,7 @@ impl ISClusPartitionEx_Vtbl {
             let this = (*this).get_impl();
             match this.VolumeGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrvolumeguid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrvolumeguid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1435,7 +1435,7 @@ impl ISClusPartitions_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1446,7 +1446,7 @@ impl ISClusPartitions_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1457,7 +1457,7 @@ impl ISClusPartitions_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppartition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppartition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1498,7 +1498,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1509,7 +1509,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1525,7 +1525,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1536,7 +1536,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrname), ::core::mem::transmute(&varvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1552,7 +1552,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this.SaveChanges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1563,7 +1563,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this.ReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarreadonly = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarreadonly, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1574,7 +1574,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this.Private() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprivate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprivate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1585,7 +1585,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this.Common() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarcommon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarcommon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1596,7 +1596,7 @@ impl ISClusProperties_Vtbl {
             let this = (*this).get_impl();
             match this.Modified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarmodified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarmodified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1649,7 +1649,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1660,7 +1660,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1671,7 +1671,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.ValueCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1682,7 +1682,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Values() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterpropertyvalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterpropertyvalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1693,7 +1693,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1709,7 +1709,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1725,7 +1725,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Format() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1741,7 +1741,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.ReadOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarreadonly = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarreadonly, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1752,7 +1752,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Private() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarprivate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarprivate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1763,7 +1763,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Common() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarcommon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarcommon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1774,7 +1774,7 @@ impl ISClusProperty_Vtbl {
             let this = (*this).get_impl();
             match this.Modified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarmodified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarmodified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1830,7 +1830,7 @@ impl ISClusPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1846,7 +1846,7 @@ impl ISClusPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1862,7 +1862,7 @@ impl ISClusPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match this.Format() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1878,7 +1878,7 @@ impl ISClusPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match this.Length() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1889,7 +1889,7 @@ impl ISClusPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match this.DataCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1900,7 +1900,7 @@ impl ISClusPropertyValue_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterpropertyvaluedata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterpropertyvaluedata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1941,7 +1941,7 @@ impl ISClusPropertyValueData_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1952,7 +1952,7 @@ impl ISClusPropertyValueData_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1963,7 +1963,7 @@ impl ISClusPropertyValueData_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1974,7 +1974,7 @@ impl ISClusPropertyValueData_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&varvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvardata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvardata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2016,7 +2016,7 @@ impl ISClusPropertyValues_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2027,7 +2027,7 @@ impl ISClusPropertyValues_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2038,7 +2038,7 @@ impl ISClusPropertyValues_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2049,7 +2049,7 @@ impl ISClusPropertyValues_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrname), ::core::mem::transmute(&varvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppropertyvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppropertyvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2087,7 +2087,7 @@ impl ISClusRefObject_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2118,7 +2118,7 @@ impl ISClusRegistryKeys_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2129,7 +2129,7 @@ impl ISClusRegistryKeys_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2145,7 +2145,7 @@ impl ISClusRegistryKeys_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrregistrykey = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrregistrykey, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2196,7 +2196,7 @@ impl ISClusResDependencies_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2207,7 +2207,7 @@ impl ISClusResDependencies_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2223,7 +2223,7 @@ impl ISClusResDependencies_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2234,7 +2234,7 @@ impl ISClusResDependencies_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrresourcename), ::core::mem::transmute(&bstrresourcetype), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2292,7 +2292,7 @@ impl ISClusResDependents_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2303,7 +2303,7 @@ impl ISClusResDependents_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2319,7 +2319,7 @@ impl ISClusResDependents_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2330,7 +2330,7 @@ impl ISClusResDependents_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrresourcename), ::core::mem::transmute(&bstrresourcetype), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2396,7 +2396,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.CommonProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2407,7 +2407,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2418,7 +2418,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.CommonROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2429,7 +2429,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2440,7 +2440,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2451,7 +2451,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2467,7 +2467,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2478,7 +2478,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.OwnerNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppownernode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppownernode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2489,7 +2489,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Resources() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclustergroupresources = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclustergroupresources, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2500,7 +2500,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.PreferredOwnerNodes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppownernodes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppownernodes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2516,7 +2516,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Online(::core::mem::transmute(&vartimeout), ::core::mem::transmute(&varnode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarpending = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarpending, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2527,7 +2527,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Move(::core::mem::transmute(&vartimeout), ::core::mem::transmute(&varnode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarpending = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarpending, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2538,7 +2538,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Offline(::core::mem::transmute(&vartimeout)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarpending = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarpending, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2549,7 +2549,7 @@ impl ISClusResGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Cluster() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcluster = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcluster, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2601,7 +2601,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2612,7 +2612,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2628,7 +2628,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2649,7 +2649,7 @@ impl ISClusResGroupPreferredOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this.Modified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarmodified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarmodified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2701,7 +2701,7 @@ impl ISClusResGroupResources_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2712,7 +2712,7 @@ impl ISClusResGroupResources_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2728,7 +2728,7 @@ impl ISClusResGroupResources_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2739,7 +2739,7 @@ impl ISClusResGroupResources_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrresourcename), ::core::mem::transmute(&bstrresourcetype), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2783,7 +2783,7 @@ impl ISClusResGroups_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2794,7 +2794,7 @@ impl ISClusResGroups_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2810,7 +2810,7 @@ impl ISClusResGroups_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusresgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusresgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2821,7 +2821,7 @@ impl ISClusResGroups_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrresourcegroupname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresourcegroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresourcegroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2866,7 +2866,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2877,7 +2877,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2893,7 +2893,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2914,7 +2914,7 @@ impl ISClusResPossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this.Modified() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarmodified = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarmodified, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2958,7 +2958,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.CommonProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2969,7 +2969,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2980,7 +2980,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.CommonROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2991,7 +2991,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3002,7 +3002,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3018,7 +3018,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.Cluster() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcluster = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcluster, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3029,7 +3029,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.Resources() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterrestyperesources = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterrestyperesources, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3040,7 +3040,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.PossibleOwnerNodes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppownernodes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppownernodes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3051,7 +3051,7 @@ impl ISClusResType_Vtbl {
             let this = (*this).get_impl();
             match this.AvailableDisks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppavailabledisks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppavailabledisks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3092,7 +3092,7 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3103,7 +3103,7 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3119,7 +3119,7 @@ impl ISClusResTypePossibleOwnerNodes_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3156,7 +3156,7 @@ impl ISClusResTypeResources_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3167,7 +3167,7 @@ impl ISClusResTypeResources_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3183,7 +3183,7 @@ impl ISClusResTypeResources_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3194,7 +3194,7 @@ impl ISClusResTypeResources_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrresourcename), ::core::mem::transmute(&bstrgroupname), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3238,7 +3238,7 @@ impl ISClusResTypes_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3249,7 +3249,7 @@ impl ISClusResTypes_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3265,7 +3265,7 @@ impl ISClusResTypes_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusrestype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusrestype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3276,7 +3276,7 @@ impl ISClusResTypes_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrresourcetypename), ::core::mem::transmute(&bstrdisplayname), ::core::mem::transmute(&bstrresourcetypedll), ::core::mem::transmute_copy(&dwlooksalivepollinterval), ::core::mem::transmute_copy(&dwisalivepollinterval)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresourcetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresourcetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3346,7 +3346,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.CommonProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3357,7 +3357,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3368,7 +3368,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.CommonROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3379,7 +3379,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3390,7 +3390,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3401,7 +3401,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3417,7 +3417,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3428,7 +3428,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.CoreFlag() {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwcoreflag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwcoreflag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3454,7 +3454,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Online(::core::mem::transmute_copy(&ntimeout)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarpending = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarpending, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3465,7 +3465,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Offline(::core::mem::transmute_copy(&ntimeout)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarpending = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarpending, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3491,7 +3491,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.CanResourceBeDependent(::core::mem::transmute(&presource)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvardependent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvardependent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3502,7 +3502,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.PossibleOwnerNodes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppownernodes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppownernodes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3513,7 +3513,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Dependencies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresdependencies = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresdependencies, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3524,7 +3524,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Dependents() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresdependents = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresdependents, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3535,7 +3535,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Group() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3546,7 +3546,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.OwnerNode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppownernode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppownernode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3557,7 +3557,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Cluster() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcluster = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcluster, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3568,7 +3568,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.ClassInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *prcclassinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prcclassinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3579,7 +3579,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Disk() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdisk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdisk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3590,7 +3590,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.RegistryKeys() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppregistrykeys = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppregistrykeys, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3601,7 +3601,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.CryptoKeys() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcryptokeys = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcryptokeys, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3612,7 +3612,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.TypeName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrtypename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrtypename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3623,7 +3623,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresourcetype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresourcetype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3634,7 +3634,7 @@ impl ISClusResource_Vtbl {
             let this = (*this).get_impl();
             match this.MaintenanceMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbmaintenancemode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbmaintenancemode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3704,7 +3704,7 @@ impl ISClusResources_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3715,7 +3715,7 @@ impl ISClusResources_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3731,7 +3731,7 @@ impl ISClusResources_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3742,7 +3742,7 @@ impl ISClusResources_Vtbl {
             let this = (*this).get_impl();
             match this.CreateItem(::core::mem::transmute(&bstrresourcename), ::core::mem::transmute(&bstrresourcetype), ::core::mem::transmute(&bstrgroupname), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3784,7 +3784,7 @@ impl ISClusScsiAddress_Vtbl {
             let this = (*this).get_impl();
             match this.PortNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarportnumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarportnumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3795,7 +3795,7 @@ impl ISClusScsiAddress_Vtbl {
             let this = (*this).get_impl();
             match this.PathId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarpathid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarpathid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3806,7 +3806,7 @@ impl ISClusScsiAddress_Vtbl {
             let this = (*this).get_impl();
             match this.TargetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvartargetid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvartargetid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3817,7 +3817,7 @@ impl ISClusScsiAddress_Vtbl {
             let this = (*this).get_impl();
             match this.Lun() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarlun = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarlun, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3858,7 +3858,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrclustername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrclustername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3869,7 +3869,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.MajorVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnmajorversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnmajorversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3880,7 +3880,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.MinorVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnminorversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnminorversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3891,7 +3891,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.BuildNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnbuildnumber = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnbuildnumber, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3902,7 +3902,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.VendorId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrvendorid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrvendorid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3913,7 +3913,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.CSDVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrcsdversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrcsdversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3924,7 +3924,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.ClusterHighestVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnclusterhighestversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnclusterhighestversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3935,7 +3935,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.ClusterLowestVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnclusterlowestversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnclusterlowestversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3946,7 +3946,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.Flags() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3957,7 +3957,7 @@ impl ISClusVersion_Vtbl {
             let this = (*this).get_impl();
             match this.MixedVersion() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarmixedversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarmixedversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4015,7 +4015,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.CommonProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4026,7 +4026,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4037,7 +4037,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.CommonROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4048,7 +4048,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.PrivateROProperties() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4059,7 +4059,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.Handle() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4075,7 +4075,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4091,7 +4091,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.Version() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4107,7 +4107,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.QuorumResource() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclusterresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclusterresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4118,7 +4118,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.QuorumLogSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnlogsize = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnlogsize, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4134,7 +4134,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.QuorumPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppath = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppath, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4150,7 +4150,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.Nodes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnodes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnodes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4161,7 +4161,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.ResourceGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterresourcegroups = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterresourcegroups, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4172,7 +4172,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.Resources() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclusterresources = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclusterresources, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4183,7 +4183,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.ResourceTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresourcetypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresourcetypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4194,7 +4194,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.Networks() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnetworks = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnetworks, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4205,7 +4205,7 @@ impl ISCluster_Vtbl {
             let this = (*this).get_impl();
             match this.NetInterfaces() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnetinterfaces = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnetinterfaces, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4258,7 +4258,7 @@ impl ISClusterNames_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4269,7 +4269,7 @@ impl ISClusterNames_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4285,7 +4285,7 @@ impl ISClusterNames_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrclustername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrclustername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4296,7 +4296,7 @@ impl ISClusterNames_Vtbl {
             let this = (*this).get_impl();
             match this.DomainName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdomainname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdomainname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4332,7 +4332,7 @@ impl ISDomainNames_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4343,7 +4343,7 @@ impl ISDomainNames_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *retval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(retval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4359,7 +4359,7 @@ impl ISDomainNames_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&varindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdomainname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdomainname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

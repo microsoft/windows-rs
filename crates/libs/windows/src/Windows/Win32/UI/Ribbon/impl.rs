@@ -16,7 +16,7 @@ impl IUIApplication_Vtbl {
             let this = (*this).get_impl();
             match this.OnCreateUICommand(::core::mem::transmute_copy(&commandid), ::core::mem::transmute_copy(&typeid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *commandhandler = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(commandhandler, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -55,7 +55,7 @@ impl IUICollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -66,7 +66,7 @@ impl IUICollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetItem(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *item = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(item, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl IUICommandHandler_Vtbl {
             let this = (*this).get_impl();
             match this.UpdateProperty(::core::mem::transmute_copy(&commandid), ::core::mem::transmute_copy(&key), ::core::mem::transmute_copy(&currentvalue)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -258,7 +258,7 @@ impl IUIFramework_Vtbl {
             let this = (*this).get_impl();
             match this.GetUICommandProperty(::core::mem::transmute_copy(&commandid), ::core::mem::transmute_copy(&key)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -315,7 +315,7 @@ impl IUIImage_Vtbl {
             let this = (*this).get_impl();
             match this.GetBitmap() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bitmap = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bitmap, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -341,7 +341,7 @@ impl IUIImageFromBitmap_Vtbl {
             let this = (*this).get_impl();
             match this.CreateImage(::core::mem::transmute_copy(&bitmap), ::core::mem::transmute_copy(&options)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *image = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(image, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -369,7 +369,7 @@ impl IUIRibbon_Vtbl {
             let this = (*this).get_impl();
             match this.GetHeight() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -410,7 +410,7 @@ impl IUISimplePropertySet_Vtbl {
             let this = (*this).get_impl();
             match this.GetValue(::core::mem::transmute_copy(&key)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

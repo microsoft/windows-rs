@@ -37,9 +37,9 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     let return_arg = if let Some(return_type) = &signature.return_type {
         if return_type.is_winrt_array() {
             let return_type = gen_element_name(return_type, gen);
-            quote! { ::windows::core::Array::<#return_type>::set_abi_len(&mut result__), &mut result__ as *mut _ as _ }
+            quote! { ::windows::core::Array::<#return_type>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _ }
         } else {
-            quote! { &mut result__ }
+            quote! { result__.as_mut_ptr() }
         }
     } else {
         quote! {}
@@ -56,9 +56,9 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         if return_type.is_winrt_array() {
             (
                 quote! {
-                    let mut result__: #return_type_tokens = ::core::mem::zeroed();
+                    let mut result__ = ::core::mem::MaybeUninit::<#return_type_tokens>::zeroed();
                     (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #(#args,)* #composable_args #return_arg)
-                        .and_then(|| result__ )
+                        .and_then(|| result__.assume_init() )
                 },
                 quote! {},
             )
@@ -68,14 +68,14 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
 
             (
                 quote! {
-                    let mut result__: #abi_type_name = ::core::mem::zeroed();
-                        (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
-                            .from_abi::<#return_type_tokens>(result__ )
+                    let mut result__ = ::core::mem::MaybeUninit::<#abi_type_name>::zeroed();
+                    (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
+                        .from_abi::<#return_type_tokens>(result__)
                 },
                 quote! {
-                    let mut result__: #abi_type_name = ::core::mem::zeroed();
-                        (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
-                            .from_abi::<#return_type_tokens>(result__ )
+                    let mut result__ = ::core::mem::MaybeUninit::<#abi_type_name>::zeroed();
+                    (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
+                        .from_abi::<#return_type_tokens>(result__)
                 },
             )
         }
@@ -201,8 +201,8 @@ pub fn gen_com_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, me
                 #doc
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
-                    let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args ::core::mem::transmute(&mut result__))
+                    let mut result__ = ::core::mem::MaybeUninit::<#abi_return_type_tokens>::zeroed();
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), #args ::core::mem::transmute(result__.as_mut_ptr()))
                     .from_abi::<#return_type_tokens>(result__ )
                 }
             }

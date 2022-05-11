@@ -708,8 +708,8 @@ pub unsafe fn DwmGetCompositionTimingInfo<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> ::windows::core::HRESULT;
         }
-        let mut result__: DWM_TIMING_INFO = ::core::mem::zeroed();
-        DwmGetCompositionTimingInfo(hwnd.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DWM_TIMING_INFO>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DWM_TIMING_INFO>::zeroed();
+        DwmGetCompositionTimingInfo(hwnd.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWM_TIMING_INFO>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -723,8 +723,8 @@ pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> ::windows::core::Result
         extern "system" {
             fn DwmGetGraphicsStreamClient(uindex: u32, pclientuuid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
-        let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
-        DwmGetGraphicsStreamClient(::core::mem::transmute(uindex), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::GUID>::zeroed();
+        DwmGetGraphicsStreamClient(::core::mem::transmute(uindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::GUID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -738,8 +738,8 @@ pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32) -> ::windows::core:
         extern "system" {
             fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> ::windows::core::HRESULT;
         }
-        let mut result__: MilMatrix3x2D = ::core::mem::zeroed();
-        DwmGetGraphicsStreamTransformHint(::core::mem::transmute(uindex), ::core::mem::transmute(&mut result__)).from_abi::<MilMatrix3x2D>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<MilMatrix3x2D>::zeroed();
+        DwmGetGraphicsStreamTransformHint(::core::mem::transmute(uindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MilMatrix3x2D>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -769,8 +769,8 @@ pub unsafe fn DwmGetUnmetTabRequirements<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn DwmGetUnmetTabRequirements(appwindow: super::super::Foundation::HWND, value: *mut DWM_TAB_WINDOW_REQUIREMENTS) -> ::windows::core::HRESULT;
         }
-        let mut result__: DWM_TAB_WINDOW_REQUIREMENTS = ::core::mem::zeroed();
-        DwmGetUnmetTabRequirements(appwindow.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<DWM_TAB_WINDOW_REQUIREMENTS>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<DWM_TAB_WINDOW_REQUIREMENTS>::zeroed();
+        DwmGetUnmetTabRequirements(appwindow.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DWM_TAB_WINDOW_REQUIREMENTS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -815,8 +815,8 @@ pub unsafe fn DwmIsCompositionEnabled() -> ::windows::core::Result<super::super:
         extern "system" {
             fn DwmIsCompositionEnabled(pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        DwmIsCompositionEnabled(::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        DwmIsCompositionEnabled(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -846,8 +846,8 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> ::windows::core:
         extern "system" {
             fn DwmQueryThumbnailSourceSize(hthumbnail: isize, psize: *mut super::super::Foundation::SIZE) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::super::Foundation::SIZE = ::core::mem::zeroed();
-        DwmQueryThumbnailSourceSize(::core::mem::transmute(hthumbnail), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SIZE>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::SIZE>::zeroed();
+        DwmQueryThumbnailSourceSize(::core::mem::transmute(hthumbnail), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::SIZE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -862,8 +862,8 @@ pub unsafe fn DwmRegisterThumbnail<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND, phthumbnailid: *mut isize) -> ::windows::core::HRESULT;
         }
-        let mut result__: isize = ::core::mem::zeroed();
-        DwmRegisterThumbnail(hwnddestination.into_param().abi(), hwndsource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<isize>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<isize>::zeroed();
+        DwmRegisterThumbnail(hwnddestination.into_param().abi(), hwndsource.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<isize>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

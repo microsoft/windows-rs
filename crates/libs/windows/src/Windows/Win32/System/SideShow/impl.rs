@@ -50,7 +50,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -61,7 +61,7 @@ impl ISideShowCapabilitiesCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetAt(::core::mem::transmute_copy(&in_dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_ppcapabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_ppcapabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -98,7 +98,7 @@ impl ISideShowContent_Vtbl {
             let this = (*this).get_impl();
             match this.ContentId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_pcontentid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_pcontentid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -109,7 +109,7 @@ impl ISideShowContent_Vtbl {
             let this = (*this).get_impl();
             match this.DifferentiateContent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_pfdifferentiatecontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_pfdifferentiatecontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -161,7 +161,7 @@ impl ISideShowContentManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -194,7 +194,7 @@ impl ISideShowEvents_Vtbl {
             let this = (*this).get_impl();
             match this.ContentMissing(::core::mem::transmute_copy(&in_contentid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_ppicontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_ppicontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -301,7 +301,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match this.NotificationId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_pnotificationid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_pnotificationid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -317,7 +317,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match this.Title() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_ppwsztitle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_ppwsztitle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -333,7 +333,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match this.Message() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_ppwszmessage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_ppwszmessage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match this.Image() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_phicon = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_phicon, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -365,7 +365,7 @@ impl ISideShowNotification_Vtbl {
             let this = (*this).get_impl();
             match this.ExpirationTime() {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_ptime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_ptime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -491,7 +491,7 @@ impl ISideShowSession_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterContent(::core::mem::transmute_copy(&in_applicationid), ::core::mem::transmute_copy(&in_endpointid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_ppicontent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_ppicontent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -502,7 +502,7 @@ impl ISideShowSession_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterNotifications(::core::mem::transmute_copy(&in_applicationid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *out_ppinotification = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(out_ppinotification, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -9,7 +9,7 @@ impl IBindCallbackRedirect_Vtbl {
             let this = (*this).get_impl();
             match this.Redirect(::core::mem::transmute(&lpcurl)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *vbcancel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(vbcancel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -32,7 +32,7 @@ impl IBindHttpSecurity_Vtbl {
             let this = (*this).get_impl();
             match this.GetIgnoreCertMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwignorecertmask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwignorecertmask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -55,7 +55,7 @@ impl IBindProtocol_Vtbl {
             let this = (*this).get_impl();
             match this.CreateBinding(::core::mem::transmute(&szurl), ::core::mem::transmute(&pbc)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl ICatalogFileInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetCatalogFile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppszcatalogfile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppszcatalogfile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -166,7 +166,7 @@ impl IEncodingFilterFactory_Vtbl {
             let this = (*this).get_impl();
             match this.FindBestFilter(::core::mem::transmute(&pwzcodein), ::core::mem::transmute(&pwzcodeout), ::core::mem::transmute(&info)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -177,7 +177,7 @@ impl IEncodingFilterFactory_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultFilter(::core::mem::transmute(&pwzcodein), ::core::mem::transmute(&pwzcodeout)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdf = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdf, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -207,7 +207,7 @@ impl IGetBindHandle_Vtbl {
             let this = (*this).get_impl();
             match this.GetBindHandle(::core::mem::transmute_copy(&enumrequestedhandle)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prethandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prethandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -231,7 +231,7 @@ impl IHttpNegotiate_Vtbl {
             let this = (*this).get_impl();
             match this.BeginningTransaction(::core::mem::transmute(&szurl), ::core::mem::transmute(&szheaders), ::core::mem::transmute_copy(&dwreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszadditionalheaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszadditionalheaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -242,7 +242,7 @@ impl IHttpNegotiate_Vtbl {
             let this = (*this).get_impl();
             match this.OnResponse(::core::mem::transmute_copy(&dwresponsecode), ::core::mem::transmute(&szresponseheaders), ::core::mem::transmute(&szrequestheaders)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszadditionalrequestheaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszadditionalrequestheaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -426,7 +426,7 @@ impl IInternetPriority_Vtbl {
             let this = (*this).get_impl();
             match this.GetPriority() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnpriority = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnpriority, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -464,7 +464,7 @@ impl IInternetProtocol_Vtbl {
             let this = (*this).get_impl();
             match this.Seek(::core::mem::transmute_copy(&dlibmove), ::core::mem::transmute_copy(&dworigin)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plibnewposition = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plibnewposition, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -709,7 +709,7 @@ impl IInternetSecurityManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetSecuritySite() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsite = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsite, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -834,7 +834,7 @@ impl IInternetSecurityMgrSite_Vtbl {
             let this = (*this).get_impl();
             match this.GetWindow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1014,7 +1014,7 @@ impl IInternetZoneManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetZoneAt(::core::mem::transmute_copy(&dwenum), ::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwzone = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwzone, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1160,7 +1160,7 @@ impl IPersistMoniker_Vtbl {
             let this = (*this).get_impl();
             match this.GetClassID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pclassid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pclassid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1191,7 +1191,7 @@ impl IPersistMoniker_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurMoniker() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppimkname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppimkname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1267,7 +1267,7 @@ impl IUriBuilderFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateIUriBuilder(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&dwreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiuribuilder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiuribuilder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1278,7 +1278,7 @@ impl IUriBuilderFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateInitializedIUriBuilder(::core::mem::transmute_copy(&dwflags), ::core::mem::transmute_copy(&dwreserved)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiuribuilder = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiuribuilder, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1305,7 +1305,7 @@ impl IUriContainer_Vtbl {
             let this = (*this).get_impl();
             match this.GetIUri() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppiuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppiuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1443,7 +1443,7 @@ impl IWindowForBindingUI_Vtbl {
             let this = (*this).get_impl();
             match this.GetWindow(::core::mem::transmute_copy(&rguidreason)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phwnd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phwnd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1485,7 +1485,7 @@ impl IZoneIdentifier_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwzone = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwzone, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1528,7 +1528,7 @@ impl IZoneIdentifier2_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastWriterPackageFamilyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *packagefamilyname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(packagefamilyname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1549,7 +1549,7 @@ impl IZoneIdentifier2_Vtbl {
             let this = (*this).get_impl();
             match this.GetAppZoneId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *zone = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(zone, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

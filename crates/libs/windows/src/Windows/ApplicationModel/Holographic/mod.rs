@@ -22,8 +22,8 @@ impl HolographicKeyboard {
     #[doc = "*Required features: `\"ApplicationModel_Holographic\"`*"]
     pub fn GetDefault() -> ::windows::core::Result<HolographicKeyboard> {
         Self::IHolographicKeyboardStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<HolographicKeyboard>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).GetDefault)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<HolographicKeyboard>(result__)
         })
     }
     #[doc(hidden)]

@@ -619,8 +619,8 @@ pub unsafe fn CreatePseudoConsole<'a, Param0: ::windows::core::IntoParam<'a, COO
         extern "system" {
             fn CreatePseudoConsole(size: COORD, hinput: super::super::Foundation::HANDLE, houtput: super::super::Foundation::HANDLE, dwflags: u32, phpc: *mut HPCON) -> ::windows::core::HRESULT;
         }
-        let mut result__: HPCON = ::core::mem::zeroed();
-        CreatePseudoConsole(size.into_param().abi(), hinput.into_param().abi(), houtput.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(&mut result__)).from_abi::<HPCON>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<HPCON>::zeroed();
+        CreatePseudoConsole(size.into_param().abi(), hinput.into_param().abi(), houtput.into_param().abi(), ::core::mem::transmute(dwflags), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<HPCON>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

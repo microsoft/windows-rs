@@ -42,8 +42,8 @@ impl RemoteTextConnection {
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).IsEnabled)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
@@ -69,8 +69,8 @@ impl RemoteTextConnection {
     #[doc = "*Required features: `\"System_RemoteDesktop_Input\"`*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param1: ::windows::core::IntoParam<'a, RemoteTextConnectionDataHandler>>(connectionid: Param0, pduforwarder: Param1) -> ::windows::core::Result<RemoteTextConnection> {
         Self::IRemoteTextConnectionFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), connectionid.into_param().abi(), pduforwarder.into_param().abi(), &mut result__).from_abi::<RemoteTextConnection>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::windows::core::Interface::as_raw(this), connectionid.into_param().abi(), pduforwarder.into_param().abi(), result__.as_mut_ptr()).from_abi::<RemoteTextConnection>(result__)
         })
     }
     #[doc(hidden)]
@@ -189,8 +189,8 @@ impl RemoteTextConnectionDataHandler {
     pub fn Invoke(&self, pdudata: &[u8]) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
-            let mut result__: bool = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr()), &mut result__).from_abi::<bool>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<bool>::zeroed();
+            (::windows::core::Interface::vtable(this).Invoke)(::windows::core::Interface::as_raw(this), pdudata.len() as u32, ::core::mem::transmute(pdudata.as_ptr()), result__.as_mut_ptr()).from_abi::<bool>(result__)
         }
     }
 }
@@ -231,7 +231,7 @@ impl<F: FnMut(&[u8]) -> ::windows::core::Result<bool> + ::core::marker::Send + '
         let this = this as *mut ::windows::core::RawPtr as *mut Self;
         match ((*this).invoke)(::core::slice::from_raw_parts(::core::mem::transmute_copy(&pdudata), pduData_array_size as _)) {
             ::core::result::Result::Ok(ok__) => {
-                *result__ = ::core::mem::transmute_copy(&ok__);
+                ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                 ::core::mem::forget(ok__);
                 ::windows::core::HRESULT(0)
             }

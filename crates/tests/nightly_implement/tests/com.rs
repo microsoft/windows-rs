@@ -7,7 +7,7 @@ use windows::Win32::System::WinRT::Composition::*;
 use windows::Win32::System::WinRT::Display::*;
 
 #[implement(windows::Foundation::IStringable, windows::Win32::System::WinRT::Composition::ISwapChainInterop, windows::Win32::System::WinRT::Display::IDisplayPathInterop)]
-struct Mix();
+struct Mix;
 
 impl IStringable_Impl for Mix {
     fn ToString(&self) -> Result<HSTRING> {
@@ -32,13 +32,13 @@ impl IDisplayPathInterop_Impl for Mix {
 
 #[test]
 fn mix() -> Result<()> {
-    let a: ISwapChainInterop = Mix().into();
+    let a: ISwapChainInterop = Mix.into();
     unsafe { a.SetSwapChain(None)? };
 
     let b: IStringable = a.cast()?;
     assert!(b.ToString()? == "Mix");
 
-    let c: IStringable = Mix().into();
+    let c: IStringable = Mix.into();
     assert!(c.ToString()? == "Mix");
 
     let d: ISwapChainInterop = c.cast()?;

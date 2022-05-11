@@ -61,7 +61,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
         self.Size()
     }
     fn GetView(&self) -> Result<windows::Foundation::Collections::IVectorView<T>> {
-        self.cast()
+        unsafe { self.cast() }
     }
     fn IndexOf(&self, value: &T::DefaultType, result: &mut u32) -> Result<bool> {
         self.IndexOf(value, result)

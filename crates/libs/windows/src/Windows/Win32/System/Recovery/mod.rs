@@ -23,8 +23,8 @@ pub unsafe fn ApplicationRecoveryInProgress() -> ::windows::core::Result<super::
         extern "system" {
             fn ApplicationRecoveryInProgress(pbcancelled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT;
         }
-        let mut result__: super::super::Foundation::BOOL = ::core::mem::zeroed();
-        ApplicationRecoveryInProgress(::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<super::super::Foundation::BOOL>::zeroed();
+        ApplicationRecoveryInProgress(::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -27,7 +27,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match this.GetNumChannels() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumchannels = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumchannels, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -43,7 +43,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match this.ColorimetricToDeviceColors(::core::mem::transmute_copy(&ccolors), ::core::mem::transmute_copy(&cchannels), ::core::mem::transmute_copy(&pxyzcolors)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdevicevalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdevicevalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -54,7 +54,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match this.ColorimetricToDeviceColorsWithBlack(::core::mem::transmute_copy(&ccolors), ::core::mem::transmute_copy(&cchannels), ::core::mem::transmute_copy(&pxyzcolors), ::core::mem::transmute_copy(&pblackinformation)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdevicevalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdevicevalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -70,7 +70,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrimarySamples() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pprimarycolor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pprimarycolor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -91,7 +91,7 @@ impl IDeviceModelPlugIn_Vtbl {
             let this = (*this).get_impl();
             match this.GetNeutralAxisSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pccolors = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pccolors, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

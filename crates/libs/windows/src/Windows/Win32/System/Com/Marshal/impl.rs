@@ -77,7 +77,7 @@ impl IMarshalingStream_Vtbl {
             let this = (*this).get_impl();
             match this.GetMarshalingContextAttribute(::core::mem::transmute_copy(&attribute)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pattributevalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pattributevalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -115,7 +115,6 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
         } else {
             quote! { ::core::mem::ManuallyDrop<Self> }
         };
-
         let features = gen.cfg(cfg);
 
         let mut tokens = quote! {

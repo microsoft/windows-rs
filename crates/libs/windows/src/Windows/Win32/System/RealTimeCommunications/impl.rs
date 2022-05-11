@@ -70,7 +70,7 @@ impl IRTCBuddy_Vtbl {
             let this = (*this).get_impl();
             match this.Status() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -81,7 +81,7 @@ impl IRTCBuddy_Vtbl {
             let this = (*this).get_impl();
             match this.Notes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrnotes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrnotes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -118,7 +118,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match this.Profile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -134,7 +134,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -145,7 +145,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match this.Groups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -156,7 +156,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match this.get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -167,7 +167,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match this.EnumeratePresenceDevices() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumdevices = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumdevices, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -178,7 +178,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match this.PresenceDevices() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevicescollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevicescollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -189,7 +189,7 @@ impl IRTCBuddy2_Vtbl {
             let this = (*this).get_impl();
             match this.SubscriptionType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pensubscriptiontype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pensubscriptiontype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -225,7 +225,7 @@ impl IRTCBuddyEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Buddy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbuddy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbuddy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -253,7 +253,7 @@ impl IRTCBuddyEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -264,7 +264,7 @@ impl IRTCBuddyEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -275,7 +275,7 @@ impl IRTCBuddyEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -314,7 +314,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrgroupname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrgroupname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -340,7 +340,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateBuddies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -351,7 +351,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Buddies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -378,7 +378,7 @@ impl IRTCBuddyGroup_Vtbl {
             let this = (*this).get_impl();
             match this.Profile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -418,7 +418,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -429,7 +429,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Group() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -440,7 +440,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Buddy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbuddy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbuddy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -451,7 +451,7 @@ impl IRTCBuddyGroupEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -544,7 +544,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.EventFilter() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plfilter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plfilter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -560,7 +560,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.PreferredMediaTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmediatypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmediatypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -571,7 +571,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.MediaCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmediatypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmediatypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -582,7 +582,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSession(::core::mem::transmute_copy(&entype), ::core::mem::transmute(&bstrlocalphoneuri), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -598,7 +598,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.ListenForIncomingSessions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penlisten = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penlisten, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -609,7 +609,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.get_NetworkAddresses(::core::mem::transmute_copy(&ftcp), ::core::mem::transmute_copy(&fexternal)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvaddresses = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvaddresses, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -625,7 +625,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.get_Volume(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plvolume = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plvolume, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -641,7 +641,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.get_AudioMuted(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfmuted = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfmuted, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -652,7 +652,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.get_IVideoWindow(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppivideowindow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppivideowindow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -668,7 +668,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.get_PreferredAudioDevice(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdevicename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdevicename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -684,7 +684,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.get_PreferredVolume(::core::mem::transmute_copy(&endevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plvolume = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plvolume, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -700,7 +700,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.PreferredAEC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -716,7 +716,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.PreferredVideoDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdevicename = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdevicename, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -727,7 +727,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.ActiveMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmediatype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmediatype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -743,7 +743,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.MaxBitrate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmaxbitrate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmaxbitrate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -759,7 +759,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.TemporalSpatialTradeOff() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -770,7 +770,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.NetworkQuality() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plnetworkquality = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plnetworkquality, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -791,7 +791,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.get_IsT120AppletRunning(::core::mem::transmute_copy(&enapplet)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfrunning = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfrunning, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -802,7 +802,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.LocalUserURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstruseruri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstruseruri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -818,7 +818,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.LocalUserName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrusername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrusername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -849,7 +849,7 @@ impl IRTCClient_Vtbl {
             let this = (*this).get_impl();
             match this.IsTuned() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pftuned = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pftuned, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -936,7 +936,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match this.get_AnswerMode(::core::mem::transmute_copy(&entype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *penmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -952,7 +952,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match this.Version() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plversion = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plversion, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -978,7 +978,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSessionWithDescription(::core::mem::transmute(&bstrcontenttype), ::core::mem::transmute(&bstrsessiondescription), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession2 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession2, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -999,7 +999,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match this.get_PreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pensecuritylevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pensecuritylevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1015,7 +1015,7 @@ impl IRTCClient2_Vtbl {
             let this = (*this).get_impl();
             match this.get_AllowedPorts(::core::mem::transmute_copy(&ltransport)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *penlistenmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penlistenmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1057,7 +1057,7 @@ impl IRTCClientEvent_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peneventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peneventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1068,7 +1068,7 @@ impl IRTCClientEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Client() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclient = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclient, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1167,7 +1167,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateBuddies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1178,7 +1178,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.Buddies() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1189,7 +1189,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.get_Buddy(::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbuddy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbuddy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1200,7 +1200,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.AddBuddy(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbuddy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbuddy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1216,7 +1216,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateWatchers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1227,7 +1227,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.Watchers() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1238,7 +1238,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.get_Watcher(::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwatcher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwatcher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1249,7 +1249,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.AddWatcher(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fblocked), ::core::mem::transmute_copy(&fpersistent)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwatcher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwatcher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1270,7 +1270,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.OfferWatcherMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1286,7 +1286,7 @@ impl IRTCClientPresence_Vtbl {
             let this = (*this).get_impl();
             match this.PrivacyMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1361,7 +1361,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match this.AddGroup(::core::mem::transmute(&bstrgroupname), ::core::mem::transmute(&bstrdata), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1377,7 +1377,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateGroups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1388,7 +1388,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match this.Groups() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1399,7 +1399,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match this.get_Group(::core::mem::transmute(&bstrgroupname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppgroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppgroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1410,7 +1410,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match this.AddWatcherEx(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&enstate), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute_copy(&enscope), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwatcher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwatcher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1421,7 +1421,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match this.get_WatcherEx(::core::mem::transmute_copy(&enmode), ::core::mem::transmute(&bstrpresentityuri)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwatcher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwatcher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1437,7 +1437,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match this.get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1463,7 +1463,7 @@ impl IRTCClientPresence2_Vtbl {
             let this = (*this).get_impl();
             match this.AddBuddyEx(::core::mem::transmute(&bstrpresentityuri), ::core::mem::transmute(&bstrusername), ::core::mem::transmute(&bstrdata), ::core::mem::transmute_copy(&fpersistent), ::core::mem::transmute_copy(&ensubscriptiontype), ::core::mem::transmute(&pprofile), ::core::mem::transmute_copy(&lflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppbuddy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppbuddy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1512,7 +1512,7 @@ impl IRTCClientProvisioning_Vtbl {
             let this = (*this).get_impl();
             match this.CreateProfile(::core::mem::transmute(&bstrprofilexml)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1533,7 +1533,7 @@ impl IRTCClientProvisioning_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateProfiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1544,7 +1544,7 @@ impl IRTCClientProvisioning_Vtbl {
             let this = (*this).get_impl();
             match this.Profiles() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1560,7 +1560,7 @@ impl IRTCClientProvisioning_Vtbl {
             let this = (*this).get_impl();
             match this.SessionCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plsupportedsessions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plsupportedsessions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1617,7 +1617,7 @@ impl IRTCCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *lcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(lcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1628,7 +1628,7 @@ impl IRTCCollection_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvariant = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvariant, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1639,7 +1639,7 @@ impl IRTCCollection_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnewenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnewenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1698,7 +1698,7 @@ impl IRTCEnumBuddies_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1745,7 +1745,7 @@ impl IRTCEnumGroups_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1792,7 +1792,7 @@ impl IRTCEnumParticipants_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1839,7 +1839,7 @@ impl IRTCEnumPresenceDevices_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1886,7 +1886,7 @@ impl IRTCEnumProfiles_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1933,7 +1933,7 @@ impl IRTCEnumUserSearchResults_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1980,7 +1980,7 @@ impl IRTCEnumWatchers_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2035,7 +2035,7 @@ impl IRTCInfoEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2046,7 +2046,7 @@ impl IRTCInfoEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Participant() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparticipant = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparticipant, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2057,7 +2057,7 @@ impl IRTCInfoEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Info() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrinfo = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrinfo, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2068,7 +2068,7 @@ impl IRTCInfoEvent_Vtbl {
             let this = (*this).get_impl();
             match this.InfoHeader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrinfoheader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrinfoheader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2103,7 +2103,7 @@ impl IRTCIntensityEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Level() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pllevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pllevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2114,7 +2114,7 @@ impl IRTCIntensityEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Min() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmin = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmin, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2125,7 +2125,7 @@ impl IRTCIntensityEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Max() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmax = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmax, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2136,7 +2136,7 @@ impl IRTCIntensityEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Direction() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pendirection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pendirection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2170,7 +2170,7 @@ impl IRTCMediaEvent_Vtbl {
             let this = (*this).get_impl();
             match this.MediaType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmediatype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmediatype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2181,7 +2181,7 @@ impl IRTCMediaEvent_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peneventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peneventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2192,7 +2192,7 @@ impl IRTCMediaEvent_Vtbl {
             let this = (*this).get_impl();
             match this.EventReason() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peneventreason = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peneventreason, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2229,7 +2229,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2240,7 +2240,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match this.ProposedMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmediatypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmediatypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2251,7 +2251,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match this.CurrentMedia() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plmediatypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plmediatypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2267,7 +2267,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match this.get_RemotePreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pensecuritylevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pensecuritylevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2283,7 +2283,7 @@ impl IRTCMediaRequestEvent_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2323,7 +2323,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2334,7 +2334,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Participant() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparticipant = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparticipant, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2345,7 +2345,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peneventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peneventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2356,7 +2356,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Message() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrmessage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrmessage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2367,7 +2367,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.MessageHeader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrmessageheader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrmessageheader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2378,7 +2378,7 @@ impl IRTCMessagingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.UserStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penuserstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penuserstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2416,7 +2416,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match this.UserURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstruseruri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstruseruri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2427,7 +2427,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2438,7 +2438,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match this.Removable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfremovable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfremovable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2449,7 +2449,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2460,7 +2460,7 @@ impl IRTCParticipant_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2495,7 +2495,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Participant() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparticipant = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparticipant, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2506,7 +2506,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2517,7 +2517,7 @@ impl IRTCParticipantStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2592,7 +2592,7 @@ impl IRTCPresenceContact_Vtbl {
             let this = (*this).get_impl();
             match this.PresentityURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrpresentityuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrpresentityuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2608,7 +2608,7 @@ impl IRTCPresenceContact_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2624,7 +2624,7 @@ impl IRTCPresenceContact_Vtbl {
             let this = (*this).get_impl();
             match this.Data() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2640,7 +2640,7 @@ impl IRTCPresenceContact_Vtbl {
             let this = (*this).get_impl();
             match this.Persistent() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfpersistent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfpersistent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2683,7 +2683,7 @@ impl IRTCPresenceDataEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2694,7 +2694,7 @@ impl IRTCPresenceDataEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2733,7 +2733,7 @@ impl IRTCPresenceDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Status() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2744,7 +2744,7 @@ impl IRTCPresenceDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Notes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrnotes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrnotes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2755,7 +2755,7 @@ impl IRTCPresenceDevice_Vtbl {
             let this = (*this).get_impl();
             match this.get_PresenceProperty(::core::mem::transmute_copy(&enproperty)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2795,7 +2795,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2806,7 +2806,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2817,7 +2817,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
             let this = (*this).get_impl();
             match this.PresenceProperty() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penpresprop = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penpresprop, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2828,7 +2828,7 @@ impl IRTCPresencePropertyEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Value() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2862,7 +2862,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2873,7 +2873,7 @@ impl IRTCPresenceStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2926,7 +2926,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.Key() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrkey = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrkey, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2937,7 +2937,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.Name() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2948,7 +2948,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.XML() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrxml = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrxml, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2959,7 +2959,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.ProviderName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2970,7 +2970,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.get_ProviderURI(::core::mem::transmute_copy(&enuri)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstruri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstruri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2981,7 +2981,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.ProviderData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2992,7 +2992,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.ClientName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3003,7 +3003,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.ClientBanner() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfbanner = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfbanner, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3014,7 +3014,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.ClientMinVer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrminver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrminver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3025,7 +3025,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.ClientCurVer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrcurver = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrcurver, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3036,7 +3036,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.ClientUpdateURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrupdateuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrupdateuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3047,7 +3047,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.ClientData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3058,7 +3058,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.UserURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstruseruri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstruseruri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3069,7 +3069,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.UserName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrusername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrusername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3080,7 +3080,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.UserAccount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstruseraccount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstruseraccount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3096,7 +3096,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.SessionCapabilities() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plsupportedsessions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plsupportedsessions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3107,7 +3107,7 @@ impl IRTCProfile_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3156,7 +3156,7 @@ impl IRTCProfile2_Vtbl {
             let this = (*this).get_impl();
             match this.Realm() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrrealm = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrrealm, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3172,7 +3172,7 @@ impl IRTCProfile2_Vtbl {
             let this = (*this).get_impl();
             match this.AllowedAuth() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plallowedauth = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plallowedauth, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3211,7 +3211,7 @@ impl IRTCProfileEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Profile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3222,7 +3222,7 @@ impl IRTCProfileEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Cookie() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3233,7 +3233,7 @@ impl IRTCProfileEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3264,7 +3264,7 @@ impl IRTCProfileEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3294,7 +3294,7 @@ impl IRTCReInviteEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession2 = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession2, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3315,7 +3315,7 @@ impl IRTCReInviteEvent_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3356,7 +3356,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Profile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3367,7 +3367,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3378,7 +3378,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3389,7 +3389,7 @@ impl IRTCRegistrationStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3424,7 +3424,7 @@ impl IRTCRoamingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3435,7 +3435,7 @@ impl IRTCRoamingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Profile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3446,7 +3446,7 @@ impl IRTCRoamingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3457,7 +3457,7 @@ impl IRTCRoamingEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3508,7 +3508,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.Client() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppclient = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppclient, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3519,7 +3519,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3530,7 +3530,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pentype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pentype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3541,7 +3541,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.Profile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3552,7 +3552,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.Participants() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3578,7 +3578,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.AddParticipant(::core::mem::transmute(&bstraddress), ::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparticipant = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparticipant, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3594,7 +3594,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateParticipants() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3605,7 +3605,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.CanAddParticipants() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfcanadd = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfcanadd, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3616,7 +3616,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.RedirectedUserURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstruseruri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstruseruri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3627,7 +3627,7 @@ impl IRTCSession_Vtbl {
             let this = (*this).get_impl();
             match this.RedirectedUserName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrusername = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrusername, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3720,7 +3720,7 @@ impl IRTCSession2_Vtbl {
             let this = (*this).get_impl();
             match this.get_PreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pensecuritylevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pensecuritylevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3731,7 +3731,7 @@ impl IRTCSession2_Vtbl {
             let this = (*this).get_impl();
             match this.IsSecurityEnabled(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfsecurityenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfsecurityenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3808,7 +3808,7 @@ impl IRTCSessionCallControl_Vtbl {
             let this = (*this).get_impl();
             match this.ReferredByURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrreferredbyuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrreferredbyuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3824,7 +3824,7 @@ impl IRTCSessionCallControl_Vtbl {
             let this = (*this).get_impl();
             match this.ReferCookie() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrrefercookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrrefercookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3835,7 +3835,7 @@ impl IRTCSessionCallControl_Vtbl {
             let this = (*this).get_impl();
             match this.IsReferred() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfisreferred = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfisreferred, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3898,7 +3898,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3909,7 +3909,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Cookie() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3920,7 +3920,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3931,7 +3931,7 @@ impl IRTCSessionOperationCompleteEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3964,7 +3964,7 @@ impl IRTCSessionOperationCompleteEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.Participant() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparticipant = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparticipant, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4019,7 +4019,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4030,7 +4030,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match this.ReferStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penreferstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penreferstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4041,7 +4041,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4052,7 +4052,7 @@ impl IRTCSessionReferStatusEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4090,7 +4090,7 @@ impl IRTCSessionReferredEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4101,7 +4101,7 @@ impl IRTCSessionReferredEvent_Vtbl {
             let this = (*this).get_impl();
             match this.ReferredByURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrreferredbyuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrreferredbyuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4112,7 +4112,7 @@ impl IRTCSessionReferredEvent_Vtbl {
             let this = (*this).get_impl();
             match this.ReferToURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrreferouri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrreferouri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4123,7 +4123,7 @@ impl IRTCSessionReferredEvent_Vtbl {
             let this = (*this).get_impl();
             match this.ReferCookie() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrrefercookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrrefercookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4176,7 +4176,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Session() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsession = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsession, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4187,7 +4187,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4198,7 +4198,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4209,7 +4209,7 @@ impl IRTCSessionStateChangeEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrstatustext = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrstatustext, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4244,7 +4244,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.MediaTypes() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmediatypes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmediatypes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4255,7 +4255,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.get_RemotePreferredSecurityLevel(::core::mem::transmute_copy(&ensecuritytype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pensecuritylevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pensecuritylevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4266,7 +4266,7 @@ impl IRTCSessionStateChangeEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.IsForked() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfisforked = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfisforked, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4301,7 +4301,7 @@ impl IRTCUserSearch_Vtbl {
             let this = (*this).get_impl();
             match this.CreateQuery() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppquery = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppquery, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4347,7 +4347,7 @@ impl IRTCUserSearchQuery_Vtbl {
             let this = (*this).get_impl();
             match this.get_SearchTerm(::core::mem::transmute(&bstrname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4358,7 +4358,7 @@ impl IRTCUserSearchQuery_Vtbl {
             let this = (*this).get_impl();
             match this.SearchTerms() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrnames = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrnames, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4374,7 +4374,7 @@ impl IRTCUserSearchQuery_Vtbl {
             let this = (*this).get_impl();
             match this.get_SearchPreference(::core::mem::transmute_copy(&enpreference)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4390,7 +4390,7 @@ impl IRTCUserSearchQuery_Vtbl {
             let this = (*this).get_impl();
             match this.SearchDomain() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdomain = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdomain, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4425,7 +4425,7 @@ impl IRTCUserSearchResult_Vtbl {
             let this = (*this).get_impl();
             match this.get_Value(::core::mem::transmute_copy(&encolumn)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4457,7 +4457,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerateResults() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4468,7 +4468,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Results() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppcollection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppcollection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4479,7 +4479,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Profile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4490,7 +4490,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Query() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppquery = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppquery, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4501,7 +4501,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Cookie() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcookie = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcookie, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4512,7 +4512,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4523,7 +4523,7 @@ impl IRTCUserSearchResultsEvent_Vtbl {
             let this = (*this).get_impl();
             match this.MoreAvailable() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfmoreavailable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfmoreavailable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4559,7 +4559,7 @@ impl IRTCWatcher_Vtbl {
             let this = (*this).get_impl();
             match this.State() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4595,7 +4595,7 @@ impl IRTCWatcher2_Vtbl {
             let this = (*this).get_impl();
             match this.Profile() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppprofile = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppprofile, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4606,7 +4606,7 @@ impl IRTCWatcher2_Vtbl {
             let this = (*this).get_impl();
             match this.Scope() {
                 ::core::result::Result::Ok(ok__) => {
-                    *penscope = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(penscope, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4632,7 +4632,7 @@ impl IRTCWatcherEvent_Vtbl {
             let this = (*this).get_impl();
             match this.Watcher() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwatcher = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwatcher, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4659,7 +4659,7 @@ impl IRTCWatcherEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.EventType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *peventtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(peventtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -4670,7 +4670,7 @@ impl IRTCWatcherEvent2_Vtbl {
             let this = (*this).get_impl();
             match this.StatusCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plstatuscode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plstatuscode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -165,8 +165,8 @@ impl IPrintDocumentPackageTargetFactory {
     #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`, `\"Win32_System_Com\"`*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateDocumentPackageTargetForPrintJob<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param1: ::windows::core::IntoParam<'a, ::windows::core::PCWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, printername: Param0, jobname: Param1, joboutputstream: Param2, jobprintticketstream: Param3) -> ::windows::core::Result<IPrintDocumentPackageTarget> {
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Interface::as_raw(self), printername.into_param().abi(), jobname.into_param().abi(), joboutputstream.into_param().abi(), jobprintticketstream.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPrintDocumentPackageTarget>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).CreateDocumentPackageTargetForPrintJob)(::windows::core::Interface::as_raw(self), printername.into_param().abi(), jobname.into_param().abi(), joboutputstream.into_param().abi(), jobprintticketstream.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IPrintDocumentPackageTarget>(result__)
     }
 }
 impl ::core::convert::From<IPrintDocumentPackageTargetFactory> for ::windows::core::IUnknown {
@@ -228,8 +228,8 @@ impl IXpsPrintJob {
     }
     #[doc = "*Required features: `\"Win32_Storage_Xps_Printing\"`*"]
     pub unsafe fn GetJobStatus(&self) -> ::windows::core::Result<XPS_JOB_STATUS> {
-        let mut result__: XPS_JOB_STATUS = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).GetJobStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_JOB_STATUS>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<XPS_JOB_STATUS>::zeroed();
+        (::windows::core::Interface::vtable(self).GetJobStatus)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<XPS_JOB_STATUS>(result__)
     }
 }
 impl ::core::convert::From<IXpsPrintJob> for ::windows::core::IUnknown {

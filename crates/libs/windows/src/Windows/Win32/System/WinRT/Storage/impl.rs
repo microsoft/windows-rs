@@ -26,7 +26,7 @@ impl IRandomAccessStreamFileAccessMode_Vtbl {
             let this = (*this).get_impl();
             match this.GetMode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *fileaccessmode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(fileaccessmode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -52,7 +52,7 @@ impl IStorageFolderHandleAccess_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&filename), ::core::mem::transmute_copy(&creationoptions), ::core::mem::transmute_copy(&accessoptions), ::core::mem::transmute_copy(&sharingoptions), ::core::mem::transmute_copy(&options), ::core::mem::transmute(&oplockbreakinghandler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *interophandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(interophandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -78,7 +78,7 @@ impl IStorageItemHandleAccess_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute_copy(&accessoptions), ::core::mem::transmute_copy(&sharingoptions), ::core::mem::transmute_copy(&options), ::core::mem::transmute(&oplockbreakinghandler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *interophandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(interophandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -119,7 +119,7 @@ impl IUnbufferedFileHandleProvider_Vtbl {
             let this = (*this).get_impl();
             match this.OpenUnbufferedFileHandle(::core::mem::transmute(&oplockbreakcallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *filehandle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(filehandle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

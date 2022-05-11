@@ -81,7 +81,7 @@ impl IViewHelper_Vtbl {
             let this = (*this).get_impl();
             match this.SetConfiguration(::core::mem::transmute(&pistream)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pulstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pulstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

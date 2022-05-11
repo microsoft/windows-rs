@@ -21,7 +21,7 @@ impl IDMOQualityControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -52,7 +52,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
             let this = (*this).get_impl();
             match this.QueryOperationModePreferences(::core::mem::transmute_copy(&uloutputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwrequestedcapabilities = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwrequestedcapabilities, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -68,7 +68,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentOperationMode(::core::mem::transmute_copy(&uloutputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwenabledfeatures = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwenabledfeatures, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl IDMOVideoOutputOptimizations_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentSampleRequirements(::core::mem::transmute_copy(&uloutputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwrequestedfeatures = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwrequestedfeatures, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -126,7 +126,7 @@ impl IEnumDMO_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -162,7 +162,7 @@ impl IMediaBuffer_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcbmaxlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcbmaxlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -223,7 +223,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputStreamInfo(::core::mem::transmute_copy(&dwinputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -234,7 +234,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputStreamInfo(::core::mem::transmute_copy(&dwoutputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -245,7 +245,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputType(::core::mem::transmute_copy(&dwinputstreamindex), ::core::mem::transmute_copy(&dwtypeindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -256,7 +256,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputType(::core::mem::transmute_copy(&dwoutputstreamindex), ::core::mem::transmute_copy(&dwtypeindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -277,7 +277,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputCurrentType(::core::mem::transmute_copy(&dwinputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -288,7 +288,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetOutputCurrentType(::core::mem::transmute_copy(&dwoutputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmt = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmt, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -309,7 +309,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputMaxLatency(::core::mem::transmute_copy(&dwinputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *prtmaxlatency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(prtmaxlatency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -345,7 +345,7 @@ impl IMediaObject_Vtbl {
             let this = (*this).get_impl();
             match this.GetInputStatus(::core::mem::transmute_copy(&dwinputstreamindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *dwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(dwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -413,7 +413,7 @@ impl IMediaObjectInPlace_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppmediaobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppmediaobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -424,7 +424,7 @@ impl IMediaObjectInPlace_Vtbl {
             let this = (*this).get_impl();
             match this.GetLatency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *platencytime = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(platencytime, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

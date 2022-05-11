@@ -13,7 +13,7 @@ impl ICustomGameControllerFactory_Vtbl {
             let this = (*this).get_impl();
             match this.CreateGameController(::core::mem::transmute(&provider)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -87,7 +87,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.FirmwareVersionInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -99,7 +99,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.HardwareProductId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -111,7 +111,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.HardwareVendorId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -123,7 +123,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.HardwareVersionInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -135,7 +135,7 @@ impl IGameControllerProvider_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

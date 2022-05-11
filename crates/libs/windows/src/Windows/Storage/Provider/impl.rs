@@ -11,7 +11,7 @@ impl IStorageProviderHandlerFactory_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatusSource(::core::mem::transmute(&syncrootid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -43,7 +43,7 @@ impl IStorageProviderItemPropertySource_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemProperties(::core::mem::transmute(&itempath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -72,7 +72,7 @@ impl IStorageProviderPropertyCapabilities_Vtbl {
             let this = (*this).get_impl();
             match this.IsPropertySupported(::core::mem::transmute(&propertycanonicalname)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -106,7 +106,7 @@ impl IStorageProviderStatusSource_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }
@@ -118,7 +118,7 @@ impl IStorageProviderStatusSource_Vtbl {
             let this = (*this).get_impl();
             match this.Changed(::core::mem::transmute(&handler)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
                     ::core::mem::forget(ok__);
                     ::windows::core::HRESULT(0)
                 }

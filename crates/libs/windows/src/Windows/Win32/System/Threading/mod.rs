@@ -1859,8 +1859,8 @@ pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows::core::Result<
         extern "system" {
             fn GetMachineTypeAttributes(machine: u16, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> ::windows::core::HRESULT;
         }
-        let mut result__: MACHINE_ATTRIBUTES = ::core::mem::zeroed();
-        GetMachineTypeAttributes(::core::mem::transmute(machine), ::core::mem::transmute(&mut result__)).from_abi::<MACHINE_ATTRIBUTES>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<MACHINE_ATTRIBUTES>::zeroed();
+        GetMachineTypeAttributes(::core::mem::transmute(machine), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<MACHINE_ATTRIBUTES>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2381,8 +2381,8 @@ pub unsafe fn GetThreadDescription<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn GetThreadDescription(hthread: super::super::Foundation::HANDLE, ppszthreaddescription: *mut ::windows::core::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: ::windows::core::PWSTR = ::core::mem::zeroed();
-        GetThreadDescription(hthread.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::PWSTR>(result__)
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::PWSTR>::zeroed();
+        GetThreadDescription(hthread.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<::windows::core::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -39,7 +39,7 @@ impl IWSCProductList_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -50,7 +50,7 @@ impl IWSCProductList_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -87,7 +87,7 @@ impl IWscProduct_Vtbl {
             let this = (*this).get_impl();
             match this.ProductName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -98,7 +98,7 @@ impl IWscProduct_Vtbl {
             let this = (*this).get_impl();
             match this.ProductState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -109,7 +109,7 @@ impl IWscProduct_Vtbl {
             let this = (*this).get_impl();
             match this.SignatureStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -120,7 +120,7 @@ impl IWscProduct_Vtbl {
             let this = (*this).get_impl();
             match this.RemediationPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -131,7 +131,7 @@ impl IWscProduct_Vtbl {
             let this = (*this).get_impl();
             match this.ProductStateTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -142,7 +142,7 @@ impl IWscProduct_Vtbl {
             let this = (*this).get_impl();
             match this.ProductGuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -153,7 +153,7 @@ impl IWscProduct_Vtbl {
             let this = (*this).get_impl();
             match this.ProductIsDefault() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl IWscProduct2_Vtbl {
             let this = (*this).get_impl();
             match this.AntivirusScanSubstatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pestatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pestatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl IWscProduct2_Vtbl {
             let this = (*this).get_impl();
             match this.AntivirusSettingsSubstatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pestatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pestatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -215,7 +215,7 @@ impl IWscProduct2_Vtbl {
             let this = (*this).get_impl();
             match this.AntivirusProtectionUpdateSubstatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pestatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pestatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -226,7 +226,7 @@ impl IWscProduct2_Vtbl {
             let this = (*this).get_impl();
             match this.FirewallDomainProfileSubstatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pestatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pestatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -237,7 +237,7 @@ impl IWscProduct2_Vtbl {
             let this = (*this).get_impl();
             match this.FirewallPrivateProfileSubstatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pestatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pestatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -248,7 +248,7 @@ impl IWscProduct2_Vtbl {
             let this = (*this).get_impl();
             match this.FirewallPublicProfileSubstatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pestatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pestatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -282,7 +282,7 @@ impl IWscProduct3_Vtbl {
             let this = (*this).get_impl();
             match this.AntivirusDaysUntilExpired() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwdays = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwdays, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

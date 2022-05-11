@@ -15,7 +15,7 @@ impl IWSMan_Vtbl {
             let this = (*this).get_impl();
             match this.CreateSession(::core::mem::transmute(&connection), ::core::mem::transmute_copy(&flags), ::core::mem::transmute(&connectionoptions)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *session = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(session, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -26,7 +26,7 @@ impl IWSMan_Vtbl {
             let this = (*this).get_impl();
             match this.CreateConnectionOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *connectionoptions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(connectionoptions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -37,7 +37,7 @@ impl IWSMan_Vtbl {
             let this = (*this).get_impl();
             match this.CommandLine() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -48,7 +48,7 @@ impl IWSMan_Vtbl {
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -82,7 +82,7 @@ impl IWSManConnectionOptions_Vtbl {
             let this = (*this).get_impl();
             match this.UserName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *name = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(name, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -124,7 +124,7 @@ impl IWSManConnectionOptionsEx_Vtbl {
             let this = (*this).get_impl();
             match this.CertificateThumbprint() {
                 ::core::result::Result::Ok(ok__) => {
-                    *thumbprint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(thumbprint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -171,7 +171,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyIEConfig() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -182,7 +182,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyWinHttpConfig() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyAutoDetect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyNoProxyServer() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -215,7 +215,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyAuthenticationUseNegotiate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -226,7 +226,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyAuthenticationUseBasic() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -237,7 +237,7 @@ impl IWSManConnectionOptionsEx2_Vtbl {
             let this = (*this).get_impl();
             match this.ProxyAuthenticationUseDigest() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -275,7 +275,7 @@ impl IWSManEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.ReadItem() {
                 ::core::result::Result::Ok(ok__) => {
-                    *resource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -286,7 +286,7 @@ impl IWSManEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.AtEndOfStream() {
                 ::core::result::Result::Ok(ok__) => {
-                    *eos = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(eos, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -297,7 +297,7 @@ impl IWSManEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -347,7 +347,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.CreateResourceLocator(::core::mem::transmute(&strresourcelocator)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newresourcelocator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newresourcelocator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -358,7 +358,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUTF8() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -369,7 +369,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagCredUsernamePassword() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -380,7 +380,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagSkipCACheck() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -391,7 +391,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagSkipCNCheck() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -402,7 +402,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUseDigest() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -413,7 +413,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUseNegotiate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -424,7 +424,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUseBasic() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -435,7 +435,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUseKerberos() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -446,7 +446,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagNoEncryption() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -457,7 +457,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagEnableSPNServerPort() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -468,7 +468,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUseNoAuthentication() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -479,7 +479,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagNonXmlText() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -490,7 +490,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagReturnEPR() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -501,7 +501,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagReturnObjectAndEPR() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -512,7 +512,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorMessage(::core::mem::transmute_copy(&errornumber)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *errormessage = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errormessage, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -523,7 +523,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagHierarchyDeep() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -534,7 +534,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagHierarchyShallow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -545,7 +545,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagHierarchyDeepBasePropsOnly() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -556,7 +556,7 @@ impl IWSManEx_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagReturnObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -604,7 +604,7 @@ impl IWSManEx2_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUseClientCertificate() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -639,7 +639,7 @@ impl IWSManEx3_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUTF16() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -650,7 +650,7 @@ impl IWSManEx3_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUseCredSsp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -661,7 +661,7 @@ impl IWSManEx3_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagAssociationInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -672,7 +672,7 @@ impl IWSManEx3_Vtbl {
             let this = (*this).get_impl();
             match this.EnumerationFlagAssociatedInstance() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -683,7 +683,7 @@ impl IWSManEx3_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagSkipRevocationCheck() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -694,7 +694,7 @@ impl IWSManEx3_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagAllowNegotiateImplicitCredentials() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -705,7 +705,7 @@ impl IWSManEx3_Vtbl {
             let this = (*this).get_impl();
             match this.SessionFlagUseSsl() {
                 ::core::result::Result::Ok(ok__) => {
-                    *flags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(flags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -740,7 +740,7 @@ impl IWSManInternal_Vtbl {
             let this = (*this).get_impl();
             match this.ConfigSDDL(::core::mem::transmute(&session), ::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -783,7 +783,7 @@ impl IWSManResourceLocator_Vtbl {
             let this = (*this).get_impl();
             match this.ResourceURI() {
                 ::core::result::Result::Ok(ok__) => {
-                    *uri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(uri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -804,7 +804,7 @@ impl IWSManResourceLocator_Vtbl {
             let this = (*this).get_impl();
             match this.FragmentPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *text = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(text, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -820,7 +820,7 @@ impl IWSManResourceLocator_Vtbl {
             let this = (*this).get_impl();
             match this.FragmentDialect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *text = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(text, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -846,7 +846,7 @@ impl IWSManResourceLocator_Vtbl {
             let this = (*this).get_impl();
             match this.MustUnderstandOptions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mustunderstand = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mustunderstand, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -862,7 +862,7 @@ impl IWSManResourceLocator_Vtbl {
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -924,7 +924,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.Get(::core::mem::transmute(&resourceuri), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -935,7 +935,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.Put(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&resource), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resultresource = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resultresource, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -946,7 +946,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.Create(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&resource), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *newuri = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(newuri, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -962,7 +962,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.Invoke2(::core::mem::transmute(&actionuri), ::core::mem::transmute(&resourceuri), ::core::mem::transmute(&parameters), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -973,7 +973,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.Enumerate(::core::mem::transmute(&resourceuri), ::core::mem::transmute(&filter), ::core::mem::transmute(&dialect), ::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *resultset = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(resultset, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -984,7 +984,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.Identify(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -995,7 +995,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.Error() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1006,7 +1006,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.BatchItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1022,7 +1022,7 @@ impl IWSManSession_Vtbl {
             let this = (*this).get_impl();
             match this.Timeout() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

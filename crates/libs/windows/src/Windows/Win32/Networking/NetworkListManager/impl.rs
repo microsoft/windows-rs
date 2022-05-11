@@ -16,7 +16,7 @@ impl IEnumNetworkConnections_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumvar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumvar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -42,7 +42,7 @@ impl IEnumNetworkConnections_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumnetwork = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumnetwork, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -79,7 +79,7 @@ impl IEnumNetworks_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumvar = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumvar, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -105,7 +105,7 @@ impl IEnumNetworks_Vtbl {
             let this = (*this).get_impl();
             match this.Clone() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumnetwork = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumnetwork, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -150,7 +150,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psznetworkname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psznetworkname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -166,7 +166,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetDescription() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pszdescription = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pszdescription, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -182,7 +182,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetNetworkId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgdguidnetworkid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgdguidnetworkid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -193,7 +193,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetDomainType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnetworktype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnetworktype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -204,7 +204,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetNetworkConnections() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumnetworkconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumnetworkconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -220,7 +220,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnectedToInternet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisconnected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisconnected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -231,7 +231,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisconnected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisconnected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -242,7 +242,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectivity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pconnectivity = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pconnectivity, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -253,7 +253,7 @@ impl INetwork_Vtbl {
             let this = (*this).get_impl();
             match this.GetCategory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcategory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcategory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -305,7 +305,7 @@ impl INetworkConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetNetwork() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnetwork = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnetwork, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl INetworkConnection_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnectedToInternet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisconnected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisconnected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -327,7 +327,7 @@ impl INetworkConnection_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisconnected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisconnected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -338,7 +338,7 @@ impl INetworkConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectivity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pconnectivity = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pconnectivity, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -349,7 +349,7 @@ impl INetworkConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectionId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgdconnectionid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgdconnectionid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -360,7 +360,7 @@ impl INetworkConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetAdapterId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pgdadapterid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pgdadapterid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -371,7 +371,7 @@ impl INetworkConnection_Vtbl {
             let this = (*this).get_impl();
             match this.GetDomainType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdomaintype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdomaintype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -407,7 +407,7 @@ impl INetworkConnectionCost_Vtbl {
             let this = (*this).get_impl();
             match this.GetCost() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcost = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcost, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -418,7 +418,7 @@ impl INetworkConnectionCost_Vtbl {
             let this = (*this).get_impl();
             match this.GetDataPlanStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdataplanstatus = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdataplanstatus, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -615,7 +615,7 @@ impl INetworkListManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetNetworks(::core::mem::transmute_copy(&flags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenumnetwork = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenumnetwork, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -626,7 +626,7 @@ impl INetworkListManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetNetwork(::core::mem::transmute(&gdnetworkid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnetwork = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnetwork, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -637,7 +637,7 @@ impl INetworkListManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetNetworkConnections() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -648,7 +648,7 @@ impl INetworkListManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetNetworkConnection(::core::mem::transmute(&gdnetworkconnectionid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppnetworkconnection = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppnetworkconnection, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -659,7 +659,7 @@ impl INetworkListManager_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnectedToInternet() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisconnected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisconnected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -670,7 +670,7 @@ impl INetworkListManager_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbisconnected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbisconnected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -681,7 +681,7 @@ impl INetworkListManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectivity() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pconnectivity = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pconnectivity, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

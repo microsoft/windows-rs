@@ -59,7 +59,7 @@ impl IAudioAmbisonicsControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetHeadTracking() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbenableheadtracking = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbenableheadtracking, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -97,7 +97,7 @@ impl IAudioAutoGainControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -151,7 +151,7 @@ impl IAudioCaptureClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetNextPacketSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumframesinnextpacket = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumframesinnextpacket, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -185,7 +185,7 @@ impl IAudioChannelConfig_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelConfig() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwconfig = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwconfig, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -231,7 +231,7 @@ impl IAudioClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetBufferSize() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumbufferframes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumbufferframes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -242,7 +242,7 @@ impl IAudioClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetStreamLatency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phnslatency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phnslatency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -253,7 +253,7 @@ impl IAudioClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetCurrentPadding() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnumpaddingframes = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnumpaddingframes, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -269,7 +269,7 @@ impl IAudioClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetMixFormat() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdeviceformat = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdeviceformat, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -341,7 +341,7 @@ impl IAudioClient2_Vtbl {
             let this = (*this).get_impl();
             match this.IsOffloadCapable(::core::mem::transmute_copy(&category)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pboffloadcapable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pboffloadcapable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -438,7 +438,7 @@ impl IAudioClock_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrequency() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pu64frequency = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pu64frequency, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -454,7 +454,7 @@ impl IAudioClock_Vtbl {
             let this = (*this).get_impl();
             match this.GetCharacteristics() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcharacteristics = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcharacteristics, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -578,7 +578,7 @@ impl IAudioFormatEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *count = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(count, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -589,7 +589,7 @@ impl IAudioFormatEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetFormat(::core::mem::transmute_copy(&index)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *format = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(format, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -617,7 +617,7 @@ impl IAudioInputSelector_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnidselected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnidselected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -653,7 +653,7 @@ impl IAudioLoudness_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnabled() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -704,7 +704,7 @@ impl IAudioMute_Vtbl {
             let this = (*this).get_impl();
             match this.GetMute() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbmuted = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbmuted, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -732,7 +732,7 @@ impl IAudioOutputSelector_Vtbl {
             let this = (*this).get_impl();
             match this.GetSelection() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnidselected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnidselected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -765,7 +765,7 @@ impl IAudioPeakMeter_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcchannels = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcchannels, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -776,7 +776,7 @@ impl IAudioPeakMeter_Vtbl {
             let this = (*this).get_impl();
             match this.GetLevel(::core::mem::transmute_copy(&nchannel)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -804,7 +804,7 @@ impl IAudioRenderClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetBuffer(::core::mem::transmute_copy(&numframesrequested)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -844,7 +844,7 @@ impl IAudioSessionControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -855,7 +855,7 @@ impl IAudioSessionControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetDisplayName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -871,7 +871,7 @@ impl IAudioSessionControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetIconPath() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -887,7 +887,7 @@ impl IAudioSessionControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetGroupingParam() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -943,7 +943,7 @@ impl IAudioSessionControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSessionIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -954,7 +954,7 @@ impl IAudioSessionControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSessionInstanceIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -965,7 +965,7 @@ impl IAudioSessionControl2_Vtbl {
             let this = (*this).get_impl();
             match this.GetProcessId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pretval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pretval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1006,7 +1006,7 @@ impl IAudioSessionEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sessioncount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sessioncount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1017,7 +1017,7 @@ impl IAudioSessionEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetSession(::core::mem::transmute_copy(&sessioncount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *session = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(session, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1110,7 +1110,7 @@ impl IAudioSessionManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetAudioSessionControl(::core::mem::transmute_copy(&audiosessionguid), ::core::mem::transmute_copy(&streamflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *sessioncontrol = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sessioncontrol, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1121,7 +1121,7 @@ impl IAudioSessionManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetSimpleAudioVolume(::core::mem::transmute_copy(&audiosessionguid), ::core::mem::transmute_copy(&streamflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *audiovolume = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(audiovolume, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1152,7 +1152,7 @@ impl IAudioSessionManager2_Vtbl {
             let this = (*this).get_impl();
             match this.GetSessionEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sessionenum = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sessionenum, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1221,7 +1221,7 @@ impl IAudioStateMonitor_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterCallback(::core::mem::transmute(&callback), ::core::mem::transmute_copy(&context)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *registration = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(registration, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1263,7 +1263,7 @@ impl IAudioStreamVolume_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1279,7 +1279,7 @@ impl IAudioStreamVolume_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelVolume(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1348,7 +1348,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
             let this = (*this).get_impl();
             match this.OpenDefaultPropertyStore(::core::mem::transmute_copy(&stgmaccess)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propstore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propstore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1359,7 +1359,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
             let this = (*this).get_impl();
             match this.OpenUserPropertyStore(::core::mem::transmute_copy(&stgmaccess)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propstore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propstore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1370,7 +1370,7 @@ impl IAudioSystemEffectsPropertyStore_Vtbl {
             let this = (*this).get_impl();
             match this.OpenVolatilePropertyStore(::core::mem::transmute_copy(&stgmaccess)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *propstore = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(propstore, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1473,7 +1473,7 @@ impl IChannelAudioVolume_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1489,7 +1489,7 @@ impl IChannelAudioVolume_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelVolume(::core::mem::transmute_copy(&dwindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1539,7 +1539,7 @@ impl IConnector_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1550,7 +1550,7 @@ impl IConnector_Vtbl {
             let this = (*this).get_impl();
             match this.GetDataFlow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1571,7 +1571,7 @@ impl IConnector_Vtbl {
             let this = (*this).get_impl();
             match this.IsConnected() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbconnected = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbconnected, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1582,7 +1582,7 @@ impl IConnector_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectedTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconto = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconto, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1593,7 +1593,7 @@ impl IConnector_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectorIdConnectedTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwstrconnectorid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwstrconnectorid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1604,7 +1604,7 @@ impl IConnector_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceIdConnectedTo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwstrdeviceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwstrdeviceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1655,7 +1655,7 @@ impl IControlInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1666,7 +1666,7 @@ impl IControlInterface_Vtbl {
             let this = (*this).get_impl();
             match this.GetIID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *piid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(piid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1696,7 +1696,7 @@ impl IDeviceSpecificProperty_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1749,7 +1749,7 @@ impl IDeviceTopology_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnectorCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1760,7 +1760,7 @@ impl IDeviceTopology_Vtbl {
             let this = (*this).get_impl();
             match this.GetConnector(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppconnector = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppconnector, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1771,7 +1771,7 @@ impl IDeviceTopology_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubunitCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1782,7 +1782,7 @@ impl IDeviceTopology_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubunit(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsubunit = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsubunit, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1793,7 +1793,7 @@ impl IDeviceTopology_Vtbl {
             let this = (*this).get_impl();
             match this.GetPartById(::core::mem::transmute_copy(&nid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppart = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppart, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1804,7 +1804,7 @@ impl IDeviceTopology_Vtbl {
             let this = (*this).get_impl();
             match this.GetDeviceId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwstrdeviceid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwstrdeviceid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1815,7 +1815,7 @@ impl IDeviceTopology_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignalPath(::core::mem::transmute(&pipartfrom), ::core::mem::transmute(&pipartto), ::core::mem::transmute_copy(&brejectmixedpaths)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparts = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparts, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1858,7 +1858,7 @@ impl IMMDevice_Vtbl {
             let this = (*this).get_impl();
             match this.OpenPropertyStore(::core::mem::transmute_copy(&stgmaccess)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1869,7 +1869,7 @@ impl IMMDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppstrid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppstrid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1880,7 +1880,7 @@ impl IMMDevice_Vtbl {
             let this = (*this).get_impl();
             match this.GetState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1930,7 +1930,7 @@ impl IMMDeviceCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcdevices = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcdevices, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1941,7 +1941,7 @@ impl IMMDeviceCollection_Vtbl {
             let this = (*this).get_impl();
             match this.Item(::core::mem::transmute_copy(&ndevice)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1972,7 +1972,7 @@ impl IMMDeviceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.EnumAudioEndpoints(::core::mem::transmute_copy(&dataflow), ::core::mem::transmute_copy(&dwstatemask)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevices = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevices, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1983,7 +1983,7 @@ impl IMMDeviceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetDefaultAudioEndpoint(::core::mem::transmute_copy(&dataflow), ::core::mem::transmute_copy(&role)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppendpoint = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppendpoint, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1994,7 +1994,7 @@ impl IMMDeviceEnumerator_Vtbl {
             let this = (*this).get_impl();
             match this.GetDevice(::core::mem::transmute(&pwstrid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2034,7 +2034,7 @@ impl IMMEndpoint_Vtbl {
             let this = (*this).get_impl();
             match this.GetDataFlow() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdataflow = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdataflow, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2157,7 +2157,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwstrname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwstrname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2168,7 +2168,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetLocalId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pnid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pnid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2179,7 +2179,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetGlobalId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppwstrglobalid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppwstrglobalid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2190,7 +2190,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetPartType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pparttype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pparttype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2201,7 +2201,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetSubType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psubtype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psubtype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2212,7 +2212,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetControlInterfaceCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2223,7 +2223,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetControlInterface(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppinterfacedesc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppinterfacedesc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2234,7 +2234,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.EnumPartsIncoming() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparts = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparts, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2245,7 +2245,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.EnumPartsOutgoing() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppparts = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppparts, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2256,7 +2256,7 @@ impl IPart_Vtbl {
             let this = (*this).get_impl();
             match this.GetTopologyObject() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pptopology = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pptopology, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2310,7 +2310,7 @@ impl IPartsList_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2321,7 +2321,7 @@ impl IPartsList_Vtbl {
             let this = (*this).get_impl();
             match this.GetPart(::core::mem::transmute_copy(&nindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pppart = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pppart, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2353,7 +2353,7 @@ impl IPerChannelDbLevel_Vtbl {
             let this = (*this).get_impl();
             match this.GetChannelCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcchannels = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcchannels, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2369,7 +2369,7 @@ impl IPerChannelDbLevel_Vtbl {
             let this = (*this).get_impl();
             match this.GetLevel(::core::mem::transmute_copy(&nchannel)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfleveldb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfleveldb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2426,7 +2426,7 @@ impl ISimpleAudioVolume_Vtbl {
             let this = (*this).get_impl();
             match this.GetMasterVolume() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pflevel = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pflevel, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2442,7 +2442,7 @@ impl ISimpleAudioVolume_Vtbl {
             let this = (*this).get_impl();
             match this.GetMute() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbmute = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbmute, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2486,7 +2486,7 @@ impl ISpatialAudioClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetNativeStaticObjectTypeMask() {
                 ::core::result::Result::Ok(ok__) => {
-                    *mask = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(mask, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2497,7 +2497,7 @@ impl ISpatialAudioClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxDynamicObjectCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2508,7 +2508,7 @@ impl ISpatialAudioClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetSupportedAudioObjectFormatEnumerator() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enumerator = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enumerator, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2519,7 +2519,7 @@ impl ISpatialAudioClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxFrameCount(::core::mem::transmute_copy(&objectformat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *framecountperbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(framecountperbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2571,7 +2571,7 @@ impl ISpatialAudioClient2_Vtbl {
             let this = (*this).get_impl();
             match this.IsOffloadCapable(::core::mem::transmute_copy(&category)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *isoffloadcapable = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isoffloadcapable, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2582,7 +2582,7 @@ impl ISpatialAudioClient2_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxFrameCountForCategory(::core::mem::transmute_copy(&category), ::core::mem::transmute_copy(&offloadenabled), ::core::mem::transmute_copy(&objectformat)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *framecountperbuffer = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(framecountperbuffer, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2618,7 +2618,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
             let this = (*this).get_impl();
             match this.GetSpatialAudioMetadataItemsBufferLength(::core::mem::transmute_copy(&maxitemcount)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *bufferlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bufferlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2629,7 +2629,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
             let this = (*this).get_impl();
             match this.ActivateSpatialAudioMetadataWriter(::core::mem::transmute_copy(&overflowmode)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *metadatawriter = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(metadatawriter, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2640,7 +2640,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
             let this = (*this).get_impl();
             match this.ActivateSpatialAudioMetadataCopier() {
                 ::core::result::Result::Ok(ok__) => {
-                    *metadatacopier = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(metadatacopier, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2651,7 +2651,7 @@ impl ISpatialAudioMetadataClient_Vtbl {
             let this = (*this).get_impl();
             match this.ActivateSpatialAudioMetadataReader() {
                 ::core::result::Result::Ok(ok__) => {
-                    *metadatareader = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(metadatareader, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2688,7 +2688,7 @@ impl ISpatialAudioMetadataCopier_Vtbl {
             let this = (*this).get_impl();
             match this.CopyMetadataForFrames(::core::mem::transmute_copy(&copyframecount), ::core::mem::transmute_copy(&copymode), ::core::mem::transmute(&dstmetadataitems)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *itemscopied = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(itemscopied, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2725,7 +2725,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
             let this = (*this).get_impl();
             match this.GetFrameCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *framecount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(framecount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2736,7 +2736,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
             let this = (*this).get_impl();
             match this.GetItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *itemcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(itemcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2747,7 +2747,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxItemCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *maxitemcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(maxitemcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2758,7 +2758,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxValueBufferLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *maxvaluebufferlength = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(maxvaluebufferlength, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2769,7 +2769,7 @@ impl ISpatialAudioMetadataItems_Vtbl {
             let this = (*this).get_impl();
             match this.GetInfo() {
                 ::core::result::Result::Ok(ok__) => {
-                    *info = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(info, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2961,7 +2961,7 @@ impl ISpatialAudioObjectBase_Vtbl {
             let this = (*this).get_impl();
             match this.IsActive() {
                 ::core::result::Result::Ok(ok__) => {
-                    *isactive = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(isactive, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -2972,7 +2972,7 @@ impl ISpatialAudioObjectBase_Vtbl {
             let this = (*this).get_impl();
             match this.GetAudioObjectType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *audioobjecttype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(audioobjecttype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3085,7 +3085,7 @@ impl ISpatialAudioObjectForMetadataItems_Vtbl {
             let this = (*this).get_impl();
             match this.GetSpatialAudioMetadataItems() {
                 ::core::result::Result::Ok(ok__) => {
-                    *metadataitems = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(metadataitems, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3111,7 +3111,7 @@ impl ISpatialAudioObjectRenderStream_Vtbl {
             let this = (*this).get_impl();
             match this.ActivateSpatialAudioObject(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *audioobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(audioobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3143,7 +3143,7 @@ impl ISpatialAudioObjectRenderStreamBase_Vtbl {
             let this = (*this).get_impl();
             match this.GetAvailableDynamicObjectCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3205,7 +3205,7 @@ impl ISpatialAudioObjectRenderStreamForHrtf_Vtbl {
             let this = (*this).get_impl();
             match this.ActivateSpatialAudioObjectForHrtf(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *audioobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(audioobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3232,7 +3232,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
             let this = (*this).get_impl();
             match this.ActivateSpatialAudioObjectForMetadataCommands(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *audioobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(audioobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -3243,7 +3243,7 @@ impl ISpatialAudioObjectRenderStreamForMetadata_Vtbl {
             let this = (*this).get_impl();
             match this.ActivateSpatialAudioObjectForMetadataItems(::core::mem::transmute_copy(&r#type)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *audioobject = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(audioobject, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

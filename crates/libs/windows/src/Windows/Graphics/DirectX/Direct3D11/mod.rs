@@ -305,8 +305,8 @@ impl IDirect3DSurface {
     pub fn Description(&self) -> ::windows::core::Result<Direct3DSurfaceDescription> {
         let this = self;
         unsafe {
-            let mut result__: Direct3DSurfaceDescription = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), &mut result__).from_abi::<Direct3DSurfaceDescription>(result__)
+            let mut result__ = ::core::mem::MaybeUninit::<Direct3DSurfaceDescription>::zeroed();
+            (::windows::core::Interface::vtable(this).Description)(::windows::core::Interface::as_raw(this), result__.as_mut_ptr()).from_abi::<Direct3DSurfaceDescription>(result__)
         }
     }
     #[doc = "*Required features: `\"Graphics_DirectX_Direct3D11\"`, `\"Foundation\"`*"]

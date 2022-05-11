@@ -13,7 +13,7 @@ impl ILocationPermissions_Vtbl {
             let this = (*this).get_impl();
             match this.GetGlobalLocationPermission() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfenabled = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfenabled, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -62,7 +62,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetID() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -73,7 +73,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetCategory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psensorcategory = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psensorcategory, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -84,7 +84,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetType() {
                 ::core::result::Result::Ok(ok__) => {
-                    *psensortype = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(psensortype, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -95,7 +95,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetFriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfriendlyname = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfriendlyname, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -106,7 +106,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperty(::core::mem::transmute_copy(&key)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pproperty = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pproperty, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -117,7 +117,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetProperties(::core::mem::transmute(&pkeys)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppproperties = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppproperties, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -128,7 +128,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetSupportedDataFields() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdatafields = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdatafields, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -139,7 +139,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.SetProperties(::core::mem::transmute(&pproperties)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppresults = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppresults, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -150,7 +150,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.SupportsDataField(::core::mem::transmute_copy(&key)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pissupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pissupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -161,7 +161,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pstate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pstate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -172,7 +172,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.GetData() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdatareport = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdatareport, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -183,7 +183,7 @@ impl ISensor_Vtbl {
             let this = (*this).get_impl();
             match this.SupportsEvent(::core::mem::transmute_copy(&eventguid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pissupported = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pissupported, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -243,7 +243,7 @@ impl ISensorCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetAt(::core::mem::transmute_copy(&ulindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsensor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsensor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -254,7 +254,7 @@ impl ISensorCollection_Vtbl {
             let this = (*this).get_impl();
             match this.GetCount() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -310,7 +310,7 @@ impl ISensorDataReport_Vtbl {
             let this = (*this).get_impl();
             match this.GetTimestamp() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptimestamp = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptimestamp, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -321,7 +321,7 @@ impl ISensorDataReport_Vtbl {
             let this = (*this).get_impl();
             match this.GetSensorValue(::core::mem::transmute_copy(&pkey)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -332,7 +332,7 @@ impl ISensorDataReport_Vtbl {
             let this = (*this).get_impl();
             match this.GetSensorValues(::core::mem::transmute(&pkeys)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppvalues = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppvalues, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -411,7 +411,7 @@ impl ISensorManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetSensorsByCategory(::core::mem::transmute_copy(&sensorcategory)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsensorsfound = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsensorsfound, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -422,7 +422,7 @@ impl ISensorManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetSensorsByType(::core::mem::transmute_copy(&sensortype)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsensorsfound = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsensorsfound, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -433,7 +433,7 @@ impl ISensorManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetSensorByID(::core::mem::transmute_copy(&sensorid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppsensor = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppsensor, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

@@ -15,7 +15,7 @@ impl IUPnPAddressFamilyControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetAddressFamily() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwflags = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwflags, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -68,7 +68,7 @@ impl IUPnPDescriptionDocument_Vtbl {
             let this = (*this).get_impl();
             match this.ReadyState() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plreadystate = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plreadystate, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -89,7 +89,7 @@ impl IUPnPDescriptionDocument_Vtbl {
             let this = (*this).get_impl();
             match this.LoadResult() {
                 ::core::result::Result::Ok(ok__) => {
-                    *phrerror = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phrerror, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -105,7 +105,7 @@ impl IUPnPDescriptionDocument_Vtbl {
             let this = (*this).get_impl();
             match this.RootDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppudrootdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppudrootdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -116,7 +116,7 @@ impl IUPnPDescriptionDocument_Vtbl {
             let this = (*this).get_impl();
             match this.DeviceByUDN(::core::mem::transmute(&bstrudn)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppuddevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppuddevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -186,7 +186,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.IsRootDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -197,7 +197,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.RootDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppudrootdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppudrootdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -208,7 +208,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.ParentDevice() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppuddeviceparent = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppuddeviceparent, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -219,7 +219,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.HasChildren() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvarb = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvarb, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -230,7 +230,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Children() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppudchildren = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppudchildren, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -241,7 +241,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.UniqueDeviceName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -252,7 +252,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.FriendlyName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -263,7 +263,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Type() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -274,7 +274,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.PresentationURL() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -285,7 +285,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.ManufacturerName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -296,7 +296,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.ManufacturerURL() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -307,7 +307,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.ModelName() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -318,7 +318,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.ModelNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -329,7 +329,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Description() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -340,7 +340,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.ModelURL() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -351,7 +351,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.UPC() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -362,7 +362,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.SerialNumber() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstr = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstr, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -373,7 +373,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.IconURL(::core::mem::transmute(&bstrencodingformat), ::core::mem::transmute_copy(&lsizex), ::core::mem::transmute_copy(&lsizey), ::core::mem::transmute_copy(&lbitdepth)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstriconurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstriconurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -384,7 +384,7 @@ impl IUPnPDevice_Vtbl {
             let this = (*this).get_impl();
             match this.Services() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppusservices = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppusservices, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -437,7 +437,7 @@ impl IUPnPDeviceControl_Vtbl {
             let this = (*this).get_impl();
             match this.GetServiceObject(::core::mem::transmute(&bstrudn), ::core::mem::transmute(&bstrserviceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdispservice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdispservice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -467,7 +467,7 @@ impl IUPnPDeviceControlHttpHeaders_Vtbl {
             let this = (*this).get_impl();
             match this.GetAdditionalResponseHeaders() {
                 ::core::result::Result::Ok(ok__) => {
-                    *bstrhttpresponseheaders = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(bstrhttpresponseheaders, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -496,7 +496,7 @@ impl IUPnPDeviceDocumentAccess_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentURL() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdocument = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdocument, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -522,7 +522,7 @@ impl IUPnPDeviceDocumentAccessEx_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdocument = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdocument, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -552,7 +552,7 @@ impl IUPnPDeviceFinder_Vtbl {
             let this = (*this).get_impl();
             match this.FindByType(::core::mem::transmute(&bstrtypeuri), ::core::mem::transmute_copy(&dwflags)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdevices = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdevices, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -563,7 +563,7 @@ impl IUPnPDeviceFinder_Vtbl {
             let this = (*this).get_impl();
             match this.CreateAsyncFind(::core::mem::transmute(&bstrtypeuri), ::core::mem::transmute_copy(&dwflags), ::core::mem::transmute(&punkdevicefindercallback)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *plfinddata = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plfinddata, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -584,7 +584,7 @@ impl IUPnPDeviceFinder_Vtbl {
             let this = (*this).get_impl();
             match this.FindByUDN(::core::mem::transmute(&bstrudn)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -702,7 +702,7 @@ impl IUPnPDevices_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -713,7 +713,7 @@ impl IUPnPDevices_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -724,7 +724,7 @@ impl IUPnPDevices_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&bstrudn)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppdevice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppdevice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -837,7 +837,7 @@ impl IUPnPRegistrar_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterDevice(::core::mem::transmute(&bstrxmldesc), ::core::mem::transmute(&bstrprogiddevicecontrolclass), ::core::mem::transmute(&bstrinitstring), ::core::mem::transmute(&bstrcontainerid), ::core::mem::transmute(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdeviceidentifier = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdeviceidentifier, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -848,7 +848,7 @@ impl IUPnPRegistrar_Vtbl {
             let this = (*this).get_impl();
             match this.RegisterRunningDevice(::core::mem::transmute(&bstrxmldesc), ::core::mem::transmute(&punkdevicecontrol), ::core::mem::transmute(&bstrinitstring), ::core::mem::transmute(&bstrresourcepath), ::core::mem::transmute_copy(&nlifetime)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdeviceidentifier = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdeviceidentifier, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -864,7 +864,7 @@ impl IUPnPRegistrar_Vtbl {
             let this = (*this).get_impl();
             match this.GetUniqueDeviceName(::core::mem::transmute(&bstrdeviceidentifier), ::core::mem::transmute(&bstrtemplateudn)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrudn = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrudn, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -910,7 +910,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetDwordValue(::core::mem::transmute(&bstrvaluename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pdwvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pdwvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -921,7 +921,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetStringValue(::core::mem::transmute(&bstrvaluename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -932,7 +932,7 @@ impl IUPnPRemoteEndpointInfo_Vtbl {
             let this = (*this).get_impl();
             match this.GetGuidValue(::core::mem::transmute(&bstrvaluename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pguidvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pguidvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -998,7 +998,7 @@ impl IUPnPService_Vtbl {
             let this = (*this).get_impl();
             match this.QueryStateVariable(::core::mem::transmute(&bstrvariablename)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1014,7 +1014,7 @@ impl IUPnPService_Vtbl {
             let this = (*this).get_impl();
             match this.ServiceTypeIdentifier() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pval = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pval, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1030,7 +1030,7 @@ impl IUPnPService_Vtbl {
             let this = (*this).get_impl();
             match this.Id() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1041,7 +1041,7 @@ impl IUPnPService_Vtbl {
             let this = (*this).get_impl();
             match this.LastTransportStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plvalue = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plvalue, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1083,7 +1083,7 @@ impl IUPnPServiceAsync_Vtbl {
             let this = (*this).get_impl();
             match this.BeginInvokeAction(::core::mem::transmute(&bstractionname), ::core::mem::transmute(&vinactionargs), ::core::mem::transmute(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pullrequestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pullrequestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1099,7 +1099,7 @@ impl IUPnPServiceAsync_Vtbl {
             let this = (*this).get_impl();
             match this.BeginQueryStateVariable(::core::mem::transmute(&bstrvariablename), ::core::mem::transmute(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pullrequestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pullrequestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1115,7 +1115,7 @@ impl IUPnPServiceAsync_Vtbl {
             let this = (*this).get_impl();
             match this.BeginSubscribeToEvents(::core::mem::transmute(&punkcallback), ::core::mem::transmute(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pullrequestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pullrequestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1131,7 +1131,7 @@ impl IUPnPServiceAsync_Vtbl {
             let this = (*this).get_impl();
             match this.BeginSCPDDownload(::core::mem::transmute(&pasyncresult)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pullrequestid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pullrequestid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1142,7 +1142,7 @@ impl IUPnPServiceAsync_Vtbl {
             let this = (*this).get_impl();
             match this.EndSCPDDownload(::core::mem::transmute_copy(&ullrequestid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrscpddoc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrscpddoc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1215,7 +1215,7 @@ impl IUPnPServiceDocumentAccess_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocumentURL() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdocurl = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdocurl, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1226,7 +1226,7 @@ impl IUPnPServiceDocumentAccess_Vtbl {
             let this = (*this).get_impl();
             match this.GetDocument() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pbstrdoc = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pbstrdoc, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1275,7 +1275,7 @@ impl IUPnPServices_Vtbl {
             let this = (*this).get_impl();
             match this.Count() {
                 ::core::result::Result::Ok(ok__) => {
-                    *plcount = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(plcount, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1286,7 +1286,7 @@ impl IUPnPServices_Vtbl {
             let this = (*this).get_impl();
             match this._NewEnum() {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppunk = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppunk, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -1297,7 +1297,7 @@ impl IUPnPServices_Vtbl {
             let this = (*this).get_impl();
             match this.get_Item(::core::mem::transmute(&bstrserviceid)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ppservice = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ppservice, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),

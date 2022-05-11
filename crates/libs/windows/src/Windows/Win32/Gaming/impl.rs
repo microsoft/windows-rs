@@ -30,7 +30,7 @@ impl IGameExplorer_Vtbl {
             let this = (*this).get_impl();
             match this.VerifyAccess(::core::mem::transmute(&bstrgdfbinarypath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *pfhasaccess = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pfhasaccess, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -74,7 +74,7 @@ impl IGameExplorer2_Vtbl {
             let this = (*this).get_impl();
             match this.CheckAccess(::core::mem::transmute(&binarygdfpath)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *phasaccess = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(phasaccess, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -116,7 +116,7 @@ impl IGameStatistics_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxCategoryLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -127,7 +127,7 @@ impl IGameStatistics_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxNameLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -138,7 +138,7 @@ impl IGameStatistics_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxValueLength() {
                 ::core::result::Result::Ok(ok__) => {
-                    *cch = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(cch, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -149,7 +149,7 @@ impl IGameStatistics_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxCategories() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmax = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmax, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -160,7 +160,7 @@ impl IGameStatistics_Vtbl {
             let this = (*this).get_impl();
             match this.GetMaxStatsPerCategory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pmax = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pmax, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -176,7 +176,7 @@ impl IGameStatistics_Vtbl {
             let this = (*this).get_impl();
             match this.GetCategoryTitle(::core::mem::transmute_copy(&categoryindex)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *ptitle = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(ptitle, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -207,7 +207,7 @@ impl IGameStatistics_Vtbl {
             let this = (*this).get_impl();
             match this.GetLastPlayedCategory() {
                 ::core::result::Result::Ok(ok__) => {
-                    *pcategoryindex = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(pcategoryindex, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -294,7 +294,7 @@ impl IXblIdpAuthManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnvironment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *environment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(environment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -305,7 +305,7 @@ impl IXblIdpAuthManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetSandbox() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sandbox = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sandbox, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -316,7 +316,7 @@ impl IXblIdpAuthManager_Vtbl {
             let this = (*this).get_impl();
             match this.GetTokenAndSignatureWithTokenResult(::core::mem::transmute(&msaaccountid), ::core::mem::transmute(&appsid), ::core::mem::transmute(&msatarget), ::core::mem::transmute(&msapolicy), ::core::mem::transmute(&httpmethod), ::core::mem::transmute(&uri), ::core::mem::transmute(&headers), ::core::mem::transmute_copy(&body), ::core::mem::transmute_copy(&bodysize), ::core::mem::transmute_copy(&forcerefresh)) {
                 ::core::result::Result::Ok(ok__) => {
-                    *result = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(result, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -366,7 +366,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetStatus() {
                 ::core::result::Result::Ok(ok__) => {
-                    *status = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(status, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -377,7 +377,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetErrorCode() {
                 ::core::result::Result::Ok(ok__) => {
-                    *errorcode = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(errorcode, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -388,7 +388,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetToken() {
                 ::core::result::Result::Ok(ok__) => {
-                    *token = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(token, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -399,7 +399,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetSignature() {
                 ::core::result::Result::Ok(ok__) => {
-                    *signature = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(signature, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -410,7 +410,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetSandbox() {
                 ::core::result::Result::Ok(ok__) => {
-                    *sandbox = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(sandbox, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -421,7 +421,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnvironment() {
                 ::core::result::Result::Ok(ok__) => {
-                    *environment = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(environment, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -432,7 +432,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetMsaAccountId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *msaaccountid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(msaaccountid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -443,7 +443,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetXuid() {
                 ::core::result::Result::Ok(ok__) => {
-                    *xuid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(xuid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -454,7 +454,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetGamertag() {
                 ::core::result::Result::Ok(ok__) => {
-                    *gamertag = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(gamertag, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -465,7 +465,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetAgeGroup() {
                 ::core::result::Result::Ok(ok__) => {
-                    *agegroup = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(agegroup, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -476,7 +476,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetPrivileges() {
                 ::core::result::Result::Ok(ok__) => {
-                    *privileges = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(privileges, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -487,7 +487,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetMsaTarget() {
                 ::core::result::Result::Ok(ok__) => {
-                    *msatarget = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(msatarget, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -498,7 +498,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetMsaPolicy() {
                 ::core::result::Result::Ok(ok__) => {
-                    *msapolicy = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(msapolicy, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -509,7 +509,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetMsaAppId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *msaappid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(msaappid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -520,7 +520,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetRedirect() {
                 ::core::result::Result::Ok(ok__) => {
-                    *redirect = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(redirect, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -531,7 +531,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetMessage() {
                 ::core::result::Result::Ok(ok__) => {
-                    *message = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(message, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -542,7 +542,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetHelpId() {
                 ::core::result::Result::Ok(ok__) => {
-                    *helpid = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(helpid, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -553,7 +553,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetEnforcementBans() {
                 ::core::result::Result::Ok(ok__) => {
-                    *enforcementbans = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(enforcementbans, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -564,7 +564,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetRestrictions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *restrictions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(restrictions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -575,7 +575,7 @@ impl IXblIdpAuthTokenResult_Vtbl {
             let this = (*this).get_impl();
             match this.GetTitleRestrictions() {
                 ::core::result::Result::Ok(ok__) => {
-                    *titlerestrictions = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(titlerestrictions, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -622,7 +622,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
             let this = (*this).get_impl();
             match this.GetModernGamertag() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -633,7 +633,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
             let this = (*this).get_impl();
             match this.GetModernGamertagSuffix() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
@@ -644,7 +644,7 @@ impl IXblIdpAuthTokenResult2_Vtbl {
             let this = (*this).get_impl();
             match this.GetUniqueModernGamertag() {
                 ::core::result::Result::Ok(ok__) => {
-                    *value = ::core::mem::transmute(ok__);
+                    ::core::ptr::write(value, ::core::mem::transmute(ok__));
                     ::windows::core::HRESULT(0)
                 }
                 ::core::result::Result::Err(err) => err.into(),
