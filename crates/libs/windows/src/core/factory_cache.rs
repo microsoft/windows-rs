@@ -12,7 +12,7 @@ pub struct FactoryCache<C, I> {
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
+        Self { shared: AtomicPtr::new(core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
     }
 }
 
@@ -32,7 +32,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
-                if self.shared.compare_exchange_weak(core::ptr::null_mut(), unsafe { core::mem::transmute_copy(&factory) }, Ordering::Relaxed, Ordering::Relaxed).is_ok() {
+                if self.shared.compare_exchange_weak(core::ptr::null_mut(), factory.as_raw(), Ordering::Relaxed, Ordering::Relaxed).is_ok() {
                     core::mem::forget(factory);
                 }
             } else {
@@ -59,8 +59,8 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             if code == CO_E_NOTINITIALIZED {
                 if let Ok(mta) = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0") {
                     let mta: CoIncrementMTAUsage = core::mem::transmute(mta);
-                    let mut _cookie = core::ptr::null_mut();
-                    let _ = mta(&mut _cookie);
+                    let mut cookie = core::ptr::null_mut();
+                    let _ = mta(&mut cookie);
                 }
 
                 // Now try a second time to get the activation factory via the OS.
@@ -92,11 +92,12 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
         while let Some(pos) = path.rfind('.') {
             path = &path[..pos];
 
-            let library = core::slice::from_raw_parts_mut(heap_alloc(path.len() + 5)? as *mut u8, path.len() + 5);
+            let suffix = b".dll\0";
+            let mut library = vec![0; path.len() + suffix.len()];
             library[..path.len()].copy_from_slice(path.as_bytes());
-            library[path.len()..].copy_from_slice(b".dll\0");
+            library[path.len()..].copy_from_slice(suffix);
 
-            if let Ok(factory) = get_activation_factory(library, &name) {
+            if let Ok(factory) = get_activation_factory(&library, &name) {
                 return factory.cast();
             }
         }
