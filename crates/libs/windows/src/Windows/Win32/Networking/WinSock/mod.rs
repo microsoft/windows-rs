@@ -2144,22 +2144,22 @@ impl ::core::default::Default for IN_ADDR {
 }
 impl ::core::convert::From<::std::net::Ipv4Addr> for IN_ADDR {
     fn from(addr: ::std::net::Ipv4Addr) -> Self {
-        Self { S_un: IN_ADDR_0 { S_addr: u32::from(addr) } }
+        Self { S_un: IN_ADDR_0 { S_addr: u32::from(addr).to_be() } }
     }
 }
 impl ::core::convert::From<&::std::net::Ipv4Addr> for IN_ADDR {
     fn from(addr: &::std::net::Ipv4Addr) -> Self {
-        Self { S_un: IN_ADDR_0 { S_addr: u32::from(*addr) } }
+        Self { S_un: IN_ADDR_0 { S_addr: u32::from(*addr).to_be() } }
     }
 }
 impl ::core::convert::From<IN_ADDR> for ::std::net::Ipv4Addr {
     fn from(in_addr: IN_ADDR) -> Self {
-        Self::from(unsafe { in_addr.S_un.S_addr })
+        Self::from(u32::from_be(unsafe { in_addr.S_un.S_addr }))
     }
 }
 impl ::core::convert::From<&IN_ADDR> for ::std::net::Ipv4Addr {
     fn from(in_addr: &IN_ADDR) -> Self {
-        Self::from(unsafe { in_addr.S_un.S_addr })
+        Self::from(u32::from_be(unsafe { in_addr.S_un.S_addr }))
     }
 }
 #[repr(C)]
@@ -7812,12 +7812,12 @@ impl ::core::default::Default for SOCKADDR_IN {
 }
 impl ::core::convert::From<::std::net::SocketAddrV4> for SOCKADDR_IN {
     fn from(addr: ::std::net::SocketAddrV4) -> Self {
-        SOCKADDR_IN { sin_family: AF_INET.0 as u16, sin_port: addr.port(), sin_addr: addr.ip().into(), ..Default::default() }
+        SOCKADDR_IN { sin_family: AF_INET.0 as u16, sin_port: addr.port().to_be(), sin_addr: addr.ip().into(), ..Default::default() }
     }
 }
 impl ::core::convert::From<&::std::net::SocketAddrV4> for SOCKADDR_IN {
     fn from(addr: &::std::net::SocketAddrV4) -> Self {
-        SOCKADDR_IN { sin_family: AF_INET.0 as u16, sin_port: addr.port(), sin_addr: addr.ip().into(), ..Default::default() }
+        SOCKADDR_IN { sin_family: AF_INET.0 as u16, sin_port: addr.port().to_be(), sin_addr: addr.ip().into(), ..Default::default() }
     }
 }
 #[repr(C)]
@@ -7853,8 +7853,8 @@ impl ::core::convert::From<::std::net::SocketAddrV6> for SOCKADDR_IN6 {
     fn from(addr: ::std::net::SocketAddrV6) -> Self {
         SOCKADDR_IN6 {
             sin6_family: AF_INET6.0 as u16,
-            sin6_port: addr.port(),
-            sin6_flowinfo: addr.flowinfo(),
+            sin6_port: addr.port().to_be(),
+            sin6_flowinfo: addr.flowinfo().to_be(),
             sin6_addr: addr.ip().into(),
             Anonymous: SOCKADDR_IN6_0 { sin6_scope_id: addr.scope_id() },
             ..Default::default()
@@ -7865,8 +7865,8 @@ impl ::core::convert::From<&::std::net::SocketAddrV6> for SOCKADDR_IN6 {
     fn from(addr: &::std::net::SocketAddrV6) -> Self {
         SOCKADDR_IN6 {
             sin6_family: AF_INET6.0 as u16,
-            sin6_port: addr.port(),
-            sin6_flowinfo: addr.flowinfo(),
+            sin6_port: addr.port().to_be(),
+            sin6_flowinfo: addr.flowinfo().to_be(),
             sin6_addr: addr.ip().into(),
             Anonymous: SOCKADDR_IN6_0 { sin6_scope_id: addr.scope_id() },
             ..Default::default()
