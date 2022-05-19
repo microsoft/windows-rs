@@ -51,6 +51,12 @@ impl<'a> TypeName<'a> {
     pub const IRestrictedErrorInfo: Self = Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
     pub const IDispatch: Self = Self::from_const("Windows.Win32.System.Com", "IDispatch");
 
+    pub const IN_ADDR: Self = Self::from_const("Windows.Win32.Networking.WinSock", "IN_ADDR");
+    pub const IN6_ADDR: Self = Self::from_const("Windows.Win32.Networking.WinSock", "IN6_ADDR");
+    pub const SOCKADDR_IN: Self = Self::from_const("Windows.Win32.Networking.WinSock", "SOCKADDR_IN");
+    pub const SOCKADDR_IN6: Self = Self::from_const("Windows.Win32.Networking.WinSock", "SOCKADDR_IN6");
+    pub const SOCKADDR_INET: Self = Self::from_const("Windows.Win32.Networking.WinSock", "SOCKADDR_INET");
+
     const fn from_const(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name }
     }
