@@ -12,7 +12,7 @@ pub struct FactoryCache<C, I> {
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self { shared: AtomicPtr::new(::core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
+        Self { shared: AtomicPtr::new(core::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
     }
 }
 
@@ -32,7 +32,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
-                if self.shared.compare_exchange_weak(core::ptr::null_mut(), unsafe { core::mem::transmute_copy(&factory) }, Ordering::Relaxed, Ordering::Relaxed).is_ok() {
+                if self.shared.compare_exchange_weak(core::ptr::null_mut(), factory.as_raw(), Ordering::Relaxed, Ordering::Relaxed).is_ok() {
                     core::mem::forget(factory);
                 }
             } else {
@@ -49,8 +49,8 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
     let mut factory: Option<I> = None;
     let name = HSTRING::from(C::NAME);
 
-    unsafe {
-        let code = if let Ok(function) = delay_load(b"combase.dll\0", b"RoGetActivationFactory\0") {
+    let code = if let Ok(function) = unsafe { delay_load(b"combase.dll\0", b"RoGetActivationFactory\0") } {
+        unsafe {
             let function: RoGetActivationFactory = core::mem::transmute(function);
             let mut code = function(core::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
 
@@ -59,8 +59,8 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             if code == CO_E_NOTINITIALIZED {
                 if let Ok(mta) = delay_load(b"ole32.dll\0", b"CoIncrementMTAUsage\0") {
                     let mta: CoIncrementMTAUsage = core::mem::transmute(mta);
-                    let mut _cookie = core::ptr::null_mut();
-                    let _ = mta(&mut _cookie);
+                    let mut cookie = core::ptr::null_mut();
+                    let _ = mta(&mut cookie);
                 }
 
                 // Now try a second time to get the activation factory via the OS.
@@ -68,41 +68,52 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             }
 
             code
-        } else {
-            CLASS_E_CLASSNOTAVAILABLE
-        };
-
-        // If this succeeded then return the resulting factory interface.
-        if code.is_ok() {
-            return code.and_some(factory);
         }
+    } else {
+        CLASS_E_CLASSNOTAVAILABLE
+    };
 
-        // If not, first capture the error information from the failure above so that we
-        // can ultimately return this error information if all else fails.
-        let original: Error = code.into();
+    // If this succeeded then return the resulting factory interface.
+    if code.is_ok() {
+        return code.and_some(factory);
+    }
 
-        // Now attempt to find the factory's implementation heuristically.
-        let mut path = C::NAME;
+    // If not, first capture the error information from the failure above so that we
+    // can ultimately return this error information if all else fails.
+    let original: Error = code.into();
 
-        // Remove the suffix until a match is found. For example, if the class name is
-        // "A.B.TypeName" then the attempted load order will be:
-        //   1. A.B.TypeName.dll
-        //   2. A.B.dll
-        //   3. A.dll
-        while let Some(pos) = path.rfind('.') {
-            path = &path[..pos];
-
-            let library = core::slice::from_raw_parts_mut(heap_alloc(path.len() + 5)? as *mut u8, path.len() + 5);
-            library[..path.len()].copy_from_slice(path.as_bytes());
-            library[path.len()..].copy_from_slice(b".dll\0");
-
-            if let Ok(factory) = get_activation_factory(library, &name) {
-                return factory.cast();
-            }
-        }
-
+    // Now attempt to find the factory's implementation heuristically.
+    if let Some(i) = search_path(C::NAME, |library| unsafe { get_activation_factory(library, &name) }) {
+        i.cast()
+    } else {
         Err(original)
     }
+}
+
+// Remove the suffix until a match is found appending `.dll\0` at the end
+///
+/// For example, if the class name is
+/// "A.B.TypeName" then the attempted load order will be:
+///   1. A.B.dll
+///   2. A.dll
+fn search_path<F, R>(mut path: &str, mut callback: F) -> Option<R>
+where
+    F: FnMut(&[u8]) -> Result<R>,
+{
+    let suffix = b".dll\0";
+    let mut library = vec![0; path.len() + suffix.len()];
+    while let Some(pos) = path.rfind('.') {
+        path = &path[..pos];
+        library.truncate(path.len() + suffix.len());
+        library[..path.len()].copy_from_slice(path.as_bytes());
+        library[path.len()..].copy_from_slice(suffix);
+
+        if let Ok(r) = callback(&library) {
+            return Some(r);
+        }
+    }
+
+    None
 }
 
 unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGenericFactory> {
@@ -115,3 +126,35 @@ unsafe fn get_activation_factory(library: &[u8], name: &HSTRING) -> Result<IGene
 type CoIncrementMTAUsage = extern "system" fn(cookie: *mut RawPtr) -> HRESULT;
 type RoGetActivationFactory = extern "system" fn(hstring: core::mem::ManuallyDrop<HSTRING>, interface: &GUID, result: *mut RawPtr) -> HRESULT;
 type DllGetActivationFactory = extern "system" fn(name: core::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn dll_search() {
+        let path = "A.B.TypeName";
+
+        // Test library successfully found
+        let mut results = Vec::new();
+        let end_result = search_path(path, |library| {
+            results.push(library.to_vec());
+            if library == &b"A.dll\0"[..] {
+                Ok(42)
+            } else {
+                Err(Error::OK)
+            }
+        });
+        assert!(matches!(end_result, Some(42)));
+        assert_eq!(results, vec![b"A.B.dll\0".to_vec(), b"A.dll\0".to_vec()]);
+
+        // Test library never successfully found
+        let mut results = Vec::new();
+        let end_result = search_path(path, |library| {
+            results.push(library.to_vec());
+            Result::<()>::Err(Error::OK)
+        });
+        assert!(matches!(end_result, None));
+        assert_eq!(results, vec![b"A.B.dll\0".to_vec(), b"A.dll\0".to_vec()]);
+    }
+}
