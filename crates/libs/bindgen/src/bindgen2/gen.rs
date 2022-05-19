@@ -528,6 +528,77 @@ impl<'a> Gen<'a> {
             }
         }
     }
+    pub fn async_get(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+        let mut kind = self.reader.type_def_async_kind(def);
+        let mut async_generics = generics.to_vec();
+
+        if kind == AsyncKind::None {
+            for interface in self.reader.type_def_interfaces(def, generics) {
+                if let Type::TypeDef((interface_def, interface_generics)) = &interface.ty {
+                    kind = self.reader.type_def_async_kind(*interface_def);
+                    if kind != AsyncKind::None {
+                        async_generics = interface_generics.to_vec();
+                        break;
+                    }
+                }
+            }
+        }
+
+        if kind == AsyncKind::None {
+            quote! {}
+        } else {
+            let return_type = match kind {
+                AsyncKind::Operation | AsyncKind::OperationWithProgress => self.type_name(&async_generics[0]),
+                _ => quote! { () },
+            };
+        
+            let handler = match kind {
+                AsyncKind::Action => quote! { AsyncActionCompletedHandler },
+                AsyncKind::ActionWithProgress => quote! { AsyncActionWithProgressCompletedHandler },
+                AsyncKind::Operation => quote! { AsyncOperationCompletedHandler },
+                AsyncKind::OperationWithProgress => quote! { AsyncOperationWithProgressCompletedHandler },
+                _ => unimplemented!(),
+            };
+        
+            let namespace = self.namespace("Windows.Foundation");
+        
+            quote! {
+                #features
+                impl<#constraints> #ident {
+                    pub fn get(&self) -> ::windows::core::Result<#return_type> {
+                        if self.Status()? == #namespace AsyncStatus::Started {
+                            let (_waiter, signaler) = ::windows::core::Waiter::new()?;
+                            self.SetCompleted(#namespace  #handler::new(move |_sender, _args| {
+                                // Safe because the waiter will only be dropped after being signaled.
+                                unsafe { signaler.signal(); }
+                                Ok(())
+                            }))?;
+                        }
+                        self.GetResults()
+                    }
+                }
+                #features
+                impl<#constraints> ::std::future::Future for #ident {
+                    type Output = ::windows::core::Result<#return_type>;
+        
+                    fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
+                        if self.Status()? == #namespace AsyncStatus::Started {
+                            let waker = context.waker().clone();
+        
+                            let _ = self.SetCompleted(#namespace #handler::new(move |_sender, _args| {
+                                waker.wake_by_ref();
+                                Ok(())
+                            }));
+        
+                            ::std::task::Poll::Pending
+                        } else {
+                            ::std::task::Poll::Ready(self.GetResults())
+                        }
+                    }
+                }
+            }
+        }
+    }
     pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         if self.reader.type_def_flags(def).winrt() {
             let type_signature = if self.reader.type_def_kind(def) == TypeKind::Class {

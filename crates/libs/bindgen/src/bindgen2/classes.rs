@@ -110,8 +110,8 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.interface_winrt_trait(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
         tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(), &features));
         tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
-        // tokens.combine(&gen_async(def, &cfg, gen));
-        // tokens.combine(&gen_iterator(def, &cfg, gen));
+        tokens.combine(&gen.async_get(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&iterators::gen(gen, def, &[], &cfg));
         tokens.combine(&gen_conversions(gen, def, &name, &interfaces, &cfg));
         // tokens.combine(&gen_agile(def, &cfg, gen));
         tokens

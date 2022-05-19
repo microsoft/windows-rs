@@ -13,6 +13,7 @@ mod method_names;
 mod replacements;
 mod structs;
 mod winrt_methods;
+mod iterators;
 pub use gen::*;
 use metadata::reader2::*;
 use method_names::*;
