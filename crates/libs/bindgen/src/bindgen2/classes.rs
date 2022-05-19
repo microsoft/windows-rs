@@ -111,9 +111,9 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(), &features));
         tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
         tokens.combine(&gen.async_get(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
-        tokens.combine(&iterators::gen(gen, def, &[], &cfg));
+        tokens.combine(&iterators::gen(gen, def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
         tokens.combine(&gen_conversions(gen, def, &name, &interfaces, &cfg));
-        // tokens.combine(&gen_agile(def, &cfg, gen));
+        tokens.combine(&gen.agile(def, &name, &TokenStream::new(), &features));
         tokens
     } else {
         let mut tokens = quote! {
@@ -131,22 +131,6 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens
     }
 }
-
-// TODO: share with interfaces
-// fn gen_agile(gen: &Gen, def: TypeDef, cfg: &Cfg) -> TokenStream {
-//     if def.is_agile() {
-//         let name = gen_type_ident(def, gen);
-//         let cfg = gen.cfg(cfg);
-//         quote! {
-//             #cfg
-//             unsafe impl ::core::marker::Send for #name {}
-//             #cfg
-//             unsafe impl ::core::marker::Sync for #name {}
-//         }
-//     } else {
-//         TokenStream::new()
-//     }
-// }
 
 fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces : &[Interface], cfg: &Cfg) -> TokenStream {
     let mut tokens = quote! {};

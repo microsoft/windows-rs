@@ -1266,7 +1266,7 @@ impl<'a> Reader<'a> {
     pub fn type_name(&self, ty: &Type) -> &str {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_name(*row),
-            _ => unimplemented!(),
+            _ => "",
         }
     }
     pub fn type_signature(&self, ty: &Type) -> String {

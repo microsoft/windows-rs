@@ -11,19 +11,12 @@ mod vector2;
 mod vector3;
 mod vector4;
 mod win32_error;
-mod iterator;
-mod iterable;
-mod vector;
-mod vector_view;
+
 
 pub fn gen(type_name: TypeName) -> TokenStream {
     match type_name {
-        TypeName::IIterable => iterable::gen(),
-        TypeName::IIterator => iterator::gen(),
         TypeName::IN_ADDR => in_addr::gen(),
         TypeName::IN6_ADDR => in6_addr::gen(),
-        TypeName::IVector => vector::gen(),
-        TypeName::IVectorView => vector_view::gen(),
         TypeName::Matrix3x2 => matrix3x2::gen(),
         TypeName::Matrix4x4 => matrix4x4::gen(),
         TypeName::SOCKADDR_IN => sockaddr_in::gen(),
