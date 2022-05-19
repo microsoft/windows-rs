@@ -1,11 +1,11 @@
-cargo publish windows_aarch64_msvc
-cargo publish windows_i686_gnu
-cargo publish windows_i686_msvc
-cargo publish windows_x86_64_gnu
-cargo publish windows_x86_64_msvc
-cargo publish windows-tokens
-cargo publish windows-metadata
-cargo publish windows-interface
-cargo publish windows-implement
-cargo publish windows-bindgen
-cargo publish windows
+cargo publish -p windows_aarch64_msvc
+cargo publish -p windows_i686_gnu
+cargo publish -p windows_i686_msvc
+cargo publish -p windows_x86_64_gnu
+cargo publish -p windows_x86_64_msvc
+cargo publish -p windows-tokens
+cargo publish -p windows-metadata
+cargo publish -p windows-interface
+cargo publish -p windows-implement
+cargo publish -p windows-bindgen
+cargo publish -p windows
