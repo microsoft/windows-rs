@@ -119,7 +119,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         let mut tokens = quote! {
             #doc
             #features
-            pub struct #name;
+            pub struct #name{} // TODO: just use identity `;` instead of `{}`
             #features
             impl #name {
                 #methods

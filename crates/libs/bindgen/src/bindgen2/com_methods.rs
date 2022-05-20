@@ -89,7 +89,7 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
                 #features
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_type {
                     let mut result__: #return_type = :: core::mem::zeroed();
-                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), result__.as_mut_ptr(), #args);
+                    (::windows::core::Interface::vtable(self)#bases.#vname)(::windows::core::Interface::as_raw(self), &mut result__, #args);
                     result__
                 }
             }

@@ -967,6 +967,9 @@ impl<'a> Reader<'a> {
         !self.type_is_callback(&param.ty)
     }
     pub fn signature_kind(&self, signature: &Signature) -> SignatureKind {
+        if self.method_def_impl_flags(signature.def).preserve_sig() {
+            return SignatureKind::PreserveSig;
+        }
         if let Some(return_type) = &signature.return_type {
             match return_type {
                 Type::HRESULT => {
