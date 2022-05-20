@@ -40,6 +40,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     let cfg = gen.reader.type_def_cfg(def, &[]);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
+    let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, generics.to_vec()))); // TODO: how to avoid copy?
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
@@ -54,7 +55,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     });
 
     if !is_exclusive {
-        let methods = gen_methods(gen, def, generics);
+        let methods = gen_methods(gen, def, generics, &interfaces);
         tokens.combine(&quote! {
             #features
             impl<#constraints> #ident {
@@ -62,7 +63,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         });
 
-        tokens.combine(&gen_conversions(gen, def, generics, &ident, &constraints, &cfg));
+        tokens.combine(&gen_conversions(gen, def, generics, &interfaces, &ident, &constraints, &cfg));
         tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.async_get(def, generics, &ident, &constraints, &phantoms, &features));
@@ -75,7 +76,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     tokens
 }
 
-fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
+fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interface]) -> TokenStream {
     let mut methods = quote! {};
     // TODO: why do we need to distinguish between public and virtual methods?
     let method_names = &mut MethodNames::new();
@@ -86,10 +87,10 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
             methods.combine(&winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, method_names, virtual_names));
         }
         if !gen.min_inherit {
-            for interface in gen.reader.type_def_interfaces(def, generics) {
-                if let Type::TypeDef((def, generics)) = interface.ty {
-                    for method in gen.reader.type_def_methods(def) {
-                        methods.combine(&winrt_methods::gen(gen, def, &generics, InterfaceKind::None, method, method_names, virtual_names));
+            for interface in interfaces {
+                if let Type::TypeDef((def, generics)) = &interface.ty {
+                    for method in gen.reader.type_def_methods(*def) {
+                        methods.combine(&winrt_methods::gen(gen, *def, &generics, InterfaceKind::None, method, method_names, virtual_names));
                     }
                 }
             }
@@ -118,7 +119,7 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
     methods
 }
 
-fn gen_conversions(gen: &Gen, def: TypeDef, generics: &[Type], name: &TokenStream, constraints: &TokenStream, cfg: &Cfg) -> TokenStream {
+fn gen_conversions(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interface], name: &TokenStream, constraints: &TokenStream, cfg: &Cfg) -> TokenStream {
     let mut tokens = quote! {};
 
     for ty in &gen.reader.type_def_vtables(def) {
@@ -153,7 +154,7 @@ fn gen_conversions(gen: &Gen, def: TypeDef, generics: &[Type], name: &TokenStrea
     }
 
     if gen.reader.type_def_flags(def).winrt() {
-        for interface in gen.reader.type_def_interfaces(def, generics) {
+        for interface in interfaces{
             let into = gen.type_name(&interface.ty);
             let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
             tokens.combine(&quote! {

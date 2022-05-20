@@ -37,7 +37,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     let return_arg = if let Some(return_type) = &signature.return_type {
         if gen.reader.type_is_winrt_array(return_type) {
             let return_type = gen.type_name(return_type);
-            quote! { ::windows::core::Array::<#return_type>::set_abi_len(result__.as_mut_ptr()), result__.as_mut_ptr() as *mut _ as _ }
+            quote! { ::windows::core::Array::<#return_type>::set_abi_len(result__.assume_init_mut()), result__.as_mut_ptr() as *mut _ as _ }
         } else {
             quote! { result__.as_mut_ptr() }
         }
@@ -58,7 +58,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
                 quote! {
                     let mut result__ = ::core::mem::MaybeUninit::<#return_type_tokens>::zeroed();
                     (::windows::core::Interface::vtable(this).#vname)(::windows::core::Interface::as_raw(this), #args #composable_args #return_arg)
-                        .and_then(|| result__ )
+                        .and_then(|| result__.assume_init())
                 },
                 quote! {},
             )
