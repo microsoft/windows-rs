@@ -1,5 +1,6 @@
 use super::*;
 
+// TODO take Signature instead of MethodDef (wherever MethodDef is found)
 pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, method: MethodDef, method_names: &mut MethodNames, virtual_names: &mut MethodNames) -> TokenStream {
     let signature = gen.reader.method_def_signature(method, generics);
     let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
@@ -138,7 +139,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], kind: InterfaceKind, meth
     }
 }
 
-pub fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
+fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
     let mut result = quote! {};
 
     for (position, param) in params.iter().enumerate() {
@@ -167,7 +168,7 @@ pub fn gen_winrt_params(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
     result
 }
 
-pub fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
+fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
     let mut tokens = TokenStream::new();
     for param in params {
         let name = gen.param_name(param.def);
@@ -198,4 +199,64 @@ pub fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
         tokens.combine(&param);
     }
     tokens
+}
+
+pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream {
+    let invoke_args = sig.params.iter().map(|param|gen_winrt_invoke_arg(gen, param));
+
+    match &sig.return_type {
+        Some(return_type) if gen.reader.type_is_winrt_array(return_type) => {
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::core::result::Result::Ok(ok__) => {
+                        let (ok_data__, ok_data_len__) = ok__.into_abi();
+                        // use `core::ptr::write` since `result` could be uninitialized
+                        ::core::ptr::write(result__, ok_data__);
+                        ::core::ptr::write(result_size__, ok_data_len__);
+                        ::windows::core::HRESULT(0)
+                    }
+                    ::core::result::Result::Err(err) => err.into()
+                }
+            }
+        }
+        Some(_) => {
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::core::result::Result::Ok(ok__) => {
+                        // use `core::ptr::write` since `result` could be uninitialized
+                        ::core::ptr::write(result__, ::core::mem::transmute_copy(&ok__));
+                        ::core::mem::forget(ok__);
+                        ::windows::core::HRESULT(0)
+                    }
+                    ::core::result::Result::Err(err) => err.into()
+                }
+            }
+        }
+        None => quote! {
+            #inner(#(#invoke_args,)*).into()
+        },
+    }
+}
+
+fn gen_winrt_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
+    let name = gen.param_name(param.def);
+    let abi_size_name: TokenStream = format!("{}_array_size", gen.reader.param_name(param.def)).into();
+
+    if gen.reader.param_flags(param.def).input() {
+        if gen.reader.type_is_winrt_array(&param.ty) {
+            quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
+        } else if gen.reader.type_is_primitive(&param.ty){
+            quote! { #name }
+        } else if gen.reader.type_is_winrt_const_ref(&param.ty) {
+            quote! { ::core::mem::transmute_copy(&#name) }
+        } else {
+            quote! { ::core::mem::transmute(&#name) }
+        }
+    } else if gen.reader.type_is_winrt_array(&param.ty) {
+        quote! { ::core::slice::from_raw_parts_mut(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
+    } else if gen.reader.type_is_winrt_array_ref(&param.ty) {
+        quote! { ::windows::core::ArrayProxy::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
+    } else {
+        quote! { ::core::mem::transmute_copy(&#name) }
+    }
 }

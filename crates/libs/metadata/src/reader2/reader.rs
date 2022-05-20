@@ -343,7 +343,7 @@ impl<'a> Reader<'a> {
             } else if name.starts_with("remove") {
                 format!("Remove{}", &name[7..])
             } else {
-                "name".to_string()
+                name.to_string()
             }
         } else {
             for attribute in self.method_def_attributes(row) {
@@ -1414,6 +1414,7 @@ pub fn type_to_const(ty: Type) -> Type {
         _ => ty,
     }
 }
+// TODO: just make these member functions
 pub fn type_deref(ty: &Type) -> Type {
     match ty {
         Type::ConstPtr((kind, 1)) | Type::MutPtr((kind, 1)) => {
