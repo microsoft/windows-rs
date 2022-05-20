@@ -6,6 +6,7 @@ edition = "2018"
 license = "MIT OR Apache-2.0"
 description = "The implement macro for the windows crate"
 repository = "https://github.com/microsoft/windows-rs"
+rust-version = "1.61"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
