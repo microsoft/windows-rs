@@ -181,6 +181,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
 
                 return quote! {
                     #features
+                    #[cfg(feature = "Foundation_Collections")]
                     impl<#constraints> ::core::iter::IntoIterator for #ident {
                         type Item = #item;
                         type IntoIter = #wfc VectorIterator<Self::Item>;
@@ -190,6 +191,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
                         }
                     }
                     #features
+                    #[cfg(feature = "Foundation_Collections")]
                     impl<#constraints> ::core::iter::IntoIterator for &#ident {
                         type Item = #item;
                         type IntoIter = #wfc VectorIterator<Self::Item>;
@@ -215,6 +217,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
 
             quote! {
                 #features
+                #[cfg(feature = "Foundation_Collections")]
                 impl<#constraints> ::core::iter::IntoIterator for #ident {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;
@@ -224,6 +227,7 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
                     }
                 }
                 #features
+                #[cfg(feature = "Foundation_Collections")]
                 impl<#constraints> ::core::iter::IntoIterator for &#ident {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;
