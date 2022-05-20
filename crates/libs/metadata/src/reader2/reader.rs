@@ -812,7 +812,6 @@ impl<'a> Reader<'a> {
     pub fn type_def_cfg(&self, row: TypeDef, generics: &[Type]) -> Cfg {
         let mut cfg = Cfg::default();
         self.type_def_cfg_combine(row, generics, &mut cfg);
-        self.cfg_add_attributes(&mut cfg, self.type_def_attributes(row));
         cfg
     }
     fn type_def_cfg_impl(&self, def: TypeDef, generics: &[Type]) -> Cfg {
@@ -851,6 +850,8 @@ impl<'a> Reader<'a> {
         }
 
          if cfg.types.entry(self.type_def_namespace(row).to_string()).or_default().insert(row) {
+            self.cfg_add_attributes(cfg, self.type_def_attributes(row));
+
             match self.type_def_kind(row) {
                 TypeKind::Class => {
                     if let Some(Type::TypeDef((row, _))) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).map(|interface|interface.ty) {
