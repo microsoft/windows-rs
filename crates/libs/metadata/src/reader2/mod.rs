@@ -43,11 +43,24 @@ tables! {
     TypeSpec,
 }
 
-#[derive(Copy, Clone)]
+#[derive(Copy, Clone, Eq, PartialEq)]
 pub enum ArrayInfo {
     Fixed(usize),
     RelativeLen(usize),
     RelativePtr(usize),
+    None,
+    Removed,
+}
+
+impl ArrayInfo {
+    pub fn is_some(&self) -> bool {
+        match self {
+            Self::Fixed(_) => true,
+            Self::RelativeLen(_) => true,
+            Self::RelativePtr(_) => true,
+            _ => false,
+        }
+    }
 }
 
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
@@ -159,7 +172,7 @@ pub struct Signature {
 pub struct SignatureParam {
     pub def: Param,
     pub ty: Type,
-    pub array_info: Option<ArrayInfo>,
+    pub array_info: ArrayInfo,
 }
 
 #[derive(Default, Clone)]

@@ -394,13 +394,13 @@ impl<'a> Reader<'a> {
 
         for position in 0..params.len() {
             // Point len params back to the corresponding ptr params.
-            if let Some(ArrayInfo::RelativeLen(relative)) = params[position].array_info {
+            if let ArrayInfo::RelativeLen(relative) = params[position].array_info {
                 // The len params must be input only.
                 // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
                 if !self.param_flags(params[relative].def).output() && position != relative {
-                    params[relative].array_info = Some(ArrayInfo::RelativePtr(position));
+                    params[relative].array_info = ArrayInfo::RelativePtr(position);
                 } else {
-                    params[position].array_info = None;
+                    params[position].array_info = ArrayInfo::None;
                 }
             }
         }
@@ -409,7 +409,7 @@ impl<'a> Reader<'a> {
 
         // Finds sets of ptr params pointing at the same len param.
         for (position, param) in params.iter().enumerate() {
-            if let Some(ArrayInfo::RelativeLen(relative)) = param.array_info {
+            if let ArrayInfo::RelativeLen(relative) = param.array_info {
                 sets.entry(relative).or_default().push(position);
             }
         }
@@ -417,9 +417,9 @@ impl<'a> Reader<'a> {
         // Remove all sets.
         for (len, ptrs) in sets {
             if ptrs.len() > 1 {
-                params[len].array_info = None;
+                params[len].array_info = ArrayInfo::Removed;
                 for ptr in ptrs {
-                    params[ptr].array_info = None;
+                    params[ptr].array_info = ArrayInfo::Removed;
                 }
             }
         }
@@ -464,19 +464,19 @@ impl<'a> Reader<'a> {
     pub fn param_is_com_out_ptr(&self, row: Param) -> bool {
         self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "ComOutPtrAttribute")
     }
-    pub fn param_array_info(&self, row: Param) -> Option<ArrayInfo> {
+    pub fn param_array_info(&self, row: Param) -> ArrayInfo {
         for attribute in self.param_attributes(row) {
             if self.attribute_name(attribute) == "NativeArrayInfoAttribute" {
                 for (_, value) in self.attribute_args(attribute) {
                     match value {
-                        Value::I16(value) => return Some(ArrayInfo::RelativeLen(value as _)),
-                        Value::I32(value) => return Some(ArrayInfo::Fixed(value as _)),
+                        Value::I16(value) => return ArrayInfo::RelativeLen(value as _),
+                        Value::I32(value) => return ArrayInfo::Fixed(value as _),
                         _ => {}
                     }
                 }
             }
         }
-        None
+        ArrayInfo::None
     }
     pub fn param_is_retval(&self, row: Param) -> bool {
         self.param_attributes(row).any(|attribute| self.attribute_name(attribute) == "RetValAttribute")
@@ -967,7 +967,7 @@ impl<'a> Reader<'a> {
         signature.params.iter().for_each(|param| self.type_cfg_combine(&param.ty, cfg));
     }
     pub fn signature_param_is_convertible(&self, param: &SignatureParam) -> bool {
-        self.param_flags(param.def).input() && !self.type_is_winrt_array(&param.ty) && !self.type_is_pointer(&param.ty) && self.type_is_convertible(&param.ty) && param.array_info.is_none()
+        self.param_flags(param.def).input() && !self.type_is_winrt_array(&param.ty) && !self.type_is_pointer(&param.ty) && self.type_is_convertible(&param.ty) && param.array_info == ArrayInfo::None
     }
     pub fn signature_param_is_retval(&self, param: &SignatureParam) -> bool {
         // The Win32 metadata uses `RetValAttribute` to call out retval methods but it is employed
@@ -982,7 +982,7 @@ impl<'a> Reader<'a> {
             return false;
         }
         let flags = self.param_flags(param.def);
-        if flags.input() || !flags.output() || param.array_info.is_some() {
+        if flags.input() || !flags.output() || param.array_info != ArrayInfo::None {
             return false;
         }
         // TODO: find a way to treat this like COM interface result values.

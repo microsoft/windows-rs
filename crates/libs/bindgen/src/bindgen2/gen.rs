@@ -855,7 +855,7 @@ impl<'a> Gen<'a> {
         for param in params {
             let name = self.param_name(param.def);
 
-            if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
+            if let ArrayInfo::Fixed(fixed) = param.array_info {
                 if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
                     let signature = if self.reader.param_flags(param.def).output() {
                         quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
@@ -868,7 +868,7 @@ impl<'a> Gen<'a> {
                 }
             }
 
-            if let Some(ArrayInfo::RelativeLen(_)) = param.array_info {
+            if let ArrayInfo::RelativeLen(_) = param.array_info {
                 let signature = if self.reader.param_flags(param.def).output() {
                     quote! { ::core::mem::transmute(::windows::core::as_mut_ptr_or_null(#name)), }
                 } else {
@@ -879,7 +879,7 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if let Some(ArrayInfo::RelativePtr(relative)) = param.array_info {
+            if let ArrayInfo::RelativePtr(relative) = param.array_info {
                 let name = self.param_name(params[relative].def);
                 tokens.combine(&quote! { #name.len() as _, });
                 continue;
@@ -901,7 +901,7 @@ impl<'a> Gen<'a> {
         for (position, param) in params.iter().enumerate() {
             let name = self.param_name(param.def);
 
-            if let Some(ArrayInfo::Fixed(fixed)) = param.array_info {
+            if let ArrayInfo::Fixed(fixed) = param.array_info {
                 if fixed > 0 && self.reader.param_free_with(param.def).is_none() {
                     let ty = type_deref(&param.ty);
                     let ty = self.type_default_name(&ty);
@@ -918,7 +918,7 @@ impl<'a> Gen<'a> {
                 }
             }
 
-            if let Some(ArrayInfo::RelativeLen(_)) = param.array_info {
+            if let ArrayInfo::RelativeLen(_) = param.array_info {
                 let ty = type_deref(&param.ty);
                 let ty = self.type_default_name(&ty);
                 let ty = if self.reader.param_flags(param.def).output() {
@@ -931,7 +931,7 @@ impl<'a> Gen<'a> {
                 continue;
             }
 
-            if let Some(ArrayInfo::RelativePtr(_)) = param.array_info {
+            if let ArrayInfo::RelativePtr(_) = param.array_info {
                 continue;
             }
 
