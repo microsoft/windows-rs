@@ -52,17 +52,6 @@ pub enum ArrayInfo {
     Removed,
 }
 
-impl ArrayInfo {
-    pub fn is_some(&self) -> bool {
-        match self {
-            Self::Fixed(_) => true,
-            Self::RelativeLen(_) => true,
-            Self::RelativePtr(_) => true,
-            _ => false,
-        }
-    }
-}
-
 #[derive(Clone, PartialEq, PartialOrd, Eq, Ord)]
 pub enum Type {
     Void,
