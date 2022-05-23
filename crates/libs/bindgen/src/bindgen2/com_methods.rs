@@ -122,3 +122,55 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
         }
     }
 }
+
+pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream {
+    match gen.reader.signature_kind(sig) {
+        SignatureKind::ResultValue => {
+            let invoke_args = sig.params[..sig.params.len() - 1].iter().map(|param|gen_win32_invoke_arg(gen, param));
+
+            let result = gen.param_name(sig.params[sig.params.len() - 1].def);
+
+            quote! {
+                match #inner(#(#invoke_args,)*) {
+                    ::core::result::Result::Ok(ok__) => {
+                        // use `core::ptr::write` since the result could be uninitialized
+                        ::core::ptr::write(#result, ::core::mem::transmute(ok__));
+                        ::windows::core::HRESULT(0)
+                    }
+                    ::core::result::Result::Err(err) => err.into()
+                }
+            }
+        }
+        SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => {
+            let invoke_args = sig.params.iter().map(|param|gen_win32_invoke_arg(gen, param));
+
+            quote! {
+                #inner(#(#invoke_args,)*).into()
+            }
+        }
+        SignatureKind::ReturnStruct => {
+            let invoke_args = sig.params.iter().map(|param|gen_win32_invoke_arg(gen, param));
+
+            quote! {
+                *result__ = #inner(#(#invoke_args,)*)
+            }
+        }
+        _ => {
+            let invoke_args = sig.params.iter().map(|param|gen_win32_invoke_arg(gen, param));
+
+            quote! {
+                #inner(#(#invoke_args,)*)
+            }
+        }
+    }
+}
+
+fn gen_win32_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
+    let name = gen.param_name(param.def);
+
+    if (!gen.reader.type_is_pointer(&param.ty) && gen.reader.type_is_nullable(&param.ty)) || (gen.reader.param_flags(param.def).input() && !gen.reader.type_is_primitive(&param.ty)) {
+        quote! { ::core::mem::transmute(&#name) }
+    } else {
+        quote! { ::core::mem::transmute_copy(&#name) }
+    }
+}

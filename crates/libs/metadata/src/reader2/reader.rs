@@ -814,7 +814,7 @@ impl<'a> Reader<'a> {
         self.type_def_cfg_combine(row, generics, &mut cfg);
         cfg
     }
-    fn type_def_cfg_impl(&self, def: TypeDef, generics: &[Type]) -> Cfg {
+    pub fn type_def_cfg_impl(&self, def: TypeDef, generics: &[Type]) -> Cfg {
         let mut cfg = Cfg::default();
 
         fn combine<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type], cfg: &'a mut Cfg) {

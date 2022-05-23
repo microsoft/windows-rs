@@ -63,7 +63,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 
-    let vtbl_signature = gen.vtbl_signature(def, generics,method);
+    let vtbl_signature = gen.vtbl_signature(def, generics,&signature);
     let invoke = winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, &mut MethodNames::new(), &mut MethodNames::new());
     let invoke_upcall = winrt_methods::gen_upcall(gen, &signature, quote! { ((*this).invoke) });
 

@@ -751,7 +751,8 @@ impl<'a> Gen<'a> {
                 continue;
             }
             let name = method_names.add(self, method);
-            let signature = self.vtbl_signature(def, generics, method);
+            let signature = self.reader.method_def_signature(method, generics);
+            let signature = self.vtbl_signature(def, generics, &signature);
             let mut cfg = self.reader.method_def_cfg(method);
             cfg.add_feature(self.reader.type_def_namespace(def));
             let cfg_all = self.cfg_features(&cfg);
@@ -779,9 +780,8 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn vtbl_signature(&self, def: TypeDef, generics: &[Type], method: MethodDef) -> TokenStream {
+    pub fn vtbl_signature(&self, def: TypeDef, generics: &[Type], signature: &Signature) -> TokenStream {
         let is_winrt = self.reader.type_def_flags(def).winrt();
-        let signature = self.reader.method_def_signature(method, generics);
         let hresult = self.type_name(&Type::HRESULT);
 
         let (trailing_return_type, return_type, udt_return_type) = if is_winrt {
