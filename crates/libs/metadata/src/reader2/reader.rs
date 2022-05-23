@@ -645,29 +645,51 @@ impl<'a> Reader<'a> {
         if self.type_def_kind(row) != TypeKind::Struct {
             return false;
         }
-        for row in self.get(self.type_def_type_name(row)) {
-            if self.type_def_flags(row).union() {
+        fn check(reader: &Reader, row: TypeDef) -> bool {
+            if reader.type_def_flags(row).union() {
                 return true;
             }
-            if self.type_def_fields(row).any(|field| self.type_has_union(&self.field_type(field, Some(row)))) {
+            if reader.type_def_fields(row).any(|field| reader.type_has_union(&reader.field_type(field, Some(row)))) {
                 return true;
             }
+            false
         }
-        false
+        let type_name = self.type_def_type_name(row);
+        if type_name.namespace.is_empty() {
+            check(self, row)
+        } else {
+            for row in self.get(type_name) {
+                if check(self, row) {
+                    return true;
+                }
+            }
+            false
+        }
     }
     pub fn type_def_has_packing(&self, row: TypeDef) -> bool {
         if self.type_def_kind(row) != TypeKind::Struct {
             return false;
         }
-        for row in self.get(self.type_def_type_name(row)) {
-            if self.type_def_class_layout(row).is_some() {
+        fn check(reader: &Reader, row: TypeDef) -> bool {
+            if reader.type_def_class_layout(row).is_some() {
                 return true;
             }
-            if self.type_def_fields(row).any(|field| self.type_has_packing(&self.field_type(field, Some(row)))) {
+            if reader.type_def_fields(row).any(|field| reader.type_has_packing(&reader.field_type(field, Some(row)))) {
                 return true;
             }
+            false
         }
-        false
+        let type_name = self.type_def_type_name(row);
+        if type_name.namespace.is_empty() {
+            check(self, row)
+        } else {
+            for row in self.get(type_name) {
+                if check(self, row) {
+                    return true;
+                }
+            }
+            false
+        }
     }
     pub fn type_def_guid(&self, row: TypeDef) -> Option<GUID> {
         for attribute in self.type_def_attributes(row) {
