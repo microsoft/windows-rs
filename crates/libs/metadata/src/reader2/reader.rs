@@ -400,7 +400,7 @@ impl<'a> Reader<'a> {
                 if !self.param_flags(params[relative].def).output() && position != relative {
                     params[relative].array_info = ArrayInfo::RelativePtr(position);
                 } else {
-                    params[position].array_info = ArrayInfo::None;
+                    params[position].array_info = ArrayInfo::Removed;
                 }
             }
         }
