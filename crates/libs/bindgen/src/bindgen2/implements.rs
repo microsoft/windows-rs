@@ -11,7 +11,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     let type_name = gen.reader.type_def_type_name(def);
     let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
-    let type_ident = gen.type_def_name(def, generics);
+    let type_ident = to_ident(gen.reader.type_def_name(def));
 
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
@@ -21,21 +21,20 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     let cfg = gen.reader.type_def_cfg_impl(def, generics);
     let features = gen.cfg_features(&cfg);
     let mut requires = quote! {};
+    let type_ident = quote! { #type_ident<#generic_names> };
 
     fn gen_required_trait(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
-        let name = gen.type_def_name(def, generics);
-        let name = name.join("_Impl");
+        let name = gen.type_def_name_imp(def, generics, "_Impl");
         quote! {
             + #name
         }
     }
 
-    let mut matches = quote! { iid == &<#type_ident<#generic_names> as ::windows::core::Interface>::IID };
+    let mut matches = quote! { iid == &<#type_ident as ::windows::core::Interface>::IID };
 
     for def in gen.reader.type_def_vtables(def) {
         if let Type::TypeDef((def, generics)) = def {
             requires.combine(&gen_required_trait(gen, def, &generics));
-
             let name = gen.type_def_name(def, &generics);
 
             matches.combine(&quote! {
@@ -52,6 +51,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
             }
         }
     }
+
 
     let runtime_name = gen.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
 
@@ -100,12 +100,10 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     match gen.reader.type_def_vtables(def).last() {
         Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
-        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#generic_names>, OFFSET>(), }),
+        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident, OFFSET>(), }),
         Some(Type::TypeDef((def, generics))) => {
-            let vtbl = gen.type_def_name(*def, generics);
-            let vtbl = vtbl.join("_Vtbl");
-            let namespace = gen.namespace(gen.reader.type_def_namespace(*def));
-            methods.combine(&quote! { base__: #vtbl::new::<Identity, Impl, OFFSET>(), });
+            let name = gen.type_def_name_imp(*def, generics, "_Vtbl");
+            methods.combine(&quote! { base__: #name::new::<Identity, Impl, OFFSET>(), });
         }
         _ => {}
     }

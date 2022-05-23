@@ -111,7 +111,7 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(), &features));
         tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
         tokens.combine(&gen.async_get(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
-        tokens.combine(&iterators::gen(gen, def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&iterators::gen(gen, def, &[], &name, &TokenStream::new(), &TokenStream::new(), &cfg));
         tokens.combine(&gen_conversions(gen, def, &name, &interfaces, &cfg));
         tokens.combine(&gen.agile(def, &name, &TokenStream::new(), &features));
         tokens

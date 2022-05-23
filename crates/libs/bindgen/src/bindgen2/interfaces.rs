@@ -67,7 +67,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.async_get(def, generics, &ident, &constraints, &phantoms, &features));
-        tokens.combine(&iterators::gen(gen, def, generics, &ident, &constraints, &phantoms, &features));
+        tokens.combine(&iterators::gen(gen, def, generics, &ident, &constraints, &phantoms, &cfg));
         tokens.combine(&gen.type_def_agile(def, &ident, &constraints, &features));
     }
 

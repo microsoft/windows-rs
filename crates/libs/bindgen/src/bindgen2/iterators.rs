@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, cfg: &Cfg) -> TokenStream {
     match gen.reader.type_def_type_name(def) {
         // If the type is IIterator<T> then simply implement the Iterator trait over top.
         TypeName::IIterator => {
@@ -152,10 +152,12 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
         match gen.reader.type_def_type_name(*interface) {
             TypeName::IVectorView => {
                 let item = gen.type_name(&interface_generics[0]);
-
+                let mut cfg = cfg.clone();
+                cfg.add_feature("Windows.Foundation.Collections");
+                let features = gen.cfg_features(&cfg);
+                                
                 return quote! {
                     #features
-                    #[cfg(feature = "Foundation_Collections")]
                     impl<#constraints> ::core::iter::IntoIterator for #ident {
                         type Item = #item;
                         type IntoIter = #wfc VectorViewIterator<Self::Item>;
@@ -165,7 +167,6 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
                         }
                     }
                     #features
-                    #[cfg(feature = "Foundation_Collections")]
                     impl<#constraints> ::core::iter::IntoIterator for &#ident {
                         type Item = #item;
                         type IntoIter = #wfc VectorViewIterator<Self::Item>;
@@ -178,10 +179,12 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
             }
             TypeName::IVector => {
                 let item = gen.type_name(&interface_generics[0]);
+                let mut cfg = cfg.clone();
+                cfg.add_feature("Windows.Foundation.Collections");
+                let features = gen.cfg_features(&cfg);
 
                 return quote! {
                     #features
-                    #[cfg(feature = "Foundation_Collections")]
                     impl<#constraints> ::core::iter::IntoIterator for #ident {
                         type Item = #item;
                         type IntoIter = #wfc VectorIterator<Self::Item>;
@@ -191,7 +194,6 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
                         }
                     }
                     #features
-                    #[cfg(feature = "Foundation_Collections")]
                     impl<#constraints> ::core::iter::IntoIterator for &#ident {
                         type Item = #item;
                         type IntoIter = #wfc VectorIterator<Self::Item>;
@@ -214,10 +216,12 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
         None => TokenStream::new(),
         Some(interface_generics) => {
             let item = gen.type_name(&interface_generics[0]);
-
+                let mut cfg = cfg.clone();
+                cfg.add_feature("Windows.Foundation.Collections");
+                let features = gen.cfg_features(&cfg);
+                
             quote! {
                 #features
-                #[cfg(feature = "Foundation_Collections")]
                 impl<#constraints> ::core::iter::IntoIterator for #ident {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;
@@ -227,7 +231,6 @@ pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, cons
                     }
                 }
                 #features
-                #[cfg(feature = "Foundation_Collections")]
                 impl<#constraints> ::core::iter::IntoIterator for &#ident {
                     type Item = #item;
                     type IntoIter = #wfc IIterator<Self::Item>;
