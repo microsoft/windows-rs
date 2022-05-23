@@ -46,10 +46,10 @@ fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
 
     let factories = interfaces.iter().filter_map(|interface| match interface.kind {
         InterfaceKind::Static | InterfaceKind::Composable => {
-            if let Type::TypeDef((def, _)) = &interface.ty {
+            if let Type::TypeDef((def, generics)) = &interface.ty {
                 if gen.reader.type_def_methods(*def).next().is_some() {
                     let interface_type = gen.type_name(&interface.ty);
-                    let features = gen.cfg_features(&gen.reader.type_cfg(&interface.ty));
+                    let features = gen.cfg_features(&gen.reader.type_def_cfg(*def, generics));
 
                     let hidden = if gen.doc {
                         quote! { #[doc(hidden)] }
