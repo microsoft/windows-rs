@@ -133,47 +133,47 @@ jobs:
         cargo clippy -p test_arch &&
         cargo clippy -p test_arch_feature &&
         cargo clippy -p test_bstr &&
+        cargo clippy -p test_class_factory &&
+        cargo clippy -p test_component &&
+        cargo clippy -p test_component_client &&
         cargo clippy -p test_const_fields &&
         cargo clippy -p test_core &&
+        cargo clippy -p test_data_object &&
         cargo clippy -p test_debug &&
         cargo clippy -p test_deprecated &&
         cargo clippy -p test_dispatch &&
         cargo clippy -p test_does_not_return &&
+        cargo clippy -p test_drop_target &&
         cargo clippy -p test_enums &&
         cargo clippy -p test_error &&
         cargo clippy -p test_event &&
         cargo clippy -p test_handles &&
         cargo clippy -p test_helpers &&
+        cargo clippy -p test_identity &&
+        cargo clippy -p test_implement &&
+        cargo clippy -p test_interface &&
         cargo clippy -p test_interop &&
         cargo clippy -p test_lib &&
+        cargo clippy -p test_map &&
         cargo clippy -p test_matrix3x2 &&
         cargo clippy -p test_metadata &&
         cargo clippy -p test_mshtml &&
-        cargo clippy -p test_nightly_class_factory &&
-        cargo clippy -p test_nightly_component &&
-        cargo clippy -p test_nightly_component_client &&
-        cargo clippy -p test_nightly_data_object &&
-        cargo clippy -p test_nightly_drop_target &&
-        cargo clippy -p test_nightly_identity &&
-        cargo clippy -p test_nightly_implement &&
-        cargo clippy -p test_nightly_interface &&
-        cargo clippy -p test_nightly_map &&
-        cargo clippy -p test_nightly_no_use &&
-        cargo clippy -p test_nightly_null_result &&
-        cargo clippy -p test_nightly_properties &&
-        cargo clippy -p test_nightly_vector &&
-        cargo clippy -p test_nightly_winrt &&
         cargo clippy -p test_not_dll &&
+        cargo clippy -p test_no_use &&
         cargo clippy -p test_ntstatus &&
+        cargo clippy -p test_null_result &&
+        cargo clippy -p test_properties &&
         cargo clippy -p test_return_struct &&
         cargo clippy -p test_string_param &&
         cargo clippy -p test_structs &&
         cargo clippy -p test_sys &&
         cargo clippy -p test_unions &&
+        cargo clippy -p test_vector &&
         cargo clippy -p test_weak &&
         cargo clippy -p test_weak_ref &&
         cargo clippy -p test_win32 &&
         cargo clippy -p test_win32_arrays &&
+        cargo clippy -p test_winrt &&
         cargo clippy -p tool_bindings &&
         cargo clippy -p tool_gnu &&
         cargo clippy -p tool_ilrs &&
