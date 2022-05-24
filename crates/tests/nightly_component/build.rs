@@ -21,7 +21,7 @@ fn main() -> std::io::Result<()> {
     gen.component = true;
     bindings.write_all(bindgen::namespace(&gen, &tree).as_bytes())?;
     bindings.write_all(bindgen::namespace_impl(&gen, &tree).as_bytes())?;
-    
+
     drop(bindings);
     Command::new("rustfmt").arg("src/bindings.rs").status()?;
 
