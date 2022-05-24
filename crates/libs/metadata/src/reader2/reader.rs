@@ -1,5 +1,7 @@
 use super::*;
 
+const EXCLUDE_NAMESPACES: [&str; 2] = ["", "Windows.Win32.Interop"];
+
 pub struct Reader<'a> {
     files: &'a [File],
     types: HashMap<&'a str, BTreeMap<&'a str, Vec<TypeDef>>>,
@@ -30,7 +32,7 @@ impl<'a> Reader<'a> {
     pub fn tree(&self) -> Tree {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
-            if !ns.is_empty() {
+            if !EXCLUDE_NAMESPACES.iter().any(|x| x == ns) {
                 tree.insert_namespace(ns, 0);
             }
         }
