@@ -5,7 +5,7 @@ use windows::Win32::System::Registry::*;
 #[test]
 fn handle() {
     let handle = HANDLE(0);
-    let _clone = handle.clone();
+    let _clone = handle;
     let _copy: HANDLE = handle;
     assert!(HANDLE::default() == HANDLE(0));
     assert!(HANDLE(0).is_invalid());
@@ -24,7 +24,7 @@ fn boolean() {
 #[test]
 fn pstr() {
     let handle = PSTR(core::ptr::null_mut());
-    let _clone = handle.clone();
+    let _clone = handle;
     let _copy: PSTR = handle;
     assert!(handle.is_null());
 }
@@ -32,7 +32,7 @@ fn pstr() {
 #[test]
 fn pwstr() {
     let handle = PWSTR(core::ptr::null_mut());
-    let _clone = handle.clone();
+    let _clone = handle;
     let _copy: PWSTR = handle;
     assert!(handle.is_null());
 }

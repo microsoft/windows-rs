@@ -63,7 +63,7 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     let method_traits = gen.reader.type_def_methods(def).map(|method| {
         let name = method_names.add(gen, method);
-        let signature = gen.reader.method_def_signature(method, &generics);
+        let signature = gen.reader.method_def_signature(method, generics);
         let signature_tokens = gen.impl_signature(def, &signature);
         // If it can be implemented but is exclusive and has no return value then
         // it is a Xaml override so give it a default implementation to make it easier
@@ -84,8 +84,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
 
     let method_impls = gen.reader.type_def_methods(def).map(|method| {
         let name = method_names.add(gen, method);
-        let signature = gen.reader.method_def_signature(method, &generics);
-        let vtbl_signature = gen.vtbl_signature(def, &generics, &signature);
+        let signature = gen.reader.method_def_signature(method, generics);
+        let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
 
         let invoke_upcall = if gen.reader.type_def_flags(def).winrt() { winrt_methods::gen_upcall(gen, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(gen, &signature, quote! { this.#name }) };
 

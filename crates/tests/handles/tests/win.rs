@@ -9,7 +9,7 @@ fn handle() {
     let copy = handle;
     assert!(copy == handle);
 
-    let clone = handle.clone();
+    let clone = handle;
     assert!(clone == handle);
 
     let default = HANDLE::default();
@@ -27,7 +27,7 @@ fn psid() {
     let copy = handle;
     assert!(copy == handle);
 
-    let clone = handle.clone();
+    let clone = handle;
     assert!(clone == handle);
 
     let default = PSID::default();

@@ -43,7 +43,7 @@ fn rect() {
     assert!(rect.right == 3);
     assert!(rect.bottom == 4);
 
-    let clone = rect.clone();
+    let clone = rect;
 
     assert!(clone == RECT { left: 1, top: 2, right: 3, bottom: 4 });
 }

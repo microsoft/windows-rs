@@ -549,7 +549,7 @@ impl<'a> Gen<'a> {
             quote! {}
         }
     }
-    pub fn async_get(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn async_get(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         let mut kind = self.reader.type_def_async_kind(def);
         let mut async_generics = generics.to_vec();
 
@@ -620,7 +620,7 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
+    pub fn interface_winrt_trait(&self, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, features: &TokenStream) -> TokenStream {
         if self.reader.type_def_flags(def).winrt() {
             let type_signature = if self.reader.type_def_kind(def) == TypeKind::Class {
                 let type_signature = Literal::byte_string(self.reader.type_def_signature(def, generics).as_bytes());
@@ -780,7 +780,7 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn vtbl_signature(&self, def: TypeDef, generics: &[Type], signature: &Signature) -> TokenStream {
+    pub fn vtbl_signature(&self, def: TypeDef, _generics: &[Type], signature: &Signature) -> TokenStream {
         let is_winrt = self.reader.type_def_flags(def).winrt();
         let hresult = self.type_name(&Type::HRESULT);
 
@@ -995,7 +995,7 @@ impl<'a> Gen<'a> {
 
                     quote! { -> ::windows::core::Result<#return_type> }
                 }
-                _ => self.return_sig(&signature),
+                _ => self.return_sig(signature),
             };
 
             quote! { (&self, #params) #return_type }

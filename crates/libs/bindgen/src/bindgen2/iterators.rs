@@ -1,6 +1,6 @@
 use super::*;
 
-pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, phantoms: &TokenStream, cfg: &Cfg) -> TokenStream {
+pub fn gen(gen: &Gen, def: TypeDef, generics: &[Type], ident: &TokenStream, constraints: &TokenStream, _phantoms: &TokenStream, cfg: &Cfg) -> TokenStream {
     match gen.reader.type_def_type_name(def) {
         // If the type is IIterator<T> then simply implement the Iterator trait over top.
         TypeName::IIterator => {

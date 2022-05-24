@@ -94,7 +94,7 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interfa
             for interface in interfaces {
                 if let Type::TypeDef((def, generics)) = &interface.ty {
                     for method in gen.reader.type_def_methods(*def) {
-                        methods.combine(&winrt_methods::gen(gen, *def, &generics, InterfaceKind::None, method, method_names, virtual_names));
+                        methods.combine(&winrt_methods::gen(gen, *def, generics, InterfaceKind::None, method, method_names, virtual_names));
                     }
                 }
             }
@@ -123,7 +123,7 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interfa
     methods
 }
 
-fn gen_conversions(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interface], name: &TokenStream, constraints: &TokenStream, cfg: &Cfg) -> TokenStream {
+fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[Interface], name: &TokenStream, constraints: &TokenStream, cfg: &Cfg) -> TokenStream {
     let mut tokens = quote! {};
 
     for ty in &gen.reader.type_def_vtables(def) {
