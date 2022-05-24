@@ -4427,6 +4427,71 @@ pub struct INetCfgComponentSysPrep_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 #[repr(transparent)]
+pub struct INetCfgComponentUpperEdge(::windows::core::IUnknown);
+impl INetCfgComponentUpperEdge {
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+    pub unsafe fn GetInterfaceIdsForAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetInterfaceIdsForAdapter)(::windows::core::Interface::as_raw(self), padapter.into_param().abi(), ::core::mem::transmute(pdwnuminterfaces), ::core::mem::transmute(ppguidinterfaceids)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+    pub unsafe fn AddInterfacesToAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, dwnuminterfaces: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).AddInterfacesToAdapter)(::windows::core::Interface::as_raw(self), padapter.into_param().abi(), ::core::mem::transmute(dwnuminterfaces)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+    pub unsafe fn RemoveInterfacesFromAdapter<'a, Param0: ::windows::core::IntoParam<'a, INetCfgComponent>>(&self, padapter: Param0, pguidinterfaceids: &[::windows::core::GUID]) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).RemoveInterfacesFromAdapter)(::windows::core::Interface::as_raw(self), padapter.into_param().abi(), pguidinterfaceids.len() as _, ::core::mem::transmute(::windows::core::as_ptr_or_null(pguidinterfaceids))).ok()
+    }
+}
+impl ::core::convert::From<INetCfgComponentUpperEdge> for ::windows::core::IUnknown {
+    fn from(value: INetCfgComponentUpperEdge) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&INetCfgComponentUpperEdge> for ::windows::core::IUnknown {
+    fn from(value: &INetCfgComponentUpperEdge) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for INetCfgComponentUpperEdge {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a INetCfgComponentUpperEdge {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for INetCfgComponentUpperEdge {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for INetCfgComponentUpperEdge {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for INetCfgComponentUpperEdge {}
+impl ::core::fmt::Debug for INetCfgComponentUpperEdge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentUpperEdge").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for INetCfgComponentUpperEdge {
+    type Vtable = INetCfgComponentUpperEdge_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct INetCfgComponentUpperEdge_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub GetInterfaceIdsForAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: ::windows::core::RawPtr, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub AddInterfacesToAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: ::windows::core::RawPtr, dwnuminterfaces: u32) -> ::windows::core::HRESULT,
+    pub RemoveInterfacesFromAdapter: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, padapter: ::windows::core::RawPtr, dwnuminterfaces: u32, pguidinterfaceids: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+#[repr(transparent)]
 pub struct INetCfgLock(::windows::core::IUnknown);
 impl INetCfgLock {
     #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]

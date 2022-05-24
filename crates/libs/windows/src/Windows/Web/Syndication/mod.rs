@@ -2048,7 +2048,7 @@ impl<'a> ::windows::core::IntoParam<'a, ISyndicationText> for &SyndicationConten
 unsafe impl ::core::marker::Send for SyndicationContent {}
 unsafe impl ::core::marker::Sync for SyndicationContent {}
 #[doc = "*Required features: `\"Web_Syndication\"`*"]
-pub struct SyndicationError {}
+pub struct SyndicationError;
 impl SyndicationError {
     #[doc = "*Required features: `\"Web_Syndication\"`*"]
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<SyndicationErrorStatus> {

@@ -617,7 +617,7 @@ impl<'a> ::windows::core::IntoParam<'a, IIOControlCode> for &IOControlCode {
 unsafe impl ::core::marker::Send for IOControlCode {}
 unsafe impl ::core::marker::Sync for IOControlCode {}
 #[doc = "*Required features: `\"Devices_Custom\"`*"]
-pub struct KnownDeviceTypes {}
+pub struct KnownDeviceTypes;
 impl KnownDeviceTypes {
     #[doc = "*Required features: `\"Devices_Custom\"`*"]
     pub fn Unknown() -> ::windows::core::Result<u16> {

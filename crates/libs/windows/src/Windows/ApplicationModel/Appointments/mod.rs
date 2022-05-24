@@ -1688,7 +1688,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAppointmentParticipant> for &Appointmen
 unsafe impl ::core::marker::Send for AppointmentInvitee {}
 unsafe impl ::core::marker::Sync for AppointmentInvitee {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
-pub struct AppointmentManager {}
+pub struct AppointmentManager;
 impl AppointmentManager {
     #[doc = "*Required features: `\"ApplicationModel_Appointments\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2229,7 +2229,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentParticipantRole {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
-pub struct AppointmentProperties {}
+pub struct AppointmentProperties;
 impl AppointmentProperties {
     #[doc = "*Required features: `\"ApplicationModel_Appointments\"`*"]
     pub fn Subject() -> ::windows::core::Result<::windows::core::HSTRING> {

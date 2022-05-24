@@ -2257,7 +2257,7 @@ unsafe impl ::windows::core::RuntimeType for AutoUpdateTimeZoneStatus {
     }
 }
 #[doc = "*Required features: `\"System\"`*"]
-pub struct DateTimeSettings {}
+pub struct DateTimeSettings;
 impl DateTimeSettings {
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4773,7 +4773,7 @@ pub struct IUserWatcher_Vtbl {
     RemoveStopped: usize,
 }
 #[doc = "*Required features: `\"System\"`*"]
-pub struct KnownUserProperties {}
+pub struct KnownUserProperties;
 impl KnownUserProperties {
     #[doc = "*Required features: `\"System\"`*"]
     pub fn DisplayName() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5098,7 +5098,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchUriStatus {
     }
 }
 #[doc = "*Required features: `\"System\"`*"]
-pub struct Launcher {}
+pub struct Launcher;
 impl Launcher {
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -5739,7 +5739,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 unsafe impl ::core::marker::Send for LauncherUIOptions {}
 unsafe impl ::core::marker::Sync for LauncherUIOptions {}
 #[doc = "*Required features: `\"System\"`*"]
-pub struct MemoryManager {}
+pub struct MemoryManager;
 impl MemoryManager {
     #[doc = "*Required features: `\"System\"`*"]
     pub fn AppMemoryUsage() -> ::windows::core::Result<u64> {
@@ -5888,7 +5888,7 @@ unsafe impl ::windows::core::RuntimeType for PowerState {
     }
 }
 #[doc = "*Required features: `\"System\"`*"]
-pub struct ProcessLauncher {}
+pub struct ProcessLauncher;
 impl ProcessLauncher {
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6398,7 +6398,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteLaunchUriStatus {
     }
 }
 #[doc = "*Required features: `\"System\"`*"]
-pub struct RemoteLauncher {}
+pub struct RemoteLauncher;
 impl RemoteLauncher {
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`, `\"System_RemoteSystems\"`*"]
     #[cfg(all(feature = "Foundation", feature = "System_RemoteSystems"))]
@@ -6576,7 +6576,7 @@ unsafe impl ::windows::core::RuntimeType for ShutdownKind {
     }
 }
 #[doc = "*Required features: `\"System\"`*"]
-pub struct ShutdownManager {}
+pub struct ShutdownManager;
 impl ShutdownManager {
     #[doc = "*Required features: `\"System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -6618,7 +6618,7 @@ impl ::windows::core::RuntimeName for ShutdownManager {
     const NAME: &'static str = "Windows.System.ShutdownManager";
 }
 #[doc = "*Required features: `\"System\"`*"]
-pub struct TimeZoneSettings {}
+pub struct TimeZoneSettings;
 impl TimeZoneSettings {
     #[doc = "*Required features: `\"System\"`*"]
     pub fn CurrentTimeZoneDisplayName() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -7253,7 +7253,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a U
 unsafe impl ::core::marker::Send for UserChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserChangedEventArgs {}
 #[doc = "*Required features: `\"System\"`*"]
-pub struct UserDeviceAssociation {}
+pub struct UserDeviceAssociation;
 impl UserDeviceAssociation {
     #[doc = "*Required features: `\"System\"`*"]
     pub fn FindUserFromDeviceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<User> {

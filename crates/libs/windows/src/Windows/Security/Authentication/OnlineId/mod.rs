@@ -549,7 +549,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a O
 unsafe impl ::core::marker::Send for OnlineIdServiceTicketRequest {}
 unsafe impl ::core::marker::Sync for OnlineIdServiceTicketRequest {}
 #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
-pub struct OnlineIdSystemAuthenticator {}
+pub struct OnlineIdSystemAuthenticator;
 impl OnlineIdSystemAuthenticator {
     #[doc = "*Required features: `\"Security_Authentication_OnlineId\"`*"]
     pub fn Default() -> ::windows::core::Result<OnlineIdSystemAuthenticatorForUser> {

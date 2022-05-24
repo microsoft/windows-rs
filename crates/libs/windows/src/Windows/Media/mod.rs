@@ -2072,7 +2072,7 @@ unsafe impl ::core::marker::Send for ImageDisplayProperties {}
 unsafe impl ::core::marker::Sync for ImageDisplayProperties {}
 #[doc = "*Required features: `\"Media\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct MediaControl {}
+pub struct MediaControl;
 #[cfg(feature = "deprecated")]
 impl MediaControl {
     #[doc = "*Required features: `\"Media\"`, `\"Foundation\"`, `\"deprecated\"`*"]
@@ -2459,7 +2459,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 unsafe impl ::core::marker::Send for MediaExtensionManager {}
 unsafe impl ::core::marker::Sync for MediaExtensionManager {}
 #[doc = "*Required features: `\"Media\"`*"]
-pub struct MediaMarkerTypes {}
+pub struct MediaMarkerTypes;
 impl MediaMarkerTypes {
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn Bookmark() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4590,7 +4590,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a V
 unsafe impl ::core::marker::Send for VideoDisplayProperties {}
 unsafe impl ::core::marker::Sync for VideoDisplayProperties {}
 #[doc = "*Required features: `\"Media\"`*"]
-pub struct VideoEffects {}
+pub struct VideoEffects;
 impl VideoEffects {
     #[doc = "*Required features: `\"Media\"`*"]
     pub fn VideoStabilization() -> ::windows::core::Result<::windows::core::HSTRING> {

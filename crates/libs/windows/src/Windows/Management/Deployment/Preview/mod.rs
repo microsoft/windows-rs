@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
-pub struct ClassicAppManager {}
+pub struct ClassicAppManager;
 impl ClassicAppManager {
     #[doc = "*Required features: `\"Management_Deployment_Preview\"`*"]
     pub fn FindInstalledApp<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appuninstallkey: Param0) -> ::windows::core::Result<InstalledClassicAppInfo> {

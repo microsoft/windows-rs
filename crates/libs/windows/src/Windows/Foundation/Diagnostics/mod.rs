@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
-pub struct AsyncCausalityTracer {}
+pub struct AsyncCausalityTracer;
 impl AsyncCausalityTracer {
     #[doc = "*Required features: `\"Foundation_Diagnostics\"`*"]
     pub fn TraceOperationCreation<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param4: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(tracelevel: CausalityTraceLevel, source: CausalitySource, platformid: Param2, operationid: u64, operationname: Param4, relatedcontext: u64) -> ::windows::core::Result<()> {

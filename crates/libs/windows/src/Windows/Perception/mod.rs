@@ -177,7 +177,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 unsafe impl ::core::marker::Send for PerceptionTimestamp {}
 unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
 #[doc = "*Required features: `\"Perception\"`*"]
-pub struct PerceptionTimestampHelper {}
+pub struct PerceptionTimestampHelper;
 impl PerceptionTimestampHelper {
     #[doc = "*Required features: `\"Perception\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

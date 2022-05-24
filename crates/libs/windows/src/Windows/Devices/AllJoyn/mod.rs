@@ -3293,7 +3293,7 @@ unsafe impl ::core::marker::Send for AllJoynSessionMemberRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for AllJoynSessionMemberRemovedEventArgs {}
 #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct AllJoynStatus {}
+pub struct AllJoynStatus;
 #[cfg(feature = "deprecated")]
 impl AllJoynStatus {
     #[doc = "*Required features: `\"Devices_AllJoyn\"`, `\"deprecated\"`*"]

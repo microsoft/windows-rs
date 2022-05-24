@@ -115,7 +115,7 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionOpacity {
     }
 }
 #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
-pub struct ClosedCaptionProperties {}
+pub struct ClosedCaptionProperties;
 impl ClosedCaptionProperties {
     #[doc = "*Required features: `\"Media_ClosedCaptioning\"`*"]
     pub fn FontColor() -> ::windows::core::Result<ClosedCaptionColor> {

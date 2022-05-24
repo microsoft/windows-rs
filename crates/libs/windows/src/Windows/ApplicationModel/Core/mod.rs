@@ -154,7 +154,7 @@ unsafe impl ::windows::core::RuntimeType for AppRestartFailureReason {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
-pub struct CoreApplication {}
+pub struct CoreApplication;
 impl CoreApplication {
     #[doc = "*Required features: `\"ApplicationModel_Core\"`*"]
     pub fn Id() -> ::windows::core::Result<::windows::core::HSTRING> {

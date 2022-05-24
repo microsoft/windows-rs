@@ -317,7 +317,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &Docume
     }
 }
 #[doc = "*Required features: `\"Storage_FileProperties\"`*"]
-pub struct GeotagHelper {}
+pub struct GeotagHelper;
 impl GeotagHelper {
     #[doc = "*Required features: `\"Storage_FileProperties\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]

@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"ApplicationModel_UserActivities_Core\"`*"]
-pub struct CoreUserActivityManager {}
+pub struct CoreUserActivityManager;
 impl CoreUserActivityManager {
     #[doc = "*Required features: `\"ApplicationModel_UserActivities_Core\"`*"]
     pub fn CreateUserActivitySessionInBackground<'a, Param0: ::windows::core::IntoParam<'a, super::UserActivity>>(activity: Param0) -> ::windows::core::Result<super::UserActivitySession> {

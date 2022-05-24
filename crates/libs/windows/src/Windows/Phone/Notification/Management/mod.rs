@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
-pub struct AccessoryManager {}
+pub struct AccessoryManager;
 impl AccessoryManager {
     #[doc = "*Required features: `\"Phone_Notification_Management\"`*"]
     pub fn RegisterAccessoryApp() -> ::windows::core::Result<::windows::core::HSTRING> {

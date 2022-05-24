@@ -165,7 +165,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for CameraEventArgs {}
 unsafe impl ::core::marker::Sync for CameraEventArgs {}
 #[doc = "*Required features: `\"Phone_UI_Input\"`*"]
-pub struct HardwareButtons {}
+pub struct HardwareButtons;
 impl HardwareButtons {
     #[doc = "*Required features: `\"Phone_UI_Input\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

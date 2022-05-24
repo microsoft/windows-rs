@@ -1367,7 +1367,7 @@ pub struct ApplicationDataSetVersionHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, setversionrequest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Storage\"`*"]
-pub struct CachedFileManager {}
+pub struct CachedFileManager;
 impl CachedFileManager {
     #[doc = "*Required features: `\"Storage\"`*"]
     pub fn DeferUpdates<'a, Param0: ::windows::core::IntoParam<'a, IStorageFile>>(file: Param0) -> ::windows::core::Result<()> {
@@ -1427,7 +1427,7 @@ unsafe impl ::windows::core::RuntimeType for CreationCollisionOption {
     }
 }
 #[doc = "*Required features: `\"Storage\"`*"]
-pub struct DownloadsFolder {}
+pub struct DownloadsFolder;
 impl DownloadsFolder {
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1608,7 +1608,7 @@ unsafe impl ::windows::core::RuntimeType for FileAttributes {
     }
 }
 #[doc = "*Required features: `\"Storage\"`*"]
-pub struct FileIO {}
+pub struct FileIO;
 impl FileIO {
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4898,7 +4898,7 @@ unsafe impl ::windows::core::RuntimeType for KnownFolderId {
     }
 }
 #[doc = "*Required features: `\"Storage\"`*"]
-pub struct KnownFolders {}
+pub struct KnownFolders;
 impl KnownFolders {
     #[doc = "*Required features: `\"Storage\"`*"]
     pub fn CameraRoll() -> ::windows::core::Result<StorageFolder> {
@@ -5172,7 +5172,7 @@ unsafe impl ::windows::core::RuntimeType for NameCollisionOption {
     }
 }
 #[doc = "*Required features: `\"Storage\"`*"]
-pub struct PathIO {}
+pub struct PathIO;
 impl PathIO {
     #[doc = "*Required features: `\"Storage\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -9255,7 +9255,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SystemPhotoProperties {}
 unsafe impl ::core::marker::Sync for SystemPhotoProperties {}
 #[doc = "*Required features: `\"Storage\"`*"]
-pub struct SystemProperties {}
+pub struct SystemProperties;
 impl SystemProperties {
     #[doc = "*Required features: `\"Storage\"`*"]
     pub fn Author() -> ::windows::core::Result<::windows::core::HSTRING> {

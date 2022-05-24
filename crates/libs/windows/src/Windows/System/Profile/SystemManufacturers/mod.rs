@@ -182,7 +182,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a O
 unsafe impl ::core::marker::Send for OemSupportInfo {}
 unsafe impl ::core::marker::Sync for OemSupportInfo {}
 #[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
-pub struct SmbiosInformation {}
+pub struct SmbiosInformation;
 impl SmbiosInformation {
     #[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
     pub fn SerialNumber() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -334,7 +334,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SystemSupportDeviceInfo {}
 unsafe impl ::core::marker::Sync for SystemSupportDeviceInfo {}
 #[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
-pub struct SystemSupportInfo {}
+pub struct SystemSupportInfo;
 impl SystemSupportInfo {
     #[doc = "*Required features: `\"System_Profile_SystemManufacturers\"`*"]
     pub fn LocalSystemEdition() -> ::windows::core::Result<::windows::core::HSTRING> {

@@ -227,7 +227,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationStatus {
     }
 }
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-pub struct CoreAutomationRegistrar {}
+pub struct CoreAutomationRegistrar;
 impl CoreAutomationRegistrar {
     #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
     pub fn RegisterAnnotationType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(guid: Param0) -> ::windows::core::Result<AutomationAnnotationTypeRegistration> {
@@ -1156,7 +1156,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a R
 unsafe impl ::core::marker::Send for RemoteAutomationDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteAutomationDisconnectedEventArgs {}
 #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
-pub struct RemoteAutomationServer {}
+pub struct RemoteAutomationServer;
 impl RemoteAutomationServer {
     #[doc = "*Required features: `\"UI_UIAutomation_Core\"`*"]
     pub fn ReportSession<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(sessionid: Param0) -> ::windows::core::Result<()> {

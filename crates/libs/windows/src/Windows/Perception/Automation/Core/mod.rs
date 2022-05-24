@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Perception_Automation_Core\"`*"]
-pub struct CorePerceptionAutomation {}
+pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
     #[doc = "*Required features: `\"Perception_Automation_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

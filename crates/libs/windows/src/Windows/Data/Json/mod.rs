@@ -684,7 +684,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for JsonArray {}
 unsafe impl ::core::marker::Sync for JsonArray {}
 #[doc = "*Required features: `\"Data_Json\"`*"]
-pub struct JsonError {}
+pub struct JsonError;
 impl JsonError {
     #[doc = "*Required features: `\"Data_Json\"`*"]
     pub fn GetJsonStatus(hresult: i32) -> ::windows::core::Result<JsonErrorStatus> {

@@ -246,7 +246,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 unsafe impl ::core::marker::Send for PhoneCallOrigin {}
 unsafe impl ::core::marker::Sync for PhoneCallOrigin {}
 #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
-pub struct PhoneCallOriginManager {}
+pub struct PhoneCallOriginManager;
 impl PhoneCallOriginManager {
     #[doc = "*Required features: `\"ApplicationModel_Calls_Provider\"`*"]
     pub fn IsCurrentAppActiveCallOriginApp() -> ::windows::core::Result<bool> {

@@ -419,7 +419,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementDataSection {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementDataSection {}
 #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
-pub struct BluetoothLEAdvertisementDataTypes {}
+pub struct BluetoothLEAdvertisementDataTypes;
 impl BluetoothLEAdvertisementDataTypes {
     #[doc = "*Required features: `\"Devices_Bluetooth_Advertisement\"`*"]
     pub fn Flags() -> ::windows::core::Result<u8> {

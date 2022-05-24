@@ -3401,7 +3401,7 @@ pub struct PrintTaskSourceRequestedHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Graphics_Printing\"`*"]
-pub struct StandardPrintTaskOptions {}
+pub struct StandardPrintTaskOptions;
 impl StandardPrintTaskOptions {
     #[doc = "*Required features: `\"Graphics_Printing\"`*"]
     pub fn MediaSize() -> ::windows::core::Result<::windows::core::HSTRING> {

@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"UI_Shell\"`*"]
-pub struct AdaptiveCardBuilder {}
+pub struct AdaptiveCardBuilder;
 impl AdaptiveCardBuilder {
     #[doc = "*Required features: `\"UI_Shell\"`*"]
     pub fn CreateAdaptiveCardFromJson<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<IAdaptiveCard> {

@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Embedded_DeviceLockdown\"`*"]
-pub struct DeviceLockdownProfile {}
+pub struct DeviceLockdownProfile;
 impl DeviceLockdownProfile {
     #[doc = "*Required features: `\"Embedded_DeviceLockdown\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

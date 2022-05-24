@@ -331,7 +331,7 @@ unsafe impl ::windows::core::RuntimeType for BadgeTemplateType {
     }
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
-pub struct BadgeUpdateManager {}
+pub struct BadgeUpdateManager;
 impl BadgeUpdateManager {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn CreateBadgeUpdaterForApplication() -> ::windows::core::Result<BadgeUpdater> {
@@ -1946,7 +1946,7 @@ pub struct IUserNotificationChangedEventArgs_Vtbl {
     pub UserNotificationId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
-pub struct KnownAdaptiveNotificationHints {}
+pub struct KnownAdaptiveNotificationHints;
 impl KnownAdaptiveNotificationHints {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn Style() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2000,7 +2000,7 @@ impl ::windows::core::RuntimeName for KnownAdaptiveNotificationHints {
     const NAME: &'static str = "Windows.UI.Notifications.KnownAdaptiveNotificationHints";
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
-pub struct KnownAdaptiveNotificationTextStyles {}
+pub struct KnownAdaptiveNotificationTextStyles;
 impl KnownAdaptiveNotificationTextStyles {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn Caption() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2145,7 +2145,7 @@ impl ::windows::core::RuntimeName for KnownAdaptiveNotificationTextStyles {
     const NAME: &'static str = "Windows.UI.Notifications.KnownAdaptiveNotificationTextStyles";
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
-pub struct KnownNotificationBindings {}
+pub struct KnownNotificationBindings;
 impl KnownNotificationBindings {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn ToastGeneric() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3550,7 +3550,7 @@ unsafe impl ::windows::core::RuntimeType for TileFlyoutTemplateType {
     }
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
-pub struct TileFlyoutUpdateManager {}
+pub struct TileFlyoutUpdateManager;
 impl TileFlyoutUpdateManager {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn CreateTileFlyoutUpdaterForApplication() -> ::windows::core::Result<TileFlyoutUpdater> {
@@ -3986,7 +3986,7 @@ unsafe impl ::windows::core::RuntimeType for TileTemplateType {
     }
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
-pub struct TileUpdateManager {}
+pub struct TileUpdateManager;
 impl TileUpdateManager {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn CreateTileUpdaterForApplication() -> ::windows::core::Result<TileUpdater> {
@@ -5498,7 +5498,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a T
     }
 }
 #[doc = "*Required features: `\"UI_Notifications\"`*"]
-pub struct ToastNotificationManager {}
+pub struct ToastNotificationManager;
 impl ToastNotificationManager {
     #[doc = "*Required features: `\"UI_Notifications\"`*"]
     pub fn CreateToastNotifier() -> ::windows::core::Result<ToastNotifier> {

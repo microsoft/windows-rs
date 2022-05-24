@@ -422,7 +422,7 @@ unsafe impl ::windows::core::RuntimeType for CertificateChainPolicy {
     }
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-pub struct CertificateEnrollmentManager {}
+pub struct CertificateEnrollmentManager;
 impl CertificateEnrollmentManager {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1417,7 +1417,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for CertificateStore {}
 unsafe impl ::core::marker::Sync for CertificateStore {}
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-pub struct CertificateStores {}
+pub struct CertificateStores;
 impl CertificateStores {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3346,7 +3346,7 @@ unsafe impl ::windows::core::RuntimeType for InstallOptions {
     }
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-pub struct KeyAlgorithmNames {}
+pub struct KeyAlgorithmNames;
 impl KeyAlgorithmNames {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Rsa() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3433,7 +3433,7 @@ impl ::windows::core::RuntimeName for KeyAlgorithmNames {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.KeyAlgorithmNames";
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-pub struct KeyAttestationHelper {}
+pub struct KeyAttestationHelper;
 impl KeyAttestationHelper {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3544,7 +3544,7 @@ unsafe impl ::windows::core::RuntimeType for KeySize {
     }
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-pub struct KeyStorageProviderNames {}
+pub struct KeyStorageProviderNames;
 impl KeyStorageProviderNames {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn SoftwareKeyStorageProvider() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3801,7 +3801,7 @@ unsafe impl ::windows::core::RuntimeType for SignatureValidationResult {
     }
 }
 #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
-pub struct StandardCertificateStoreNames {}
+pub struct StandardCertificateStoreNames;
 impl StandardCertificateStoreNames {
     #[doc = "*Required features: `\"Security_Cryptography_Certificates\"`*"]
     pub fn Personal() -> ::windows::core::Result<::windows::core::HSTRING> {

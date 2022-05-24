@@ -1030,7 +1030,7 @@ pub struct IUserDataAccountSystemAccessManagerStatics2_Vtbl {
     GetDeviceAccountConfigurationAsync: usize,
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`*"]
-pub struct UserDataAccountSystemAccessManager {}
+pub struct UserDataAccountSystemAccessManager;
 impl UserDataAccountSystemAccessManager {
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts_SystemAccess\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

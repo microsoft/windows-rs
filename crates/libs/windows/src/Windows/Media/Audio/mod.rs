@@ -9351,7 +9351,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SpatialAudioFormatConfiguration {}
 unsafe impl ::core::marker::Sync for SpatialAudioFormatConfiguration {}
 #[doc = "*Required features: `\"Media_Audio\"`*"]
-pub struct SpatialAudioFormatSubtype {}
+pub struct SpatialAudioFormatSubtype;
 impl SpatialAudioFormatSubtype {
     #[doc = "*Required features: `\"Media_Audio\"`*"]
     pub fn WindowsSonic() -> ::windows::core::Result<::windows::core::HSTRING> {

@@ -4088,7 +4088,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncStatus {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Email\"`*"]
-pub struct EmailManager {}
+pub struct EmailManager;
 impl EmailManager {
     #[doc = "*Required features: `\"ApplicationModel_Email\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

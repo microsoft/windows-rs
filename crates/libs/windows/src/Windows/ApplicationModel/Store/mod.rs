@@ -3,7 +3,7 @@ pub mod LicenseManagement;
 #[cfg(feature = "ApplicationModel_Store_Preview")]
 pub mod Preview;
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
-pub struct CurrentApp {}
+pub struct CurrentApp;
 impl CurrentApp {
     #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
     pub fn LicenseInformation() -> ::windows::core::Result<LicenseInformation> {
@@ -173,7 +173,7 @@ impl ::windows::core::RuntimeName for CurrentApp {
     const NAME: &'static str = "Windows.ApplicationModel.Store.CurrentApp";
 }
 #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
-pub struct CurrentAppSimulator {}
+pub struct CurrentAppSimulator;
 impl CurrentAppSimulator {
     #[doc = "*Required features: `\"ApplicationModel_Store\"`*"]
     pub fn LicenseInformation() -> ::windows::core::Result<LicenseInformation> {

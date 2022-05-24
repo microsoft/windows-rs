@@ -4996,7 +4996,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerReason {
     }
 }
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
-pub struct SocketError {}
+pub struct SocketError;
 impl SocketError {
     #[doc = "*Required features: `\"Networking_Sockets\"`*"]
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<SocketErrorStatus> {
@@ -7120,7 +7120,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 unsafe impl ::core::marker::Send for WebSocketClosedEventArgs {}
 unsafe impl ::core::marker::Sync for WebSocketClosedEventArgs {}
 #[doc = "*Required features: `\"Networking_Sockets\"`*"]
-pub struct WebSocketError {}
+pub struct WebSocketError;
 impl WebSocketError {
     #[doc = "*Required features: `\"Networking_Sockets\"`, `\"Web\"`*"]
     #[cfg(feature = "Web")]

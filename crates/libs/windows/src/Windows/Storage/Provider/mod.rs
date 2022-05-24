@@ -97,7 +97,7 @@ unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
-pub struct CachedFileUpdater {}
+pub struct CachedFileUpdater;
 impl CachedFileUpdater {
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn SetUpdateInformation<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(file: Param0, contentid: Param1, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()> {
@@ -2386,7 +2386,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
     }
 }
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
-pub struct StorageProviderItemProperties {}
+pub struct StorageProviderItemProperties;
 impl StorageProviderItemProperties {
     #[doc = "*Required features: `\"Storage_Provider\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3181,7 +3181,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for StorageProviderSyncRootInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderSyncRootInfo {}
 #[doc = "*Required features: `\"Storage_Provider\"`*"]
-pub struct StorageProviderSyncRootManager {}
+pub struct StorageProviderSyncRootManager;
 impl StorageProviderSyncRootManager {
     #[doc = "*Required features: `\"Storage_Provider\"`*"]
     pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderSyncRootInfo>>(syncrootinformation: Param0) -> ::windows::core::Result<()> {

@@ -5670,7 +5670,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-pub struct PlayReadyContentResolver {}
+pub struct PlayReadyContentResolver;
 impl PlayReadyContentResolver {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn ServiceRequest<'a, Param0: ::windows::core::IntoParam<'a, PlayReadyContentHeader>>(contentheader: Param0) -> ::windows::core::Result<IPlayReadyServiceRequest> {
@@ -7846,7 +7846,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collect
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-pub struct PlayReadyLicenseManagement {}
+pub struct PlayReadyLicenseManagement;
 impl PlayReadyLicenseManagement {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -9153,7 +9153,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
     }
 }
 #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
-pub struct PlayReadyStatics {}
+pub struct PlayReadyStatics;
 impl PlayReadyStatics {
     #[doc = "*Required features: `\"Media_Protection_PlayReady\"`*"]
     pub fn DomainJoinServiceRequestType() -> ::windows::core::Result<::windows::core::GUID> {

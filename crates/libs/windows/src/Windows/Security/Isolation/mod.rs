@@ -1323,7 +1323,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentFile {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentFile {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
-pub struct IsolatedWindowsEnvironmentHost {}
+pub struct IsolatedWindowsEnvironmentHost;
 impl IsolatedWindowsEnvironmentHost {
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn IsReady() -> ::windows::core::Result<bool> {
@@ -1735,7 +1735,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOptions {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOptions {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
-pub struct IsolatedWindowsEnvironmentOwnerRegistration {}
+pub struct IsolatedWindowsEnvironmentOwnerRegistration;
 impl IsolatedWindowsEnvironmentOwnerRegistration {
     #[doc = "*Required features: `\"Security_Isolation\"`*"]
     pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, IsolatedWindowsEnvironmentOwnerRegistrationData>>(ownername: Param0, ownerregistrationdata: Param1) -> ::windows::core::Result<IsolatedWindowsEnvironmentOwnerRegistrationResult> {
@@ -3118,7 +3118,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentUserInfo {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentUserInfo {}
 #[doc = "*Required features: `\"Security_Isolation\"`*"]
-pub struct IsolatedWindowsHostMessenger {}
+pub struct IsolatedWindowsHostMessenger;
 impl IsolatedWindowsHostMessenger {
     #[doc = "*Required features: `\"Security_Isolation\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

@@ -1642,7 +1642,7 @@ pub struct IStoredContactFactory_Vtbl {
     pub CreateStoredContactFromInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, store: ::windows::core::RawPtr, contact: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
-pub struct KnownContactProperties {}
+pub struct KnownContactProperties;
 impl KnownContactProperties {
     #[doc = "*Required features: `\"Phone_PersonalInformation\"`*"]
     pub fn DisplayName() -> ::windows::core::Result<::windows::core::HSTRING> {

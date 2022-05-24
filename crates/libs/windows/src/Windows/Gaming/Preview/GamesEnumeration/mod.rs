@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`*"]
-pub struct GameList {}
+pub struct GameList;
 impl GameList {
     #[doc = "*Required features: `\"Gaming_Preview_GamesEnumeration\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

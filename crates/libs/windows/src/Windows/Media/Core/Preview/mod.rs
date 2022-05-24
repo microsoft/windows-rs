@@ -20,7 +20,7 @@ pub struct ISoundLevelBrokerStatics_Vtbl {
     RemoveSoundLevelChanged: usize,
 }
 #[doc = "*Required features: `\"Media_Core_Preview\"`*"]
-pub struct SoundLevelBroker {}
+pub struct SoundLevelBroker;
 impl SoundLevelBroker {
     #[doc = "*Required features: `\"Media_Core_Preview\"`*"]
     pub fn SoundLevel() -> ::windows::core::Result<super::super::SoundLevel> {

@@ -1,7 +1,7 @@
 #[cfg(feature = "System_Profile_SystemManufacturers")]
 pub mod SystemManufacturers;
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct AnalyticsInfo {}
+pub struct AnalyticsInfo;
 impl AnalyticsInfo {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn VersionInfo() -> ::windows::core::Result<AnalyticsVersionInfo> {
@@ -141,7 +141,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct AppApplicability {}
+pub struct AppApplicability;
 impl AppApplicability {
     #[doc = "*Required features: `\"System_Profile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -161,7 +161,7 @@ impl ::windows::core::RuntimeName for AppApplicability {
     const NAME: &'static str = "Windows.System.Profile.AppApplicability";
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct EducationSettings {}
+pub struct EducationSettings;
 impl EducationSettings {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn IsEducationEnvironment() -> ::windows::core::Result<bool> {
@@ -180,7 +180,7 @@ impl ::windows::core::RuntimeName for EducationSettings {
     const NAME: &'static str = "Windows.System.Profile.EducationSettings";
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct HardwareIdentification {}
+pub struct HardwareIdentification;
 impl HardwareIdentification {
     #[doc = "*Required features: `\"System_Profile\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -619,7 +619,7 @@ pub struct IWindowsIntegrityPolicyStatics_Vtbl {
     RemovePolicyChanged: usize,
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct KnownRetailInfoProperties {}
+pub struct KnownRetailInfoProperties;
 impl KnownRetailInfoProperties {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn RetailAccessCode() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -821,7 +821,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
     }
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct PlatformDiagnosticsAndUsageDataSettings {}
+pub struct PlatformDiagnosticsAndUsageDataSettings;
 impl PlatformDiagnosticsAndUsageDataSettings {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn CollectionLevel() -> ::windows::core::Result<PlatformDataCollectionLevel> {
@@ -860,7 +860,7 @@ impl ::windows::core::RuntimeName for PlatformDiagnosticsAndUsageDataSettings {
     const NAME: &'static str = "Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings";
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct RetailInfo {}
+pub struct RetailInfo;
 impl RetailInfo {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn IsDemoModeEnabled() -> ::windows::core::Result<bool> {
@@ -887,7 +887,7 @@ impl ::windows::core::RuntimeName for RetailInfo {
     const NAME: &'static str = "Windows.System.Profile.RetailInfo";
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct SharedModeSettings {}
+pub struct SharedModeSettings;
 impl SharedModeSettings {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn IsEnabled() -> ::windows::core::Result<bool> {
@@ -918,7 +918,7 @@ impl ::windows::core::RuntimeName for SharedModeSettings {
     const NAME: &'static str = "Windows.System.Profile.SharedModeSettings";
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct SystemIdentification {}
+pub struct SystemIdentification;
 impl SystemIdentification {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn GetSystemIdForPublisher() -> ::windows::core::Result<SystemIdentificationInfo> {
@@ -1109,7 +1109,7 @@ unsafe impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
     }
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct SystemSetupInfo {}
+pub struct SystemSetupInfo;
 impl SystemSetupInfo {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn OutOfBoxExperienceState() -> ::windows::core::Result<SystemOutOfBoxExperienceState> {
@@ -1296,7 +1296,7 @@ unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
     }
 }
 #[doc = "*Required features: `\"System_Profile\"`*"]
-pub struct WindowsIntegrityPolicy {}
+pub struct WindowsIntegrityPolicy;
 impl WindowsIntegrityPolicy {
     #[doc = "*Required features: `\"System_Profile\"`*"]
     pub fn IsEnabled() -> ::windows::core::Result<bool> {

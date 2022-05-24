@@ -33,7 +33,7 @@ pub struct IPowerManagerStatics2_Vtbl {
     pub PowerSavingModeEnabled: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_System_Power\"`*"]
-pub struct PowerManager {}
+pub struct PowerManager;
 impl PowerManager {
     #[doc = "*Required features: `\"Phone_System_Power\"`*"]
     pub fn PowerSavingMode() -> ::windows::core::Result<PowerSavingMode> {

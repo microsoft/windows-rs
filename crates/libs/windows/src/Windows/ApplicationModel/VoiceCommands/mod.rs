@@ -904,7 +904,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a V
 unsafe impl ::core::marker::Send for VoiceCommandDefinition {}
 unsafe impl ::core::marker::Sync for VoiceCommandDefinition {}
 #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`*"]
-pub struct VoiceCommandDefinitionManager {}
+pub struct VoiceCommandDefinitionManager;
 impl VoiceCommandDefinitionManager {
     #[doc = "*Required features: `\"ApplicationModel_VoiceCommands\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]

@@ -563,7 +563,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
     }
 }
 #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
-pub struct PrintExtensionContext {}
+pub struct PrintExtensionContext;
 impl PrintExtensionContext {
     #[doc = "*Required features: `\"Devices_Printers_Extensions\"`*"]
     pub fn FromDeviceId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {

@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
-pub struct ApiInformation {}
+pub struct ApiInformation;
 impl ApiInformation {
     #[doc = "*Required features: `\"Foundation_Metadata\"`*"]
     pub fn IsTypePresent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(typename: Param0) -> ::windows::core::Result<bool> {

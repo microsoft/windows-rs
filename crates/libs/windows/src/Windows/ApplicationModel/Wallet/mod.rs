@@ -1489,7 +1489,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 unsafe impl ::core::marker::Send for WalletItemStore {}
 unsafe impl ::core::marker::Sync for WalletItemStore {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet\"`*"]
-pub struct WalletManager {}
+pub struct WalletManager;
 impl WalletManager {
     #[doc = "*Required features: `\"ApplicationModel_Wallet\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

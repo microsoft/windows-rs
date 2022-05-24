@@ -448,7 +448,7 @@ pub struct IWebAuthenticationCoreManagerHelper_Vtbl {
     RequestTokenWithUIElementHostingAndWebAccountAsync: usize,
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-pub struct StoreConfiguration {}
+pub struct StoreConfiguration;
 impl StoreConfiguration {
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -832,7 +832,7 @@ unsafe impl ::windows::core::RuntimeType for StoreLogOptions {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-pub struct StorePreview {}
+pub struct StorePreview;
 impl StorePreview {
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1315,7 +1315,7 @@ unsafe impl ::windows::core::RuntimeType for StoreSystemFeature {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`*"]
-pub struct WebAuthenticationCoreManagerHelper {}
+pub struct WebAuthenticationCoreManagerHelper;
 impl WebAuthenticationCoreManagerHelper {
     #[doc = "*Required features: `\"ApplicationModel_Store_Preview\"`, `\"Foundation\"`, `\"Security_Authentication_Web_Core\"`, `\"UI_Xaml\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authentication_Web_Core", feature = "UI_Xaml"))]

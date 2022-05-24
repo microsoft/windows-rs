@@ -179,7 +179,7 @@ pub struct ComponentLoadFailedEventHandler_Vtbl {
     pub Invoke: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: ::windows::core::RawPtr, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Media_Protection\"`*"]
-pub struct ComponentRenewal {}
+pub struct ComponentRenewal;
 impl ComponentRenewal {
     #[doc = "*Required features: `\"Media_Protection\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

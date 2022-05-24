@@ -150,7 +150,7 @@ pub struct IPlaceInfoHelperStatics_Vtbl {
     pub CreateFromLocalLocation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
-pub struct LocalCategories {}
+pub struct LocalCategories;
 impl LocalCategories {
     #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn BankAndCreditUnions() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -377,7 +377,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
-pub struct LocalLocationFinder {}
+pub struct LocalLocationFinder;
 impl LocalLocationFinder {
     #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
@@ -738,7 +738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a L
 unsafe impl ::core::marker::Send for LocalLocationRatingInfo {}
 unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
 #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
-pub struct PlaceInfoHelper {}
+pub struct PlaceInfoHelper;
 impl PlaceInfoHelper {
     #[doc = "*Required features: `\"Services_Maps_LocalSearch\"`*"]
     pub fn CreateFromLocalLocation<'a, Param0: ::windows::core::IntoParam<'a, LocalLocation>>(location: Param0) -> ::windows::core::Result<super::PlaceInfo> {

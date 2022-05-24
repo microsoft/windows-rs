@@ -1,6 +1,6 @@
 #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct BackgroundEnergyDiagnostics {}
+pub struct BackgroundEnergyDiagnostics;
 #[cfg(feature = "deprecated")]
 impl BackgroundEnergyDiagnostics {
     #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
@@ -37,7 +37,7 @@ impl ::windows::core::RuntimeName for BackgroundEnergyDiagnostics {
 }
 #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct ForegroundEnergyDiagnostics {}
+pub struct ForegroundEnergyDiagnostics;
 #[cfg(feature = "deprecated")]
 impl ForegroundEnergyDiagnostics {
     #[doc = "*Required features: `\"System_Power_Diagnostics\"`, `\"deprecated\"`*"]

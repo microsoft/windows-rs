@@ -4353,7 +4353,7 @@ unsafe impl ::windows::core::RuntimeType for TabLeader {
     }
 }
 #[doc = "*Required features: `\"UI_Text\"`*"]
-pub struct TextConstants {}
+pub struct TextConstants;
 impl TextConstants {
     #[doc = "*Required features: `\"UI_Text\"`*"]
     pub fn AutoColor() -> ::windows::core::Result<super::Color> {

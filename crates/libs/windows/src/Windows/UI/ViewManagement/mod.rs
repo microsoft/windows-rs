@@ -1032,7 +1032,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewState {
     }
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-pub struct ApplicationViewSwitcher {}
+pub struct ApplicationViewSwitcher;
 impl ApplicationViewSwitcher {
     #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
     pub fn DisableShowingMainViewOnActivation() -> ::windows::core::Result<()> {
@@ -3020,7 +3020,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
     }
 }
 #[doc = "*Required features: `\"UI_ViewManagement\"`*"]
-pub struct ProjectionManager {}
+pub struct ProjectionManager;
 impl ProjectionManager {
     #[doc = "*Required features: `\"UI_ViewManagement\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

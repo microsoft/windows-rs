@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"ApplicationModel_Preview_Holographic\"`*"]
-pub struct HolographicApplicationPreview {}
+pub struct HolographicApplicationPreview;
 impl HolographicApplicationPreview {
     #[doc = "*Required features: `\"ApplicationModel_Preview_Holographic\"`*"]
     pub fn IsCurrentViewPresentedOnHolographicDisplay() -> ::windows::core::Result<bool> {

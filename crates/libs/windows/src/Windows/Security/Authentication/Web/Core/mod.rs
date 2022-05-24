@@ -731,7 +731,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 unsafe impl ::core::marker::Send for WebAccountMonitor {}
 unsafe impl ::core::marker::Sync for WebAccountMonitor {}
 #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`*"]
-pub struct WebAuthenticationCoreManager {}
+pub struct WebAuthenticationCoreManager;
 impl WebAuthenticationCoreManager {
     #[doc = "*Required features: `\"Security_Authentication_Web_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

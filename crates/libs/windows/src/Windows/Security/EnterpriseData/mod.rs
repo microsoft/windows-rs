@@ -186,7 +186,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a D
 unsafe impl ::core::marker::Send for DataProtectionInfo {}
 unsafe impl ::core::marker::Sync for DataProtectionInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
-pub struct DataProtectionManager {}
+pub struct DataProtectionManager;
 impl DataProtectionManager {
     #[doc = "*Required features: `\"Security_EnterpriseData\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -429,7 +429,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a F
 unsafe impl ::core::marker::Send for FileProtectionInfo {}
 unsafe impl ::core::marker::Sync for FileProtectionInfo {}
 #[doc = "*Required features: `\"Security_EnterpriseData\"`*"]
-pub struct FileProtectionManager {}
+pub struct FileProtectionManager;
 impl FileProtectionManager {
     #[doc = "*Required features: `\"Security_EnterpriseData\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
@@ -592,7 +592,7 @@ unsafe impl ::windows::core::RuntimeType for FileProtectionStatus {
 }
 #[doc = "*Required features: `\"Security_EnterpriseData\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct FileRevocationManager {}
+pub struct FileRevocationManager;
 #[cfg(feature = "deprecated")]
 impl FileRevocationManager {
     #[doc = "*Required features: `\"Security_EnterpriseData\"`, `\"Foundation\"`, `\"Storage\"`, `\"deprecated\"`*"]

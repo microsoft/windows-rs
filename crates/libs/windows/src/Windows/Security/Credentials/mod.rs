@@ -694,7 +694,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredentialCreationOption {
     }
 }
 #[doc = "*Required features: `\"Security_Credentials\"`*"]
-pub struct KeyCredentialManager {}
+pub struct KeyCredentialManager;
 impl KeyCredentialManager {
     #[doc = "*Required features: `\"Security_Credentials\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

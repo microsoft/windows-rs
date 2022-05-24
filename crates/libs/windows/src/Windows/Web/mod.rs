@@ -110,7 +110,7 @@ pub struct IWebErrorStatics_Vtbl {
     pub GetStatus: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut WebErrorStatus) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Web\"`*"]
-pub struct WebError {}
+pub struct WebError;
 impl WebError {
     #[doc = "*Required features: `\"Web\"`*"]
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<WebErrorStatus> {

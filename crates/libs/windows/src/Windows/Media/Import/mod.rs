@@ -1648,7 +1648,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportItemSelectionMode {
     }
 }
 #[doc = "*Required features: `\"Media_Import\"`*"]
-pub struct PhotoImportManager {}
+pub struct PhotoImportManager;
 impl PhotoImportManager {
     #[doc = "*Required features: `\"Media_Import\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

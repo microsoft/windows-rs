@@ -15263,6 +15263,10 @@ impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoDecodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoDecodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList {
     type Vtable = ID3D12VideoDecodeCommandList_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b60536e_ad29_4e64_a269_f853837e5e53);
@@ -15561,6 +15565,10 @@ impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList1 {
         f.debug_tuple("ID3D12VideoDecodeCommandList1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoDecodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoDecodeCommandList1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList1 {
     type Vtable = ID3D12VideoDecodeCommandList1_Vtbl;
@@ -15863,6 +15871,10 @@ impl ::core::fmt::Debug for ID3D12VideoDecodeCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoDecodeCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoDecodeCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecodeCommandList2 {
     type Vtable = ID3D12VideoDecodeCommandList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e120880_c114_4153_8036_d247051e1729);
@@ -16039,6 +16051,10 @@ impl ::core::fmt::Debug for ID3D12VideoDecoder {
         f.debug_tuple("ID3D12VideoDecoder").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoDecoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoDecoder {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoder {
     type Vtable = ID3D12VideoDecoder_Vtbl;
@@ -16234,6 +16250,10 @@ impl ::core::fmt::Debug for ID3D12VideoDecoder1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoDecoder1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoDecoder1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoder1 {
     type Vtable = ID3D12VideoDecoder1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79a2e5fb_ccd2_469a_9fde_195d10951f7e);
@@ -16400,6 +16420,10 @@ impl ::core::fmt::Debug for ID3D12VideoDecoderHeap {
         f.debug_tuple("ID3D12VideoDecoderHeap").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoDecoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoDecoderHeap {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoderHeap {
     type Vtable = ID3D12VideoDecoderHeap_Vtbl;
@@ -16599,6 +16623,10 @@ impl ::core::fmt::Debug for ID3D12VideoDecoderHeap1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoDecoderHeap1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoDecoderHeap1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoDecoderHeap1 {
     type Vtable = ID3D12VideoDecoderHeap1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda1d98c5_539f_41b2_bf6b_1198a03b6d26);
@@ -16672,6 +16700,8 @@ impl ::core::fmt::Debug for ID3D12VideoDevice {
         f.debug_tuple("ID3D12VideoDevice").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for ID3D12VideoDevice {}
+unsafe impl ::core::marker::Sync for ID3D12VideoDevice {}
 unsafe impl ::windows::core::Interface for ID3D12VideoDevice {
     type Vtable = ID3D12VideoDevice_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f052807_0b46_4acc_8a89_364f793718a4);
@@ -16785,6 +16815,8 @@ impl ::core::fmt::Debug for ID3D12VideoDevice1 {
         f.debug_tuple("ID3D12VideoDevice1").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for ID3D12VideoDevice1 {}
+unsafe impl ::core::marker::Sync for ID3D12VideoDevice1 {}
 unsafe impl ::windows::core::Interface for ID3D12VideoDevice1 {
     type Vtable = ID3D12VideoDevice1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x981611ad_a144_4c83_9890_f30e26d658ab);
@@ -16945,6 +16977,8 @@ impl ::core::fmt::Debug for ID3D12VideoDevice2 {
         f.debug_tuple("ID3D12VideoDevice2").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for ID3D12VideoDevice2 {}
+unsafe impl ::core::marker::Sync for ID3D12VideoDevice2 {}
 unsafe impl ::windows::core::Interface for ID3D12VideoDevice2 {
     type Vtable = ID3D12VideoDevice2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf019ac49_f838_4a95_9b17_579437c8f513);
@@ -17148,6 +17182,8 @@ impl ::core::fmt::Debug for ID3D12VideoDevice3 {
         f.debug_tuple("ID3D12VideoDevice3").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for ID3D12VideoDevice3 {}
+unsafe impl ::core::marker::Sync for ID3D12VideoDevice3 {}
 unsafe impl ::windows::core::Interface for ID3D12VideoDevice3 {
     type Vtable = ID3D12VideoDevice3_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4243adb4_3a32_4666_973c_0ccc5625dc44);
@@ -17390,6 +17426,10 @@ impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList {
         f.debug_tuple("ID3D12VideoEncodeCommandList").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoEncodeCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoEncodeCommandList {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList {
     type Vtable = ID3D12VideoEncodeCommandList_Vtbl;
@@ -17713,6 +17753,10 @@ impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList1 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoEncodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoEncodeCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList1 {
     type Vtable = ID3D12VideoEncodeCommandList1_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94971eca_2bdb_4769_88cf_3675ea757ebc);
@@ -18028,6 +18072,10 @@ impl ::core::fmt::Debug for ID3D12VideoEncodeCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoEncodeCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoEncodeCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncodeCommandList2 {
     type Vtable = ID3D12VideoEncodeCommandList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x895491e2_e701_46a9_9a1f_8d3480ed867a);
@@ -18223,6 +18271,10 @@ impl ::core::fmt::Debug for ID3D12VideoEncoder {
         f.debug_tuple("ID3D12VideoEncoder").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoEncoder {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoEncoder {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncoder {
     type Vtable = ID3D12VideoEncoder_Vtbl;
@@ -18421,6 +18473,10 @@ impl ::core::fmt::Debug for ID3D12VideoEncoderHeap {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoEncoderHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoEncoderHeap {
     type Vtable = ID3D12VideoEncoderHeap_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b35d96_876a_44c0_b25e_fb8c9c7f1c4a);
@@ -18597,6 +18653,10 @@ impl ::core::fmt::Debug for ID3D12VideoExtensionCommand {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoExtensionCommand {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoExtensionCommand {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoExtensionCommand {
     type Vtable = ID3D12VideoExtensionCommand_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x554e41e8_ae8e_4a8c_b7d2_5b4f274a30e4);
@@ -18768,6 +18828,10 @@ impl ::core::fmt::Debug for ID3D12VideoMotionEstimator {
         f.debug_tuple("ID3D12VideoMotionEstimator").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoMotionEstimator {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoMotionEstimator {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoMotionEstimator {
     type Vtable = ID3D12VideoMotionEstimator_Vtbl;
@@ -18943,6 +19007,10 @@ impl ::core::fmt::Debug for ID3D12VideoMotionVectorHeap {
         f.debug_tuple("ID3D12VideoMotionVectorHeap").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoMotionVectorHeap {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoMotionVectorHeap {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoMotionVectorHeap {
     type Vtable = ID3D12VideoMotionVectorHeap_Vtbl;
@@ -19177,6 +19245,10 @@ impl ::core::fmt::Debug for ID3D12VideoProcessCommandList {
         f.debug_tuple("ID3D12VideoProcessCommandList").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoProcessCommandList {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoProcessCommandList {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList {
     type Vtable = ID3D12VideoProcessCommandList_Vtbl;
@@ -19476,6 +19548,10 @@ impl ::core::fmt::Debug for ID3D12VideoProcessCommandList1 {
         f.debug_tuple("ID3D12VideoProcessCommandList1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoProcessCommandList1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoProcessCommandList1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList1 {
     type Vtable = ID3D12VideoProcessCommandList1_Vtbl;
@@ -19778,6 +19854,10 @@ impl ::core::fmt::Debug for ID3D12VideoProcessCommandList2 {
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoProcessCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoProcessCommandList2 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessCommandList2 {
     type Vtable = ID3D12VideoProcessCommandList2_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb525ae4_6ad6_473c_baa7_59b2e37082e4);
@@ -19968,6 +20048,10 @@ impl ::core::fmt::Debug for ID3D12VideoProcessor {
         f.debug_tuple("ID3D12VideoProcessor").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoProcessor {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoProcessor {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessor {
     type Vtable = ID3D12VideoProcessor_Vtbl;
@@ -20185,6 +20269,10 @@ impl ::core::fmt::Debug for ID3D12VideoProcessor1 {
         f.debug_tuple("ID3D12VideoProcessor1").field(&self.0).finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Send for ID3D12VideoProcessor1 {}
+#[cfg(feature = "Win32_Graphics_Direct3D12")]
+unsafe impl ::core::marker::Sync for ID3D12VideoProcessor1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 unsafe impl ::windows::core::Interface for ID3D12VideoProcessor1 {
     type Vtable = ID3D12VideoProcessor1_Vtbl;

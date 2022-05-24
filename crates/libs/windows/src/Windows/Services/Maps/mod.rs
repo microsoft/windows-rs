@@ -1310,7 +1310,7 @@ unsafe impl ::windows::core::RuntimeType for MapLocationDesiredAccuracy {
     }
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
-pub struct MapLocationFinder {}
+pub struct MapLocationFinder;
 impl MapLocationFinder {
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
@@ -1492,7 +1492,7 @@ unsafe impl ::windows::core::RuntimeType for MapLocationFinderStatus {
     }
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
-pub struct MapManager {}
+pub struct MapManager;
 impl MapManager {
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn ShowDownloadedMapsUI() -> ::windows::core::Result<()> {
@@ -1898,7 +1898,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 unsafe impl ::core::marker::Send for MapRouteDrivingOptions {}
 unsafe impl ::core::marker::Sync for MapRouteDrivingOptions {}
 #[doc = "*Required features: `\"Services_Maps\"`*"]
-pub struct MapRouteFinder {}
+pub struct MapRouteFinder;
 impl MapRouteFinder {
     #[doc = "*Required features: `\"Services_Maps\"`, `\"Devices_Geolocation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
@@ -2625,7 +2625,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteRestrictions {
     }
 }
 #[doc = "*Required features: `\"Services_Maps\"`*"]
-pub struct MapService {}
+pub struct MapService;
 impl MapService {
     #[doc = "*Required features: `\"Services_Maps\"`*"]
     pub fn SetServiceToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<()> {

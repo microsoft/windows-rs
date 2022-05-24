@@ -31,7 +31,7 @@ pub struct ISystemProtectionUnlockStatics_Vtbl {
     pub RequestScreenUnlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_System\"`*"]
-pub struct SystemProtection {}
+pub struct SystemProtection;
 impl SystemProtection {
     #[doc = "*Required features: `\"Phone_System\"`*"]
     pub fn ScreenLocked() -> ::windows::core::Result<bool> {

@@ -116,7 +116,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for ChatCapabilities {}
 unsafe impl ::core::marker::Sync for ChatCapabilities {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-pub struct ChatCapabilitiesManager {}
+pub struct ChatCapabilitiesManager;
 impl ChatCapabilitiesManager {
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1362,7 +1362,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for ChatMessageAttachment {}
 unsafe impl ::core::marker::Sync for ChatMessageAttachment {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-pub struct ChatMessageBlocking {}
+pub struct ChatMessageBlocking;
 impl ChatMessageBlocking {
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1908,7 +1908,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageKind {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-pub struct ChatMessageManager {}
+pub struct ChatMessageManager;
 impl ChatMessageManager {
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -5599,7 +5599,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a R
 unsafe impl ::core::marker::Send for RcsEndUserMessageManager {}
 unsafe impl ::core::marker::Sync for RcsEndUserMessageManager {}
 #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
-pub struct RcsManager {}
+pub struct RcsManager;
 impl RcsManager {
     #[doc = "*Required features: `\"ApplicationModel_Chat\"`*"]
     pub fn GetEndUserMessageManager() -> ::windows::core::Result<RcsEndUserMessageManager> {

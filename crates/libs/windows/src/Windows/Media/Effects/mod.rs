@@ -373,7 +373,7 @@ unsafe impl ::windows::core::RuntimeType for AudioEffectType {
     }
 }
 #[doc = "*Required features: `\"Media_Effects\"`*"]
-pub struct AudioEffectsManager {}
+pub struct AudioEffectsManager;
 impl AudioEffectsManager {
     #[doc = "*Required features: `\"Media_Effects\"`, `\"Media_Render\"`*"]
     #[cfg(feature = "Media_Render")]

@@ -346,7 +346,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 unsafe impl ::core::marker::Send for PushNotificationChannel {}
 unsafe impl ::core::marker::Sync for PushNotificationChannel {}
 #[doc = "*Required features: `\"Networking_PushNotifications\"`*"]
-pub struct PushNotificationChannelManager {}
+pub struct PushNotificationChannelManager;
 impl PushNotificationChannelManager {
     #[doc = "*Required features: `\"Networking_PushNotifications\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

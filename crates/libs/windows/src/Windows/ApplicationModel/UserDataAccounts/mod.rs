@@ -612,7 +612,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountContentKinds {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`*"]
-pub struct UserDataAccountManager {}
+pub struct UserDataAccountManager;
 impl UserDataAccountManager {
     #[doc = "*Required features: `\"ApplicationModel_UserDataAccounts\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

@@ -235,7 +235,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a W
 unsafe impl ::core::marker::Send for WalletItemSystemStore {}
 unsafe impl ::core::marker::Sync for WalletItemSystemStore {}
 #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`*"]
-pub struct WalletManagerSystem {}
+pub struct WalletManagerSystem;
 impl WalletManagerSystem {
     #[doc = "*Required features: `\"ApplicationModel_Wallet_System\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

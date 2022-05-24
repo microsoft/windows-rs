@@ -3221,7 +3221,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SpeechRecognizerUIOptions {}
 unsafe impl ::core::marker::Sync for SpeechRecognizerUIOptions {}
 #[doc = "*Required features: `\"Media_SpeechRecognition\"`*"]
-pub struct VoiceCommandManager {}
+pub struct VoiceCommandManager;
 impl VoiceCommandManager {
     #[doc = "*Required features: `\"Media_SpeechRecognition\"`, `\"Foundation\"`, `\"Storage\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]

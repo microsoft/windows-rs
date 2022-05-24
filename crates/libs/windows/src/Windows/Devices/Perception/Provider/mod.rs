@@ -739,7 +739,7 @@ pub struct IPerceptionVideoFrameAllocatorFactory_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownPerceptionFrameKind {}
+pub struct KnownPerceptionFrameKind;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionFrameKind {
     #[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"deprecated\"`*"]
@@ -1580,7 +1580,7 @@ unsafe impl ::core::marker::Send for PerceptionFrameProviderInfo {}
 unsafe impl ::core::marker::Sync for PerceptionFrameProviderInfo {}
 #[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct PerceptionFrameProviderManagerService {}
+pub struct PerceptionFrameProviderManagerService;
 #[cfg(feature = "deprecated")]
 impl PerceptionFrameProviderManagerService {
     #[doc = "*Required features: `\"Devices_Perception_Provider\"`, `\"deprecated\"`*"]

@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"ApplicationModel_AppService\"`*"]
-pub struct AppServiceCatalog {}
+pub struct AppServiceCatalog;
 impl AppServiceCatalog {
     #[doc = "*Required features: `\"ApplicationModel_AppService\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

@@ -2,7 +2,7 @@
 pub mod Diagnostics;
 #[doc = "*Required features: `\"System_Power\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct BackgroundEnergyManager {}
+pub struct BackgroundEnergyManager;
 #[cfg(feature = "deprecated")]
 impl BackgroundEnergyManager {
     #[doc = "*Required features: `\"System_Power\"`, `\"deprecated\"`*"]
@@ -179,7 +179,7 @@ unsafe impl ::windows::core::RuntimeType for EnergySaverStatus {
 }
 #[doc = "*Required features: `\"System_Power\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct ForegroundEnergyManager {}
+pub struct ForegroundEnergyManager;
 #[cfg(feature = "deprecated")]
 impl ForegroundEnergyManager {
     #[doc = "*Required features: `\"System_Power\"`, `\"deprecated\"`*"]
@@ -446,7 +446,7 @@ pub struct IPowerManagerStatics_Vtbl {
     RemoveRemainingDischargeTimeChanged: usize,
 }
 #[doc = "*Required features: `\"System_Power\"`*"]
-pub struct PowerManager {}
+pub struct PowerManager;
 impl PowerManager {
     #[doc = "*Required features: `\"System_Power\"`*"]
     pub fn EnergySaverStatus() -> ::windows::core::Result<EnergySaverStatus> {
