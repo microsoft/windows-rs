@@ -15,7 +15,7 @@ mod replacements;
 mod structs;
 mod winrt_methods;
 pub use gen::*;
-use metadata::reader2::*;
+use metadata::reader::*;
 use method_names::*;
 use std::collections::*;
 use tokens::*;
