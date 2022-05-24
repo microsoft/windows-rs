@@ -1,0 +1,8 @@
+[package]
+name = "test_metadata"
+version = "0.0.0"
+authors = ["Microsoft"]
+edition = "2018"
+
+[dependencies]
+metadata = { package = "windows-metadata", path = "../../libs/metadata", version = "0.37.0" }

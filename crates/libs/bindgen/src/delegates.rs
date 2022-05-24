@@ -1,47 +1,82 @@
 use super::*;
 
-pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_ident(def, gen);
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
+    if gen.reader.type_def_flags(def).winrt() {
+        gen_delegate(gen, def)
+    } else {
+        gen_callback(gen, def)
+    }
+}
 
+fn gen_callback(gen: &Gen, def: TypeDef) -> TokenStream {
+    let name = to_ident(gen.reader.type_def_name(def));
+
+    let method = gen.reader.type_def_invoke_method(def);
+    let signature = gen.reader.method_def_signature(method, &[]);
+    let return_type = gen.return_sig(&signature);
+    let cfg = gen.reader.type_def_cfg(def, &[]); // TODO: why not just use method_def_cfg?
+    let doc = gen.cfg_doc(&cfg);
+    let features = gen.cfg_features(&cfg);
+
+    let params = signature.params.iter().map(|p| {
+        let name = gen.param_name(p.def);
+        let tokens = gen.type_default_name(&p.ty);
+        quote! { #name: #tokens }
+    });
+
+    quote! {
+        #doc
+        #features
+        pub type #name = ::core::option::Option<unsafe extern "system" fn(#(#params),*) #return_type>;
+    }
+}
+
+fn gen_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen.sys {
+        let name = to_ident(gen.reader.type_def_name(def));
         quote! {
             pub type #name = *mut ::core::ffi::c_void;
         }
     } else {
-        gen_win_delegate(def, gen)
+        gen_win_delegate(gen, def)
     }
 }
 
-fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_ident(def.name());
+fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
+    let name = to_ident(gen.reader.type_def_name(def));
     let vtbl = name.join("_Vtbl");
     let boxed = name.join("Box");
 
-    let phantoms = gen_phantoms(def, gen);
-    let named_phantoms = gen_named_phantoms(def, gen);
-    let constraints = gen_type_constraints(def, gen);
-    let generics = gen_type_generics(def, gen);
+    let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
+    let phantoms = gen.generic_phantoms(generics);
+    let named_phantoms = gen.generic_named_phantoms(generics);
+    let constraints = gen.generic_constraints(generics);
+    let generic_names = gen.generic_names(generics);
 
-    let method = def.invoke_method();
-    let signature = method.signature(&def.generics);
-    let fn_constraint = gen_fn_constraint(def, &method, gen);
-    let cfg = def.cfg();
-    let doc = gen.doc(&cfg);
-    let features = gen.cfg(&cfg);
-    let vtbl_signature = gen_vtbl_signature(def, &method, gen);
-    let invoke = gen_winrt_method(def, InterfaceKind::Default, &method, &mut MethodNames::new(), &mut MethodNames::new(), gen);
-    let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) });
+    let ident = gen.type_def_name(def, generics);
+
+    let method = gen.reader.type_def_invoke_method(def);
+    let signature = gen.reader.method_def_signature(method, generics);
+    let fn_constraint = gen_fn_constraint(gen, def, &signature);
+
+    let cfg = gen.reader.type_def_cfg(def, generics);
+    let doc = gen.cfg_doc(&cfg);
+    let features = gen.cfg_features(&cfg);
+
+    let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
+    let invoke = winrt_methods::gen(gen, def, generics, InterfaceKind::Default, method, &mut MethodNames::new(), &mut MethodNames::new());
+    let invoke_upcall = winrt_methods::gen_upcall(gen, &signature, quote! { ((*this).invoke) });
 
     let mut tokens = quote! {
         #doc
         #features
         #[repr(transparent)]
-        pub struct #name<#(#generics)*>(pub ::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
+        pub struct #ident(pub ::windows::core::IUnknown, #phantoms) where #constraints;
         #features
-        impl<#(#constraints)*> #name<#(#generics)*> {
+        impl<#constraints> #ident {
             pub fn new<#fn_constraint>(invoke: F) -> Self {
-                let com = #boxed::<#(#generics)* F> {
-                    vtable: &#boxed::<#(#generics)* F>::VTABLE,
+                let com = #boxed::<#generic_names F> {
+                    vtable: &#boxed::<#generic_names F>::VTABLE,
                     count: ::windows::core::RefCount::new(1),
                     invoke,
                 };
@@ -53,14 +88,14 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
         #features
         #[repr(C)]
-        struct #boxed<#(#generics)* #fn_constraint> where #(#constraints)* {
-            vtable: *const #vtbl<#(#generics)*>,
+        struct #boxed<#generic_names #fn_constraint> where #constraints {
+            vtable: *const #vtbl<#generic_names>,
             invoke: F,
             count: ::windows::core::RefCount,
         }
         #features
-        impl<#(#constraints)* #fn_constraint> #boxed<#(#generics)* F> {
-            const VTABLE: #vtbl<#(#generics)*> = #vtbl::<#(#generics)*>{
+        impl<#constraints #fn_constraint> #boxed<#generic_names F> {
+            const VTABLE: #vtbl<#generic_names> = #vtbl::<#generic_names>{
                 base__: ::windows::core::IUnknownVtbl{QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release},
                 Invoke: Self::Invoke,
                 #(#named_phantoms)*
@@ -68,7 +103,7 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
             unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
                 let this = this as *mut ::windows::core::RawPtr as *mut Self;
 
-                *interface = if iid == &<#name<#(#generics)*> as ::windows::core::Interface>::IID ||
+                *interface = if iid == &<#ident as ::windows::core::Interface>::IID ||
                     iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID ||
                     iid == &<::windows::core::IAgileObject as ::windows::core::Interface>::IID {
                         &mut (*this).vtable as *mut _ as _
@@ -106,16 +141,15 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     };
 
-    tokens.combine(&gen_std_traits(def, &cfg, gen));
-    tokens.combine(&gen_interface_trait(def, &cfg, gen));
-    tokens.combine(&gen_runtime_trait(def, &cfg, gen));
-    tokens.combine(&gen_vtbl(def, &cfg, gen));
-
+    tokens.combine(&gen.interface_core_traits(def, generics, &ident, &constraints, &phantoms, &features));
+    tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features));
+    tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
+    tokens.combine(&gen.interface_vtbl(def, generics, &ident, &constraints, &features));
     tokens
 }
 
-fn gen_fn_constraint(def: &TypeDef, method: &MethodDef, gen: &Gen) -> TokenStream {
-    let signature = gen_impl_signature(def, method, gen);
+fn gen_fn_constraint(gen: &Gen, def: TypeDef, signature: &Signature) -> TokenStream {
+    let signature = gen.impl_signature(def, signature);
 
     quote! { F: FnMut #signature + ::core::marker::Send + 'static }
 }

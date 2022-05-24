@@ -1,9 +1,9 @@
 use super::*;
 
-pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen.sys {
-        if def.default_interface().is_some() {
-            let name = gen_type_ident(def, gen);
+        if gen.reader.type_def_has_default_interface(def) {
+            let name = to_ident(gen.reader.type_def_name(def));
             quote! {
                 pub type #name = *mut ::core::ffi::c_void;
             }
@@ -11,66 +11,72 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             quote! {}
         }
     } else {
-        gen_class(def, gen)
+        gen_class(gen, def)
     }
 }
 
-fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = gen_type_ident(def, gen);
-    let has_default = def.default_interface().is_some();
-    let interfaces = def.class_interfaces();
+fn gen_class(gen: &Gen, def: TypeDef) -> TokenStream {
+    if gen.reader.type_def_extends(def) == TypeName::Attribute {
+        return TokenStream::new();
+    }
+
+    let name = to_ident(gen.reader.type_def_name(def));
+    let interfaces = gen.reader.type_interfaces(&Type::TypeDef((def, Vec::new())));
+    // TODO: faster if this were a Vec?
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
 
-    let cfg = def.cfg();
-    let doc = gen.doc(&cfg);
-    let features = gen.cfg(&cfg);
+    let cfg = gen.reader.type_def_cfg(def, &[]);
+    let doc = gen.cfg_doc(&cfg);
+    let features = gen.cfg_features(&cfg);
 
-    for (def, kind) in &interfaces {
-        if gen.min_xaml && *kind == InterfaceKind::Base && gen.namespace.starts_with("Windows.UI.Xaml") && !def.namespace().starts_with("Windows.Foundation") {
-            continue;
-        }
+    for interface in &interfaces {
+        if let Type::TypeDef((def, generics)) = &interface.ty {
+            if gen.min_xaml && interface.kind == InterfaceKind::Base && gen.namespace.starts_with("Windows.UI.Xaml") && !gen.reader.type_def_namespace(*def).starts_with("Windows.Foundation") {
+                continue;
+            }
 
-        let mut virtual_names = MethodNames::new();
+            let mut virtual_names = MethodNames::new();
 
-        for method in def.methods() {
-            methods.combine(&gen_winrt_method(def, *kind, &method, &mut method_names, &mut virtual_names, gen));
+            for method in gen.reader.type_def_methods(*def) {
+                methods.combine(&winrt_methods::gen(gen, *def, generics, interface.kind, method, &mut method_names, &mut virtual_names));
+            }
         }
     }
 
-    let factories = interfaces.iter().filter_map(|(def, kind)| match kind {
+    let factories = interfaces.iter().filter_map(|interface| match interface.kind {
         InterfaceKind::Static | InterfaceKind::Composable => {
-            if def.methods().next().is_some() {
-                let interface_name = format_token!("{}", def.name());
-                let interface_type = gen_type_name(def, gen);
-                let features = gen.cfg(&def.cfg());
+            if let Type::TypeDef((def, generics)) = &interface.ty {
+                if gen.reader.type_def_methods(*def).next().is_some() {
+                    let interface_type = gen.type_name(&interface.ty);
+                    let features = gen.cfg_features(&gen.reader.type_def_cfg(*def, generics));
 
-                let hidden = if gen.doc {
-                    quote! { #[doc(hidden)] }
-                } else {
-                    quote! {}
-                };
+                    let hidden = if gen.doc {
+                        quote! { #[doc(hidden)] }
+                    } else {
+                        quote! {}
+                    };
 
-                Some(quote! {
-                    #hidden
-                    #features
-                    pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
-                        callback: F,
-                    ) -> ::windows::core::Result<R> {
-                        static mut SHARED: ::windows::core::FactoryCache<#name, #interface_type> =
-                            ::windows::core::FactoryCache::new();
-                        unsafe { SHARED.call(callback) }
-                    }
-                })
-            } else {
-                None
+                    return Some(quote! {
+                        #hidden
+                        #features
+                        pub fn #interface_type<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
+                            callback: F,
+                        ) -> ::windows::core::Result<R> {
+                            static mut SHARED: ::windows::core::FactoryCache<#name, #interface_type> =
+                                ::windows::core::FactoryCache::new();
+                            unsafe { SHARED.call(callback) }
+                        }
+                    });
+                }
             }
+            None
         }
         _ => None,
     });
 
-    if has_default {
-        let new = if def.has_default_constructor() {
+    if gen.reader.type_def_has_default_interface(def) {
+        let new = if gen.reader.type_def_has_default_constructor(def) {
             quote! {
                 pub fn new() -> ::windows::core::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
@@ -100,20 +106,20 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         };
 
-        tokens.combine(&gen_std_traits(def, &cfg, gen));
-        tokens.combine(&gen_runtime_trait(def, &cfg, gen));
-        tokens.combine(&gen_interface_trait(def, &cfg, gen));
-        tokens.combine(&gen_runtime_name(def, &cfg, gen));
-        tokens.combine(&gen_async(def, &cfg, gen));
-        tokens.combine(&gen_iterator(def, &cfg, gen));
-        tokens.combine(&gen_conversions(def, &cfg, gen));
-        tokens.combine(&gen_agile(def, &cfg, gen));
+        tokens.combine(&gen.interface_core_traits(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&gen.interface_winrt_trait(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&gen.interface_trait(def, &[], &name, &TokenStream::new(), &features));
+        tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
+        tokens.combine(&gen.async_get(def, &[], &name, &TokenStream::new(), &TokenStream::new(), &features));
+        tokens.combine(&iterators::gen(gen, def, &[], &name, &TokenStream::new(), &TokenStream::new(), &cfg));
+        tokens.combine(&gen_conversions(gen, def, &name, &interfaces, &cfg));
+        tokens.combine(&gen.agile(def, &name, &TokenStream::new(), &features));
         tokens
     } else {
         let mut tokens = quote! {
             #doc
             #features
-            pub struct #name {}
+            pub struct #name{} // TODO: just use identity `;` instead of `{}`
             #features
             impl #name {
                 #methods
@@ -121,53 +127,37 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         };
 
-        tokens.combine(&gen_runtime_name(def, &cfg, gen));
+        tokens.combine(&gen.runtime_name_trait(def, &[], &name, &TokenStream::new(), &features));
         tokens
     }
 }
 
-fn gen_agile(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    if def.is_agile() {
-        let name = gen_type_ident(def, gen);
-        let cfg = gen.cfg(cfg);
-        quote! {
-            #cfg
-            unsafe impl ::core::marker::Send for #name {}
-            #cfg
-            unsafe impl ::core::marker::Sync for #name {}
-        }
-    } else {
-        TokenStream::new()
-    }
-}
-
-fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let name = gen_type_ident(def, gen);
+fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[Interface], cfg: &Cfg) -> TokenStream {
     let mut tokens = quote! {};
 
     for def in &[Type::IUnknown, Type::IInspectable] {
-        let into = gen_element_name(def, gen);
-        let cfg = gen.cfg(cfg);
+        let into = gen.type_name(def);
+        let features = gen.cfg_features(cfg);
         tokens.combine(&quote! {
-            #cfg
+            #features
             impl ::core::convert::From<#name> for #into {
                 fn from(value: #name) -> Self {
                     unsafe { ::core::mem::transmute(value) }
                 }
             }
-            #cfg
+            #features
             impl ::core::convert::From<&#name> for #into {
                 fn from(value: &#name) -> Self {
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
                 }
             }
-            #cfg
+            #features
             impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
                 }
             }
-            #cfg
+            #features
             impl<'a> ::windows::core::IntoParam<'a, #into> for &'a #name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -176,41 +166,41 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         });
     }
 
-    for (def, kind) in def.class_interfaces() {
-        if def.is_exclusive() {
+    for interface in interfaces {
+        if gen.reader.type_is_exclusive(&interface.ty) {
             continue;
         }
 
-        if kind != InterfaceKind::Default && kind != InterfaceKind::NonDefault && kind != InterfaceKind::Base {
+        if interface.kind != InterfaceKind::Default && interface.kind != InterfaceKind::None && interface.kind != InterfaceKind::Base {
             continue;
         }
 
-        let into = gen_type_name(&def, gen);
+        let into = gen.type_name(&interface.ty);
         // TODO: simplify - maybe provide + operator?
-        let cfg = gen.cfg(&cfg.union(&def.cfg()));
+        let features = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
 
         tokens.combine(&quote! {
-            #cfg
+            #features
             impl ::core::convert::TryFrom<#name> for #into {
                 type Error = ::windows::core::Error;
                 fn try_from(value: #name) -> ::windows::core::Result<Self> {
                     ::core::convert::TryFrom::try_from(&value)
                 }
             }
-            #cfg
+            #features
             impl ::core::convert::TryFrom<&#name> for #into {
                 type Error = ::windows::core::Error;
                 fn try_from(value: &#name) -> ::windows::core::Result<Self> {
                     ::windows::core::Interface::cast(value)
                 }
             }
-            #cfg
+            #features
             impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::IntoParam::into_param(&self)
                 }
             }
-            #cfg
+            #features
             impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::core::convert::TryInto::<#into>::try_into(self)
@@ -221,18 +211,18 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         });
     }
 
-    for def in def.bases() {
-        let into = gen_type_name(&def, gen);
-        let cfg = gen.cfg(&cfg.union(&def.cfg()));
+    for def in gen.reader.type_def_bases(def) {
+        let into = gen.type_def_name(def, &[]);
+        let features = gen.cfg_features(&cfg.union(&gen.reader.type_def_cfg(def, &[])));
 
         tokens.combine(&quote! {
-            #cfg
+            #features
             impl ::core::convert::From<#name> for #into {
                 fn from(value: #name) -> Self {
                     ::core::convert::From::from(&value)
                 }
             }
-            #cfg
+            #features
             impl ::core::convert::From<&#name> for #into {
                 fn from(value: &#name) -> Self {
                     // This unwrap is legitimate because conversion to base can never fail because
@@ -240,13 +230,13 @@ fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
                     ::windows::core::Interface::cast(value).unwrap()
                 }
             }
-            #cfg
+            #features
             impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::IntoParam::into_param(&self)
                 }
             }
-            #cfg
+            #features
             impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
                 fn into_param(self) -> ::windows::core::Param<'a, #into> {
                     ::windows::core::Param::Owned(::core::convert::Into::<#into>::into(self))

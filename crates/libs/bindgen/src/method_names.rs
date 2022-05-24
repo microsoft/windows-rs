@@ -7,22 +7,22 @@ impl MethodNames {
         Self(BTreeMap::new())
     }
 
-    pub fn add(&mut self, method: &MethodDef) -> TokenStream {
-        let name = method.rust_name();
+    pub fn add(&mut self, gen: &Gen, method: MethodDef) -> TokenStream {
+        let name = gen.reader.method_def_special_name(method);
         let overload = self.0.entry(name.to_string()).or_insert(0);
         *overload += 1;
         if *overload > 1 {
             format!("{}{}", name, overload).into()
         } else {
-            gen_ident(&name)
+            to_ident(&name)
         }
     }
 
-    pub fn add_vtable_types(&mut self, def: &TypeDef) {
-        for def in def.vtable_types() {
-            if let Type::TypeDef(def) = def {
-                for method in def.methods() {
-                    self.add(&method);
+    pub fn add_vtable_types(&mut self, gen: &Gen, def: TypeDef) {
+        for def in gen.reader.type_def_vtables(def) {
+            if let Type::TypeDef((def, _)) = def {
+                for method in gen.reader.type_def_methods(def) {
+                    self.add(gen, method);
                 }
             }
         }

@@ -1,28 +1,28 @@
 use super::*;
 
-pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
     if gen.sys {
-        gen_sys_handle(def, gen)
+        gen_sys_handle(gen, def)
     } else {
-        gen_win_handle(def, gen)
+        gen_win_handle(gen, def)
     }
 }
 
-pub fn gen_sys_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let ident = gen_ident(def.name());
-    let signature = gen_default_type(&def.underlying_type(), gen);
+pub fn gen_sys_handle(gen: &Gen, def: TypeDef) -> TokenStream {
+    let ident = to_ident(gen.reader.type_def_name(def));
+    let signature = gen.type_default_name(&gen.reader.type_def_underlying_type(def));
 
     quote! {
         pub type #ident = #signature;
     }
 }
 
-pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = def.name();
-    let ident = gen_ident(def.name());
-    let underlying_type = def.underlying_type();
-    let signature = gen_default_type(&underlying_type, gen);
-    let check = if underlying_type.is_pointer() {
+pub fn gen_win_handle(gen: &Gen, def: TypeDef) -> TokenStream {
+    let name = gen.reader.type_def_name(def);
+    let ident = to_ident(name);
+    let underlying_type = gen.reader.type_def_underlying_type(def);
+    let signature = gen.type_default_name(&underlying_type);
+    let check = if gen.reader.type_is_pointer(&underlying_type) {
         quote! {
             impl #ident {
                 pub fn is_invalid(&self) -> bool {
@@ -31,13 +31,13 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         }
     } else {
-        let invalid = def.invalid_values();
+        let invalid = gen.reader.type_def_invalid_values(def);
 
         if !invalid.is_empty() {
             let invalid = invalid.iter().map(|value| {
                 let literal = Literal::i64_unsuffixed(*value);
 
-                if *value < 0 && underlying_type.is_unsigned() {
+                if *value < 0 && gen.reader.type_is_unsigned(&underlying_type) {
                     quote! { self.0 == #literal as _ }
                 } else {
                     quote! { self.0 == #literal }
@@ -82,10 +82,10 @@ pub fn gen_win_handle(def: &TypeDef, gen: &Gen) -> TokenStream {
         }
     };
 
-    if let Some(dependency) = def.is_convertible_to() {
-        let type_name = dependency.type_name();
-        let mut dependency = gen.namespace(type_name.namespace());
-        dependency.push_str(type_name.name());
+    if let Some(dependency) = gen.reader.type_def_usable_for(def) {
+        let type_name = gen.reader.type_def_type_name(dependency);
+        let mut dependency = gen.namespace(type_name.namespace);
+        dependency.push_str(type_name.name);
 
         tokens.combine(&quote! {
             impl<'a> ::windows::core::IntoParam<'a, #dependency> for #ident {

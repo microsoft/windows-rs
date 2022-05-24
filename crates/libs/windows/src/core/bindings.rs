@@ -504,7 +504,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IRefe
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReference<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IReference<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReference<T,>").field(&self.0).finish()
+        f.debug_tuple("IReference").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReference<T> {

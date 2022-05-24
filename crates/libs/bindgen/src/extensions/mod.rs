@@ -12,8 +12,8 @@ mod vector3;
 mod vector4;
 mod win32_error;
 
-pub fn gen(def: &TypeDef) -> TokenStream {
-    match def.type_name() {
+pub fn gen(type_name: TypeName) -> TokenStream {
+    match type_name {
         TypeName::IN_ADDR => in_addr::gen(),
         TypeName::IN6_ADDR => in6_addr::gen(),
         TypeName::Matrix3x2 => matrix3x2::gen(),

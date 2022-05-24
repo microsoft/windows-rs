@@ -62,11 +62,21 @@ fn main() -> std::io::Result<()> {
         "Windows.Win32.System.WinRT.IWeakReferenceSource",
     ];
 
-    let gen = bindgen::Gen { namespace: "Windows.", min_enum: true, min_inherit: true, flatten: true, ..Default::default() };
+    let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap()];
+    let reader = &metadata::reader::Reader::new(&files);
+
+    let gen = &mut bindgen::Gen::new(reader);
+    // TODO: this just ensures that the bindings use the windows.lib rather than the function-specific DLL names
+    // but this is a bit of a hacky way to get the intended result.
+    gen.namespace = "Windows.";
+    gen.min_enum = true;
+    gen.min_inherit = true;
+    gen.flatten = true;
+
     let mut tokens = String::new();
 
     for name in types {
-        tokens += &bindgen::gen_type(name, &gen);
+        tokens += &bindgen::define(gen, name);
     }
 
     let path = std::path::Path::new("crates/libs/windows/src/core/bindings.rs");
