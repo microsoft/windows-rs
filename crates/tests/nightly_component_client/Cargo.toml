@@ -11,8 +11,9 @@ features = [
     "Win32_Foundation",
 ]
 
-[build-dependencies.windows-bindgen]
-path = "../../libs/bindgen"
+[build-dependencies]
+bindgen = { package = "windows-bindgen", path = "../../libs/bindgen" }
+metadata = { package = "windows-metadata", path = "../../libs/metadata" }
 
 [build-dependencies.test_nightly_component]
 path = "../nightly_component"

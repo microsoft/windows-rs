@@ -29,14 +29,14 @@ impl<'a> Reader<'a> {
         }
         Self { files, types, nested }
     }
-    pub fn tree(&self) -> Tree {
+    pub fn tree(&self, root: &str) -> Option<Tree> {
         let mut tree = Tree::from_namespace("");
         for ns in self.types.keys() {
             if !EXCLUDE_NAMESPACES.iter().any(|x| x == ns) {
                 tree.insert_namespace(ns, 0);
             }
         }
-        tree
+        tree.nested.remove(root)
     }
 
     //

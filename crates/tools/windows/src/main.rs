@@ -8,7 +8,7 @@ fn main() {
 
     let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
     let reader = &metadata::reader::Reader::new(&files);
-    let root = &reader.tree().nested["Windows"];
+    let root = reader.tree("Windows").expect("`Windows` namespace not found");
 
     let trees = root.flatten();
     trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));

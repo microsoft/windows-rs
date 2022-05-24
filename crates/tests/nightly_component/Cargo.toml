@@ -14,5 +14,7 @@ features = [
     "Win32_System_WinRT",
 ]
 
-[build-dependencies.windows-bindgen]
-path = "../../libs/bindgen"
+[build-dependencies]
+bindgen = { package = "windows-bindgen", path = "../../libs/bindgen" }
+metadata = { package = "windows-metadata", path = "../../libs/metadata" }
+
