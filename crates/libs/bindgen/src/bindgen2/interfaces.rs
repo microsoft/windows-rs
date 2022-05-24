@@ -25,7 +25,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
     let type_name = gen.reader.type_def_type_name(def);
     // TODO: workaround for https://github.com/microsoft/win32metadata/issues/814
     if type_name.name == "INetCfgComponentUpperEdge" {
-        return quote!{};
+        return quote! {};
     }
     let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
     let ident = gen.type_def_name(def, generics);
@@ -158,7 +158,7 @@ fn gen_conversions(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Int
     }
 
     if gen.reader.type_def_flags(def).winrt() {
-        for interface in interfaces{
+        for interface in interfaces {
             let into = gen.type_name(&interface.ty);
             let cfg = gen.cfg_features(&cfg.union(&gen.reader.type_cfg(&interface.ty)));
             tokens.combine(&quote! {

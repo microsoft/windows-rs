@@ -6,11 +6,7 @@ fn main() {
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let files = vec![
-        metadata::reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), 
-        metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
-        metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap(),
-    ];
+    let files = vec![metadata::reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
     let reader = &metadata::reader2::Reader::new(&files);
     let root = &reader.tree().nested["Windows"];
 
@@ -121,7 +117,6 @@ fn gen_tree(reader: &metadata::reader2::Reader, output: &std::path::Path, tree: 
     let mut tokens = bindgen::bindgen2::namespace_impl(&gen, tree);
     fmt_tokens(tree.namespace, &mut tokens);
     std::fs::write(path.join("impl.rs"), tokens).unwrap();
-
 }
 
 fn fmt_tokens(namespace: &str, tokens: &mut String) {

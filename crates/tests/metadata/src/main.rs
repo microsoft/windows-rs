@@ -17,8 +17,8 @@
 //     }
 // }
 
-use windows_metadata::*;
 use std::time::*;
+use windows_metadata::*;
 
 fn main() {
     let now = Instant::now();
@@ -27,9 +27,9 @@ fn main() {
 
     writer::test();
     let files = vec![
-    reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(),
-    reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
-   // files.push(reader2::File::new("/git/test.winmd").unwrap());
+        reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(),
+        reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
+        // files.push(reader2::File::new("/git/test.winmd").unwrap());
     ];
 
     let now = Instant::now();
@@ -41,7 +41,6 @@ fn main() {
     println!("Tree: {}", now.elapsed().as_millis());
 
     for td in reader.get(reader2::TypeName::new("Windows.UI.Composition", "Compositor")) {
-       println!("{}", reader.type_def_type_name(td))
-       
+        println!("{}", reader.type_def_type_name(td))
     }
 }

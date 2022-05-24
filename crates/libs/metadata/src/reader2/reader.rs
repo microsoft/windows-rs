@@ -843,7 +843,7 @@ impl<'a> Reader<'a> {
         let mut cfg = Cfg::default();
 
         fn combine<'a>(reader: &'a Reader, def: TypeDef, generics: &[Type], cfg: &'a mut Cfg) {
-           reader.type_def_cfg_combine(def, generics, cfg);
+            reader.type_def_cfg_combine(def, generics, cfg);
 
             for method in reader.type_def_methods(def) {
                 reader.method_def_cfg_combine(method, cfg);
@@ -861,7 +861,7 @@ impl<'a> Reader<'a> {
         if self.type_def_flags(def).winrt() {
             for interface in self.type_def_interfaces(def, generics) {
                 if let Type::TypeDef((def, generics)) = interface.ty {
-                combine(self, def, &generics, &mut cfg);
+                    combine(self, def, &generics, &mut cfg);
                 }
             }
         }
@@ -874,11 +874,10 @@ impl<'a> Reader<'a> {
             self.type_cfg_combine(generic, cfg);
         }
 
-         if cfg.types.entry(self.type_def_namespace(row).to_string()).or_default().insert(row) {
-
+        if cfg.types.entry(self.type_def_namespace(row).to_string()).or_default().insert(row) {
             match self.type_def_kind(row) {
                 TypeKind::Class => {
-                    if let Some(Type::TypeDef((row, _))) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).map(|interface|interface.ty) {
+                    if let Some(Type::TypeDef((row, _))) = self.type_def_interfaces(row, generics).find(|row| row.kind == InterfaceKind::Default).map(|interface| interface.ty) {
                         cfg.add_feature(self.type_def_namespace(row));
                     }
                 }
@@ -905,7 +904,7 @@ impl<'a> Reader<'a> {
                 TypeKind::Delegate => self.method_def_cfg_combine(self.type_def_invoke_method(row), cfg),
                 _ => {}
             }
-         }
+        }
     }
     pub fn type_def_vtables(&self, row: TypeDef) -> Vec<Type> {
         let mut result = Vec::new();

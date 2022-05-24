@@ -6,11 +6,7 @@ fn main() {
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let files = vec![
-        metadata::reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), 
-        metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(),
-        metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap(),
-    ];
+    let files = vec![metadata::reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
     let reader = &metadata::reader2::Reader::new(&files);
     let root = &reader.tree().nested["Windows"];
 
@@ -107,7 +103,7 @@ fn gen_tree(reader: &metadata::reader2::Reader, output: &std::path::Path, tree: 
     gen.cfg = true;
     gen.doc = true;
     let mut tokens = bindgen::bindgen2::namespace(&gen, tree);
-    
+
     let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");
     stdin.write_all(tokens.as_bytes()).unwrap();

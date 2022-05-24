@@ -127,7 +127,7 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn gen_agile(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    if def.is_agile() { 
+    if def.is_agile() {
         let name = gen_type_ident(def, gen);
         let cfg = gen.cfg(cfg);
         quote! {

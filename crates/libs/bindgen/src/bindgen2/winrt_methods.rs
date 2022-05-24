@@ -202,7 +202,7 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
 }
 
 pub fn gen_upcall(gen: &Gen, sig: &Signature, inner: TokenStream) -> TokenStream {
-    let invoke_args = sig.params.iter().map(|param|gen_winrt_invoke_arg(gen, param));
+    let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(gen, param));
 
     match &sig.return_type {
         Some(return_type) if gen.reader.type_is_winrt_array(return_type) => {
@@ -245,7 +245,7 @@ fn gen_winrt_invoke_arg(gen: &Gen, param: &SignatureParam) -> TokenStream {
     if gen.reader.param_flags(param.def).input() {
         if gen.reader.type_is_winrt_array(&param.ty) {
             quote! { ::core::slice::from_raw_parts(::core::mem::transmute_copy(&#name), #abi_size_name as _) }
-        } else if gen.reader.type_is_primitive(&param.ty){
+        } else if gen.reader.type_is_primitive(&param.ty) {
             quote! { #name }
         } else if gen.reader.type_is_winrt_const_ref(&param.ty) {
             quote! { ::core::mem::transmute_copy(&#name) }

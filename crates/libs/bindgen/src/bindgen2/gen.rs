@@ -572,7 +572,7 @@ impl<'a> Gen<'a> {
                 AsyncKind::Operation | AsyncKind::OperationWithProgress => self.type_name(&async_generics[0]),
                 _ => quote! { () },
             };
-        
+
             let handler = match kind {
                 AsyncKind::Action => quote! { AsyncActionCompletedHandler },
                 AsyncKind::ActionWithProgress => quote! { AsyncActionWithProgressCompletedHandler },
@@ -580,9 +580,9 @@ impl<'a> Gen<'a> {
                 AsyncKind::OperationWithProgress => quote! { AsyncOperationWithProgressCompletedHandler },
                 _ => unimplemented!(),
             };
-        
+
             let namespace = self.namespace("Windows.Foundation");
-        
+
             quote! {
                 #features
                 impl<#constraints> #ident {
@@ -601,16 +601,16 @@ impl<'a> Gen<'a> {
                 #features
                 impl<#constraints> ::std::future::Future for #ident {
                     type Output = ::windows::core::Result<#return_type>;
-        
+
                     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
                         if self.Status()? == #namespace AsyncStatus::Started {
                             let waker = context.waker().clone();
-        
+
                             let _ = self.SetCompleted(#namespace #handler::new(move |_sender, _args| {
                                 waker.wake_by_ref();
                                 Ok(())
                             }));
-        
+
                             ::std::task::Poll::Pending
                         } else {
                             ::std::task::Poll::Ready(self.GetResults())
@@ -947,99 +947,97 @@ impl<'a> Gen<'a> {
 
         tokens
     }
-    
-pub fn impl_signature(&self, def: TypeDef, signature: &Signature) -> TokenStream {
-    if self.reader.type_def_flags(def).winrt() {
-        let is_delegate = self.reader.type_def_kind(def) == TypeKind::Delegate;
-        let params = signature.params.iter().map(|p| self.winrt_produce_type(p, !is_delegate));
 
-        let return_type = if let Some(return_type) = &signature.return_type {
-            let tokens = self.type_name(return_type);
+    pub fn impl_signature(&self, def: TypeDef, signature: &Signature) -> TokenStream {
+        if self.reader.type_def_flags(def).winrt() {
+            let is_delegate = self.reader.type_def_kind(def) == TypeKind::Delegate;
+            let params = signature.params.iter().map(|p| self.winrt_produce_type(p, !is_delegate));
 
-            if self.reader.type_is_winrt_array(return_type) {
-                quote! { ::windows::core::Array<#tokens> }
+            let return_type = if let Some(return_type) = &signature.return_type {
+                let tokens = self.type_name(return_type);
+
+                if self.reader.type_is_winrt_array(return_type) {
+                    quote! { ::windows::core::Array<#tokens> }
+                } else {
+                    tokens
+                }
             } else {
-                tokens
-            }
-        } else {
-            quote! { () }
-        };
+                quote! { () }
+            };
 
-        let this = if is_delegate {
-            quote! {}
-        } else {
-            quote! { &self, }
-        };
+            let this = if is_delegate {
+                quote! {}
+            } else {
+                quote! { &self, }
+            };
 
-        quote! { (#this #(#params),*) -> ::windows::core::Result<#return_type> }
-    } else {
-        let signature_kind = self.reader.signature_kind(signature);
-        let mut params = quote! {};
-
-        if signature_kind == SignatureKind::ResultValue {
-            for param in &signature.params[..signature.params.len() - 1] {
-                params.combine(&self.win32_produce_type(param));
-            }
+            quote! { (#this #(#params),*) -> ::windows::core::Result<#return_type> }
         } else {
-            for param in &signature.params {
-                params.combine(&self.win32_produce_type(param));
+            let signature_kind = self.reader.signature_kind(signature);
+            let mut params = quote! {};
+
+            if signature_kind == SignatureKind::ResultValue {
+                for param in &signature.params[..signature.params.len() - 1] {
+                    params.combine(&self.win32_produce_type(param));
+                }
+            } else {
+                for param in &signature.params {
+                    params.combine(&self.win32_produce_type(param));
+                }
             }
+
+            let return_type = match signature_kind {
+                SignatureKind::ReturnVoid => quote! {},
+                SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
+                SignatureKind::ResultValue => {
+                    let return_type = type_deref(&signature.params[signature.params.len() - 1].ty);
+                    let return_type = self.type_name(&return_type);
+
+                    quote! { -> ::windows::core::Result<#return_type> }
+                }
+                _ => self.return_sig(&signature),
+            };
+
+            quote! { (&self, #params) #return_type }
         }
-
-        let return_type = match signature_kind {
-            SignatureKind::ReturnVoid => quote! {},
-            SignatureKind::Query | SignatureKind::QueryOptional | SignatureKind::ResultVoid => quote! { -> ::windows::core::Result<()> },
-            SignatureKind::ResultValue => {
-                let return_type = type_deref(&signature.params[signature.params.len() - 1].ty);
-                let return_type = self.type_name(&return_type);
-
-                quote! { -> ::windows::core::Result<#return_type> }
-            }
-            _ => self.return_sig(&signature),
-        };
-
-        quote! { (&self, #params) #return_type }
     }
-}
-fn winrt_produce_type(&self, param: &SignatureParam, include_param_names: bool) -> TokenStream {
-    let default_type = self.type_default_name(&param.ty);
+    fn winrt_produce_type(&self, param: &SignatureParam, include_param_names: bool) -> TokenStream {
+        let default_type = self.type_default_name(&param.ty);
 
-    let sig = if self.reader.param_flags(param.def).input() {
-        if self.reader.type_is_winrt_array(&param.ty) {
-            quote! { &[#default_type] }
-        } else if self.reader.type_is_primitive(&param.ty) {
-            quote! { #default_type }
+        let sig = if self.reader.param_flags(param.def).input() {
+            if self.reader.type_is_winrt_array(&param.ty) {
+                quote! { &[#default_type] }
+            } else if self.reader.type_is_primitive(&param.ty) {
+                quote! { #default_type }
+            } else {
+                quote! { &#default_type }
+            }
+        } else if self.reader.type_is_winrt_array(&param.ty) {
+            quote! { &mut [#default_type] }
+        } else if self.reader.type_is_winrt_array_ref(&param.ty) {
+            let kind = self.type_name(&param.ty);
+            quote! { &mut ::windows::core::Array<#kind> }
         } else {
-            quote! { &#default_type }
-        }
-    } else if self.reader.type_is_winrt_array(&param.ty) {
-        quote! { &mut [#default_type] }
-    } else if self.reader.type_is_winrt_array_ref(&param.ty) {
-        let kind = self.type_name(&param.ty);
-        quote! { &mut ::windows::core::Array<#kind> }
-    } else {
-        quote! { &mut #default_type }
-    };
+            quote! { &mut #default_type }
+        };
 
-    if include_param_names {
+        if include_param_names {
+            let name = self.param_name(param.def);
+            quote! { #name: #sig }
+        } else {
+            sig
+        }
+    }
+    fn win32_produce_type(&self, param: &SignatureParam) -> TokenStream {
         let name = self.param_name(param.def);
-        quote! { #name: #sig }
-    } else {
-        sig
+        let kind = self.type_default_name(&param.ty);
+
+        if self.reader.param_flags(param.def).input() && !self.reader.type_is_primitive(&param.ty) {
+            quote! { #name: &#kind, }
+        } else {
+            quote! { #name: #kind, }
+        }
     }
-}
-fn win32_produce_type(&self, param: &SignatureParam) -> TokenStream {
-    let name = self.param_name(param.def);
-    let kind = self.type_default_name(&param.ty);
-
-    if self.reader.param_flags(param.def).input() && !self.reader.type_is_primitive(&param.ty) {
-        quote! { #name: &#kind, }
-    } else {
-        quote! { #name: #kind, }
-    }
-}
-
-
 }
 
 pub fn to_ident(name: &str) -> TokenStream {
