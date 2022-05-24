@@ -104,17 +104,17 @@ fn gen_tree(reader: &metadata::reader2::Reader, output: &std::path::Path, tree: 
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
 
-    let mut gen = bindgen::bindgen2::Gen::new(reader);
+    let mut gen = bindgen::Gen::new(reader);
     gen.namespace = tree.namespace;
     gen.cfg = true;
     gen.doc = true;
     gen.min_xaml = true;
-    let mut tokens = bindgen::bindgen2::namespace(&gen, tree);
+    let mut tokens = bindgen::namespace(&gen, tree);
     tokens.push_str(r#"#[cfg(feature = "implement")] ::core::include!("impl.rs");"#);
     fmt_tokens(tree.namespace, &mut tokens);
     std::fs::write(path.join("mod.rs"), tokens).unwrap();
 
-    let mut tokens = bindgen::bindgen2::namespace_impl(&gen, tree);
+    let mut tokens = bindgen::namespace_impl(&gen, tree);
     fmt_tokens(tree.namespace, &mut tokens);
     std::fs::write(path.join("impl.rs"), tokens).unwrap();
 }

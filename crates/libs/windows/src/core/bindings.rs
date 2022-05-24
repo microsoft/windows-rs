@@ -721,7 +721,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyType {
         Ok(*from)
     }
 }
-pub struct PropertyValue;
+pub struct PropertyValue {}
 impl PropertyValue {
     pub fn CreateEmpty() -> ::windows::core::Result<::windows::core::IInspectable> {
         Self::IPropertyValueStatics(|this| unsafe {

@@ -65,7 +65,7 @@ fn main() -> std::io::Result<()> {
     let files = vec![metadata::reader2::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader2::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap()];
     let reader = &metadata::reader2::Reader::new(&files);
 
-    let gen = &mut bindgen::bindgen2::Gen::new(reader);
+    let gen = &mut bindgen::Gen::new(reader);
     // TODO: this just ensures that the bindings use the windows.lib rather than the function-specific DLL names
     // but this is a bit of a hacky way to get the intended result.
     gen.namespace = "Windows.";
@@ -76,7 +76,7 @@ fn main() -> std::io::Result<()> {
     let mut tokens = String::new();
 
     for name in types {
-        tokens += &bindgen::bindgen2::define(gen, name);
+        tokens += &bindgen::define(gen, name);
     }
 
     let path = std::path::Path::new("crates/libs/windows/src/core/bindings.rs");

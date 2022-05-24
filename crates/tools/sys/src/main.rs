@@ -97,12 +97,12 @@ fn gen_tree(reader: &metadata::reader2::Reader, output: &std::path::Path, tree: 
     std::fs::create_dir_all(&path).unwrap();
     path.push("mod.rs");
 
-    let mut gen = bindgen::bindgen2::Gen::new(reader);
+    let mut gen = bindgen::Gen::new(reader);
     gen.namespace = tree.namespace;
     gen.sys = true;
     gen.cfg = true;
     gen.doc = true;
-    let mut tokens = bindgen::bindgen2::namespace(&gen, tree);
+    let mut tokens = bindgen::namespace(&gen, tree);
 
     let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");
