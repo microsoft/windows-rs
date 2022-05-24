@@ -1,7 +1,6 @@
 use std::fs::*;
 use std::io::prelude::*;
 use std::process::*;
-use windows_bindgen::*;
 
 fn main() -> std::io::Result<()> {
     create_dir_all(".windows/winmd")?;
@@ -9,8 +8,16 @@ fn main() -> std::io::Result<()> {
 
     std::fs::remove_file("src/bindings.rs").ok();
     let mut bindings = File::create("src/bindings.rs")?;
-    let gen = Gen { namespace: "test_nightly_component", component: true, ..Default::default() };
-    bindings.write_all(gen_namespace(&gen).as_bytes())?;
+
+    // TODO: this needs to be simpler
+    let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new(".windows/winmd/component.winmd").unwrap()];
+    let reader = &metadata::reader::Reader::new(&files);
+    let tree = reader.tree("test_nightly_component").expect("`test_nightly_component` namespace not found");
+    let mut gen = bindgen::Gen::new(reader);
+    gen.namespace = tree.namespace;
+    gen.component = true;
+    bindings.write_all(bindgen::namespace(&gen, &tree).as_bytes())?;
+
     drop(bindings);
 
     Command::new("rustfmt").arg("src/bindings.rs").status()?;

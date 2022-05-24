@@ -102,7 +102,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IIter
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IIterable<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IIterable<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterable<T,>").field(&self.0).finish()
+        f.debug_tuple("IIterable").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IIterable<T> {
@@ -232,7 +232,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IIter
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IIterator<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IIterator<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IIterator<T,>").field(&self.0).finish()
+        f.debug_tuple("IIterator").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IIterator<T> {
@@ -346,7 +346,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IKeyValuePair<K, V> {}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IKeyValuePair<K, V> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IKeyValuePair<K,V,>").field(&self.0).finish()
+        f.debug_tuple("IKeyValuePair").field(&self.0).finish()
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IKeyValuePair<K, V> {
@@ -514,7 +514,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IMap<K, V> {}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IMap<K, V> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMap<K,V,>").field(&self.0).finish()
+        f.debug_tuple("IMap").field(&self.0).finish()
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMap<K, V> {
@@ -636,7 +636,7 @@ impl<K: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IMapC
 impl<K: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IMapChangedEventArgs<K> {}
 impl<K: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IMapChangedEventArgs<K> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMapChangedEventArgs<K,>").field(&self.0).finish()
+        f.debug_tuple("IMapChangedEventArgs").field(&self.0).finish()
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMapChangedEventArgs<K> {
@@ -781,7 +781,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IMapView<K, V> {}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IMapView<K, V> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IMapView<K,V,>").field(&self.0).finish()
+        f.debug_tuple("IMapView").field(&self.0).finish()
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMapView<K, V> {
@@ -1000,7 +1000,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IObservableMap<K, V> {}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IObservableMap<K, V> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObservableMap<K,V,>").field(&self.0).finish()
+        f.debug_tuple("IObservableMap").field(&self.0).finish()
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IObservableMap<K, V> {
@@ -1241,7 +1241,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IObse
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IObservableVector<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IObservableVector<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IObservableVector<T,>").field(&self.0).finish()
+        f.debug_tuple("IObservableVector").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IObservableVector<T> {
@@ -1673,7 +1673,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IVect
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IVector<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IVector<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVector<T,>").field(&self.0).finish()
+        f.debug_tuple("IVector").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IVector<T> {
@@ -1957,7 +1957,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IVect
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IVectorView<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IVectorView<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IVectorView<T,>").field(&self.0).finish()
+        f.debug_tuple("IVectorView").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IVectorView<T> {
@@ -2090,7 +2090,7 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for MapChangedEventHandler<K, V> {}
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for MapChangedEventHandler<K, V> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("MapChangedEventHandler<K,V,>").field(&self.0).finish()
+        f.debug_tuple("MapChangedEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for MapChangedEventHandler<K, V> {
@@ -2936,7 +2936,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for Vecto
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for VectorChangedEventHandler<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for VectorChangedEventHandler<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("VectorChangedEventHandler<T,>").field(&self.0).finish()
+        f.debug_tuple("VectorChangedEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for VectorChangedEventHandler<T> {

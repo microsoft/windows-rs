@@ -1,6 +1,5 @@
-mod r#async;
-mod callbacks;
 mod classes;
+mod com_methods;
 mod constants;
 mod delegates;
 mod enums;
@@ -8,50 +7,54 @@ mod extensions;
 mod functions;
 mod gen;
 mod handles;
-mod helpers;
 mod implements;
 mod interfaces;
-mod iterator;
+mod iterators;
 mod method_names;
-mod methods;
-mod names;
 mod replacements;
-mod signatures;
 mod structs;
-
-use functions::*;
+mod winrt_methods;
 pub use gen::*;
-use helpers::*;
-use iterator::*;
 use metadata::reader::*;
 use method_names::*;
-use methods::*;
-use names::*;
-use r#async::*;
-use signatures::*;
+use std::collections::*;
+use std::fmt::Write;
 use tokens::*;
 
-pub fn gen_type(name: &str, gen: &Gen) -> String {
-    let reader = TypeReader::get();
+pub fn define(gen: &Gen, name: &str) -> String {
     let mut tokens = String::new();
+    let type_name = TypeName::parse(name);
 
-    for def in reader.get_type_entry(TypeName::parse(name)).iter().flat_map(|entry| entry.iter()) {
-        tokens.push_str(gen_type_impl(def, gen).as_str());
+    for def in gen.reader.get(type_name) {
+        if let Some(def) = gen.define(def) {
+            tokens.push_str(def.as_str());
+        }
+    }
+
+    if tokens.is_empty() {
+        if let Some(apis) = gen.reader.get(TypeName::new(type_name.namespace, "Apis")).next() {
+            for method in gen.reader.type_def_methods(apis) {
+                if gen.reader.method_def_name(method) == type_name.name {
+                    tokens.push_str(functions::gen(gen, method).as_str());
+                }
+            }
+            if tokens.is_empty() {
+                for field in gen.reader.type_def_fields(apis) {
+                    if gen.reader.field_name(field) == type_name.name {
+                        tokens.push_str(constants::gen(gen, field).as_str());
+                    }
+                }
+            }
+        }
     }
 
     assert!(!tokens.is_empty(), "`{}` not found", name);
     tokens
 }
 
-pub fn gen_namespace(gen: &Gen) -> String {
-    let tree = TypeReader::get().get_namespace(gen.namespace).expect("Namespace not found");
-
-    let namespaces = tree.namespaces.iter().map(move |(name, tree)| {
-        if tree.namespace == "Windows.Win32.Interop" {
-            return quote! {};
-        }
-
-        let name = gen_ident(name);
+pub fn namespace(gen: &Gen, tree: &Tree) -> String {
+    let namespaces = tree.nested.iter().map(move |(name, tree)| {
+        let name = to_ident(name);
         let namespace = tree.namespace[tree.namespace.find('.').unwrap() + 1..].replace('.', "_");
         if gen.cfg {
             quote! {
@@ -64,72 +67,83 @@ pub fn gen_namespace(gen: &Gen) -> String {
         }
     });
 
-    let functions = gen_sys_functions(tree, gen);
-    let types = gen_non_sys_function_types(tree, gen);
+    let mut functions = vec![];
+
+    if gen.sys {
+        if let Some(apis) = gen.reader.get(TypeName::new(tree.namespace, "Apis")).next() {
+            // TODO: replace with Vec once parity is achieved - BTreeMap just used to make diffing simpler.
+            let mut methods = BTreeMap::new();
+            for method in gen.reader.type_def_methods(apis) {
+                combine(&mut methods, gen.reader.method_def_name(method), functions::gen(gen, method));
+            }
+            // TODO: instead of Vec just check whether class has `Apis` methods and then pass an iterator?
+            if !methods.is_empty() {
+                let methods = methods.values();
+                functions = vec![quote! {
+                    #[link(name = "windows")]
+                    extern "system" {
+                        #(#methods)*
+                    }
+                }];
+            }
+        }
+    }
+
+    // TODO: replace with Vec once parity is achieved - BTreeMap just used to make diffing simpler.
+    let mut types = BTreeMap::<&str, TokenStream>::new();
+
+    if let Some(namespace_types) = gen.reader.namespace_types(tree.namespace) {
+        for def in namespace_types {
+            if let Some(tokens) = gen.define(def) {
+                combine_type(&mut types, gen.reader.type_def_type_name(def), tokens);
+            } else {
+                if !gen.sys {
+                    for method in gen.reader.type_def_methods(def) {
+                        combine(&mut types, gen.reader.method_def_name(method), functions::gen(gen, method));
+                    }
+                }
+                for field in gen.reader.type_def_fields(def) {
+                    combine(&mut types, gen.reader.field_name(field), constants::gen(gen, field));
+                }
+            }
+        }
+    }
+
+    let types = types.values();
 
     let tokens = quote! {
         #(#namespaces)*
-        #functions
-        #types
+        #(#functions)*
+        #(#types)*
     };
 
     tokens.into_string()
 }
 
-pub fn gen_namespace_impl(gen: &Gen) -> String {
-    let tree = TypeReader::get().get_namespace(gen.namespace).expect("Namespace not found");
-    let mut tokens = TokenStream::new();
+pub fn namespace_impl(gen: &Gen, tree: &Tree) -> String {
+    let mut types = BTreeMap::<&str, TokenStream>::new();
 
-    for entry in tree.types.values() {
-        for def in entry {
-            if let Type::TypeDef(def) = def {
-                let def = &def.clone().with_generics();
-                tokens.combine(&implements::gen(def, gen));
-            }
+    if let Some(namespace_types) = gen.reader.namespace_types(tree.namespace) {
+        for def in namespace_types {
+            combine_type(&mut types, gen.reader.type_def_type_name(def), implements::gen(gen, def));
         }
     }
+
+    let types = types.values();
+
+    let tokens = quote! {
+        #(#types)*
+    };
 
     tokens.into_string()
 }
 
-fn gen_non_sys_function_types(tree: &TypeTree, gen: &Gen) -> TokenStream {
-    let mut tokens = TokenStream::new();
-
-    for entry in tree.types.values() {
-        for def in entry {
-            tokens.combine(&gen_type_impl(def, gen));
-        }
-    }
-
-    tokens
+fn combine<'a>(types: &mut BTreeMap<&'a str, TokenStream>, name: &'a str, tokens: TokenStream) {
+    types.entry(name).or_default().combine(&tokens);
 }
 
-fn gen_type_impl(def: &Type, gen: &Gen) -> TokenStream {
-    match def {
-        Type::Field(def) => constants::gen(def, gen),
-        Type::TypeDef(def) => {
-            let def = &def.clone().with_generics();
-            match def.kind() {
-                TypeKind::Class => classes::gen(def, gen),
-                TypeKind::Interface => interfaces::gen(def, gen),
-                TypeKind::Enum => enums::gen(def, gen),
-                TypeKind::Struct => structs::gen(def, gen),
-                TypeKind::Delegate => {
-                    if def.is_winrt() {
-                        delegates::gen(def, gen)
-                    } else {
-                        callbacks::gen(def, gen)
-                    }
-                }
-            }
-        }
-        Type::MethodDef(def) => {
-            if !gen.sys {
-                gen_function(def, gen)
-            } else {
-                quote! {}
-            }
-        }
-        _ => quote! {},
+fn combine_type<'a>(types: &mut BTreeMap<&'a str, TokenStream>, type_name: TypeName<'a>, tokens: TokenStream) {
+    if !WELL_KNOWN_TYPES.iter().any(|(x, _)| x == &type_name) {
+        types.entry(type_name.name).or_default().combine(&tokens);
     }
 }

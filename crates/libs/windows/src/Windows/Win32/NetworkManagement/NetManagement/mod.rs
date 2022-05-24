@@ -267,8 +267,6 @@ impl ::core::default::Default for AE_ACCLIM {
 pub const AE_ACCLIMITEXCD: u32 = 17u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_ACCRESTRICT: u32 = 4u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_ACLMOD: u32 = 12u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_ACLMOD {
@@ -304,6 +302,8 @@ impl ::core::default::Default for AE_ACLMOD {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_ACLMOD: u32 = 12u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_ACLMODFAIL: u32 = 19u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_ADD: u32 = 2u32;
@@ -319,8 +319,6 @@ pub const AE_ADMIN_CLOSE: u32 = 2u32;
 pub const AE_AUTODIS: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_BADPW: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_CLOSEFILE: u32 = 9u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_CLOSEFILE {
@@ -357,7 +355,7 @@ impl ::core::default::Default for AE_CLOSEFILE {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_CONNREJ: u32 = 6u32;
+pub const AE_CLOSEFILE: u32 = 9u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_CONNREJ {
@@ -392,7 +390,7 @@ impl ::core::default::Default for AE_CONNREJ {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_CONNSTART: u32 = 4u32;
+pub const AE_CONNREJ: u32 = 6u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_CONNSTART {
@@ -427,7 +425,7 @@ impl ::core::default::Default for AE_CONNSTART {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_CONNSTOP: u32 = 5u32;
+pub const AE_CONNSTART: u32 = 4u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_CONNSTOP {
@@ -462,6 +460,8 @@ impl ::core::default::Default for AE_CONNSTOP {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_CONNSTOP: u32 = 5u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_DELETE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
@@ -538,8 +538,6 @@ pub const AE_LIM_INVAL_WKSTA: u32 = 3u32;
 pub const AE_LIM_LOGONHOURS: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_LIM_UNKNOWN: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_LOCKOUT: u32 = 20u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_LOCKOUT {
@@ -574,11 +572,11 @@ impl ::core::default::Default for AE_LOCKOUT {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_LOCKOUT: u32 = 20u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_MOD: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_NETLOGDENIED: u32 = 16u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_NETLOGOFF: u32 = 15u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_NETLOGOFF {
@@ -613,7 +611,7 @@ impl ::core::default::Default for AE_NETLOGOFF {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_NETLOGON: u32 = 14u32;
+pub const AE_NETLOGOFF: u32 = 15u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_NETLOGON {
@@ -648,13 +646,13 @@ impl ::core::default::Default for AE_NETLOGON {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_NETLOGON: u32 = 14u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_NOACCESSPERM: u32 = 3u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_NORMAL: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_NORMAL_CLOSE: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_RESACCESS: u32 = 7u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_RESACCESS {
@@ -692,9 +690,9 @@ impl ::core::default::Default for AE_RESACCESS {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_RESACCESS2: u32 = 18u32;
+pub const AE_RESACCESS: u32 = 7u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_RESACCESSREJ: u32 = 8u32;
+pub const AE_RESACCESS2: u32 = 18u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_RESACCESSREJ {
@@ -729,7 +727,7 @@ impl ::core::default::Default for AE_RESACCESSREJ {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SERVICESTAT: u32 = 11u32;
+pub const AE_RESACCESSREJ: u32 = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_SERVICESTAT {
@@ -767,9 +765,9 @@ impl ::core::default::Default for AE_SERVICESTAT {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SESSDIS: u32 = 1u32;
+pub const AE_SERVICESTAT: u32 = 11u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SESSLOGOFF: u32 = 2u32;
+pub const AE_SESSDIS: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_SESSLOGOFF {
@@ -803,7 +801,7 @@ impl ::core::default::Default for AE_SESSLOGOFF {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SESSLOGON: u32 = 1u32;
+pub const AE_SESSLOGOFF: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_SESSLOGON {
@@ -837,7 +835,7 @@ impl ::core::default::Default for AE_SESSLOGON {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SESSPWERR: u32 = 3u32;
+pub const AE_SESSLOGON: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_SESSPWERR {
@@ -870,6 +868,8 @@ impl ::core::default::Default for AE_SESSPWERR {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_SESSPWERR: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_SES_CLOSE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_SRVCONT: u32 = 2u32;
@@ -877,8 +877,6 @@ pub const AE_SRVCONT: u32 = 2u32;
 pub const AE_SRVPAUSED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_SRVSTART: u32 = 0u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SRVSTATUS: u32 = 0u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_SRVSTATUS {
@@ -910,9 +908,9 @@ impl ::core::default::Default for AE_SRVSTATUS {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_SRVSTOP: u32 = 3u32;
+pub const AE_SRVSTATUS: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
-pub const AE_UASMOD: u32 = 13u32;
+pub const AE_SRVSTOP: u32 = 3u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub struct AE_UASMOD {
@@ -948,6 +946,8 @@ impl ::core::default::Default for AE_UASMOD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
+pub const AE_UASMOD: u32 = 13u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]
 pub const AE_UAS_GROUP: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_NetManagement\"`*"]

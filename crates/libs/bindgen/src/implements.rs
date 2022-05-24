@@ -1,86 +1,96 @@
 use super::*;
 
-pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.kind() != TypeKind::Interface || (!gen.component && !def.can_implement()) {
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
+    if gen.reader.type_def_kind(def) != TypeKind::Interface || (!gen.component && !gen.reader.type_def_can_implement(def)) {
         return quote! {};
     }
 
-    if def.name().starts_with("Disp") && def.methods().next().is_none() {
+    if gen.reader.type_def_name(def).starts_with("Disp") && gen.reader.type_def_methods(def).next().is_none() {
         return quote! {};
     }
 
-    let type_ident = gen_ident(def.name());
+    let type_name = gen.reader.type_def_type_name(def);
+    // TODO: workaround for https://github.com/microsoft/win32metadata/issues/814
+    if type_name.name == "INetCfgComponentUpperEdge" {
+        return quote! {};
+    }
+    let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
+    let type_ident = to_ident(gen.reader.type_def_name(def));
+
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
-    let constraints = gen_type_constraints(def, gen);
-    let generics = gen_type_generics(def, gen);
-    let phantoms = gen_named_phantoms(def, gen);
-    let cfg = def.impl_cfg();
+    let constraints = gen.generic_constraints(generics);
+    let generic_names = gen.generic_names(generics);
+    let named_phantoms = gen.generic_named_phantoms(generics);
+    let cfg = gen.reader.type_def_cfg_impl(def, generics);
+    let features = gen.cfg_features(&cfg);
     let mut requires = quote! {};
+    let type_ident = quote! { #type_ident<#generic_names> };
 
-    fn gen_required_trait(def: &TypeDef, gen: &Gen) -> TokenStream {
-        let name = gen_impl_ident(def, gen);
-        let namespace = gen.namespace(def.namespace());
+    fn gen_required_trait(gen: &Gen, def: TypeDef, generics: &[Type]) -> TokenStream {
+        let name = gen.type_def_name_imp(def, generics, "_Impl");
         quote! {
-            + #namespace #name
+            + #name
         }
     }
 
-    let mut matches = quote! { iid == &<#type_ident<#(#generics)*> as ::windows::core::Interface>::IID };
+    let mut matches = quote! { iid == &<#type_ident as ::windows::core::Interface>::IID };
 
-    for def in def.vtable_types() {
-        if let Type::TypeDef(def) = def {
-            requires.combine(&gen_required_trait(&def, gen));
-
-            let name = gen_ident(def.name());
-            let namespace = gen.namespace(def.namespace());
+    for def in gen.reader.type_def_vtables(def) {
+        if let Type::TypeDef((def, generics)) = def {
+            requires.combine(&gen_required_trait(gen, def, &generics));
+            let name = gen.type_def_name(def, &generics);
 
             matches.combine(&quote! {
-                || iid == &<#namespace #name as ::windows::core::Interface>::IID
+                || iid == &<#name as ::windows::core::Interface>::IID
             })
         }
     }
 
-    if def.is_winrt() {
-        for def in def.required_interfaces() {
-            requires.combine(&gen_required_trait(&def, gen));
+    if gen.reader.type_def_flags(def).winrt() {
+        // TODO: this awkward wrapping of TypeDefs needs fixing
+        for interface in gen.reader.type_interfaces(&Type::TypeDef((def, generics.to_vec()))) {
+            if let Type::TypeDef((def, generics)) = interface.ty {
+                requires.combine(&gen_required_trait(gen, def, &generics));
+            }
         }
     }
 
-    let runtime_name = gen_runtime_name(def, &cfg, gen);
-    let cfg = gen.cfg(&cfg);
-    let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(def);
+    let runtime_name = gen.runtime_name_trait(def, generics, &type_ident, &constraints, &features);
 
-    let method_traits = def.methods().map(|method| {
-        let name = method_names.add(&method);
-        let signature = gen_impl_signature(def, &method, gen);
+    let mut method_names = MethodNames::new();
+    method_names.add_vtable_types(gen, def);
+
+    let method_traits = gen.reader.type_def_methods(def).map(|method| {
+        let name = method_names.add(gen, method);
+        let signature = gen.reader.method_def_signature(method, generics);
+        let signature_tokens = gen.impl_signature(def, &signature);
         // If it can be implemented but is exclusive and has no return value then
         // it is a Xaml override so give it a default implementation to make it easier
         // to override individual methods for Xaml notifications.
-        if !gen.component && def.is_exclusive() && method.signature(&def.generics).return_type.is_none() {
+        if !gen.component && gen.reader.type_def_is_exclusive(def) && signature.return_type.is_none() {
             quote! {
-                fn #name #signature {
+                fn #name #signature_tokens {
                     ::core::result::Result::Ok(())
                 }
             }
         } else {
-            quote! { fn #name #signature; }
+            quote! { fn #name #signature_tokens; }
         }
     });
 
     let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(def);
+    method_names.add_vtable_types(gen, def);
 
-    let method_impls = def.methods().map(|method| {
-        let name = method_names.add(&method);
-        let signature = method.signature(&def.generics);
-        let vtbl_signature = gen_vtbl_signature(def, &method, gen);
+    let method_impls = gen.reader.type_def_methods(def).map(|method| {
+        let name = method_names.add(gen, method);
+        let signature = gen.reader.method_def_signature(method, generics);
+        let vtbl_signature = gen.vtbl_signature(def, generics, &signature);
 
-        let invoke_upcall = if def.is_winrt() { gen_winrt_upcall(&signature, quote! { this.#name }) } else { gen_win32_upcall(&signature, quote! { this.#name }) };
+        let invoke_upcall = if gen.reader.type_def_flags(def).winrt() { winrt_methods::gen_upcall(gen, &signature, quote! { this.#name }) } else { com_methods::gen_upcall(gen, &signature, quote! { this.#name }) };
 
         quote! {
-            unsafe extern "system" fn #name<#(#constraints)* Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize> #vtbl_signature {
+            unsafe extern "system" fn #name<#constraints Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize> #vtbl_signature {
                 // offset the `this` pointer by `OFFSET` times the size of a pointer and cast it as an IUnknown implementation
                 let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
                 let this = (*this).get_impl();
@@ -91,38 +101,37 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
 
     let mut methods = quote! {};
 
-    match def.vtable_types().last() {
+    match gen.reader.type_def_vtables(def).last() {
         Some(Type::IUnknown) => methods.combine(&quote! { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), }),
-        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident<#(#generics)*>, OFFSET>(), }),
-        Some(Type::TypeDef(def)) => {
-            let vtbl = gen_vtbl_ident(def, gen);
-            let namespace = gen.namespace(def.namespace());
-            methods.combine(&quote! { base__: #namespace #vtbl::new::<Identity, Impl, OFFSET>(), });
+        Some(Type::IInspectable) => methods.combine(&quote! { base__: ::windows::core::IInspectableVtbl::new::<Identity, #type_ident, OFFSET>(), }),
+        Some(Type::TypeDef((def, generics))) => {
+            let name = gen.type_def_name_imp(*def, generics, "_Vtbl");
+            methods.combine(&quote! { base__: #name::new::<Identity, Impl, OFFSET>(), });
         }
         _ => {}
     }
 
     let mut method_names = MethodNames::new();
-    method_names.add_vtable_types(def);
+    method_names.add_vtable_types(gen, def);
 
-    for method in def.methods() {
-        let name = method_names.add(&method);
-        methods.combine(&quote! { #name: #name::<#(#generics)* Identity, Impl, OFFSET>, });
+    for method in gen.reader.type_def_methods(def) {
+        let name = method_names.add(gen, method);
+        methods.combine(&quote! { #name: #name::<#generic_names Identity, Impl, OFFSET>, });
     }
 
     quote! {
-        #cfg
-        pub trait #impl_ident<#(#generics)*> : Sized #requires where #(#constraints)* {
+        #features
+        pub trait #impl_ident<#generic_names> : Sized #requires where #constraints {
             #(#method_traits)*
         }
         #runtime_name
-        #cfg
-        impl<#(#constraints)*> #vtbl_ident<#(#generics)*> {
-            pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#(#generics)*>, const OFFSET: isize>() -> #vtbl_ident<#(#generics)*> {
+        #features
+        impl<#constraints> #vtbl_ident<#generic_names> {
+            pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: #impl_ident<#generic_names>, const OFFSET: isize>() -> #vtbl_ident<#generic_names> {
                 #(#method_impls)*
                 Self{
                     #methods
-                    #(#phantoms)*
+                    #(#named_phantoms)*
                 }
             }
             pub fn matches(iid: &windows::core::GUID) -> bool {

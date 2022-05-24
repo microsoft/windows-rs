@@ -162,7 +162,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq f
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncActionProgressHandler<TProgress> {}
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncActionProgressHandler<TProgress> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncActionProgressHandler<TProgress,>").field(&self.0).finish()
+        f.debug_tuple("AsyncActionProgressHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncActionProgressHandler<TProgress> {
@@ -257,7 +257,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq f
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncActionWithProgressCompletedHandler<TProgress> {}
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncActionWithProgressCompletedHandler<TProgress> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncActionWithProgressCompletedHandler<TProgress,>").field(&self.0).finish()
+        f.debug_tuple("AsyncActionWithProgressCompletedHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncActionWithProgressCompletedHandler<TProgress> {
@@ -352,7 +352,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for
 impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationCompletedHandler<TResult> {}
 impl<TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationCompletedHandler<TResult> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncOperationCompletedHandler<TResult,>").field(&self.0).finish()
+        f.debug_tuple("AsyncOperationCompletedHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationCompletedHandler<TResult> {
@@ -450,7 +450,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationProgressHandler<TResult, TProgress> {}
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationProgressHandler<TResult, TProgress> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncOperationProgressHandler<TResult,TProgress,>").field(&self.0).finish()
+        f.debug_tuple("AsyncOperationProgressHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationProgressHandler<TResult, TProgress> {
@@ -550,7 +550,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {}
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("AsyncOperationWithProgressCompletedHandler<TResult,TProgress,>").field(&self.0).finish()
+        f.debug_tuple("AsyncOperationWithProgressCompletedHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
@@ -926,7 +926,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for Event
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for EventHandler<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for EventHandler<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("EventHandler<T,>").field(&self.0).finish()
+        f.debug_tuple("EventHandler").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for EventHandler<T> {
@@ -1352,7 +1352,7 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq f
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncActionWithProgress<TProgress> {}
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncActionWithProgress<TProgress> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncActionWithProgress<TProgress,>").field(&self.0).finish()
+        f.debug_tuple("IAsyncActionWithProgress").field(&self.0).finish()
     }
 }
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncActionWithProgress<TProgress> {
@@ -1664,7 +1664,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for
 impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncOperation<TResult> {}
 impl<TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncOperation<TResult> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncOperation<TResult,>").field(&self.0).finish()
+        f.debug_tuple("IAsyncOperation").field(&self.0).finish()
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncOperation<TResult> {
@@ -1872,7 +1872,7 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncOperationWithProgress<TResult, TProgress> {}
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncOperationWithProgress<TResult, TProgress> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IAsyncOperationWithProgress<TResult,TProgress,>").field(&self.0).finish()
+        f.debug_tuple("IAsyncOperationWithProgress").field(&self.0).finish()
     }
 }
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress> {
@@ -3164,7 +3164,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IRefe
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReference<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IReference<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReference<T,>").field(&self.0).finish()
+        f.debug_tuple("IReference").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReference<T> {
@@ -3533,7 +3533,7 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IRefe
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReferenceArray<T> {}
 impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IReferenceArray<T> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("IReferenceArray<T,>").field(&self.0).finish()
+        f.debug_tuple("IReferenceArray").field(&self.0).finish()
     }
 }
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReferenceArray<T> {
@@ -4581,7 +4581,7 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
 impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for TypedEventHandler<TSender, TResult> {}
 impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for TypedEventHandler<TSender, TResult> {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("TypedEventHandler<TSender,TResult,>").field(&self.0).finish()
+        f.debug_tuple("TypedEventHandler").field(&self.0).finish()
     }
 }
 unsafe impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for TypedEventHandler<TSender, TResult> {

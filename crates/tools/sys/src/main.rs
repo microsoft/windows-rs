@@ -1,20 +1,17 @@
-use metadata::reader::*;
 use rayon::prelude::*;
 use std::io::prelude::*;
-
-const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 
 fn main() {
     let mut output = std::path::PathBuf::from("crates/libs/sys/src/Windows");
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
-    let reader = TypeReader::get();
-    let root = reader.types.get_namespace("Windows").unwrap();
+    let files = vec![metadata::reader::File::new("crates/libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.winmd").unwrap(), metadata::reader::File::new("crates/libs/metadata/default/Windows.Win32.Interop.winmd").unwrap()];
+    let reader = &metadata::reader::Reader::new(&files);
+    let root = reader.tree("Windows").expect("`Windows` namespace not found");
 
-    let mut trees = Vec::new();
-    collect_trees(&output, root, &mut trees);
-    trees.par_iter().for_each(|tree| gen_tree(&output, root.namespace, tree));
+    let trees = root.flatten();
+    trees.par_iter().for_each(|tree| gen_tree(reader, &output, tree));
 
     output.pop();
     output.push("Cargo.toml");
@@ -94,26 +91,18 @@ deprecated = []
     std::fs::copy(".github/license-apache", "crates/libs/sys/license-apache").unwrap();
 }
 
-fn collect_trees<'a>(output: &std::path::Path, tree: &'a TypeTree, trees: &mut Vec<&'a TypeTree>) {
-    if EXCLUDE_NAMESPACES.iter().any(|&x| x == tree.namespace) {
-        return;
-    }
-
-    trees.push(tree);
-    tree.namespaces.values().for_each(|tree| collect_trees(output, tree, trees));
+fn gen_tree(reader: &metadata::reader::Reader, output: &std::path::Path, tree: &metadata::reader::Tree) {
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
     std::fs::create_dir_all(&path).unwrap();
-}
-
-fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &TypeTree) {
-    let mut path = std::path::PathBuf::from(output);
-
-    path.push(tree.namespace.replace('.', "/"));
     path.push("mod.rs");
 
-    let gen = bindgen::Gen { namespace: tree.namespace, sys: true, cfg: true, doc: true, ..Default::default() };
-    let mut tokens = bindgen::gen_namespace(&gen);
+    let mut gen = bindgen::Gen::new(reader);
+    gen.namespace = tree.namespace;
+    gen.sys = true;
+    gen.cfg = true;
+    gen.doc = true;
+    let mut tokens = bindgen::namespace(&gen, tree);
 
     let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).stderr(std::process::Stdio::null()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");

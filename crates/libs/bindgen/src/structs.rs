@@ -1,30 +1,30 @@
 use super::*;
 
-pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
-    if def.is_api_contract() {
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
+    if gen.reader.type_def_is_contract(def) {
         return quote! {};
     }
 
     if !gen.sys {
-        if let Some(replacement) = replacements::gen(def) {
+        if let Some(replacement) = replacements::gen(gen.reader.type_def_type_name(def)) {
             return replacement;
         }
     }
 
-    if def.is_handle() {
-        return handles::gen(def, gen);
+    if gen.reader.type_def_is_handle(def) {
+        return handles::gen(gen, def);
     }
 
-    gen_struct_with_name(def, def.name(), &Cfg::new(), gen)
+    gen_struct_with_name(gen, def, gen.reader.type_def_name(def), &Cfg::default())
 }
 
-fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let name = gen_ident(struct_name);
+fn gen_struct_with_name(gen: &Gen, def: TypeDef, struct_name: &str, cfg: &Cfg) -> TokenStream {
+    let name = to_ident(struct_name);
 
-    if def.fields().next().is_none() {
-        if let Some(guid) = GUID::from_attributes(def.attributes()) {
-            let value = gen_guid(&guid, gen);
-            let guid = gen_element_name(&Type::GUID, gen);
+    if gen.reader.type_def_fields(def).next().is_none() {
+        if let Some(guid) = gen.reader.type_def_guid(def) {
+            let value = gen.guid(&guid);
+            let guid = gen.type_name(&Type::GUID);
             return quote! { pub const #name: #guid = #value; };
         } else if name.as_str().ends_with("Vtbl") {
             // This just omits some useless struct declarations like `IDDVideoPortContainerVtbl`
@@ -37,38 +37,38 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
         }
     }
 
-    let is_union = def.is_union();
-    let cfg = cfg.union(&def.cfg());
+    let flags = gen.reader.type_def_flags(def);
+    let cfg = cfg.union(&gen.reader.type_def_cfg(def, &[]));
 
-    let repr = if let Some(layout) = def.class_layout() {
-        let packing = Literal::u32_unsuffixed(layout.packing_size());
+    let repr = if let Some(layout) = gen.reader.type_def_class_layout(def) {
+        let packing = Literal::usize_unsuffixed(gen.reader.class_layout_packing_size(layout));
         quote! { #[repr(C, packed(#packing))] }
     } else {
         quote! { #[repr(C)] }
     };
 
-    let fields = def.fields().map(|f| {
-        let name = gen_ident(f.name());
-        let ty = f.get_type(Some(def));
-        let ty = gen_default_type(&ty, gen);
+    let fields = gen.reader.type_def_fields(def).map(|f| {
+        let name = to_ident(gen.reader.field_name(f));
+        let ty = gen.reader.field_type(f, Some(def));
+        let ty = gen.type_default_name(&ty);
 
-        if f.is_literal() {
+        if gen.reader.field_flags(f).literal() {
             quote! {}
-        } else if !gen.sys && is_union && !f.is_blittable(Some(def)) {
+        } else if !gen.sys && flags.union() && !gen.reader.field_is_blittable(f, def) {
             quote! { pub #name: ::core::mem::ManuallyDrop<#ty>, }
         } else {
             quote! { pub #name: #ty, }
         }
     });
 
-    let struct_or_union = if is_union {
+    let struct_or_union = if flags.union() {
         quote! { union }
     } else {
         quote! { struct }
     };
 
-    let doc = gen.doc(&cfg);
-    let features = gen.cfg(&cfg);
+    let doc = gen.cfg_doc(&cfg);
+    let features = gen.cfg_features(&cfg);
 
     let mut tokens = quote! {
         #repr
@@ -77,11 +77,11 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
         pub #struct_or_union #name {#(#fields)*}
     };
 
-    tokens.combine(&gen_struct_constants(def, &name, &cfg, gen));
-    tokens.combine(&gen_copy_clone(def, &name, &cfg, gen));
-    tokens.combine(&gen_debug(def, &name, &cfg, gen));
-    tokens.combine(&gen_windows_traits(def, &name, &cfg, gen));
-    tokens.combine(&gen_compare_traits(def, &name, &cfg, gen));
+    tokens.combine(&gen_struct_constants(gen, def, &name, &cfg));
+    tokens.combine(&gen_copy_clone(gen, def, &name, &cfg));
+    tokens.combine(&gen_debug(gen, def, &name, &cfg));
+    tokens.combine(&gen_windows_traits(gen, def, &name, &cfg));
+    tokens.combine(&gen_compare_traits(gen, def, &name, &cfg));
 
     if !gen.sys {
         tokens.combine(&quote! {
@@ -93,29 +93,28 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
             }
         });
 
-        tokens.combine(&extensions::gen(def));
+        tokens.combine(&extensions::gen(gen.reader.type_def_type_name(def)));
     }
 
-    if let Some(nested_types) = def.nested_types() {
-        for (index, (_, nested_type)) in nested_types.iter().enumerate() {
-            let nested_name = format!("{}_{}", struct_name, index);
-            tokens.combine(&gen_struct_with_name(nested_type, &nested_name, &cfg, gen));
-        }
+    for (index, nested_type) in gen.reader.nested_types(def).iter().enumerate() {
+        let nested_name = format!("{}_{}", struct_name, index);
+        tokens.combine(&gen_struct_with_name(gen, *nested_type, &nested_name, &cfg));
     }
 
     tokens
 }
 
-fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
+fn gen_windows_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
     if gen.sys {
         quote! {}
     } else {
-        let abi = if def.is_blittable() {
+        let abi = if gen.reader.type_def_is_blittable(def) {
             quote! { Self }
         } else {
             quote! { ::core::mem::ManuallyDrop<Self> }
         };
-        let features = gen.cfg(cfg);
+
+        let features = gen.cfg_features(cfg);
 
         let mut tokens = quote! {
             #features
@@ -124,10 +123,10 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
             }
         };
 
-        if def.is_winrt() {
-            let signature = Literal::byte_string(def.type_signature().as_bytes());
+        if gen.reader.type_def_flags(def).winrt() {
+            let signature = Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
 
-            let clone = if def.is_blittable() {
+            let clone = if gen.reader.type_def_is_blittable(def) {
                 quote! { *from }
             } else {
                 quote! { from.clone() }
@@ -149,12 +148,12 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
     }
 }
 
-fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(cfg);
+fn gen_compare_traits(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
+    let features = gen.cfg_features(cfg);
 
     if gen.sys {
         quote! {}
-    } else if def.is_blittable() || def.is_union() || def.class_layout().is_some() {
+    } else if gen.reader.type_def_is_blittable(def) || gen.reader.type_def_flags(def).union() || gen.reader.type_def_class_layout(def).is_some() {
         quote! {
             #features
             impl ::core::cmp::PartialEq for #name {
@@ -168,13 +167,13 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
             impl ::core::cmp::Eq for #name {}
         }
     } else {
-        let fields = def.fields().map(|f| {
-            let name = gen_ident(f.name());
-            if f.is_literal() {
+        let fields = gen.reader.type_def_fields(def).map(|f| {
+            let name = to_ident(gen.reader.field_name(f));
+            if gen.reader.field_flags(f).literal() {
                 quote! {}
             } else {
-                let ty = f.get_type(Some(def));
-                if ty.is_callback() {
+                let ty = gen.reader.field_type(f, Some(def));
+                if gen.reader.type_is_callback(&ty) {
                     quote! {
                         self.#name.map(|f| f as usize) == other.#name.map(|f| f as usize)
                     }
@@ -197,23 +196,23 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -
     }
 }
 
-fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    if gen.sys || def.has_union() || def.has_pack() {
+fn gen_debug(gen: &Gen, def: TypeDef, ident: &TokenStream, cfg: &Cfg) -> TokenStream {
+    if gen.sys || gen.reader.type_def_has_union(def) || gen.reader.type_def_has_packing(def) {
         quote! {}
     } else {
         let name = ident.as_str();
-        let features = gen.cfg(cfg);
+        let features = gen.cfg_features(cfg);
 
-        let fields = def.fields().map(|f| {
-            if f.is_literal() {
+        let fields = gen.reader.type_def_fields(def).map(|f| {
+            if gen.reader.field_flags(f).literal() {
                 quote! {}
             } else {
-                let name = f.name();
-                let ident = gen_ident(name);
-                let ty = f.get_type(Some(def));
-                if !ty.is_pointer() && ty.is_callback() {
+                let name = gen.reader.field_name(f);
+                let ident = to_ident(name);
+                let ty = gen.reader.field_type(f, Some(def));
+                if !gen.reader.type_is_pointer(&ty) && gen.reader.type_is_callback(&ty) {
                     quote! { .field(#name, &self.#ident.map(|f| f as usize)) }
-                } else if ty.is_callback_array() {
+                } else if gen.reader.type_is_callback_array(&ty) {
                     quote! {}
                 } else {
                     quote! { .field(#name, &self.#ident) }
@@ -232,10 +231,10 @@ fn gen_debug(def: &TypeDef, ident: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenS
     }
 }
 
-fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(cfg);
+fn gen_copy_clone(gen: &Gen, def: TypeDef, name: &TokenStream, cfg: &Cfg) -> TokenStream {
+    let features = gen.cfg_features(cfg);
 
-    if gen.sys || def.is_blittable() {
+    if gen.sys || gen.reader.type_def_is_blittable(def) {
         quote! {
             #features
             impl ::core::marker::Copy for #name {}
@@ -246,7 +245,7 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> To
                 }
             }
         }
-    } else if def.is_union() {
+    } else if gen.reader.type_def_flags(def).union() {
         quote! {
             #features
             impl ::core::clone::Clone for #name {
@@ -255,15 +254,15 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> To
                 }
             }
         }
-    } else if def.class_layout().is_some() {
+    } else if gen.reader.type_def_class_layout(def).is_some() {
         // Don't support copy/clone of packed structs: https://github.com/rust-lang/rust/issues/82523
         quote! {}
     } else {
-        let fields = def.fields().map(|f| {
-            let name = gen_ident(f.name());
-            if f.is_literal() {
+        let fields = gen.reader.type_def_fields(def).map(|f| {
+            let name = to_ident(gen.reader.field_name(f));
+            if gen.reader.field_flags(f).literal() {
                 quote! {}
-            } else if f.is_blittable(Some(def)) {
+            } else if gen.reader.field_is_blittable(f, def) {
                 quote! { #name: self.#name }
             } else {
                 quote! { #name: self.#name.clone() }
@@ -281,14 +280,14 @@ fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> To
     }
 }
 
-fn gen_struct_constants(def: &TypeDef, struct_name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
-    let features = gen.cfg(cfg);
+fn gen_struct_constants(gen: &Gen, def: TypeDef, struct_name: &TokenStream, cfg: &Cfg) -> TokenStream {
+    let features = gen.cfg_features(cfg);
 
-    let constants = def.fields().filter_map(|f| {
-        if f.is_literal() {
-            if let Some(constant) = f.constant() {
-                let name = gen_ident(f.name());
-                let value = gen_constant_type_value(&constant.value());
+    let constants = gen.reader.type_def_fields(def).filter_map(|f| {
+        if gen.reader.field_flags(f).literal() {
+            if let Some(constant) = gen.reader.field_constant(f) {
+                let name = to_ident(gen.reader.field_name(f));
+                let value = gen.typed_value(&gen.reader.constant_value(constant));
 
                 return Some(quote! {
                     pub const #name: #value;

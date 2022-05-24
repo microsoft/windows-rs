@@ -31,7 +31,7 @@ impl<T: ::windows::core::RuntimeType + 'static> Vector<T> {
     // Methods common to IVector and IVectorView:
     fn GetAt(&self, index: u32) -> Result<T> {
         let reader = self.0.read().unwrap();
-        let item = reader.get(index as usize).ok_or_else(|| err_bounds())?;
+        let item = reader.get(index as usize).ok_or_else(err_bounds)?;
         T::from_default(item)
     }
     fn Size(&self) -> Result<u32> {
@@ -68,7 +68,7 @@ impl<T: ::windows::core::RuntimeType + 'static> IVector_Impl<T> for Vector<T> {
     }
     fn SetAt(&self, index: u32, value: &T::DefaultType) -> Result<()> {
         let mut writer = self.0.write().unwrap();
-        let item = writer.get_mut(index as usize).ok_or_else(|| err_bounds())?;
+        let item = writer.get_mut(index as usize).ok_or_else(err_bounds)?;
         *item = value.clone();
         Ok(())
     }

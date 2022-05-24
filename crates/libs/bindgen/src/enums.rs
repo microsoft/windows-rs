@@ -1,22 +1,23 @@
 use super::*;
 
-pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
-    let name = def.name();
-    let ident = gen_ident(name);
-    let underlying_type = def.underlying_type();
-    let underlying_type = gen_element_name(&underlying_type, gen);
-    let is_scoped = def.is_scoped();
-    let cfg = def.cfg();
-    let doc = gen.doc(&cfg);
-    let features = gen.cfg(&cfg);
+pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
+    let type_name = gen.reader.type_def_type_name(def);
+    let ident = to_ident(type_name.name);
+    let underlying_type = gen.reader.type_def_underlying_type(def);
+    let underlying_type = gen.type_name(&underlying_type);
+    let is_scoped = gen.reader.type_def_is_scoped(def);
+    let cfg = gen.reader.type_def_cfg(def, &[]);
+    let doc = gen.cfg_doc(&cfg);
+    let features = gen.cfg_features(&cfg);
 
-    let mut fields: Vec<(TokenStream, TokenStream)> = def
-        .fields()
+    let mut fields: Vec<(TokenStream, TokenStream)> = gen
+        .reader
+        .type_def_fields(def)
         .filter_map(|field| {
-            if field.is_literal() {
-                let field_name = gen_ident(field.name());
-                let constant = field.constant().unwrap();
-                let value = gen_constant_value(&constant.value());
+            if gen.reader.field_flags(field).literal() {
+                let field_name = to_ident(gen.reader.field_name(field));
+                let constant = gen.reader.field_constant(field).unwrap();
+                let value = gen.value(&gen.reader.constant_value(constant));
 
                 Some((field_name, value))
             } else {
@@ -118,6 +119,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     if !gen.sys {
+        let name = type_name.name;
         tokens.combine(&quote! {
             #features
             unsafe impl ::windows::core::Abi for #ident {
@@ -131,7 +133,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         });
 
-        if def.has_flags() {
+        if gen.reader.type_def_is_flags(def) {
             tokens.combine(&quote! {
                 #features
                 impl ::core::ops::BitOr for #ident {
@@ -172,8 +174,8 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             });
         }
 
-        if def.is_winrt() {
-            let signature = Literal::byte_string(def.type_signature().as_bytes());
+        if gen.reader.type_def_flags(def).winrt() {
+            let signature = Literal::byte_string(gen.reader.type_def_signature(def, &[]).as_bytes());
 
             tokens.combine(&quote! {
                 #features
@@ -187,7 +189,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             });
         }
 
-        tokens.combine(&extensions::gen(def));
+        tokens.combine(&extensions::gen(type_name));
     }
 
     tokens

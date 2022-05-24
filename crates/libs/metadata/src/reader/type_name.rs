@@ -1,36 +1,11 @@
-pub trait HasTypeName: Copy {
-    fn namespace(&self) -> &str;
-    fn name(&self) -> &str;
-}
-
-impl HasTypeName for TypeName {
-    fn namespace(&self) -> &str {
-        self.namespace
-    }
-
-    fn name(&self) -> &str {
-        self.name
-    }
-}
-
-impl HasTypeName for (&str, &str) {
-    fn namespace(&self) -> &str {
-        self.0
-    }
-
-    fn name(&self) -> &str {
-        self.1
-    }
-}
-
 #[derive(Copy, Clone, PartialEq, PartialOrd, Eq, Ord)]
-pub struct TypeName {
-    pub namespace: &'static str,
-    pub name: &'static str,
+pub struct TypeName<'a> {
+    pub namespace: &'a str,
+    pub name: &'a str,
 }
 
 #[allow(non_upper_case_globals)]
-impl TypeName {
+impl<'a> TypeName<'a> {
     pub const None: Self = Self::from_const("", "");
     pub const Enum: Self = Self::from_const("System", "Enum");
     pub const Delegate: Self = Self::from_const("System", "MulticastDelegate");
@@ -65,7 +40,9 @@ impl TypeName {
     pub const PWSTR: Self = Self::from_const("Windows.Win32.Foundation", "PWSTR");
     pub const PSTR: Self = Self::from_const("Windows.Win32.Foundation", "PSTR");
     pub const BSTR: Self = Self::from_const("Windows.Win32.Foundation", "BSTR");
+    pub const HANDLE: Self = Self::from_const("Windows.Win32.Foundation", "HANDLE");
     pub const HRESULT: Self = Self::from_const("Windows.Win32.Foundation", "HRESULT");
+    // TODO: exclude code gen for all types that are in REMAP_TYPES
     pub const D2D_MATRIX_3X2_F: Self = Self::from_const("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F");
     pub const IUnknown: Self = Self::from_const("Windows.Win32.System.Com", "IUnknown");
     pub const HSTRING: Self = Self::from_const("Windows.Win32.System.WinRT", "HSTRING");
@@ -85,13 +62,19 @@ impl TypeName {
         Self { namespace, name }
     }
 
-    pub fn new(namespace: &'static str, name: &'static str) -> Self {
+    pub fn new(namespace: &'a str, name: &'a str) -> Self {
         Self { namespace, name: trim_tick(name) }
     }
 
-    pub fn parse(full_name: &str) -> (&str, &str) {
+    pub fn parse(full_name: &'a str) -> Self {
         let index = full_name.rfind('.').expect("Expected full name separated with `.`");
-        (&full_name[0..index], &full_name[index + 1..])
+        Self { namespace: &full_name[0..index], name: &full_name[index + 1..] }
+    }
+}
+
+impl<'a> std::fmt::Display for TypeName<'a> {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(fmt, "{}.{}", self.namespace, self.name)
     }
 }
 
@@ -100,11 +83,5 @@ pub fn trim_tick(name: &str) -> &str {
         &name[..name.len() - 2]
     } else {
         name
-    }
-}
-
-impl core::fmt::Display for TypeName {
-    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        write!(fmt, "{}.{}", self.namespace, self.name)
     }
 }
