@@ -21,7 +21,7 @@ fn main() {
     let reader = &metadata::reader::Reader::new(&files);
 
     let mut libraries = BTreeMap::<String, BTreeMap<String, usize>>::new();
-    let root = &reader.tree().nested["Windows"];
+    let root = reader.tree("Windows").expect("`Windows` namespace not found");
     for tree in root.flatten() {
         if let Some(apis) = reader.get(metadata::reader::TypeName::new(tree.namespace, "Apis")).next() {
             for method in reader.type_def_methods(apis) {

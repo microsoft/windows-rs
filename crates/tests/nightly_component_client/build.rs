@@ -9,7 +9,7 @@ fn main() -> std::io::Result<()> {
     std::fs::remove_file("src/bindings.rs").ok();
     let mut bindings = File::create("src/bindings.rs")?;
 
-    // let gen = Gen { namespace: "test_nightly_component", component: true, ..Default::default() };
+    // TODO: this needs to be simpler
     let files = vec![metadata::reader::File::new("../../libs/metadata/default/Windows.winmd").unwrap(), metadata::reader::File::new(".windows/winmd/component.winmd").unwrap()];
     let reader = &metadata::reader::Reader::new(&files);
     let tree = reader.tree("test_nightly_component").expect("`test_nightly_component` namespace not found");
