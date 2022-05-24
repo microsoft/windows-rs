@@ -88,38 +88,18 @@ jobs:
               >> $env:GITHUB_ENV
           }
         }
-    - name: Test stable
+    - name: Test
       run: >"#
         .to_string();
 
     for name in crates() {
-        if !requires_nightly(&name) {
-            write!(&mut yml, "\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
-        }
+        write!(&mut yml, "\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
     }
 
     yml.truncate(yml.len() - 2);
 
     yml.push_str(
         r#"
-      if: matrix.version == 'stable'
-
-    - name: Test nightly
-      shell: cmd
-      run: >"#,
-    );
-
-    for name in crates() {
-        if requires_nightly(&name) {
-            write!(&mut yml, "\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
-        }
-    }
-
-    yml.truncate(yml.len() - 2);
-
-    yml.push_str(
-        r#"
-      if: matrix.version == 'nightly'
 
     - name: Check import libs
       shell: pwsh
@@ -284,10 +264,6 @@ fn crates() -> Vec<String> {
     }
 
     crates
-}
-
-fn requires_nightly(name: &str) -> bool {
-    name.contains("implement") || name.contains("nightly") || name.starts_with("sample")
 }
 
 fn dirs(path: &str) -> Vec<String> {
