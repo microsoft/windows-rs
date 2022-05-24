@@ -95,7 +95,6 @@ impl File {
         }
 
         // The METADATA_HEADER struct is not a fixed size so have to offset a little more carefully.
-        // TODO: check that this still applies... non-winrt winmd?
         let mut view = metadata_offset + metadata.length as usize + 20;
         let mut tables_data: (usize, usize) = (0, 0);
 

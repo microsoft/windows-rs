@@ -81,7 +81,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
         SignatureKind::ReturnStruct => {
             let args = gen.win32_args(&signature.params);
             let params = gen.win32_params(&signature.params);
-            // TODO: why is this using gen_abi_element_name?
             let return_type = gen.type_name(&signature.return_type.unwrap());
 
             quote! {
@@ -97,7 +96,6 @@ pub fn gen(gen: &Gen, def: TypeDef, kind: InterfaceKind, method: MethodDef, meth
         SignatureKind::PreserveSig => {
             let args = gen.win32_args(&signature.params);
             let params = gen.win32_params(&signature.params);
-            // TODO: why gen_return_sig exists? Don't we always know it will be not ReturnVoid?
             let return_type = gen.return_sig(&signature);
 
             quote! {

@@ -9,14 +9,8 @@ pub fn gen(gen: &Gen, def: TypeDef) -> TokenStream {
         return quote! {};
     }
 
-    let type_name = gen.reader.type_def_type_name(def);
-    // TODO: workaround for https://github.com/microsoft/win32metadata/issues/814
-    if type_name.name == "INetCfgComponentUpperEdge" {
-        return quote! {};
-    }
     let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
     let type_ident = to_ident(gen.reader.type_def_name(def));
-
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
     let constraints = gen.generic_constraints(generics);

@@ -14,7 +14,7 @@ fn gen_callback(gen: &Gen, def: TypeDef) -> TokenStream {
     let method = gen.reader.type_def_invoke_method(def);
     let signature = gen.reader.method_def_signature(method, &[]);
     let return_type = gen.return_sig(&signature);
-    let cfg = gen.reader.type_def_cfg(def, &[]); // TODO: why not just use method_def_cfg?
+    let cfg = gen.reader.type_def_cfg(def, &[]);
     let doc = gen.cfg_doc(&cfg);
     let features = gen.cfg_features(&cfg);
 

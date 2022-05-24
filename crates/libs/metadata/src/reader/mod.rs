@@ -169,7 +169,6 @@ pub struct Cfg {
     pub arches: BTreeSet<&'static str>,
 }
 
-// TODO: get rid of this
 impl Cfg {
     pub fn add_feature(&mut self, feature: &str) {
         self.types.entry(feature.to_string()).or_default();
@@ -590,7 +589,6 @@ impl<'a> Reader<'a> {
             // Point len params back to the corresponding ptr params.
             if let ArrayInfo::RelativeLen(relative) = params[position].array_info {
                 // The len params must be input only.
-                // TODO: workaround for https://github.com/microsoft/win32metadata/issues/813
                 if !self.param_flags(params[relative].def).output() && position != relative {
                     params[relative].array_info = ArrayInfo::RelativePtr(position);
                 } else {
@@ -938,15 +936,19 @@ impl<'a> Reader<'a> {
         self.type_def_attributes(row).any(|attribute| self.attribute_name(attribute) == "FlagsAttribute") || (self.type_def_flags(row).winrt() && self.type_def_underlying_type(row) == Type::U32)
     }
     pub fn type_def_is_agile(&self, row: TypeDef) -> bool {
-        // TODO: add new Agile attribute from Win32 metadata
         for attribute in self.type_def_attributes(row) {
-            if self.attribute_name(attribute) == "MarshalingBehaviorAttribute" {
-                if let Some((_, Value::I32(2))) = self.attribute_args(attribute).get(0) {
-                    return true;
+            match self.attribute_name(attribute) {
+                "AgileAttribute" => return true,
+                "MarshalingBehaviorAttribute" => {
+                    if let Some((_, Value::I32(2))) = self.attribute_args(attribute).get(0) {
+                        return true;
+                    }
                 }
+                _ => {}
             }
         }
-        false
+        // TODO: IRestrictedErrorInfo workaround for https://github.com/microsoft/win32metadata/issues/923
+        matches!(self.type_def_type_name(row), TypeName::IAsyncAction | TypeName::IAsyncActionWithProgress | TypeName::IAsyncOperation | TypeName::IAsyncOperationWithProgress | TypeName::IRestrictedErrorInfo)
     }
     pub fn type_def_invalid_values(&self, row: TypeDef) -> Vec<i64> {
         let mut values = Vec::new();
@@ -1364,7 +1366,6 @@ impl<'a> Reader<'a> {
                 }
             }
         }
-        // TODO: do we need this sorted (beyond parity)?
         result.sort_by(|a, b| self.type_name(&a.ty).cmp(self.type_name(&b.ty)));
         result
     }
@@ -1421,7 +1422,7 @@ impl<'a> Reader<'a> {
 
         let mut full_name = self.type_def_or_ref(code);
 
-        for (known_name, kind) in WELL_KNOWN_TYPES {
+        for (known_name, kind) in CORE_TYPES {
             if full_name == known_name {
                 return kind;
             }
@@ -1676,7 +1677,7 @@ pub fn type_deref(ty: &Type) -> Type {
     }
 }
 
+// TODO: exclude code gen for all types that are in REMAP_TYPES
 const REMAP_TYPES: [(TypeName, TypeName); 1] = [(TypeName::D2D_MATRIX_3X2_F, TypeName::Matrix3x2)];
 
-// TODO: rename core types
-pub const WELL_KNOWN_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];
+pub const CORE_TYPES: [(TypeName, Type); 11] = [(TypeName::GUID, Type::GUID), (TypeName::IUnknown, Type::IUnknown), (TypeName::HResult, Type::HRESULT), (TypeName::HRESULT, Type::HRESULT), (TypeName::HSTRING, Type::String), (TypeName::IInspectable, Type::IInspectable), (TypeName::LARGE_INTEGER, Type::I64), (TypeName::ULARGE_INTEGER, Type::U64), (TypeName::PSTR, Type::PSTR), (TypeName::PWSTR, Type::PWSTR), (TypeName::Type, Type::TypeName)];
