@@ -438,6 +438,31 @@ impl<'a> Reader<'a> {
     fn method_def_cfg_combine(&self, row: MethodDef, cfg: &mut Cfg) {
         self.signature_cfg_combine(&self.method_def_signature(row, &[]), cfg);
     }
+    pub fn method_def_size(&self, method: MethodDef) -> usize {
+        fn type_size(reader: &Reader, ty: &Type) -> usize {
+            match ty {
+                Type::I8 | Type::U8 => 1,
+                Type::I16 | Type::U16 => 2,
+                Type::I64 | Type::U64 | Type::F64 => 8,
+                Type::GUID => 16,
+                Type::TypeDef((def, _)) => type_def_size(reader, *def),
+                _ => 4,
+            }
+        }
+        fn type_def_size(reader: &Reader, def: TypeDef) -> usize {
+            if reader.type_def_kind(def) == TypeKind::Struct {
+                if reader.type_def_flags(def).union() {
+                    reader.type_def_fields(def).map(|field|  type_size(reader, &reader.field_type(field, Some(def)))).max().unwrap_or(1)
+                } else {
+                    reader.type_def_fields(def).fold(0, |sum, field| sum + type_size(reader, &reader.field_type(field, Some(def))))
+                }
+            } else {
+                4
+            }
+        }
+        let signature = self.method_def_signature(method, &[]);
+        signature.params.iter().fold(0, |sum, param| sum + std::cmp::max(4, type_size(self, &param.ty)))
+    }
 
     //
     // ModuleRef table queries
