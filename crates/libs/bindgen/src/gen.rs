@@ -320,7 +320,7 @@ impl<'a> Gen<'a> {
                 features = features.into_iter().filter(|f| !f.starts_with("Windows.")).collect();
             }
             for features in features {
-                tokens.push_str(&format!(r#", `\"{}\"`"#, to_feature(features)));
+                write!(tokens, r#", `\"{}\"`"#, to_feature(features)).unwrap();
             }
 
             format!(r#"#[doc = "*Required features: {}*"]"#, tokens).into()
@@ -458,7 +458,7 @@ impl<'a> Gen<'a> {
                 let mut tokens = "\"".to_string();
 
                 for u in value.chars() {
-                    tokens.push_str(&format!("{}", u.escape_default()));
+                    write!(tokens, "{}", u.escape_default()).unwrap();
                 }
 
                 tokens.push('\"');

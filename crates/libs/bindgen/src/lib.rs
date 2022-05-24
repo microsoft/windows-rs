@@ -18,6 +18,7 @@ pub use gen::*;
 use metadata::reader::*;
 use method_names::*;
 use std::collections::*;
+use std::fmt::Write;
 use tokens::*;
 
 pub fn define(gen: &Gen, name: &str) -> String {
