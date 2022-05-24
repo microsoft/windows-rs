@@ -105,7 +105,7 @@ pub enum InterfaceKind {
     Base,
 }
 
-#[derive(PartialEq)]
+#[derive(PartialEq, Eq)]
 pub enum SignatureKind {
     Query,
     QueryOptional,
@@ -116,7 +116,7 @@ pub enum SignatureKind {
     PreserveSig,
 }
 
-#[derive(PartialEq)]
+#[derive(PartialEq, Eq)]
 pub enum AsyncKind {
     None,
     Action,
@@ -125,7 +125,7 @@ pub enum AsyncKind {
     OperationWithProgress,
 }
 
-#[derive(PartialEq)]
+#[derive(PartialEq, Eq)]
 pub enum TypeKind {
     Interface,
     Class,
