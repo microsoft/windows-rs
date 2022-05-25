@@ -17,7 +17,7 @@ pub struct IInputActivationListenerPreviewStatics_Vtbl {
     CreateForApplicationWindow: usize,
 }
 #[doc = "*Required features: `\"UI_Input_Preview\"`*"]
-pub struct InputActivationListenerPreview {}
+pub struct InputActivationListenerPreview;
 impl InputActivationListenerPreview {
     #[doc = "*Required features: `\"UI_Input_Preview\"`, `\"UI_WindowManagement\"`*"]
     #[cfg(feature = "UI_WindowManagement")]

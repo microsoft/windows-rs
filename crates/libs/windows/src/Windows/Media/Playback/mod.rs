@@ -36,7 +36,7 @@ unsafe impl ::windows::core::RuntimeType for AutoLoadedDisplayPropertyKind {
 }
 #[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct BackgroundMediaPlayer {}
+pub struct BackgroundMediaPlayer;
 #[cfg(feature = "deprecated")]
 impl BackgroundMediaPlayer {
     #[doc = "*Required features: `\"Media_Playback\"`, `\"deprecated\"`*"]

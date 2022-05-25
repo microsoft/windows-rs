@@ -738,7 +738,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
 unsafe impl ::core::marker::Send for ESimDownloadProfileMetadataResult {}
 unsafe impl ::core::marker::Sync for ESimDownloadProfileMetadataResult {}
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct ESimManager {}
+pub struct ESimManager;
 impl ESimManager {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
     pub fn ServiceInfo() -> ::windows::core::Result<ESimServiceInfo> {
@@ -2118,7 +2118,7 @@ unsafe impl ::windows::core::RuntimeType for ESimWatcherStatus {
     }
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct FdnAccessManager {}
+pub struct FdnAccessManager;
 impl FdnAccessManager {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -4853,7 +4853,7 @@ pub struct IUssdSessionStatics_Vtbl {
     pub CreateFromNetworkInterfaceId: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, networkinterfaceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct KnownCSimFilePaths {}
+pub struct KnownCSimFilePaths;
 impl KnownCSimFilePaths {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4889,7 +4889,7 @@ impl ::windows::core::RuntimeName for KnownCSimFilePaths {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownCSimFilePaths";
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct KnownRuimFilePaths {}
+pub struct KnownRuimFilePaths;
 impl KnownRuimFilePaths {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4925,7 +4925,7 @@ impl ::windows::core::RuntimeName for KnownRuimFilePaths {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownRuimFilePaths";
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct KnownSimFilePaths {}
+pub struct KnownSimFilePaths;
 impl KnownSimFilePaths {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -4969,7 +4969,7 @@ impl ::windows::core::RuntimeName for KnownSimFilePaths {
     const NAME: &'static str = "Windows.Networking.NetworkOperators.KnownSimFilePaths";
 }
 #[doc = "*Required features: `\"Networking_NetworkOperators\"`*"]
-pub struct KnownUSimFilePaths {}
+pub struct KnownUSimFilePaths;
 impl KnownUSimFilePaths {
     #[doc = "*Required features: `\"Networking_NetworkOperators\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

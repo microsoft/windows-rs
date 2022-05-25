@@ -42,7 +42,7 @@ pub struct IPlatformTelemetryRegistrationSettings_Vtbl {
     pub SetUploadQuotaSize: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
-pub struct PlatformTelemetryClient {}
+pub struct PlatformTelemetryClient;
 impl PlatformTelemetryClient {
     #[doc = "*Required features: `\"System_Diagnostics_Telemetry\"`*"]
     pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<PlatformTelemetryRegistrationResult> {

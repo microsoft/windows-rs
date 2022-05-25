@@ -112,7 +112,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 unsafe impl ::core::marker::Send for AddAppointmentOperation {}
 unsafe impl ::core::marker::Sync for AddAppointmentOperation {}
 #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
-pub struct AppointmentsProviderLaunchActionVerbs {}
+pub struct AppointmentsProviderLaunchActionVerbs;
 impl AppointmentsProviderLaunchActionVerbs {
     #[doc = "*Required features: `\"ApplicationModel_Appointments_AppointmentsProvider\"`*"]
     pub fn AddAppointment() -> ::windows::core::Result<::windows::core::HSTRING> {

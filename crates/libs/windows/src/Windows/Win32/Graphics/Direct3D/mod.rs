@@ -1950,6 +1950,8 @@ impl ::core::fmt::Debug for ID3DBlob {
         f.debug_tuple("ID3DBlob").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for ID3DBlob {}
+unsafe impl ::core::marker::Sync for ID3DBlob {}
 unsafe impl ::windows::core::Interface for ID3DBlob {
     type Vtable = ID3DBlob_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
@@ -2011,6 +2013,8 @@ impl ::core::fmt::Debug for ID3DDestructionNotifier {
         f.debug_tuple("ID3DDestructionNotifier").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for ID3DDestructionNotifier {}
+unsafe impl ::core::marker::Sync for ID3DDestructionNotifier {}
 unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifier_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
@@ -2051,6 +2055,8 @@ impl ::core::fmt::Debug for ID3DInclude {
         f.debug_tuple("ID3DInclude").field(&self.0).finish()
     }
 }
+unsafe impl ::core::marker::Send for ID3DInclude {}
+unsafe impl ::core::marker::Sync for ID3DInclude {}
 unsafe impl ::windows::core::Interface for ID3DInclude {
     type Vtable = ID3DInclude_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();

@@ -95,7 +95,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticActionState {
     }
 }
 #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
-pub struct PlatformDiagnosticActions {}
+pub struct PlatformDiagnosticActions;
 impl PlatformDiagnosticActions {
     #[doc = "*Required features: `\"System_Diagnostics_TraceReporting\"`*"]
     pub fn IsScenarioEnabled<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(scenarioid: Param0) -> ::windows::core::Result<bool> {

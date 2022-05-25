@@ -2567,7 +2567,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::ISuspend
     }
 }
 #[doc = "*Required features: `\"UI_WebUI\"`*"]
-pub struct WebUIApplication {}
+pub struct WebUIApplication;
 impl WebUIApplication {
     #[doc = "*Required features: `\"UI_WebUI\"`, `\"ApplicationModel_Activation\"`, `\"Foundation\"`*"]
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))]
@@ -4165,7 +4165,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::ApplicationModel::Activati
     }
 }
 #[doc = "*Required features: `\"UI_WebUI\"`*"]
-pub struct WebUIBackgroundTaskInstance {}
+pub struct WebUIBackgroundTaskInstance;
 impl WebUIBackgroundTaskInstance {
     #[doc = "*Required features: `\"UI_WebUI\"`*"]
     pub fn Current() -> ::windows::core::Result<IWebUIBackgroundTaskInstance> {

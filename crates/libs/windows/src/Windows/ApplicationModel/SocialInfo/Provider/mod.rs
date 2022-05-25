@@ -421,7 +421,7 @@ unsafe impl ::core::marker::Send for SocialFeedUpdater {}
 unsafe impl ::core::marker::Sync for SocialFeedUpdater {}
 #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct SocialInfoProviderManager {}
+pub struct SocialInfoProviderManager;
 #[cfg(feature = "deprecated")]
 impl SocialInfoProviderManager {
     #[doc = "*Required features: `\"ApplicationModel_SocialInfo_Provider\"`, `\"Foundation\"`, `\"deprecated\"`*"]

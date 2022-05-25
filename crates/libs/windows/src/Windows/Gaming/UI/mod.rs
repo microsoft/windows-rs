@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Gaming_UI\"`*"]
-pub struct GameBar {}
+pub struct GameBar;
 impl GameBar {
     #[doc = "*Required features: `\"Gaming_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

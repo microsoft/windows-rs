@@ -9,7 +9,7 @@ pub mod NumberFormatting;
 #[cfg(feature = "Globalization_PhoneNumberFormatting")]
 pub mod PhoneNumberFormatting;
 #[doc = "*Required features: `\"Globalization\"`*"]
-pub struct ApplicationLanguages {}
+pub struct ApplicationLanguages;
 impl ApplicationLanguages {
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn PrimaryLanguageOverride() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -915,7 +915,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for Calendar {}
 unsafe impl ::core::marker::Sync for Calendar {}
 #[doc = "*Required features: `\"Globalization\"`*"]
-pub struct CalendarIdentifiers {}
+pub struct CalendarIdentifiers;
 impl CalendarIdentifiers {
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn Gregorian() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1042,7 +1042,7 @@ impl ::windows::core::RuntimeName for CalendarIdentifiers {
     const NAME: &'static str = "Windows.Globalization.CalendarIdentifiers";
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
-pub struct ClockIdentifiers {}
+pub struct ClockIdentifiers;
 impl ClockIdentifiers {
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn TwelveHour() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1173,7 +1173,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for CurrencyAmount {}
 unsafe impl ::core::marker::Sync for CurrencyAmount {}
 #[doc = "*Required features: `\"Globalization\"`*"]
-pub struct CurrencyIdentifiers {}
+pub struct CurrencyIdentifiers;
 impl CurrencyIdentifiers {
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn AED() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3403,7 +3403,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a J
     }
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
-pub struct JapanesePhoneticAnalyzer {}
+pub struct JapanesePhoneticAnalyzer;
 impl JapanesePhoneticAnalyzer {
     #[doc = "*Required features: `\"Globalization\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3657,7 +3657,7 @@ unsafe impl ::windows::core::RuntimeType for LanguageLayoutDirection {
     }
 }
 #[doc = "*Required features: `\"Globalization\"`*"]
-pub struct NumeralSystemIdentifiers {}
+pub struct NumeralSystemIdentifiers;
 impl NumeralSystemIdentifiers {
     #[doc = "*Required features: `\"Globalization\"`*"]
     pub fn Arab() -> ::windows::core::Result<::windows::core::HSTRING> {

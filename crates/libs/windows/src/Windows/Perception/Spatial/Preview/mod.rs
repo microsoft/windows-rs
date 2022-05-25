@@ -162,7 +162,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SpatialGraphInteropFrameOfReferencePreview {}
 unsafe impl ::core::marker::Sync for SpatialGraphInteropFrameOfReferencePreview {}
 #[doc = "*Required features: `\"Perception_Spatial_Preview\"`*"]
-pub struct SpatialGraphInteropPreview {}
+pub struct SpatialGraphInteropPreview;
 impl SpatialGraphInteropPreview {
     #[doc = "*Required features: `\"Perception_Spatial_Preview\"`*"]
     pub fn CreateCoordinateSystemForNode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(nodeid: Param0) -> ::windows::core::Result<super::SpatialCoordinateSystem> {

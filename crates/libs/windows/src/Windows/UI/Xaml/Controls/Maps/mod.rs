@@ -10391,7 +10391,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Map
 unsafe impl ::core::marker::Send for MapStyleSheet {}
 unsafe impl ::core::marker::Sync for MapStyleSheet {}
 #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
-pub struct MapStyleSheetEntries {}
+pub struct MapStyleSheetEntries;
 impl MapStyleSheetEntries {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Area() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -10851,7 +10851,7 @@ impl ::windows::core::RuntimeName for MapStyleSheetEntries {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapStyleSheetEntries";
 }
 #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
-pub struct MapStyleSheetEntryStates {}
+pub struct MapStyleSheetEntryStates;
 impl MapStyleSheetEntryStates {
     #[doc = "*Required features: `\"UI_Xaml_Controls_Maps\"`*"]
     pub fn Disabled() -> ::windows::core::Result<::windows::core::HSTRING> {

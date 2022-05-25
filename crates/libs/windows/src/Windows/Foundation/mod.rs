@@ -988,7 +988,7 @@ impl ::core::default::Default for EventRegistrationToken {
     }
 }
 #[doc = "*Required features: `\"Foundation\"`*"]
-pub struct GuidHelper {}
+pub struct GuidHelper;
 impl GuidHelper {
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateNewGuid() -> ::windows::core::Result<::windows::core::GUID> {
@@ -4093,7 +4093,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyType {
     }
 }
 #[doc = "*Required features: `\"Foundation\"`*"]
-pub struct PropertyValue {}
+pub struct PropertyValue;
 impl PropertyValue {
     #[doc = "*Required features: `\"Foundation\"`*"]
     pub fn CreateEmpty() -> ::windows::core::Result<::windows::core::IInspectable> {

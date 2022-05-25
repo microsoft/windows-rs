@@ -40,7 +40,7 @@ unsafe impl ::windows::core::RuntimeType for BinaryStringEncoding {
     }
 }
 #[doc = "*Required features: `\"Security_Cryptography\"`*"]
-pub struct CryptographicBuffer {}
+pub struct CryptographicBuffer;
 impl CryptographicBuffer {
     #[doc = "*Required features: `\"Security_Cryptography\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]

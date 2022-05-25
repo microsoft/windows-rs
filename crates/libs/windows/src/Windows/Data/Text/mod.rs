@@ -1499,7 +1499,7 @@ impl ::core::default::Default for TextSegment {
     }
 }
 #[doc = "*Required features: `\"Data_Text\"`*"]
-pub struct UnicodeCharacters {}
+pub struct UnicodeCharacters;
 impl UnicodeCharacters {
     #[doc = "*Required features: `\"Data_Text\"`*"]
     pub fn GetCodepointFromSurrogatePair(highsurrogate: u32, lowsurrogate: u32) -> ::windows::core::Result<u32> {

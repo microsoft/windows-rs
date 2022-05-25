@@ -315,7 +315,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 unsafe impl ::core::marker::Send for Direct3D11CaptureFramePool {}
 unsafe impl ::core::marker::Sync for Direct3D11CaptureFramePool {}
 #[doc = "*Required features: `\"Graphics_Capture\"`*"]
-pub struct GraphicsCaptureAccess {}
+pub struct GraphicsCaptureAccess;
 impl GraphicsCaptureAccess {
     #[doc = "*Required features: `\"Graphics_Capture\"`, `\"Foundation\"`, `\"Security_Authorization_AppCapabilityAccess\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Authorization_AppCapabilityAccess"))]

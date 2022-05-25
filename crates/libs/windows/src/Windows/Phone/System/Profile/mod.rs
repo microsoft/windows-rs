@@ -19,7 +19,7 @@ pub struct IRetailModeStatics_Vtbl {
 }
 #[doc = "*Required features: `\"Phone_System_Profile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct RetailMode {}
+pub struct RetailMode;
 #[cfg(feature = "deprecated")]
 impl RetailMode {
     #[doc = "*Required features: `\"Phone_System_Profile\"`, `\"deprecated\"`*"]

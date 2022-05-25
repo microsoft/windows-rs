@@ -126,7 +126,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
 unsafe impl ::core::marker::Send for Enterprise {}
 unsafe impl ::core::marker::Sync for Enterprise {}
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
-pub struct EnterpriseEnrollmentManager {}
+pub struct EnterpriseEnrollmentManager;
 impl EnterpriseEnrollmentManager {
     #[doc = "*Required features: `\"Phone_Management_Deployment\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -492,7 +492,7 @@ pub struct IPackageInstallResult2_Vtbl {
     pub ErrorText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Phone_Management_Deployment\"`*"]
-pub struct InstallationManager {}
+pub struct InstallationManager;
 impl InstallationManager {
     #[doc = "*Required features: `\"Phone_Management_Deployment\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

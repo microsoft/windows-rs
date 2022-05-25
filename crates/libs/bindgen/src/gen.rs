@@ -86,18 +86,6 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    pub fn type_def_agile(&self, def: TypeDef, ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
-        if self.reader.type_def_is_agile(def) || matches!(self.reader.type_def_type_name(def), TypeName::IAsyncAction | TypeName::IAsyncActionWithProgress | TypeName::IAsyncOperation | TypeName::IAsyncOperationWithProgress | TypeName::IRestrictedErrorInfo) {
-            quote! {
-                #features
-                unsafe impl<#constraints> ::core::marker::Send for #ident {}
-                #features
-                unsafe impl<#constraints> ::core::marker::Sync for #ident {}
-            }
-        } else {
-            TokenStream::new()
-        }
-    }
 
     //
     // Type
@@ -536,7 +524,6 @@ impl<'a> Gen<'a> {
             }
         }
     }
-    // TODO: share with interfaces
     pub fn agile(&self, def: TypeDef, ident: &TokenStream, constraints: &TokenStream, features: &TokenStream) -> TokenStream {
         if self.reader.type_def_is_agile(def) {
             quote! {

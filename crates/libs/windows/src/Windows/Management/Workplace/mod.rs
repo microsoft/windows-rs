@@ -41,7 +41,7 @@ pub struct IWorkplaceSettingsStatics_Vtbl {
     pub IsMicrosoftAccountOptional: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Management_Workplace\"`*"]
-pub struct MdmPolicy {}
+pub struct MdmPolicy;
 impl MdmPolicy {
     #[doc = "*Required features: `\"Management_Workplace\"`*"]
     pub fn IsBrowserAllowed() -> ::windows::core::Result<bool> {
@@ -128,7 +128,7 @@ unsafe impl ::windows::core::RuntimeType for MessagingSyncPolicy {
     }
 }
 #[doc = "*Required features: `\"Management_Workplace\"`*"]
-pub struct WorkplaceSettings {}
+pub struct WorkplaceSettings;
 impl WorkplaceSettings {
     #[doc = "*Required features: `\"Management_Workplace\"`*"]
     pub fn IsMicrosoftAccountOptional() -> ::windows::core::Result<bool> {

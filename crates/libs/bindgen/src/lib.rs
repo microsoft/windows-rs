@@ -143,7 +143,7 @@ fn combine<'a>(types: &mut BTreeMap<&'a str, TokenStream>, name: &'a str, tokens
 }
 
 fn combine_type<'a>(types: &mut BTreeMap<&'a str, TokenStream>, type_name: TypeName<'a>, tokens: TokenStream) {
-    if !WELL_KNOWN_TYPES.iter().any(|(x, _)| x == &type_name) {
+    if !CORE_TYPES.iter().any(|(x, _)| x == &type_name) {
         types.entry(type_name.name).or_default().combine(&tokens);
     }
 }

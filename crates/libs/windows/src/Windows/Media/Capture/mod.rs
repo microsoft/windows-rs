@@ -1439,7 +1439,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
     }
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
-pub struct AppBroadcastManager {}
+pub struct AppBroadcastManager;
 impl AppBroadcastManager {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetGlobalSettings() -> ::windows::core::Result<AppBroadcastGlobalSettings> {
@@ -5063,7 +5063,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureHistoricalBufferLengthUni
     }
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
-pub struct AppCaptureManager {}
+pub struct AppCaptureManager;
 impl AppCaptureManager {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn GetCurrentSettings() -> ::windows::core::Result<AppCaptureSettings> {
@@ -7085,7 +7085,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIVideoFormat {
     }
 }
 #[doc = "*Required features: `\"Media_Capture\"`*"]
-pub struct CameraOptionsUI {}
+pub struct CameraOptionsUI;
 impl CameraOptionsUI {
     #[doc = "*Required features: `\"Media_Capture\"`*"]
     pub fn Show<'a, Param0: ::windows::core::IntoParam<'a, MediaCapture>>(mediacapture: Param0) -> ::windows::core::Result<()> {

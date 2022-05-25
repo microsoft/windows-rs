@@ -6147,7 +6147,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCapturePauseBehavior {
     }
 }
 #[doc = "*Required features: `\"Media_Devices\"`*"]
-pub struct MediaDevice {}
+pub struct MediaDevice;
 impl MediaDevice {
     #[doc = "*Required features: `\"Media_Devices\"`*"]
     pub fn GetAudioCaptureSelector() -> ::windows::core::Result<::windows::core::HSTRING> {

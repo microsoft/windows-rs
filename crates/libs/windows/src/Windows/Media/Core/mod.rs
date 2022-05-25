@@ -1120,7 +1120,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for CodecQuery {}
 unsafe impl ::core::marker::Sync for CodecQuery {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
-pub struct CodecSubtypes {}
+pub struct CodecSubtypes;
 impl CodecSubtypes {
     #[doc = "*Required features: `\"Media_Core\"`*"]
     pub fn VideoFormatDV25() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5829,7 +5829,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a I
 unsafe impl ::core::marker::Send for InitializeMediaStreamSourceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for InitializeMediaStreamSourceRequestedEventArgs {}
 #[doc = "*Required features: `\"Media_Core\"`*"]
-pub struct LowLightFusion {}
+pub struct LowLightFusion;
 impl LowLightFusion {
     #[doc = "*Required features: `\"Media_Core\"`, `\"Foundation_Collections\"`, `\"Graphics_Imaging\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))]

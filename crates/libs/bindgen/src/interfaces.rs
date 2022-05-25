@@ -22,11 +22,6 @@ fn gen_sys_interface(gen: &Gen, def: TypeDef) -> TokenStream {
 }
 
 fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
-    let type_name = gen.reader.type_def_type_name(def);
-    // TODO: workaround for https://github.com/microsoft/win32metadata/issues/814
-    if type_name.name == "INetCfgComponentUpperEdge" {
-        return quote! {};
-    }
     let generics: &Vec<Type> = &gen.reader.type_def_generics(def).collect();
     let ident = gen.type_def_name(def, generics);
 
@@ -72,7 +67,7 @@ fn gen_win_interface(gen: &Gen, def: TypeDef) -> TokenStream {
         tokens.combine(&gen.interface_winrt_trait(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&gen.async_get(def, generics, &ident, &constraints, &phantoms, &features));
         tokens.combine(&iterators::gen(gen, def, generics, &ident, &constraints, &phantoms, &cfg));
-        tokens.combine(&gen.type_def_agile(def, &ident, &constraints, &features));
+        tokens.combine(&gen.agile(def, &ident, &constraints, &features));
     }
 
     tokens.combine(&gen.interface_trait(def, generics, &ident, &constraints, &features));

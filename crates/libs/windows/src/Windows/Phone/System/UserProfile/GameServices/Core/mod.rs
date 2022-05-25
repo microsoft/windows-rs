@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`*"]
-pub struct GameService {}
+pub struct GameService;
 impl GameService {
     #[doc = "*Required features: `\"Phone_System_UserProfile_GameServices_Core\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

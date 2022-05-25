@@ -109,7 +109,7 @@ unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web\"`*"]
-pub struct WebAuthenticationBroker {}
+pub struct WebAuthenticationBroker;
 impl WebAuthenticationBroker {
     #[doc = "*Required features: `\"Security_Authentication_Web\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
-pub struct CommunicationBlockingAccessManager {}
+pub struct CommunicationBlockingAccessManager;
 impl CommunicationBlockingAccessManager {
     #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
     pub fn IsBlockingActive() -> ::windows::core::Result<bool> {
@@ -50,7 +50,7 @@ impl ::windows::core::RuntimeName for CommunicationBlockingAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager";
 }
 #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
-pub struct CommunicationBlockingAppManager {}
+pub struct CommunicationBlockingAppManager;
 impl CommunicationBlockingAppManager {
     #[doc = "*Required features: `\"ApplicationModel_CommunicationBlocking\"`*"]
     pub fn IsCurrentAppActiveBlockingApp() -> ::windows::core::Result<bool> {

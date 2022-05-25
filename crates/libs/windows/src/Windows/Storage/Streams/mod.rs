@@ -4658,7 +4658,7 @@ impl<'a> ::windows::core::IntoParam<'a, IOutputStream> for &OutputStreamOverStre
 unsafe impl ::core::marker::Send for OutputStreamOverStream {}
 unsafe impl ::core::marker::Sync for OutputStreamOverStream {}
 #[doc = "*Required features: `\"Storage_Streams\"`*"]
-pub struct RandomAccessStream {}
+pub struct RandomAccessStream;
 impl RandomAccessStream {
     #[doc = "*Required features: `\"Storage_Streams\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

@@ -1501,7 +1501,7 @@ pub struct IPerceptionVideoProfile_Vtbl {
 }
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownCameraIntrinsicsProperties {}
+pub struct KnownCameraIntrinsicsProperties;
 #[cfg(feature = "deprecated")]
 impl KnownCameraIntrinsicsProperties {
     #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
@@ -1549,7 +1549,7 @@ impl ::windows::core::RuntimeName for KnownCameraIntrinsicsProperties {
 }
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownPerceptionColorFrameSourceProperties {}
+pub struct KnownPerceptionColorFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionColorFrameSourceProperties {
     #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
@@ -1589,7 +1589,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionColorFrameSourceProperties 
 }
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownPerceptionDepthFrameSourceProperties {}
+pub struct KnownPerceptionDepthFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionDepthFrameSourceProperties {
     #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
@@ -1621,7 +1621,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionDepthFrameSourceProperties 
 }
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownPerceptionFrameSourceProperties {}
+pub struct KnownPerceptionFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionFrameSourceProperties {
     #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
@@ -1691,7 +1691,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionFrameSourceProperties {
 }
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownPerceptionInfraredFrameSourceProperties {}
+pub struct KnownPerceptionInfraredFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionInfraredFrameSourceProperties {
     #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
@@ -1763,7 +1763,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionInfraredFrameSourceProperti
 }
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownPerceptionVideoFrameSourceProperties {}
+pub struct KnownPerceptionVideoFrameSourceProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionVideoFrameSourceProperties {
     #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
@@ -1819,7 +1819,7 @@ impl ::windows::core::RuntimeName for KnownPerceptionVideoFrameSourceProperties 
 }
 #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownPerceptionVideoProfileProperties {}
+pub struct KnownPerceptionVideoProfileProperties;
 #[cfg(feature = "deprecated")]
 impl KnownPerceptionVideoProfileProperties {
     #[doc = "*Required features: `\"Devices_Perception\"`, `\"deprecated\"`*"]

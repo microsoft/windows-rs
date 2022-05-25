@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
-pub struct ApplicationProfile {}
+pub struct ApplicationProfile;
 impl ApplicationProfile {
     #[doc = "*Required features: `\"Phone_ApplicationModel\"`*"]
     pub fn Modes() -> ::windows::core::Result<ApplicationProfileModes> {

@@ -38,7 +38,7 @@ unsafe impl ::windows::core::RuntimeType for AuthenticationProtocol {
     }
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-pub struct CredentialPicker {}
+pub struct CredentialPicker;
 impl CredentialPicker {
     #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::RuntimeType for UserConsentVerificationResult {
     }
 }
 #[doc = "*Required features: `\"Security_Credentials_UI\"`*"]
-pub struct UserConsentVerifier {}
+pub struct UserConsentVerifier;
 impl UserConsentVerifier {
     #[doc = "*Required features: `\"Security_Credentials_UI\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

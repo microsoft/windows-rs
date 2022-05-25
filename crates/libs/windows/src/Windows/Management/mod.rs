@@ -466,7 +466,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
     }
 }
 #[doc = "*Required features: `\"Management\"`*"]
-pub struct MdmSessionManager {}
+pub struct MdmSessionManager;
 impl MdmSessionManager {
     #[doc = "*Required features: `\"Management\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

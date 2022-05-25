@@ -778,7 +778,7 @@ unsafe impl ::windows::core::RuntimeType for PeerDiscoveryTypes {
     }
 }
 #[doc = "*Required features: `\"Networking_Proximity\"`*"]
-pub struct PeerFinder {}
+pub struct PeerFinder;
 impl PeerFinder {
     #[doc = "*Required features: `\"Networking_Proximity\"`*"]
     pub fn AllowBluetooth() -> ::windows::core::Result<bool> {

@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
-pub struct GameControllerFactoryManager {}
+pub struct GameControllerFactoryManager;
 impl GameControllerFactoryManager {
     #[doc = "*Required features: `\"Gaming_Input_Custom\"`*"]
     pub fn RegisterCustomFactoryForGipInterface<'a, Param0: ::windows::core::IntoParam<'a, ICustomGameControllerFactory>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(factory: Param0, interfaceid: Param1) -> ::windows::core::Result<()> {

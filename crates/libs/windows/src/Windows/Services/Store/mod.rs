@@ -4597,7 +4597,7 @@ unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewStatus {
     }
 }
 #[doc = "*Required features: `\"Services_Store\"`*"]
-pub struct StoreRequestHelper {}
+pub struct StoreRequestHelper;
 impl StoreRequestHelper {
     #[doc = "*Required features: `\"Services_Store\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

@@ -30,7 +30,7 @@ pub struct IStorageDeviceStatics_Vtbl {
     pub GetDeviceSelector: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_Portable\"`*"]
-pub struct ServiceDevice {}
+pub struct ServiceDevice;
 impl ServiceDevice {
     #[doc = "*Required features: `\"Devices_Portable\"`*"]
     pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -95,7 +95,7 @@ unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
     }
 }
 #[doc = "*Required features: `\"Devices_Portable\"`*"]
-pub struct StorageDevice {}
+pub struct StorageDevice;
 impl StorageDevice {
     #[doc = "*Required features: `\"Devices_Portable\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]

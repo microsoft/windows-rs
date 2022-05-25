@@ -894,7 +894,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
 unsafe impl ::core::marker::Send for BarcodeScannerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStatusUpdatedEventArgs {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-pub struct BarcodeSymbologies {}
+pub struct BarcodeSymbologies;
 impl BarcodeSymbologies {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn Unknown() -> ::windows::core::Result<u32> {
@@ -12463,7 +12463,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 unsafe impl ::core::marker::Send for MagneticStripeReaderCapabilities {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderCapabilities {}
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-pub struct MagneticStripeReaderCardTypes {}
+pub struct MagneticStripeReaderCardTypes;
 impl MagneticStripeReaderCardTypes {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn Unknown() -> ::windows::core::Result<u32> {
@@ -12503,7 +12503,7 @@ impl ::windows::core::RuntimeName for MagneticStripeReaderCardTypes {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderCardTypes";
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-pub struct MagneticStripeReaderEncryptionAlgorithms {}
+pub struct MagneticStripeReaderEncryptionAlgorithms;
 impl MagneticStripeReaderEncryptionAlgorithms {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn None() -> ::windows::core::Result<u32> {
@@ -13845,7 +13845,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterCartridgeSensors {
     }
 }
 #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
-pub struct PosPrinterCharacterSetIds {}
+pub struct PosPrinterCharacterSetIds;
 impl PosPrinterCharacterSetIds {
     #[doc = "*Required features: `\"Devices_PointOfService\"`*"]
     pub fn Utf16LE() -> ::windows::core::Result<u32> {

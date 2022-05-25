@@ -1645,7 +1645,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingResult {
     }
 }
 #[doc = "*Required features: `\"UI_Text_Core\"`*"]
-pub struct CoreTextServicesConstants {}
+pub struct CoreTextServicesConstants;
 impl CoreTextServicesConstants {
     #[doc = "*Required features: `\"UI_Text_Core\"`*"]
     pub fn HiddenCharacter() -> ::windows::core::Result<u16> {

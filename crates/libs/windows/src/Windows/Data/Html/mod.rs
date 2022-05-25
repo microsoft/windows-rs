@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Data_Html\"`*"]
-pub struct HtmlUtilities {}
+pub struct HtmlUtilities;
 impl HtmlUtilities {
     #[doc = "*Required features: `\"Data_Html\"`*"]
     pub fn ConvertToText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(html: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {

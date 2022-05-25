@@ -1091,7 +1091,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
 unsafe impl ::core::marker::Send for BluetoothLEAppearance {}
 unsafe impl ::core::marker::Sync for BluetoothLEAppearance {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
-pub struct BluetoothLEAppearanceCategories {}
+pub struct BluetoothLEAppearanceCategories;
 impl BluetoothLEAppearanceCategories {
     #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
     pub fn Uncategorized() -> ::windows::core::Result<u16> {
@@ -1257,7 +1257,7 @@ impl ::windows::core::RuntimeName for BluetoothLEAppearanceCategories {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearanceCategories";
 }
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
-pub struct BluetoothLEAppearanceSubcategories {}
+pub struct BluetoothLEAppearanceSubcategories;
 impl BluetoothLEAppearanceSubcategories {
     #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
     pub fn Generic() -> ::windows::core::Result<u16> {
@@ -2843,7 +2843,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a B
 unsafe impl ::core::marker::Send for BluetoothSignalStrengthFilter {}
 unsafe impl ::core::marker::Sync for BluetoothSignalStrengthFilter {}
 #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
-pub struct BluetoothUuidHelper {}
+pub struct BluetoothUuidHelper;
 impl BluetoothUuidHelper {
     #[doc = "*Required features: `\"Devices_Bluetooth\"`*"]
     pub fn FromShortId(shortid: u32) -> ::windows::core::Result<::windows::core::GUID> {

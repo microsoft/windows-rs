@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Gaming_Input_Preview\"`*"]
-pub struct GameControllerProviderInfo {}
+pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
     #[doc = "*Required features: `\"Gaming_Input_Preview\"`, `\"Gaming_Input_Custom\"`*"]
     #[cfg(feature = "Gaming_Input_Custom")]

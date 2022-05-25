@@ -1335,7 +1335,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountClientViewType {
     }
 }
 #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`*"]
-pub struct WebAccountManager {}
+pub struct WebAccountManager;
 impl WebAccountManager {
     #[doc = "*Required features: `\"Security_Authentication_Web_Provider\"`, `\"Foundation_Collections\"`, `\"Security_Credentials\"`*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))]

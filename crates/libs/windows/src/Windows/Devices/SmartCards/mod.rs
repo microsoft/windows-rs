@@ -1316,7 +1316,7 @@ pub struct ISmartCardTriggerDetails3_Vtbl {
     pub SmartCard: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Devices_SmartCards\"`*"]
-pub struct KnownSmartCardAppletIds {}
+pub struct KnownSmartCardAppletIds;
 impl KnownSmartCardAppletIds {
     #[doc = "*Required features: `\"Devices_SmartCards\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]

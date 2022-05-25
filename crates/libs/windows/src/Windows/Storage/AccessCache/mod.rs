@@ -741,7 +741,7 @@ unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
     }
 }
 #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
-pub struct StorageApplicationPermissions {}
+pub struct StorageApplicationPermissions;
 impl StorageApplicationPermissions {
     #[doc = "*Required features: `\"Storage_AccessCache\"`*"]
     pub fn FutureAccessList() -> ::windows::core::Result<StorageItemAccessList> {

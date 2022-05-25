@@ -2291,7 +2291,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallAudioDevice {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-pub struct PhoneCallBlocking {}
+pub struct PhoneCallBlocking;
 impl PhoneCallBlocking {
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
     pub fn BlockUnknownNumbers() -> ::windows::core::Result<bool> {
@@ -3186,7 +3186,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 unsafe impl ::core::marker::Send for PhoneCallHistoryEntryReader {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryReader {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-pub struct PhoneCallHistoryManager {}
+pub struct PhoneCallHistoryManager;
 impl PhoneCallHistoryManager {
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -3692,7 +3692,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 unsafe impl ::core::marker::Send for PhoneCallInfo {}
 unsafe impl ::core::marker::Sync for PhoneCallInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-pub struct PhoneCallManager {}
+pub struct PhoneCallManager;
 impl PhoneCallManager {
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
     pub fn ShowPhoneCallUI<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(phonenumber: Param0, displayname: Param1) -> ::windows::core::Result<()> {
@@ -4050,7 +4050,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a P
 unsafe impl ::core::marker::Send for PhoneCallVideoCapabilities {}
 unsafe impl ::core::marker::Sync for PhoneCallVideoCapabilities {}
 #[doc = "*Required features: `\"ApplicationModel_Calls\"`*"]
-pub struct PhoneCallVideoCapabilitiesManager {}
+pub struct PhoneCallVideoCapabilitiesManager;
 impl PhoneCallVideoCapabilitiesManager {
     #[doc = "*Required features: `\"ApplicationModel_Calls\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]

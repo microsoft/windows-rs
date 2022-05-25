@@ -1529,7 +1529,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayOrientations {
 }
 #[doc = "*Required features: `\"Graphics_Display\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct DisplayProperties {}
+pub struct DisplayProperties;
 #[cfg(feature = "deprecated")]
 impl DisplayProperties {
     #[doc = "*Required features: `\"Graphics_Display\"`, `\"deprecated\"`*"]

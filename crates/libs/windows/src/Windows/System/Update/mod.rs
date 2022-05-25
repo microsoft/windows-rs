@@ -423,7 +423,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SystemUpdateLastErrorInfo {}
 unsafe impl ::core::marker::Sync for SystemUpdateLastErrorInfo {}
 #[doc = "*Required features: `\"System_Update\"`*"]
-pub struct SystemUpdateManager {}
+pub struct SystemUpdateManager;
 impl SystemUpdateManager {
     #[doc = "*Required features: `\"System_Update\"`*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {

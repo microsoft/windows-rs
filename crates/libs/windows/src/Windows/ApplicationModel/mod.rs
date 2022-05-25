@@ -796,7 +796,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a A
 unsafe impl ::core::marker::Send for AppInstance {}
 unsafe impl ::core::marker::Sync for AppInstance {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
-pub struct CameraApplicationManager {}
+pub struct CameraApplicationManager;
 impl CameraApplicationManager {
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     pub fn ShowInstalledApplicationsUI() -> ::windows::core::Result<()> {
@@ -812,7 +812,7 @@ impl ::windows::core::RuntimeName for CameraApplicationManager {
     const NAME: &'static str = "Windows.ApplicationModel.CameraApplicationManager";
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
-pub struct DesignMode {}
+pub struct DesignMode;
 impl DesignMode {
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     pub fn DesignModeEnabled() -> ::windows::core::Result<bool> {
@@ -1080,7 +1080,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a F
 unsafe impl ::core::marker::Send for FullTrustProcessLaunchResult {}
 unsafe impl ::core::marker::Sync for FullTrustProcessLaunchResult {}
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
-pub struct FullTrustProcessLauncher {}
+pub struct FullTrustProcessLauncher;
 impl FullTrustProcessLauncher {
     #[doc = "*Required features: `\"ApplicationModel\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2832,7 +2832,7 @@ unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureStatus {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel\"`*"]
-pub struct LimitedAccessFeatures {}
+pub struct LimitedAccessFeatures;
 impl LimitedAccessFeatures {
     #[doc = "*Required features: `\"ApplicationModel\"`*"]
     pub fn TryUnlockFeature<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(featureid: Param0, token: Param1, attestation: Param2) -> ::windows::core::Result<LimitedAccessFeatureRequestResult> {

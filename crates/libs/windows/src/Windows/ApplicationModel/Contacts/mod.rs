@@ -3881,7 +3881,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for ContactJobInfo {}
 unsafe impl ::core::marker::Sync for ContactJobInfo {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-pub struct ContactLaunchActionVerbs {}
+pub struct ContactLaunchActionVerbs;
 impl ContactLaunchActionVerbs {
     #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
     pub fn Call() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -5286,7 +5286,7 @@ impl<'a> ::windows::core::IntoParam<'a, IContactField> for &ContactLocationField
 unsafe impl ::core::marker::Send for ContactLocationField {}
 unsafe impl ::core::marker::Sync for ContactLocationField {}
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`*"]
-pub struct ContactManager {}
+pub struct ContactManager;
 impl ContactManager {
     #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -10025,7 +10025,7 @@ pub struct IPinnedContactManagerStatics_Vtbl {
 }
 #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct KnownContactField {}
+pub struct KnownContactField;
 #[cfg(feature = "deprecated")]
 impl KnownContactField {
     #[doc = "*Required features: `\"ApplicationModel_Contacts\"`, `\"deprecated\"`*"]

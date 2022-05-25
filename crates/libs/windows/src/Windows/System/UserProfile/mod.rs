@@ -42,7 +42,7 @@ unsafe impl ::windows::core::RuntimeType for AccountPictureKind {
     }
 }
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
-pub struct AdvertisingManager {}
+pub struct AdvertisingManager;
 impl AdvertisingManager {
     #[doc = "*Required features: `\"System_UserProfile\"`*"]
     pub fn AdvertisingId() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -597,7 +597,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::I
 unsafe impl ::core::marker::Send for FirstSignInSettings {}
 unsafe impl ::core::marker::Sync for FirstSignInSettings {}
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
-pub struct GlobalizationPreferences {}
+pub struct GlobalizationPreferences;
 impl GlobalizationPreferences {
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -1199,7 +1199,7 @@ pub struct IUserProfilePersonalizationSettingsStatics_Vtbl {
     pub IsSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"System_UserProfile\"`*"]
-pub struct LockScreen {}
+pub struct LockScreen;
 impl LockScreen {
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1345,7 +1345,7 @@ unsafe impl ::windows::core::RuntimeType for SetImageFeedResult {
 }
 #[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct UserInformation {}
+pub struct UserInformation;
 #[cfg(feature = "deprecated")]
 impl UserInformation {
     #[doc = "*Required features: `\"System_UserProfile\"`, `\"deprecated\"`*"]

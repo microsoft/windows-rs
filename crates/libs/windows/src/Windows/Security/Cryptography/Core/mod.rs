@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-pub struct AsymmetricAlgorithmNames {}
+pub struct AsymmetricAlgorithmNames;
 impl AsymmetricAlgorithmNames {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
     pub fn RsaPkcs1() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -354,7 +354,7 @@ unsafe impl ::windows::core::RuntimeType for Capi1KdfTargetAlgorithm {
     }
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-pub struct CryptographicEngine {}
+pub struct CryptographicEngine;
 impl CryptographicEngine {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Storage_Streams\"`*"]
     #[cfg(feature = "Storage_Streams")]
@@ -790,7 +790,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicPublicKeyBlobType {
     }
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-pub struct EccCurveNames {}
+pub struct EccCurveNames;
 impl EccCurveNames {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
     pub fn BrainpoolP160r1() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -1220,7 +1220,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a E
 unsafe impl ::core::marker::Send for EncryptedAndAuthenticatedData {}
 unsafe impl ::core::marker::Sync for EncryptedAndAuthenticatedData {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-pub struct HashAlgorithmNames {}
+pub struct HashAlgorithmNames;
 impl HashAlgorithmNames {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
     pub fn Md5() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2035,7 +2035,7 @@ pub struct ISymmetricKeyAlgorithmProviderStatics_Vtbl {
     pub OpenAlgorithm: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, algorithm: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-pub struct KeyDerivationAlgorithmNames {}
+pub struct KeyDerivationAlgorithmNames;
 impl KeyDerivationAlgorithmNames {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
     pub fn Pbkdf2Md5() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2452,7 +2452,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a K
 unsafe impl ::core::marker::Send for KeyDerivationParameters {}
 unsafe impl ::core::marker::Sync for KeyDerivationParameters {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-pub struct MacAlgorithmNames {}
+pub struct MacAlgorithmNames;
 impl MacAlgorithmNames {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
     pub fn HmacMd5() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2629,7 +2629,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 unsafe impl ::core::marker::Send for MacAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for MacAlgorithmProvider {}
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-pub struct PersistedKeyProvider {}
+pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`, `\"Foundation\"`, `\"Security_Cryptography_Certificates\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Certificates"))]
@@ -2657,7 +2657,7 @@ impl ::windows::core::RuntimeName for PersistedKeyProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.PersistedKeyProvider";
 }
 #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
-pub struct SymmetricAlgorithmNames {}
+pub struct SymmetricAlgorithmNames;
 impl SymmetricAlgorithmNames {
     #[doc = "*Required features: `\"Security_Cryptography_Core\"`*"]
     pub fn DesCbc() -> ::windows::core::Result<::windows::core::HSTRING> {

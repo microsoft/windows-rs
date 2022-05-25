@@ -372,7 +372,7 @@ unsafe impl ::windows::core::RuntimeType for GattCharacteristicProperties {
     }
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-pub struct GattCharacteristicUuids {}
+pub struct GattCharacteristicUuids;
 impl GattCharacteristicUuids {
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn BatteryLevel() -> ::windows::core::Result<::windows::core::GUID> {
@@ -1395,7 +1395,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 unsafe impl ::core::marker::Send for GattDescriptor {}
 unsafe impl ::core::marker::Sync for GattDescriptor {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-pub struct GattDescriptorUuids {}
+pub struct GattDescriptorUuids;
 impl GattDescriptorUuids {
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn CharacteristicAggregateFormat() -> ::windows::core::Result<::windows::core::GUID> {
@@ -3152,7 +3152,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 unsafe impl ::core::marker::Send for GattPresentationFormat {}
 unsafe impl ::core::marker::Sync for GattPresentationFormat {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-pub struct GattPresentationFormatTypes {}
+pub struct GattPresentationFormatTypes;
 impl GattPresentationFormatTypes {
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Boolean() -> ::windows::core::Result<u8> {
@@ -3389,7 +3389,7 @@ unsafe impl ::windows::core::RuntimeType for GattProtectionLevel {
     }
 }
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-pub struct GattProtocolError {}
+pub struct GattProtocolError;
 impl GattProtocolError {
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn InvalidHandle() -> ::windows::core::Result<u8> {
@@ -4675,7 +4675,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a G
 unsafe impl ::core::marker::Send for GattServiceProviderResult {}
 unsafe impl ::core::marker::Sync for GattServiceProviderResult {}
 #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
-pub struct GattServiceUuids {}
+pub struct GattServiceUuids;
 impl GattServiceUuids {
     #[doc = "*Required features: `\"Devices_Bluetooth_GenericAttributeProfile\"`*"]
     pub fn Battery() -> ::windows::core::Result<::windows::core::GUID> {

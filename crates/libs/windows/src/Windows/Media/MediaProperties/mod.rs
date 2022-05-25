@@ -452,7 +452,7 @@ impl<'a> ::windows::core::IntoParam<'a, IMediaEncodingProperties> for &Container
 unsafe impl ::core::marker::Send for ContainerEncodingProperties {}
 unsafe impl ::core::marker::Sync for ContainerEncodingProperties {}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-pub struct H264ProfileIds {}
+pub struct H264ProfileIds;
 impl H264ProfileIds {
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn ConstrainedBaseline() -> ::windows::core::Result<i32> {
@@ -1764,7 +1764,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a M
 unsafe impl ::core::marker::Send for MediaEncodingProfile {}
 unsafe impl ::core::marker::Sync for MediaEncodingProfile {}
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-pub struct MediaEncodingSubtypes {}
+pub struct MediaEncodingSubtypes;
 impl MediaEncodingSubtypes {
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Aac() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2673,7 +2673,7 @@ unsafe impl ::windows::core::RuntimeType for MediaThumbnailFormat {
     }
 }
 #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
-pub struct Mpeg2ProfileIds {}
+pub struct Mpeg2ProfileIds;
 impl Mpeg2ProfileIds {
     #[doc = "*Required features: `\"Media_MediaProperties\"`*"]
     pub fn Simple() -> ::windows::core::Result<i32> {

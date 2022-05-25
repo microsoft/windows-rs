@@ -3,7 +3,7 @@ pub mod DragDrop;
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 pub mod ShareTarget;
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
-pub struct Clipboard {}
+pub struct Clipboard;
 impl Clipboard {
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
     pub fn GetContent() -> ::windows::core::Result<DataPackageView> {
@@ -2533,7 +2533,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a D
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
-pub struct HtmlFormatHelper {}
+pub struct HtmlFormatHelper;
 impl HtmlFormatHelper {
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
     pub fn GetStaticFragment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(htmlformat: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -4417,7 +4417,7 @@ unsafe impl ::windows::core::RuntimeType for ShareUITheme {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
-pub struct SharedStorageAccessManager {}
+pub struct SharedStorageAccessManager;
 impl SharedStorageAccessManager {
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`, `\"Storage\"`*"]
     #[cfg(feature = "Storage")]
@@ -4449,7 +4449,7 @@ impl ::windows::core::RuntimeName for SharedStorageAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.SharedStorageAccessManager";
 }
 #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
-pub struct StandardDataFormats {}
+pub struct StandardDataFormats;
 impl StandardDataFormats {
     #[doc = "*Required features: `\"ApplicationModel_DataTransfer\"`*"]
     pub fn Text() -> ::windows::core::Result<::windows::core::HSTRING> {

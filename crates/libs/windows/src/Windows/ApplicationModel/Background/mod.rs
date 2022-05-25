@@ -180,7 +180,7 @@ unsafe impl ::windows::core::RuntimeType for AlarmAccessStatus {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-pub struct AlarmApplicationManager {}
+pub struct AlarmApplicationManager;
 impl AlarmApplicationManager {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -914,7 +914,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundAccessStatus {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-pub struct BackgroundExecutionManager {}
+pub struct BackgroundExecutionManager;
 impl BackgroundExecutionManager {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2152,7 +2152,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskThrottleCounter {
     }
 }
 #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
-pub struct BackgroundWorkCost {}
+pub struct BackgroundWorkCost;
 impl BackgroundWorkCost {
     #[doc = "*Required features: `\"ApplicationModel_Background\"`*"]
     pub fn CurrentBackgroundWorkCost() -> ::windows::core::Result<BackgroundWorkCostValue> {

@@ -71,7 +71,7 @@ pub struct ILicenseSatisfactionResult_Vtbl {
     pub ExtendedError: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`*"]
-pub struct LicenseManager {}
+pub struct LicenseManager;
 impl LicenseManager {
     #[doc = "*Required features: `\"ApplicationModel_Store_LicenseManagement\"`, `\"Foundation\"`, `\"Storage_Streams\"`*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]

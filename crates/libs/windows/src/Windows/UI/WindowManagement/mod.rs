@@ -2595,7 +2595,7 @@ pub struct IWindowingEnvironmentStatics_Vtbl {
     FindAllWithKind: usize,
 }
 #[doc = "*Required features: `\"UI_WindowManagement\"`*"]
-pub struct WindowServices {}
+pub struct WindowServices;
 impl WindowServices {
     #[doc = "*Required features: `\"UI_WindowManagement\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

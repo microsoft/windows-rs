@@ -130,7 +130,7 @@ pub struct IVibrationDeviceStatics_Vtbl {
     FindAllAsync: usize,
 }
 #[doc = "*Required features: `\"Devices_Haptics\"`*"]
-pub struct KnownSimpleHapticsControllerWaveforms {}
+pub struct KnownSimpleHapticsControllerWaveforms;
 impl KnownSimpleHapticsControllerWaveforms {
     #[doc = "*Required features: `\"Devices_Haptics\"`*"]
     pub fn Click() -> ::windows::core::Result<u16> {

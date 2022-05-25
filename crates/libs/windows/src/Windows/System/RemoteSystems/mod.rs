@@ -1188,7 +1188,7 @@ pub struct IRemoteSystemWebAccountFilterFactory_Vtbl {
     Create: usize,
 }
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-pub struct KnownRemoteSystemCapabilities {}
+pub struct KnownRemoteSystemCapabilities;
 impl KnownRemoteSystemCapabilities {
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
     pub fn AppService() -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -2595,7 +2595,7 @@ impl<'a> ::windows::core::IntoParam<'a, IRemoteSystemFilter> for &RemoteSystemKi
 unsafe impl ::core::marker::Send for RemoteSystemKindFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemKindFilter {}
 #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
-pub struct RemoteSystemKinds {}
+pub struct RemoteSystemKinds;
 impl RemoteSystemKinds {
     #[doc = "*Required features: `\"System_RemoteSystems\"`*"]
     pub fn Phone() -> ::windows::core::Result<::windows::core::HSTRING> {

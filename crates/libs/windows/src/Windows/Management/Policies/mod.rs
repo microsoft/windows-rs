@@ -53,7 +53,7 @@ pub struct INamedPolicyStatics_Vtbl {
     GetPolicyFromPathForUser: usize,
 }
 #[doc = "*Required features: `\"Management_Policies\"`*"]
-pub struct NamedPolicy {}
+pub struct NamedPolicy;
 impl NamedPolicy {
     #[doc = "*Required features: `\"Management_Policies\"`*"]
     pub fn GetPolicyFromPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(area: Param0, name: Param1) -> ::windows::core::Result<NamedPolicyData> {

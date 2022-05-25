@@ -1,5 +1,5 @@
 #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
-pub struct ContactPartnerProvisioningManager {}
+pub struct ContactPartnerProvisioningManager;
 impl ContactPartnerProvisioningManager {
     #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -96,7 +96,7 @@ pub struct IMessagePartnerProvisioningManagerStatics_Vtbl {
     ImportMmsToSystemAsync: usize,
 }
 #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`*"]
-pub struct MessagePartnerProvisioningManager {}
+pub struct MessagePartnerProvisioningManager;
 impl MessagePartnerProvisioningManager {
     #[doc = "*Required features: `\"Phone_PersonalInformation_Provisioning\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

@@ -779,7 +779,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferCostPolicy {
     }
 }
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-pub struct BackgroundTransferError {}
+pub struct BackgroundTransferError;
 impl BackgroundTransferError {
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Web\"`*"]
     #[cfg(feature = "Web")]
@@ -1538,7 +1538,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferBase> for &Background
 unsafe impl ::core::marker::Send for BackgroundUploader {}
 unsafe impl ::core::marker::Sync for BackgroundUploader {}
 #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`*"]
-pub struct ContentPrefetcher {}
+pub struct ContentPrefetcher;
 impl ContentPrefetcher {
     #[doc = "*Required features: `\"Networking_BackgroundTransfer\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

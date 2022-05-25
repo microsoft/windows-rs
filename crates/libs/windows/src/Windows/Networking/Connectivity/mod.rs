@@ -1176,7 +1176,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a C
 unsafe impl ::core::marker::Send for ConnectivityInterval {}
 unsafe impl ::core::marker::Sync for ConnectivityInterval {}
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-pub struct ConnectivityManager {}
+pub struct ConnectivityManager;
 impl ConnectivityManager {
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -2913,7 +2913,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkEncryptionType {
     }
 }
 #[doc = "*Required features: `\"Networking_Connectivity\"`*"]
-pub struct NetworkInformation {}
+pub struct NetworkInformation;
 impl NetworkInformation {
     #[doc = "*Required features: `\"Networking_Connectivity\"`, `\"Foundation_Collections\"`*"]
     #[cfg(feature = "Foundation_Collections")]

@@ -1029,7 +1029,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a S
 unsafe impl ::core::marker::Send for SpatialAnchorExporter {}
 unsafe impl ::core::marker::Sync for SpatialAnchorExporter {}
 #[doc = "*Required features: `\"Perception_Spatial\"`*"]
-pub struct SpatialAnchorManager {}
+pub struct SpatialAnchorManager;
 impl SpatialAnchorManager {
     #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
@@ -1240,7 +1240,7 @@ unsafe impl ::core::marker::Send for SpatialAnchorStore {}
 unsafe impl ::core::marker::Sync for SpatialAnchorStore {}
 #[doc = "*Required features: `\"Perception_Spatial\"`, `\"deprecated\"`*"]
 #[cfg(feature = "deprecated")]
-pub struct SpatialAnchorTransferManager {}
+pub struct SpatialAnchorTransferManager;
 #[cfg(feature = "deprecated")]
 impl SpatialAnchorTransferManager {
     #[doc = "*Required features: `\"Perception_Spatial\"`, `\"Foundation_Collections\"`, `\"Storage_Streams\"`, `\"deprecated\"`*"]

@@ -74,7 +74,7 @@ pub struct IThreadPoolTimerStatics_Vtbl {
     CreateTimerWithCompletion: usize,
 }
 #[doc = "*Required features: `\"System_Threading\"`*"]
-pub struct ThreadPool {}
+pub struct ThreadPool;
 impl ThreadPool {
     #[doc = "*Required features: `\"System_Threading\"`, `\"Foundation\"`*"]
     #[cfg(feature = "Foundation")]
