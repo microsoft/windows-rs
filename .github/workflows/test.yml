@@ -80,65 +80,15 @@ jobs:
               >> $env:GITHUB_ENV
           }
         }
-    - name: Test stable
+    - name: Test
       run: >
         cargo test --target ${{ matrix.target }} -p windows-bindgen &&
+        cargo test --target ${{ matrix.target }} -p windows-implement &&
         cargo test --target ${{ matrix.target }} -p windows-interface &&
         cargo test --target ${{ matrix.target }} -p windows-metadata &&
         cargo test --target ${{ matrix.target }} -p windows-sys &&
         cargo test --target ${{ matrix.target }} -p windows-tokens &&
         cargo test --target ${{ matrix.target }} -p windows &&
-        cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
-        cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
-        cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
-        cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
-        cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc &&
-        cargo test --target ${{ matrix.target }} -p test_agile &&
-        cargo test --target ${{ matrix.target }} -p test_agile_reference &&
-        cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
-        cargo test --target ${{ matrix.target }} -p test_arch &&
-        cargo test --target ${{ matrix.target }} -p test_arch_feature &&
-        cargo test --target ${{ matrix.target }} -p test_bstr &&
-        cargo test --target ${{ matrix.target }} -p test_const_fields &&
-        cargo test --target ${{ matrix.target }} -p test_core &&
-        cargo test --target ${{ matrix.target }} -p test_debug &&
-        cargo test --target ${{ matrix.target }} -p test_deprecated &&
-        cargo test --target ${{ matrix.target }} -p test_dispatch &&
-        cargo test --target ${{ matrix.target }} -p test_does_not_return &&
-        cargo test --target ${{ matrix.target }} -p test_enums &&
-        cargo test --target ${{ matrix.target }} -p test_error &&
-        cargo test --target ${{ matrix.target }} -p test_event &&
-        cargo test --target ${{ matrix.target }} -p test_handles &&
-        cargo test --target ${{ matrix.target }} -p test_helpers &&
-        cargo test --target ${{ matrix.target }} -p test_interop &&
-        cargo test --target ${{ matrix.target }} -p test_lib &&
-        cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
-        cargo test --target ${{ matrix.target }} -p test_metadata &&
-        cargo test --target ${{ matrix.target }} -p test_mshtml &&
-        cargo test --target ${{ matrix.target }} -p test_not_dll &&
-        cargo test --target ${{ matrix.target }} -p test_ntstatus &&
-        cargo test --target ${{ matrix.target }} -p test_return_struct &&
-        cargo test --target ${{ matrix.target }} -p test_string_param &&
-        cargo test --target ${{ matrix.target }} -p test_structs &&
-        cargo test --target ${{ matrix.target }} -p test_sys &&
-        cargo test --target ${{ matrix.target }} -p test_unions &&
-        cargo test --target ${{ matrix.target }} -p test_weak &&
-        cargo test --target ${{ matrix.target }} -p test_weak_ref &&
-        cargo test --target ${{ matrix.target }} -p test_win32 &&
-        cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
-        cargo test --target ${{ matrix.target }} -p tool_bindings &&
-        cargo test --target ${{ matrix.target }} -p tool_gnu &&
-        cargo test --target ${{ matrix.target }} -p tool_ilrs &&
-        cargo test --target ${{ matrix.target }} -p tool_msvc &&
-        cargo test --target ${{ matrix.target }} -p tool_sys &&
-        cargo test --target ${{ matrix.target }} -p tool_windows &&
-        cargo test --target ${{ matrix.target }} -p tool_yml 
-      if: matrix.version == 'stable'
-
-    - name: Test nightly
-      shell: cmd
-      run: >
-        cargo test --target ${{ matrix.target }} -p windows-implement &&
         cargo test --target ${{ matrix.target }} -p sample_com_uri &&
         cargo test --target ${{ matrix.target }} -p sample_consent &&
         cargo test --target ${{ matrix.target }} -p sample_core_app &&
@@ -160,21 +110,66 @@ jobs:
         cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
         cargo test --target ${{ matrix.target }} -p sample_xaml_app &&
         cargo test --target ${{ matrix.target }} -p sample_xml &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_class_factory &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_component &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_component_client &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_data_object &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_drop_target &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_identity &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_implement &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_interface &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_map &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_no_use &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_null_result &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_properties &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_vector &&
-        cargo test --target ${{ matrix.target }} -p test_nightly_winrt 
-      if: matrix.version == 'nightly'
+        cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
+        cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
+        cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
+        cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
+        cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc &&
+        cargo test --target ${{ matrix.target }} -p test_agile &&
+        cargo test --target ${{ matrix.target }} -p test_agile_reference &&
+        cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
+        cargo test --target ${{ matrix.target }} -p test_arch &&
+        cargo test --target ${{ matrix.target }} -p test_arch_feature &&
+        cargo test --target ${{ matrix.target }} -p test_bstr &&
+        cargo test --target ${{ matrix.target }} -p test_class_factory &&
+        cargo test --target ${{ matrix.target }} -p test_component &&
+        cargo test --target ${{ matrix.target }} -p test_component_client &&
+        cargo test --target ${{ matrix.target }} -p test_const_fields &&
+        cargo clean &&
+        cargo test --target ${{ matrix.target }} -p test_core &&
+        cargo test --target ${{ matrix.target }} -p test_data_object &&
+        cargo test --target ${{ matrix.target }} -p test_debug &&
+        cargo test --target ${{ matrix.target }} -p test_deprecated &&
+        cargo test --target ${{ matrix.target }} -p test_dispatch &&
+        cargo test --target ${{ matrix.target }} -p test_does_not_return &&
+        cargo test --target ${{ matrix.target }} -p test_drop_target &&
+        cargo test --target ${{ matrix.target }} -p test_enums &&
+        cargo test --target ${{ matrix.target }} -p test_error &&
+        cargo test --target ${{ matrix.target }} -p test_event &&
+        cargo test --target ${{ matrix.target }} -p test_handles &&
+        cargo test --target ${{ matrix.target }} -p test_helpers &&
+        cargo test --target ${{ matrix.target }} -p test_identity &&
+        cargo test --target ${{ matrix.target }} -p test_implement &&
+        cargo test --target ${{ matrix.target }} -p test_interface &&
+        cargo test --target ${{ matrix.target }} -p test_interop &&
+        cargo test --target ${{ matrix.target }} -p test_lib &&
+        cargo test --target ${{ matrix.target }} -p test_map &&
+        cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
+        cargo test --target ${{ matrix.target }} -p test_metadata &&
+        cargo test --target ${{ matrix.target }} -p test_mshtml &&
+        cargo test --target ${{ matrix.target }} -p test_not_dll &&
+        cargo test --target ${{ matrix.target }} -p test_no_use &&
+        cargo test --target ${{ matrix.target }} -p test_ntstatus &&
+        cargo test --target ${{ matrix.target }} -p test_null_result &&
+        cargo test --target ${{ matrix.target }} -p test_properties &&
+        cargo test --target ${{ matrix.target }} -p test_return_struct &&
+        cargo test --target ${{ matrix.target }} -p test_string_param &&
+        cargo test --target ${{ matrix.target }} -p test_structs &&
+        cargo test --target ${{ matrix.target }} -p test_sys &&
+        cargo test --target ${{ matrix.target }} -p test_unions &&
+        cargo test --target ${{ matrix.target }} -p test_vector &&
+        cargo test --target ${{ matrix.target }} -p test_weak &&
+        cargo test --target ${{ matrix.target }} -p test_weak_ref &&
+        cargo test --target ${{ matrix.target }} -p test_win32 &&
+        cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
+        cargo test --target ${{ matrix.target }} -p test_winrt &&
+        cargo test --target ${{ matrix.target }} -p tool_bindings &&
+        cargo test --target ${{ matrix.target }} -p tool_gnu &&
+        cargo test --target ${{ matrix.target }} -p tool_ilrs &&
+        cargo test --target ${{ matrix.target }} -p tool_msvc &&
+        cargo test --target ${{ matrix.target }} -p tool_sys &&
+        cargo test --target ${{ matrix.target }} -p tool_windows &&
+        cargo test --target ${{ matrix.target }} -p tool_yml 
 
     - name: Check import libs
       shell: pwsh
