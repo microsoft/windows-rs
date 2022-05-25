@@ -68,9 +68,9 @@ extern "system" {
     pub fn MFCreateAC3MediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFCreateADTSMediaSink(ptargetbytestream: IMFByteStream, paudiomediatype: IMFMediaType, ppmediasink: *mut IMFMediaSink) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub fn MFCreateAMMediaTypeFromMFMediaType(pmftype: IMFMediaType, guidformatblocktype: ::windows_sys::core::GUID, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFCreateAMMediaTypeFromMFMediaType(pmftype: IMFMediaType, guidformatblocktype: ::windows_sys::core::GUID, ppamtype: *mut *mut AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFCreateASFContentInfo(ppicontentinfo: *mut IMFASFContentInfo) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -387,29 +387,29 @@ extern "system" {
     pub fn MFHeapAlloc(nsize: usize, dwflags: u32, pszfile: ::windows_sys::core::PCSTR, line: i32, eat: EAllocationType) -> *mut ::core::ffi::c_void;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFHeapFree(pv: *mut ::core::ffi::c_void);
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitAMMediaTypeFromMFMediaType(pmftype: IMFMediaType, guidformatblocktype: ::windows_sys::core::GUID, pamtype: *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFInitAMMediaTypeFromMFMediaType(pmftype: IMFMediaType, guidformatblocktype: ::windows_sys::core::GUID, pamtype: *mut AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
     pub fn MFInitAttributesFromBlob(pattributes: IMFAttributes, pbuf: *const u8, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromAMMediaType(pmftype: IMFMediaType, pamtype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn MFInitMediaTypeFromAMMediaType(pmftype: IMFMediaType, pamtype: *const AM_MEDIA_TYPE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn MFInitMediaTypeFromMFVideoFormat(pmftype: IMFMediaType, pmfvf: *const MFVIDEOFORMAT, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: IMFMediaType, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: IMFMediaType, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromVideoInfoHeader(pmftype: IMFMediaType, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
-    pub fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: IMFMediaType, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: IMFMediaType, pmp1vi: *const MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: IMFMediaType, pmp2vi: *const MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn MFInitMediaTypeFromVideoInfoHeader(pmftype: IMFMediaType, pvih: *const VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+    pub fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: IMFMediaType, pvih2: *const VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows_sys::core::GUID) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Audio\"`*"]
     #[cfg(feature = "Win32_Media_Audio")]
     pub fn MFInitMediaTypeFromWaveFormatEx(pmftype: IMFMediaType, pwaveformat: *const super::Audio::WAVEFORMATEX, cbbufsize: u32) -> ::windows_sys::core::HRESULT;
@@ -579,6 +579,28 @@ pub const AEC_VAD_FOR_AGC: AEC_VAD_MODE = 2i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const AEC_VAD_FOR_SILENCE_SUPPRESSION: AEC_VAD_MODE = 3i32;
 pub const ALawCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 919301644, data2: 30913, data3: 17074, data4: [153, 67, 132, 98, 98, 243, 23, 134] };
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AM_MEDIA_TYPE {
+    pub majortype: ::windows_sys::core::GUID,
+    pub subtype: ::windows_sys::core::GUID,
+    pub bFixedSizeSamples: super::super::Foundation::BOOL,
+    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub lSampleSize: u32,
+    pub formattype: ::windows_sys::core::GUID,
+    pub pUnk: ::windows_sys::core::IUnknown,
+    pub cbFormat: u32,
+    pub pbFormat: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for AM_MEDIA_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AM_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3806603986, data2: 4908, data3: 18718, data4: [162, 104, 60, 124, 45, 202, 24, 31] };
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -6754,6 +6776,8 @@ pub type IMFDXGIBuffer = *mut ::core::ffi::c_void;
 pub type IMFDXGIDeviceManager = *mut ::core::ffi::c_void;
 pub type IMFDXGIDeviceManagerSource = *mut ::core::ffi::c_void;
 pub type IMFDesiredSample = *mut ::core::ffi::c_void;
+pub type IMFDeviceTransform = *mut ::core::ffi::c_void;
+pub type IMFDeviceTransformCallback = *mut ::core::ffi::c_void;
 pub type IMFExtendedCameraControl = *mut ::core::ffi::c_void;
 pub type IMFExtendedCameraController = *mut ::core::ffi::c_void;
 pub type IMFExtendedCameraIntrinsicModel = *mut ::core::ffi::c_void;
@@ -12229,6 +12253,65 @@ impl ::core::clone::Clone for MOVE_RECT {
     }
 }
 pub const MP3ACMCodecWrapper: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 286274593, data2: 13644, data3: 19658, data4: [167, 163, 26, 255, 154, 91, 103, 1] };
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct MPEG1VIDEOINFO {
+    pub hdr: VIDEOINFOHEADER,
+    pub dwStartTimeCode: u32,
+    pub cbSequenceHeader: u32,
+    pub bSequenceHeader: [u8; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MPEG1VIDEOINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MPEG1VIDEOINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct MPEG2VIDEOINFO {
+    pub hdr: VIDEOINFOHEADER2,
+    pub dwStartTimeCode: u32,
+    pub cbSequenceHeader: u32,
+    pub dwProfile: u32,
+    pub dwLevel: u32,
+    pub dwFlags: MPEG2VIDEOINFO_FLAGS,
+    pub dwSequenceHeader: [u32; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MPEG2VIDEOINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MPEG2VIDEOINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub type MPEG2VIDEOINFO_FLAGS = u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DoPanScan: MPEG2VIDEOINFO_FLAGS = 1u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DVDLine21Field1: MPEG2VIDEOINFO_FLAGS = 2u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DVDLine21Field2: MPEG2VIDEOINFO_FLAGS = 4u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_SourceIsLetterboxed: MPEG2VIDEOINFO_FLAGS = 8u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_FilmCameraMode: MPEG2VIDEOINFO_FLAGS = 16u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_LetterboxAnalogOut: MPEG2VIDEOINFO_FLAGS = 32u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DSS_UserData: MPEG2VIDEOINFO_FLAGS = 64u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DVB_UserData: MPEG2VIDEOINFO_FLAGS = 128u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_27MhzTimebase: MPEG2VIDEOINFO_FLAGS = 256u32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_WidescreenAnalogOut: MPEG2VIDEOINFO_FLAGS = 512u32;
 pub const MR_AUDIO_POLICY_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2434783031, data2: 26485, data3: 19120, data4: [166, 20, 41, 120, 98, 253, 172, 136] };
 pub const MR_BUFFER_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2774672524, data2: 39622, data3: 20476, data4: [159, 186, 58, 248, 248, 173, 26, 77] };
 pub const MR_CAPTURE_POLICY_VOLUME_SERVICE: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 604179149, data2: 4218, data3: 16997, data4: [151, 92, 65, 78, 51, 230, 95, 42] };
@@ -12405,6 +12488,46 @@ impl ::core::clone::Clone for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub type OPM_CONNECTOR_TYPE = i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_OTHER: OPM_CONNECTOR_TYPE = -1i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_VGA: OPM_CONNECTOR_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_SVIDEO: OPM_CONNECTOR_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: OPM_CONNECTOR_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: OPM_CONNECTOR_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_DVI: OPM_CONNECTOR_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_HDMI: OPM_CONNECTOR_TYPE = 5i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_LVDS: OPM_CONNECTOR_TYPE = 6i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_D_JPN: OPM_CONNECTOR_TYPE = 8i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_SDI: OPM_CONNECTOR_TYPE = 9i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: OPM_CONNECTOR_TYPE = 10i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: OPM_CONNECTOR_TYPE = 11i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_UDI_EXTERNAL: OPM_CONNECTOR_TYPE = 12i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_UDI_EMBEDDED: OPM_CONNECTOR_TYPE = 13i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_RESERVED: OPM_CONNECTOR_TYPE = 14i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_MIRACAST: OPM_CONNECTOR_TYPE = 15i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: OPM_CONNECTOR_TYPE = 16i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: OPM_CONNECTOR_TYPE = 17i32;
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: OPM_CONNECTOR_TYPE = -2147483648i32;
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub struct OPM_COPP_COMPATIBLE_GET_INFO_PARAMETERS {
@@ -12845,46 +12968,6 @@ pub const PLAYTO_SOURCE_VIDEO: PLAYTO_SOURCE_CREATEFLAGS = 4i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const PLAYTO_SOURCE_PROTECTED: PLAYTO_SOURCE_CREATEFLAGS = 8i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub type PM_CONNECTOR_TYPE = i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_OTHER: PM_CONNECTOR_TYPE = -1i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_VGA: PM_CONNECTOR_TYPE = 0i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_SVIDEO: PM_CONNECTOR_TYPE = 1i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: PM_CONNECTOR_TYPE = 2i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: PM_CONNECTOR_TYPE = 3i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_DVI: PM_CONNECTOR_TYPE = 4i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_HDMI: PM_CONNECTOR_TYPE = 5i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_LVDS: PM_CONNECTOR_TYPE = 6i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_D_JPN: PM_CONNECTOR_TYPE = 8i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_SDI: PM_CONNECTOR_TYPE = 9i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: PM_CONNECTOR_TYPE = 10i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: PM_CONNECTOR_TYPE = 11i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_UDI_EXTERNAL: PM_CONNECTOR_TYPE = 12i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_UDI_EMBEDDED: PM_CONNECTOR_TYPE = 13i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_RESERVED: PM_CONNECTOR_TYPE = 14i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_MIRACAST: PM_CONNECTOR_TYPE = 15i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: PM_CONNECTOR_TYPE = 16i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: PM_CONNECTOR_TYPE = 17i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: PM_CONNECTOR_TYPE = -2147483648i32;
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -13001,6 +13084,65 @@ pub type TOC_POS_TYPE = i32;
 pub const TOC_POS_INHEADER: TOC_POS_TYPE = 0i32;
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const TOC_POS_TOPLEVELOBJECT: TOC_POS_TYPE = 1i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct VIDEOINFOHEADER {
+    pub rcSource: super::super::Foundation::RECT,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub dwBitRate: u32,
+    pub dwBitErrorRate: u32,
+    pub AvgTimePerFrame: i64,
+    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for VIDEOINFOHEADER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for VIDEOINFOHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct VIDEOINFOHEADER2 {
+    pub rcSource: super::super::Foundation::RECT,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub dwBitRate: u32,
+    pub dwBitErrorRate: u32,
+    pub AvgTimePerFrame: i64,
+    pub dwInterlaceFlags: u32,
+    pub dwCopyProtectFlags: u32,
+    pub dwPictAspectRatioX: u32,
+    pub dwPictAspectRatioY: u32,
+    pub Anonymous: VIDEOINFOHEADER2_0,
+    pub dwReserved2: u32,
+    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for VIDEOINFOHEADER2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for VIDEOINFOHEADER2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub union VIDEOINFOHEADER2_0 {
+    pub dwControlFlags: u32,
+    pub dwReserved1: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for VIDEOINFOHEADER2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for VIDEOINFOHEADER2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 pub const VIDEO_ZOOM_RECT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2057967160, data2: 7039, data3: 19603, data4: [189, 137, 91, 156, 159, 182, 252, 240] };
 pub const VorbisDecoderMFT: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 437882610, data2: 24805, data3: 20136, data4: [144, 216, 218, 31, 40, 50, 194, 136] };
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]

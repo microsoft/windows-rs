@@ -3756,15 +3756,15 @@ pub struct ITACDGroupEvent_Vtbl {
 #[repr(transparent)]
 pub struct ITAMMediaFormat(::windows::core::IUnknown);
 impl ITAMMediaFormat {
-    #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub unsafe fn MediaFormat(&self) -> ::windows::core::Result<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE>::zeroed();
-        (::windows::core::Interface::vtable(self).MediaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE>(result__)
+    #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn MediaFormat(&self) -> ::windows::core::Result<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE> {
+        let mut result__ = ::core::mem::MaybeUninit::<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>::zeroed();
+        (::windows::core::Interface::vtable(self).MediaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub unsafe fn SetMediaFormat(&self, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetMediaFormat(&self, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetMediaFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmt)).ok()
     }
 }
@@ -3812,13 +3812,13 @@ unsafe impl ::windows::core::Interface for ITAMMediaFormat {
 #[doc(hidden)]
 pub struct ITAMMediaFormat_Vtbl {
     pub base__: ::windows::core::IUnknownVtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub MediaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub MediaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     MediaFormat: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub SetMediaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub SetMediaFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     SetMediaFormat: usize,
 }
 #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
@@ -9777,15 +9777,15 @@ pub struct ITFileTerminalEvent_Vtbl {
 pub struct ITFileTrack(::windows::core::IUnknown);
 #[cfg(feature = "Win32_System_Com")]
 impl ITFileTrack {
-    #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub unsafe fn Format(&self) -> ::windows::core::Result<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE> {
-        let mut result__ = ::core::mem::MaybeUninit::<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE>::zeroed();
-        (::windows::core::Interface::vtable(self).Format)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::Media::DirectShow::AM_MEDIA_TYPE>(result__)
+    #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn Format(&self) -> ::windows::core::Result<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE> {
+        let mut result__ = ::core::mem::MaybeUninit::<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>::zeroed();
+        (::windows::core::Interface::vtable(self).Format)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<*mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE>(result__)
     }
-    #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub unsafe fn SetFormat(&self, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
+    #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub unsafe fn SetFormat(&self, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).SetFormat)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pmt)).ok()
     }
     #[doc = "*Required features: `\"Win32_Devices_Tapi\"`, `\"Win32_System_Com\"`*"]
@@ -9890,13 +9890,13 @@ unsafe impl ::windows::core::Interface for ITFileTrack {
 #[doc(hidden)]
 pub struct ITFileTrack_Vtbl {
     pub base__: super::super::System::Com::IDispatch_Vtbl,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub Format: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmt: *mut *mut super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     Format: usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow")))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
+    pub SetFormat: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *const super::super::Media::MediaFoundation::AM_MEDIA_TYPE) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation")))]
     SetFormat: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub ControllingTerminal: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppcontrollingterminal: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

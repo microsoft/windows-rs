@@ -69,22 +69,6 @@ impl ::core::clone::Clone for MS_ADDINFO_BLOB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Catalog\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-pub struct MS_ADDINFO_CATALOGMEMBER {
-    pub cbStruct: u32,
-    pub pStore: *mut super::Catalog::CRYPTCATSTORE,
-    pub pMember: *mut super::Catalog::CRYPTCATMEMBER,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::marker::Copy for MS_ADDINFO_CATALOGMEMBER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
-impl ::core::clone::Clone for MS_ADDINFO_CATALOGMEMBER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Sip\"`*"]
 pub struct MS_ADDINFO_FLAT {
     pub cbStruct: u32,
@@ -246,7 +230,7 @@ impl ::core::clone::Clone for SIP_SUBJECTINFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
-    pub psCatMember: *mut MS_ADDINFO_CATALOGMEMBER,
+    pub psCatMember: *mut super::Catalog::MS_ADDINFO_CATALOGMEMBER,
     pub psBlob: *mut MS_ADDINFO_BLOB,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]

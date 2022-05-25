@@ -272,6 +272,22 @@ pub type CRYPTCAT_VERSION = u32;
 pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = 256u32;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = 512u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`, `\"Win32_Foundation\"`, `\"Win32_Security_Cryptography_Sip\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+pub struct MS_ADDINFO_CATALOGMEMBER {
+    pub cbStruct: u32,
+    pub pStore: *mut CRYPTCATSTORE,
+    pub pMember: *mut CRYPTCATMEMBER,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+impl ::core::marker::Copy for MS_ADDINFO_CATALOGMEMBER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Sip"))]
+impl ::core::clone::Clone for MS_ADDINFO_CATALOGMEMBER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]
 pub type PFN_CDF_PARSE_ERROR_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwerrorarea: u32, dwlocalerror: u32, pwszline: ::windows_sys::core::PCWSTR)>;
 #[doc = "*Required features: `\"Win32_Security_Cryptography_Catalog\"`*"]

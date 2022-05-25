@@ -36,8 +36,8 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcAddFilter(flowhandle: super::super::Foundation::HANDLE, pgenericfilter: *const TC_GEN_FILTER, pfilterhandle: *mut super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn TcAddFlow(ifchandle: super::super::Foundation::HANDLE, clflowctx: super::super::Foundation::HANDLE, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -51,8 +51,8 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcDeregisterClient(clienthandle: super::super::Foundation::HANDLE) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn TcEnumerateFlows(ifchandle: super::super::Foundation::HANDLE, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -63,8 +63,8 @@ extern "system" {
     #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn TcGetFlowNameW(flowhandle: super::super::Foundation::HANDLE, strsize: u32, pflowname: ::windows_sys::core::PWSTR) -> u32;
-    #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
-    #[cfg(feature = "Win32_Foundation")]
+    #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
     pub fn TcModifyFlow(flowhandle: super::super::Foundation::HANDLE, pgenericflow: *const TC_GEN_FLOW) -> u32;
     #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
     #[cfg(feature = "Win32_Foundation")]
@@ -222,7 +222,8 @@ pub const DUP_RESULTS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct ENUMERATION_BUFFER {
     pub Length: u32,
     pub OwnerProcessId: u32,
@@ -232,7 +233,9 @@ pub struct ENUMERATION_BUFFER {
     pub NumberOfFilters: u32,
     pub GenericFilter: [TC_GEN_FILTER; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for ENUMERATION_BUFFER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for ENUMERATION_BUFFER {
     fn clone(&self) -> Self {
         *self
@@ -375,32 +378,17 @@ impl ::core::clone::Clone for FILTER_SPEC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct FLOWDESCRIPTOR {
-    pub FlowSpec: FLOWSPEC,
+    pub FlowSpec: super::super::Networking::WinSock::FLOWSPEC,
     pub NumFilters: u32,
     pub FilterList: *mut RSVP_FILTERSPEC,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for FLOWDESCRIPTOR {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for FLOWDESCRIPTOR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct FLOWSPEC {
-    pub TokenRate: u32,
-    pub TokenBucketSize: u32,
-    pub PeakBandwidth: u32,
-    pub Latency: u32,
-    pub DelayVariation: u32,
-    pub ServiceType: u32,
-    pub MaxSduSize: u32,
-    pub MinimumPolicedSize: u32,
-}
-impl ::core::marker::Copy for FLOWSPEC {}
-impl ::core::clone::Clone for FLOWSPEC {
     fn clone(&self) -> Self {
         *self
     }
@@ -1183,22 +1171,6 @@ pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const PREDICTIVE_SERV: u32 = 3u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub struct QOS {
-    pub SendingFlowspec: FLOWSPEC,
-    pub ReceivingFlowspec: FLOWSPEC,
-    pub ProviderSpecific: super::super::Networking::WinSock::WSABUF,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for QOS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for QOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const QOSSPBASE: u32 = 50000u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
@@ -1781,7 +1753,8 @@ impl ::core::clone::Clone for RSVP_POLICY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_RESERVE_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub Style: u32,
@@ -1790,7 +1763,9 @@ pub struct RSVP_RESERVE_INFO {
     pub NumFlowDesc: u32,
     pub FlowDescList: *mut FLOWDESCRIPTOR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for RSVP_RESERVE_INFO {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RSVP_RESERVE_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2383,14 +2358,17 @@ impl ::core::clone::Clone for TC_GEN_FILTER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct TC_GEN_FLOW {
-    pub SendingFlowspec: FLOWSPEC,
-    pub ReceivingFlowspec: FLOWSPEC,
+    pub SendingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
+    pub ReceivingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
     pub TcObjectsLength: u32,
     pub TcObjects: [QOS_OBJECT_HDR; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for TC_GEN_FLOW {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for TC_GEN_FLOW {
     fn clone(&self) -> Self {
         *self

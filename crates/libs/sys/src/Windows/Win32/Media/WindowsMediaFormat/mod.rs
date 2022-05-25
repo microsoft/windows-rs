@@ -133,8 +133,6 @@ impl ::core::clone::Clone for DRM_VIDEO_OUTPUT_PROTECTION_IDS {
         *self
     }
 }
-pub type IAMWMBufferPass = *mut ::core::ffi::c_void;
-pub type IAMWMBufferPassCallback = *mut ::core::ffi::c_void;
 pub type INSNetSourceCreator = *mut ::core::ffi::c_void;
 pub type INSSBuffer = *mut ::core::ffi::c_void;
 pub type INSSBuffer2 = *mut ::core::ffi::c_void;
@@ -147,11 +145,9 @@ pub type IWMBackupRestoreProps = *mut ::core::ffi::c_void;
 pub type IWMBandwidthSharing = *mut ::core::ffi::c_void;
 pub type IWMClientConnections = *mut ::core::ffi::c_void;
 pub type IWMClientConnections2 = *mut ::core::ffi::c_void;
-pub type IWMCodecAMVideoAccelerator = *mut ::core::ffi::c_void;
 pub type IWMCodecInfo = *mut ::core::ffi::c_void;
 pub type IWMCodecInfo2 = *mut ::core::ffi::c_void;
 pub type IWMCodecInfo3 = *mut ::core::ffi::c_void;
-pub type IWMCodecVideoAccelerator = *mut ::core::ffi::c_void;
 pub type IWMCredentialCallback = *mut ::core::ffi::c_void;
 pub type IWMDRMEditor = *mut ::core::ffi::c_void;
 pub type IWMDRMMessageParser = *mut ::core::ffi::c_void;

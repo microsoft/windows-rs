@@ -147,8 +147,6 @@ impl ::core::clone::Clone for HistogramHeader {
         *self
     }
 }
-pub type IMFDeviceTransform = *mut ::core::ffi::c_void;
-pub type IMFDeviceTransformCallback = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]
 pub type MF_MEDIASOURCE_STATUS_INFO = i32;
 #[doc = "*Required features: `\"Win32_Media_Streaming\"`*"]

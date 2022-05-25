@@ -34,10 +34,10 @@ impl ::core::fmt::Debug for WNV_CA_NOTIFICATION_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
-    pub MACAddress: super::WindowsFilteringPlatform::DL_EUI48,
+    pub MACAddress: super::super::Networking::WinSock::DL_EUI48,
     pub CAFamily: u16,
     pub CA: WNV_IP_ADDRESS,
     pub VirtualSubnetId: u32,
@@ -45,27 +45,27 @@ pub struct WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     pub PA: WNV_IP_ADDRESS,
     pub NotificationReason: WNV_CA_NOTIFICATION_TYPE,
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {}
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_CUSTOMER_ADDRESS_CHANGE_PARAM>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {}
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_CUSTOMER_ADDRESS_CHANGE_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -202,66 +202,66 @@ impl ::core::fmt::Debug for WNV_NOTIFICATION_TYPE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct WNV_OBJECT_CHANGE_PARAM {
     pub ObjectType: WNV_OBJECT_TYPE,
     pub ObjectParam: WNV_OBJECT_CHANGE_PARAM_0,
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for WNV_OBJECT_CHANGE_PARAM {}
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for WNV_OBJECT_CHANGE_PARAM {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for WNV_OBJECT_CHANGE_PARAM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_OBJECT_CHANGE_PARAM>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for WNV_OBJECT_CHANGE_PARAM {}
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_NetworkManagement_WindowsFilteringPlatform\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WindowsNetworkVirtualization\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union WNV_OBJECT_CHANGE_PARAM_0 {
     pub ProviderAddressChange: WNV_PROVIDER_ADDRESS_CHANGE_PARAM,
     pub CustomerAddressChange: WNV_CUSTOMER_ADDRESS_CHANGE_PARAM,
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for WNV_OBJECT_CHANGE_PARAM_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for WNV_OBJECT_CHANGE_PARAM_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for WNV_OBJECT_CHANGE_PARAM_0 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for WNV_OBJECT_CHANGE_PARAM_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNV_OBJECT_CHANGE_PARAM_0>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for WNV_OBJECT_CHANGE_PARAM_0 {}
-#[cfg(all(feature = "Win32_NetworkManagement_WindowsFilteringPlatform", feature = "Win32_Networking_WinSock"))]
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for WNV_OBJECT_CHANGE_PARAM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

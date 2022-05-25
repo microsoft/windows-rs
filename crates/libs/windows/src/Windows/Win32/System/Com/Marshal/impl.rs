@@ -63,13 +63,13 @@ impl IMarshal2_Vtbl {
         iid == &<IMarshal2 as ::windows::core::Interface>::IID || iid == &<IMarshal as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Foundation")]
 pub trait IMarshalingStream_Impl: Sized + super::ISequentialStream_Impl + super::IStream_Impl {
     fn GetMarshalingContextAttribute(&self, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES) -> ::windows::core::Result<usize>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IMarshalingStream {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Foundation")]
 impl IMarshalingStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMarshalingStream_Impl, const OFFSET: isize>() -> IMarshalingStream_Vtbl {
         unsafe extern "system" fn GetMarshalingContextAttribute<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IMarshalingStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, attribute: super::CO_MARSHALING_CONTEXT_ATTRIBUTES, pattributevalue: *mut usize) -> ::windows::core::HRESULT {

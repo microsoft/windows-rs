@@ -921,28 +921,6 @@ pub const AM_LOADSTATUS_OPENING: u32 = 5u32;
 pub type AM_MEDIAEVENT_FLAGS = i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MEDIAEVENT_NONOTIFY: AM_MEDIAEVENT_FLAGS = 1i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct AM_MEDIA_TYPE {
-    pub majortype: ::windows_sys::core::GUID,
-    pub subtype: ::windows_sys::core::GUID,
-    pub bFixedSizeSamples: super::super::Foundation::BOOL,
-    pub bTemporalCompression: super::super::Foundation::BOOL,
-    pub lSampleSize: u32,
-    pub formattype: ::windows_sys::core::GUID,
-    pub pUnk: ::windows_sys::core::IUnknown,
-    pub cbFormat: u32,
-    pub pbFormat: *mut u8,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for AM_MEDIA_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for AM_MEDIA_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub type AM_MPEG2Level = i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -966,33 +944,33 @@ pub const AM_MPEG2Profile_SpatiallyScalable: AM_MPEG2Profile = 4i32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_MPEG2Profile_High: AM_MPEG2Profile = 5i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct AM_MPEGSTREAMTYPE {
     pub dwStreamId: u32,
     pub dwReserved: u32,
-    pub mt: AM_MEDIA_TYPE,
+    pub mt: super::MediaFoundation::AM_MEDIA_TYPE,
     pub bFormat: [u8; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::marker::Copy for AM_MPEGSTREAMTYPE {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::clone::Clone for AM_MPEGSTREAMTYPE {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct AM_MPEGSYSTEMTYPE {
     pub dwBitRate: u32,
     pub cStreams: u32,
     pub Streams: [AM_MPEGSTREAMTYPE; 1],
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::marker::Copy for AM_MPEGSYSTEMTYPE {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::clone::Clone for AM_MPEGSYSTEMTYPE {
     fn clone(&self) -> Self {
         *self
@@ -1163,8 +1141,8 @@ pub const AM_ReverseBlockEnd: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const AM_ReverseBlockStart: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct AM_SAMPLE2_PROPERTIES {
     pub cbData: u32,
     pub dwTypeSpecificFlags: u32,
@@ -1173,13 +1151,13 @@ pub struct AM_SAMPLE2_PROPERTIES {
     pub tStart: i64,
     pub tStop: i64,
     pub dwStreamId: u32,
-    pub pMediaType: *mut AM_MEDIA_TYPE,
+    pub pMediaType: *mut super::MediaFoundation::AM_MEDIA_TYPE,
     pub pbBuffer: *mut u8,
     pub cbBuffer: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::marker::Copy for AM_SAMPLE2_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::clone::Clone for AM_SAMPLE2_PROPERTIES {
     fn clone(&self) -> Self {
         *self
@@ -4942,8 +4920,8 @@ impl ::core::clone::Clone for DVINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Media_MediaFoundation\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 pub struct DVR_STREAM_DESC {
     pub Version: u32,
     pub StreamId: u32,
@@ -4952,11 +4930,11 @@ pub struct DVR_STREAM_DESC {
     pub Reserved: u32,
     pub guidSubMediaType: ::windows_sys::core::GUID,
     pub guidFormatType: ::windows_sys::core::GUID,
-    pub MediaType: AM_MEDIA_TYPE,
+    pub MediaType: super::MediaFoundation::AM_MEDIA_TYPE,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::marker::Copy for DVR_STREAM_DESC {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
 impl ::core::clone::Clone for DVR_STREAM_DESC {
     fn clone(&self) -> Self {
         *self
@@ -6427,6 +6405,8 @@ pub type IAMVideoCompression = *mut ::core::ffi::c_void;
 pub type IAMVideoControl = *mut ::core::ffi::c_void;
 pub type IAMVideoDecimationProperties = *mut ::core::ffi::c_void;
 pub type IAMVideoProcAmp = *mut ::core::ffi::c_void;
+pub type IAMWMBufferPass = *mut ::core::ffi::c_void;
+pub type IAMWMBufferPassCallback = *mut ::core::ffi::c_void;
 pub type IAMWstDecoder = *mut ::core::ffi::c_void;
 pub type IAMovieSetup = *mut ::core::ffi::c_void;
 pub type IATSCChannelTuneRequest = *mut ::core::ffi::c_void;
@@ -6975,6 +6955,8 @@ pub type IVideoEncoder = *mut ::core::ffi::c_void;
 pub type IVideoFrameStep = *mut ::core::ffi::c_void;
 pub type IVideoProcAmp = *mut ::core::ffi::c_void;
 pub type IVideoWindow = *mut ::core::ffi::c_void;
+pub type IWMCodecAMVideoAccelerator = *mut ::core::ffi::c_void;
+pub type IWMCodecVideoAccelerator = *mut ::core::ffi::c_void;
 pub type IXDSCodec = *mut ::core::ffi::c_void;
 pub type IXDSCodecConfig = *mut ::core::ffi::c_void;
 pub type IXDSCodecEvents = *mut ::core::ffi::c_void;
@@ -8233,23 +8215,6 @@ pub const MMSSF_ASYNCHRONOUS: MMSSF_GET_INFORMATION_FLAGS = 4u32;
 pub const MPBOOL_FALSE: u32 = 0u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPBOOL_TRUE: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct MPEG1VIDEOINFO {
-    pub hdr: VIDEOINFOHEADER,
-    pub dwStartTimeCode: u32,
-    pub cbSequenceHeader: u32,
-    pub bSequenceHeader: [u8; 1],
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for MPEG1VIDEOINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for MPEG1VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Media_Audio\"`*"]
 #[cfg(feature = "Win32_Media_Audio")]
@@ -8350,48 +8315,6 @@ pub const DOLBY_AC3_AUDIO: MPEG2StreamType = 129i32;
 pub const DOLBY_DIGITAL_PLUS_AUDIO_ATSC: MPEG2StreamType = 135i32;
 pub const MPEG2TuneRequest: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 156609634, data2: 48942, data3: 19642, data4: [162, 185, 166, 63, 119, 45, 70, 207] };
 pub const MPEG2TuneRequestFactory: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 744744171, data2: 19690, data3: 16824, data4: [145, 156, 233, 71, 234, 25, 167, 124] };
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct MPEG2VIDEOINFO {
-    pub hdr: VIDEOINFOHEADER2,
-    pub dwStartTimeCode: u32,
-    pub cbSequenceHeader: u32,
-    pub dwProfile: u32,
-    pub dwLevel: u32,
-    pub dwFlags: MPEG2VIDEOINFO_FLAGS,
-    pub dwSequenceHeader: [u32; 1],
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for MPEG2VIDEOINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for MPEG2VIDEOINFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub type MPEG2VIDEOINFO_FLAGS = u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_DoPanScan: MPEG2VIDEOINFO_FLAGS = 1u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_DVDLine21Field1: MPEG2VIDEOINFO_FLAGS = 2u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_DVDLine21Field2: MPEG2VIDEOINFO_FLAGS = 4u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_SourceIsLetterboxed: MPEG2VIDEOINFO_FLAGS = 8u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_FilmCameraMode: MPEG2VIDEOINFO_FLAGS = 16u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_LetterboxAnalogOut: MPEG2VIDEOINFO_FLAGS = 32u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_DSS_UserData: MPEG2VIDEOINFO_FLAGS = 64u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_DVB_UserData: MPEG2VIDEOINFO_FLAGS = 128u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_27MhzTimebase: MPEG2VIDEOINFO_FLAGS = 256u32;
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
-pub const AMMPEG2_WidescreenAnalogOut: MPEG2VIDEOINFO_FLAGS = 512u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
 pub const MPEG2_BASE: u32 = 512u32;
 #[doc = "*Required features: `\"Win32_Media_DirectShow\"`*"]
@@ -11549,65 +11472,6 @@ pub union VIDEOINFO_0 {
 impl ::core::marker::Copy for VIDEOINFO_0 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for VIDEOINFO_0 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct VIDEOINFOHEADER {
-    pub rcSource: super::super::Foundation::RECT,
-    pub rcTarget: super::super::Foundation::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: i64,
-    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for VIDEOINFOHEADER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for VIDEOINFOHEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub struct VIDEOINFOHEADER2 {
-    pub rcSource: super::super::Foundation::RECT,
-    pub rcTarget: super::super::Foundation::RECT,
-    pub dwBitRate: u32,
-    pub dwBitErrorRate: u32,
-    pub AvgTimePerFrame: i64,
-    pub dwInterlaceFlags: u32,
-    pub dwCopyProtectFlags: u32,
-    pub dwPictAspectRatioX: u32,
-    pub dwPictAspectRatioY: u32,
-    pub Anonymous: VIDEOINFOHEADER2_0,
-    pub dwReserved2: u32,
-    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for VIDEOINFOHEADER2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for VIDEOINFOHEADER2 {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_Media_DirectShow\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-pub union VIDEOINFOHEADER2_0 {
-    pub dwControlFlags: u32,
-    pub dwReserved1: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::marker::Copy for VIDEOINFOHEADER2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::clone::Clone for VIDEOINFOHEADER2_0 {
     fn clone(&self) -> Self {
         *self
     }

@@ -258,7 +258,8 @@ pub const DUP_RESULTS: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const END_TO_END_QOSABILITY: u32 = 50006u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct ENUMERATION_BUFFER {
     pub Length: u32,
     pub OwnerProcessId: u32,
@@ -268,26 +269,33 @@ pub struct ENUMERATION_BUFFER {
     pub NumberOfFilters: u32,
     pub GenericFilter: [TC_GEN_FILTER; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for ENUMERATION_BUFFER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for ENUMERATION_BUFFER {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for ENUMERATION_BUFFER {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("ENUMERATION_BUFFER").field("Length", &self.Length).field("OwnerProcessId", &self.OwnerProcessId).field("FlowNameLength", &self.FlowNameLength).field("FlowName", &self.FlowName).field("pFlow", &self.pFlow).field("NumberOfFilters", &self.NumberOfFilters).field("GenericFilter", &self.GenericFilter).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for ENUMERATION_BUFFER {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for ENUMERATION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUMERATION_BUFFER>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for ENUMERATION_BUFFER {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for ENUMERATION_BUFFER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -520,70 +528,41 @@ impl ::core::default::Default for FILTER_SPEC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct FLOWDESCRIPTOR {
-    pub FlowSpec: FLOWSPEC,
+    pub FlowSpec: super::super::Networking::WinSock::FLOWSPEC,
     pub NumFilters: u32,
     pub FilterList: *mut RSVP_FILTERSPEC,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for FLOWDESCRIPTOR {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for FLOWDESCRIPTOR {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for FLOWDESCRIPTOR {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("FLOWDESCRIPTOR").field("FlowSpec", &self.FlowSpec).field("NumFilters", &self.NumFilters).field("FilterList", &self.FilterList).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for FLOWDESCRIPTOR {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for FLOWDESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOWDESCRIPTOR>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for FLOWDESCRIPTOR {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for FLOWDESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
-pub struct FLOWSPEC {
-    pub TokenRate: u32,
-    pub TokenBucketSize: u32,
-    pub PeakBandwidth: u32,
-    pub Latency: u32,
-    pub DelayVariation: u32,
-    pub ServiceType: u32,
-    pub MaxSduSize: u32,
-    pub MinimumPolicedSize: u32,
-}
-impl ::core::marker::Copy for FLOWSPEC {}
-impl ::core::clone::Clone for FLOWSPEC {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::fmt::Debug for FLOWSPEC {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("FLOWSPEC").field("TokenRate", &self.TokenRate).field("TokenBucketSize", &self.TokenBucketSize).field("PeakBandwidth", &self.PeakBandwidth).field("Latency", &self.Latency).field("DelayVariation", &self.DelayVariation).field("ServiceType", &self.ServiceType).field("MaxSduSize", &self.MaxSduSize).field("MinimumPolicedSize", &self.MinimumPolicedSize).finish()
-    }
-}
-unsafe impl ::windows::core::Abi for FLOWSPEC {
-    type Abi = Self;
-}
-impl ::core::cmp::PartialEq for FLOWSPEC {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOWSPEC>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for FLOWSPEC {}
-impl ::core::default::Default for FLOWSPEC {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -1970,46 +1949,6 @@ pub const POLICY_LOCATOR_SUB_TYPE_UNICODE_DN_ENC: u32 = 4u32;
 pub const POSITIVE_INFINITY_RATE: u32 = 4294967294u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
 pub const PREDICTIVE_SERV: u32 = 3u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
-pub struct QOS {
-    pub SendingFlowspec: FLOWSPEC,
-    pub ReceivingFlowspec: FLOWSPEC,
-    pub ProviderSpecific: super::super::Networking::WinSock::WSABUF,
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::marker::Copy for QOS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::clone::Clone for QOS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::fmt::Debug for QOS {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_struct("QOS").field("SendingFlowspec", &self.SendingFlowspec).field("ReceivingFlowspec", &self.ReceivingFlowspec).field("ProviderSpecific", &self.ProviderSpecific).finish()
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-unsafe impl ::windows::core::Abi for QOS {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::PartialEq for QOS {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QOS>()) == 0 }
-    }
-}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::cmp::Eq for QOS {}
-#[cfg(feature = "Win32_Networking_WinSock")]
-impl ::core::default::Default for QOS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
@@ -3499,7 +3438,8 @@ impl ::core::default::Default for RSVP_POLICY_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct RSVP_RESERVE_INFO {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub Style: u32,
@@ -3508,26 +3448,33 @@ pub struct RSVP_RESERVE_INFO {
     pub NumFlowDesc: u32,
     pub FlowDescList: *mut FLOWDESCRIPTOR,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for RSVP_RESERVE_INFO {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for RSVP_RESERVE_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for RSVP_RESERVE_INFO {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("RSVP_RESERVE_INFO").field("ObjectHdr", &self.ObjectHdr).field("Style", &self.Style).field("ConfirmRequest", &self.ConfirmRequest).field("PolicyElementList", &self.PolicyElementList).field("NumFlowDesc", &self.NumFlowDesc).field("FlowDescList", &self.FlowDescList).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for RSVP_RESERVE_INFO {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for RSVP_RESERVE_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RSVP_RESERVE_INFO>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for RSVP_RESERVE_INFO {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for RSVP_RESERVE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4369,33 +4316,41 @@ impl ::core::default::Default for TC_GEN_FILTER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`*"]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub struct TC_GEN_FLOW {
-    pub SendingFlowspec: FLOWSPEC,
-    pub ReceivingFlowspec: FLOWSPEC,
+    pub SendingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
+    pub ReceivingFlowspec: super::super::Networking::WinSock::FLOWSPEC,
     pub TcObjectsLength: u32,
     pub TcObjects: [QOS_OBJECT_HDR; 1],
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for TC_GEN_FLOW {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for TC_GEN_FLOW {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::fmt::Debug for TC_GEN_FLOW {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_struct("TC_GEN_FLOW").field("SendingFlowspec", &self.SendingFlowspec).field("ReceivingFlowspec", &self.ReceivingFlowspec).field("TcObjectsLength", &self.TcObjectsLength).field("TcObjects", &self.TcObjects).finish()
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for TC_GEN_FLOW {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for TC_GEN_FLOW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TC_GEN_FLOW>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for TC_GEN_FLOW {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for TC_GEN_FLOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4516,8 +4471,8 @@ pub unsafe fn TcAddFilter<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn TcAddFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, clflowctx: Param1, flags: u32, pgenericflow: *const TC_GEN_FLOW, pflowhandle: *mut super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
@@ -4591,8 +4546,8 @@ pub unsafe fn TcDeregisterClient<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn TcEnumerateFlows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ifchandle: Param0, penumhandle: *mut super::super::Foundation::HANDLE, pflowcount: *mut u32, pbufsize: *mut u32, buffer: *mut ENUMERATION_BUFFER) -> u32 {
     #[cfg(windows)]
@@ -4651,8 +4606,8 @@ pub unsafe fn TcGetFlowNameW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_QoS\"`, `\"Win32_Foundation\"`, `\"Win32_Networking_WinSock\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn TcModifyFlow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(flowhandle: Param0, pgenericflow: *const TC_GEN_FLOW) -> u32 {
     #[cfg(windows)]

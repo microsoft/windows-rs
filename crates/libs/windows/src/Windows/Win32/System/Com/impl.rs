@@ -3775,21 +3775,21 @@ impl IStdMarshalInfo_Vtbl {
         iid == &<IStdMarshalInfo as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Foundation")]
 pub trait IStream_Impl: Sized + ISequentialStream_Impl {
     fn Seek(&self, dlibmove: i64, dworigin: STREAM_SEEK) -> ::windows::core::Result<u64>;
     fn SetSize(&self, libnewsize: u64) -> ::windows::core::Result<()>;
     fn CopyTo(&self, pstm: &::core::option::Option<IStream>, cb: u64, pcbread: *mut u64, pcbwritten: *mut u64) -> ::windows::core::Result<()>;
-    fn Commit(&self, grfcommitflags: StructuredStorage::STGC) -> ::windows::core::Result<()>;
+    fn Commit(&self, grfcommitflags: STGC) -> ::windows::core::Result<()>;
     fn Revert(&self) -> ::windows::core::Result<()>;
     fn LockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
     fn UnlockRegion(&self, liboffset: u64, cb: u64, dwlocktype: u32) -> ::windows::core::Result<()>;
     fn Stat(&self, pstatstg: *mut STATSTG, grfstatflag: u32) -> ::windows::core::Result<()>;
     fn Clone(&self) -> ::windows::core::Result<IStream>;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::windows::core::RuntimeName for IStream {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(feature = "Win32_Foundation")]
 impl IStream_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>() -> IStream_Vtbl {
         unsafe extern "system" fn Seek<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, dlibmove: i64, dworigin: STREAM_SEEK, plibnewposition: *mut u64) -> ::windows::core::HRESULT {
@@ -3813,7 +3813,7 @@ impl IStream_Vtbl {
             let this = (*this).get_impl();
             this.CopyTo(::core::mem::transmute(&pstm), ::core::mem::transmute_copy(&cb), ::core::mem::transmute_copy(&pcbread), ::core::mem::transmute_copy(&pcbwritten)).into()
         }
-        unsafe extern "system" fn Commit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfcommitflags: StructuredStorage::STGC) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn Commit<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IStream_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, grfcommitflags: STGC) -> ::windows::core::HRESULT {
             let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
             let this = (*this).get_impl();
             this.Commit(::core::mem::transmute_copy(&grfcommitflags)).into()

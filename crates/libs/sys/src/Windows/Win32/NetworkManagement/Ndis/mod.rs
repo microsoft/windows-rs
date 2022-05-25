@@ -16,527 +16,12 @@ pub const CLOCK_NETWORK_DERIVED: u32 = 2u32;
 pub const CLOCK_PRECISION: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const DD_NDIS_DEVICE_NAME: &str = "\\Device\\NDIS";
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_ADAPTER_RESET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_CONTROL = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pinbuffer: *const u8, dwoutbuffersize: u32, poutbuffer: *mut u8, pdwbytesreturned: *mut u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: super::super::Foundation::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_DEINIT_ADAPTER = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub type DOT11EXTIHV_DEINIT_SERVICE = ::core::option::Option<unsafe extern "system" fn()>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub type DOT11EXTIHV_GET_VERSION_INFO = ::core::option::Option<unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXTIHV_INIT_ADAPTER = ::core::option::Option<unsafe extern "system" fn(pdot11adapter: *const DOT11_ADAPTER, hdot11svchandle: super::super::Foundation::HANDLE, phihvextadapter: *mut super::super::Foundation::HANDLE) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_System_RemoteDesktop\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-pub type DOT11EXTIHV_INIT_SERVICE = ::core::option::Option<unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const DOT11EXT_APIS, pvreserved: *mut ::core::ffi::c_void, pdot11ihvhandlers: *mut DOT11EXT_IHV_HANDLERS) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(pdot11extvsapi: *const DOT11EXT_VIRTUAL_STATION_APIS, pvreserved: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = ::core::option::Option<unsafe extern "system" fn(guiduirequest: ::windows_sys::core::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub type DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXTIHV_PERFORM_POST_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, pportstate: *const DOT11_PORT_STATE, udot11assocparamsbytes: u32, pdot11assocparams: *const super::WiFi::DOT11_ASSOCIATION_COMPLETION_PARAMETERS) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub type DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_System_RemoteDesktop\"`*"]
-#[cfg(feature = "Win32_System_RemoteDesktop")]
-pub type DOT11EXTIHV_PROCESS_SESSION_CHANGE = ::core::option::Option<unsafe extern "system" fn(ueventtype: u32, psessionnotification: *const super::super::System::RemoteDesktop::WTSSESSION_NOTIFICATION) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub type DOT11EXTIHV_PROCESS_UI_RESPONSE = ::core::option::Option<unsafe extern "system" fn(guiduirequest: ::windows_sys::core::GUID, dwbytecount: u32, pvresponsebuffer: *const ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_QUERY_UI_REQUEST = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: *mut *mut DOT11EXT_IHV_UI_REQUEST) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_RECEIVE_INDICATION = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: u32, pvbuffer: *const ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_RECEIVE_PACKET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_SEND_PACKET_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, ppeer: *const *const u8, dot11assocstatus: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub type DOT11EXTIHV_VALIDATE_PROFILE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pdwreasoncode: *mut u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub type DOT11EXT_ALLOCATE_BUFFER = ::core::option::Option<unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut ::core::ffi::c_void) -> u32>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub struct DOT11EXT_APIS {
-    pub Dot11ExtAllocateBuffer: DOT11EXT_ALLOCATE_BUFFER,
-    pub Dot11ExtFreeBuffer: DOT11EXT_FREE_BUFFER,
-    pub Dot11ExtSetProfileCustomUserData: DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA,
-    pub Dot11ExtGetProfileCustomUserData: DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA,
-    pub Dot11ExtSetCurrentProfile: DOT11EXT_SET_CURRENT_PROFILE,
-    pub Dot11ExtSendUIRequest: DOT11EXT_SEND_UI_REQUEST,
-    pub Dot11ExtPreAssociateCompletion: DOT11EXT_PRE_ASSOCIATE_COMPLETION,
-    pub Dot11ExtPostAssociateCompletion: DOT11EXT_POST_ASSOCIATE_COMPLETION,
-    pub Dot11ExtSendNotification: DOT11EXT_SEND_NOTIFICATION,
-    pub Dot11ExtSendPacket: DOT11EXT_SEND_PACKET,
-    pub Dot11ExtSetEtherTypeHandling: DOT11EXT_SET_ETHERTYPE_HANDLING,
-    pub Dot11ExtSetAuthAlgorithm: DOT11EXT_SET_AUTH_ALGORITHM,
-    pub Dot11ExtSetUnicastCipherAlgorithm: DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM,
-    pub Dot11ExtSetMulticastCipherAlgorithm: DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM,
-    pub Dot11ExtSetDefaultKey: DOT11EXT_SET_DEFAULT_KEY,
-    pub Dot11ExtSetKeyMappingKey: DOT11EXT_SET_KEY_MAPPING_KEY,
-    pub Dot11ExtSetDefaultKeyId: DOT11EXT_SET_DEFAULT_KEY_ID,
-    pub Dot11ExtNicSpecificExtension: DOT11EXT_NIC_SPECIFIC_EXTENSION,
-    pub Dot11ExtSetExcludeUnencrypted: DOT11EXT_SET_EXCLUDE_UNENCRYPTED,
-    pub Dot11ExtStartOneX: DOT11EXT_ONEX_START,
-    pub Dot11ExtStopOneX: DOT11EXT_ONEX_STOP,
-    pub Dot11ExtProcessSecurityPacket: DOT11EXT_PROCESS_ONEX_PACKET,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::marker::Copy for DOT11EXT_APIS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::clone::Clone for DOT11EXT_APIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub type DOT11EXT_FREE_BUFFER = ::core::option::Option<unsafe extern "system" fn(pvmemory: *const ::core::ffi::c_void)>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub type DOT11EXT_IHV_CONNECTION_PHASE = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const connection_phase_any: DOT11EXT_IHV_CONNECTION_PHASE = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const connection_phase_initial_connection: DOT11EXT_IHV_CONNECTION_PHASE = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const connection_phase_post_l3_connection: DOT11EXT_IHV_CONNECTION_PHASE = 2i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    pub pszXmlFragmentIhvConnectivity: ::windows_sys::core::PWSTR,
-}
-impl ::core::marker::Copy for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
-impl ::core::clone::Clone for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DOT11EXT_IHV_DISCOVERY_PROFILE {
-    pub IhvConnectivityProfile: DOT11EXT_IHV_CONNECTIVITY_PROFILE,
-    pub IhvSecurityProfile: DOT11EXT_IHV_SECURITY_PROFILE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DOT11EXT_IHV_DISCOVERY_PROFILE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DOT11EXT_IHV_DISCOVERY_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
-    pub dwCount: u32,
-    pub pIhvDiscoveryProfiles: *mut DOT11EXT_IHV_DISCOVERY_PROFILE,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_System_RemoteDesktop\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-pub struct DOT11EXT_IHV_HANDLERS {
-    pub Dot11ExtIhvDeinitService: DOT11EXTIHV_DEINIT_SERVICE,
-    pub Dot11ExtIhvInitAdapter: DOT11EXTIHV_INIT_ADAPTER,
-    pub Dot11ExtIhvDeinitAdapter: DOT11EXTIHV_DEINIT_ADAPTER,
-    pub Dot11ExtIhvPerformPreAssociate: DOT11EXTIHV_PERFORM_PRE_ASSOCIATE,
-    pub Dot11ExtIhvAdapterReset: DOT11EXTIHV_ADAPTER_RESET,
-    pub Dot11ExtIhvPerformPostAssociate: DOT11EXTIHV_PERFORM_POST_ASSOCIATE,
-    pub Dot11ExtIhvStopPostAssociate: DOT11EXTIHV_STOP_POST_ASSOCIATE,
-    pub Dot11ExtIhvValidateProfile: DOT11EXTIHV_VALIDATE_PROFILE,
-    pub Dot11ExtIhvPerformCapabilityMatch: DOT11EXTIHV_PERFORM_CAPABILITY_MATCH,
-    pub Dot11ExtIhvCreateDiscoveryProfiles: DOT11EXTIHV_CREATE_DISCOVERY_PROFILES,
-    pub Dot11ExtIhvProcessSessionChange: DOT11EXTIHV_PROCESS_SESSION_CHANGE,
-    pub Dot11ExtIhvReceiveIndication: DOT11EXTIHV_RECEIVE_INDICATION,
-    pub Dot11ExtIhvReceivePacket: DOT11EXTIHV_RECEIVE_PACKET,
-    pub Dot11ExtIhvSendPacketCompletion: DOT11EXTIHV_SEND_PACKET_COMPLETION,
-    pub Dot11ExtIhvIsUIRequestPending: DOT11EXTIHV_IS_UI_REQUEST_PENDING,
-    pub Dot11ExtIhvProcessUIResponse: DOT11EXTIHV_PROCESS_UI_RESPONSE,
-    pub Dot11ExtIhvQueryUIRequest: DOT11EXTIHV_QUERY_UI_REQUEST,
-    pub Dot11ExtIhvOnexIndicateResult: DOT11EXTIHV_ONEX_INDICATE_RESULT,
-    pub Dot11ExtIhvControl: DOT11EXTIHV_CONTROL,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl ::core::marker::Copy for DOT11EXT_IHV_HANDLERS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
-impl ::core::clone::Clone for DOT11EXT_IHV_HANDLERS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub type DOT11EXT_IHV_INDICATION_TYPE = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IndicationTypeNicSpecificNotification: DOT11EXT_IHV_INDICATION_TYPE = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IndicationTypePmkidCandidateList: DOT11EXT_IHV_INDICATION_TYPE = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IndicationTypeTkipMicFailure: DOT11EXT_IHV_INDICATION_TYPE = 2i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IndicationTypePhyStateChange: DOT11EXT_IHV_INDICATION_TYPE = 3i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IndicationTypeLinkQuality: DOT11EXT_IHV_INDICATION_TYPE = 4i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub struct DOT11EXT_IHV_PARAMS {
-    pub dot11ExtIhvProfileParams: DOT11EXT_IHV_PROFILE_PARAMS,
-    pub wstrProfileName: [u16; 256],
-    pub dwProfileTypeFlags: u32,
-    pub interfaceGuid: ::windows_sys::core::GUID,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::marker::Copy for DOT11EXT_IHV_PARAMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::clone::Clone for DOT11EXT_IHV_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub struct DOT11EXT_IHV_PROFILE_PARAMS {
-    pub pSsidList: *mut DOT11EXT_IHV_SSID_LIST,
-    pub BssType: super::WiFi::DOT11_BSS_TYPE,
-    pub pMSSecuritySettings: *mut DOT11_MSSECURITY_SETTINGS,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::marker::Copy for DOT11EXT_IHV_PROFILE_PARAMS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::clone::Clone for DOT11EXT_IHV_PROFILE_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DOT11EXT_IHV_SECURITY_PROFILE {
-    pub pszXmlFragmentIhvSecurity: ::windows_sys::core::PWSTR,
-    pub bUseMSOnex: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DOT11EXT_IHV_SECURITY_PROFILE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DOT11EXT_IHV_SECURITY_PROFILE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-pub struct DOT11EXT_IHV_SSID_LIST {
-    pub ulCount: u32,
-    pub SSIDs: [super::WiFi::DOT11_SSID; 1],
-}
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-impl ::core::marker::Copy for DOT11EXT_IHV_SSID_LIST {}
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-impl ::core::clone::Clone for DOT11EXT_IHV_SSID_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct DOT11EXT_IHV_UI_REQUEST {
-    pub dwSessionId: u32,
-    pub guidUIRequest: ::windows_sys::core::GUID,
-    pub UIPageClsid: ::windows_sys::core::GUID,
-    pub dwByteCount: u32,
-    pub pvUIRequest: *mut u8,
-}
-impl ::core::marker::Copy for DOT11EXT_IHV_UI_REQUEST {}
-impl ::core::clone::Clone for DOT11EXT_IHV_UI_REQUEST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::core::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub type DOT11EXT_ONEX_START = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, peapattributes: *const super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_ONEX_STOP = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, ppeer: *const *const u8, dwreasoncode: u32, dwwin32error: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwreasoncode: u32, dwwin32error: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_PROCESS_ONEX_PACKET = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinpacketsize: u32, pvinpacket: *const ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const DOT11EXT_PSK_MAX_LENGTH: u32 = 64u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut super::super::Foundation::BOOL, pgprimary: *mut ::windows_sys::core::GUID, pvreserved: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_RELEASE_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_REQUEST_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *mut ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SEND_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pnotificationdata: *const super::WiFi::L2_NOTIFICATION_DATA) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SEND_PACKET = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, upacketlen: u32, pvpacket: *const ::core::ffi::c_void, hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SEND_UI_REQUEST = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pihvuirequest: *const DOT11EXT_IHV_UI_REQUEST) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_AUTH_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwauthalgo: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_CURRENT_PROFILE = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SET_DEFAULT_KEY = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const super::WiFi::DOT11_CIPHER_DEFAULT_KEY_VALUE, dot11direction: super::WiFi::DOT11_DIRECTION) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_DEFAULT_KEY_ID = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, udefaultkeyid: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SET_ETHERTYPE_HANDLING = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, umaxbacklog: u32, unumofexemption: u32, pexemption: *const super::WiFi::DOT11_PRIVACY_EXEMPTION, unumofregistration: u32, pusregistration: *const u16) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: super::super::Foundation::BOOL) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SET_KEY_MAPPING_KEY = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const super::WiFi::DOT11_CIPHER_KEY_MAPPING_KEY_VALUE) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwmulticastcipheralgo: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, dwdatasize: u32, pvdata: *const ::core::ffi::c_void) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32>;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *mut ::core::ffi::c_void) -> u32>;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub struct DOT11EXT_VIRTUAL_STATION_APIS {
-    pub Dot11ExtRequestVirtualStation: DOT11EXT_REQUEST_VIRTUAL_STATION,
-    pub Dot11ExtReleaseVirtualStation: DOT11EXT_RELEASE_VIRTUAL_STATION,
-    pub Dot11ExtQueryVirtualStationProperties: DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES,
-    pub Dot11ExtSetVirtualStationAPProperties: DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-impl ::core::marker::Copy for DOT11EXT_VIRTUAL_STATION_APIS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-impl ::core::clone::Clone for DOT11EXT_VIRTUAL_STATION_APIS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
-    pub dot11SSID: super::WiFi::DOT11_SSID,
-    pub dot11AuthAlgo: super::WiFi::DOT11_AUTH_ALGORITHM,
-    pub dot11CipherAlgo: super::WiFi::DOT11_CIPHER_ALGORITHM,
-    pub bIsPassPhrase: super::super::Foundation::BOOL,
-    pub dwKeyLength: u32,
-    pub ucKeyData: [u8; 64],
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-impl ::core::marker::Copy for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi"))]
-impl ::core::clone::Clone for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-pub struct DOT11_ADAPTER {
-    pub gAdapterId: ::windows_sys::core::GUID,
-    pub pszDescription: ::windows_sys::core::PWSTR,
-    pub Dot11CurrentOpMode: super::WiFi::DOT11_CURRENT_OPERATION_MODE,
-}
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-impl ::core::marker::Copy for DOT11_ADAPTER {}
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-impl ::core::clone::Clone for DOT11_ADAPTER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct DOT11_BSS_LIST {
-    pub uNumOfBytes: u32,
-    pub pucBuffer: *mut u8,
-}
-impl ::core::marker::Copy for DOT11_BSS_LIST {}
-impl ::core::clone::Clone for DOT11_BSS_LIST {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-pub struct DOT11_EAP_RESULT {
-    pub dwFailureReasonCode: u32,
-    pub pAttribArray: *mut super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES,
-}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::marker::Copy for DOT11_EAP_RESULT {}
-#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
-impl ::core::clone::Clone for DOT11_EAP_RESULT {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct DOT11_IHV_VERSION_INFO {
-    pub dwVerMin: u32,
-    pub dwVerMax: u32,
-}
-impl ::core::marker::Copy for DOT11_IHV_VERSION_INFO {}
-impl ::core::clone::Clone for DOT11_IHV_VERSION_INFO {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub type DOT11_MSONEX_RESULT = i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const DOT11_MSONEX_SUCCESS: DOT11_MSONEX_RESULT = 0i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const DOT11_MSONEX_FAILURE: DOT11_MSONEX_RESULT = 1i32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const DOT11_MSONEX_IN_PROGRESS: DOT11_MSONEX_RESULT = 2i32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub struct DOT11_MSONEX_RESULT_PARAMS {
-    pub Dot11OnexAuthStatus: super::WiFi::ONEX_AUTH_STATUS,
-    pub Dot11OneXReasonCode: super::WiFi::ONEX_REASON_CODE,
-    pub pbMPPESendKey: *mut u8,
-    pub dwMPPESendKeyLen: u32,
-    pub pbMPPERecvKey: *mut u8,
-    pub dwMPPERecvKeyLen: u32,
-    pub pDot11EapResult: *mut DOT11_EAP_RESULT,
-}
-#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::marker::Copy for DOT11_MSONEX_RESULT_PARAMS {}
-#[cfg(all(feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::clone::Clone for DOT11_MSONEX_RESULT_PARAMS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-pub struct DOT11_MSSECURITY_SETTINGS {
-    pub dot11AuthAlgorithm: super::WiFi::DOT11_AUTH_ALGORITHM,
-    pub dot11CipherAlgorithm: super::WiFi::DOT11_CIPHER_ALGORITHM,
-    pub fOneXEnabled: super::super::Foundation::BOOL,
-    pub eapMethodType: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE,
-    pub dwEapConnectionDataLen: u32,
-    pub pEapConnectionData: *mut u8,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::marker::Copy for DOT11_MSSECURITY_SETTINGS {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_WiFi", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
-impl ::core::clone::Clone for DOT11_MSSECURITY_SETTINGS {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DOT11_PORT_STATE {
-    pub PeerMacAddress: [u8; 6],
-    pub uSessionId: u32,
-    pub bPortControlled: super::super::Foundation::BOOL,
-    pub bPortAuthorized: super::super::Foundation::BOOL,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::marker::Copy for DOT11_PORT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::clone::Clone for DOT11_PORT_STATE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const DOT11_RSN_KCK_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const DOT11_RSN_KEK_LENGTH: u32 = 16u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const DOT11_RSN_MAX_CIPHER_KEY_LENGTH: u32 = 32u32;
-#[repr(C, packed(1))]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub struct DOT11_SECURITY_PACKET_HEADER {
-    pub PeerMac: [u8; 6],
-    pub usEtherType: u16,
-    pub Data: [u8; 1],
-}
-impl ::core::marker::Copy for DOT11_SECURITY_PACKET_HEADER {}
-impl ::core::clone::Clone for DOT11_SECURITY_PACKET_HEADER {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const EAPOL_REQUEST_ID_WOL_FLAG_MUST_ENCRYPT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -755,11 +240,57 @@ pub const GUID_PM_WOL_PATTERN_LIST: ::windows_sys::core::GUID = ::windows_sys::c
 pub const GUID_RECEIVE_FILTER_CURRENT_CAPABILITIES: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1079306255, data2: 11201, data3: 19660, data4: [176, 51, 74, 188, 12, 74, 30, 140] };
 pub const GUID_STATUS_MEDIA_SPECIFIC_INDICATION_EX: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2863463591, data2: 38218, data3: 17970, data4: [161, 110, 168, 166, 55, 147, 169, 229] };
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IHV_INIT_FUNCTION_NAME: &str = "Dot11ExtIhvInitService";
+pub type IF_ADMINISTRATIVE_STATE = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IHV_INIT_VS_FUNCTION_NAME: &str = "Dot11ExtIhvInitVirtualStation";
+pub const IF_ADMINISTRATIVE_DISABLED: IF_ADMINISTRATIVE_STATE = 0i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const IHV_VERSION_FUNCTION_NAME: &str = "Dot11ExtIhvGetVersionInfo";
+pub const IF_ADMINISTRATIVE_ENABLED: IF_ADMINISTRATIVE_STATE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IF_ADMINISTRATIVE_DEMANDDIAL: IF_ADMINISTRATIVE_STATE = 2i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct IF_COUNTED_STRING_LH {
+    pub Length: u16,
+    pub String: [u16; 257],
+}
+impl ::core::marker::Copy for IF_COUNTED_STRING_LH {}
+impl ::core::clone::Clone for IF_COUNTED_STRING_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IF_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IF_MAX_STRING_SIZE: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type IF_OPER_STATUS = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusUp: IF_OPER_STATUS = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusDown: IF_OPER_STATUS = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusTesting: IF_OPER_STATUS = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusUnknown: IF_OPER_STATUS = 4i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusDormant: IF_OPER_STATUS = 5i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusNotPresent: IF_OPER_STATUS = 6i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const IfOperStatusLowerLayerDown: IF_OPER_STATUS = 7i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct IF_PHYSICAL_ADDRESS_LH {
+    pub Length: u16,
+    pub Address: [u8; 32],
+}
+impl ::core::marker::Copy for IF_PHYSICAL_ADDRESS_LH {}
+impl ::core::clone::Clone for IF_PHYSICAL_ADDRESS_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const IOCTL_NDIS_RESERVED5: u32 = 1507380u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -800,12 +331,6 @@ pub const IPSEC_OFFLOAD_V2_ENCRYPTION_DES_CBC: u32 = 2u32;
 pub const IPSEC_OFFLOAD_V2_ENCRYPTION_NONE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const MAXIMUM_IP_OPER_STATUS_ADDRESS_FAMILIES_SUPPORTED: u32 = 32u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MS_MAX_PROFILE_NAME_LENGTH: u32 = 256u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MS_PROFILE_GROUP_POLICY: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const MS_PROFILE_USER: u32 = 2u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_802_11_AI_REQFI {
@@ -1965,8 +1490,51 @@ pub const NDIS_HD_SPLIT_PARAMETERS_REVISION_1: u32 = 1u32;
 pub const NDIS_HYPERVISOR_INFO_FLAG_HYPERVISOR_PRESENT: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_HYPERVISOR_INFO_REVISION_1: u32 = 1u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NDIS_IF_MAX_STRING_SIZE: u32 = 256u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct NDIS_INTERFACE_INFORMATION {
+    pub ifOperStatus: NET_IF_OPER_STATUS,
+    pub ifOperStatusFlags: u32,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
+    pub ifMtu: u32,
+    pub ifPromiscuousMode: super::super::Foundation::BOOLEAN,
+    pub ifDeviceWakeUpEnable: super::super::Foundation::BOOLEAN,
+    pub XmitLinkSpeed: u64,
+    pub RcvLinkSpeed: u64,
+    pub ifLastChange: u64,
+    pub ifCounterDiscontinuityTime: u64,
+    pub ifInUnknownProtos: u64,
+    pub ifInDiscards: u64,
+    pub ifInErrors: u64,
+    pub ifHCInOctets: u64,
+    pub ifHCInUcastPkts: u64,
+    pub ifHCInMulticastPkts: u64,
+    pub ifHCInBroadcastPkts: u64,
+    pub ifHCOutOctets: u64,
+    pub ifHCOutUcastPkts: u64,
+    pub ifHCOutMulticastPkts: u64,
+    pub ifHCOutBroadcastPkts: u64,
+    pub ifOutErrors: u64,
+    pub ifOutDiscards: u64,
+    pub ifHCInUcastOctets: u64,
+    pub ifHCInMulticastOctets: u64,
+    pub ifHCInBroadcastOctets: u64,
+    pub ifHCOutUcastOctets: u64,
+    pub ifHCOutMulticastOctets: u64,
+    pub ifHCOutBroadcastOctets: u64,
+    pub CompartmentId: u32,
+    pub SupportedStatistics: u32,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for NDIS_INTERFACE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NDIS_INTERFACE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub type NDIS_INTERRUPT_MODERATION = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -2047,16 +1615,13 @@ impl ::core::clone::Clone for NDIS_IPSEC_OFFLOAD_V1_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_IP_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub IpOperationalStatus: NDIS_IP_OPER_STATUS,
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_IP_OPER_STATE {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_IP_OPER_STATE {
     fn clone(&self) -> Self {
         *self
@@ -2065,33 +1630,27 @@ impl ::core::clone::Clone for NDIS_IP_OPER_STATE {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_IP_OPER_STATE_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_IP_OPER_STATUS {
     pub AddressFamily: u32,
-    pub OperationalStatus: super::IpHelper::NET_IF_OPER_STATUS,
+    pub OperationalStatus: NET_IF_OPER_STATUS,
     pub OperationalStatusFlags: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_IP_OPER_STATUS {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_IP_OPER_STATUS {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_IP_OPER_STATUS_INFO {
     pub Header: NDIS_OBJECT_HEADER,
     pub Flags: u32,
     pub NumberofAddressFamiliesReturned: u32,
     pub IpOperationalStatus: [NDIS_IP_OPER_STATUS; 32],
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_IP_OPER_STATUS_INFO {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_IP_OPER_STATUS_INFO {
     fn clone(&self) -> Self {
         *self
@@ -2116,19 +1675,16 @@ pub const NDIS_ISOLATION_NAME_MAX_STRING_SIZE: u32 = 127u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_ISOLATION_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_LINK_PARAMETERS {
     pub Header: NDIS_OBJECT_HEADER,
-    pub MediaDuplexState: super::IpHelper::NET_IF_MEDIA_DUPLEX_STATE,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
     pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
     pub AutoNegotiationFlags: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_LINK_PARAMETERS {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_LINK_PARAMETERS {
     fn clone(&self) -> Self {
         *self
@@ -2149,20 +1705,17 @@ impl ::core::clone::Clone for NDIS_LINK_SPEED {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_LINK_STATE {
     pub Header: NDIS_OBJECT_HEADER,
-    pub MediaConnectState: super::IpHelper::NET_IF_MEDIA_CONNECT_STATE,
-    pub MediaDuplexState: super::IpHelper::NET_IF_MEDIA_DUPLEX_STATE,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
+    pub MediaDuplexState: NET_IF_MEDIA_DUPLEX_STATE,
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
     pub PauseFunctions: NDIS_SUPPORTED_PAUSE_FUNCTIONS,
     pub AutoNegotiationFlags: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_LINK_STATE {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_LINK_STATE {
     fn clone(&self) -> Self {
         *self
@@ -2202,8 +1755,6 @@ pub const NDIS_MAC_OPTION_SUPPORTS_MAC_ADDRESS_OVERWRITE: u32 = 128u32;
 pub const NDIS_MAC_OPTION_TRANSFERS_NOT_PEND: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_MAXIMUM_PORTS: u32 = 16777216u32;
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const NDIS_MAX_PHYS_ADDRESS_LENGTH: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_MEDIA_CAP_RECEIVE: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -2647,16 +2198,13 @@ pub const NDIS_OFFLOAD_SET_ON: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_OFFLOAD_SUPPORTED: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_OPER_STATE {
     pub Header: NDIS_OBJECT_HEADER,
-    pub OperationalStatus: super::IpHelper::NET_IF_OPER_STATUS,
+    pub OperationalStatus: NET_IF_OPER_STATUS,
     pub OperationalStatusFlags: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_OPER_STATE {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_OPER_STATE {
     fn clone(&self) -> Self {
         *self
@@ -2911,8 +2459,7 @@ pub const NDIS_PNP_WAKE_UP_MAGIC_PACKET: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_PNP_WAKE_UP_PATTERN_MATCH: u32 = 2u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_PORT {
     pub Next: *mut NDIS_PORT,
     pub NdisReserved: *mut ::core::ffi::c_void,
@@ -2920,17 +2467,14 @@ pub struct NDIS_PORT {
     pub ProtocolReserved: *mut ::core::ffi::c_void,
     pub PortCharacteristics: NDIS_PORT_CHARACTERISTICS,
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_PORT {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_PORT {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_PORT_ARRAY {
     pub Header: NDIS_OBJECT_HEADER,
     pub NumberOfPorts: u32,
@@ -2938,9 +2482,7 @@ pub struct NDIS_PORT_ARRAY {
     pub ElementSize: u32,
     pub Ports: [NDIS_PORT_CHARACTERISTICS; 1],
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_PORT_ARRAY {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_PORT_ARRAY {
     fn clone(&self) -> Self {
         *self
@@ -2976,25 +2518,22 @@ pub const NdisPortUnauthorized: NDIS_PORT_AUTHORIZATION_STATE = 2i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisPortReauthorizing: NDIS_PORT_AUTHORIZATION_STATE = 3i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_PORT_CHARACTERISTICS {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
     pub Flags: u32,
     pub Type: NDIS_PORT_TYPE,
-    pub MediaConnectState: super::IpHelper::NET_IF_MEDIA_CONNECT_STATE,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
-    pub Direction: super::IpHelper::NET_IF_DIRECTION_TYPE,
+    pub Direction: NET_IF_DIRECTION_TYPE,
     pub SendControlState: NDIS_PORT_CONTROL_STATE,
     pub RcvControlState: NDIS_PORT_CONTROL_STATE,
     pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_PORT_CHARACTERISTICS {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_PORT_CHARACTERISTICS {
     fn clone(&self) -> Self {
         *self
@@ -3013,23 +2552,20 @@ pub const NdisPortControlStateControlled: NDIS_PORT_CONTROL_STATE = 1i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisPortControlStateUncontrolled: NDIS_PORT_CONTROL_STATE = 2i32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_PORT_STATE {
     pub Header: NDIS_OBJECT_HEADER,
-    pub MediaConnectState: super::IpHelper::NET_IF_MEDIA_CONNECT_STATE,
+    pub MediaConnectState: NET_IF_MEDIA_CONNECT_STATE,
     pub XmitLinkSpeed: u64,
     pub RcvLinkSpeed: u64,
-    pub Direction: super::IpHelper::NET_IF_DIRECTION_TYPE,
+    pub Direction: NET_IF_DIRECTION_TYPE,
     pub SendControlState: NDIS_PORT_CONTROL_STATE,
     pub RcvControlState: NDIS_PORT_CONTROL_STATE,
     pub SendAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub RcvAuthorizationState: NDIS_PORT_AUTHORIZATION_STATE,
     pub Flags: u32,
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_PORT_STATE {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_PORT_STATE {
     fn clone(&self) -> Self {
         *self
@@ -4098,18 +3634,18 @@ pub const NDIS_WLAN_WAKE_ON_NLO_DISCOVERY_SUPPORTED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_DEFAULT_METHOD_ID: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NDIS_WMI_ENUM_ADAPTER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
-    pub NetLuid: super::IpHelper::NET_LUID_LH,
+    pub NetLuid: NET_LUID_LH,
     pub DeviceNameLength: u16,
     pub DeviceName: [super::super::Foundation::CHAR; 1],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NDIS_WMI_ENUM_ADAPTER {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_IpHelper"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
     fn clone(&self) -> Self {
         *self
@@ -4118,21 +3654,18 @@ impl ::core::clone::Clone for NDIS_WMI_ENUM_ADAPTER {
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_ENUM_ADAPTER_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_WMI_EVENT_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub IfIndex: u32,
-    pub NetLuid: super::IpHelper::NET_LUID_LH,
+    pub NetLuid: NET_LUID_LH,
     pub RequestId: u64,
     pub PortNumber: u32,
     pub DeviceNameLength: u32,
     pub DeviceNameOffset: u32,
     pub Padding: [u8; 4],
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_WMI_EVENT_HEADER {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_WMI_EVENT_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -4203,19 +3736,16 @@ impl ::core::clone::Clone for NDIS_WMI_IPSEC_OFFLOAD_V1_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_WMI_METHOD_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
-    pub NetLuid: super::IpHelper::NET_LUID_LH,
+    pub NetLuid: NET_LUID_LH,
     pub RequestId: u64,
     pub Timeout: u32,
     pub Padding: [u8; 4],
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_WMI_METHOD_HEADER {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_WMI_METHOD_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -4272,19 +3802,16 @@ pub const NDIS_WMI_RECEIVE_QUEUE_INFO_REVISION_1: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NDIS_WMI_RECEIVE_QUEUE_PARAMETERS_REVISION_1: u32 = 1u32;
 #[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_IpHelper\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub struct NDIS_WMI_SET_HEADER {
     pub Header: NDIS_OBJECT_HEADER,
     pub PortNumber: u32,
-    pub NetLuid: super::IpHelper::NET_LUID_LH,
+    pub NetLuid: NET_LUID_LH,
     pub RequestId: u64,
     pub Timeout: u32,
     pub Padding: [u8; 4],
 }
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::marker::Copy for NDIS_WMI_SET_HEADER {}
-#[cfg(feature = "Win32_NetworkManagement_IpHelper")]
 impl ::core::clone::Clone for NDIS_WMI_SET_HEADER {
     fn clone(&self) -> Self {
         *self
@@ -4610,6 +4137,189 @@ impl ::core::clone::Clone for NETWORK_ADDRESS_LIST {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IFLUID_UNSPECIFIED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type NET_IF_ACCESS_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_LOOPBACK: NET_IF_ACCESS_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_BROADCAST: NET_IF_ACCESS_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_POINT_TO_POINT: NET_IF_ACCESS_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_POINT_TO_MULTI_POINT: NET_IF_ACCESS_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ACCESS_MAXIMUM: NET_IF_ACCESS_TYPE = 5i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type NET_IF_ADMIN_STATUS = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ADMIN_STATUS_UP: NET_IF_ADMIN_STATUS = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ADMIN_STATUS_DOWN: NET_IF_ADMIN_STATUS = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_ADMIN_STATUS_TESTING: NET_IF_ADMIN_STATUS = 3i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NET_IF_ALIAS_LH {
+    pub ifAliasLength: u16,
+    pub ifAliasOffset: u16,
+}
+impl ::core::marker::Copy for NET_IF_ALIAS_LH {}
+impl ::core::clone::Clone for NET_IF_ALIAS_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type NET_IF_CONNECTION_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_CONNECTION_DEDICATED: NET_IF_CONNECTION_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_CONNECTION_PASSIVE: NET_IF_CONNECTION_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_CONNECTION_DEMAND: NET_IF_CONNECTION_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_CONNECTION_MAXIMUM: NET_IF_CONNECTION_TYPE = 4i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type NET_IF_DIRECTION_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_DIRECTION_SENDRECEIVE: NET_IF_DIRECTION_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_DIRECTION_SENDONLY: NET_IF_DIRECTION_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_DIRECTION_RECEIVEONLY: NET_IF_DIRECTION_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_DIRECTION_MAXIMUM: NET_IF_DIRECTION_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type NET_IF_MEDIA_CONNECT_STATE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaConnectStateUnknown: NET_IF_MEDIA_CONNECT_STATE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaConnectStateConnected: NET_IF_MEDIA_CONNECT_STATE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaConnectStateDisconnected: NET_IF_MEDIA_CONNECT_STATE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type NET_IF_MEDIA_DUPLEX_STATE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaDuplexStateUnknown: NET_IF_MEDIA_DUPLEX_STATE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaDuplexStateHalf: NET_IF_MEDIA_DUPLEX_STATE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const MediaDuplexStateFull: NET_IF_MEDIA_DUPLEX_STATE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OID_COMPARTMENT_ID: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OID_IF_ALIAS: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OID_IF_ENTRY: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OID_NETWORK_GUID: u32 = 3u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type NET_IF_OPER_STATUS = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_UP: NET_IF_OPER_STATUS = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_DOWN: NET_IF_OPER_STATUS = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_TESTING: NET_IF_OPER_STATUS = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_UNKNOWN: NET_IF_OPER_STATUS = 4i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_DORMANT: NET_IF_OPER_STATUS = 5i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_NOT_PRESENT: NET_IF_OPER_STATUS = 6i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_LOWER_LAYER_DOWN: NET_IF_OPER_STATUS = 7i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_DORMANT_LOW_POWER: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_DORMANT_PAUSED: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_DOWN_NOT_AUTHENTICATED: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_OPER_STATUS_DOWN_NOT_MEDIA_CONNECTED: u32 = 2u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NET_IF_RCV_ADDRESS_LH {
+    pub ifRcvAddressType: NET_IF_RCV_ADDRESS_TYPE,
+    pub ifRcvAddressLength: u16,
+    pub ifRcvAddressOffset: u16,
+}
+impl ::core::marker::Copy for NET_IF_RCV_ADDRESS_LH {}
+impl ::core::clone::Clone for NET_IF_RCV_ADDRESS_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type NET_IF_RCV_ADDRESS_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_RCV_ADDRESS_TYPE_OTHER: NET_IF_RCV_ADDRESS_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_RCV_ADDRESS_TYPE_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_IF_RCV_ADDRESS_TYPE_NON_VOLATILE: NET_IF_RCV_ADDRESS_TYPE = 3i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub union NET_LUID_LH {
+    pub Value: u64,
+    pub Info: NET_LUID_LH_0,
+}
+impl ::core::marker::Copy for NET_LUID_LH {}
+impl ::core::clone::Clone for NET_LUID_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NET_LUID_LH_0 {
+    pub _bitfield: u64,
+}
+impl ::core::marker::Copy for NET_LUID_LH_0 {}
+impl ::core::clone::Clone for NET_LUID_LH_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub struct NET_PHYSICAL_LOCATION_LH {
+    pub BusNumber: u32,
+    pub SlotNumber: u32,
+    pub FunctionNumber: u32,
+}
+impl ::core::marker::Copy for NET_PHYSICAL_LOCATION_LH {}
+impl ::core::clone::Clone for NET_PHYSICAL_LOCATION_LH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_SITEID_MAXSYSTEM: u32 = 268435455u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_SITEID_MAXUSER: u32 = 134217727u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NET_SITEID_UNSPECIFIED: u32 = 0u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_FILTER_INTERFACE: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_HARDWARE_INTERFACE: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_NDIS_ENDPOINT_INTERFACE: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_NDIS_ISCSI_INTERFACE: u32 = 128u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_NDIS_RESERVED1: u32 = 4u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_NDIS_RESERVED2: u32 = 8u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_NDIS_RESERVED3: u32 = 16u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_NDIS_RESERVED4: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const NIIF_NDIS_WDM_INTERFACE: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const NdisHashFunctionReserved1: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
@@ -6352,6 +6062,22 @@ impl ::core::clone::Clone for TRANSPORT_HEADER_OFFSET {
     }
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub type TUNNEL_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const TUNNEL_TYPE_NONE: TUNNEL_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const TUNNEL_TYPE_OTHER: TUNNEL_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const TUNNEL_TYPE_DIRECT: TUNNEL_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const TUNNEL_TYPE_6TO4: TUNNEL_TYPE = 11i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const TUNNEL_TYPE_ISATAP: TUNNEL_TYPE = 13i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const TUNNEL_TYPE_TEREDO: TUNNEL_TYPE = 14i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
+pub const TUNNEL_TYPE_IPHTTPS: TUNNEL_TYPE = 15i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub type UDP_ENCAP_TYPE = i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_IKE: UDP_ENCAP_TYPE = 0i32;
@@ -6360,26 +6086,6 @@ pub const OFFLOAD_IPSEC_UDPESP_ENCAPTYPE_OTHER: UDP_ENCAP_TYPE = 1i32;
 pub const UNSPECIFIED_NETWORK_GUID: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 314203102, data2: 5182, data3: 19469, data4: [182, 109, 35, 121, 187, 20, 25, 19] };
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const WAN_PROTOCOL_KEEPS_STATS: u32 = 1u32;
-#[repr(C)]
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_NetworkManagement_WiFi\"`*"]
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-pub struct WDIAG_IHV_WLAN_ID {
-    pub strProfileName: [u16; 256],
-    pub Ssid: super::WiFi::DOT11_SSID,
-    pub BssType: super::WiFi::DOT11_BSS_TYPE,
-    pub dwFlags: u32,
-    pub dwReasonCode: u32,
-}
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-impl ::core::marker::Copy for WDIAG_IHV_WLAN_ID {}
-#[cfg(feature = "Win32_NetworkManagement_WiFi")]
-impl ::core::clone::Clone for WDIAG_IHV_WLAN_ID {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-#[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
-pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
 pub const fNDIS_GUID_ALLOW_READ: u32 = 32u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_Ndis\"`*"]
