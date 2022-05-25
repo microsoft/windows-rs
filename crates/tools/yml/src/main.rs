@@ -92,8 +92,17 @@ jobs:
       run: >"#
         .to_string();
 
-    for name in crates() {
-        write!(&mut yml, "\n        cargo clean &&\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
+    let crates = crates();
+    let (first, last) = crates.split_at(crates.len() / 2);
+
+    for name in first {
+        write!(&mut yml, "\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
+    }
+
+    write!(&mut yml, "\n        cargo clean &&").unwrap();
+
+    for name in last {
+        write!(&mut yml, "\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
     }
 
     yml.truncate(yml.len() - 2);
