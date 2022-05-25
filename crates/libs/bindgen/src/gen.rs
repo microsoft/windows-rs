@@ -166,8 +166,6 @@ impl<'a> Gen<'a> {
                 quote! { [#name; #len] }
             }
             Type::GenericParam(generic) => self.reader.generic_param_name(*generic).into(),
-            //Type::MethodDef(def) => self.reader.method_def_name(def).into(),
-            //Type::Field(field) => field.name().into(),
             Type::TypeDef((def, generics)) => self.type_def_name(*def, generics),
             Type::MutPtr((ty, pointers)) => {
                 let pointers = mut_ptrs(*pointers);
