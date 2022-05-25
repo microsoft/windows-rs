@@ -82,179 +82,179 @@ jobs:
         }
     - name: Test
       run: >
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows-bindgen &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows-implement &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows-interface &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows-metadata &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows-sys &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows-tokens &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_com_uri &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_consent &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_core_app &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_create_window &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_create_window_sys &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_data_protection &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_direct2d &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_direct3d12 &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_enum_windows &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_enum_windows_sys &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_kernel_event &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_memory_buffer &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_message_box &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_ocr &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_overlapped &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_rss &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_simple &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_spellchecker &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_uiautomation &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_xaml_app &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p sample_xml &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows_aarch64_msvc &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows_i686_gnu &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows_i686_msvc &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows_x86_64_gnu &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p windows_x86_64_msvc &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_agile &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_agile_reference &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_alternate_success_code &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_arch &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_arch_feature &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_bstr &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_class_factory &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_component &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_component_client &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_const_fields &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_core &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_data_object &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_debug &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_deprecated &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_dispatch &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_does_not_return &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_drop_target &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_enums &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_error &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_event &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_handles &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_helpers &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_identity &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_implement &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_interface &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_interop &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_lib &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_map &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_matrix3x2 &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_metadata &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_mshtml &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_not_dll &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_no_use &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_ntstatus &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_null_result &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_properties &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_return_struct &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_string_param &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_structs &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_sys &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_unions &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_vector &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_weak &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_weak_ref &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_win32 &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_win32_arrays &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p test_winrt &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p tool_bindings &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p tool_gnu &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p tool_ilrs &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p tool_msvc &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p tool_sys &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p tool_windows &&
-        cargo clean
+        cargo clean &&
         cargo test --target ${{ matrix.target }} -p tool_yml 
 
     - name: Check import libs
