@@ -1,40 +1,3 @@
-pub trait IAMWMBufferPass_Impl: Sized {
-    fn SetNotify(&self, pcallback: &::core::option::Option<IAMWMBufferPassCallback>) -> ::windows::core::Result<()>;
-}
-impl ::windows::core::RuntimeName for IAMWMBufferPass {}
-impl IAMWMBufferPass_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMWMBufferPass_Impl, const OFFSET: isize>() -> IAMWMBufferPass_Vtbl {
-        unsafe extern "system" fn SetNotify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMWMBufferPass_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SetNotify(::core::mem::transmute(&pcallback)).into()
-        }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), SetNotify: SetNotify::<Identity, Impl, OFFSET> }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMWMBufferPass as ::windows::core::Interface>::IID
-    }
-}
-#[cfg(feature = "Win32_Media_DirectShow")]
-pub trait IAMWMBufferPassCallback_Impl: Sized {
-    fn Notify(&self, pnssbuffer3: &::core::option::Option<INSSBuffer3>, ppin: &::core::option::Option<super::DirectShow::IPin>, prtstart: *const i64, prtend: *const i64) -> ::windows::core::Result<()>;
-}
-#[cfg(feature = "Win32_Media_DirectShow")]
-impl ::windows::core::RuntimeName for IAMWMBufferPassCallback {}
-#[cfg(feature = "Win32_Media_DirectShow")]
-impl IAMWMBufferPassCallback_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMWMBufferPassCallback_Impl, const OFFSET: isize>() -> IAMWMBufferPassCallback_Vtbl {
-        unsafe extern "system" fn Notify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IAMWMBufferPassCallback_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pnssbuffer3: ::windows::core::RawPtr, ppin: ::windows::core::RawPtr, prtstart: *const i64, prtend: *const i64) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.Notify(::core::mem::transmute(&pnssbuffer3), ::core::mem::transmute(&ppin), ::core::mem::transmute_copy(&prtstart), ::core::mem::transmute_copy(&prtend)).into()
-        }
-        Self { base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(), Notify: Notify::<Identity, Impl, OFFSET> }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IAMWMBufferPassCallback as ::windows::core::Interface>::IID
-    }
-}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait INSNetSourceCreator_Impl: Sized {
     fn Initialize(&self) -> ::windows::core::Result<()>;
@@ -589,43 +552,6 @@ impl IWMClientConnections2_Vtbl {
         iid == &<IWMClientConnections2 as ::windows::core::Interface>::IID || iid == &<IWMClientConnections as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-pub trait IWMCodecAMVideoAccelerator_Impl: Sized {
-    fn SetAcceleratorInterface(&self, piamva: &::core::option::Option<super::DirectShow::IAMVideoAccelerator>) -> ::windows::core::Result<()>;
-    fn NegotiateConnection(&self, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
-    fn SetPlayerNotify(&self, phook: &::core::option::Option<IWMPlayerTimestampHook>) -> ::windows::core::Result<()>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-impl ::windows::core::RuntimeName for IWMCodecAMVideoAccelerator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-impl IWMCodecAMVideoAccelerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecAMVideoAccelerator_Impl, const OFFSET: isize>() -> IWMCodecAMVideoAccelerator_Vtbl {
-        unsafe extern "system" fn SetAcceleratorInterface<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecAMVideoAccelerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piamva: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SetAcceleratorInterface(::core::mem::transmute(&piamva)).into()
-        }
-        unsafe extern "system" fn NegotiateConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecAMVideoAccelerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.NegotiateConnection(::core::mem::transmute_copy(&pmediatype)).into()
-        }
-        unsafe extern "system" fn SetPlayerNotify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecAMVideoAccelerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phook: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SetPlayerNotify(::core::mem::transmute(&phook)).into()
-        }
-        Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            SetAcceleratorInterface: SetAcceleratorInterface::<Identity, Impl, OFFSET>,
-            NegotiateConnection: NegotiateConnection::<Identity, Impl, OFFSET>,
-            SetPlayerNotify: SetPlayerNotify::<Identity, Impl, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMCodecAMVideoAccelerator as ::windows::core::Interface>::IID
-    }
-}
 pub trait IWMCodecInfo_Impl: Sized {
     fn GetCodecInfoCount(&self, guidtype: *const ::windows::core::GUID) -> ::windows::core::Result<u32>;
     fn GetCodecFormatCount(&self, guidtype: *const ::windows::core::GUID, dwcodecindex: u32) -> ::windows::core::Result<u32>;
@@ -744,36 +670,6 @@ impl IWMCodecInfo3_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IWMCodecInfo3 as ::windows::core::Interface>::IID || iid == &<IWMCodecInfo as ::windows::core::Interface>::IID || iid == &<IWMCodecInfo2 as ::windows::core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-pub trait IWMCodecVideoAccelerator_Impl: Sized {
-    fn NegotiateConnection(&self, piamva: &::core::option::Option<super::DirectShow::IAMVideoAccelerator>, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()>;
-    fn SetPlayerNotify(&self, phook: &::core::option::Option<IWMPlayerTimestampHook>) -> ::windows::core::Result<()>;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-impl ::windows::core::RuntimeName for IWMCodecVideoAccelerator {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
-impl IWMCodecVideoAccelerator_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecVideoAccelerator_Impl, const OFFSET: isize>() -> IWMCodecVideoAccelerator_Vtbl {
-        unsafe extern "system" fn NegotiateConnection<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecVideoAccelerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, piamva: ::windows::core::RawPtr, pmediatype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.NegotiateConnection(::core::mem::transmute(&piamva), ::core::mem::transmute_copy(&pmediatype)).into()
-        }
-        unsafe extern "system" fn SetPlayerNotify<Identity: ::windows::core::IUnknownImpl<Impl = Impl>, Impl: IWMCodecVideoAccelerator_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, phook: ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *const *const ()).offset(OFFSET) as *const Identity;
-            let this = (*this).get_impl();
-            this.SetPlayerNotify(::core::mem::transmute(&phook)).into()
-        }
-        Self {
-            base__: ::windows::core::IUnknownVtbl::new::<Identity, OFFSET>(),
-            NegotiateConnection: NegotiateConnection::<Identity, Impl, OFFSET>,
-            SetPlayerNotify: SetPlayerNotify::<Identity, Impl, OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IWMCodecVideoAccelerator as ::windows::core::Interface>::IID
     }
 }
 pub trait IWMCredentialCallback_Impl: Sized {

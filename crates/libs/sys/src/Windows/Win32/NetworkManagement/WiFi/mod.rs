@@ -311,6 +311,386 @@ pub const DISCOVERY_FILTER_BITMASK_ANY: u32 = 15u32;
 pub const DISCOVERY_FILTER_BITMASK_DEVICE: u32 = 1u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DISCOVERY_FILTER_BITMASK_GO: u32 = 2u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_ADAPTER_RESET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_CONTROL = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pinbuffer: *const u8, dwoutbuffersize: u32, poutbuffer: *mut u8, pdwbytesreturned: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_CREATE_DISCOVERY_PROFILES = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, binsecure: super::super::Foundation::BOOL, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pconnectablebssid: *const DOT11_BSS_LIST, pihvdiscoveryprofilelist: *mut DOT11EXT_IHV_DISCOVERY_PROFILE_LIST, pdwreasoncode: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_DEINIT_ADAPTER = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE)>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub type DOT11EXTIHV_DEINIT_SERVICE = ::core::option::Option<unsafe extern "system" fn()>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub type DOT11EXTIHV_GET_VERSION_INFO = ::core::option::Option<unsafe extern "system" fn(pdot11ihvversioninfo: *mut DOT11_IHV_VERSION_INFO) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_INIT_ADAPTER = ::core::option::Option<unsafe extern "system" fn(pdot11adapter: *const DOT11_ADAPTER, hdot11svchandle: super::super::Foundation::HANDLE, phihvextadapter: *mut super::super::Foundation::HANDLE) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_System_RemoteDesktop\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
+pub type DOT11EXTIHV_INIT_SERVICE = ::core::option::Option<unsafe extern "system" fn(dwvernumused: u32, pdot11extapi: *const DOT11EXT_APIS, pvreserved: *mut ::core::ffi::c_void, pdot11ihvhandlers: *mut DOT11EXT_IHV_HANDLERS) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_INIT_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(pdot11extvsapi: *const DOT11EXT_VIRTUAL_STATION_APIS, pvreserved: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_IS_UI_REQUEST_PENDING = ::core::option::Option<unsafe extern "system" fn(guiduirequest: ::windows_sys::core::GUID, pbisrequestpending: *mut super::super::Foundation::BOOL) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_ONEX_INDICATE_RESULT = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, msonexresult: DOT11_MSONEX_RESULT, pdot11msonexresultparams: *const DOT11_MSONEX_RESULT_PARAMS) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_PERFORM_CAPABILITY_MATCH = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub type DOT11EXTIHV_PERFORM_POST_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, pportstate: *const DOT11_PORT_STATE, udot11assocparamsbytes: u32, pdot11assocparams: *const DOT11_ASSOCIATION_COMPLETION_PARAMETERS) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_PERFORM_PRE_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pconnectablebssid: *const DOT11_BSS_LIST, pdwreasoncode: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_System_RemoteDesktop\"`*"]
+#[cfg(feature = "Win32_System_RemoteDesktop")]
+pub type DOT11EXTIHV_PROCESS_SESSION_CHANGE = ::core::option::Option<unsafe extern "system" fn(ueventtype: u32, psessionnotification: *const super::super::System::RemoteDesktop::WTSSESSION_NOTIFICATION) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub type DOT11EXTIHV_PROCESS_UI_RESPONSE = ::core::option::Option<unsafe extern "system" fn(guiduirequest: ::windows_sys::core::GUID, dwbytecount: u32, pvresponsebuffer: *const ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_QUERY_UI_REQUEST = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, connectionphase: DOT11EXT_IHV_CONNECTION_PHASE, ppihvuirequest: *mut *mut DOT11EXT_IHV_UI_REQUEST) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_RECEIVE_INDICATION = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, indicationtype: DOT11EXT_IHV_INDICATION_TYPE, ubufferlength: u32, pvbuffer: *const ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_RECEIVE_PACKET = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_SEND_PACKET_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXTIHV_STOP_POST_ASSOCIATE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, ppeer: *const *const u8, dot11assocstatus: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXTIHV_VALIDATE_PROFILE = ::core::option::Option<unsafe extern "system" fn(hihvextadapter: super::super::Foundation::HANDLE, pihvprofileparams: *const DOT11EXT_IHV_PROFILE_PARAMS, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE, pdwreasoncode: *mut u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub type DOT11EXT_ALLOCATE_BUFFER = ::core::option::Option<unsafe extern "system" fn(dwbytecount: u32, ppvbuffer: *mut *mut ::core::ffi::c_void) -> u32>;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub struct DOT11EXT_APIS {
+    pub Dot11ExtAllocateBuffer: DOT11EXT_ALLOCATE_BUFFER,
+    pub Dot11ExtFreeBuffer: DOT11EXT_FREE_BUFFER,
+    pub Dot11ExtSetProfileCustomUserData: DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA,
+    pub Dot11ExtGetProfileCustomUserData: DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA,
+    pub Dot11ExtSetCurrentProfile: DOT11EXT_SET_CURRENT_PROFILE,
+    pub Dot11ExtSendUIRequest: DOT11EXT_SEND_UI_REQUEST,
+    pub Dot11ExtPreAssociateCompletion: DOT11EXT_PRE_ASSOCIATE_COMPLETION,
+    pub Dot11ExtPostAssociateCompletion: DOT11EXT_POST_ASSOCIATE_COMPLETION,
+    pub Dot11ExtSendNotification: DOT11EXT_SEND_NOTIFICATION,
+    pub Dot11ExtSendPacket: DOT11EXT_SEND_PACKET,
+    pub Dot11ExtSetEtherTypeHandling: DOT11EXT_SET_ETHERTYPE_HANDLING,
+    pub Dot11ExtSetAuthAlgorithm: DOT11EXT_SET_AUTH_ALGORITHM,
+    pub Dot11ExtSetUnicastCipherAlgorithm: DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM,
+    pub Dot11ExtSetMulticastCipherAlgorithm: DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM,
+    pub Dot11ExtSetDefaultKey: DOT11EXT_SET_DEFAULT_KEY,
+    pub Dot11ExtSetKeyMappingKey: DOT11EXT_SET_KEY_MAPPING_KEY,
+    pub Dot11ExtSetDefaultKeyId: DOT11EXT_SET_DEFAULT_KEY_ID,
+    pub Dot11ExtNicSpecificExtension: DOT11EXT_NIC_SPECIFIC_EXTENSION,
+    pub Dot11ExtSetExcludeUnencrypted: DOT11EXT_SET_EXCLUDE_UNENCRYPTED,
+    pub Dot11ExtStartOneX: DOT11EXT_ONEX_START,
+    pub Dot11ExtStopOneX: DOT11EXT_ONEX_STOP,
+    pub Dot11ExtProcessSecurityPacket: DOT11EXT_PROCESS_ONEX_PACKET,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+impl ::core::marker::Copy for DOT11EXT_APIS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+impl ::core::clone::Clone for DOT11EXT_APIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub type DOT11EXT_FREE_BUFFER = ::core::option::Option<unsafe extern "system" fn(pvmemory: *const ::core::ffi::c_void)>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_GET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, pdwdatasize: *mut u32, ppvdata: *mut *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub type DOT11EXT_IHV_CONNECTION_PHASE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const connection_phase_any: DOT11EXT_IHV_CONNECTION_PHASE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const connection_phase_initial_connection: DOT11EXT_IHV_CONNECTION_PHASE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const connection_phase_post_l3_connection: DOT11EXT_IHV_CONNECTION_PHASE = 2i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11EXT_IHV_CONNECTIVITY_PROFILE {
+    pub pszXmlFragmentIhvConnectivity: ::windows_sys::core::PWSTR,
+}
+impl ::core::marker::Copy for DOT11EXT_IHV_CONNECTIVITY_PROFILE {}
+impl ::core::clone::Clone for DOT11EXT_IHV_CONNECTIVITY_PROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11EXT_IHV_DISCOVERY_PROFILE {
+    pub IhvConnectivityProfile: DOT11EXT_IHV_CONNECTIVITY_PROFILE,
+    pub IhvSecurityProfile: DOT11EXT_IHV_SECURITY_PROFILE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11EXT_IHV_DISCOVERY_PROFILE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11EXT_IHV_DISCOVERY_PROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
+    pub dwCount: u32,
+    pub pIhvDiscoveryProfiles: *mut DOT11EXT_IHV_DISCOVERY_PROFILE,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11EXT_IHV_DISCOVERY_PROFILE_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`, `\"Win32_System_RemoteDesktop\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
+pub struct DOT11EXT_IHV_HANDLERS {
+    pub Dot11ExtIhvDeinitService: DOT11EXTIHV_DEINIT_SERVICE,
+    pub Dot11ExtIhvInitAdapter: DOT11EXTIHV_INIT_ADAPTER,
+    pub Dot11ExtIhvDeinitAdapter: DOT11EXTIHV_DEINIT_ADAPTER,
+    pub Dot11ExtIhvPerformPreAssociate: DOT11EXTIHV_PERFORM_PRE_ASSOCIATE,
+    pub Dot11ExtIhvAdapterReset: DOT11EXTIHV_ADAPTER_RESET,
+    pub Dot11ExtIhvPerformPostAssociate: DOT11EXTIHV_PERFORM_POST_ASSOCIATE,
+    pub Dot11ExtIhvStopPostAssociate: DOT11EXTIHV_STOP_POST_ASSOCIATE,
+    pub Dot11ExtIhvValidateProfile: DOT11EXTIHV_VALIDATE_PROFILE,
+    pub Dot11ExtIhvPerformCapabilityMatch: DOT11EXTIHV_PERFORM_CAPABILITY_MATCH,
+    pub Dot11ExtIhvCreateDiscoveryProfiles: DOT11EXTIHV_CREATE_DISCOVERY_PROFILES,
+    pub Dot11ExtIhvProcessSessionChange: DOT11EXTIHV_PROCESS_SESSION_CHANGE,
+    pub Dot11ExtIhvReceiveIndication: DOT11EXTIHV_RECEIVE_INDICATION,
+    pub Dot11ExtIhvReceivePacket: DOT11EXTIHV_RECEIVE_PACKET,
+    pub Dot11ExtIhvSendPacketCompletion: DOT11EXTIHV_SEND_PACKET_COMPLETION,
+    pub Dot11ExtIhvIsUIRequestPending: DOT11EXTIHV_IS_UI_REQUEST_PENDING,
+    pub Dot11ExtIhvProcessUIResponse: DOT11EXTIHV_PROCESS_UI_RESPONSE,
+    pub Dot11ExtIhvQueryUIRequest: DOT11EXTIHV_QUERY_UI_REQUEST,
+    pub Dot11ExtIhvOnexIndicateResult: DOT11EXTIHV_ONEX_INDICATE_RESULT,
+    pub Dot11ExtIhvControl: DOT11EXTIHV_CONTROL,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
+impl ::core::marker::Copy for DOT11EXT_IHV_HANDLERS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis", feature = "Win32_Security_ExtensibleAuthenticationProtocol", feature = "Win32_System_RemoteDesktop"))]
+impl ::core::clone::Clone for DOT11EXT_IHV_HANDLERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub type DOT11EXT_IHV_INDICATION_TYPE = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const IndicationTypeNicSpecificNotification: DOT11EXT_IHV_INDICATION_TYPE = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const IndicationTypePmkidCandidateList: DOT11EXT_IHV_INDICATION_TYPE = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const IndicationTypeTkipMicFailure: DOT11EXT_IHV_INDICATION_TYPE = 2i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const IndicationTypePhyStateChange: DOT11EXT_IHV_INDICATION_TYPE = 3i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const IndicationTypeLinkQuality: DOT11EXT_IHV_INDICATION_TYPE = 4i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub struct DOT11EXT_IHV_PARAMS {
+    pub dot11ExtIhvProfileParams: DOT11EXT_IHV_PROFILE_PARAMS,
+    pub wstrProfileName: [u16; 256],
+    pub dwProfileTypeFlags: u32,
+    pub interfaceGuid: ::windows_sys::core::GUID,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+impl ::core::marker::Copy for DOT11EXT_IHV_PARAMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+impl ::core::clone::Clone for DOT11EXT_IHV_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub struct DOT11EXT_IHV_PROFILE_PARAMS {
+    pub pSsidList: *mut DOT11EXT_IHV_SSID_LIST,
+    pub BssType: DOT11_BSS_TYPE,
+    pub pMSSecuritySettings: *mut DOT11_MSSECURITY_SETTINGS,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+impl ::core::marker::Copy for DOT11EXT_IHV_PROFILE_PARAMS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+impl ::core::clone::Clone for DOT11EXT_IHV_PROFILE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11EXT_IHV_SECURITY_PROFILE {
+    pub pszXmlFragmentIhvSecurity: ::windows_sys::core::PWSTR,
+    pub bUseMSOnex: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11EXT_IHV_SECURITY_PROFILE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11EXT_IHV_SECURITY_PROFILE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11EXT_IHV_SSID_LIST {
+    pub ulCount: u32,
+    pub SSIDs: [DOT11_SSID; 1],
+}
+impl ::core::marker::Copy for DOT11EXT_IHV_SSID_LIST {}
+impl ::core::clone::Clone for DOT11EXT_IHV_SSID_LIST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11EXT_IHV_UI_REQUEST {
+    pub dwSessionId: u32,
+    pub guidUIRequest: ::windows_sys::core::GUID,
+    pub UIPageClsid: ::windows_sys::core::GUID,
+    pub dwByteCount: u32,
+    pub pvUIRequest: *mut u8,
+}
+impl ::core::marker::Copy for DOT11EXT_IHV_UI_REQUEST {}
+impl ::core::clone::Clone for DOT11EXT_IHV_UI_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_NIC_SPECIFIC_EXTENSION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinbuffersize: u32, pvinbuffer: *const ::core::ffi::c_void, pdwoutbuffersize: *mut u32, pvoutbuffer: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub type DOT11EXT_ONEX_START = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, peapattributes: *const super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_ONEX_STOP = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_POST_ASSOCIATE_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hsecuritysessionid: super::super::Foundation::HANDLE, ppeer: *const *const u8, dwreasoncode: u32, dwwin32error: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_PRE_ASSOCIATE_COMPLETION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwreasoncode: u32, dwwin32error: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_PROCESS_ONEX_PACKET = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwinpacketsize: u32, pvinpacket: *const ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const DOT11EXT_PSK_MAX_LENGTH: u32 = 64u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pbisvirtualstation: *mut super::super::Foundation::BOOL, pgprimary: *mut ::windows_sys::core::GUID, pvreserved: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_RELEASE_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_REQUEST_VIRTUAL_STATION = ::core::option::Option<unsafe extern "system" fn(hdot11primaryhandle: super::super::Foundation::HANDLE, pvreserved: *mut ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SEND_NOTIFICATION = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pnotificationdata: *const L2_NOTIFICATION_DATA) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SEND_PACKET = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, upacketlen: u32, pvpacket: *const ::core::ffi::c_void, hsendcompletion: super::super::Foundation::HANDLE) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SEND_UI_REQUEST = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pihvuirequest: *const DOT11EXT_IHV_UI_REQUEST) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_AUTH_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwauthalgo: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_CURRENT_PROFILE = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, pihvconnprofile: *const DOT11EXT_IHV_CONNECTIVITY_PROFILE, pihvsecprofile: *const DOT11EXT_IHV_SECURITY_PROFILE) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
+pub type DOT11EXT_SET_DEFAULT_KEY = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_DEFAULT_KEY_VALUE, dot11direction: DOT11_DIRECTION) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_DEFAULT_KEY_ID = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, udefaultkeyid: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_ETHERTYPE_HANDLING = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, umaxbacklog: u32, unumofexemption: u32, pexemption: *const DOT11_PRIVACY_EXEMPTION, unumofregistration: u32, pusregistration: *const u16) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_EXCLUDE_UNENCRYPTED = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, bexcludeunencrypted: super::super::Foundation::BOOL) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_KEY_MAPPING_KEY = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, pkey: *const DOT11_CIPHER_KEY_MAPPING_KEY_VALUE) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_MULTICAST_CIPHER_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwmulticastcipheralgo: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_PROFILE_CUSTOM_USER_DATA = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwsessionid: u32, dwdatasize: u32, pvdata: *const ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_UNICAST_CIPHER_ALGORITHM = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, dwunicastcipheralgo: u32) -> u32>;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub type DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES = ::core::option::Option<unsafe extern "system" fn(hdot11svchandle: super::super::Foundation::HANDLE, hconnectsession: super::super::Foundation::HANDLE, dwnumproperties: u32, pproperties: *const DOT11EXT_VIRTUAL_STATION_AP_PROPERTY, pvreserved: *mut ::core::ffi::c_void) -> u32>;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11EXT_VIRTUAL_STATION_APIS {
+    pub Dot11ExtRequestVirtualStation: DOT11EXT_REQUEST_VIRTUAL_STATION,
+    pub Dot11ExtReleaseVirtualStation: DOT11EXT_RELEASE_VIRTUAL_STATION,
+    pub Dot11ExtQueryVirtualStationProperties: DOT11EXT_QUERY_VIRTUAL_STATION_PROPERTIES,
+    pub Dot11ExtSetVirtualStationAPProperties: DOT11EXT_SET_VIRTUAL_STATION_AP_PROPERTIES,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11EXT_VIRTUAL_STATION_APIS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11EXT_VIRTUAL_STATION_APIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
+    pub dot11SSID: DOT11_SSID,
+    pub dot11AuthAlgo: DOT11_AUTH_ALGORITHM,
+    pub dot11CipherAlgo: DOT11_CIPHER_ALGORITHM,
+    pub bIsPassPhrase: super::super::Foundation::BOOL,
+    pub dwKeyLength: u32,
+    pub ucKeyData: [u8; 64],
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11EXT_VIRTUAL_STATION_AP_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub struct DOT11_ACCESSNETWORKOPTIONS {
@@ -338,6 +718,19 @@ pub const dot11_AC_param_VI: DOT11_AC_PARAM = 2i32;
 pub const dot11_AC_param_VO: DOT11_AC_PARAM = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_AC_param_max: DOT11_AC_PARAM = 4i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11_ADAPTER {
+    pub gAdapterId: ::windows_sys::core::GUID,
+    pub pszDescription: ::windows_sys::core::PWSTR,
+    pub Dot11CurrentOpMode: DOT11_CURRENT_OPERATION_MODE,
+}
+impl ::core::marker::Copy for DOT11_ADAPTER {}
+impl ::core::clone::Clone for DOT11_ADAPTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(feature = "Win32_NetworkManagement_Ndis")]
@@ -815,6 +1208,18 @@ pub struct DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
 }
 impl ::core::marker::Copy for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {}
 impl ::core::clone::Clone for DOT11_BSS_ENTRY_PHY_SPECIFIC_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11_BSS_LIST {
+    pub uNumOfBytes: u32,
+    pub pucBuffer: *mut u8,
+}
+impl ::core::marker::Copy for DOT11_BSS_LIST {}
+impl ::core::clone::Clone for DOT11_BSS_LIST {
     fn clone(&self) -> Self {
         *self
     }
@@ -1307,6 +1712,21 @@ pub const DOT11_DS_CHANGED: DOT11_DS_INFO = 0i32;
 pub const DOT11_DS_UNCHANGED: DOT11_DS_INFO = 1i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_DS_UNKNOWN: DOT11_DS_INFO = 2i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+pub struct DOT11_EAP_RESULT {
+    pub dwFailureReasonCode: u32,
+    pub pAttribArray: *mut super::super::Security::ExtensibleAuthenticationProtocol::EAP_ATTRIBUTES,
+}
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+impl ::core::marker::Copy for DOT11_EAP_RESULT {}
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+impl ::core::clone::Clone for DOT11_EAP_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_ENCAP_802_1H: u32 = 2u32;
 #[repr(C)]
@@ -1708,6 +2128,18 @@ impl ::core::clone::Clone for DOT11_IBSS_PARAMS {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_IBSS_PARAMS_REVISION_1: u32 = 1u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11_IHV_VERSION_INFO {
+    pub dwVerMin: u32,
+    pub dwVerMax: u32,
+}
+impl ::core::marker::Copy for DOT11_IHV_VERSION_INFO {}
+impl ::core::clone::Clone for DOT11_IHV_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -2332,6 +2764,53 @@ impl ::core::clone::Clone for DOT11_MPDU_MAX_LENGTH_INDICATION {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_MPDU_MAX_LENGTH_INDICATION_REVISION_1: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub type DOT11_MSONEX_RESULT = i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const DOT11_MSONEX_SUCCESS: DOT11_MSONEX_RESULT = 0i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const DOT11_MSONEX_FAILURE: DOT11_MSONEX_RESULT = 1i32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const DOT11_MSONEX_IN_PROGRESS: DOT11_MSONEX_RESULT = 2i32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+pub struct DOT11_MSONEX_RESULT_PARAMS {
+    pub Dot11OnexAuthStatus: ONEX_AUTH_STATUS,
+    pub Dot11OneXReasonCode: ONEX_REASON_CODE,
+    pub pbMPPESendKey: *mut u8,
+    pub dwMPPESendKeyLen: u32,
+    pub pbMPPERecvKey: *mut u8,
+    pub dwMPPERecvKeyLen: u32,
+    pub pDot11EapResult: *mut DOT11_EAP_RESULT,
+}
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+impl ::core::marker::Copy for DOT11_MSONEX_RESULT_PARAMS {}
+#[cfg(feature = "Win32_Security_ExtensibleAuthenticationProtocol")]
+impl ::core::clone::Clone for DOT11_MSONEX_RESULT_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_Security_ExtensibleAuthenticationProtocol\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+pub struct DOT11_MSSECURITY_SETTINGS {
+    pub dot11AuthAlgorithm: DOT11_AUTH_ALGORITHM,
+    pub dot11CipherAlgorithm: DOT11_CIPHER_ALGORITHM,
+    pub fOneXEnabled: super::super::Foundation::BOOL,
+    pub eapMethodType: super::super::Security::ExtensibleAuthenticationProtocol::EAP_METHOD_TYPE,
+    pub dwEapConnectionDataLen: u32,
+    pub pEapConnectionData: *mut u8,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+impl ::core::marker::Copy for DOT11_MSSECURITY_SETTINGS {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_ExtensibleAuthenticationProtocol"))]
+impl ::core::clone::Clone for DOT11_MSSECURITY_SETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub struct DOT11_MULTI_DOMAIN_CAPABILITY_ENTRY {
@@ -2916,6 +3395,23 @@ impl ::core::clone::Clone for DOT11_PMKID_LIST {
 }
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_PMKID_LIST_REVISION_1: u32 = 1u32;
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct DOT11_PORT_STATE {
+    pub PeerMacAddress: [u8; 6],
+    pub uSessionId: u32,
+    pub bPortControlled: super::super::Foundation::BOOL,
+    pub bPortAuthorized: super::super::Foundation::BOOL,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::marker::Copy for DOT11_PORT_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DOT11_PORT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`, `\"Win32_NetworkManagement_Ndis\"`*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
@@ -3604,6 +4100,19 @@ pub const dot11_scan_type_passive: DOT11_SCAN_TYPE = 2i32;
 pub const dot11_scan_type_auto: DOT11_SCAN_TYPE = 3i32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const dot11_scan_type_forced: DOT11_SCAN_TYPE = -2147483648i32;
+#[repr(C, packed(1))]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct DOT11_SECURITY_PACKET_HEADER {
+    pub PeerMac: [u8; 6],
+    pub usEtherType: u16,
+    pub Data: [u8; 1],
+}
+impl ::core::marker::Copy for DOT11_SECURITY_PACKET_HEADER {}
+impl ::core::clone::Clone for DOT11_SECURITY_PACKET_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const DOT11_SEND_CONTEXT_REVISION_1: u32 = 1u32;
 #[repr(C)]
@@ -5120,6 +5629,12 @@ pub type IEnumDot11AdHocInterfaces = *mut ::core::ffi::c_void;
 pub type IEnumDot11AdHocNetworks = *mut ::core::ffi::c_void;
 pub type IEnumDot11AdHocSecuritySettings = *mut ::core::ffi::c_void;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const IHV_INIT_FUNCTION_NAME: &str = "Dot11ExtIhvInitService";
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const IHV_INIT_VS_FUNCTION_NAME: &str = "Dot11ExtIhvInitVirtualStation";
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const IHV_VERSION_FUNCTION_NAME: &str = "Dot11ExtIhvGetVersionInfo";
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const L2_NOTIFICATION_CODE_GROUP_SIZE: u32 = 4096u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const L2_NOTIFICATION_CODE_PUBLIC_BEGIN: u32 = 0u32;
@@ -5202,6 +5717,12 @@ pub const L2_REASON_CODE_WIMAX_BASE: u32 = 655360u32;
 pub const MAX_NUM_SUPPORTED_RATES: u32 = 8u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const MAX_NUM_SUPPORTED_RATES_V2: u32 = 255u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const MS_MAX_PROFILE_NAME_LENGTH: u32 = 256u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const MS_PROFILE_GROUP_POLICY: u32 = 1u32;
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const MS_PROFILE_USER: u32 = 2u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
 pub const NDIS_PACKET_TYPE_802_11_ALL_MULTICAST_DATA: u32 = 4u32;
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
@@ -5664,6 +6185,23 @@ impl ::core::clone::Clone for ONEX_VARIABLE_BLOB {
         *self
     }
 }
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub struct WDIAG_IHV_WLAN_ID {
+    pub strProfileName: [u16; 256],
+    pub Ssid: DOT11_SSID,
+    pub BssType: DOT11_BSS_TYPE,
+    pub dwFlags: u32,
+    pub dwReasonCode: u32,
+}
+impl ::core::marker::Copy for WDIAG_IHV_WLAN_ID {}
+impl ::core::clone::Clone for WDIAG_IHV_WLAN_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`*"]
+pub const WDIAG_IHV_WLAN_ID_FLAG_SECURITY_ENABLED: u32 = 1u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_NetworkManagement_WiFi\"`, `\"Win32_Foundation\"`*"]
 #[cfg(feature = "Win32_Foundation")]

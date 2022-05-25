@@ -849,18 +849,6 @@ impl ::core::clone::Clone for STATPROPSTG {
     }
 }
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub type STGC = u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGC_DEFAULT: STGC = 0u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGC_OVERWRITE: STGC = 1u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGC_ONLYIFCURRENT: STGC = 2u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
-pub const STGC_CONSOLIDATE: STGC = 8u32;
-#[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub type STGFMT = u32;
 #[doc = "*Required features: `\"Win32_System_Com_StructuredStorage\"`*"]
 pub const STGFMT_STORAGE: STGFMT = 0u32;

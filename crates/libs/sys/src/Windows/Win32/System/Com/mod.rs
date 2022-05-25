@@ -1775,6 +1775,18 @@ impl ::core::clone::Clone for STATSTG {
         *self
     }
 }
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub type STGC = u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_DEFAULT: STGC = 0u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_OVERWRITE: STGC = 1u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_ONLYIFCURRENT: STGC = 2u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4u32;
+#[doc = "*Required features: `\"Win32_System_Com\"`*"]
+pub const STGC_CONSOLIDATE: STGC = 8u32;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_System_Com\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_System_Com_StructuredStorage\"`*"]
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]

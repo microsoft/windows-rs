@@ -97,6 +97,60 @@ impl ::core::fmt::Debug for AEC_VAD_MODE {
     }
 }
 pub const ALawCodecWrapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36cb6e0c_78c1_42b2_9943_846262f31786);
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
+pub struct AM_MEDIA_TYPE {
+    pub majortype: ::windows::core::GUID,
+    pub subtype: ::windows::core::GUID,
+    pub bFixedSizeSamples: super::super::Foundation::BOOL,
+    pub bTemporalCompression: super::super::Foundation::BOOL,
+    pub lSampleSize: u32,
+    pub formattype: ::windows::core::GUID,
+    pub pUnk: ::core::option::Option<::windows::core::IUnknown>,
+    pub cbFormat: u32,
+    pub pbFormat: *mut u8,
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AM_MEDIA_TYPE {
+    fn clone(&self) -> Self {
+        Self {
+            majortype: self.majortype,
+            subtype: self.subtype,
+            bFixedSizeSamples: self.bFixedSizeSamples,
+            bTemporalCompression: self.bTemporalCompression,
+            lSampleSize: self.lSampleSize,
+            formattype: self.formattype,
+            pUnk: self.pUnk.clone(),
+            cbFormat: self.cbFormat,
+            pbFormat: self.pbFormat,
+        }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::fmt::Debug for AM_MEDIA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("AM_MEDIA_TYPE").field("majortype", &self.majortype).field("subtype", &self.subtype).field("bFixedSizeSamples", &self.bFixedSizeSamples).field("bTemporalCompression", &self.bTemporalCompression).field("lSampleSize", &self.lSampleSize).field("formattype", &self.formattype).field("pUnk", &self.pUnk).field("cbFormat", &self.cbFormat).field("pbFormat", &self.pbFormat).finish()
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AM_MEDIA_TYPE {
+    type Abi = ::core::mem::ManuallyDrop<Self>;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AM_MEDIA_TYPE {
+    fn eq(&self, other: &Self) -> bool {
+        self.majortype == other.majortype && self.subtype == other.subtype && self.bFixedSizeSamples == other.bFixedSizeSamples && self.bTemporalCompression == other.bTemporalCompression && self.lSampleSize == other.lSampleSize && self.formattype == other.formattype && self.pUnk == other.pUnk && self.cbFormat == other.cbFormat && self.pbFormat == other.pbFormat
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AM_MEDIA_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::default::Default for AM_MEDIA_TYPE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 pub const AM_MEDIA_TYPE_REPRESENTATION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e42ad2_132c_491e_a268_3c7c2dca181f);
 #[repr(C, packed(1))]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -28082,6 +28136,219 @@ pub struct IMFDesiredSample_Vtbl {
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
+pub struct IMFDeviceTransform(::windows::core::IUnknown);
+impl IMFDeviceTransform {
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn InitializeTransform<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, pattributes: Param0) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).InitializeTransform)(::windows::core::Interface::as_raw(self), pattributes.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetInputAvailableType(&self, dwinputstreamid: u32, dwtypeindex: u32) -> ::windows::core::Result<IMFMediaType> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).GetInputAvailableType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputstreamid), ::core::mem::transmute(dwtypeindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetInputCurrentType(&self, dwinputstreamid: u32) -> ::windows::core::Result<IMFMediaType> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).GetInputCurrentType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputstreamid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetInputStreamAttributes(&self, dwinputstreamid: u32) -> ::windows::core::Result<IMFAttributes> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).GetInputStreamAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputstreamid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAttributes>(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetOutputAvailableType(&self, dwoutputstreamid: u32, dwtypeindex: u32) -> ::windows::core::Result<IMFMediaType> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).GetOutputAvailableType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwoutputstreamid), ::core::mem::transmute(dwtypeindex), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetOutputCurrentType(&self, dwoutputstreamid: u32) -> ::windows::core::Result<IMFMediaType> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).GetOutputCurrentType)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwoutputstreamid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFMediaType>(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetOutputStreamAttributes(&self, dwoutputstreamid: u32) -> ::windows::core::Result<IMFAttributes> {
+        let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
+        (::windows::core::Interface::vtable(self).GetOutputStreamAttributes)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwoutputstreamid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFAttributes>(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetStreamCount)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(pcinputstreams), ::core::mem::transmute(pcoutputstreams)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetStreamIDs(&self, dwinputidarraysize: u32, pdwinputstreamids: *mut u32, dwoutputidarraysize: u32, pdwoutputstreamids: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetStreamIDs)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputidarraysize), ::core::mem::transmute(pdwinputstreamids), ::core::mem::transmute(dwoutputidarraysize), ::core::mem::transmute(pdwoutputstreamids)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn ProcessEvent<'a, Param1: ::windows::core::IntoParam<'a, IMFMediaEvent>>(&self, dwinputstreamid: u32, pevent: Param1) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessEvent)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputstreamid), pevent.into_param().abi()).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn ProcessInput<'a, Param1: ::windows::core::IntoParam<'a, IMFSample>>(&self, dwinputstreamid: u32, psample: Param1, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessInput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwinputstreamid), psample.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn ProcessMessage(&self, emessage: MFT_MESSAGE_TYPE, ulparam: usize) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessMessage)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(emessage), ::core::mem::transmute(ulparam)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).ProcessOutput)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(coutputbuffercount), ::core::mem::transmute(poutputsample), ::core::mem::transmute(pdwstatus)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn SetInputStreamState<'a, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(&self, dwstreamid: u32, pmediatype: Param1, value: DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetInputStreamState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwstreamid), pmediatype.into_param().abi(), ::core::mem::transmute(value), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetInputStreamState(&self, dwstreamid: u32) -> ::windows::core::Result<DeviceStreamState> {
+        let mut result__ = ::core::mem::MaybeUninit::<DeviceStreamState>::zeroed();
+        (::windows::core::Interface::vtable(self).GetInputStreamState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwstreamid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DeviceStreamState>(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn SetOutputStreamState<'a, Param1: ::windows::core::IntoParam<'a, IMFMediaType>>(&self, dwstreamid: u32, pmediatype: Param1, value: DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).SetOutputStreamState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwstreamid), pmediatype.into_param().abi(), ::core::mem::transmute(value), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetOutputStreamState(&self, dwstreamid: u32) -> ::windows::core::Result<DeviceStreamState> {
+        let mut result__ = ::core::mem::MaybeUninit::<DeviceStreamState>::zeroed();
+        (::windows::core::Interface::vtable(self).GetOutputStreamState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwstreamid), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<DeviceStreamState>(result__)
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn GetInputStreamPreferredState(&self, dwstreamid: u32, value: *mut DeviceStreamState, ppmediatype: *mut ::core::option::Option<IMFMediaType>) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).GetInputStreamPreferredState)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwstreamid), ::core::mem::transmute(value), ::core::mem::transmute(ppmediatype)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn FlushInputStream(&self, dwstreamindex: u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FlushInputStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(dwflags)).ok()
+    }
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn FlushOutputStream(&self, dwstreamindex: u32, dwflags: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).FlushOutputStream)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(dwflags)).ok()
+    }
+}
+impl ::core::convert::From<IMFDeviceTransform> for ::windows::core::IUnknown {
+    fn from(value: IMFDeviceTransform) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMFDeviceTransform> for ::windows::core::IUnknown {
+    fn from(value: &IMFDeviceTransform) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFDeviceTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDeviceTransform {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IMFDeviceTransform {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IMFDeviceTransform {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IMFDeviceTransform {}
+impl ::core::fmt::Debug for IMFDeviceTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFDeviceTransform").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IMFDeviceTransform {
+    type Vtable = IMFDeviceTransform_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFDeviceTransform_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub InitializeTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetInputAvailableType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputstreamid: u32, dwtypeindex: u32, pmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetInputCurrentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputstreamid: u32, pmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetInputStreamAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputstreamid: u32, ppattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetOutputAvailableType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputstreamid: u32, dwtypeindex: u32, pmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetOutputCurrentType: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputstreamid: u32, pmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetOutputStreamAttributes: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwoutputstreamid: u32, ppattributes: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub GetStreamCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::HRESULT,
+    pub GetStreamIDs: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputidarraysize: u32, pdwinputstreamids: *mut u32, dwoutputidarraysize: u32, pdwoutputstreamids: *mut u32) -> ::windows::core::HRESULT,
+    pub ProcessEvent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputstreamid: u32, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub ProcessInput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwinputstreamid: u32, psample: ::windows::core::RawPtr, dwflags: u32) -> ::windows::core::HRESULT,
+    pub ProcessMessage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emessage: MFT_MESSAGE_TYPE, ulparam: usize) -> ::windows::core::HRESULT,
+    pub ProcessOutput: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
+    pub SetInputStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, pmediatype: ::windows::core::RawPtr, value: DeviceStreamState, dwflags: u32) -> ::windows::core::HRESULT,
+    pub GetInputStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, value: *mut DeviceStreamState) -> ::windows::core::HRESULT,
+    pub SetOutputStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, pmediatype: ::windows::core::RawPtr, value: DeviceStreamState, dwflags: u32) -> ::windows::core::HRESULT,
+    pub GetOutputStreamState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, value: *mut DeviceStreamState) -> ::windows::core::HRESULT,
+    pub GetInputStreamPreferredState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamid: u32, value: *mut DeviceStreamState, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub FlushInputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwflags: u32) -> ::windows::core::HRESULT,
+    pub FlushOutputStream: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwflags: u32) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+pub struct IMFDeviceTransformCallback(::windows::core::IUnknown);
+impl IMFDeviceTransformCallback {
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn OnBufferSent<'a, Param0: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, pcallbackattributes: Param0, pinid: u32) -> ::windows::core::Result<()> {
+        (::windows::core::Interface::vtable(self).OnBufferSent)(::windows::core::Interface::as_raw(self), pcallbackattributes.into_param().abi(), ::core::mem::transmute(pinid)).ok()
+    }
+}
+impl ::core::convert::From<IMFDeviceTransformCallback> for ::windows::core::IUnknown {
+    fn from(value: IMFDeviceTransformCallback) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IMFDeviceTransformCallback> for ::windows::core::IUnknown {
+    fn from(value: &IMFDeviceTransformCallback) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IMFDeviceTransformCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a IMFDeviceTransformCallback {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IMFDeviceTransformCallback {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IMFDeviceTransformCallback {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IMFDeviceTransformCallback {}
+impl ::core::fmt::Debug for IMFDeviceTransformCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFDeviceTransformCallback").field(&self.0).finish()
+    }
+}
+unsafe impl ::windows::core::Interface for IMFDeviceTransformCallback {
+    type Vtable = IMFDeviceTransformCallback_Vtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5cb646_29ec_41fb_8179_8c4c6d750811);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IMFDeviceTransformCallback_Vtbl {
+    pub base__: ::windows::core::IUnknownVtbl,
+    pub OnBufferSent: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbackattributes: ::windows::core::RawPtr, pinid: u32) -> ::windows::core::HRESULT,
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
 pub struct IMFExtendedCameraControl(::windows::core::IUnknown);
 impl IMFExtendedCameraControl {
     #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
@@ -41088,11 +41355,10 @@ impl IMFSensorTransformFactory {
     pub unsafe fn GetTransformInformation(&self, transformindex: u32, pguidtransformid: *mut ::windows::core::GUID, ppattributes: *mut ::core::option::Option<IMFAttributes>, ppstreaminformation: *mut ::core::option::Option<IMFCollection>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).GetTransformInformation)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(transformindex), ::core::mem::transmute(pguidtransformid), ::core::mem::transmute(ppattributes), ::core::mem::transmute(ppstreaminformation)).ok()
     }
-    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Media_Streaming\"`*"]
-    #[cfg(feature = "Win32_Media_Streaming")]
-    pub unsafe fn CreateTransform<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, guidsensortransformid: *const ::windows::core::GUID, pattributes: Param1) -> ::windows::core::Result<super::Streaming::IMFDeviceTransform> {
+    #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+    pub unsafe fn CreateTransform<'a, Param1: ::windows::core::IntoParam<'a, IMFAttributes>>(&self, guidsensortransformid: *const ::windows::core::GUID, pattributes: Param1) -> ::windows::core::Result<IMFDeviceTransform> {
         let mut result__ = ::core::mem::MaybeUninit::<::windows::core::RawPtr>::zeroed();
-        (::windows::core::Interface::vtable(self).CreateTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidsensortransformid), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<super::Streaming::IMFDeviceTransform>(result__)
+        (::windows::core::Interface::vtable(self).CreateTransform)(::windows::core::Interface::as_raw(self), ::core::mem::transmute(guidsensortransformid), pattributes.into_param().abi(), ::core::mem::transmute(result__.as_mut_ptr())).from_abi::<IMFDeviceTransform>(result__)
     }
 }
 impl ::core::convert::From<IMFSensorTransformFactory> for ::windows::core::IUnknown {
@@ -41143,10 +41409,7 @@ pub struct IMFSensorTransformFactory_Vtbl {
     pub InitializeFactory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwmaxtransformcount: u32, psensordevices: ::windows::core::RawPtr, pattributes: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub GetTransformCount: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub GetTransformInformation: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transformindex: u32, pguidtransformid: *mut ::windows::core::GUID, ppattributes: *mut ::windows::core::RawPtr, ppstreaminformation: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Media_Streaming")]
     pub CreateTransform: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidsensortransformid: *const ::windows::core::GUID, pattributes: ::windows::core::RawPtr, ppdevicemft: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Win32_Media_Streaming"))]
-    CreateTransform: usize,
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 #[repr(transparent)]
@@ -52329,15 +52592,15 @@ pub unsafe fn MFCreateADTSMediaSink<'a, Param0: ::windows::core::IntoParam<'a, I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
+pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, ppamtype: *mut *mut AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFCreateAMMediaTypeFromMFMediaType(pmftype: ::windows::core::RawPtr, guidformatblocktype: ::windows::core::GUID, ppamtype: *mut *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
+            fn MFCreateAMMediaTypeFromMFMediaType(pmftype: ::windows::core::RawPtr, guidformatblocktype: ::windows::core::GUID, ppamtype: *mut *mut AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
         }
         MFCreateAMMediaTypeFromMFMediaType(pmftype.into_param().abi(), guidformatblocktype.into_param().abi(), ::core::mem::transmute(ppamtype)).ok()
     }
@@ -54740,15 +55003,15 @@ impl ::core::default::Default for MFINPUTTRUSTAUTHORITY_ACCESS_PARAMS {
 }
 pub const MFImageFormat_JPEG: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e4a5aa_5662_4fc5_a0c0_1758028e1057);
 pub const MFImageFormat_RGB32: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000016_0000_0010_8000_00aa00389b71);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFInitAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, pamtype: *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitAMMediaTypeFromMFMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(pmftype: Param0, guidformatblocktype: Param1, pamtype: *mut AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitAMMediaTypeFromMFMediaType(pmftype: ::windows::core::RawPtr, guidformatblocktype: ::windows::core::GUID, pamtype: *mut super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
+            fn MFInitAMMediaTypeFromMFMediaType(pmftype: ::windows::core::RawPtr, guidformatblocktype: ::windows::core::GUID, pamtype: *mut AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
         }
         MFInitAMMediaTypeFromMFMediaType(pmftype.into_param().abi(), guidformatblocktype.into_param().abi(), ::core::mem::transmute(pamtype)).ok()
     }
@@ -54769,15 +55032,15 @@ pub unsafe fn MFInitAttributesFromBlob<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Media_DirectShow\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DirectShow"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pamtype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromAMMediaType<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pamtype: *const AM_MEDIA_TYPE) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromAMMediaType(pmftype: ::windows::core::RawPtr, pamtype: *const super::DirectShow::AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromAMMediaType(pmftype: ::windows::core::RawPtr, pamtype: *const AM_MEDIA_TYPE) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromAMMediaType(pmftype.into_param().abi(), ::core::mem::transmute(pamtype)).ok()
     }
@@ -54799,60 +55062,60 @@ pub unsafe fn MFInitMediaTypeFromMFVideoFormat<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_DirectShow\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp1vi: *const MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: ::windows::core::RawPtr, pmp1vi: *const super::DirectShow::MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype: ::windows::core::RawPtr, pmp1vi: *const MPEG1VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromMPEG1VideoInfo(pmftype.into_param().abi(), ::core::mem::transmute(pmp1vi), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_DirectShow\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pmp2vi: *const MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: ::windows::core::RawPtr, pmp2vi: *const super::DirectShow::MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype: ::windows::core::RawPtr, pmp2vi: *const MPEG2VIDEOINFO, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromMPEG2VideoInfo(pmftype.into_param().abi(), ::core::mem::transmute(pmp2vi), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_DirectShow\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih: *const VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromVideoInfoHeader(pmftype: ::windows::core::RawPtr, pvih: *const super::DirectShow::VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromVideoInfoHeader(pmftype: ::windows::core::RawPtr, pvih: *const VIDEOINFOHEADER, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromVideoInfoHeader(pmftype.into_param().abi(), ::core::mem::transmute(pvih), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`, `\"Win32_Media_DirectShow\"`*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_DirectShow"))]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
-pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
+pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<'a, Param0: ::windows::core::IntoParam<'a, IMFMediaType>>(pmftype: Param0, pvih2: *const VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: ::windows::core::RawPtr, pvih2: *const super::DirectShow::VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
+            fn MFInitMediaTypeFromVideoInfoHeader2(pmftype: ::windows::core::RawPtr, pvih2: *const VIDEOINFOHEADER2, cbbufsize: u32, psubtype: *const ::windows::core::GUID) -> ::windows::core::HRESULT;
         }
         MFInitMediaTypeFromVideoInfoHeader2(pmftype.into_param().abi(), ::core::mem::transmute(pvih2), ::core::mem::transmute(cbbufsize), ::core::mem::transmute(psubtype)).ok()
     }
@@ -64451,6 +64714,156 @@ impl ::core::default::Default for MOVE_RECT {
     }
 }
 pub const MP3ACMCodecWrapper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11103421_354c_4cca_a7a3_1aff9a5b6701);
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct MPEG1VIDEOINFO {
+    pub hdr: VIDEOINFOHEADER,
+    pub dwStartTimeCode: u32,
+    pub cbSequenceHeader: u32,
+    pub bSequenceHeader: [u8; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MPEG1VIDEOINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MPEG1VIDEOINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for MPEG1VIDEOINFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("MPEG1VIDEOINFO").field("hdr", &self.hdr).field("dwStartTimeCode", &self.dwStartTimeCode).field("cbSequenceHeader", &self.cbSequenceHeader).field("bSequenceHeader", &self.bSequenceHeader).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for MPEG1VIDEOINFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for MPEG1VIDEOINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPEG1VIDEOINFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for MPEG1VIDEOINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for MPEG1VIDEOINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct MPEG2VIDEOINFO {
+    pub hdr: VIDEOINFOHEADER2,
+    pub dwStartTimeCode: u32,
+    pub cbSequenceHeader: u32,
+    pub dwProfile: u32,
+    pub dwLevel: u32,
+    pub dwFlags: MPEG2VIDEOINFO_FLAGS,
+    pub dwSequenceHeader: [u32; 1],
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for MPEG2VIDEOINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MPEG2VIDEOINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for MPEG2VIDEOINFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for MPEG2VIDEOINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MPEG2VIDEOINFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for MPEG2VIDEOINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for MPEG2VIDEOINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MPEG2VIDEOINFO_FLAGS(pub u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DoPanScan: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(1u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DVDLine21Field1: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(2u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DVDLine21Field2: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(4u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_SourceIsLetterboxed: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(8u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_FilmCameraMode: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(16u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_LetterboxAnalogOut: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(32u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DSS_UserData: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(64u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_DVB_UserData: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(128u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_27MhzTimebase: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(256u32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const AMMPEG2_WidescreenAnalogOut: MPEG2VIDEOINFO_FLAGS = MPEG2VIDEOINFO_FLAGS(512u32);
+impl ::core::marker::Copy for MPEG2VIDEOINFO_FLAGS {}
+impl ::core::clone::Clone for MPEG2VIDEOINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for MPEG2VIDEOINFO_FLAGS {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for MPEG2VIDEOINFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MPEG2VIDEOINFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MPEG2VIDEOINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MPEG2VIDEOINFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MPEG2VIDEOINFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MPEG2VIDEOINFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MPEG2VIDEOINFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MPEG2VIDEOINFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const MR_AUDIO_POLICY_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x911fd737_6775_4ab0_a614_297862fdac88);
 pub const MR_BUFFER_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa562248c_9ac6_4ffc_9fba_3af8f8ad1a4d);
 pub const MR_CAPTURE_POLICY_VOLUME_SERVICE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24030acd_107a_4265_975c_414e33e65f2a);
@@ -64879,6 +65292,67 @@ impl ::core::cmp::Eq for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {}
 impl ::core::default::Default for OPM_CONNECTED_HDCP_DEVICE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
+    }
+}
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPM_CONNECTOR_TYPE(pub i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_OTHER: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(-1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_VGA: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(0i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_SVIDEO: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(1i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(2i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(3i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_DVI: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(4i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_HDMI: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(5i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_LVDS: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(6i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_D_JPN: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(8i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_SDI: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(9i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(10i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(11i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_UDI_EXTERNAL: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(12i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_UDI_EMBEDDED: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(13i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_RESERVED: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(14i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_MIRACAST: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(15i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(16i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(17i32);
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
+pub const OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: OPM_CONNECTOR_TYPE = OPM_CONNECTOR_TYPE(-2147483648i32);
+impl ::core::marker::Copy for OPM_CONNECTOR_TYPE {}
+impl ::core::clone::Clone for OPM_CONNECTOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::default::Default for OPM_CONNECTOR_TYPE {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+unsafe impl ::windows::core::Abi for OPM_CONNECTOR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPM_CONNECTOR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPM_CONNECTOR_TYPE").field(&self.0).finish()
     }
 }
 #[repr(C, packed(1))]
@@ -65880,67 +66354,6 @@ impl ::core::fmt::Debug for PLAYTO_SOURCE_CREATEFLAGS {
     }
 }
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-#[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-pub struct PM_CONNECTOR_TYPE(pub i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_OTHER: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(-1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_VGA: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(0i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_SVIDEO: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(1i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_COMPOSITE_VIDEO: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(2i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_COMPONENT_VIDEO: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(3i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_DVI: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(4i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_HDMI: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(5i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_LVDS: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(6i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_D_JPN: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(8i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_SDI: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(9i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EXTERNAL: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(10i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_DISPLAYPORT_EMBEDDED: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(11i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_UDI_EXTERNAL: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(12i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_UDI_EMBEDDED: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(13i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_RESERVED: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(14i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_MIRACAST: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(15i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_A: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(16i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_CONNECTOR_TYPE_TRANSPORT_AGNOSTIC_DIGITAL_MODE_B: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(17i32);
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
-pub const OPM_COPP_COMPATIBLE_CONNECTOR_TYPE_INTERNAL: PM_CONNECTOR_TYPE = PM_CONNECTOR_TYPE(-2147483648i32);
-impl ::core::marker::Copy for PM_CONNECTOR_TYPE {}
-impl ::core::clone::Clone for PM_CONNECTOR_TYPE {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::default::Default for PM_CONNECTOR_TYPE {
-    fn default() -> Self {
-        Self(0)
-    }
-}
-unsafe impl ::windows::core::Abi for PM_CONNECTOR_TYPE {
-    type Abi = Self;
-}
-impl ::core::fmt::Debug for PM_CONNECTOR_TYPE {
-    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        f.debug_tuple("PM_CONNECTOR_TYPE").field(&self.0).finish()
-    }
-}
-#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`*"]
 pub const PRESENTATION_CURRENT_POSITION: u64 = 9223372036854775807u64;
 #[repr(C)]
 #[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`*"]
@@ -66218,6 +66631,125 @@ unsafe impl ::windows::core::Abi for TOC_POS_TYPE {
 impl ::core::fmt::Debug for TOC_POS_TYPE {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TOC_POS_TYPE").field(&self.0).finish()
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct VIDEOINFOHEADER {
+    pub rcSource: super::super::Foundation::RECT,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub dwBitRate: u32,
+    pub dwBitErrorRate: u32,
+    pub AvgTimePerFrame: i64,
+    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for VIDEOINFOHEADER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for VIDEOINFOHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::fmt::Debug for VIDEOINFOHEADER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_struct("VIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for VIDEOINFOHEADER {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for VIDEOINFOHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOINFOHEADER>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for VIDEOINFOHEADER {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for VIDEOINFOHEADER {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct VIDEOINFOHEADER2 {
+    pub rcSource: super::super::Foundation::RECT,
+    pub rcTarget: super::super::Foundation::RECT,
+    pub dwBitRate: u32,
+    pub dwBitErrorRate: u32,
+    pub AvgTimePerFrame: i64,
+    pub dwInterlaceFlags: u32,
+    pub dwCopyProtectFlags: u32,
+    pub dwPictAspectRatioX: u32,
+    pub dwPictAspectRatioY: u32,
+    pub Anonymous: VIDEOINFOHEADER2_0,
+    pub dwReserved2: u32,
+    pub bmiHeader: super::super::Graphics::Gdi::BITMAPINFOHEADER,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for VIDEOINFOHEADER2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for VIDEOINFOHEADER2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for VIDEOINFOHEADER2 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for VIDEOINFOHEADER2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOINFOHEADER2>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for VIDEOINFOHEADER2 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for VIDEOINFOHEADER2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[doc = "*Required features: `\"Win32_Media_MediaFoundation\"`, `\"Win32_Foundation\"`, `\"Win32_Graphics_Gdi\"`*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub union VIDEOINFOHEADER2_0 {
+    pub dwControlFlags: u32,
+    pub dwReserved1: u32,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::marker::Copy for VIDEOINFOHEADER2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for VIDEOINFOHEADER2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for VIDEOINFOHEADER2_0 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for VIDEOINFOHEADER2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VIDEOINFOHEADER2_0>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for VIDEOINFOHEADER2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::default::Default for VIDEOINFOHEADER2_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
 }
 pub const VIDEO_ZOOM_RECT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7aaa1638_1b7f_4c93_bd89_5b9c9fb6fcf0);
