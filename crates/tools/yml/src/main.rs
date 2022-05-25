@@ -93,7 +93,7 @@ jobs:
         .to_string();
 
     for name in crates() {
-        write!(&mut yml, "\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
+        write!(&mut yml, "\n        cargo clean\n        cargo test --target ${{{{ matrix.target }}}} -p {} &&", name).unwrap();
     }
 
     yml.truncate(yml.len() - 2);
