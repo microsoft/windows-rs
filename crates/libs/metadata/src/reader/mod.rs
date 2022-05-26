@@ -78,8 +78,6 @@ pub enum Type {
     PCWSTR,
     TypeName,
     GenericParam(GenericParam),
-    MethodDef(MethodDef),
-    Field(Field),
     TypeDef((TypeDef, Vec<Self>)),
     MutPtr((Box<Self>, usize)),
     ConstPtr((Box<Self>, usize)),
@@ -1286,8 +1284,6 @@ impl<'a> Reader<'a> {
     }
     fn type_cfg_combine(&self, ty: &Type, cfg: &mut Cfg) {
         match ty {
-            Type::MethodDef(row) => self.method_def_cfg_combine(*row, cfg),
-            Type::Field(row) => self.field_cfg_combine(*row, None, cfg),
             Type::TypeDef((row, generics)) => self.type_def_cfg_combine(*row, generics, cfg),
             Type::Win32Array((ty, _)) => self.type_cfg_combine(ty, cfg),
             Type::ConstPtr((ty, _)) => self.type_cfg_combine(ty, cfg),
@@ -1539,7 +1535,7 @@ impl<'a> Reader<'a> {
     pub fn type_is_nullable(&self, ty: &Type) -> bool {
         match ty {
             Type::TypeDef((row, _)) => self.type_def_is_nullable(*row),
-            Type::IInspectable | Type::IUnknown | Type::MethodDef(_) => true,
+            Type::IInspectable | Type::IUnknown => true,
             _ => false,
         }
     }
