@@ -12,13 +12,15 @@ This RFC introduces a new type `Borrow<'a, T>` which mirrors the semantics of a 
 
 Windows APIs often have ownership semantics that differ slightly from Rust's model. Types can often have different ownership semantics depending on the context. In Rust we would normally model these different semantics by using two different types, in C/C++ this is usually left to documentation and convention. 
 
-This difference is only interesting for types that are *not* "blittable" (`Copy` in Rust parlance). Non-"blittable" types have non-trivial destructors and cannot just be arbitrarily mem-copied. "Blittable" types like integers and booleans on other the hand can be, and so their ownership semantics are simple and map directly to Rust's model.
+This difference is only interesting for types that are *not* "blittable" (`Copy` in Rust parlance). Non-"blittable" types have non-trivial destructors and cannot just be arbitrarily mem-copied. "Blittable" types like integers and booleans on other the hand can be, and so their ownership semantics are simple and map directly to Rust's model.[^1]
 
 Interesting types are those with non-trivial destructors. For example, COM interfaces or reference counted types like `HSTRING`.
 
 For the examples, we'll often use `HSTRING`. `HSTRING` is a reference counted string. Normally, we must increment the reference count if we need another handle to the string and decrement the reference count when we are done with a handle. These semantics map neatly to Rust's `Clone` and `Drop` traits which `HSTRING` implements.
 
 However, sometimes this is not the desired behavior. The following are examples where ownership semantics of a particular type depend on context. 
+
+[^1]: blittable" types are not reserved to just to primitives. Types like `PCWSTR` are also "blittable" since they have "trivial" ownership semantics from Rust's perspective (i.e., the user is in full control of their memory). This is the same reason `*mut T` and `*const T` are considered `Copy`.
 
 ## Input params
 
@@ -166,6 +168,16 @@ impl <'a> From<&'a IDWriteFontFamily2> for &'a IDWriteFontFamily
 ```
 
 *Note*: that there is no implementation of `From<T> for Borrow<'a, T>`. This would complicate things considerably as `T` must only be dropped after the borrow is over.
+
+## "Blittable" types
+
+This conversion is only provided for non"-blittable types. Function params for "blittable" types like `bool`, `PCWSTR`, etc. are not treated this way. Instead the param's type is transparently just the "blittable" type. For example:
+
+```rust
+fn SomeFunction(input: PCWSTR) { // Note: `PCWSTR` is used and not `Borrow<'a, PCWSTR>`
+    todo!()
+}
+```
 
 ## String literals
 
