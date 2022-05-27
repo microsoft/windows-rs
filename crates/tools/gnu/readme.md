@@ -16,6 +16,8 @@ The Windows umbrella lib (targeting GNU tooling) is generated using the followin
 1. Open `MSYS2 MinGW 32-bit`
 2. Execute: `pacman -Syuu --noconfirm` (repeat until no further updates available)
 3. Repeat step 1 if needed
-4. Navigate to crate root
-5. Execute: `PATH=$USERPROFILE/.cargo/bin:$PATH cargo run -p tool_gnu --target i686-pc-windows-gnu`
-6. Repeat steps 1-5, using the `MSYS MinGW 64-bit` environment and `x86_64-pc-windows-gnu` target
+4. Execute: `pacman -S mingw-w64-i686-llvm`
+5. Navigate to crate root
+6. Execute: `PATH=$USERPROFILE/.cargo/bin:$PATH cargo run -p tool_gnu --target i686-pc-windows-gnu`
+7. Repeat steps 1-6, using the `MSYS MinGW 64-bit` environment, `mingw-w64-x86_64-llvm` package,
+   and `x86_64-pc-windows-gnu` target

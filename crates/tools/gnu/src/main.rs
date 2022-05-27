@@ -87,7 +87,7 @@ EXPORTS
 
     drop(def);
 
-    let mut cmd = std::process::Command::new("dlltool");
+    let mut cmd = std::process::Command::new("llvm-dlltool");
     cmd.current_dir(&output);
 
     if platform.eq("i686_gnu") {
