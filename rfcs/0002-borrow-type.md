@@ -167,6 +167,14 @@ impl <'a> From<&'a IDWriteFontFamily2> for &'a IDWriteFontFamily
 
 *Note*: that there is no implementation of `From<T> for Borrow<'a, T>`. This would complicate things considerably as `T` must only be dropped after the borrow is over.
 
+## String literals
+
+Using string literals in function calls is no longer possible. 
+
+The previous `IntoParam` mechanism allows for implicit allocation to turn Rust's UTF-8 string literals into various types (and then free the memory after the function call is done). While this is certainly convenient, it can be rather surprising especially to those who don't want implicit allocations. In fact, this was the thought behind the `alloc` feature which makes this feature opt-in. 
+
+This will no longer be possible. Instead, it's left to a future RFC proposal for making it convenient to work with literals. For example, it has been discussed before that a `w!` macro could be introduced to create wide string literals.
+
 ## Errors
 
 The following is the error message when trying to pass an HSTRING by value:
