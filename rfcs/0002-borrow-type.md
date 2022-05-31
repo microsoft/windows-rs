@@ -5,7 +5,7 @@
 # Summary
 [summary]: #summary
 
-This RFC introduces a new type `Borrow<'a, T>` which mirrors the semantics of a `&'a T` but with the difference that it has the same in memory layout as `T`.
+This RFC introduces a new type `Borrowed<'a, T>` which mirrors the semantics of a `&'a T` but with the difference that it has the same in memory layout as `T`.
 
 # Motivation
 [motivation]: #motivation
@@ -30,7 +30,7 @@ On the Rust side, essentially we want to keep `Clone` but temporarily turn off `
 
 It might seem we're out of luck.
 
-##  Struct Fields
+## Struct Fields
 
 Sometimes the Windows APIs will declare a struct that has a non-"blittable" type as a field. These fields are logically "borrowed". For example, if a struct had an `HSTRING` as a field, it would not be responsibility of whoever constructs the struct to first increment the reference count. Also, when the struct is no longer needed, it is not necessary to decrement the reference count. 
 
@@ -43,9 +43,9 @@ Like "IN" params, using a reference `&T` is not possible since the field must be
 
 ***Note**: The following is what documentation for this feature might look like.*
 
-You may see the type `Borrow<'a, T>` used in Windows APIs. There's no need to worry about this type, it's actually quite straight forward.
+You may see the type `Borrowed<'a, T>` used in Windows APIs. There's no need to worry about this type, it's actually quite straight forward.
 
-`Borrow<'a, T>` is exactly equivalent to `&'a T` except that in memory a `Borrow<'a, T>` looks just like a `T`.
+`Borrowed<'a, T>` is exactly equivalent to `&'a T` except that in memory a `Borrowed<'a, T>` looks just like a `T`.
 
 This is important because some Windows APIs take arguments of some type `T` but treat them as they are just borrowed.
 
@@ -53,31 +53,31 @@ Let's take a look at an example:
 
 `windows::Data::Json::JsonObject` has a function named `Parse` which looks like this:
 
-```rust 
-fn Parse<'a>(input: Borrow<'a, HSTRING>) -> Result<JsonObject>;
+```rust
+fn Parse<'a>(input: Borrowed<'a, HSTRING>) -> Result<JsonObject>;
 ```
 
-The reason `Parse` takes a `Borrow<'a, HSTRING>` instead of just a plain `HSTRING` is because if it did, ownership of `input` would be passed into `Parse` and `input`'s `Drop` implementation would be called possibly freeing `input`'s memory!
+The reason `Parse` takes a `Borrowed<'a, HSTRING>` instead of just a plain `HSTRING` is because if it did, ownership of `input` would be passed into `Parse` and `input`'s `Drop` implementation would be called possibly freeing `input`'s memory!
 
 `Parse` really expects to logically borrow `input`. If this were a normal Rust function, you would expect `input` to be something like `&HSTRING`. However, `Parse` is not a regular Rust function - it crosses the FFI boundary into another language entirely! If were were to try to pass a `&HSTRING` into `Parse`, `Parse` would interpret the reference as if it were just a plain old `HSTRING`. This would cause all kinds of problem's all caused by the fact that `Parse` expected an `HSTRING` and we tried to give it a `&HSTRING`.
 
-`Borrow<'a, T>` allows us to emulate a reference but at the memory level still pass around memory that looks just like the underlying `T`. We get the safety of a Rust reference when writing our Rust code, and the Windows API receives the memory it expects to. Everyone wins!
+`Borrowed<'a, T>` allows us to emulate a reference but at the memory level still pass around memory that looks just like the underlying `T`. We get the safety of a Rust reference when writing our Rust code, and the Windows API receives the memory it expects to. Everyone wins!
 
 # Reference-level Explanation  
 [reference-level-explanation]: #reference-level-explanation
 
-`Borrow<'a, T>` has the following definition:
+`Borrowed<'a, T>` has the following definition:
 
 ```rust
 #![warn(unsafe_op_in_unsafe_fn)]
 
 #[repr(transparent)]
-struct Borrow<'a, T> {
+struct Borrowed<'a, T> {
     item: core::mem::ManuallyDrop<T>,
     lifetime: core::marker::PhantomData<&'a ()>
 }
 
-impl <'a, T> Borrow<'a, T> {
+impl <'a, T> Borrowed<'a, T> {
     /// # Safety
     ///
     /// It must be safe to alias `T` as long as `T`'s 
@@ -97,7 +97,7 @@ impl <'a, T> Borrow<'a, T> {
     }
 }
 
-impl<'a, T> std::ops::Deref for Borrow<'a, T> {
+impl<'a, T> std::ops::Deref for Borrowed<'a, T> {
     type Target = T;
 
     fn deref(&self) -> &Self::Target {
@@ -110,18 +110,17 @@ impl<'a, T> std::ops::Deref for Borrow<'a, T> {
 
 For function calls, generic parameters should be preferred for all borrowed parameters allowing natural conversions from the main type to borrowed:
 
-
-```rust    
+```rust
 fn Parse<'a, T0>(input: T0) -> Result<JsonObject> 
-    where T0: Into<Borrow<'a, HSTRING>>;
+    where T0: Into<Borrowed<'a, HSTRING>>;
 ```
 
 However, only the following conversions should be given:
 
 ```rust
-impl <'a, T> From<T> for Borrow<'a, HSTRING> where T: Into<&'a HSTRING> {
+impl <'a, T> From<T> for Borrowed<'a, HSTRING> where T: Into<&'a HSTRING> {
     fn from(item: T) -> Self {
-        unsafe { Borrow::new(item.into()) }
+        unsafe { Borrowed::new(item.into()) }
     }
 }
 ```
@@ -138,14 +137,14 @@ This also allows for natural calls For types where borrows of two types are equi
 ```rust
 fn SomeFunction<'a, T0>(input: T0)
 where
-    T0: Into<Borrow<'a, IDWriteFontFamily>>,
+    T0: Into<Borrowed<'a, IDWriteFontFamily>>,
 {
     todo!()
 }
 let f: IDWriteFontFamily2 = todo!();
 
 // Here the function expects a `IDWriteFontFamily` but we 
-// succesfully pass a `IDWriteFontFamily2` which is equivalent 
+// successfully pass a `IDWriteFontFamily2` which is equivalent
 // in this case.
 SomeFunction(&f);
 ```
@@ -167,14 +166,18 @@ impl <'a> From<&'a IDWriteFontFamily2> for &'a IDWriteFontFamily
 }
 ```
 
-*Note*: that there is no implementation of `From<T> for Borrow<'a, T>`. This would complicate things considerably as `T` must only be dropped after the borrow is over.
+*Note*: that there is no implementation of `From<T> for Borrowed<'a, T>`. This would complicate things considerably as `T` must only be dropped after the borrow is over.
+
+## Optional types
+
+Often times, it is desirable to represent logically optional values. For example, in the `windows` crate ecosystem, COM interfaces are never null, and so to represent a null COM interface, `Option<T>` is used. Since, `Borrowed` uses `#[repr(transparent)]`, wrapping `Borrowed` types in an `Option` will do the expected thing. For example, `Option<Borrowed<'a, IUnknown>>` will has the same layout as a raw pointer.
 
 ## "Blittable" types
 
 This conversion is only provided for non"-blittable types. Function params for "blittable" types like `bool`, `PCWSTR`, etc. are not treated this way. Instead the param's type is transparently just the "blittable" type. For example:
 
 ```rust
-fn SomeFunction(input: PCWSTR) { // Note: `PCWSTR` is used and not `Borrow<'a, PCWSTR>`
+fn SomeFunction(input: PCWSTR) { // Note: `PCWSTR` is used and not `Borrowed<'a, PCWSTR>`
     todo!()
 }
 ```
@@ -197,6 +200,7 @@ JsonObject::Parse(s); // here we try to ownership of `s`
 ```
 
 Error:
+
 ```
 error[E0277]: the trait bound `HSTRING: Into<&HSTRING>` is not satisfied
   --> src/main.rs:67:23
@@ -207,17 +211,17 @@ error[E0277]: the trait bound `HSTRING: Into<&HSTRING>` is not satisfied
    |     required by a bound introduced by this call
    |
    = note: required because of the requirements on the impl of `Into<&HSTRING>` for `HSTRING`
-note: required because of the requirements on the impl of `From<HSTRING>` for `Borrow<'_, HSTRING>`
+note: required because of the requirements on the impl of `From<HSTRING>` for `Borrowed<'_, HSTRING>`
   --> src/main.rs:14:14
    |
-14 | impl <'a, T> From<T> for Borrow<'a, HSTRING> where T: Into<&'a HSTRING> {
+14 | impl <'a, T> From<T> for Borrowed<'a, HSTRING> where T: Into<&'a HSTRING> {
    |              ^^^^^^^     ^^^^^^^^^^^^^^^^^^^
    = note: 1 redundant requirement hidden
-   = note: required because of the requirements on the impl of `Into<Borrow<'_, HSTRING>>` for `HSTRING`
+   = note: required because of the requirements on the impl of `Into<Borrowed<'_, HSTRING>>` for `HSTRING`
 note: required by a bound in `JsonObject::Parse`
   --> src/main.rs:60:22
    |
-60 |     fn Parse<'a, T0: Into<Borrow<'a, HSTRING>>>(input: T0) -> JsonObject {
+60 |     fn Parse<'a, T0: Into<Borrowed<'a, HSTRING>>>(input: T0) -> JsonObject {
    |                      ^^^^^^^^^^^^^^^^^^^^^^^^^ required by this bound in `JsonObject::Parse`
 help: consider borrowing here
    |
@@ -230,8 +234,7 @@ This error correctly offers the suggestion to borrow.
 # Drawbacks
 [drawbacks]: #drawbacks
 
-* The name `Borrow` may confuse users who are used to `core::borrow::Borrow`.
-    * `Param` and `Borrowed` are possibilities
+* The name `Borrowed` may confuse users who are used to `core::borrow::Borrow`.
 
 # Rational and Alternatives
 [rationale-and-alternatives]: #rationale-and-alternatives
@@ -254,24 +257,23 @@ Possibility 1:
 ```rust
 #[repr(C)]
 pub union D3D12_RESOURCE_BARRIER_0<'a> {
-    pub Transition: Borrow<'a, D3D12_RESOURCE_TRANSITION_BARRIER>,
-    pub Aliasing: Borrow<'a, D3D12_RESOURCE_ALIASING_BARRIER>,
-    pub UAV: Borrow<'a, D3D12_RESOURCE_UAV_BARRIER>,
+    pub Transition: Borrowed<'a, D3D12_RESOURCE_TRANSITION_BARRIER>,
+    pub Aliasing: Borrowed<'a, D3D12_RESOURCE_ALIASING_BARRIER>,
+    pub UAV: Borrowed<'a, D3D12_RESOURCE_UAV_BARRIER>,
 }
 ```
 
 Possibility 2:
+
 ```rust
 #[repr(C)]
 pub union D3D12_RESOURCE_BARRIER_0<'a, 'b, 'c> {
-    pub Transition: Borrow<'a, D3D12_RESOURCE_TRANSITION_BARRIER>,
-    pub Aliasing: Borrow<'b, D3D12_RESOURCE_ALIASING_BARRIER>,
-    pub UAV: Borrow<'c, D3D12_RESOURCE_UAV_BARRIER>,
+    pub Transition: Borrowed<'a, D3D12_RESOURCE_TRANSITION_BARRIER>,
+    pub Aliasing: Borrowed<'b, D3D12_RESOURCE_ALIASING_BARRIER>,
+    pub UAV: Borrowed<'c, D3D12_RESOURCE_UAV_BARRIER>,
 }
 ```
 
-**Should there be a second type for exclusive references?**
+**Should a type alias for input params `In` be provided?**
 
-It's possible that we may want another type `BorrowMut<'a, T>` that acts just like `Borrow<'a, T>` but replicates `&mut T` instead of `&T`.
-
-This has been suggested as necessary for struct fields.
+It has been argued that for input parameters we should use the type alias `In` since it is much shorter than `Borrowed`. However, while this might make reading slightly easier, doing so would require readers to understand that `In` is a type alias for `Borrowed`.
