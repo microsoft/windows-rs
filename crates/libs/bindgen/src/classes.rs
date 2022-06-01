@@ -151,18 +151,6 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
                 }
             }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-                }
-            }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for &'a #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-                }
-            }
         });
     }
 
@@ -194,20 +182,6 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                     ::windows::core::Interface::cast(value)
                 }
             }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::IntoParam::into_param(&self)
-                }
-            }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::core::convert::TryInto::<#into>::try_into(self)
-                        .map(::windows::core::Param::Owned)
-                        .unwrap_or(::windows::core::Param::None)
-                }
-            }
         });
     }
 
@@ -228,18 +202,6 @@ fn gen_conversions(gen: &Gen, def: TypeDef, name: &TokenStream, interfaces: &[In
                     // This unwrap is legitimate because conversion to base can never fail because
                     // the base can never change across versions.
                     ::windows::core::Interface::cast(value).unwrap()
-                }
-            }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::IntoParam::into_param(&self)
-                }
-            }
-            #features
-            impl<'a> ::windows::core::IntoParam<'a, #into> for &#name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Owned(::core::convert::Into::<#into>::into(self))
                 }
             }
         });

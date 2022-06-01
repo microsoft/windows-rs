@@ -33,12 +33,19 @@ impl <'a, T> Borrowed<'a, T> {
     /// For example, `IUnknown` is fine to alias as long as the reference count is guaranteed to stay above 0 
     /// until the original `item` is dropped. On the other hand `Box<T>` is not fine to alias and thus passing a `Box` 
     /// to this function would be UB.
-    unsafe fn new(item: &'a T) -> Self {
+    pub unsafe fn new(item: &'a T) -> Self {
         let item = unsafe { core::mem::transmute_copy(item) };
         Self {
             item,
             lifetime: core::marker::PhantomData
         }
+    }
+}
+
+impl<'a, T: super::Abi> Borrowed<'a, T> {
+    pub fn abi(&self) -> T::Abi {
+        // TODO: safety
+        unsafe { std::mem::transmute_copy(self) }
     }
 }
 

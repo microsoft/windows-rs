@@ -382,31 +382,9 @@ impl core::convert::From<HSTRING> for std::ffi::OsString {
     }
 }
 
-#[cfg(feature = "alloc")]
-impl<'a> IntoParam<'a, HSTRING> for &str {
-    fn into_param(self) -> Param<'a, HSTRING> {
-        Param::Owned(self.into())
-    }
-}
-
-#[cfg(feature = "alloc")]
-impl<'a> IntoParam<'a, HSTRING> for alloc::string::String {
-    fn into_param(self) -> Param<'a, HSTRING> {
-        Param::Owned(self.into())
-    }
-}
-
-#[cfg(all(windows, feature = "alloc"))]
-impl<'a> IntoParam<'a, HSTRING> for &std::ffi::OsStr {
-    fn into_param(self) -> Param<'a, HSTRING> {
-        Param::Owned(self.into())
-    }
-}
-
-#[cfg(all(windows, feature = "alloc"))]
-impl<'a> IntoParam<'a, HSTRING> for std::ffi::OsString {
-    fn into_param(self) -> Param<'a, HSTRING> {
-        Param::Owned(self.into())
+impl <'a, T> From<T> for Borrowed<'a, HSTRING> where T: Into<&'a HSTRING> {
+    fn from(item: T) -> Self {
+        unsafe { Borrowed::new(item.into()) }
     }
 }
 

@@ -136,16 +136,10 @@ pub fn gen() -> TokenStream {
         unsafe impl ::windows::core::Abi for BSTR {
             type Abi = ::core::mem::ManuallyDrop<Self>;
         }
-        #[cfg(feature = "alloc")]
-        impl<'a> ::windows::core::IntoParam<'a, BSTR> for &str {
-            fn into_param(self) -> ::windows::core::Param<'a, BSTR> {
-                ::windows::core::Param::Owned(self.into())
-            }
-        }
-        #[cfg(feature = "alloc")]
-        impl<'a> ::windows::core::IntoParam<'a, BSTR> for ::windows::core::alloc::string::String {
-            fn into_param(self) -> ::windows::core::Param<'a, BSTR> {
-                ::windows::core::Param::Owned(self.into())
+
+        impl <'a, T> From<T> for ::windows::core::Borrowed<'a, BSTR> where T: Into<&'a BSTR> {
+            fn from(item: T) -> Self {
+                unsafe { ::windows::core::Borrowed::new(item.into()) }
             }
         }
     }

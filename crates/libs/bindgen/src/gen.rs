@@ -281,7 +281,7 @@ impl<'a> Gen<'a> {
             if self.reader.signature_param_is_convertible(param) {
                 let name: TokenStream = format!("Param{}", position).into();
                 let into = self.type_name(&param.ty);
-                tokens.combine(&quote! { #name: ::windows::core::IntoParam<'a, #into>, });
+                tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::Borrowed<'a, #into>>, });
             }
         }
         if !tokens.is_empty() {
@@ -878,7 +878,7 @@ impl<'a> Gen<'a> {
                         continue;
                     }
                     if self.reader.signature_param_is_convertible(param) {
-                        tokens.combine(&quote! { #name.into_param().abi(), });
+                        tokens.combine(&quote! { #name.into().abi(), });
                         continue;
                     }
                     tokens.combine(&quote! { ::core::mem::transmute(#name), });

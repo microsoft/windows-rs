@@ -46,15 +46,9 @@ unsafe impl Abi for PCSTR {
         }
     }
 }
-#[cfg(feature = "alloc")]
-impl<'a> IntoParam<'a, PCSTR> for &str {
-    fn into_param(self) -> Param<'a, PCSTR> {
-        Param::Boxed(PCSTR(alloc_from_iter(self.as_bytes().iter().copied().chain(core::iter::once(0)), self.len() + 1)))
-    }
-}
-#[cfg(feature = "alloc")]
-impl<'a> IntoParam<'a, PCSTR> for alloc::string::String {
-    fn into_param(self) -> Param<'a, PCSTR> {
-        IntoParam::into_param(self.as_str())
+
+impl <'a, T> From<T> for super::Borrowed<'a, PCSTR> where T: Into<&'a PCSTR> {
+    fn from(item: T) -> Self {
+        unsafe { super::Borrowed::new(item.into()) }
     }
 }

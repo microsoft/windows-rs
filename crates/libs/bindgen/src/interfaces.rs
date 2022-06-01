@@ -119,7 +119,13 @@ fn gen_methods(gen: &Gen, def: TypeDef, generics: &[Type], interfaces: &[Interfa
 }
 
 fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[Interface], name: &TokenStream, constraints: &TokenStream, cfg: &Cfg) -> TokenStream {
-    let mut tokens = quote! {};
+    let mut tokens = quote! {
+        impl <'a, U, #constraints> From<U> for ::windows::core::Borrowed<'a, #name> where U: Into<&'a #name> {
+            fn from(item: U) -> Self {
+                unsafe { ::windows::core::Borrowed::new(item.into()) }
+            }
+        }
+    };
 
     for ty in &gen.reader.type_def_vtables(def) {
         let into = gen.type_name(ty);
@@ -132,21 +138,15 @@ fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[In
                 }
             }
             #cfg
+            impl<'a, #constraints> ::core::convert::From<&'a #into> for &'a #name {
+                fn from(value: &'a #into) -> Self {
+                    unsafe { ::core::mem::transmute(value) }
+                }
+            }
+            #cfg
             impl<#constraints> ::core::convert::From<&#name> for #into {
                 fn from(value: &#name) -> Self {
                     ::core::convert::From::from(::core::clone::Clone::clone(value))
-                }
-            }
-            #cfg
-            impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-                }
-            }
-            #cfg
-            impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for &'a #name {
-                fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                    ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
                 }
             }
         });
@@ -169,20 +169,6 @@ fn gen_conversions(gen: &Gen, def: TypeDef, _generics: &[Type], interfaces: &[In
                     type Error = ::windows::core::Error;
                     fn try_from(value: &#name) -> ::windows::core::Result<Self> {
                         ::windows::core::Interface::cast(value)
-                    }
-                }
-                #cfg
-                impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for #name {
-                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                        ::windows::core::IntoParam::into_param(&self)
-                    }
-                }
-                #cfg
-                impl<'a, #constraints> ::windows::core::IntoParam<'a, #into> for &#name {
-                    fn into_param(self) -> ::windows::core::Param<'a, #into> {
-                        ::core::convert::TryInto::<#into>::try_into(self)
-                            .map(::windows::core::Param::Owned)
-                            .unwrap_or(::windows::core::Param::None)
                     }
                 }
             });

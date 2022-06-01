@@ -116,9 +116,9 @@ pub fn gen() -> TokenStream {
             type Abi = Self;
         }
 
-        impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
-            fn into_param(self) -> ::windows::core::Param<'a, BOOL> {
-                ::windows::core::Param::Owned(self.into())
+        impl <'a, T> From<T> for ::windows::core::Borrowed<'a, BOOL> where T: Into<&'a BOOL> {
+            fn from(item: T) -> Self {
+                unsafe { ::windows::core::Borrowed::new(item.into()) }
             }
         }
     }

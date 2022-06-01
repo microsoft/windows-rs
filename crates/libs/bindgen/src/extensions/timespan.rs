@@ -14,9 +14,9 @@ pub fn gen() -> TokenStream {
                 ::core::time::Duration::from_nanos((value.Duration * 100) as u64)
             }
         }
-        impl<'a> ::windows::core::IntoParam<'a, TimeSpan> for ::core::time::Duration {
-            fn into_param(self) -> ::windows::core::Param<'a, TimeSpan> {
-                ::windows::core::Param::Owned(self.into())
+        impl <'a, T> From<T> for ::windows::core::Borrowed<'a, TimeSpan> where T: Into<&'a TimeSpan> {
+            fn from(item: T) -> Self {
+                unsafe { ::windows::core::Borrowed::new(item.into()) }
             }
         }
     }

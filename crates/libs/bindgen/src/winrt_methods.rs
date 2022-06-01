@@ -178,9 +178,9 @@ fn gen_winrt_abi_args(gen: &Gen, params: &[SignatureParam]) -> TokenStream {
                 quote! { #name.len() as u32, ::core::mem::transmute(#name.as_ptr()), }
             } else if gen.reader.signature_param_is_convertible(param) {
                 if param.ty.is_winrt_const_ref() {
-                    quote! { &#name.into_param().abi(), }
+                    quote! { &#name.into().abi(), }
                 } else {
-                    quote! { #name.into_param().abi(), }
+                    quote! { #name.into().abi(), }
                 }
             } else if gen.reader.type_is_blittable(&param.ty) {
                 quote! { #name, }
