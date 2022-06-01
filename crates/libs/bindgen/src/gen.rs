@@ -281,6 +281,13 @@ impl<'a> Gen<'a> {
             if self.reader.signature_param_is_convertible(param) {
                 let name: TokenStream = format!("Param{}", position).into();
                 let into = self.type_name(&param.ty);
+                if let Type::TypeDef((def, _)) = &param.ty {
+                    let def_attrs = self.reader.type_def_flags(def.clone());
+                    if !def_attrs.union() && !def_attrs.winrt() && !def_attrs.interface() {
+                        tokens.combine(&quote! { #name: ::std::convert::Into<#into>, });
+                        continue;
+                    }
+                }
                 tokens.combine(&quote! { #name: ::std::convert::Into<::windows::core::Borrowed<'a, #into>>, });
             }
         }

@@ -17,7 +17,7 @@ pub fn gen() -> TokenStream {
                 if self.0.is_null() {
                     0
                 } else {
-                    unsafe { SysStringLen(self) as usize }
+                    unsafe { SysStringLen(*self) as usize }
                 }
             }
 
