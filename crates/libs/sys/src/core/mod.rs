@@ -13,9 +13,9 @@ impl ::core::clone::Clone for GUID {
 }
 
 pub type HRESULT = i32;
-pub type HSTRING = *mut core::ffi::c_void;
-pub type IUnknown = *mut core::ffi::c_void;
-pub type IInspectable = *mut core::ffi::c_void;
+pub type HSTRING = *mut ::core::ffi::c_void;
+pub type IUnknown = *mut ::core::ffi::c_void;
+pub type IInspectable = *mut ::core::ffi::c_void;
 pub type PSTR = *mut u8;
 pub type PWSTR = *mut u16;
 pub type PCSTR = *const u8;

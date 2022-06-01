@@ -100,8 +100,8 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
                 Invoke: Self::Invoke,
                 #(#named_phantoms)*
             };
-            unsafe extern "system" fn QueryInterface(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
-                let this = this as *mut ::windows::core::RawPtr as *mut Self;
+            unsafe extern "system" fn QueryInterface(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *const ::core::ffi::c_void) -> ::windows::core::HRESULT {
+                let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
 
                 *interface = if iid == &<#ident as ::windows::core::Interface>::IID ||
                     iid == &<::windows::core::IUnknown as ::windows::core::Interface>::IID ||
@@ -120,12 +120,12 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
                     ::windows::core::HRESULT(0)
                 }
             }
-            unsafe extern "system" fn AddRef(this: ::windows::core::RawPtr) -> u32 {
-                let this = this as *mut ::windows::core::RawPtr as *mut Self;
+            unsafe extern "system" fn AddRef(this: *mut ::core::ffi::c_void) -> u32 {
+                let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
                 (*this).count.add_ref()
             }
-            unsafe extern "system" fn Release(this: ::windows::core::RawPtr) -> u32 {
-                let this = this as *mut ::windows::core::RawPtr as *mut Self;
+            unsafe extern "system" fn Release(this: *mut ::core::ffi::c_void) -> u32 {
+                let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
                 let remaining = (*this).count.release();
 
                 if remaining == 0 {
@@ -135,7 +135,7 @@ fn gen_win_delegate(gen: &Gen, def: TypeDef) -> TokenStream {
                 remaining
             }
             unsafe extern "system" fn Invoke #vtbl_signature {
-                let this = this as *mut ::windows::core::RawPtr as *mut Self;
+                let this = this as *mut *mut ::core::ffi::c_void as *mut Self;
                 #invoke_upcall
             }
         }

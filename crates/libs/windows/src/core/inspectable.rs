@@ -24,9 +24,9 @@ impl IInspectable {
 #[repr(C)]
 pub struct IInspectableVtbl {
     pub base: IUnknownVtbl,
-    pub GetIids: unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
-    pub GetRuntimeClassName: unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT,
-    pub GetTrustLevel: unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT,
+    pub GetIids: unsafe extern "system" fn(this: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> HRESULT,
+    pub GetRuntimeClassName: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT,
+    pub GetTrustLevel: unsafe extern "system" fn(this: *mut core::ffi::c_void, value: *mut i32) -> HRESULT,
 }
 
 unsafe impl Interface for IInspectable {
@@ -130,7 +130,7 @@ impl core::convert::TryFrom<&IInspectable> for HSTRING {
 #[cfg(feature = "implement")]
 impl IInspectableVtbl {
     pub const fn new<Identity: IUnknownImpl, Name: RuntimeName, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetIids(_: RawPtr, count: *mut u32, values: *mut *mut GUID) -> ::windows::core::HRESULT {
+        unsafe extern "system" fn GetIids(_: *mut core::ffi::c_void, count: *mut u32, values: *mut *mut GUID) -> ::windows::core::HRESULT {
             // Note: even if we end up implementing this in future, it still doesn't need a this pointer
             // since the data to be returned is type- not instance-specific so can be shared for all
             // interfaces.
@@ -138,12 +138,12 @@ impl IInspectableVtbl {
             *values = core::ptr::null_mut();
             HRESULT(0)
         }
-        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: RawPtr, value: *mut RawPtr) -> HRESULT {
+        unsafe extern "system" fn GetRuntimeClassName<T: RuntimeName>(_: *mut core::ffi::c_void, value: *mut *mut core::ffi::c_void) -> HRESULT {
             let h: HSTRING = T::NAME.into(); // TODO: should be try_into
             *value = ::core::mem::transmute(h);
             HRESULT(0)
         }
-        unsafe extern "system" fn GetTrustLevel(_: RawPtr, value: *mut i32) -> HRESULT {
+        unsafe extern "system" fn GetTrustLevel(_: *mut core::ffi::c_void, value: *mut i32) -> HRESULT {
             // Note: even if we end up implementing this in future, it still doesn't need a this pointer
             // since the data to be returned is type- not instance-specific so can be shared for all
             // interfaces.

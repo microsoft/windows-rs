@@ -45,7 +45,7 @@ unsafe impl<T> Abi for *const T {
 }
 
 unsafe impl<T: Interface> Abi for T {
-    type Abi = RawPtr;
+    type Abi = *mut core::ffi::c_void;
 
     /// Converts an abi value to `Self` or fails
     ///
@@ -69,7 +69,7 @@ unsafe impl<T: Interface> Abi for T {
 // SAFETY: optional interfaces are FFI safe, optional interfaces and raw pointers have the same
 // in-memory representation, and all representations of `Abi` are valid representations of `Self`.
 unsafe impl<T: Interface> Abi for Option<T> {
-    type Abi = RawPtr;
+    type Abi = *mut core::ffi::c_void;
 }
 
 // SAFETY: see the justification for `*mut T`

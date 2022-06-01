@@ -220,7 +220,7 @@ impl<'a> Gen<'a> {
                         quote! { ::core::mem::ManuallyDrop<#tokens> }
                     }
                 }
-                _ => quote! { ::windows::core::RawPtr },
+                _ => quote! { *mut ::core::ffi::c_void },
             },
             Type::MutPtr((kind, pointers)) => {
                 let pointers = gen_mut_ptrs(*pointers);

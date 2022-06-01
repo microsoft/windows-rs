@@ -68,7 +68,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
                     unsafe {
                         // Subtract away the vtable offset plus 2 (for the `base` and `identity` fields) to get
                         // to the impl struct which contains that original implementation type.
-                        let this = (this as *mut ::windows::core::RawPtr).sub(2 + #offset) as *mut #impl_ident::<#(#generics,)*>;
+                        let this = (this as *mut *mut ::core::ffi::c_void).sub(2 + #offset) as *mut #impl_ident::<#(#generics,)*>;
                         &(*this).this
                     }
                 }
@@ -152,7 +152,7 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
             /// This function can only be safely called if `self` has been heap allocated and pinned using
             /// the mechanisms provided by `implement` macro.
             unsafe fn cast<I: ::windows::core::Interface>(&self) -> ::windows::core::Result<I> {
-                let boxed = (self as *const _ as *const ::windows::core::RawPtr).sub(2 + #interfaces_len) as *mut #impl_ident::<#(#generics,)*>;
+                let boxed = (self as *const _ as *const *mut ::core::ffi::c_void).sub(2 + #interfaces_len) as *mut #impl_ident::<#(#generics,)*>;
                 let mut result = None;
                 <#impl_ident::<#(#generics,)*> as ::windows::core::IUnknownImpl>::QueryInterface(&*boxed, &I::IID, &mut result as *mut _ as _).and_some(result)
             }
@@ -160,8 +160,8 @@ pub fn implement(attributes: proc_macro::TokenStream, original_type: proc_macro:
         impl <#constraints> ::windows::core::Compose for #original_ident::<#(#generics,)*> {
             unsafe fn compose<'a>(implementation: Self) -> (::windows::core::IInspectable, &'a mut ::core::option::Option<::windows::core::IInspectable>) {
                 let inspectable: ::windows::core::IInspectable = implementation.into();
-                let this: ::windows::core::RawPtr = ::windows::core::Interface::as_raw(&inspectable);
-                let this = (this as *mut ::windows::core::RawPtr).sub(1) as *mut #impl_ident::<#(#generics,)*>;
+                let this: *mut ::core::ffi::c_void = ::windows::core::Interface::as_raw(&inspectable);
+                let this = (this as *mut *mut ::core::ffi::c_void).sub(1) as *mut #impl_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
             }
         }

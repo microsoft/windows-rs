@@ -35,7 +35,7 @@ pub unsafe trait Interface: Sized {
 
     /// Turn this interface into a raw pointer
     #[inline(always)]
-    fn as_raw(&self) -> RawPtr {
+    fn as_raw(&self) -> *mut core::ffi::c_void {
         // SAFETY: implementors of this trait must guarantee that the implementing type has a pointer in-memory representation
         unsafe { core::mem::transmute_copy(self) }
     }
