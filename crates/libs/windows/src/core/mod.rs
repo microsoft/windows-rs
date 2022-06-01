@@ -3,6 +3,7 @@ mod agile_reference;
 mod array;
 mod as_impl;
 pub(crate) mod bindings;
+mod borrowed;
 mod compose;
 mod delay_load;
 mod error;
@@ -34,6 +35,7 @@ mod weak_ref_count;
 pub use abi::*;
 pub use agile_reference::*;
 pub use array::*;
+use borrowed::*;
 #[doc(hidden)]
 pub use as_impl::*;
 #[doc(hidden)]
